@@ -9,7 +9,7 @@
 	<name>EveAPI</name>
 	<version>1.0.0-SNAPSHOT</version>
 	<description>Parsers for the eve-api</description>
-	<url></url>
+	<url>http://code.google.com/p/eveapi/</url>
 	<distributionManagement>
 		<site>
 			<id>website</id>
@@ -17,8 +17,8 @@
 		</site>
 	</distributionManagement>
 	<scm>
-		<connection>scm:svn:http://home.beetstra.com/subversion/EveApi/trunk</connection>
-		<developerConnection>scm:svn:http://home.beetstra.com/subversion/EveApi/trunk</developerConnection>
+		<connection>scm:svn:https://eveapi.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/trunk</developerConnection>
 	</scm>
 	<developers>
 		<developer>
