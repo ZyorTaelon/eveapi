@@ -28,6 +28,10 @@ public class SkillGroup {
 		skills.add(skill);
 	}
 
+	public Collection<Skill> getSkills() {
+		return skills;
+	}
+
 	@Override
 	public String toString() {
 		String result = groupName + " (" + skills.size() + " skills)\n";
