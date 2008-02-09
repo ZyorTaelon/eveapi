@@ -21,7 +21,7 @@ public class Parser extends AbstractApiParser {
 		return digester;
 	}
 
-	public Response getAssets(int userID, int characterID, String apiKey, int itemID, boolean corporation) throws IOException, SAXException {
+	public Response getAssets(int userID, int characterID, String apiKey, boolean corporation) throws IOException, SAXException {
 		String url = CHAR_URL;
 		if (corporation)
 			url = CORP_URL;
@@ -29,7 +29,6 @@ public class Parser extends AbstractApiParser {
 		url += "&characterID=" + characterID;
 		url += "&apiKey=" + URLEncoder.encode(apiKey, "UTF8");
 		url += "&version=2";
-		url += "&itemID=" + itemID;
 		System.out.println(url);
 		Digester digester = getDigester();
 		Response response = (Response) digester.parse(url);
