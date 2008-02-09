@@ -6,6 +6,7 @@ public class ApiResponse {
 	private int version;
 	private Date currentTime;
 	private Date cachedUntil;
+	private ApiError error;
 
 	public int getVersion() {
 		return version;
@@ -29,5 +30,17 @@ public class ApiResponse {
 
 	public void setCachedUntil(Date cachedUntil) {
 		this.cachedUntil = cachedUntil;
+	}
+
+	public boolean hasError() {
+		return error != null;
+	}
+
+	public ApiError getError() {
+		return error;
+	}
+
+	public void setError(ApiError error) {
+		this.error = error;
 	}
 }

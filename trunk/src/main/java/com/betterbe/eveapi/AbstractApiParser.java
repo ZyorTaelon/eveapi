@@ -16,6 +16,10 @@ public abstract class AbstractApiParser {
 		digester.setValidating(false);
 		digester.addObjectCreate("eveapi", clazz);
 		digester.addSetProperties("eveapi");
+		digester.addObjectCreate("eveapi/error", ApiError.class);
+		digester.addSetProperties("eveapi/error");
+		digester.addBeanPropertySetter("eveapi/error");
+		digester.addSetNext("eveapi/error", "setError");
 		digester.addBeanPropertySetter("eveapi/currentTime");
 		digester.addBeanPropertySetter("eveapi/cachedUntil");
 		return digester;
