@@ -3,57 +3,7 @@
   <currentTime>2008-02-03 01:05:55</currentTime>
   <result>
     <rowset name="starbases" key="itemID" columns="itemID,typeID,locationID,moonID,state,stateTimestamp,onlineTimestamp">
-      <row itemID="1918596253" typeID="20060" locationID="30000469" moonID="40029212" state="4" stateTimestamp="2008-02-03 01:26:55" onlineTimestamp="2007-11-29 19:23:58" />
-      <row itemID="2034814935" typeID="20066" locationID="30000480" moonID="40029913" state="4" stateTimestamp="2008-02-03 01:49:34" onlineTimestamp="2008-01-09 01:48:22" />
-      <row itemID="174119450" typeID="16214" locationID="30000482" moonID="40030016" state="4" stateTimestamp="2008-02-03 01:29:51" onlineTimestamp="2007-07-03 19:13:39" />
-      <row itemID="352850963" typeID="16214" locationID="30000482" moonID="40030021" state="4" stateTimestamp="2008-02-03 01:48:58" onlineTimestamp="2007-07-01 02:32:53" />
-      <row itemID="362908558" typeID="16214" locationID="30000482" moonID="40029986" state="4" stateTimestamp="2008-02-03 01:17:39" onlineTimestamp="2007-07-03 18:56:36" />
-      <row itemID="385937467" typeID="16214" locationID="30000482" moonID="40029989" state="4" stateTimestamp="2008-02-03 01:15:22" onlineTimestamp="2007-07-03 18:58:49" />
-      <row itemID="385937495" typeID="16214" locationID="30000482" moonID="40029997" state="4" stateTimestamp="2008-02-03 01:16:08" onlineTimestamp="2007-07-03 19:02:38" />
-      <row itemID="475348506" typeID="16214" locationID="30000482" moonID="40030001" state="4" stateTimestamp="2008-02-03 01:18:51" onlineTimestamp="2007-07-02 02:03:56" />
-      <row itemID="1063608984" typeID="16214" locationID="30000482" moonID="40030024" state="4" stateTimestamp="2008-02-03 01:29:00" onlineTimestamp="2007-10-28 13:22:23" />
-      <row itemID="584868644" typeID="20066" locationID="30000484" moonID="40030219" state="4" stateTimestamp="2008-02-03 01:52:17" onlineTimestamp="2007-07-31 19:43:09" />
-      <row itemID="1017642913" typeID="16214" locationID="30000526" moonID="40032923" state="4" stateTimestamp="2008-02-03 01:34:47" onlineTimestamp="2007-08-20 03:29:04" />
-      <row itemID="1030477365" typeID="16214" locationID="30000484" moonID="40030253" state="4" stateTimestamp="2008-02-03 01:30:32" onlineTimestamp="2007-07-27 01:21:36" />
-      <row itemID="1096554632" typeID="20066" locationID="30000484" moonID="40030176" state="4" stateTimestamp="2008-02-03 01:49:54" onlineTimestamp="2007-07-31 19:39:22" />
-      <row itemID="1120613021" typeID="16213" locationID="30000482" moonID="40030067" state="4" stateTimestamp="2008-02-03 02:03:04" onlineTimestamp="2007-10-19 07:57:21" />
-      <row itemID="1165031237" typeID="27609" locationID="30000482" moonID="40030076" state="1" stateTimestamp="0001-01-01 00:00:00" onlineTimestamp="0001-01-01 00:00:00" />
-      <row itemID="1167014664" typeID="12236" locationID="30000482" moonID="40030049" state="4" stateTimestamp="2008-02-03 01:42:03" onlineTimestamp="2008-01-14 02:40:57" />
-      <row itemID="1188592583" typeID="16214" locationID="30000482" moonID="40030029" state="4" stateTimestamp="2008-02-03 01:48:59" onlineTimestamp="2007-10-20 19:43:49" />
-      <row itemID="1303723160" typeID="12236" locationID="30000482" moonID="40030036" state="4" stateTimestamp="2008-02-03 01:08:33" onlineTimestamp="2008-01-19 14:07:50" />
-      <row itemID="1417331785" typeID="27609" locationID="30000484" moonID="40030175" state="4" stateTimestamp="2008-02-03 01:10:14" onlineTimestamp="2008-02-01 23:10:11" />
-      <row itemID="1602695245" typeID="16214" locationID="30000482" moonID="40029994" state="4" stateTimestamp="2008-02-03 01:23:29" onlineTimestamp="2007-10-23 20:17:45" />
-      <row itemID="1607172249" typeID="16213" locationID="30000482" moonID="40030022" state="4" stateTimestamp="2008-02-03 01:31:54" onlineTimestamp="2007-10-28 13:25:28" />
-      <row itemID="1621018299" typeID="27540" locationID="30000483" moonID="40030100" state="4" stateTimestamp="2008-02-03 01:17:22" onlineTimestamp="2007-10-25 22:12:49" />
-      <row itemID="1645224827" typeID="16214" locationID="30000482" moonID="40030020" state="4" stateTimestamp="2008-02-03 01:35:58" onlineTimestamp="2007-10-28 13:30:09" />
-      <row itemID="1730043927" typeID="27609" locationID="30000499" moonID="40031161" state="4" stateTimestamp="2008-02-03 01:08:11" onlineTimestamp="2007-11-09 20:04:27" />
-      <row itemID="1983148904" typeID="27540" locationID="30000482" moonID="40029992" state="4" stateTimestamp="2008-02-03 01:28:30" onlineTimestamp="2008-01-03 20:25:32" />
-      <row itemID="2026316591" typeID="27540" locationID="30000482" moonID="40029995" state="4" stateTimestamp="2008-02-03 01:55:22" onlineTimestamp="2008-01-15 19:54:30" />
-      <row itemID="2034523188" typeID="12236" locationID="30000482" moonID="40030079" state="4" stateTimestamp="2008-02-03 01:59:20" onlineTimestamp="2008-01-16 16:58:22" />
-      <row itemID="2035185554" typeID="20066" locationID="30000483" moonID="40030162" state="4" stateTimestamp="2008-02-03 01:07:41" onlineTimestamp="2008-01-09 03:06:23" />
-      <row itemID="2047199302" typeID="12236" locationID="30000482" moonID="40030075" state="4" stateTimestamp="2008-02-03 01:11:48" onlineTimestamp="2008-01-19 14:11:01" />
-      <row itemID="158422914" typeID="20066" locationID="30004882" moonID="40309339" state="4" stateTimestamp="2008-02-03 01:23:45" onlineTimestamp="2007-08-15 23:14:38" />
-      <row itemID="263283744" typeID="16214" locationID="30004492" moonID="40284296" state="4" stateTimestamp="2008-02-03 02:05:43" onlineTimestamp="2007-10-11 01:00:39" />
-      <row itemID="263283750" typeID="16214" locationID="30004492" moonID="40284307" state="4" stateTimestamp="2008-02-03 01:40:14" onlineTimestamp="2007-12-04 00:37:00" />
-      <row itemID="263284414" typeID="16214" locationID="30004492" moonID="40284311" state="4" stateTimestamp="2008-02-03 01:10:20" onlineTimestamp="2007-10-11 01:05:25" />
-      <row itemID="971293258" typeID="20061" locationID="30004489" moonID="40284108" state="4" stateTimestamp="2008-02-03 01:44:08" onlineTimestamp="2007-10-20 06:39:11" />
-      <row itemID="1109848985" typeID="20060" locationID="30001556" moonID="40099397" state="1" stateTimestamp="0001-01-01 00:00:00" onlineTimestamp="0001-01-01 00:00:00" />
-      <row itemID="1126043326" typeID="20066" locationID="30003169" moonID="40201111" state="4" stateTimestamp="2008-02-03 01:59:12" onlineTimestamp="2007-10-20 03:54:14" />
-      <row itemID="1159250635" typeID="16214" locationID="30004490" moonID="40284186" state="4" stateTimestamp="2008-02-03 02:00:42" onlineTimestamp="2007-10-20 03:54:53" />
-      <row itemID="1177766906" typeID="16214" locationID="30004490" moonID="40284152" state="4" stateTimestamp="2008-02-03 01:55:48" onlineTimestamp="2007-12-03 23:52:05" />
-      <row itemID="1239356268" typeID="20066" locationID="30003164" moonID="40200933" state="4" stateTimestamp="2008-02-03 01:27:49" onlineTimestamp="2007-11-16 02:23:52" />
-      <row itemID="1242726441" typeID="16214" locationID="30000575" moonID="40036018" state="1" stateTimestamp="0001-01-01 00:00:00" onlineTimestamp="0001-01-01 00:00:00" />
-      <row itemID="1312493282" typeID="20066" locationID="30004878" moonID="40308921" state="4" stateTimestamp="2008-02-03 01:23:46" onlineTimestamp="2007-08-30 23:15:22" />
-      <row itemID="1524101055" typeID="27540" locationID="30004492" moonID="40284305" state="4" stateTimestamp="2008-02-03 01:49:22" onlineTimestamp="2007-09-28 00:44:24" />
-      <row itemID="1538398312" typeID="16214" locationID="30004490" moonID="40284195" state="4" stateTimestamp="2008-02-03 01:59:03" onlineTimestamp="2007-09-24 09:52:55" />
-      <row itemID="1538553430" typeID="16214" locationID="30004490" moonID="40284161" state="4" stateTimestamp="2008-02-03 01:13:04" onlineTimestamp="2008-01-11 15:11:59" />
-      <row itemID="1555182873" typeID="16214" locationID="30004490" moonID="40284180" state="4" stateTimestamp="2008-02-03 01:34:16" onlineTimestamp="2007-09-26 14:06:20" />
-      <row itemID="1672388680" typeID="27609" locationID="30000685" moonID="40043269" state="4" stateTimestamp="2008-02-03 01:54:58" onlineTimestamp="2007-10-31 23:51:26" />
-      <row itemID="1705113408" typeID="27609" locationID="30001207" moonID="40076606" state="4" stateTimestamp="2008-02-03 01:21:15" onlineTimestamp="2007-11-05 17:18:28" />
-      <row itemID="1933699126" typeID="27609" locationID="30001172" moonID="40074423" state="4" stateTimestamp="2008-02-03 01:05:58" onlineTimestamp="2007-12-03 15:03:53" />
-      <row itemID="1964010771" typeID="20066" locationID="30004444" moonID="40281347" state="4" stateTimestamp="2008-02-02 22:34:43" onlineTimestamp="2008-01-02 22:32:31" />
-      <row itemID="1976590934" typeID="20066" locationID="30004489" moonID="40284123" state="4" stateTimestamp="2008-02-03 01:32:53" onlineTimestamp="2008-01-09 14:31:52" />
-      <row itemID="1976590935" typeID="27609" locationID="30000575" moonID="40036019" state="4" stateTimestamp="2008-02-03 01:48:01" onlineTimestamp="2008-01-03 15:46:48" />
+      <row itemID="1976590935" typeID="27609" locationID="30004712" moonID="40298265" state="4" stateTimestamp="2008-02-03 01:48:01" onlineTimestamp="2008-01-03 15:46:48" />
     </rowset>
   </result>
   <cachedUntil>2008-02-03 07:05:55</cachedUntil>
