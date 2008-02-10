@@ -1,7 +1,6 @@
 package com.betterbe.eveapi.starbase;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URLEncoder;
 
 import org.apache.commons.digester.Digester;
@@ -9,10 +8,15 @@ import org.xml.sax.SAXException;
 
 import com.betterbe.eveapi.AbstractApiParser;
 
-public class DetailParser extends AbstractApiParser {
+public class DetailParser extends AbstractApiParser<DetailResponse> {
 
-	private Digester getDigester() {
-		Digester digester = super.getDigester(DetailResponse.class);
+	public DetailParser() {
+		super(DetailResponse.class);
+	}
+
+	@Override
+	protected Digester getDigester() {
+		Digester digester = super.getDigester();
 		digester.addBeanPropertySetter("eveapi/result/generalSettings/usageFlags");
 		digester.addBeanPropertySetter("eveapi/result/generalSettings/deployFlags");
 		digester.addBeanPropertySetter("eveapi/result/generalSettings/allowCorporationMembers");
@@ -51,12 +55,6 @@ public class DetailParser extends AbstractApiParser {
 		System.out.println(url);
 		Digester digester = getDigester();
 		DetailResponse response = (DetailResponse) digester.parse(url);
-		return response;
-	}
-
-	public DetailResponse getDetail(InputStream input) throws IOException, SAXException {
-		Digester digester = getDigester();
-		DetailResponse response = (DetailResponse) digester.parse(input);
 		return response;
 	}
 

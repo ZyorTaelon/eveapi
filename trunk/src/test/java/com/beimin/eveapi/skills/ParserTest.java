@@ -5,11 +5,13 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.starbase.ListParserTest;
 import com.betterbe.eveapi.skills.Parser;
 import com.betterbe.eveapi.skills.Response;
 import com.betterbe.eveapi.skills.SkillGroup;
@@ -17,7 +19,9 @@ import com.betterbe.eveapi.skills.SkillGroup;
 public class ParserTest {
 	@Test
 	public void testSkillParser() throws IOException, SAXException {
-		Response response = Parser.getInstance().getSkills();
+		InputStream input = ListParserTest.class.getResourceAsStream("/SkillTree.xml");
+		Parser parser = Parser.getInstance();
+		Response response = parser.getResponse(input);
 		assertNotNull("Should have returned a response.", response);
 		assertEquals("version 2 expected.", 2, response.getVersion());
 		assertNotNull("Response should contain the current time.", response.getCurrentTime());

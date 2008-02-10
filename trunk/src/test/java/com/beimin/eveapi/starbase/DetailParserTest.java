@@ -22,7 +22,7 @@ public class DetailParserTest {
 	public void getDetail() throws IOException, SAXException {
 		DetailParser parser = DetailParser.getInstance();
 		InputStream input = DetailParserTest.class.getResourceAsStream("/StarbaseDetail.xml");
-		DetailResponse response = parser.getDetail(input);
+		DetailResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
 		assertEquals("Sun Feb 03 01:54:02 CET 2008", response.getCurrentTime().toString());
 		assertEquals("Sun Feb 03 07:54:02 CET 2008", response.getCachedUntil().toString());

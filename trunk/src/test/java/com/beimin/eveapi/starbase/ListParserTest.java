@@ -21,7 +21,7 @@ public class ListParserTest {
 	public void getList() throws IOException, SAXException {
 		ListParser parser = ListParser.getInstance();
 		InputStream input = ListParserTest.class.getResourceAsStream("/StarbasesList.xml");
-		ListResponse response = parser.getList(input);
+		ListResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
 		assertEquals("Sun Feb 03 01:05:55 CET 2008", response.getCurrentTime().toString());
 		assertEquals("Sun Feb 03 07:05:55 CET 2008", response.getCachedUntil().toString());

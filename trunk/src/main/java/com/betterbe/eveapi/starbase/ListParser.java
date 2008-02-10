@@ -1,7 +1,6 @@
 package com.betterbe.eveapi.starbase;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URLEncoder;
 
 import org.apache.commons.digester.Digester;
@@ -9,10 +8,15 @@ import org.xml.sax.SAXException;
 
 import com.betterbe.eveapi.AbstractApiParser;
 
-public class ListParser extends AbstractApiParser {
+public class ListParser extends AbstractApiParser<ListResponse> {
 
-	private Digester getDigester() {
-		Digester digester = super.getDigester(ListResponse.class);
+	public ListParser() {
+		super(ListResponse.class);
+	}
+
+	@Override
+	protected Digester getDigester() {
+		Digester digester = super.getDigester();
 		digester.addObjectCreate("eveapi/result/rowset/row", Starbase.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row", "addStarbase");
@@ -26,10 +30,6 @@ public class ListParser extends AbstractApiParser {
 		url += "&apiKey=" + URLEncoder.encode(apiKey, "UTF8");
 		url += "&version=2";
 		return (ListResponse) getDigester().parse(url);
-	}
-
-	public ListResponse getList(InputStream input) throws IOException, SAXException {
-		return (ListResponse) getDigester().parse(input);
 	}
 
 	public static ListParser getInstance() {

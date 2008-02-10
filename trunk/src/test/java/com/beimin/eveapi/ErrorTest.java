@@ -19,7 +19,7 @@ public class ErrorTest {
 	public void testAssetsParser() throws IOException, SAXException {
 		Parser parser = Parser.getInstance();
 		InputStream input = ErrorTest.class.getResourceAsStream("/ApiError115.xml");
-		Response response = parser.getAssets(input);
+		Response response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
 		assertTrue("The error should have been set.", response.hasError());
 		ApiError error = response.getError();

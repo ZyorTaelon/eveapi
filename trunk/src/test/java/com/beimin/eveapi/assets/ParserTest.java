@@ -20,7 +20,7 @@ public class ParserTest {
 	public void testAssetsParser() throws IOException, SAXException {
 		Parser parser = Parser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/AssetList.xml");
-		Response response = parser.getAssets(input);
+		Response response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
 		assertEquals("Sun Feb 03 04:43:55 CET 2008", response.getCurrentTime().toString());
 		assertEquals("Mon Feb 04 03:43:55 CET 2008", response.getCachedUntil().toString());

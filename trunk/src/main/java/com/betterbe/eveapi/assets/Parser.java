@@ -1,7 +1,6 @@
 package com.betterbe.eveapi.assets;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URLEncoder;
 
 import org.apache.commons.digester.Digester;
@@ -9,12 +8,17 @@ import org.xml.sax.SAXException;
 
 import com.betterbe.eveapi.AbstractApiParser;
 
-public class Parser extends AbstractApiParser {
+public class Parser extends AbstractApiParser<Response> {
 	private static final String CORP_URL = "http://api.eve-online.com/corp/AssetList.xml.aspx";
 	private static final String CHAR_URL = "http://api.eve-online.com/char/AssetList.xml.aspx";
 
-	private Digester getDigester() {
-		Digester digester = super.getDigester(Response.class);
+	public Parser() {
+		super(Response.class);
+	}
+
+	@Override
+	protected Digester getDigester() {
+		Digester digester = super.getDigester();
 		digester.addObjectCreate("*/rowset/row", Asset.class);
 		digester.addSetProperties("*/rowset/row");
 		digester.addSetNext("*/rowset/row", "addAsset");
@@ -32,12 +36,6 @@ public class Parser extends AbstractApiParser {
 		System.out.println(url);
 		Digester digester = getDigester();
 		Response response = (Response) digester.parse(url);
-		return response;
-	}
-
-	public Response getAssets(InputStream input) throws IOException, SAXException {
-		Digester digester = getDigester();
-		Response response = (Response) digester.parse(input);
 		return response;
 	}
 

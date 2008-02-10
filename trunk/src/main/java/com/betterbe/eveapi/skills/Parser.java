@@ -9,12 +9,16 @@ import org.xml.sax.SAXException;
 
 import com.betterbe.eveapi.AbstractApiParser;
 
-public class Parser extends AbstractApiParser {
-
+public class Parser extends AbstractApiParser<Response> {
 	private static final String APIURL = "http://api.eve-online.com/eve/SkillTree.xml.aspx";
 
-	private Digester getDigester() {
-		Digester digester = super.getDigester(Response.class);
+	public Parser() {
+		super(Response.class);
+	}
+
+	@Override
+	protected Digester getDigester() {
+		Digester digester = super.getDigester();
 		digester.addObjectCreate("eveapi/result/rowset/row", SkillGroup.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row", "addSkillGroup");
