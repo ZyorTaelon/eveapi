@@ -10,9 +10,8 @@ import java.io.InputStream;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.betterbe.eveapi.ApiError;
-import com.betterbe.eveapi.assets.Parser;
-import com.betterbe.eveapi.assets.Response;
+import com.beimin.eveapi.asset.Parser;
+import com.beimin.eveapi.asset.Response;
 
 public class ErrorTest {
 	@Test

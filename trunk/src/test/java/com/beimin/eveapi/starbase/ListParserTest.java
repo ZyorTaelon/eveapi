@@ -11,9 +11,6 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.betterbe.eveapi.starbase.ListParser;
-import com.betterbe.eveapi.starbase.ListResponse;
-import com.betterbe.eveapi.starbase.Starbase;
 
 public class ListParserTest {
 

@@ -12,9 +12,6 @@ import java.util.Map;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.betterbe.eveapi.starbase.CombatSetting;
-import com.betterbe.eveapi.starbase.DetailParser;
-import com.betterbe.eveapi.starbase.DetailResponse;
 
 public class DetailParserTest {
 
