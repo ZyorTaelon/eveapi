@@ -30,11 +30,6 @@
 	</developers>
 	<dependencies>
 		<dependency>
-			<groupId>com.beimin</groupId>
-			<artifactId>evedata</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>commons-digester</groupId>
 			<artifactId>commons-digester</artifactId>
 			<version>1.8</version>
