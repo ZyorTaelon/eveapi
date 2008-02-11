@@ -11,15 +11,11 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.asset.Asset;
-import com.beimin.eveapi.asset.Parser;
-import com.beimin.eveapi.asset.Response;
-
 public class ParserTest {
 	@Test
 	public void testAssetsParser() throws IOException, SAXException {
 		Parser parser = Parser.getInstance();
-		InputStream input = ParserTest.class.getResourceAsStream(Parser.ASSETLIST_URL);
+		InputStream input = ParserTest.class.getResourceAsStream("/AssetList.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
 		assertEquals("Sun Feb 03 04:43:55 CET 2008", response.getCurrentTime().toString());
