@@ -13,7 +13,7 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		// create digester here.
+		// TODO: Create Conquerable Station/Outpost List digester.
 		return digester;
 	}
 
