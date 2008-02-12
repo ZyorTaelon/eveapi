@@ -27,9 +27,9 @@ public class Parser extends AbstractApiParser<Response> {
 	public Response getAssets(int userID, int characterID, String apiKey, boolean corporation) throws IOException, SAXException {
 		String url = EVE_API_URL;
 		if (corporation)
-			url += Parser.CORP_PATH;
+			url += CORP_PATH;
 		else
-			url += Parser.CHAR_PATH;
+			url += CHAR_PATH;
 		url += ASSETLIST_URL;
 		url += "?userID=" + userID;
 		url += "&characterID=" + characterID;

@@ -9,6 +9,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class ListParser extends AbstractApiParser<ListResponse> {
+	private static final String STARBASE_LIST_URL = "/StarbaseList.xml.aspx";
 
 	public ListParser() {
 		super(ListResponse.class);
@@ -24,7 +25,9 @@ public class ListParser extends AbstractApiParser<ListResponse> {
 	}
 
 	public ListResponse getList(int userID, int characterID, String apiKey) throws IOException, SAXException {
-		String url = "http://api.eve-online.com/corp/StarbaseList.xml.aspx";
+		String url = EVE_API_URL;
+		url += CORP_PATH;
+		url += STARBASE_LIST_URL;
 		url += "?userID=" + userID;
 		url += "&characterID=" + characterID;
 		url += "&apiKey=" + URLEncoder.encode(apiKey, "UTF8");

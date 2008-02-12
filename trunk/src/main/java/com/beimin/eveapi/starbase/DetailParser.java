@@ -9,6 +9,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class DetailParser extends AbstractApiParser<DetailResponse> {
+	private static final String STARBASE_DETAIL_URL = "/StarbaseDetail.xml.aspx";
 
 	public DetailParser() {
 		super(DetailResponse.class);
@@ -46,7 +47,9 @@ public class DetailParser extends AbstractApiParser<DetailResponse> {
 	}
 
 	public DetailResponse getDetail(int userID, int characterID, String apiKey, int itemID) throws IOException, SAXException {
-		String url = "http://api.eve-online.com/corp/StarbaseDetail.xml.aspx";
+		String url = EVE_API_URL;
+		url += CORP_PATH;
+		url += STARBASE_DETAIL_URL;
 		url += "?userID=" + userID;
 		url += "&characterID=" + characterID;
 		url += "&apiKey=" + URLEncoder.encode(apiKey, "UTF8");

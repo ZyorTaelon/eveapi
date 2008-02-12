@@ -10,7 +10,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class Parser extends AbstractApiParser<Response> {
-	private static final String APIURL = "http://api.eve-online.com/eve/SkillTree.xml.aspx";
+	private static final String SKILLS_URL = "/eve/SkillTree.xml.aspx";
 
 	public Parser() {
 		super(Response.class);
@@ -44,7 +44,7 @@ public class Parser extends AbstractApiParser<Response> {
 
 	public Response getSkills() throws IOException, SAXException {
 		Digester digester = getDigester();
-		return (Response) digester.parse(APIURL);
+		return (Response) digester.parse(EVE_API_URL + SKILLS_URL);
 	}
 
 	public static Parser getInstance() {
