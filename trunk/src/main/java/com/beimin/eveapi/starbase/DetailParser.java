@@ -1,18 +1,29 @@
 package com.beimin.eveapi.starbase;
 
 import java.io.IOException;
-import java.net.URLEncoder;
 
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiAuthorization;
 
 public class DetailParser extends AbstractApiParser<DetailResponse> {
 	private static final String STARBASE_DETAIL_URL = "/StarbaseDetail.xml.aspx";
 
 	public DetailParser() {
 		super(DetailResponse.class);
+	}
+
+	public DetailResponse getDetail(ApiAuthorization auth, int itemID) throws IOException, SAXException {
+		String url = EVE_API_URL;
+		url += CORP_PATH;
+		url += STARBASE_DETAIL_URL;
+		url += auth.getUrlParams();
+		url += "&version=2";
+		url += "&itemID=" + itemID;
+		DetailResponse response = (DetailResponse) getDigester().parse(url);
+		return response;
 	}
 
 	@Override
@@ -44,21 +55,6 @@ public class DetailParser extends AbstractApiParser<DetailResponse> {
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row", "addFuelLevel");
 		return digester;
-	}
-
-	public DetailResponse getDetail(int userID, int characterID, String apiKey, int itemID) throws IOException, SAXException {
-		String url = EVE_API_URL;
-		url += CORP_PATH;
-		url += STARBASE_DETAIL_URL;
-		url += "?userID=" + userID;
-		url += "&characterID=" + characterID;
-		url += "&apiKey=" + URLEncoder.encode(apiKey, "UTF8");
-		url += "&version=2";
-		url += "&itemID=" + itemID;
-		System.out.println(url);
-		Digester digester = getDigester();
-		DetailResponse response = (DetailResponse) digester.parse(url);
-		return response;
 	}
 
 	public static DetailParser getInstance() {
