@@ -16,16 +16,15 @@ public class Parser extends AbstractApiParser<Response> {
 	}
 
 	public Response getJournal(ApiAuthorization auth, boolean corporation) throws IOException, SAXException {
-		String url = EVE_API_URL;
+		String requestUrl = EVE_API_URL;
 		if (corporation)
-			url += CORP_PATH;
+			requestUrl += CORP_PATH;
 		else
-			url += CHAR_PATH;
-		url += JOURNAL_URL;
-		url += auth.getUrlParams();
-		url += "&version=1";
-		Response response = (Response) getDigester().parse(url);
-		return response;
+			requestUrl += CHAR_PATH;
+		requestUrl += JOURNAL_URL;
+		requestUrl += auth.getUrlParams();
+		requestUrl += "&version=1";
+		return getResponse(requestUrl, getDigester());
 	}
 
 	@Override

@@ -24,8 +24,8 @@ public class Parser extends AbstractApiParser<Response> {
 	}
 
 	public Response getSovereignties() throws IOException, SAXException {
-		Digester digester = getDigester();
-		return (Response) digester.parse(EVE_API_URL + SOVEREIGNTY_URL);
+		String requestUrl = EVE_API_URL + SOVEREIGNTY_URL;
+		return getResponse(requestUrl, getDigester());
 	}
 
 	public static Parser getInstance() {

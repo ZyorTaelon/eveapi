@@ -24,8 +24,8 @@ public class Parser extends AbstractApiParser<Response> {
 	}
 
 	public Response getKills() throws IOException, SAXException {
-		Digester digester = getDigester();
-		return (Response) digester.parse(EVE_API_URL + KIILS_URL);
+		String requestUrl = EVE_API_URL + KIILS_URL;
+		return getResponse(requestUrl, getDigester());
 	}
 
 	public static Parser getInstance() {

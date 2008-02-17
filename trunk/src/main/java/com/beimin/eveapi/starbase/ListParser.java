@@ -16,12 +16,12 @@ public class ListParser extends AbstractApiParser<ListResponse> {
 	}
 
 	public ListResponse getList(ApiAuthorization auth) throws IOException, SAXException {
-		String url = EVE_API_URL;
-		url += CORP_PATH;
-		url += STARBASE_LIST_URL;
-		url += auth.getUrlParams();
-		url += "&version=2";
-		return (ListResponse) getDigester().parse(url);
+		String requestUrl = EVE_API_URL;
+		requestUrl += CORP_PATH;
+		requestUrl += STARBASE_LIST_URL;
+		requestUrl += auth.getUrlParams();
+		requestUrl += "&version=2";
+		return getResponse(requestUrl, getDigester());
 	}
 
 	@Override

@@ -16,14 +16,13 @@ public class DetailParser extends AbstractApiParser<DetailResponse> {
 	}
 
 	public DetailResponse getDetail(ApiAuthorization auth, int itemID) throws IOException, SAXException {
-		String url = EVE_API_URL;
-		url += CORP_PATH;
-		url += STARBASE_DETAIL_URL;
-		url += auth.getUrlParams();
-		url += "&version=2";
-		url += "&itemID=" + itemID;
-		DetailResponse response = (DetailResponse) getDigester().parse(url);
-		return response;
+		String requestUrl = EVE_API_URL;
+		requestUrl += CORP_PATH;
+		requestUrl += STARBASE_DETAIL_URL;
+		requestUrl += auth.getUrlParams();
+		requestUrl += "&version=2";
+		requestUrl += "&itemID=" + itemID;
+		return getResponse(requestUrl, getDigester());
 	}
 
 	@Override

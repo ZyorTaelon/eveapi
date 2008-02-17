@@ -2,7 +2,10 @@ package com.beimin.eveapi;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.locale.converters.DateLocaleConverter;
@@ -14,6 +17,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	protected static final String CORP_PATH = "/corp";
 	protected static final String CHAR_PATH = "/char";
 	private final Class<E> clazz;
+	protected final Map<String, E> cache = new HashMap<String, E>();
 
 	public AbstractApiParser(Class<E> clazz) {
 		this.clazz = clazz;
@@ -34,6 +38,19 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		digester.addBeanPropertySetter("eveapi/currentTime");
 		digester.addBeanPropertySetter("eveapi/cachedUntil");
 		return digester;
+	}
+
+	protected boolean isCached(String requestUrl) {
+		return cache.containsKey(requestUrl) && cache.get(requestUrl).getCachedUntil().after(Calendar.getInstance().getTime());
+	}
+
+	@SuppressWarnings("unchecked")
+	protected E getResponse(String requestUrl, Digester digester) throws IOException, SAXException {
+		if (isCached(requestUrl))
+			return cache.get(requestUrl);
+		E response = (E) digester.parse(requestUrl);
+		cache.put(requestUrl, response);
+		return response;
 	}
 
 	@SuppressWarnings("unchecked")

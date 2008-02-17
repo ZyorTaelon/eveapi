@@ -25,16 +25,15 @@ public class Parser extends AbstractApiParser<Response> {
 	}
 
 	public Response getAssets(ApiAuthorization auth, boolean corporation) throws IOException, SAXException {
-		String url = EVE_API_URL;
+		String requestUrl = EVE_API_URL;
 		if (corporation)
-			url += CORP_PATH;
+			requestUrl += CORP_PATH;
 		else
-			url += CHAR_PATH;
-		url += ASSETLIST_URL;
-		url += auth.getUrlParams();
-		url += "&version=2";
-		Response response = (Response) getDigester().parse(url);
-		return response;
+			requestUrl += CHAR_PATH;
+		requestUrl += ASSETLIST_URL;
+		requestUrl += auth.getUrlParams();
+		requestUrl += "&version=2";
+		return getResponse(requestUrl, getDigester());
 	}
 
 	public static Parser getInstance() {
