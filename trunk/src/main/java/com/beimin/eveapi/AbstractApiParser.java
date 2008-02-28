@@ -49,7 +49,8 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		if (isCached(requestUrl))
 			return cache.get(requestUrl);
 		E response = (E) digester.parse(requestUrl);
-		cache.put(requestUrl, response);
+		if (!response.hasError())
+			cache.put(requestUrl, response);
 		return response;
 	}
 

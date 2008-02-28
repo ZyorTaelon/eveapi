@@ -8,7 +8,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class Parser extends AbstractApiParser<Response> {
-	protected static final String STATION_LIST_URL = "/eve/RefTypes.xml.aspx";
+	protected static final String STATION_LIST_URL = "/eve/ConquerableStationList.xml.aspx";
 
 	public Parser() {
 		super(Response.class);
@@ -22,7 +22,9 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		// TODO: Create Conquerable Station/Outpost List digester.
+		digester.addObjectCreate("eveapi/result/rowset/row", Station.class);
+		digester.addSetProperties("eveapi/result/rowset/row");
+		digester.addSetNext("eveapi/result/rowset/row", "addStation");
 		return digester;
 	}
 
