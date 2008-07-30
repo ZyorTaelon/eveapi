@@ -6,11 +6,12 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
-
 
 public class ListParserTest {
 
@@ -20,8 +21,13 @@ public class ListParserTest {
 		InputStream input = ListParserTest.class.getResourceAsStream("/StarbasesList.xml");
 		ListResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
-		assertEquals("Sun Feb 03 01:05:55 CET 2008", response.getCurrentTime().toString());
-		assertEquals("Sun Feb 03 07:05:55 CET 2008", response.getCachedUntil().toString());
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2008, 1, 3, 1, 5, 55);
+		Date currentTime = calendar.getTime();
+		assertEquals(currentTime.toString(), response.getCurrentTime().toString());
+		calendar.set(2008, 1, 3, 7, 5, 55);
+		Date cachedUntil = calendar.getTime();
+		assertEquals(cachedUntil.toString(), response.getCachedUntil().toString());
 		Collection<Starbase> starbases = response.getStarbases();
 		assertNotNull("Should have returned a collection with starbases.", starbases);
 		assertEquals("Should have returned 2 starbases.", 2, starbases.size());

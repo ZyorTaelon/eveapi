@@ -6,7 +6,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -18,8 +20,13 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/AssetList.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
-		assertEquals("Sun Feb 03 04:43:55 CET 2008", response.getCurrentTime().toString());
-		assertEquals("Mon Feb 04 03:43:55 CET 2008", response.getCachedUntil().toString());
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2008, 1, 3, 4, 43, 55);
+		Date currentTime = calendar.getTime();
+		assertEquals(currentTime.toString(), response.getCurrentTime().toString());
+		calendar.set(2008, 1, 4, 3, 43, 55);
+		Date cachedUntil = calendar.getTime();
+		assertEquals(cachedUntil.toString(), response.getCachedUntil().toString());
 		Collection<Asset> assets = response.getAssets();
 		assertNotNull("Should have returned assets.", assets);
 		assertEquals("There should have been 4 assets.", 4, assets.size());

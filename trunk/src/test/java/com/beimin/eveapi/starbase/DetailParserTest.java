@@ -7,11 +7,12 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Map;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
-
 
 public class DetailParserTest {
 
@@ -21,8 +22,13 @@ public class DetailParserTest {
 		InputStream input = DetailParserTest.class.getResourceAsStream("/StarbaseDetail.xml");
 		DetailResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
-		assertEquals("Sun Feb 03 01:54:02 CET 2008", response.getCurrentTime().toString());
-		assertEquals("Sun Feb 03 07:54:02 CET 2008", response.getCachedUntil().toString());
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2008, 1, 3, 1, 54, 2);
+		Date currentTime = calendar.getTime();
+		assertEquals(currentTime.toString(), response.getCurrentTime().toString());
+		calendar.set(2008, 1, 3, 7, 54, 2);
+		Date cachedUntil = calendar.getTime();
+		assertEquals(cachedUntil.toString(), response.getCachedUntil().toString());
 		assertEquals(3, response.getUsageFlags());
 		assertEquals(0, response.getDeployFlags());
 		assertTrue(response.isAllowCorporationMembers());
