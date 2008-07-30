@@ -5,6 +5,7 @@ if "%1"=="test" goto :test
 if "%1"=="clean" goto :clean
 if "%1"=="config" goto :config
 if "%1"=="dependencies" goto :dependencies
+if "%1"=="site" goto :site
 echo no goal specified doing fast
 :fast
     call mvn -Dmaven.test.skip=true install
@@ -26,5 +27,8 @@ echo no goal specified doing fast
 :dependencies
 		call mvn project-info-reports:dependencies
 		cmd /c "target\site\dependencies.html"
+		goto :done
+:site
+		call mvn site
 		goto :done
 :done
