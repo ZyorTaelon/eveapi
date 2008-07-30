@@ -10,8 +10,6 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.ApiAuthorization;
-
 public class ParserTest {
 
 	@Test
@@ -25,7 +23,5 @@ public class ParserTest {
 			System.out.println(member.getName());
 		}
 		assertTrue("Todo: ", true);
-		String requestUrl = parser.getRequestUrl(new ApiAuthorization(271604, 1380128241, "Op5Fd4Skpf5vLOSX61YTPnhTjLS3lyci30wdWPDHgGNhyVXqumdbUet8e9rqXmPi"));
-		System.out.println(requestUrl);
 	}
 }
