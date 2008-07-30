@@ -6,7 +6,7 @@ import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
-import com.beimin.eveapi.ApiAuthorization;
+import com.beimin.eveapi.ApiAuth;
 
 public class ListParser extends AbstractApiParser<ListResponse> {
 	private static final String STARBASE_LIST_URL = "/StarbaseList.xml.aspx";
@@ -15,7 +15,7 @@ public class ListParser extends AbstractApiParser<ListResponse> {
 		super(ListResponse.class);
 	}
 
-	public ListResponse getList(ApiAuthorization auth) throws IOException, SAXException {
+	public ListResponse getList(ApiAuth auth) throws IOException, SAXException {
 		String requestUrl = EVE_API_URL;
 		requestUrl += CORP_PATH;
 		requestUrl += STARBASE_LIST_URL;

@@ -3,7 +3,7 @@ package com.beimin.eveapi;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-public class ApiAuthorization {
+public class ApiAuthorization implements ApiAuth {
 	private final int userID;
 	private final int characterID;
 	private final String apiKey;

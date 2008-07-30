@@ -9,7 +9,6 @@ import java.io.InputStream;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-
 public class ParserTest {
 
 	@Test

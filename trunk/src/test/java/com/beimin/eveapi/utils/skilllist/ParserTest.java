@@ -1,4 +1,4 @@
-package com.beimin.eveapi.skill;
+package com.beimin.eveapi.utils.skilllist;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -11,10 +11,10 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.skill.Parser;
-import com.beimin.eveapi.skill.Response;
-import com.beimin.eveapi.skill.SkillGroup;
 import com.beimin.eveapi.starbase.ListParserTest;
+import com.beimin.eveapi.utils.skilllist.Parser;
+import com.beimin.eveapi.utils.skilllist.Response;
+import com.beimin.eveapi.utils.skilllist.SkillGroup;
 
 public class ParserTest {
 	@Test

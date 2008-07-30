@@ -1,4 +1,4 @@
-package com.beimin.eveapi.skill;
+package com.beimin.eveapi.utils.skilllist;
 
 /**
  * @author sbeimin
