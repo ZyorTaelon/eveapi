@@ -30,7 +30,9 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		// TODO: Create Market Orders digester.
+		digester.addObjectCreate("eveapi/result/rowset/row", MarketOrder.class);
+		digester.addSetProperties("eveapi/result/rowset/row");
+		digester.addSetNext("eveapi/result/rowset/row", "addMarketOrder");
 		return digester;
 	}
 

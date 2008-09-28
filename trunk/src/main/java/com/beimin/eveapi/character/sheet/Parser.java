@@ -15,7 +15,7 @@ public class Parser extends AbstractApiParser<Response> {
 		super(Response.class);
 	}
 
-	public Response getInustryJobs(ApiAuth auth, boolean corporation) throws IOException, SAXException {
+	public Response getCharacterSheet(ApiAuth auth) throws IOException, SAXException {
 		String requestUrl = EVE_API_URL;
 		requestUrl += CHAR_PATH;
 		requestUrl += CHARACTER_SHEET_URL;

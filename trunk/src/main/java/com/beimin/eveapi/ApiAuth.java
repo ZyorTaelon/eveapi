@@ -1,8 +1,9 @@
 package com.beimin.eveapi;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
-public interface ApiAuth {
+public abstract class ApiAuth {
 
 	public abstract int getUserID();
 
@@ -10,6 +11,10 @@ public interface ApiAuth {
 
 	public abstract String getApiKey();
 
-	public abstract String getUrlParams() throws UnsupportedEncodingException;
-
+	public String getUrlParams() throws UnsupportedEncodingException {
+		String urlParams = "?userID=" + getUserID();
+		urlParams += "&characterID=" + getCharacterID();
+		urlParams += "&apiKey=" + URLEncoder.encode(getApiKey(), "UTF8");
+		return urlParams;
+	}
 }
