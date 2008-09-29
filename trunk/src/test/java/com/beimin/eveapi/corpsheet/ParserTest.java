@@ -2,7 +2,6 @@ package com.beimin.eveapi.corpsheet;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -62,6 +61,5 @@ public class ParserTest {
 		assertEquals("5th Wallet Division", walletDivisions.get(1004));
 		assertEquals("6th Wallet Division", walletDivisions.get(1005));
 		assertEquals("7th Wallet Division", walletDivisions.get(1006));
-		assertTrue("test accountBalance wasn't found.", true);
 	}
 }
