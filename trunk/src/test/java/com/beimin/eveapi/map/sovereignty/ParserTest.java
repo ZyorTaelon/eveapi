@@ -13,7 +13,7 @@ import org.xml.sax.SAXException;
 public class ParserTest {
 
 	@Test
-	public void testIndustryParser() throws IOException, SAXException {
+	public void testMapSovereigntyParser() throws IOException, SAXException {
 		Parser parser = Parser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/Sovereignty.xml");
 		Response response = parser.getResponse(input);

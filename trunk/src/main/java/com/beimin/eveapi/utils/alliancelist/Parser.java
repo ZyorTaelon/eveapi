@@ -22,7 +22,12 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		// TODO: Create Alliance List digester.
+		digester.addObjectCreate("eveapi/result/rowset/row", Alliance.class);
+		digester.addSetProperties("eveapi/result/rowset/row");
+		digester.addObjectCreate("eveapi/result/rowset/row/rowset/row", MemberCorporation.class);
+		digester.addSetProperties("eveapi/result/rowset/row/rowset/row");
+		digester.addSetNext("eveapi/result/rowset/row/rowset/row", "addMemberCorporation");
+		digester.addSetNext("eveapi/result/rowset/row", "addAlliance");
 		return digester;
 	}
 

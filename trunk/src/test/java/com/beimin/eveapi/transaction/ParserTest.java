@@ -16,7 +16,7 @@ import org.xml.sax.SAXException;
 public class ParserTest {
 
 	@Test
-	public void testIndustryParser() throws IOException, SAXException, ParseException {
+	public void testWalletTransactionParser() throws IOException, SAXException, ParseException {
 		Parser parser = Parser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/WalletTransactions.xml");
 		Response response = parser.getResponse(input);
