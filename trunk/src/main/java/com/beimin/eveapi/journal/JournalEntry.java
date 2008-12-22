@@ -19,7 +19,7 @@ public class JournalEntry {
 	private double amount;
 	private double balance;
 	private String reason;
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HHS:mm:ss");
+	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public Date getDateTime() throws ParseException {
 		return sdf.parse(date);
