@@ -2,7 +2,9 @@
     <currentTime>2008-09-02 18:39:38</currentTime>
     <result>
         <member characterID="123456789" name="Tester">
-            <rowset name="roles" key="roleID" columns="roleID,roleName" />
+            <rowset name="roles" key="roleID" columns="roleID,roleName">
+                <row roleID="1" roleName="Member " />
+            </rowset>
             <rowset name="grantableRoles" key="roleID" columns="roleID,roleName" />
             <rowset name="rolesAtHQ" key="roleID" columns="roleID,roleName" />
             <rowset name="grantableRolesAtHQ" key="roleID" columns="roleID,roleName" />

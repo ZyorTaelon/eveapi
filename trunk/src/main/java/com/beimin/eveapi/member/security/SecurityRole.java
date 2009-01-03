@@ -1,9 +1,17 @@
-package com.beimin.eveapi.titles;
+package com.beimin.eveapi.member.security;
 
-public class Role {
+public class SecurityRole {
 	private int roleID;
 	private String roleName;
-	private String roleDescription;
+
+	public SecurityRole() {
+		// default constructor needed for Digester
+	}
+
+	public SecurityRole(int roleID, String roleName) {
+		this.roleID = roleID;
+		this.roleName = roleName;
+	}
 
 	public int getRoleID() {
 		return roleID;
@@ -19,13 +27,5 @@ public class Role {
 
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
-	}
-
-	public String getRoleDescription() {
-		return roleDescription;
-	}
-
-	public void setRoleDescription(String roleDescription) {
-		this.roleDescription = roleDescription;
 	}
 }
