@@ -1,4 +1,4 @@
-package com.beimin.eveapi.character.list;
+package com.beimin.eveapi.member.security;
 
 import java.io.IOException;
 
@@ -9,22 +9,20 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class Parser extends AbstractApiParser<Response> {
-	protected static final String CHARACTER_LIST_URL = "/account/Characters.xml.aspx";
+	protected static final String MEMBER_SECURITY_URL = "/corp/MemberSecurity.xml.aspx";
 
 	public Parser() {
-		super(Response.class, 1, CHARACTER_LIST_URL);
+		super(Response.class, 2, MEMBER_SECURITY_URL);
 	}
 
-	public Response getEveCharacters(ApiAuth auth) throws IOException, SAXException {
+	public Response getMembers(ApiAuth auth) throws IOException, SAXException {
 		return getResponse(auth);
 	}
 
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", EveCharacter.class);
-		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "addEveCharacter");
+		// TODO: implement parser
 		return digester;
 	}
 

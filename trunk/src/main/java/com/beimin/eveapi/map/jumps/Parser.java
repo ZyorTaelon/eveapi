@@ -11,7 +11,7 @@ public class Parser extends AbstractApiParser<Response> {
 	private static final String JUMPS_URL = "/map/Jumps.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 2, JUMPS_URL);
 	}
 
 	@Override
@@ -24,8 +24,7 @@ public class Parser extends AbstractApiParser<Response> {
 	}
 
 	public Response getJumps() throws IOException, SAXException {
-		String requestUrl = EVE_API_URL + JUMPS_URL;
-		return getResponse(requestUrl, getDigester());
+		return getResponse();
 	}
 
 	public static Parser getInstance() {

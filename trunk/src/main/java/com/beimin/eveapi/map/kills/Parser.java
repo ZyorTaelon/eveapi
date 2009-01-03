@@ -11,7 +11,7 @@ public class Parser extends AbstractApiParser<Response> {
 	private static final String KIILS_URL = "/map/Kills.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 2, KIILS_URL);
 	}
 
 	@Override
@@ -24,8 +24,7 @@ public class Parser extends AbstractApiParser<Response> {
 	}
 
 	public Response getKills() throws IOException, SAXException {
-		String requestUrl = EVE_API_URL + KIILS_URL;
-		return getResponse(requestUrl, getDigester());
+		return getResponse();
 	}
 
 	public static Parser getInstance() {

@@ -12,19 +12,13 @@ public class Parser extends AbstractApiParser<Response> {
 	protected static final String TRANSACTIONS_URL = "/WalletTransactions.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 2, TRANSACTIONS_URL);
 	}
 
 	public Response getTransactions(ApiAuth auth, boolean corporation) throws IOException, SAXException {
-		String requestUrl = EVE_API_URL;
 		if (corporation)
-			requestUrl += CORP_PATH;
-		else
-			requestUrl += CHAR_PATH;
-		requestUrl += TRANSACTIONS_URL;
-		requestUrl += auth.getUrlParams();
-		requestUrl += "&version=2";
-		return getResponse(requestUrl, getDigester());
+			return getResponse(auth, Path.CORP);
+		return getResponse(auth, Path.CHARACTER);
 	}
 
 	@Override

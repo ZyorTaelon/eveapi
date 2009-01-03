@@ -11,7 +11,7 @@ public class Parser extends AbstractApiParser<Response> {
 	private static final String SOVEREIGNTY_URL = "/map/Sovereignty.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 1, SOVEREIGNTY_URL);
 	}
 
 	@Override
@@ -24,8 +24,7 @@ public class Parser extends AbstractApiParser<Response> {
 	}
 
 	public Response getSovereignties() throws IOException, SAXException {
-		String requestUrl = EVE_API_URL + SOVEREIGNTY_URL;
-		return getResponse(requestUrl, getDigester());
+		return getResponse();
 	}
 
 	public static Parser getInstance() {

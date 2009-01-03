@@ -12,19 +12,13 @@ public class Parser extends AbstractApiParser<Response> {
 	protected static final String MARKET_ORDERS_URL = "/MarketOrders.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 2, MARKET_ORDERS_URL);
 	}
 
 	public Response getMarketOrders(ApiAuth auth, boolean corporation) throws IOException, SAXException {
-		String requestUrl = EVE_API_URL;
 		if (corporation)
-			requestUrl += CORP_PATH;
-		else
-			requestUrl += CHAR_PATH;
-		requestUrl += MARKET_ORDERS_URL;
-		requestUrl += auth.getUrlParams();
-		requestUrl += "&version=2";
-		return getResponse(requestUrl, getDigester());
+			return getResponse(auth, Path.CORP);
+		return getResponse(auth, Path.CHARACTER);
 	}
 
 	@Override

@@ -9,19 +9,14 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class Parser extends AbstractApiParser<Response> {
-	protected static final String CHARACTER_SHEET_URL = "/SkillInTraining.xml.aspx";
+	protected static final String CHARACTER_SHEET_URL = Path.CHARACTER.getPath() + "/SkillInTraining.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 1, CHARACTER_SHEET_URL);
 	}
 
-	public Response getSkillInTraining(ApiAuth auth, boolean corporation) throws IOException, SAXException {
-		String requestUrl = EVE_API_URL;
-		requestUrl += CHAR_PATH;
-		requestUrl += CHARACTER_SHEET_URL;
-		requestUrl += auth.getUrlParams();
-		requestUrl += "&version=1";
-		return getResponse(requestUrl, getDigester());
+	public Response getSkillInTraining(ApiAuth auth) throws IOException, SAXException {
+		return getResponse(auth);
 	}
 
 	@Override

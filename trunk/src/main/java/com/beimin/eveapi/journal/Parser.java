@@ -12,19 +12,13 @@ public class Parser extends AbstractApiParser<Response> {
 	protected static final String JOURNAL_URL = "/WalletJournal.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 1, JOURNAL_URL);
 	}
 
 	public Response getJournal(ApiAuth auth, boolean corporation) throws IOException, SAXException {
-		String requestUrl = EVE_API_URL;
 		if (corporation)
-			requestUrl += CORP_PATH;
-		else
-			requestUrl += CHAR_PATH;
-		requestUrl += JOURNAL_URL;
-		requestUrl += auth.getUrlParams();
-		requestUrl += "&version=1";
-		return getResponse(requestUrl, getDigester());
+			return getResponse(auth, Path.CORP);
+		return getResponse(auth, Path.CHARACTER);
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.beimin.eveapi.utils.reftypes;
+package com.beimin.eveapi.server;
 
 import java.io.IOException;
 
@@ -8,22 +8,21 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class Parser extends AbstractApiParser<Response> {
-	protected static final String REFTYPES_LIST_URL = "/eve/RefTypes.xml.aspx";
+	protected static final String SERVER_STATUS_URL = "/server/ServerStatus.xml.aspx";
 
 	public Parser() {
-		super(Response.class, 1, REFTYPES_LIST_URL);
+		super(Response.class, 2, SERVER_STATUS_URL);
 	}
 
-	public Response getRefTypes() throws IOException, SAXException {
+	public Response getServerStatus() throws IOException, SAXException {
 		return getResponse();
 	}
 
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", RefType.class);
-		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "addRefType");
+		digester.addBeanPropertySetter("eveapi/result/serverOpen");
+		digester.addBeanPropertySetter("eveapi/result/onlinePlayers");
 		return digester;
 	}
 

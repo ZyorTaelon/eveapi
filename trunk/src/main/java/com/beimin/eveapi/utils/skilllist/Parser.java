@@ -13,7 +13,11 @@ public class Parser extends AbstractApiParser<Response> {
 	private static final String SKILLS_URL = "/eve/SkillTree.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 2, SKILLS_URL);
+	}
+
+	public Response getSkills() throws IOException, SAXException {
+		return getResponse();
 	}
 
 	@Override
@@ -40,11 +44,6 @@ public class Parser extends AbstractApiParser<Response> {
 		digester.addSetNext("eveapi/result/rowset/row/rowset/row/rowset/row", "addSkillDetail");
 		digester.addSetNext("eveapi/result/rowset/row/rowset/row", "addSkill");
 		return digester;
-	}
-
-	public Response getSkills() throws IOException, SAXException {
-		String requestUrl = EVE_API_URL + SKILLS_URL;
-		return getResponse(requestUrl, getDigester());
 	}
 
 	public static Parser getInstance() {

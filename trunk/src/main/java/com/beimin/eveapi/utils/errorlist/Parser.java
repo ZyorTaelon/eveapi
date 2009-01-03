@@ -11,12 +11,11 @@ public class Parser extends AbstractApiParser<Response> {
 	protected static final String ERROR_LIST_URL = "/eve/ErrorList.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 2, ERROR_LIST_URL);
 	}
 
 	public Response getErrorList() throws IOException, SAXException {
-		String requestUrl = EVE_API_URL + ERROR_LIST_URL;
-		return getResponse(requestUrl, getDigester());
+		return getResponse();
 	}
 
 	@Override

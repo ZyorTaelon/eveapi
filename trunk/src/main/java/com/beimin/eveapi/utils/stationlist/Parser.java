@@ -11,12 +11,11 @@ public class Parser extends AbstractApiParser<Response> {
 	protected static final String STATION_LIST_URL = "/eve/ConquerableStationList.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 2, STATION_LIST_URL);
 	}
 
 	public Response getStationList() throws IOException, SAXException {
-		String requestUrl = EVE_API_URL + STATION_LIST_URL;
-		return getResponse(requestUrl, getDigester());
+		return getResponse();
 	}
 
 	@Override

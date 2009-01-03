@@ -1,6 +1,8 @@
 package com.beimin.eveapi.starbase;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
@@ -9,20 +11,16 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class DetailParser extends AbstractApiParser<DetailResponse> {
-	private static final String STARBASE_DETAIL_URL = "/StarbaseDetail.xml.aspx";
+	private static final String STARBASE_DETAIL_URL = Path.CORP.getPath() + "/StarbaseDetail.xml.aspx";
 
 	public DetailParser() {
-		super(DetailResponse.class);
+		super(DetailResponse.class, 2, STARBASE_DETAIL_URL);
 	}
 
 	public DetailResponse getDetail(ApiAuth auth, int itemID) throws IOException, SAXException {
-		String requestUrl = EVE_API_URL;
-		requestUrl += CORP_PATH;
-		requestUrl += STARBASE_DETAIL_URL;
-		requestUrl += auth.getUrlParams();
-		requestUrl += "&version=2";
-		requestUrl += "&itemID=" + itemID;
-		return getResponse(requestUrl, getDigester());
+		Map<String, String> extraParams = new HashMap<String, String>();
+		extraParams.put("itemID", Integer.toString(itemID));
+		return getResponse(auth, extraParams);
 	}
 
 	@Override

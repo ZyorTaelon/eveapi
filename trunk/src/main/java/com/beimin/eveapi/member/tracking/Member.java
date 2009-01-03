@@ -1,4 +1,4 @@
-package com.beimin.eveapi.member;
+package com.beimin.eveapi.member.tracking;
 
 import java.util.Date;
 

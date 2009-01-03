@@ -9,19 +9,14 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class ListParser extends AbstractApiParser<ListResponse> {
-	private static final String STARBASE_LIST_URL = "/StarbaseList.xml.aspx";
+	private static final String STARBASE_LIST_URL = Path.CORP.getPath() + "/StarbaseList.xml.aspx";
 
 	public ListParser() {
-		super(ListResponse.class);
+		super(ListResponse.class, 2, STARBASE_LIST_URL);
 	}
 
 	public ListResponse getList(ApiAuth auth) throws IOException, SAXException {
-		String requestUrl = EVE_API_URL;
-		requestUrl += CORP_PATH;
-		requestUrl += STARBASE_LIST_URL;
-		requestUrl += auth.getUrlParams();
-		requestUrl += "&version=2";
-		return getResponse(requestUrl, getDigester());
+		return getResponse(auth);
 	}
 
 	@Override

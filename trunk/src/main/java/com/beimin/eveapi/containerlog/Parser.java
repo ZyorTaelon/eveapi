@@ -1,4 +1,4 @@
-package com.beimin.eveapi.industry;
+package com.beimin.eveapi.containerlog;
 
 import java.io.IOException;
 
@@ -9,24 +9,22 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class Parser extends AbstractApiParser<Response> {
-	protected static final String INDUSTRY_JOBS_URL = "/IndustryJobs.xml.aspx";
+	protected static final String CONTAINER_LOG_URL = "/corp/ContainerLog.xml.aspx ";
 
 	public Parser() {
-		super(Response.class, 2, INDUSTRY_JOBS_URL);
+		super(Response.class, 2, CONTAINER_LOG_URL);
 	}
 
-	public Response getInustryJobs(ApiAuth auth, boolean corporation) throws IOException, SAXException {
-		if (corporation)
-			return getResponse(auth, Path.CORP);
-		return getResponse(auth, Path.CHARACTER);
+	public Response getContainerLog(ApiAuth auth) throws IOException, SAXException {
+		return getResponse(auth);
 	}
 
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", IndustryJob.class);
+		digester.addObjectCreate("eveapi/result/rowset/row", ContainerLog.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "addIndustryJob");
+		digester.addSetNext("eveapi/result/rowset/row", "addContainerLog");
 		return digester;
 	}
 

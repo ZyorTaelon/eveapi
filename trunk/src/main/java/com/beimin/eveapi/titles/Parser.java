@@ -11,10 +11,14 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class Parser extends AbstractApiParser<Response> {
-	protected static final String CORPORATION_TITLES_URL = "/Titles.xml.aspx";
+	protected static final String CORPORATION_TITLES_URL = Path.CORP.getPath() + "/Titles.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 2, CORPORATION_TITLES_URL);
+	}
+
+	public Response getTitles(ApiAuth auth) throws IOException, SAXException {
+		return getResponse(auth);
 	}
 
 	@Override
@@ -40,15 +44,6 @@ public class Parser extends AbstractApiParser<Response> {
 		digester.addSetNext("eveapi/result/rowset/row/rowset", "addRoleBag");
 		digester.addSetNext("eveapi/result/rowset/row", "addTitle");
 		return digester;
-	}
-
-	public Response getTitles(ApiAuth auth) throws IOException, SAXException {
-		String requestUrl = EVE_API_URL;
-		requestUrl += CORP_PATH;
-		requestUrl += CORPORATION_TITLES_URL;
-		requestUrl += auth.getUrlParams();
-		requestUrl += "&version=2";
-		return getResponse(requestUrl, getDigester());
 	}
 
 	public static Parser getInstance() {

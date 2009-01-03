@@ -12,7 +12,7 @@ public class Parser extends AbstractApiParser<Response> {
 	protected static final String ASSETLIST_URL = "/AssetList.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 2, ASSETLIST_URL);
 	}
 
 	@Override
@@ -25,15 +25,9 @@ public class Parser extends AbstractApiParser<Response> {
 	}
 
 	public Response getAssets(ApiAuth auth, boolean corporation) throws IOException, SAXException {
-		String requestUrl = EVE_API_URL;
 		if (corporation)
-			requestUrl += CORP_PATH;
-		else
-			requestUrl += CHAR_PATH;
-		requestUrl += ASSETLIST_URL;
-		requestUrl += auth.getUrlParams();
-		requestUrl += "&version=2";
-		return getResponse(requestUrl, getDigester());
+			return getResponse(auth, Path.CORP);
+		return getResponse(auth, Path.CHARACTER);
 	}
 
 	public static Parser getInstance() {

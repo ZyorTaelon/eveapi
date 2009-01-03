@@ -11,12 +11,11 @@ public class Parser extends AbstractApiParser<Response> {
 	protected static final String ALLIANCE_LIST_URL = "/eve/AllianceList.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 1, ALLIANCE_LIST_URL);
 	}
 
 	public Response getAllianceList() throws IOException, SAXException {
-		String requestUrl = EVE_API_URL + ALLIANCE_LIST_URL;
-		return getResponse(requestUrl, getDigester());
+		return getResponse();
 	}
 
 	@Override

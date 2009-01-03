@@ -9,19 +9,14 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class Parser extends AbstractApiParser<Response> {
-	protected static final String CHARACTER_SHEET_URL = "/CharacterSheet.xml.aspx";
+	protected static final String CHARACTER_SHEET_URL = Path.CHARACTER.getPath() + "/CharacterSheet.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 1, CHARACTER_SHEET_URL);
 	}
 
 	public Response getCharacterSheet(ApiAuth auth) throws IOException, SAXException {
-		String requestUrl = EVE_API_URL;
-		requestUrl += CHAR_PATH;
-		requestUrl += CHARACTER_SHEET_URL;
-		requestUrl += auth.getUrlParams();
-		requestUrl += "&version=1";
-		return getResponse(requestUrl, getDigester());
+		return getResponse(auth);
 	}
 
 	@Override

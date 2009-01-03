@@ -11,10 +11,10 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class Parser extends AbstractApiParser<Response> {
-	protected static final String CORPORATION_SHEET_URL = "/CorporationSheet.xml.aspx";
+	protected static final String CORPORATION_SHEET_URL = Path.CORP.getPath() + "/CorporationSheet.xml.aspx";
 
 	public Parser() {
-		super(Response.class);
+		super(Response.class, 2, CORPORATION_SHEET_URL);
 	}
 
 	@Override
@@ -64,12 +64,7 @@ public class Parser extends AbstractApiParser<Response> {
 	}
 
 	public Response getCorporationSheet(ApiAuth auth) throws IOException, SAXException {
-		String requestUrl = EVE_API_URL;
-		requestUrl += CORP_PATH;
-		requestUrl += CORPORATION_SHEET_URL;
-		requestUrl += auth.getUrlParams();
-		requestUrl += "&version=2";
-		return getResponse(requestUrl, getDigester());
+		return getResponse(auth);
 	}
 
 	public static Parser getInstance() {

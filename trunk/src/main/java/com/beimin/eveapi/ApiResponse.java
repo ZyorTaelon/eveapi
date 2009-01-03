@@ -1,8 +1,9 @@
 package com.beimin.eveapi;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ApiResponse {
+public class ApiResponse implements Serializable {
 	private int version;
 	private Date currentTime;
 	private Date cachedUntil;
