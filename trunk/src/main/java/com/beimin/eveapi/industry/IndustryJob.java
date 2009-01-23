@@ -37,7 +37,7 @@ public class IndustryJob {
 	private String beginProductionTime;
 	private String endProductionTime;
 	private String pauseProductionTime;
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HHS:mm:ss");
+	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public long getJobID() {
 		return jobID;
