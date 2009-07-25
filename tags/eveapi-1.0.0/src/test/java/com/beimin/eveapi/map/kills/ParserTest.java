@@ -1,0 +1,37 @@
+package com.beimin.eveapi.map.kills;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Map;
+
+import org.junit.Test;
+import org.xml.sax.SAXException;
+
+public class ParserTest {
+
+	@Test
+	public void testMapKillsParser() throws IOException, SAXException {
+		Parser parser = Parser.getInstance();
+		InputStream input = ParserTest.class.getResourceAsStream("/Kills.xml");
+		Response response = parser.getResponse(input);
+		assertNotNull(response);
+		Map<Integer, Integer> shipKills = response.getShipKills();
+		assertNotNull(shipKills);
+		assertEquals(2603, shipKills.size());
+		Map<Integer, Integer> factionKills = response.getFactionKills();
+		assertNotNull(factionKills);
+		assertEquals(2603, factionKills.size());
+		Map<Integer, Integer> podKills = response.getPodKills();
+		assertNotNull(podKills);
+		assertEquals(2603, podKills.size());
+		assertEquals(3, shipKills.get(30001001));
+		assertEquals(203, factionKills.get(30001001));
+		assertEquals(5, podKills.get(30001001));
+		assertEquals(0, shipKills.get(30001039));
+		assertEquals(40, factionKills.get(30001039));
+		assertEquals(0, podKills.get(30001039));
+	}
+}
