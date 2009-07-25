@@ -20,10 +20,8 @@
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-core/2.5/spring-core-2.5.jar" sourcepath="M2_REPO/org/springframework/spring-core/2.5/spring-core-2.5-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-web/2.5/spring-web-2.5.jar" sourcepath="M2_REPO/org/springframework/spring-web/2.5/spring-web-2.5-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/javax/persistence/persistence-api/1.0/persistence-api-1.0.jar" sourcepath="M2_REPO/javax/persistence/persistence-api/1.0/persistence-api-1.0-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/betterbe/amber/amber-core/3.6.2/amber-core-3.6.2.jar" sourcepath="M2_REPO/com/betterbe/amber/amber-core/3.6.2/amber-core-3.6.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-webmvc/2.5/spring-webmvc-2.5.jar" sourcepath="M2_REPO/org/springframework/spring-webmvc/2.5/spring-webmvc-2.5-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-beans/2.5/spring-beans-2.5.jar" sourcepath="M2_REPO/org/springframework/spring-beans/2.5/spring-beans-2.5-sources.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/betterbe/testutils/testutils/2.0.2/testutils-2.0.2.jar" sourcepath="M2_REPO/com/betterbe/testutils/testutils/2.0.2/testutils-2.0.2-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/logkit/logkit/1.0.1/logkit-1.0.1.jar" sourcepath="M2_REPO/logkit/logkit/1.0.1/logkit-1.0.1-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/javax/transaction/jta/1.0.1B/jta-1.0.1B.jar"/>
   <classpathentry kind="var" path="M2_REPO/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar" sourcepath="M2_REPO/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0-sources.jar"/>
