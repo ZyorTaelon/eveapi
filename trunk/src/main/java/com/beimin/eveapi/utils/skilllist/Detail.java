@@ -1,5 +1,5 @@
 package com.beimin.eveapi.utils.skilllist;
 
-interface Detail {
+public interface Detail {
 	// placeholder
 }

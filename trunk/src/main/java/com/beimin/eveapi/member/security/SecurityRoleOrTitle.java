@@ -1,6 +1,6 @@
 package com.beimin.eveapi.member.security;
 
-class SecurityRoleOrTitle {
+public class SecurityRoleOrTitle {
 	private int roleID;
 	private String roleName;
 	private int titleID;

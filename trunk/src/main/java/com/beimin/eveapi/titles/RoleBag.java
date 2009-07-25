@@ -3,7 +3,7 @@ package com.beimin.eveapi.titles;
 import java.util.ArrayList;
 import java.util.Collection;
 
-class RoleBag {
+public class RoleBag {
 	private String name;
 	private final Collection<ApiRole> roles = new ArrayList<ApiRole>();
 

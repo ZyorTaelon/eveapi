@@ -5,7 +5,7 @@ import java.util.Collection;
 
 import com.beimin.eveapi.member.security.ApiSecurityRole;
 
-class SecurityRoleBag {
+public class SecurityRoleBag {
 	private String name;
 	private final Collection<ApiSecurityRole> securityRoles = new ArrayList<ApiSecurityRole>();
 

@@ -1,6 +1,6 @@
 package com.beimin.eveapi.starbase;
 
-class FuelLevel {
+public class FuelLevel {
 	private int typeID;
 	private int quantity;
 
