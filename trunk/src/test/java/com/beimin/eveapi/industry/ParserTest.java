@@ -21,11 +21,11 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/IndustryJobs.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Collection<IndustryJob> industryJobs = response.getIndustryJobs();
+		Collection<ApiIndustryJob> industryJobs = response.getIndustryJobs();
 		assertNotNull(industryJobs);
 		assertEquals(22, industryJobs.size());
 		boolean found = false;
-		for (IndustryJob industryJob : industryJobs) {
+		for (ApiIndustryJob industryJob : industryJobs) {
 			if (industryJob.getJobID() == 444) {
 				found = true;
 				assertEquals(60010783, industryJob.getContainerID());

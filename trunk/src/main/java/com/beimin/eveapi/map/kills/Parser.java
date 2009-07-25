@@ -17,7 +17,7 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", SystemKills.class);
+		digester.addObjectCreate("eveapi/result/rowset/row", ApiSystemKills.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row", "addSystemKills");
 		return digester;

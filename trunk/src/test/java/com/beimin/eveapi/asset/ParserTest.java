@@ -13,6 +13,7 @@ import java.util.Date;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+
 public class ParserTest {
 	@Test
 	public void testAssetsParser() throws IOException, SAXException {
@@ -27,22 +28,22 @@ public class ParserTest {
 		calendar.set(2008, 1, 4, 3, 43, 55);
 		Date cachedUntil = calendar.getTime();
 		assertEquals(cachedUntil.toString(), response.getCachedUntil().toString());
-		Collection<Asset> assets = response.getAssets();
+		Collection<ApiAsset> assets = response.getAssets();
 		assertNotNull("Should have returned assets.", assets);
 		assertEquals("There should have been 4 assets.", 4, assets.size());
 		boolean assetFound = false;
 		boolean subAssetFound = false;
-		for (Asset asset : assets) {
+		for (ApiAsset asset : assets) {
 			int itemID = asset.getItemID();
 			if (100173218 == itemID) {
 				assetFound = true;
-				Collection<Asset> subAssets = asset.getAssets();
+				Collection<ApiAsset> subAssets = asset.getAssets();
 				assertNotNull("Should have returned assets.", subAssets);
 				assertEquals("There should have been 5 sub assets.", 5, subAssets.size());
-				for (Asset subAsset : subAssets) {
+				for (ApiAsset subAsset : subAssets) {
 					if (105204820 == subAsset.getItemID()) {
 						subAssetFound = true;
-						Collection<Asset> subSubAssets = subAsset.getAssets();
+						Collection<ApiAsset> subSubAssets = subAsset.getAssets();
 						assertNotNull("Should have returned assets.", subSubAssets);
 						assertEquals("There should have been 1 sub assets.", 1, subSubAssets.size());
 					}

@@ -21,10 +21,10 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/WalletJournal.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Collection<JournalEntry> entries = response.getJournalEntries();
+		Collection<ApiJournalEntry> entries = response.getJournalEntries();
 		assertEquals(5, entries.size());
 		boolean found = false;
-		for (JournalEntry journalEntry : entries) {
+		for (ApiJournalEntry journalEntry : entries) {
 			if (journalEntry.getRefID() == 59149) {
 				found = true;
 				Calendar calendar = Calendar.getInstance();

@@ -23,10 +23,10 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", SkillGroup.class);
+		digester.addObjectCreate("eveapi/result/rowset/row", ApiSkillGroup.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row", "addSkillGroup");
-		digester.addObjectCreate("eveapi/result/rowset/row/rowset/row", Skill.class);
+		digester.addObjectCreate("eveapi/result/rowset/row/rowset/row", ApiSkill.class);
 		digester.addSetProperties("eveapi/result/rowset/row/rowset/row");
 		digester.addBeanPropertySetter("eveapi/result/rowset/row/rowset/row/description");
 		digester.addBeanPropertySetter("eveapi/result/rowset/row/rowset/row/rank");
@@ -34,9 +34,9 @@ public class Parser extends AbstractApiParser<Response> {
 			@Override
 			public Object createObject(Attributes attributes) throws Exception {
 				if (attributes.getValue("typeID") != null)
-					return new Requirement();
+					return new ApiRequirement();
 				if (attributes.getValue("bonusType") != null)
-					return new Bonus();
+					return new ApiBonus();
 				return null;
 			}
 		});

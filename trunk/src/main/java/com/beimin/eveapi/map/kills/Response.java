@@ -10,7 +10,7 @@ public class Response extends ApiResponse {
 	private final Map<Integer, Integer> factionKills = new HashMap<Integer, Integer>();
 	private final Map<Integer, Integer> podKills = new HashMap<Integer, Integer>();
 
-	public void addSystemKills(SystemKills systemKills) {
+	public void addSystemKills(ApiSystemKills systemKills) {
 		shipKills.put(systemKills.getSolarSystemID(), systemKills.getShipKills());
 		factionKills.put(systemKills.getSolarSystemID(), systemKills.getFactionKills());
 		podKills.put(systemKills.getSolarSystemID(), systemKills.getPodKills());

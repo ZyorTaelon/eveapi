@@ -9,13 +9,13 @@ import java.util.Map.Entry;
 import com.beimin.eveapi.ApiResponse;
 
 public class ListResponse extends ApiResponse {
-	private final Collection<Starbase> starbases = new HashSet<Starbase>();
+	private final Collection<ApiStarbase> starbases = new HashSet<ApiStarbase>();
 
-	public void addStarbase(Starbase starbase) {
+	public void addStarbase(ApiStarbase starbase) {
 		starbases.add(starbase);
 	}
 
-	public Collection<Starbase> getStarbases() {
+	public Collection<ApiStarbase> getStarbases() {
 		return starbases;
 	}
 
@@ -33,7 +33,7 @@ public class ListResponse extends ApiResponse {
 		String result = "Current time: " + getCurrentTime() + "\nCached Untill: " + getCachedUntil() + "\nWe currently have " + starbases.size()
 				+ " starbases in space\n\n";
 		Map<Integer, Integer> typeIds = new HashMap<Integer, Integer>();
-		for (Starbase starbase : starbases) {
+		for (ApiStarbase starbase : starbases) {
 			addTypeId(starbase.getTypeID(), typeIds);
 			result += starbase + "\n";
 		}

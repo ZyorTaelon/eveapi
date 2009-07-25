@@ -15,10 +15,10 @@ public class DetailResponse extends ApiResponse {
 	private boolean claimSovereignty;
 
 	// combat settings
-	private CombatSetting onStandingDrop;
-	private CombatSetting onStatusDrop;
-	private CombatSetting onAggression;
-	private CombatSetting onCorporationWar;
+	private ApiCombatSetting onStandingDrop;
+	private ApiCombatSetting onStatusDrop;
+	private ApiCombatSetting onAggression;
+	private ApiCombatSetting onCorporationWar;
 	Map<Integer, Integer> fuelMap = new HashMap<Integer, Integer>();
 
 	public int getUsageFlags() {
@@ -61,35 +61,35 @@ public class DetailResponse extends ApiResponse {
 		this.claimSovereignty = claimSovereignty;
 	}
 
-	public CombatSetting getOnStandingDrop() {
+	public ApiCombatSetting getOnStandingDrop() {
 		return onStandingDrop;
 	}
 
-	public void setOnStandingDrop(CombatSetting onStandingDrop) {
+	public void setOnStandingDrop(ApiCombatSetting onStandingDrop) {
 		this.onStandingDrop = onStandingDrop;
 	}
 
-	public CombatSetting getOnStatusDrop() {
+	public ApiCombatSetting getOnStatusDrop() {
 		return onStatusDrop;
 	}
 
-	public void setOnStatusDrop(CombatSetting onStatusDrop) {
+	public void setOnStatusDrop(ApiCombatSetting onStatusDrop) {
 		this.onStatusDrop = onStatusDrop;
 	}
 
-	public CombatSetting getOnAggression() {
+	public ApiCombatSetting getOnAggression() {
 		return onAggression;
 	}
 
-	public void setOnAggression(CombatSetting onAggression) {
+	public void setOnAggression(ApiCombatSetting onAggression) {
 		this.onAggression = onAggression;
 	}
 
-	public CombatSetting getOnCorporationWar() {
+	public ApiCombatSetting getOnCorporationWar() {
 		return onCorporationWar;
 	}
 
-	public void setOnCorporationWar(CombatSetting onCorporationWar) {
+	public void setOnCorporationWar(ApiCombatSetting onCorporationWar) {
 		this.onCorporationWar = onCorporationWar;
 	}
 

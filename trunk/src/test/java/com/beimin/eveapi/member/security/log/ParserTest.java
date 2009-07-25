@@ -11,7 +11,7 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.member.security.SecurityRole;
+import com.beimin.eveapi.member.security.ApiSecurityRole;
 
 public class ParserTest {
 
@@ -21,24 +21,24 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/MemberSecurityLog.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Set<RoleHistory> roleHistories = response.getRoleHistories();
+		Set<ApiRoleHistory> roleHistories = response.getRoleHistories();
 		assertNotNull(roleHistories);
 		assertEquals("Incorrect amount of role histories found.", 4, roleHistories.size());
 		boolean found = false;
-		for (RoleHistory roleHistory : roleHistories) {
+		for (ApiRoleHistory roleHistory : roleHistories) {
 			if (roleHistory.getCharacterName().equals("Tester1")) {
 				found = true;
-				Set<SecurityRole> oldRoles = roleHistory.getOldRoles();
+				Set<ApiSecurityRole> oldRoles = roleHistory.getOldRoles();
 				assertEquals("Incorrect amount of old roles found.", 8, oldRoles.size());
 				boolean oldRoleFound = false;
-				for (SecurityRole securityRole : oldRoles) {
+				for (ApiSecurityRole securityRole : oldRoles) {
 					if (securityRole.getRoleID() == 4194304) {
 						oldRoleFound = true;
 						assertEquals("Wrong old role name.", "roleHangarCanQuery3", securityRole.getRoleName());
 					}
 				}
 				assertTrue("Test old role not found. ", oldRoleFound);
-				Set<SecurityRole> newRoles = roleHistory.getNewRoles();
+				Set<ApiSecurityRole> newRoles = roleHistory.getNewRoles();
 				assertEquals("Incorrect amount of old roles found.", 0, newRoles.size());
 			}
 		}

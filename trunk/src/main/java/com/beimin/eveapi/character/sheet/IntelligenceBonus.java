@@ -1,6 +1,6 @@
 package com.beimin.eveapi.character.sheet;
 
-public class IntelligenceBonus extends AttributeEnhancer {
+public class IntelligenceBonus extends ApiAttributeEnhancer {
 
 	@Override
 	String getAttribute() {

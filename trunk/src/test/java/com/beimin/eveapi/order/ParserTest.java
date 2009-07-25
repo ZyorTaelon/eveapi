@@ -21,10 +21,10 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/MarketOrders.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Collection<MarketOrder> orders = response.getMarketOrders();
+		Collection<ApiMarketOrder> orders = response.getMarketOrders();
 		assertEquals(9, orders.size());
 		boolean found = false;
-		for (MarketOrder order : orders) {
+		for (ApiMarketOrder order : orders) {
 			if (order.getOrderID() == 5630641) {
 				found = true;
 				assertEquals(150208955, order.getCharID());

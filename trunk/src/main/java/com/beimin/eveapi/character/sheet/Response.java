@@ -14,13 +14,13 @@ public class Response extends ApiResponse {
 	private String corporationName;
 	private long corporationID;
 	private double balance;
-	private final Set<AttributeEnhancer> attributeEnhancers = new HashSet<AttributeEnhancer>();
+	private final Set<ApiAttributeEnhancer> attributeEnhancers = new HashSet<ApiAttributeEnhancer>();
 	private int intelligence;
 	private int memory;
 	private int charisma;
 	private int perception;
 	private int willpower;
-	private final Set<Skill> skills = new HashSet<Skill>();
+	private final Set<ApiSkill> skills = new HashSet<ApiSkill>();
 
 	public long getCharacterID() {
 		return characterID;
@@ -86,11 +86,11 @@ public class Response extends ApiResponse {
 		this.balance = balance;
 	}
 
-	public void addAttributeEnhancer(AttributeEnhancer attributeEnhancer) {
+	public void addAttributeEnhancer(ApiAttributeEnhancer attributeEnhancer) {
 		attributeEnhancers.add(attributeEnhancer);
 	}
 
-	public Set<AttributeEnhancer> getAttributeEnhancers() {
+	public Set<ApiAttributeEnhancer> getAttributeEnhancers() {
 		return attributeEnhancers;
 	}
 
@@ -134,11 +134,11 @@ public class Response extends ApiResponse {
 		this.willpower = willpower;
 	}
 
-	public void addSkill(Skill skill) {
+	public void addSkill(ApiSkill skill) {
 		skills.add(skill);
 	}
 
-	public Set<Skill> getSkills() {
+	public Set<ApiSkill> getSkills() {
 		return skills;
 	}
 }

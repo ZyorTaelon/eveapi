@@ -18,19 +18,19 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/MemberSecurity.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Set<SecurityMember> members = response.getMembers();
+		Set<ApiSecurityMember> members = response.getMembers();
 		assertEquals("Incorrect amount of members found.", 1, members.size());
-		SecurityMember member = members.iterator().next();
+		ApiSecurityMember member = members.iterator().next();
 		assertEquals("Wrong member characterID", 123456789, member.getCharacterID());
 		assertEquals("Wrong member name", "Tester", member.getName());
-		Set<SecurityRole> roles = member.getRoles();
+		Set<ApiSecurityRole> roles = member.getRoles();
 		assertNotNull(roles);
 		assertEquals("Incorrect amount of roles found.", 1, roles.size());
-		Set<SecurityTitle> titles = member.getTitles();
+		Set<ApiSecurityTitle> titles = member.getTitles();
 		assertNotNull(titles);
 		assertEquals("Incorrect amount of titles found.", 3, titles.size());
 		int temp = 0;
-		for (SecurityTitle securityTitle : titles) {
+		for (ApiSecurityTitle securityTitle : titles) {
 			int titleID = securityTitle.getTitleID();
 			String titleName = securityTitle.getTitleName();
 			switch (titleID) {

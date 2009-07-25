@@ -21,10 +21,10 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/AllianceList.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Collection<Alliance> alliances = response.getAlliances();
+		Collection<ApiAlliance> alliances = response.getAlliances();
 		assertEquals(605, alliances.size());
 		boolean found = false;
-		for (Alliance alliance : alliances) {
+		for (ApiAlliance alliance : alliances) {
 			if (alliance.getAllianceID() == 824518128) {
 				found = true;
 				assertEquals("GoonSwarm", alliance.getName());
@@ -41,10 +41,10 @@ public class ParserTest {
 				calendar.set(Calendar.MILLISECOND, 0);
 				assertEquals(calendar.getTime(), alliance.getStartDateTime());
 
-				Collection<MemberCorporation> memberCorporations = alliance.getMemberCorporations();
+				Collection<ApiMemberCorporation> memberCorporations = alliance.getMemberCorporations();
 				assertEquals(69, memberCorporations.size());
 				boolean corpFound = false;
-				for (MemberCorporation memberCorporation : memberCorporations) {
+				for (ApiMemberCorporation memberCorporation : memberCorporations) {
 					if (memberCorporation.getCorporationID() == 109788662) {
 						corpFound = true;
 						calendar.set(Calendar.YEAR, 2007);

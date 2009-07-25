@@ -9,7 +9,7 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
-import com.beimin.eveapi.member.security.SecurityRole;
+import com.beimin.eveapi.member.security.ApiSecurityRole;
 
 public class Parser extends AbstractApiParser<Response> {
 	protected static final String MEMBER_SECURITY_LOG_URL = "/corp/MemberSecurityLog.xml.aspx";
@@ -25,7 +25,7 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", RoleHistory.class);
+		digester.addObjectCreate("eveapi/result/rowset/row", ApiRoleHistory.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addFactoryCreate("eveapi/result/rowset/row/rowset", new AbstractObjectCreationFactory() {
 			@Override
@@ -39,7 +39,7 @@ public class Parser extends AbstractApiParser<Response> {
 				return null;
 			}
 		});
-		digester.addObjectCreate("eveapi/result/rowset/row/rowset/row", SecurityRole.class);
+		digester.addObjectCreate("eveapi/result/rowset/row/rowset/row", ApiSecurityRole.class);
 		digester.addSetProperties("eveapi/result/rowset/row/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row/rowset/row", "addSecurityRole");
 		digester.addSetNext("eveapi/result/rowset/row/rowset", "addSecurityRoleBag");

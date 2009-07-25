@@ -6,13 +6,13 @@ import java.util.Set;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	Set<Member> members = new HashSet<Member>();
+	Set<ApiMember> members = new HashSet<ApiMember>();
 
-	public void addMember(Member member) {
+	public void addMember(ApiMember member) {
 		members.add(member);
 	}
 
-	public Set<Member> getMembers() {
+	public Set<ApiMember> getMembers() {
 		return members;
 	}
 }

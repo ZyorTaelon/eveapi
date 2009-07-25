@@ -35,7 +35,7 @@ public class Parser extends AbstractApiParser<Response> {
 		digester.addBeanPropertySetter("eveapi/result/memberCount");
 		digester.addBeanPropertySetter("eveapi/result/memberLimit");
 		digester.addBeanPropertySetter("eveapi/result/shares");
-		digester.addObjectCreate("eveapi/result/logo", CorpLogo.class);
+		digester.addObjectCreate("eveapi/result/logo", ApiCorpLogo.class);
 		digester.addBeanPropertySetter("eveapi/result/logo/graphicsID");
 		digester.addBeanPropertySetter("eveapi/result/logo/shape1");
 		digester.addBeanPropertySetter("eveapi/result/logo/shape2");

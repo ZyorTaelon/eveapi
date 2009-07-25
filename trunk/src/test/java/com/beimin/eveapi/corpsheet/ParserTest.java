@@ -35,7 +35,7 @@ public class ParserTest {
 		assertEquals(3, response.getMemberCount());
 		assertEquals(6300, response.getMemberLimit());
 		assertEquals(1, response.getShares());
-		CorpLogo logo = response.getLogo();
+		ApiCorpLogo logo = response.getLogo();
 		assertNotNull(logo);
 		assertEquals(0, logo.getGraphicID());
 		assertEquals(448, logo.getShape1());

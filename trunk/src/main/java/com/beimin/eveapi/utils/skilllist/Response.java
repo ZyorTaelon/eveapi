@@ -6,20 +6,20 @@ import java.util.HashSet;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final Collection<SkillGroup> skillGroups = new HashSet<SkillGroup>();
+	private final Collection<ApiSkillGroup> skillGroups = new HashSet<ApiSkillGroup>();
 
-	public void addSkillGroup(SkillGroup skillGroup) {
+	public void addSkillGroup(ApiSkillGroup skillGroup) {
 		skillGroups.add(skillGroup);
 	}
 
-	public Collection<SkillGroup> getSkillGroups() {
+	public Collection<ApiSkillGroup> getSkillGroups() {
 		return skillGroups;
 	}
 
 	@Override
 	public String toString() {
 		String result = "";
-		for (SkillGroup skillGroup : skillGroups) {
+		for (ApiSkillGroup skillGroup : skillGroups) {
 			result += skillGroup + "\n";
 		}
 		return result;

@@ -6,13 +6,13 @@ import java.util.Map;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final Map<Integer, SystemSovereignty> systemSovereignties = new HashMap<Integer, SystemSovereignty>();
+	private final Map<Integer, ApiSystemSovereignty> systemSovereignties = new HashMap<Integer, ApiSystemSovereignty>();
 
-	public void addSystemSovereignty(SystemSovereignty systemSovereignty) {
+	public void addSystemSovereignty(ApiSystemSovereignty systemSovereignty) {
 		systemSovereignties.put(systemSovereignty.getSolarSystemID(), systemSovereignty);
 	}
 
-	public Map<Integer, SystemSovereignty> getSystemSovereignties() {
+	public Map<Integer, ApiSystemSovereignty> getSystemSovereignties() {
 		return systemSovereignties;
 	}
 }

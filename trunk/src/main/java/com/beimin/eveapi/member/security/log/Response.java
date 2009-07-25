@@ -6,13 +6,13 @@ import java.util.Set;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final Set<RoleHistory> roleHistories = new HashSet<RoleHistory>();
+	private final Set<ApiRoleHistory> roleHistories = new HashSet<ApiRoleHistory>();
 
-	public void addRoleHistory(RoleHistory roleHistory) {
+	public void addRoleHistory(ApiRoleHistory roleHistory) {
 		roleHistories.add(roleHistory);
 	}
 
-	public Set<RoleHistory> getRoleHistories() {
+	public Set<ApiRoleHistory> getRoleHistories() {
 		return roleHistories;
 	}
 }

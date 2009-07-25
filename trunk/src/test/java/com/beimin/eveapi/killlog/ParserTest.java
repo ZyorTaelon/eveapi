@@ -22,10 +22,10 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/KillLog.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Collection<Kill> entries = response.getKills();
+		Collection<ApiKill> entries = response.getKills();
 		assertEquals(18, entries.size());
 		boolean found = false;
-		for (Kill kill : entries) {
+		for (ApiKill kill : entries) {
 			if (kill.getKillID() == 4879947) {
 				found = true;
 				Calendar calendar = Calendar.getInstance();
@@ -37,7 +37,7 @@ public class ParserTest {
 				calendar.set(Calendar.SECOND, 0);
 				calendar.set(Calendar.MILLISECOND, 0);
 				assertEquals(calendar.getTime(), kill.getKillDateTime());
-				Victim victim = kill.getVictim();
+				ApiKillVictim victim = kill.getVictim();
 				assertNotNull(victim);
 
 				assertEquals(victim.getCharacterID(), 411109620);
@@ -51,10 +51,10 @@ public class ParserTest {
 				assertEquals(victim.getDamageTaken(), 1415);
 				assertEquals(victim.getShipTypeID(), 587);
 
-				List<Attacker> attackers = kill.getAttackers();
+				List<ApiKillAttacker> attackers = kill.getAttackers();
 				assertNotNull(attackers);
 				assertEquals(1, attackers.size());
-				Attacker attacker = attackers.iterator().next();
+				ApiKillAttacker attacker = attackers.iterator().next();
 				assertEquals(attacker.getCharacterID(), 1134301496);
 				assertEquals(attacker.getCharacterName(), "Blackfiredaemon");
 				assertEquals(attacker.getCorporationID(), 1885670269);
@@ -69,7 +69,7 @@ public class ParserTest {
 				assertEquals(attacker.getWeaponTypeID(), 2897);
 				assertEquals(attacker.getShipTypeID(), 11999);
 
-				List<Item> items = kill.getItems();
+				List<ApiKillItem> items = kill.getItems();
 				assertNotNull(items);
 				assertEquals(12, items.size());
 			}

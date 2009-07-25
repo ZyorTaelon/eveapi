@@ -6,13 +6,13 @@ import java.util.Collection;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final Collection<EveCharacter> eveCharacters = new ArrayList<EveCharacter>();
+	private final Collection<ApiCharacter> eveCharacters = new ArrayList<ApiCharacter>();
 
-	public void addEveCharacter(EveCharacter eveCharacter) {
+	public void addEveCharacter(ApiCharacter eveCharacter) {
 		eveCharacters.add(eveCharacter);
 	}
 
-	public Collection<EveCharacter> getEveCharacters() {
+	public Collection<ApiCharacter> getEveCharacters() {
 		return eveCharacters;
 	}
 }

@@ -3,7 +3,7 @@ package com.beimin.eveapi.member.security;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class SecurityRoleOrTitleBag {
+class SecurityRoleOrTitleBag {
 	private String name;
 	private final Collection<SecurityRoleOrTitle> securityRoles = new ArrayList<SecurityRoleOrTitle>();
 

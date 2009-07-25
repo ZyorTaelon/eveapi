@@ -24,7 +24,7 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/member", SecurityMember.class);
+		digester.addObjectCreate("eveapi/result/member", ApiSecurityMember.class);
 		digester.addSetProperties("eveapi/result/member");
 		digester.addFactoryCreate("eveapi/result/member/rowset", new AbstractObjectCreationFactory() {
 			@Override

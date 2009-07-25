@@ -6,13 +6,13 @@ import java.util.Collection;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final Collection<WalletTransaction> walletTransactions = new ArrayList<WalletTransaction>();
+	private final Collection<ApiWalletTransaction> walletTransactions = new ArrayList<ApiWalletTransaction>();
 
-	public void addWalletTransaction(WalletTransaction walletTransaction) {
+	public void addWalletTransaction(ApiWalletTransaction walletTransaction) {
 		walletTransactions.add(walletTransaction);
 	}
 
-	public Collection<WalletTransaction> getWalletTransactions() {
+	public Collection<ApiWalletTransaction> getWalletTransactions() {
 		return walletTransactions;
 	}
 }

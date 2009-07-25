@@ -14,7 +14,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.starbase.ListParserTest;
 import com.beimin.eveapi.utils.skilllist.Parser;
 import com.beimin.eveapi.utils.skilllist.Response;
-import com.beimin.eveapi.utils.skilllist.SkillGroup;
+import com.beimin.eveapi.utils.skilllist.ApiSkillGroup;
 
 public class ParserTest {
 	@Test
@@ -27,8 +27,8 @@ public class ParserTest {
 		assertNotNull("Response should contain the current time.", response.getCurrentTime());
 		assertNotNull("Response should contain the time untill this response data is cached.", response.getCachedUntil());
 		assertTrue("Should return some skill groups.", response.getSkillGroups().size() > 0);
-		Collection<SkillGroup> skillGroups = response.getSkillGroups();
-		for (SkillGroup skillGroup : skillGroups) {
+		Collection<ApiSkillGroup> skillGroups = response.getSkillGroups();
+		for (ApiSkillGroup skillGroup : skillGroups) {
 			assertNotNull("Group should have a name.", skillGroup.getGroupName());
 			assertTrue("Group should have an Id.", skillGroup.getGroupID() > 0);
 			assertTrue("Group " + skillGroup.getGroupName() + " should have some skills.", skillGroup.getSkills().size() > 0);

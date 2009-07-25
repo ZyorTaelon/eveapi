@@ -1,6 +1,6 @@
 package com.beimin.eveapi.member.security;
 
-public class SecurityRoleOrTitle {
+class SecurityRoleOrTitle {
 	private int roleID;
 	private String roleName;
 	private int titleID;
@@ -38,11 +38,11 @@ public class SecurityRoleOrTitle {
 		this.titleName = titleName.trim();
 	}
 
-	public SecurityRole getRole() {
-		return new SecurityRole(roleID, roleName);
+	public ApiSecurityRole getRole() {
+		return new ApiSecurityRole(roleID, roleName);
 	}
 
-	public SecurityTitle getTitle() {
-		return new SecurityTitle(titleID, titleName);
+	public ApiSecurityTitle getTitle() {
+		return new ApiSecurityTitle(titleID, titleName);
 	}
 }

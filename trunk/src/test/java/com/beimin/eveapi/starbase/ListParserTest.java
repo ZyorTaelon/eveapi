@@ -28,10 +28,10 @@ public class ListParserTest {
 		calendar.set(2008, 1, 3, 7, 5, 55);
 		Date cachedUntil = calendar.getTime();
 		assertEquals(cachedUntil.toString(), response.getCachedUntil().toString());
-		Collection<Starbase> starbases = response.getStarbases();
+		Collection<ApiStarbase> starbases = response.getStarbases();
 		assertNotNull("Should have returned a collection with starbases.", starbases);
 		assertEquals("Should have returned 2 starbases.", 2, starbases.size());
-		Starbase starbase1 = starbases.iterator().next();
+		ApiStarbase starbase1 = starbases.iterator().next();
 		assertNotNull("Should have returned a starbase.", starbase1);
 		assertTrue("Starbase id should be set.", starbase1.getItemID() > 0);
 		assertTrue("Starbase type id should be set.", starbase1.getTypeID() > 0);

@@ -18,11 +18,11 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/Sovereignty.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Map<Integer, SystemSovereignty> systemSovereignties = response.getSystemSovereignties();
+		Map<Integer, ApiSystemSovereignty> systemSovereignties = response.getSystemSovereignties();
 		assertNotNull(systemSovereignties);
 		assertEquals(5382, systemSovereignties.size());
 
-		SystemSovereignty systemSovereignty = systemSovereignties.get(30000796);
+		ApiSystemSovereignty systemSovereignty = systemSovereignties.get(30000796);
 		assertNotNull(systemSovereignty);
 		assertEquals(1028876240, systemSovereignty.getAllianceID());
 		assertEquals(0, systemSovereignty.getConstellationSovereignty());

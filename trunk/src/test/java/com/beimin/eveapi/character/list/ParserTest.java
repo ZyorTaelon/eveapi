@@ -20,9 +20,9 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/Characters.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Collection<EveCharacter> eveCharacters = response.getEveCharacters();
+		Collection<ApiCharacter> eveCharacters = response.getEveCharacters();
 		assertEquals(2, eveCharacters.size());
-		for (EveCharacter eveCharacter : eveCharacters) {
+		for (ApiCharacter eveCharacter : eveCharacters) {
 			long characterID = eveCharacter.getCharacterID();
 			if (characterID == 46135126) {
 				assertEquals("Test Character 1", eveCharacter.getName());

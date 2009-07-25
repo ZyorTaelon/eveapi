@@ -22,7 +22,7 @@ public class ListParser extends AbstractApiParser<ListResponse> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", Starbase.class);
+		digester.addObjectCreate("eveapi/result/rowset/row", ApiStarbase.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row", "addStarbase");
 		return digester;

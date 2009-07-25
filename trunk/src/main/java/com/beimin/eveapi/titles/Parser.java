@@ -24,7 +24,7 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", Title.class);
+		digester.addObjectCreate("eveapi/result/rowset/row", ApiTitle.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addFactoryCreate("eveapi/result/rowset/row/rowset", new AbstractObjectCreationFactory() {
 			@Override
@@ -38,7 +38,7 @@ public class Parser extends AbstractApiParser<Response> {
 				return null;
 			}
 		});
-		digester.addObjectCreate("eveapi/result/rowset/row/rowset/row", Role.class);
+		digester.addObjectCreate("eveapi/result/rowset/row/rowset/row", ApiRole.class);
 		digester.addSetProperties("eveapi/result/rowset/row/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row/rowset/row", "addRole");
 		digester.addSetNext("eveapi/result/rowset/row/rowset", "addRoleBag");

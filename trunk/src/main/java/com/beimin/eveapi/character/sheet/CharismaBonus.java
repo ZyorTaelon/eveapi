@@ -1,6 +1,6 @@
 package com.beimin.eveapi.character.sheet;
 
-public class CharismaBonus extends AttributeEnhancer {
+public class CharismaBonus extends ApiAttributeEnhancer {
 
 	@Override
 	String getAttribute() {

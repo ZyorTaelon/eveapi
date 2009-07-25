@@ -32,19 +32,19 @@ public class DetailParser extends AbstractApiParser<DetailResponse> {
 		digester.addBeanPropertySetter("eveapi/result/generalSettings/allowAllianceMembers");
 		digester.addBeanPropertySetter("eveapi/result/generalSettings/claimSovereignty");
 
-		digester.addObjectCreate("eveapi/result/combatSettings/onStandingDrop", CombatSetting.class);
+		digester.addObjectCreate("eveapi/result/combatSettings/onStandingDrop", ApiCombatSetting.class);
 		digester.addSetProperties("eveapi/result/combatSettings/onStandingDrop");
 		digester.addSetNext("eveapi/result/combatSettings/onStandingDrop", "setOnStandingDrop");
 
-		digester.addObjectCreate("eveapi/result/combatSettings/onStatusDrop", CombatSetting.class);
+		digester.addObjectCreate("eveapi/result/combatSettings/onStatusDrop", ApiCombatSetting.class);
 		digester.addSetProperties("eveapi/result/combatSettings/onStatusDrop");
 		digester.addSetNext("eveapi/result/combatSettings/onStatusDrop", "setOnStatusDrop");
 
-		digester.addObjectCreate("eveapi/result/combatSettings/onAggression", CombatSetting.class);
+		digester.addObjectCreate("eveapi/result/combatSettings/onAggression", ApiCombatSetting.class);
 		digester.addSetProperties("eveapi/result/combatSettings/onAggression");
 		digester.addSetNext("eveapi/result/combatSettings/onAggression", "setOnAggression");
 
-		digester.addObjectCreate("eveapi/result/combatSettings/onCorporationWar", CombatSetting.class);
+		digester.addObjectCreate("eveapi/result/combatSettings/onCorporationWar", ApiCombatSetting.class);
 		digester.addSetProperties("eveapi/result/combatSettings/onCorporationWar");
 		digester.addSetNext("eveapi/result/combatSettings/onCorporationWar", "setOnCorporationWar");
 

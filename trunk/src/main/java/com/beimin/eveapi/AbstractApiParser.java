@@ -112,11 +112,28 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		return getResponse(requestUrl);
 	}
 
+	protected E getResponse(Map<String, String> extraParams) throws IOException, SAXException {
+		String requestUrl = EVE_API_URL + pageURL;
+		boolean first = true;
+		for (Entry<String, String> entry : extraParams.entrySet()) {
+			if(first)
+				requestUrl += "?";
+			else
+				requestUrl += "&";
+			requestUrl +=  entry.getKey() + "=" + entry.getValue();
+			first=false;
+		}
+		return getResponse(requestUrl);
+	}
+
+	protected E getResponse(String paramName, String paramValue) throws IOException, SAXException {
+		return getResponse(EVE_API_URL + pageURL+ "?" + paramName + "=" + paramValue);
+	}
+
 	protected E getResponse() throws IOException, SAXException {
 		return getResponse(EVE_API_URL + pageURL);
 	}
 
-	@SuppressWarnings("unchecked")
 	private E getResponse(String requestUrl) throws IOException, SAXException {
 		return getResponse(requestUrl, getDigester());
 	}
@@ -124,7 +141,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	@SuppressWarnings("unchecked")
 	private E getResponse(String requestUrl, Digester digester) throws IOException, SAXException {
 		if (logger.isDebugEnabled())
-			logger.debug("" + requestUrl);
+			logger.debug(requestUrl);
 		if (isCachingEnabled() && isCached(requestUrl))
 			return cache.get(requestUrl);
 		E response = (E) digester.parse(requestUrl);

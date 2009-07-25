@@ -3,11 +3,11 @@ package com.beimin.eveapi.member.security.log;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.beimin.eveapi.member.security.SecurityRole;
+import com.beimin.eveapi.member.security.ApiSecurityRole;
 
-public class SecurityRoleBag {
+class SecurityRoleBag {
 	private String name;
-	private final Collection<SecurityRole> securityRoles = new ArrayList<SecurityRole>();
+	private final Collection<ApiSecurityRole> securityRoles = new ArrayList<ApiSecurityRole>();
 
 	public String getName() {
 		return name;
@@ -17,11 +17,11 @@ public class SecurityRoleBag {
 		this.name = name;
 	}
 
-	public void addSecurityRole(SecurityRole securityRole) {
+	public void addSecurityRole(ApiSecurityRole securityRole) {
 		securityRoles.add(securityRole);
 	}
 
-	public Collection<SecurityRole> getSecurityRoles() {
+	public Collection<ApiSecurityRole> getSecurityRoles() {
 		return securityRoles;
 	}
 }

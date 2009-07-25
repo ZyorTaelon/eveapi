@@ -1,6 +1,6 @@
 package com.beimin.eveapi.character.sheet;
 
-public class PerceptionBonus extends AttributeEnhancer {
+public class PerceptionBonus extends ApiAttributeEnhancer {
 
 	@Override
 	String getAttribute() {

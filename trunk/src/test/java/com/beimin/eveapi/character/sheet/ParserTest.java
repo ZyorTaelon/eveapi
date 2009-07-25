@@ -28,9 +28,9 @@ public class ParserTest {
 		assertEquals(150337746L, response.getCorporationID());
 		assertEquals(190210393.87, response.getBalance());
 
-		Set<AttributeEnhancer> attributeEnhancers = response.getAttributeEnhancers();
+		Set<ApiAttributeEnhancer> attributeEnhancers = response.getAttributeEnhancers();
 		assertEquals(2, attributeEnhancers.size());
-		for (AttributeEnhancer enhancer : attributeEnhancers) {
+		for (ApiAttributeEnhancer enhancer : attributeEnhancers) {
 			if (enhancer.getAttribute().equals("intelligence")) {
 				assertEquals("Snake Delta", enhancer.getAugmentatorName());
 				assertEquals(3, enhancer.getAugmentatorValue());
@@ -48,9 +48,9 @@ public class ParserTest {
 		assertEquals(12, response.getPerception());
 		assertEquals(10, response.getWillpower());
 
-		Set<Skill> skills = response.getSkills();
+		Set<ApiSkill> skills = response.getSkills();
 		assertEquals(5, skills.size());
-		for (Skill skill : skills) {
+		for (ApiSkill skill : skills) {
 			if (skill.getTypeID() == 3431) {
 				assertEquals(3, skill.getLevel());
 				assertEquals(8000, skill.getSkillpoints());

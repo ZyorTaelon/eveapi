@@ -12,6 +12,7 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+
 public class ParserTest {
 
 	@Test
@@ -20,11 +21,11 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/AccountBalance.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Collection<AccountBalance> accountBalances = response.getAccountBalances();
+		Collection<ApiAccountBalance> accountBalances = response.getAccountBalances();
 		assertNotNull(accountBalances);
 		assertEquals(7, accountBalances.size());
 		boolean found = false;
-		for (AccountBalance accountBalance : accountBalances) {
+		for (ApiAccountBalance accountBalance : accountBalances) {
 			if (accountBalance.getAccountID() == 5689) {
 				found = true;
 				assertEquals(1003, accountBalance.getAccountKey());

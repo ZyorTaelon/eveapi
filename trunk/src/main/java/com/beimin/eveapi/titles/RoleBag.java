@@ -3,9 +3,9 @@ package com.beimin.eveapi.titles;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class RoleBag {
+class RoleBag {
 	private String name;
-	private final Collection<Role> roles = new ArrayList<Role>();
+	private final Collection<ApiRole> roles = new ArrayList<ApiRole>();
 
 	public String getName() {
 		return name;
@@ -15,11 +15,11 @@ public class RoleBag {
 		this.name = name;
 	}
 
-	public void addRole(Role role) {
+	public void addRole(ApiRole role) {
 		roles.add(role);
 	}
 
-	public Collection<Role> getRoles() {
+	public Collection<ApiRole> getRoles() {
 		return roles;
 	}
 }

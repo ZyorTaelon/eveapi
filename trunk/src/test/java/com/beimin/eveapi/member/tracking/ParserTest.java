@@ -18,8 +18,8 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/MemberTracking.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Set<Member> members = response.getMembers();
-		for (Member member : members) {
+		Set<ApiMember> members = response.getMembers();
+		for (ApiMember member : members) {
 			System.out.println(member.getName());
 		}
 		assertTrue("Todo: ", true);

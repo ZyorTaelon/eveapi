@@ -6,13 +6,13 @@ import java.util.List;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final List<ContainerLog> containerLogs = new ArrayList<ContainerLog>();
+	private final List<ApiContainerLog> containerLogs = new ArrayList<ApiContainerLog>();
 
-	public void addContainerLog(ContainerLog containerLog) {
+	public void addContainerLog(ApiContainerLog containerLog) {
 		containerLogs.add(containerLog);
 	}
 
-	public List<ContainerLog> getContainerLogs() {
+	public List<ApiContainerLog> getContainerLogs() {
 		return containerLogs;
 	}
 }

@@ -6,13 +6,13 @@ import java.util.Collection;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final Collection<MarketOrder> marketOrders = new ArrayList<MarketOrder>();
+	private final Collection<ApiMarketOrder> marketOrders = new ArrayList<ApiMarketOrder>();
 
-	public void addMarketOrder(MarketOrder order) {
+	public void addMarketOrder(ApiMarketOrder order) {
 		marketOrders.add(order);
 	}
 
-	public Collection<MarketOrder> getMarketOrders() {
+	public Collection<ApiMarketOrder> getMarketOrders() {
 		return marketOrders;
 	}
 }

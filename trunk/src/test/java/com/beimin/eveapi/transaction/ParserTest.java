@@ -21,10 +21,10 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/WalletTransactions.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Collection<WalletTransaction> walletTransactions = response.getWalletTransactions();
+		Collection<ApiWalletTransaction> walletTransactions = response.getWalletTransactions();
 		assertEquals(4, walletTransactions.size());
 		boolean found = false;
-		for (WalletTransaction walletTransaction : walletTransactions) {
+		for (ApiWalletTransaction walletTransaction : walletTransactions) {
 			if (walletTransaction.getTransactionID() == 619) {
 				found = true;
 				Calendar calendar = Calendar.getInstance();

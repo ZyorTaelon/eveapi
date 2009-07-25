@@ -24,7 +24,7 @@ public class Response extends ApiResponse {
 	private int shares;
 	private final Map<Integer, String> divisions = new HashMap<Integer, String>();
 	private final Map<Integer, String> walletDivisions = new HashMap<Integer, String>();
-	private CorpLogo logo;
+	private ApiCorpLogo logo;
 
 	public long getCorporationID() {
 		return corporationID;
@@ -146,11 +146,11 @@ public class Response extends ApiResponse {
 		this.shares = shares;
 	}
 
-	public CorpLogo getLogo() {
+	public ApiCorpLogo getLogo() {
 		return logo;
 	}
 
-	public void setLogo(CorpLogo logo) {
+	public void setLogo(ApiCorpLogo logo) {
 		this.logo = logo;
 	}
 

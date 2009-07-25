@@ -19,7 +19,7 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/ContainerLog.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		List<ContainerLog> containerLogs = response.getContainerLogs();
+		List<ApiContainerLog> containerLogs = response.getContainerLogs();
 		assertNotNull(containerLogs);
 		assertEquals(23, containerLogs.size());
 	}

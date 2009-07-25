@@ -6,13 +6,13 @@ import java.util.Collection;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final Collection<JournalEntry> journalEntries = new ArrayList<JournalEntry>();
+	private final Collection<ApiJournalEntry> journalEntries = new ArrayList<ApiJournalEntry>();
 
-	public void addJournalEntry(JournalEntry entry) {
+	public void addJournalEntry(ApiJournalEntry entry) {
 		journalEntries.add(entry);
 	}
 
-	public Collection<JournalEntry> getJournalEntries() {
+	public Collection<ApiJournalEntry> getJournalEntries() {
 		return journalEntries;
 	}
 }

@@ -61,7 +61,7 @@ public class Parser extends AbstractApiParser<Response> {
 		digester.addBeanPropertySetter("eveapi/result/attributes/perception");
 		digester.addBeanPropertySetter("eveapi/result/attributes/willpower");
 
-		digester.addObjectCreate("eveapi/result/rowset/row", Skill.class);
+		digester.addObjectCreate("eveapi/result/rowset/row", ApiSkill.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row", "addSkill");
 		return digester;

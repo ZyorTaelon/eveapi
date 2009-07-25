@@ -19,10 +19,10 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/RefTypes.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Collection<RefType> refTypes = response.getRefTypes();
+		Collection<ApiRefType> refTypes = response.getRefTypes();
 		assertEquals(87, refTypes.size());
 		boolean found = false;
-		for (RefType refType : refTypes) {
+		for (ApiRefType refType : refTypes) {
 			if (refType.getRefTypeID() == 10) {
 				found = true;
 				assertEquals("Player Donation", refType.getRefTypeName());

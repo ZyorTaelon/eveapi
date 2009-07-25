@@ -6,13 +6,13 @@ import java.util.Collection;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final Collection<IndustryJob> industryJobs = new ArrayList<IndustryJob>();
+	private final Collection<ApiIndustryJob> industryJobs = new ArrayList<ApiIndustryJob>();
 
-	public void addIndustryJob(IndustryJob industryJob) {
+	public void addIndustryJob(ApiIndustryJob industryJob) {
 		industryJobs.add(industryJob);
 	}
 
-	public Collection<IndustryJob> getIndustryJobs() {
+	public Collection<ApiIndustryJob> getIndustryJobs() {
 		return industryJobs;
 	}
 }

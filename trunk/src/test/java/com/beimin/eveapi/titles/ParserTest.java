@@ -20,16 +20,16 @@ public class ParserTest {
 		InputStream input = ParserTest.class.getResourceAsStream("/Titles.xml");
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
-		Collection<Title> titles = response.getTitles();
+		Collection<ApiTitle> titles = response.getTitles();
 		assertEquals(2, titles.size());
 		boolean found = false;
-		for (Title title : titles) {
+		for (ApiTitle title : titles) {
 			if (title.getTitleID() == 1) {
 				found = true;
 				assertEquals("Member", title.getTitleName());
-				Collection<Role> rolesAtHQ = title.getRolesAtHQ();
+				Collection<ApiRole> rolesAtHQ = title.getRolesAtHQ();
 				assertEquals(1, rolesAtHQ.size());
-				Role role = rolesAtHQ.iterator().next();
+				ApiRole role = rolesAtHQ.iterator().next();
 				assertNotNull(role);
 				assertEquals(8192, role.getRoleID());
 				assertEquals("roleHangarCanTake1", role.getRoleName());

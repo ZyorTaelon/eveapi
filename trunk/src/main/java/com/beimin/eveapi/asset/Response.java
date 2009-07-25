@@ -6,13 +6,13 @@ import java.util.HashSet;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final Collection<Asset> assets = new HashSet<Asset>();
+	private final Collection<ApiAsset> assets = new HashSet<ApiAsset>();
 
-	public void addAsset(Asset asset) {
+	public void addAsset(ApiAsset asset) {
 		assets.add(asset);
 	}
 
-	public Collection<Asset> getAssets() {
+	public Collection<ApiAsset> getAssets() {
 		return assets;
 	}
 }

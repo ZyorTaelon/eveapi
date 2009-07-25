@@ -6,13 +6,13 @@ import java.util.Collection;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final Collection<Alliance> alliances = new ArrayList<Alliance>();
+	private final Collection<ApiAlliance> alliances = new ArrayList<ApiAlliance>();
 
-	public void addAlliance(Alliance alliance) {
+	public void addAlliance(ApiAlliance alliance) {
 		alliances.add(alliance);
 	}
 
-	public Collection<Alliance> getAlliances() {
+	public Collection<ApiAlliance> getAlliances() {
 		return alliances;
 	}
 }

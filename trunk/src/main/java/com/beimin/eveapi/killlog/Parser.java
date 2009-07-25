@@ -26,9 +26,9 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", Kill.class);
+		digester.addObjectCreate("eveapi/result/rowset/row", ApiKill.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addObjectCreate("eveapi/result/rowset/row/victim", Victim.class);
+		digester.addObjectCreate("eveapi/result/rowset/row/victim", ApiKillVictim.class);
 		digester.addSetProperties("eveapi/result/rowset/row/victim");
 		digester.addSetNext("eveapi/result/rowset/row/victim", "setVictim");
 
@@ -36,9 +36,9 @@ public class Parser extends AbstractApiParser<Response> {
 			@Override
 			public Object createObject(Attributes attributes) throws Exception {
 				if (attributes.getValue("characterID") != null)
-					return new Attacker();
+					return new ApiKillAttacker();
 				if (attributes.getValue("typeID") != null)
-					return new Item();
+					return new ApiKillItem();
 				return null;
 			}
 		});

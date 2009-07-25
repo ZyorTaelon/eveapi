@@ -18,7 +18,7 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("*/rowset/row", Asset.class);
+		digester.addObjectCreate("*/rowset/row", ApiAsset.class);
 		digester.addSetProperties("*/rowset/row");
 		digester.addSetNext("*/rowset/row", "addAsset");
 		return digester;
