@@ -3,7 +3,7 @@ package com.beimin.eveapi.corpsheet;
 import java.util.ArrayList;
 import java.util.Collection;
 
-class DivisionList {
+public class DivisionList {
 	private String name;
 	private final Collection<Division> divisions = new ArrayList<Division>();
 

@@ -1,6 +1,6 @@
 package com.beimin.eveapi.corpsheet;
 
-class Division {
+public class Division {
 	private int accountKey;
 	private String description;
 
