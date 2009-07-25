@@ -11,4 +11,4 @@ config:
 site:
 		mvn -Plocal site-deploy
 release:
-		mvn --batch-mode clean install release:clean release:prepare
+		mvn -Plocal install; mvn -Plocal release:prepare; svn up -r head; mvn -Plocal install; mvn -Plocal release:prepare -Dresume; mvn release:clean;

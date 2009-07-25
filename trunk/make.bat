@@ -6,6 +6,7 @@ if "%1"=="clean" goto :clean
 if "%1"=="config" goto :config
 if "%1"=="dependencies" goto :dependencies
 if "%1"=="site" goto :site
+if "%1"=="release" goto :release
 echo no goal specified doing fast
 :fast
     call mvn -Dmaven.test.skip=true install
@@ -31,4 +32,12 @@ echo no goal specified doing fast
 :site
 		call mvn site
 		goto :done
+:release
+	call mvn -Plocal install
+	call mvn -Plocal release:prepare
+	call svn up -r head
+	call mvn -Plocal install
+	call mvn -Plocal release:prepare -Dresume
+	call mvn release:clean
+	goto :done
 :done
