@@ -8,6 +8,9 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.Proxy;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -38,7 +41,19 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	private final String filename = "cacheFile.ser";
 
 	protected Logger logger = Logger.getLogger(getClass());
-	protected static final String EVE_API_URL = "http://api.eve-online.com";
+
+  /*
+   * these two are static because there is no particular reason
+   * why they should be instance-based; If you are using an
+   * http proxy for one, then the chances are you are using the
+   * http proxy for all.
+   *
+   * The same applies to the eveApiURL; this can be changed
+   * so that you use an api proxy.
+   */
+	protected static String eveApiURL = "http://api.eve-online.com";
+  protected static Proxy httpProxy = null;
+
 	protected static final String CORP_PATH = "/corp";
 	protected static final String CHAR_PATH = "/char";
 	private final Class<E> clazz;
@@ -47,6 +62,30 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	private final String pageURL;
 	private boolean cachingEnabled = false;
 	private boolean serializeCaching = false;
+
+  public static String getEveApiURL() {
+    return eveApiURL;
+  }
+
+  /**
+   * So that users can use an api proxy
+   * @param apiURL
+   */
+  public static void setEveApiURL(String apiURL) {
+    eveApiURL = apiURL;
+  }
+
+  public static Proxy getHttpProxy() {
+    return httpProxy;
+  }
+
+  /**
+   * sets a HTTP Proxy for the API requests to go through.
+   * @param httpProxy
+   */
+  public static void setHttpProxy(Proxy httpProxy) {
+    AbstractApiParser.httpProxy = httpProxy;
+  }
 
 	public AbstractApiParser(Class<E> clazz, int apiVersion, String pageURL) {
 		this.clazz = clazz;
@@ -88,7 +127,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	}
 
 	private String getRequestUrl(ApiAuth auth, Path path, String pageURL) throws UnsupportedEncodingException {
-		String requestUrl = EVE_API_URL;
+		String requestUrl = eveApiURL;
 		requestUrl += path.getPath();
 		requestUrl += pageURL;
 		requestUrl += auth.getUrlParams();
@@ -113,7 +152,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	}
 
 	protected E getResponse(Map<String, String> extraParams) throws IOException, SAXException {
-		String requestUrl = EVE_API_URL + pageURL;
+		String requestUrl = eveApiURL + pageURL;
 		boolean first = true;
 		for (Entry<String, String> entry : extraParams.entrySet()) {
 			if(first)
@@ -127,11 +166,11 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	}
 
 	protected E getResponse(String paramName, String paramValue) throws IOException, SAXException {
-		return getResponse(EVE_API_URL + pageURL+ "?" + paramName + "=" + paramValue);
+		return getResponse(eveApiURL + pageURL+ "?" + paramName + "=" + paramValue);
 	}
 
 	protected E getResponse() throws IOException, SAXException {
-		return getResponse(EVE_API_URL + pageURL);
+		return getResponse(eveApiURL + pageURL);
 	}
 
 	private E getResponse(String requestUrl) throws IOException, SAXException {
@@ -142,9 +181,19 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	private E getResponse(String requestUrl, Digester digester) throws IOException, SAXException {
 		if (logger.isDebugEnabled())
 			logger.debug(requestUrl);
-		if (isCachingEnabled() && isCached(requestUrl))
+		if (isCachingEnabled() && isCached(requestUrl)) {
 			return cache.get(requestUrl);
-		E response = (E) digester.parse(requestUrl);
+    }
+    E response = null;
+    if (getHttpProxy() == null) {
+      // no proxy, we can let the digester handle the dirty bits.
+      response = (E) digester.parse(requestUrl);
+    } else {
+      // use the proxy - we pass the digester an input stream from which it can read the XML.
+      URLConnection urlCon = new URL(requestUrl).openConnection(getHttpProxy());
+      urlCon.setDoInput(true);
+      response = (E) digester.parse(urlCon.getInputStream());
+    }
 		if (isCachingEnabled() && !response.hasError()) {
 			cache.put(requestUrl, response);
 			serializeCache();
