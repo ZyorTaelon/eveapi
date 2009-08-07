@@ -42,6 +42,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 
 	protected Logger logger = Logger.getLogger(getClass());
 
+  protected static final String DEFAULT_EVE_API_URL = "http://api.eve-online.com";
   /*
    * these two are static because there is no particular reason
    * why they should be instance-based; If you are using an
@@ -63,18 +64,43 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	private boolean cachingEnabled = false;
 	private boolean serializeCaching = false;
 
+  /**
+   *
+   * @return the API url that is currently being used.
+   */
   public static String getEveApiURL() {
     return eveApiURL;
   }
 
   /**
-   * So that users can use an api proxy
-   * @param apiURL
+   *
+   * @return the default API URL.
    */
-  public static void setEveApiURL(String apiURL) {
-    eveApiURL = apiURL;
+  public static String getDrfaultApiUrl() {
+    return DEFAULT_EVE_API_URL;
   }
 
+  /**
+   * Sets the base URL that all API requests go to.
+   * This will be useful:
+   * <ul>
+   * <li>If CCP ever deploy an API server for the test server</li>
+   * <li>If you want to use one of the 3rd party API proxies (gatecamper, etc)</li>
+   * </ul>
+   * @param apiURL pass null to reset the eve api URL to the default: "http://api.eve-online.com"
+   */
+  public static void setEveApiURL(String apiURL) {
+    if (apiURL == null) {
+      eveApiURL = DEFAULT_EVE_API_URL;
+    } else {
+      eveApiURL = apiURL;
+    }
+  }
+
+  /**
+   * gets the Proxy that is being used to connect to the API server.
+   * @return
+   */
   public static Proxy getHttpProxy() {
     return httpProxy;
   }
