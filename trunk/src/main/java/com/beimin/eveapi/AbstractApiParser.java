@@ -44,13 +44,12 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 
 	protected static final String DEFAULT_EVE_API_URL = "http://api.eve-online.com";
 	/*
-	 * these two are static because there is no particular reason
-	 * why they should be instance-based; If you are using an
-	 * http proxy for one, then the chances are you are using the
-	 * http proxy for all.
-	 *
-	 * The same applies to the eveApiURL; this can be changed
-	 * so that you use an api proxy.
+	 * these two are static because there is no particular reason why they
+	 * should be instance-based; If you are using an http proxy for one, then
+	 * the chances are you are using the http proxy for all.
+	 * 
+	 * The same applies to the eveApiURL; this can be changed so that you use an
+	 * api proxy.
 	 */
 	protected static String eveApiURL = "http://api.eve-online.com";
 	protected static Proxy httpProxy = null;
@@ -65,7 +64,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	private boolean serializeCaching = false;
 
 	/**
-	 *
+	 * 
 	 * @return the API url that is currently being used.
 	 */
 	public static String getEveApiURL() {
@@ -73,7 +72,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	}
 
 	/**
-	 *
+	 * 
 	 * @return the default API URL.
 	 */
 	public static String getDrfaultApiUrl() {
@@ -81,13 +80,16 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	}
 
 	/**
-	 * Sets the base URL that all API requests go to.
-	 * This will be useful:
+	 * Sets the base URL that all API requests go to. This will be useful:
 	 * <ul>
 	 * <li>If CCP ever deploy an API server for the test server</li>
-	 * <li>If you want to use one of the 3rd party API proxies (gatecamper, etc)</li>
+	 * <li>If you want to use one of the 3rd party API proxies (gatecamper, etc)
+	 * </li>
 	 * </ul>
-	 * @param apiURL pass null to reset the eve api URL to the default: "http://api.eve-online.com"
+	 * 
+	 * @param apiURL
+	 *            pass null to reset the eve api URL to the default:
+	 *            "http://api.eve-online.com"
 	 */
 	public static void setEveApiURL(String apiURL) {
 		if (apiURL == null) {
@@ -99,6 +101,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 
 	/**
 	 * gets the Proxy that is being used to connect to the API server.
+	 * 
 	 * @return
 	 */
 	public static Proxy getHttpProxy() {
@@ -107,6 +110,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 
 	/**
 	 * sets a HTTP Proxy for the API requests to go through.
+	 * 
 	 * @param httpProxy
 	 */
 	public static void setHttpProxy(Proxy httpProxy) {
@@ -148,33 +152,34 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		return false;
 	}
 
-	private String getRequestUrl(ApiAuth auth, String pageURL) throws UnsupportedEncodingException {
-		return getRequestUrl(auth, Path.NONE, pageURL);
-	}
-
-	private String getRequestUrl(ApiAuth auth, Path path, String pageURL) throws UnsupportedEncodingException {
+	private String getRequestUrl(ApiAuth auth, Path path, String pageURL, Map<String, String> extraParams) throws UnsupportedEncodingException {
 		String requestUrl = eveApiURL;
 		requestUrl += path.getPath();
 		requestUrl += pageURL;
 		requestUrl += auth.getUrlParams();
 		requestUrl += "&version=" + apiVersion;
+		if (extraParams != null) {
+			for (Entry<String, String> entry : extraParams.entrySet()) {
+				requestUrl += "&" + entry.getKey() + "=" + entry.getValue();
+			}
+		}
 		return requestUrl;
 	}
 
+	protected E getResponse(ApiAuth auth, Path path, Map<String, String> extraParams) throws IOException, SAXException {
+		return getResponse(getRequestUrl(auth, path, pageURL, extraParams));
+	}
+
 	protected E getResponse(ApiAuth auth, Path path) throws IOException, SAXException {
-		return getResponse(getRequestUrl(auth, path, pageURL));
+		return getResponse(getRequestUrl(auth, path, pageURL, null));
 	}
 
 	protected E getResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(getRequestUrl(auth, pageURL));
+		return getResponse(getRequestUrl(auth, Path.NONE, pageURL, null));
 	}
 
 	protected E getResponse(ApiAuth auth, Map<String, String> extraParams) throws IOException, SAXException {
-		String requestUrl = getRequestUrl(auth, pageURL);
-		for (Entry<String, String> entry : extraParams.entrySet()) {
-			requestUrl += "&" + entry.getKey() + "=" + entry.getValue();
-		}
-		return getResponse(requestUrl);
+		return getResponse(getRequestUrl(auth, Path.NONE, pageURL, extraParams));
 	}
 
 	protected E getResponse(Map<String, String> extraParams) throws IOException, SAXException {
@@ -215,7 +220,8 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 			// no proxy, we can let the digester handle the dirty bits.
 			response = (E) digester.parse(requestUrl);
 		} else {
-			// use the proxy - we pass the digester an input stream from which it can read the XML.
+			// use the proxy - we pass the digester an input stream from which
+			// it can read the XML.
 			URLConnection urlCon = new URL(requestUrl).openConnection(getHttpProxy());
 			urlCon.setDoInput(true);
 			response = (E) digester.parse(urlCon.getInputStream());
