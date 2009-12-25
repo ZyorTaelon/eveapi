@@ -25,29 +25,30 @@ public class ParserTest {
 		assertEquals(4, walletTransactions.size());
 		boolean found = false;
 		for (ApiWalletTransaction walletTransaction : walletTransactions) {
-			if (walletTransaction.getTransactionID() == 619) {
+			if (walletTransaction.getTransactionID() == 705664738) {
 				found = true;
 				Calendar calendar = Calendar.getInstance();
-				calendar.set(Calendar.YEAR, 2007);
-				calendar.set(Calendar.MONTH, 05);
-				calendar.set(Calendar.DAY_OF_MONTH, 13);
-				calendar.set(Calendar.HOUR_OF_DAY, 20);
-				calendar.set(Calendar.MINUTE, 26);
+				calendar.set(Calendar.YEAR, 2008);
+				calendar.set(Calendar.MONTH, 7);
+				calendar.set(Calendar.DAY_OF_MONTH, 4);
+				calendar.set(Calendar.HOUR_OF_DAY, 22);
+				calendar.set(Calendar.MINUTE, 01);
 				calendar.set(Calendar.SECOND, 0);
 				calendar.set(Calendar.MILLISECOND, 0);
 				assertEquals(calendar.getTime(), walletTransaction.getTransactionDate());
 
-				assertEquals(10, walletTransaction.getQuantity());
-				assertEquals("Strontium Clathrates", walletTransaction.getTypeName());
-				assertEquals(16275, walletTransaction.getTypeID());
-				assertEquals(999.00, walletTransaction.getPrice());
-				assertEquals(150208955, walletTransaction.getClientID());
-				assertEquals("Mark Roled", walletTransaction.getClientName());
-				assertEquals(0, walletTransaction.getCharacterID());
-				assertEquals("Mark Roled", walletTransaction.getCharacterName());
-				assertEquals(60001870, walletTransaction.getStationID());
-				assertEquals("Eglennaert I - Moon 11 - Nugoeihuvi Corporation Development Studio", walletTransaction.getStationName());
+				assertEquals(50000, walletTransaction.getQuantity());
+				assertEquals("Oxygen Isotopes", walletTransaction.getTypeName());
+				assertEquals(17887, walletTransaction.getTypeID());
+				assertEquals(250.00, walletTransaction.getPrice());
+				assertEquals(174312871, walletTransaction.getClientID());
+				assertEquals("ACHAR", walletTransaction.getClientName());
+				assertEquals(000000000, walletTransaction.getCharacterID());
+				assertEquals("SELLER", walletTransaction.getCharacterName());
+				assertEquals(60004375, walletTransaction.getStationID());
+				assertEquals("SYSTEM IV - Moon 10 - Corporate Police Force Testing Facilities", walletTransaction.getStationName());
 				assertEquals("buy", walletTransaction.getTransactionType());
+				assertEquals("corporation", walletTransaction.getTransactionFor());
 			}
 		}
 		assertTrue("test order wasn't found.", found);

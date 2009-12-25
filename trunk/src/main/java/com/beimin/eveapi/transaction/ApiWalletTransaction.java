@@ -5,21 +5,21 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ApiWalletTransaction {
-	private String transactionDateTime;// ="2007-06-13 20:26:00"
-	private long transactionID;// ="619"
-	private long quantity;// ="10"
-	private String typeName;// ="Strontium Clathrates"
-	private long typeID;// ="16275"
-	private double price;// ="999.00"
-	private long clientID;// ="150208955"
-	private String clientName;// ="Mark Roled"
-	private long characterID;// ="0"
-	private String characterName;// ="Mark Roled"
-	private long stationID;// ="60001870"
-	private String stationName;// ="Eglennaert I - Moon 11 - Nugoeihuvi
-	// Corporation Development Studio"
-	private String transactionType;// ="buy"
+	private String transactionDateTime;
+	private long transactionID;
+	private long quantity;
+	private String typeName;
+	private long typeID;
+	private double price;
+	private long clientID;
+	private String clientName;
+	private long characterID;
+	private String characterName;
+	private long stationID;
+	private String stationName;
+	private String transactionType;
 	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private String transactionFor;
 
 	public Date getTransactionDate() throws ParseException {
 		return sdf.parse(transactionDateTime);
@@ -127,5 +127,13 @@ public class ApiWalletTransaction {
 
 	public void setTransactionType(String transactionType) {
 		this.transactionType = transactionType;
+	}
+
+	public String getTransactionFor() {
+		return transactionFor;
+	}
+
+	public void setTransactionFor(String transactionFor) {
+		this.transactionFor = transactionFor;
 	}
 }
