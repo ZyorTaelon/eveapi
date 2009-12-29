@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ApiWalletTransaction {
+public class ApiWalletTransaction implements Comparable<ApiWalletTransaction> {
 	private String transactionDateTime;
 	private long transactionID;
 	private long quantity;
@@ -135,5 +135,10 @@ public class ApiWalletTransaction {
 
 	public void setTransactionFor(String transactionFor) {
 		this.transactionFor = transactionFor;
+	}
+
+	@Override
+	public int compareTo(ApiWalletTransaction o) {
+		return Math.round(this.getTransactionID() - o.getTransactionID());
 	}
 }

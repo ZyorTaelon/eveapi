@@ -17,7 +17,7 @@ public class Parser extends AbstractApiParser<Response> {
 		super(Response.class, 2, TRANSACTIONS_URL);
 	}
 
-	public Response getTransactions(ApiAuth auth, boolean corporation, Integer accountKey, Integer beforeTransID) throws IOException, SAXException {
+	public Response getTransactions(ApiAuth auth, boolean corporation, Integer accountKey, Long beforeTransID) throws IOException, SAXException {
 		if (corporation) {
 			Map<String, String> extraParams = new HashMap<String, String>();
 			if (beforeTransID!=null) {

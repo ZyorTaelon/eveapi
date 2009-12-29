@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ApiJournalEntry {
+public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	private String date;
 	private long refID;
 	private long refTypeID;
@@ -171,5 +171,10 @@ public class ApiJournalEntry {
 		refTypes.put(56, meaning);
 		// 56 Manufacturing Job ID 0 See Industry Jobs API.
 		return refTypes;
+	}
+
+	@Override
+	public int compareTo(ApiJournalEntry o) {
+		return Math.round(this.getRefID() - o.getRefID());
 	}
 }
