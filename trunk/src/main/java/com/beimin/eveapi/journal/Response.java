@@ -1,18 +1,18 @@
 package com.beimin.eveapi.journal;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private final Collection<ApiJournalEntry> journalEntries = new ArrayList<ApiJournalEntry>();
+	private final List<ApiJournalEntry> journalEntries = new ArrayList<ApiJournalEntry>();
 
 	public void addJournalEntry(ApiJournalEntry entry) {
 		journalEntries.add(entry);
 	}
 
-	public Collection<ApiJournalEntry> getJournalEntries() {
+	public List<ApiJournalEntry> getJournalEntries() {
 		return journalEntries;
 	}
 }

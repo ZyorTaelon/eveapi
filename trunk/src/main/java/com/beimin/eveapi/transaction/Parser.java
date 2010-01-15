@@ -17,21 +17,24 @@ public class Parser extends AbstractApiParser<Response> {
 		super(Response.class, 2, TRANSACTIONS_URL);
 	}
 
-	public Response getTransactions(ApiAuth auth, boolean corporation, Integer accountKey, Long beforeTransID) throws IOException, SAXException {
-		if (corporation) {
+	public Response getTransactions(ApiAuth auth, Long beforeTransID) throws IOException, SAXException {
+		Map<String, String> extraParams = new HashMap<String, String>();
+		if (beforeTransID!=null) {
+			extraParams.put("beforeTransID", beforeTransID.toString());
+		}
+		if(extraParams.size() > 0) {
+			return getResponse(auth, Path.CHARACTER, extraParams);	
+		}
+		return getResponse(auth, Path.CHARACTER);
+	}
+
+	public Response getTransactions(ApiAuth auth, int accountKey, Long beforeTransID) throws IOException, SAXException {
 			Map<String, String> extraParams = new HashMap<String, String>();
+			extraParams.put("accountKey", Integer.toString(accountKey));
 			if (beforeTransID!=null) {
 				extraParams.put("beforeTransID", beforeTransID.toString());
 			}
-			if (accountKey!=null) {
-				extraParams.put("accountKey", accountKey.toString());
-			}
-			if(extraParams.size() > 0) {
-				return getResponse(auth, Path.CORP, extraParams);	
-			}
-			return getResponse(auth, Path.CORP);
-		}
-		return getResponse(auth, Path.CHARACTER);
+			return getResponse(auth, Path.CORP, extraParams);	
 	}
 
 	@Override

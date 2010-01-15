@@ -17,21 +17,24 @@ public class Parser extends AbstractApiParser<Response> {
 		super(Response.class, 2, JOURNAL_URL);
 	}
 
-	public Response getJournal(ApiAuth auth, boolean corporation, Integer accountKey, Long beforeRefID) throws IOException, SAXException {
-		if (corporation){
-			Map<String, String> extraParams = new HashMap<String, String>();
-			if (beforeRefID!=null) {
-				extraParams.put("beforeRefID", beforeRefID.toString());
-			}
-			if (accountKey!=null) {
-				extraParams.put("accountKey", accountKey.toString());
-			}
-			if(extraParams.size() > 0) {
-				return getResponse(auth, Path.CORP, extraParams);	
-			}
-			return getResponse(auth, Path.CORP);
+	public Response getJournal(ApiAuth auth, Long beforeRefID) throws IOException, SAXException {
+		Map<String, String> extraParams = new HashMap<String, String>();
+		if (beforeRefID!=null) {
+			extraParams.put("beforeRefID", beforeRefID.toString());
+		}
+		if(extraParams.size() > 0) {
+			return getResponse(auth, Path.CORP, extraParams);	
 		}
 		return getResponse(auth, Path.CHARACTER);
+	}
+
+	public Response getJournal(ApiAuth auth, int accountKey, Long beforeRefID) throws IOException, SAXException {
+		Map<String, String> extraParams = new HashMap<String, String>();
+		extraParams.put("accountKey", Integer.toString(accountKey));
+		if (beforeRefID!=null) {
+			extraParams.put("beforeRefID", beforeRefID.toString());
+		}
+		return getResponse(auth, Path.CORP, extraParams);	
 	}
 
 	@Override
