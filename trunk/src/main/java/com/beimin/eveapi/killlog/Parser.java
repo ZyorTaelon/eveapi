@@ -11,7 +11,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class Parser extends AbstractApiParser<Response> {
-	protected static final String KILL_LIST = "/KillList.xml.aspx";
+	protected static final String KILL_LIST = "/KillLog.xml.aspx";
 
 	public Parser() {
 		super(Response.class, 1, KILL_LIST);
