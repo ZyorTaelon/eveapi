@@ -5,7 +5,6 @@ public class ApiSystemSovereignty {
 	private int solarSystemID;
 	private int allianceID;
 	private int constellationSovereignty;
-	private int sovereigntyLevel;
 	private int factionID;
 	private String solarSystemName;
 
@@ -31,14 +30,6 @@ public class ApiSystemSovereignty {
 
 	public void setConstellationSovereignty(int constellationSovereignty) {
 		this.constellationSovereignty = constellationSovereignty;
-	}
-
-	public int getSovereigntyLevel() {
-		return sovereigntyLevel;
-	}
-
-	public void setSovereigntyLevel(int sovereigntyLevel) {
-		this.sovereigntyLevel = sovereigntyLevel;
 	}
 
 	public int getFactionID() {

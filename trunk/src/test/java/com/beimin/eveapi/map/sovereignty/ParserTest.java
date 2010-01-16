@@ -26,7 +26,6 @@ public class ParserTest {
 		assertNotNull(systemSovereignty);
 		assertEquals(1028876240, systemSovereignty.getAllianceID());
 		assertEquals(0, systemSovereignty.getConstellationSovereignty());
-		assertEquals(2, systemSovereignty.getSovereigntyLevel());
 		assertEquals(0, systemSovereignty.getFactionID());
 		assertEquals("EUU-4N", systemSovereignty.getSolarSystemName());
 
@@ -34,7 +33,6 @@ public class ParserTest {
 		assertNotNull(systemSovereignty);
 		assertEquals(0, systemSovereignty.getAllianceID());
 		assertEquals(0, systemSovereignty.getConstellationSovereignty());
-		assertEquals(0, systemSovereignty.getSovereigntyLevel());
 		assertEquals(500007, systemSovereignty.getFactionID());
 		assertEquals("Hasateem", systemSovereignty.getSolarSystemName());
 	}
