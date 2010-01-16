@@ -20,5 +20,5 @@ public abstract class ApiAttributeEnhancer {
 		this.augmentatorValue = augmentatorValue;
 	}
 
-	abstract String getAttribute();
+	abstract public String getAttribute();
 }
