@@ -1,14 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<eveapi version="1">
-    <currentTime>2007-06-21 11:01:10</currentTime>
+<eveapi version="2">
+    <currentTime>2008-08-17 06:43:00</currentTime>
     <result>
-        <trainingEndTime>6/21/2007 9:27:50 PM</trainingEndTime>
-        <trainingStartTime>6/21/2007 11:00:38 AM</trainingStartTime>
-        <trainingTypeID>3347</trainingTypeID>
-        <trainingStartSP>4000</trainingStartSP>
-        <trainingDestinationSP>22628</trainingDestinationSP>
-        <trainingToLevel>2</trainingToLevel>
+        <currentTQTime offset="0">2008-08-17 06:43:00</currentTQTime>
+        <trainingEndTime>2008-08-17 15:29:44</trainingEndTime>
+        <trainingStartTime>2008-08-15 04:01:16</trainingStartTime>
+        <trainingTypeID>3305</trainingTypeID>
+        <trainingStartSP>24000</trainingStartSP>
+        <trainingDestinationSP>135765</trainingDestinationSP>
+        <trainingToLevel>4</trainingToLevel>
         <skillInTraining>1</skillInTraining>
     </result>
-    <cachedUntil>2007-06-21 11:01:20</cachedUntil>
+    <cachedUntil>2008-08-17 06:58:00</cachedUntil>
 </eveapi>

@@ -7,37 +7,56 @@ import java.util.Date;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
+	private String currentTQTime;
+	private Date currentTQDate;
 	private String trainingEndTime;
+	private Date trainingEndDate;
 	private String trainingStartTime;
+	private Date trainingStartDate;
 	private int trainingTypeID;
 	private int trainingStartSP;
 	private int trainingDestinationSP;
 	private int trainingToLevel;
 	private boolean skillInTraining;
-	private final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy h:mm:ss a");
+	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+	public String getCurrentTQTime() {
+		return currentTQTime;
+	}
+
+	public void setCurrentTQTime(String currentTQTime) throws ParseException {
+		this.currentTQTime = currentTQTime;
+		this.currentTQDate = sdf.parse(currentTQTime);;
+	}
+
+	public Date getCurrentTQDate() {
+		return currentTQDate;
+	}
 
 	public String getTrainingEndTime() throws ParseException {
 		return trainingEndTime;
 	}
 
-	public Date getTrainingEndDate() throws ParseException {
-		return sdf.parse(trainingEndTime);
+	public void setTrainingEndTime(String trainingEndTime) throws ParseException {
+		this.trainingEndTime = trainingEndTime;
+		this.trainingEndDate = sdf.parse(trainingEndTime);
 	}
 
-	public void setTrainingEndTime(String trainingEndTime) {
-		this.trainingEndTime = trainingEndTime;
+	public Date getTrainingEndDate() {
+		return trainingEndDate;
 	}
 
 	public String getTrainingStartTime() throws ParseException {
 		return trainingStartTime;
 	}
 
-	public Date getTrainingStartDate() throws ParseException {
-		return sdf.parse(trainingStartTime);
+	public void setTrainingStartTime(String trainingStartTime) throws ParseException {
+		this.trainingStartTime = trainingStartTime;
+		this.trainingStartDate = sdf.parse(trainingStartTime);
 	}
 
-	public void setTrainingStartTime(String trainingStartTime) {
-		this.trainingStartTime = trainingStartTime;
+	public Date getTrainingStartDate() {
+		return trainingStartDate;
 	}
 
 	public int getTrainingTypeID() {

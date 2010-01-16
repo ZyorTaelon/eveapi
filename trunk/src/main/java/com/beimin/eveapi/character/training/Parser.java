@@ -12,7 +12,7 @@ public class Parser extends AbstractApiParser<Response> {
 	protected static final String CHARACTER_SHEET_URL = Path.CHARACTER.getPath() + "/SkillInTraining.xml.aspx";
 
 	public Parser() {
-		super(Response.class, 1, CHARACTER_SHEET_URL);
+		super(Response.class, 2, CHARACTER_SHEET_URL);
 	}
 
 	public Response getSkillInTraining(ApiAuth auth) throws IOException, SAXException {
@@ -22,6 +22,7 @@ public class Parser extends AbstractApiParser<Response> {
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
+		digester.addBeanPropertySetter("eveapi/result/currentTQTime");
 		digester.addBeanPropertySetter("eveapi/result/trainingEndTime");
 		digester.addBeanPropertySetter("eveapi/result/trainingStartTime");
 		digester.addBeanPropertySetter("eveapi/result/trainingTypeID");

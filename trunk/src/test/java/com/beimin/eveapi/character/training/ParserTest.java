@@ -21,16 +21,19 @@ public class ParserTest {
 		Response response = parser.getResponse(input);
 		assertNotNull(response);
 		Calendar calendar = Calendar.getInstance();
-		calendar.set(2007, 5, 21, 21, 27, 50);
+		calendar.set(2008, 7, 17, 6, 43, 00); // 2008-08-17 06:43:00
+		Date currentTQDate = calendar.getTime();
+		assertEquals(currentTQDate.toString(), response.getCurrentTQDate().toString());
+		calendar.set(2008, 7, 17, 15, 29, 44); // 2008-08-17 15:29:44
 		Date endDate = calendar.getTime();
 		assertEquals(endDate.toString(), response.getTrainingEndDate().toString());
-		calendar.set(2007, 5, 21, 11, 00, 38);
+		calendar.set(2008, 7, 15, 4, 1, 16); // 2008-08-15 04:01:16
 		Date startDate = calendar.getTime();
 		assertEquals(startDate.toString(), response.getTrainingStartDate().toString());
-		assertEquals(3347, response.getTrainingTypeID());
-		assertEquals(4000, response.getTrainingStartSP());
-		assertEquals(22628, response.getTrainingDestinationSP());
-		assertEquals(2, response.getTrainingToLevel());
+		assertEquals(3305, response.getTrainingTypeID());
+		assertEquals(24000, response.getTrainingStartSP());
+		assertEquals(135765, response.getTrainingDestinationSP());
+		assertEquals(4, response.getTrainingToLevel());
 		assertEquals(true, response.isSkillInTraining());
 	}
 }
