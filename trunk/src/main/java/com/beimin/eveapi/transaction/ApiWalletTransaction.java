@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class ApiWalletTransaction implements Comparable<ApiWalletTransaction> {
 	private String transactionDateTime;
+	private Date transactionDate;
 	private long transactionID;
 	private long quantity;
 	private String typeName;
@@ -18,18 +19,19 @@ public class ApiWalletTransaction implements Comparable<ApiWalletTransaction> {
 	private long stationID;
 	private String stationName;
 	private String transactionType;
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private String transactionFor;
+	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-	public Date getTransactionDate() throws ParseException {
-		return sdf.parse(transactionDateTime);
+	public Date getTransactionDate() {
+		return transactionDate;
 	}
 
 	public String getTransactionDateTime() {
 		return transactionDateTime;
 	}
 
-	public void setTransactionDateTime(String transactionDateTime) {
+	public void setTransactionDateTime(String transactionDateTime) throws ParseException {
+		this.transactionDate = sdf.parse(transactionDateTime);
 		this.transactionDateTime = transactionDateTime;
 	}
 

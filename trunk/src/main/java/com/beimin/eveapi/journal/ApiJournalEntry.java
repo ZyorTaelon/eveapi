@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	private String date;
+	private Date dateTime;
 	private long refID;
 	private long refTypeID;
 	private String ownerName1;
@@ -21,15 +22,16 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	private String reason;
 	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-	public Date getDateTime() throws ParseException {
-		return sdf.parse(date);
+	public Date getDateTime() {
+		return dateTime;
 	}
 
 	public String getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(String date) throws ParseException {
+		this.dateTime = sdf.parse(date);
 		this.date = date;
 	}
 
