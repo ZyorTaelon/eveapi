@@ -3,10 +3,10 @@ package com.beimin.eveapi;
 
 public class ApiAuthorization extends ApiAuth {
 	private final int userID;
-	private final int characterID;
+	private final long characterID;
 	private final String apiKey;
 
-	public ApiAuthorization(int userID, int characterID, String apiKey) {
+	public ApiAuthorization(int userID, long characterID, String apiKey) {
 		this.userID = userID;
 		this.characterID = characterID;
 		this.apiKey = apiKey;
@@ -18,7 +18,7 @@ public class ApiAuthorization extends ApiAuth {
 	}
 
 	@Override
-	public int getCharacterID() {
+	public long getCharacterID() {
 		return characterID;
 	}
 
@@ -26,5 +26,4 @@ public class ApiAuthorization extends ApiAuth {
 	public String getApiKey() {
 		return apiKey;
 	}
-
 }

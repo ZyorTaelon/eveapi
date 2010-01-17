@@ -7,7 +7,7 @@ import java.util.Map;
 import com.beimin.eveapi.ApiResponse;
 
 public class Response extends ApiResponse {
-	private long corporationID;
+	private Long corporationID;
 	private String corporationName;
 	private String ticker;
 	private long ceoID;
@@ -98,11 +98,11 @@ public class Response extends ApiResponse {
 		this.url = url;
 	}
 
-	public long getAllianceID() {
+	public Long getAllianceID() {
 		return allianceID;
 	}
 
-	public void setAllianceID(long allianceID) {
+	public void setAllianceID(Long allianceID) {
 		this.allianceID = allianceID;
 	}
 

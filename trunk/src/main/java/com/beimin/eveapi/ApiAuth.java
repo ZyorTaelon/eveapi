@@ -7,7 +7,7 @@ public abstract class ApiAuth {
 
 	public abstract int getUserID();
 
-	public abstract int getCharacterID();
+	public abstract long getCharacterID();
 
 	public abstract String getApiKey();
 
