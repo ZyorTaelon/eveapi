@@ -9,6 +9,8 @@ import com.beimin.eveapi.ApiResponse;
 public class Response extends ApiResponse {
 	private Long corporationID;
 	private String corporationName;
+	private long allianceID;
+	private String allianceName;
 	private String ticker;
 	private long ceoID;
 	private String ceoName;
@@ -16,8 +18,6 @@ public class Response extends ApiResponse {
 	private String stationName;
 	private String description;
 	private String url;
-	private long allianceID;
-	private String allianceName;
 	private double taxRate;
 	private int memberCount;
 	private int memberLimit;

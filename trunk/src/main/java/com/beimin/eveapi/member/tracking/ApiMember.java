@@ -3,7 +3,7 @@ package com.beimin.eveapi.member.tracking;
 import java.util.Date;
 
 public class ApiMember {
-	private int characterID;
+	private long characterID;
 	private String name;
 	private Date startDateTime;
 	private int baseID;
@@ -18,11 +18,11 @@ public class ApiMember {
 	private long roles;
 	private long grantableRoles;
 
-	public int getCharacterID() {
+	public long getCharacterID() {
 		return characterID;
 	}
 
-	public void setCharacterID(int characterID) {
+	public void setCharacterID(long characterID) {
 		this.characterID = characterID;
 	}
 
