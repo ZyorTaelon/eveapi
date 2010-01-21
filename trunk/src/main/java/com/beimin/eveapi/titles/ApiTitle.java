@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class ApiTitle {
-	private int titleID; // ="1"
+	private long titleID; // ="1"
 	private String titleName; // ="Member"
 	private final Collection<ApiRole> roles = new ArrayList<ApiRole>();
 	private final Collection<ApiRole> grantableRoles = new ArrayList<ApiRole>();
@@ -15,11 +15,11 @@ public class ApiTitle {
 	private final Collection<ApiRole> rolesAtOther = new ArrayList<ApiRole>();
 	private final Collection<ApiRole> grantableRolesAtOther = new ArrayList<ApiRole>();
 
-	public int getTitleID() {
+	public long getTitleID() {
 		return titleID;
 	}
 
-	public void setTitleID(int titleID) {
+	public void setTitleID(long titleID) {
 		this.titleID = titleID;
 	}
 

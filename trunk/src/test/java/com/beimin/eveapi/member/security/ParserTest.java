@@ -31,23 +31,17 @@ public class ParserTest {
 		assertEquals("Incorrect amount of titles found.", 3, titles.size());
 		int temp = 0;
 		for (ApiSecurityTitle securityTitle : titles) {
-			int titleID = securityTitle.getTitleID();
+			long titleID = securityTitle.getTitleID();
 			String titleName = securityTitle.getTitleName();
-			switch (titleID) {
-			case 1:
+			if(titleID == 1L) {
 				assertEquals("Member", titleName);
 				temp++;
-				break;
-			case 512:
+			} else if(titleID == 512) {
 				assertEquals("Gas Attendant", titleName);
 				temp++;
-				break;
-			case 16384:
+			} else if(titleID == 16384) {
 				assertEquals("General Manager", titleName);
 				temp++;
-				break;
-			default:
-				break;
 			}
 		}
 		assertEquals("Not all titles had the right titleNames.", 3, temp);

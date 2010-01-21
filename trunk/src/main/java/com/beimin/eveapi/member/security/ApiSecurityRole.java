@@ -1,23 +1,23 @@
 package com.beimin.eveapi.member.security;
 
 public class ApiSecurityRole {
-	private int roleID;
+	private long roleID;
 	private String roleName;
 
 	public ApiSecurityRole() {
 		// default constructor needed for Digester
 	}
 
-	public ApiSecurityRole(int roleID, String roleName) {
+	public ApiSecurityRole(long roleID, String roleName) {
 		this.roleID = roleID;
 		this.roleName = roleName;
 	}
 
-	public int getRoleID() {
+	public long getRoleID() {
 		return roleID;
 	}
 
-	public void setRoleID(int roleID) {
+	public void setRoleID(long roleID) {
 		this.roleID = roleID;
 	}
 

@@ -1,16 +1,16 @@
 package com.beimin.eveapi.member.security;
 
 public class SecurityRoleOrTitle {
-	private int roleID;
+	private long roleID;
 	private String roleName;
-	private int titleID;
+	private long titleID;
 	private String titleName;
 
-	public int getRoleID() {
+	public long getRoleID() {
 		return roleID;
 	}
 
-	public void setRoleID(int roleID) {
+	public void setRoleID(long roleID) {
 		this.roleID = roleID;
 	}
 
@@ -22,11 +22,11 @@ public class SecurityRoleOrTitle {
 		this.roleName = roleName.trim();
 	}
 
-	public int getTitleID() {
+	public long getTitleID() {
 		return titleID;
 	}
 
-	public void setTitleID(int titleID) {
+	public void setTitleID(long titleID) {
 		this.titleID = titleID;
 	}
 

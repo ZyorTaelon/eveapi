@@ -12,7 +12,7 @@ public class Parser extends AbstractApiParser<Response> {
 	protected static final String MEMBER_TRACKING_URL = "/corp/MemberTracking.xml.aspx";
 
 	public Parser() {
-		super(Response.class, 1, MEMBER_TRACKING_URL);
+		super(Response.class, 2, MEMBER_TRACKING_URL);
 	}
 
 	public Response getMembers(ApiAuth auth) throws IOException, SAXException {

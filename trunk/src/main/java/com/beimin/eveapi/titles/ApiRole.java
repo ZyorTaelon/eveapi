@@ -1,15 +1,15 @@
 package com.beimin.eveapi.titles;
 
 public class ApiRole {
-	private int roleID;
+	private long roleID;
 	private String roleName;
 	private String roleDescription;
 
-	public int getRoleID() {
+	public long getRoleID() {
 		return roleID;
 	}
 
-	public void setRoleID(int roleID) {
+	public void setRoleID(long roleID) {
 		this.roleID = roleID;
 	}
 

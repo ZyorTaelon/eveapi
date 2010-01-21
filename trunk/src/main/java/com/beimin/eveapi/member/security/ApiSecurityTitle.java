@@ -1,15 +1,15 @@
 package com.beimin.eveapi.member.security;
 
 public class ApiSecurityTitle {
-	private final int titleID;
+	private final long titleID;
 	private final String titleName;
 
-	public ApiSecurityTitle(int titleID, String titleName) {
+	public ApiSecurityTitle(long titleID, String titleName) {
 		this.titleID = titleID;
 		this.titleName = titleName;
 	}
 
-	public int getTitleID() {
+	public long getTitleID() {
 		return titleID;
 	}
 
