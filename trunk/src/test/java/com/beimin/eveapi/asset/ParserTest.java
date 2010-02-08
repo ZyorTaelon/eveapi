@@ -34,7 +34,7 @@ public class ParserTest {
 		boolean assetFound = false;
 		boolean subAssetFound = false;
 		for (ApiAsset asset : assets) {
-			int itemID = asset.getItemID();
+			long itemID = asset.getItemID();
 			if (100173218 == itemID) {
 				assetFound = true;
 				Collection<ApiAsset> subAssets = asset.getAssets();

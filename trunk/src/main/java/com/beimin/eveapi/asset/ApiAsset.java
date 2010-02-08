@@ -5,12 +5,12 @@ import java.util.HashSet;
 
 public class ApiAsset {
 	private final Collection<ApiAsset> assets = new HashSet<ApiAsset>();
-	private int itemID;
+	private long itemID;
 	private int locationID;
 	private int typeID;
 	private int quantity;
 	private int flag;
-	private int singleton;
+	private boolean singleton;
 
 	public Collection<ApiAsset> getAssets() {
 		return assets;
@@ -20,11 +20,11 @@ public class ApiAsset {
 		assets.add(asset);
 	}
 
-	public int getItemID() {
+	public long getItemID() {
 		return itemID;
 	}
 
-	public void setItemID(int itemID) {
+	public void setItemID(long itemID) {
 		this.itemID = itemID;
 	}
 
@@ -60,11 +60,11 @@ public class ApiAsset {
 		this.flag = flag;
 	}
 
-	public int getSingleton() {
+	public boolean getSingleton() {
 		return singleton;
 	}
 
-	public void setSingleton(int singleton) {
+	public void setSingleton(boolean singleton) {
 		this.singleton = singleton;
 	}
 }

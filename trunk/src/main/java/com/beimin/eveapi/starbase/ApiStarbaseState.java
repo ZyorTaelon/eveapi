@@ -1,5 +1,15 @@
 package com.beimin.eveapi.starbase;
 
 public enum ApiStarbaseState {
-	UNKNOWN, ANCHORED, ONLINING, REINFORCED, ONLINE;
+	UNKNOWN("Unknown"), ANCHORED("Anchored"), ONLINING("Onlining"), REINFORCED("Reinforced"), ONLINE("Online");
+	private final String name;
+
+	private ApiStarbaseState(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+		return name;
+	}
 }
