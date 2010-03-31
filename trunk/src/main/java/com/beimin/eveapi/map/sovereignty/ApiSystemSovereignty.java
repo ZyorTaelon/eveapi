@@ -4,10 +4,10 @@ package com.beimin.eveapi.map.sovereignty;
 public class ApiSystemSovereignty {
 	private int solarSystemID;
 	private int allianceID;
-	private int constellationSovereignty;
+	private int corporationID;
 	private int factionID;
 	private String solarSystemName;
-
+	
 	public int getSolarSystemID() {
 		return solarSystemID;
 	}
@@ -24,12 +24,12 @@ public class ApiSystemSovereignty {
 		this.allianceID = allianceID;
 	}
 
-	public int getConstellationSovereignty() {
-		return constellationSovereignty;
+	public int getCorporationID() {
+		return corporationID;
 	}
 
-	public void setConstellationSovereignty(int constellationSovereignty) {
-		this.constellationSovereignty = constellationSovereignty;
+	public void setCorporationID(int corporationID) {
+		this.corporationID = corporationID;
 	}
 
 	public int getFactionID() {

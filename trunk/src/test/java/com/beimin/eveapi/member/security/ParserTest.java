@@ -14,9 +14,9 @@ public class ParserTest {
 
 	@Test
 	public void testMemberTrackingParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		MemberSecurityParser parser = MemberSecurityParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/MemberSecurity.xml");
-		Response response = parser.getResponse(input);
+		MemberSecurityResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Set<ApiSecurityMember> members = response.getMembers();
 		assertEquals("Incorrect amount of members found.", 1, members.size());

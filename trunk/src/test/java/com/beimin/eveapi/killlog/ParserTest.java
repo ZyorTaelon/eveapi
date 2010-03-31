@@ -18,9 +18,9 @@ public class ParserTest {
 
 	@Test
 	public void testKillLogParser() throws IOException, SAXException, ParseException {
-		Parser parser = Parser.getInstance();
+		KillLogParser parser = KillLogParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/KillLog.xml");
-		Response response = parser.getResponse(input);
+		KillLogResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiKill> entries = response.getKills();
 		assertEquals(18, entries.size());

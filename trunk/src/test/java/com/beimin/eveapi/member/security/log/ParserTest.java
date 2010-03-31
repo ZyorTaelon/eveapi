@@ -17,9 +17,9 @@ public class ParserTest {
 
 	@Test
 	public void testMemberTrackingParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		MemberSecurityLogParser parser = MemberSecurityLogParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/MemberSecurityLog.xml");
-		Response response = parser.getResponse(input);
+		MemberSecurityLogResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Set<ApiRoleHistory> roleHistories = response.getRoleHistories();
 		assertNotNull(roleHistories);

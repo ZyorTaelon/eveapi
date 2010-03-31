@@ -13,19 +13,23 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.evemail.ApiEveMai;
+import com.beimin.eveapi.evemail.EveMaiResponse;
+import com.beimin.eveapi.evemail.EveMailParser;
+
 public class ParserTest {
 
 	@Test
 	public void testMemberTrackingParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		EveMailParser parser = EveMailParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/MailMessages.xml");
-		Response response = parser.getResponse(input);
+		EveMaiResponse response = parser.getResponse(input);
 		assertNotNull(response);
-		Set<ApiMail> mails = response.getApiMails();
+		Set<ApiEveMai> mails = response.getApiMails();
 		assertNotNull(mails);
 		assertEquals(2, mails.size());
 		boolean found = false;
-		for (ApiMail mail : mails) {
+		for (ApiEveMai mail : mails) {
 			if(mail.getMessageID()==291362193L){
 				found=true;
 				assertEquals(267936250L, mail.getSenderID());

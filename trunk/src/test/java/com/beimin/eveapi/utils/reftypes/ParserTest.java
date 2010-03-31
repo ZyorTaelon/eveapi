@@ -15,9 +15,9 @@ public class ParserTest {
 
 	@Test
 	public void testRefTypesParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		RefTypesParser parser = RefTypesParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/RefTypes.xml");
-		Response response = parser.getResponse(input);
+		RefTypesResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiRefType> refTypes = response.getRefTypes();
 		assertEquals(87, refTypes.size());

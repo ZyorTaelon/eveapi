@@ -14,9 +14,9 @@ public class ParserTest {
 
 	@Test
 	public void testMapJumpsParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		MapJumpsParser parser = MapJumpsParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/Jumps.xml");
-		Response response = parser.getResponse(input);
+		MapJumpsResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Map<Integer, Integer> systemJumps = response.getSystemJumps();
 		assertNotNull(systemJumps);

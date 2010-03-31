@@ -16,9 +16,9 @@ public class ParserTest {
 
 	@Test
 	public void testCharacterListParser() throws IOException, SAXException, ParseException {
-		Parser parser = Parser.getInstance();
+		CharacterListParser parser = CharacterListParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/Characters.xml");
-		Response response = parser.getResponse(input);
+		CharacterListResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiCharacter> eveCharacters = response.getEveCharacters();
 		assertEquals(2, eveCharacters.size());

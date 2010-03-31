@@ -12,8 +12,8 @@ public class ParserTest {
 
 	@Test
 	public void testServerStatusParser() throws IOException, SAXException, ParseException, InterruptedException {
-		Parser parser = Parser.getInstance();
-		Response response = parser.getServerStatus();
+		ServerStatusParser parser = ServerStatusParser.getInstance();
+		ServerStatusResponse response = parser.getServerStatus();
 		assertNotNull(response);
 	}
 }

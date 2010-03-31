@@ -13,13 +13,17 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.wallet.journal.ApiJournalEntry;
+import com.beimin.eveapi.wallet.journal.WalletJournalParser;
+import com.beimin.eveapi.wallet.journal.WalletJournalResponse;
+
 public class ParserTest {
 
 	@Test
 	public void testWalletJournalParser() throws IOException, SAXException, ParseException {
-		Parser parser = Parser.getInstance();
+		WalletJournalParser parser = WalletJournalParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/WalletJournal.xml");
-		Response response = parser.getResponse(input);
+		WalletJournalResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiJournalEntry> entries = response.getJournalEntries();
 		assertEquals(5, entries.size());

@@ -15,9 +15,9 @@ public class ParserTest {
 
 	@Test
 	public void testAccountBalanceParser() throws IOException, SAXException, ParseException {
-		Parser parser = Parser.getInstance();
+		ContainerLogParser parser = ContainerLogParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/ContainerLog.xml");
-		Response response = parser.getResponse(input);
+		ContainerLogResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		List<ApiContainerLog> containerLogs = response.getContainerLogs();
 		assertNotNull(containerLogs);

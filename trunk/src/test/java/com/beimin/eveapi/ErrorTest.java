@@ -10,15 +10,15 @@ import java.io.InputStream;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.asset.Parser;
-import com.beimin.eveapi.asset.Response;
+import com.beimin.eveapi.asset.AssetParser;
+import com.beimin.eveapi.asset.AssetResponse;
 
 public class ErrorTest {
 	@Test
 	public void testAssetsParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		AssetParser parser = AssetParser.getInstance();
 		InputStream input = ErrorTest.class.getResourceAsStream("/ApiError115.xml");
-		Response response = parser.getResponse(input);
+		AssetResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
 		assertTrue("The error should have been set.", response.hasError());
 		ApiError error = response.getError();

@@ -5,13 +5,13 @@ import java.io.IOException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.map.jumps.Parser;
+import com.beimin.eveapi.map.jumps.MapJumpsParser;
 
 public class CacheSerializationTest {
 
 	@Test
 	public void serialization() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		MapJumpsParser parser = MapJumpsParser.getInstance();
 		parser.setCachingEnabled(true);
 		parser.setSerializeCaching(true);
 		parser.getJumps();

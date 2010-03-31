@@ -17,9 +17,9 @@ import org.xml.sax.SAXException;
 public class ParserTest {
 	@Test
 	public void testAssetsParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		AssetParser parser = AssetParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/AssetList.xml");
-		Response response = parser.getResponse(input);
+		AssetResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2008, 1, 3, 4, 43, 55);

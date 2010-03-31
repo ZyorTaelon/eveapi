@@ -16,9 +16,9 @@ public class ParserTest {
 
 	@Test
 	public void testMemberTrackingParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		NotificationsParser parser = NotificationsParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/Notifications.xml");
-		Response response = parser.getResponse(input);
+		NotificationsResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Set<ApiNotification> notifications = response.getApiMails();
 		assertNotNull(notifications);

@@ -13,13 +13,17 @@ import java.util.Date;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.starbase.list.ApiStarbase;
+import com.beimin.eveapi.starbase.list.StarbaseListParser;
+import com.beimin.eveapi.starbase.list.StarbaseListResponse;
+
 public class ListParserTest {
 
 	@Test
 	public void getList() throws IOException, SAXException {
-		ListParser parser = ListParser.getInstance();
+		StarbaseListParser parser = StarbaseListParser.getInstance();
 		InputStream input = ListParserTest.class.getResourceAsStream("/StarbasesList.xml");
-		ListResponse response = parser.getResponse(input);
+		StarbaseListResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2008, 1, 3, 1, 5, 55);

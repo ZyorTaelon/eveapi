@@ -17,9 +17,9 @@ public class ParserTest {
 
 	@Test
 	public void testAccountBalanceParser() throws IOException, SAXException, ParseException {
-		Parser parser = Parser.getInstance();
+		BalanceParser parser = BalanceParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/AccountBalance.xml");
-		Response response = parser.getResponse(input);
+		BalanceResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiAccountBalance> accountBalances = response.getAccountBalances();
 		assertNotNull(accountBalances);

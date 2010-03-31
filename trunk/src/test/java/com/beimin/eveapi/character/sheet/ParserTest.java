@@ -15,9 +15,9 @@ public class ParserTest {
 
 	@Test
 	public void testCharacterSheetParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		CharacterSheetParser parser = CharacterSheetParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/CharacterSheet.xml");
-		Response response = parser.getResponse(input);
+		CharacterSheetResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		assertEquals(150337897L, response.getCharacterID());
 		assertEquals("corpslave", response.getName());

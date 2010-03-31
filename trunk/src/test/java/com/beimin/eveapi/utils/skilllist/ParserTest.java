@@ -12,16 +12,16 @@ import org.junit.Test;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.starbase.ListParserTest;
-import com.beimin.eveapi.utils.skilllist.Parser;
-import com.beimin.eveapi.utils.skilllist.Response;
-import com.beimin.eveapi.utils.skilllist.ApiSkillGroup;
+import com.beimin.eveapi.utils.skilltree.ApiSkillGroup;
+import com.beimin.eveapi.utils.skilltree.SkillTreeParser;
+import com.beimin.eveapi.utils.skilltree.SkillTreeResponse;
 
 public class ParserTest {
 	@Test
 	public void testSkillParser() throws IOException, SAXException {
 		InputStream input = ListParserTest.class.getResourceAsStream("/SkillTree.xml");
-		Parser parser = Parser.getInstance();
-		Response response = parser.getResponse(input);
+		SkillTreeParser parser = SkillTreeParser.getInstance();
+		SkillTreeResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a response.", response);
 		assertEquals("version 2 expected.", 2, response.getVersion());
 		assertNotNull("Response should contain the current time.", response.getCurrentTime());

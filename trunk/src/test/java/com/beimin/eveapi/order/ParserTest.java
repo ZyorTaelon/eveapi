@@ -13,13 +13,14 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+
 public class ParserTest {
 
 	@Test
 	public void testMarketOrderParser() throws IOException, SAXException, ParseException {
-		Parser parser = Parser.getInstance();
+		MarketOrdersParser parser = MarketOrdersParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/MarketOrders.xml");
-		Response response = parser.getResponse(input);
+		MarketOrdersResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiMarketOrder> orders = response.getMarketOrders();
 		assertEquals(9, orders.size());

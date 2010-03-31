@@ -14,13 +14,17 @@ import java.util.Map;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.starbase.detail.ApiCombatSetting;
+import com.beimin.eveapi.starbase.detail.StarbaseDetailParser;
+import com.beimin.eveapi.starbase.detail.StarbaseDetailResponse;
+
 public class DetailParserTest {
 
 	@Test
 	public void getDetail() throws IOException, SAXException {
-		DetailParser parser = DetailParser.getInstance();
+		StarbaseDetailParser parser = StarbaseDetailParser.getInstance();
 		InputStream input = DetailParserTest.class.getResourceAsStream("/StarbaseDetail.xml");
-		DetailResponse response = parser.getResponse(input);
+		StarbaseDetailResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2008, 1, 3, 1, 54, 2);

@@ -16,9 +16,9 @@ public class ParserTest {
 
 	@Test
 	public void testSkillInTrainingParser() throws IOException, SAXException, ParseException {
-		Parser parser = Parser.getInstance();
+		CharacterTrainingParser parser = CharacterTrainingParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/SkillInTraining.xml");
-		Response response = parser.getResponse(input);
+		CharacterTrainingResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2008, 7, 17, 6, 43, 00); // 2008-08-17 06:43:00

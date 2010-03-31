@@ -17,9 +17,9 @@ public class ParserTest {
 
 	@Test
 	public void testIndustryParser() throws IOException, SAXException, ParseException {
-		Parser parser = Parser.getInstance();
+		IndustryJobsParser parser = IndustryJobsParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/IndustryJobs.xml");
-		Response response = parser.getResponse(input);
+		IndustryJobsResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiIndustryJob> industryJobs = response.getIndustryJobs();
 		assertNotNull(industryJobs);

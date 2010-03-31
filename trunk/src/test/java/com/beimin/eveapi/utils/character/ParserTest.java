@@ -12,9 +12,8 @@ public class ParserTest {
 	
 	@Test
 	public void testName2IdConversion() throws IOException, SAXException{
-		Parser parser = Parser.getName2IdInstance();
-		Response characterList = parser.getCharacterList("CCP Garthagk");
-		Collection<ApiCharacterLookup> chars = characterList.getCharacterLookups();
+		CharacterLookupParser parser = CharacterLookupParser.getName2IdInstance();
+		Collection<ApiCharacterLookup> chars = parser.getCharacterList("CCP Garthagk");
 		assertEquals(1, chars.size());
 		ApiCharacterLookup garthagk = chars.iterator().next();
 		long characterID = garthagk.getCharacterID();
@@ -23,9 +22,8 @@ public class ParserTest {
 	
 	@Test
 	public void testId2NameConversion() throws IOException, SAXException{
-		Parser parser = Parser.getId2NameInstance();
-		Response characterList = parser.getCharacterList(797400947);
-		Collection<ApiCharacterLookup> chars = characterList.getCharacterLookups();
+		CharacterLookupParser parser = CharacterLookupParser.getId2NameInstance();
+		Collection<ApiCharacterLookup> chars = parser.getCharacterList(797400947);
 		assertEquals(1, chars.size());
 		ApiCharacterLookup garthagk = chars.iterator().next();
 		String name = garthagk.getName();

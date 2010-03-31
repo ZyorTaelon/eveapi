@@ -17,9 +17,9 @@ public class ParserTest {
 
 	@Test
 	public void testAllianceListParser() throws IOException, SAXException, ParseException {
-		Parser parser = Parser.getInstance();
+		AllianceListParser parser = AllianceListParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/AllianceList.xml");
-		Response response = parser.getResponse(input);
+		AllianceListResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiAlliance> alliances = response.getAlliances();
 		assertEquals(605, alliances.size());

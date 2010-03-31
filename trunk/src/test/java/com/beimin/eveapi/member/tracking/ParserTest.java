@@ -14,9 +14,9 @@ public class ParserTest {
 
 	@Test
 	public void testMemberTrackingParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		MemberTrackingParser parser = MemberTrackingParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/MemberTracking.xml");
-		Response response = parser.getResponse(input);
+		MemberTrackingResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Set<ApiMember> members = response.getMembers();
 		for (ApiMember member : members) {

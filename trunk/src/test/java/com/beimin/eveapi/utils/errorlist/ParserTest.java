@@ -15,9 +15,9 @@ public class ParserTest {
 
 	@Test
 	public void testErrorListParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		ErrorListParser parser = ErrorListParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/ErrorList.xml");
-		Response response = parser.getResponse(input);
+		ErrorListResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiErrorListItem> errorListItems = response.getApiErrorListItems();
 		assertEquals(61, errorListItems.size());

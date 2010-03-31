@@ -15,9 +15,9 @@ public class ParserTest {
 
 	@Test
 	public void testCorporationSheetParser() throws IOException, SAXException, ParseException {
-		Parser parser = Parser.getInstance();
+		CorpSheetParser parser = CorpSheetParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/CorporationSheet.xml");
-		Response response = parser.getResponse(input);
+		CorpSheetResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		assertEquals(150212025, response.getCorporationID());
 		assertEquals("Banana Republic", response.getCorporationName());

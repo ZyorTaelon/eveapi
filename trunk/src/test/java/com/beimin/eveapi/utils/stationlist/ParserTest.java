@@ -15,9 +15,9 @@ public class ParserTest {
 
 	@Test
 	public void testConquerableStationListParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		StationListParser parser = StationListParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/ConquerableStationList.xml");
-		Response response = parser.getResponse(input);
+		StationListResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Map<Integer, ApiStation> stations = response.getStations();
 		assertEquals(242, stations.size());

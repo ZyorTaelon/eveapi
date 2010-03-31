@@ -14,9 +14,9 @@ public class ParserTest {
 
 	@Test
 	public void testMapSovereigntyParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		MapSovereigntyParser parser = MapSovereigntyParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/Sovereignty.xml");
-		Response response = parser.getResponse(input);
+		MapSovereigntyResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Map<Integer, ApiSystemSovereignty> systemSovereignties = response.getSystemSovereignties();
 		assertNotNull(systemSovereignties);

@@ -16,9 +16,9 @@ public class ParserTest {
 
 	@Test
 	public void testTitlesParser() throws IOException, SAXException, ParseException {
-		Parser parser = Parser.getInstance();
+		CorporationTitlesParser parser = CorporationTitlesParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/Titles.xml");
-		Response response = parser.getResponse(input);
+		CorporationTitlesResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiTitle> titles = response.getTitles();
 		assertEquals(2, titles.size());

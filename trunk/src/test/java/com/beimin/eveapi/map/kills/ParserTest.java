@@ -14,9 +14,9 @@ public class ParserTest {
 
 	@Test
 	public void testMapKillsParser() throws IOException, SAXException {
-		Parser parser = Parser.getInstance();
+		MapKillsParser parser = MapKillsParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/Kills.xml");
-		Response response = parser.getResponse(input);
+		MapKillsResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Map<Integer, Integer> shipKills = response.getShipKills();
 		assertNotNull(shipKills);
