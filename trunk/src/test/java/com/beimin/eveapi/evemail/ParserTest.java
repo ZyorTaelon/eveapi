@@ -1,4 +1,4 @@
-package com.beimin.eveapi.mail;
+package com.beimin.eveapi.evemail;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

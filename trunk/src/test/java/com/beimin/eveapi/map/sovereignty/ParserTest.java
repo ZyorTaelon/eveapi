@@ -25,14 +25,12 @@ public class ParserTest {
 		ApiSystemSovereignty systemSovereignty = systemSovereignties.get(30000796);
 		assertNotNull(systemSovereignty);
 		assertEquals(1028876240, systemSovereignty.getAllianceID());
-		assertEquals(0, systemSovereignty.getConstellationSovereignty());
 		assertEquals(0, systemSovereignty.getFactionID());
 		assertEquals("EUU-4N", systemSovereignty.getSolarSystemName());
 
 		systemSovereignty = systemSovereignties.get(30000074);
 		assertNotNull(systemSovereignty);
 		assertEquals(0, systemSovereignty.getAllianceID());
-		assertEquals(0, systemSovereignty.getConstellationSovereignty());
 		assertEquals(500007, systemSovereignty.getFactionID());
 		assertEquals("Hasateem", systemSovereignty.getSolarSystemName());
 	}

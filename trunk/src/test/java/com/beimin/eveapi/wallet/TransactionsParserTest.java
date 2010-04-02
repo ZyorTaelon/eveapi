@@ -1,4 +1,4 @@
-package com.beimin.eveapi.transaction;
+package com.beimin.eveapi.wallet;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -17,12 +17,12 @@ import com.beimin.eveapi.wallet.transactions.ApiWalletTransaction;
 import com.beimin.eveapi.wallet.transactions.WalletTransactionsParser;
 import com.beimin.eveapi.wallet.transactions.WalletTransactionsResponse;
 
-public class ParserTest {
+public class TransactionsParserTest {
 
 	@Test
 	public void testWalletTransactionParser() throws IOException, SAXException, ParseException {
 		WalletTransactionsParser parser = WalletTransactionsParser.getInstance();
-		InputStream input = ParserTest.class.getResourceAsStream("/WalletTransactions.xml");
+		InputStream input = TransactionsParserTest.class.getResourceAsStream("/WalletTransactions.xml");
 		WalletTransactionsResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiWalletTransaction> walletTransactions = response.getWalletTransactions();
