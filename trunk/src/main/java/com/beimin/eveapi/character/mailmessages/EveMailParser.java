@@ -1,6 +1,7 @@
 package com.beimin.eveapi.character.mailmessages;
 
 import java.io.IOException;
+import java.util.Set;
 
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
@@ -9,14 +10,10 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class EveMailParser extends AbstractApiParser<EveMaiResponse> {
-	protected static final String MAIL_MESSAGES_URL = "/MailMessages.xml.aspx";
+	private static final String MAIL_MESSAGES_URL = "/MailMessages.xml.aspx";
 
-	public EveMailParser() {
-		super(EveMaiResponse.class, 1, MAIL_MESSAGES_URL);
-	}
-
-	public EveMaiResponse getMembers(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.CHARACTER);
+	private EveMailParser() {
+		super(EveMaiResponse.class, 2, MAIL_MESSAGES_URL);
 	}
 
 	@Override
@@ -28,6 +25,14 @@ public class EveMailParser extends AbstractApiParser<EveMaiResponse> {
 		return digester;
 	}
 
+	public EveMaiResponse getEveMaiResponse(ApiAuth auth) throws IOException, SAXException {
+		return getResponse(auth, Path.CHARACTER);
+	}
+	
+	public Set<ApiEveMai> getEveMails(ApiAuth auth) throws IOException, SAXException {
+		return getEveMaiResponse(auth).getApiMails();
+	}
+	
 	public static EveMailParser getInstance() {
 		return new EveMailParser();
 	}

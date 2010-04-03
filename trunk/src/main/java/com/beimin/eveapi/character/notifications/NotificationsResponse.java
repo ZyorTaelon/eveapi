@@ -6,13 +6,13 @@ import java.util.Set;
 import com.beimin.eveapi.ApiResponse;
 
 public class NotificationsResponse extends ApiResponse {
-	private final Set<ApiNotification> mails = new HashSet<ApiNotification>();
+	private final Set<ApiNotification> notifications = new HashSet<ApiNotification>();
 
-	public void addApiMail(ApiNotification member) {
-		mails.add(member);
+	public void addNotification(ApiNotification member) {
+		notifications.add(member);
 	}
 
-	public Set<ApiNotification> getApiMails() {
-		return mails;
+	public Set<ApiNotification> getNotifications() {
+		return notifications;
 	}
 }

@@ -1,6 +1,5 @@
 package com.beimin.eveapi.character.notifications;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,7 +8,7 @@ public class ApiNotification {
 	private long notificationID;
 	private int typeID;
 	private long senderID;
-	private Date sentDate;
+	private String sentDate;
 	private boolean read;
 
 	private static Map<Integer, String> getNotificationTypes() {
@@ -128,11 +127,11 @@ public class ApiNotification {
 		this.senderID = senderID;
 	}
 
-	public Date getSentDate() {
+	public String getSentDate() {
 		return sentDate;
 	}
 
-	public void setSentDate(Date sentDate) {
+	public void setSentDate(String sentDate) {
 		this.sentDate = sentDate;
 	}
 
