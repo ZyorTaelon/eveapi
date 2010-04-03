@@ -9,14 +9,14 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class NotificationsParser extends AbstractApiParser<NotificationsResponse> {
-	protected static final String MEMBER_TRACKING_URL = "/corp/MemberTracking.xml.aspx";
+	protected static final String NOTIFICATIONS_URL = "/Notifications.xml.aspx";
 
 	public NotificationsParser() {
-		super(NotificationsResponse.class, 1, MEMBER_TRACKING_URL);
+		super(NotificationsResponse.class, 1, NOTIFICATIONS_URL);
 	}
 
 	public NotificationsResponse getMembers(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		return getResponse(auth, Path.CHARACTER);
 	}
 
 	@Override
