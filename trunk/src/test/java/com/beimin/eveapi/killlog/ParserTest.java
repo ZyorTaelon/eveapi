@@ -14,6 +14,13 @@ import java.util.List;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.shared.killlog.ApiKill;
+import com.beimin.eveapi.shared.killlog.ApiKillAttacker;
+import com.beimin.eveapi.shared.killlog.ApiKillItem;
+import com.beimin.eveapi.shared.killlog.ApiKillVictim;
+import com.beimin.eveapi.shared.killlog.KillLogParser;
+import com.beimin.eveapi.shared.killlog.KillLogResponse;
+
 public class ParserTest {
 
 	@Test

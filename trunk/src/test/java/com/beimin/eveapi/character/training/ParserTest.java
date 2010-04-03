@@ -12,6 +12,9 @@ import java.util.Date;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.character.skill.intraining.CharacterTrainingParser;
+import com.beimin.eveapi.character.skill.intraining.CharacterTrainingResponse;
+
 public class ParserTest {
 
 	@Test

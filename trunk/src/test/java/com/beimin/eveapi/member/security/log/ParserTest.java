@@ -11,7 +11,10 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.member.security.ApiSecurityRole;
+import com.beimin.eveapi.corporation.member.security.ApiSecurityRole;
+import com.beimin.eveapi.corporation.member.security.log.ApiRoleHistory;
+import com.beimin.eveapi.corporation.member.security.log.MemberSecurityLogParser;
+import com.beimin.eveapi.corporation.member.security.log.MemberSecurityLogResponse;
 
 public class ParserTest {
 

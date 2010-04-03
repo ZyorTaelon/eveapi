@@ -11,6 +11,10 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.shared.standings.StandingsList;
+import com.beimin.eveapi.shared.standings.StandingsParser;
+import com.beimin.eveapi.shared.standings.StandingsResponse;
+
 public class ParserTest {
 
 	@Test

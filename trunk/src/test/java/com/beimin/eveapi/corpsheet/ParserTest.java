@@ -11,6 +11,10 @@ import java.util.Map;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.corporation.sheet.ApiCorpLogo;
+import com.beimin.eveapi.corporation.sheet.CorpSheetParser;
+import com.beimin.eveapi.corporation.sheet.CorpSheetResponse;
+
 public class ParserTest {
 
 	@Test

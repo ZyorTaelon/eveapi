@@ -8,6 +8,9 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.eve.character.ApiCharacterLookup;
+import com.beimin.eveapi.eve.character.CharacterLookupParser;
+
 public class ParserTest {
 	
 	@Test

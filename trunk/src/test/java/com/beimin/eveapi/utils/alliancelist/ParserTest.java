@@ -13,6 +13,11 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.eve.alliancelist.AllianceListParser;
+import com.beimin.eveapi.eve.alliancelist.AllianceListResponse;
+import com.beimin.eveapi.eve.alliancelist.ApiAlliance;
+import com.beimin.eveapi.eve.alliancelist.ApiMemberCorporation;
+
 public class ParserTest {
 
 	@Test

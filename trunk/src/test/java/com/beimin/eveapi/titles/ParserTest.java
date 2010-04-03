@@ -12,6 +12,11 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.corporation.titles.ApiRole;
+import com.beimin.eveapi.corporation.titles.ApiTitle;
+import com.beimin.eveapi.corporation.titles.CorporationTitlesParser;
+import com.beimin.eveapi.corporation.titles.CorporationTitlesResponse;
+
 public class ParserTest {
 
 	@Test

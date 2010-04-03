@@ -13,9 +13,9 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.evemail.ApiEveMai;
-import com.beimin.eveapi.evemail.EveMaiResponse;
-import com.beimin.eveapi.evemail.EveMailParser;
+import com.beimin.eveapi.character.mailmessages.ApiEveMai;
+import com.beimin.eveapi.character.mailmessages.EveMaiResponse;
+import com.beimin.eveapi.character.mailmessages.EveMailParser;
 
 public class ParserTest {
 

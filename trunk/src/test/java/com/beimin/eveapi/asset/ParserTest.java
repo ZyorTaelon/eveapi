@@ -13,13 +13,17 @@ import java.util.Date;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.shared.assetlist.ApiAsset;
+import com.beimin.eveapi.shared.assetlist.AssetListParser;
+import com.beimin.eveapi.shared.assetlist.AssetListResponse;
+
 
 public class ParserTest {
 	@Test
 	public void testAssetsParser() throws IOException, SAXException {
-		AssetParser parser = AssetParser.getInstance();
+		AssetListParser parser = AssetListParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/AssetList.xml");
-		AssetResponse response = parser.getResponse(input);
+		AssetListResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2008, 1, 3, 4, 43, 55);

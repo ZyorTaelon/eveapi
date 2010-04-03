@@ -13,6 +13,10 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.shared.marketorders.ApiMarketOrder;
+import com.beimin.eveapi.shared.marketorders.MarketOrdersParser;
+import com.beimin.eveapi.shared.marketorders.MarketOrdersResponse;
+
 
 public class ParserTest {
 

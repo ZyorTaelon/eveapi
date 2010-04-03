@@ -11,10 +11,10 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.eve.skilltree.ApiSkillGroup;
+import com.beimin.eveapi.eve.skilltree.SkillTreeParser;
+import com.beimin.eveapi.eve.skilltree.SkillTreeResponse;
 import com.beimin.eveapi.starbase.ListParserTest;
-import com.beimin.eveapi.utils.skilltree.ApiSkillGroup;
-import com.beimin.eveapi.utils.skilltree.SkillTreeParser;
-import com.beimin.eveapi.utils.skilltree.SkillTreeResponse;
 
 public class ParserTest {
 	@Test

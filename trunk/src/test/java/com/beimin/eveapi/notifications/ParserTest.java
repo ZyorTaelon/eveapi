@@ -12,6 +12,10 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.character.notifications.ApiNotification;
+import com.beimin.eveapi.character.notifications.NotificationsParser;
+import com.beimin.eveapi.character.notifications.NotificationsResponse;
+
 public class ParserTest {
 
 	@Test

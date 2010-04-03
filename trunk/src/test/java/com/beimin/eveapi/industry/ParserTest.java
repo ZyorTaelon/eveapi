@@ -13,6 +13,10 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.shared.industryjobs.ApiIndustryJob;
+import com.beimin.eveapi.shared.industryjobs.IndustryJobsParser;
+import com.beimin.eveapi.shared.industryjobs.IndustryJobsResponse;
+
 public class ParserTest {
 
 	@Test

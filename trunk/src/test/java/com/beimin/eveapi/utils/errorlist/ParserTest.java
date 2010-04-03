@@ -11,6 +11,10 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.eve.errorlist.ApiErrorListItem;
+import com.beimin.eveapi.eve.errorlist.ErrorListParser;
+import com.beimin.eveapi.eve.errorlist.ErrorListResponse;
+
 public class ParserTest {
 
 	@Test

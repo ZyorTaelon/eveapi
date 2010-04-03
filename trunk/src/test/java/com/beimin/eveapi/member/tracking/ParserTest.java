@@ -10,6 +10,10 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.corporation.member.tracking.ApiMember;
+import com.beimin.eveapi.corporation.member.tracking.MemberTrackingParser;
+import com.beimin.eveapi.corporation.member.tracking.MemberTrackingResponse;
+
 public class ParserTest {
 
 	@Test

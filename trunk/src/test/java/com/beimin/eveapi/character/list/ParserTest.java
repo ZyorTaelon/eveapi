@@ -12,13 +12,17 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.account.characters.ApiCharacter;
+import com.beimin.eveapi.account.characters.CharactersParser;
+import com.beimin.eveapi.account.characters.CharactersResponse;
+
 public class ParserTest {
 
 	@Test
 	public void testCharacterListParser() throws IOException, SAXException, ParseException {
-		CharacterListParser parser = CharacterListParser.getInstance();
+		CharactersParser parser = CharactersParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/Characters.xml");
-		CharacterListResponse response = parser.getResponse(input);
+		CharactersResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiCharacter> eveCharacters = response.getEveCharacters();
 		assertEquals(2, eveCharacters.size());

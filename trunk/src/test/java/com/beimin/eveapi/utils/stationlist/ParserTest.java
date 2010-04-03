@@ -11,6 +11,10 @@ import java.util.Map;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.eve.conquerablestationlist.ApiStation;
+import com.beimin.eveapi.eve.conquerablestationlist.StationListParser;
+import com.beimin.eveapi.eve.conquerablestationlist.StationListResponse;
+
 public class ParserTest {
 
 	@Test

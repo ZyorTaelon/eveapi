@@ -11,6 +11,10 @@ import java.util.List;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.corporation.containerlog.ApiContainerLog;
+import com.beimin.eveapi.corporation.containerlog.ContainerLogParser;
+import com.beimin.eveapi.corporation.containerlog.ContainerLogResponse;
+
 public class ParserTest {
 
 	@Test

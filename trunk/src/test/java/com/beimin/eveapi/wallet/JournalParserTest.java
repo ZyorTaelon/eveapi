@@ -13,9 +13,9 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.wallet.journal.ApiJournalEntry;
-import com.beimin.eveapi.wallet.journal.WalletJournalParser;
-import com.beimin.eveapi.wallet.journal.WalletJournalResponse;
+import com.beimin.eveapi.shared.wallet.journal.ApiJournalEntry;
+import com.beimin.eveapi.shared.wallet.journal.WalletJournalParser;
+import com.beimin.eveapi.shared.wallet.journal.WalletJournalResponse;
 
 public class JournalParserTest {
 

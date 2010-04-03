@@ -11,6 +11,10 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.eve.reftypes.ApiRefType;
+import com.beimin.eveapi.eve.reftypes.RefTypesParser;
+import com.beimin.eveapi.eve.reftypes.RefTypesResponse;
+
 public class ParserTest {
 
 	@Test

@@ -12,6 +12,12 @@ import java.util.List;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.shared.medals.CharacterMedal;
+import com.beimin.eveapi.shared.medals.CorpMedal;
+import com.beimin.eveapi.shared.medals.Medal;
+import com.beimin.eveapi.shared.medals.MedalsParser;
+import com.beimin.eveapi.shared.medals.MedalsResponse;
+
 public class ParserTest {
 
 	@Test

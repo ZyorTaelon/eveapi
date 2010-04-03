@@ -12,14 +12,18 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.shared.accountbalance.AccountBalanceParser;
+import com.beimin.eveapi.shared.accountbalance.AccountBalanceResponse;
+import com.beimin.eveapi.shared.accountbalance.ApiAccountBalance;
+
 
 public class ParserTest {
 
 	@Test
 	public void testAccountBalanceParser() throws IOException, SAXException, ParseException {
-		BalanceParser parser = BalanceParser.getInstance();
+		AccountBalanceParser parser = AccountBalanceParser.getInstance();
 		InputStream input = ParserTest.class.getResourceAsStream("/AccountBalance.xml");
-		BalanceResponse response = parser.getResponse(input);
+		AccountBalanceResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiAccountBalance> accountBalances = response.getAccountBalances();
 		assertNotNull(accountBalances);
