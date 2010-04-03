@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+  <currentTime>2010-04-02 20:22:59</currentTime>
+  <result>
+    <standingsTo>
+      <rowset name="characters" key="toID" columns="toID,toName,standing" />
+      <rowset name="corporations" key="toID" columns="toID,toName,standing">
+        <row toID="1449814438" toName="The Bastards" standing="1.00" />
+        <row toID="1508869323" toName="Sileo In Pacis" standing="-2.00" />
+      </rowset>
+    </standingsTo>
+    <standingsFrom>
+      <rowset name="agents" key="fromID" columns="fromID,fromName,standing">
+        <row fromID="3018668" fromName="Pinala Adala" standing="-0.74" />
+        <row fromID="3018679" fromName="Anuko Hugandur" standing="10.00" />
+      </rowset>
+      <rowset name="NPCCorporations" key="fromID" columns="fromID,fromName,standing">
+        <row fromID="1000046" fromName="Sebiestor tribe" standing="-0.05" />
+        <row fromID="1000125" fromName="CONCORD" standing="0.00" />
+        <row fromID="1000171" fromName="Republic University" standing="0.07" />
+      </rowset>
+      <rowset name="factions" key="fromID" columns="fromID,fromName,standing">
+        <row fromID="500001" fromName="Caldari State" standing="0.00" />
+        <row fromID="500002" fromName="Minmatar Republic" standing="0.02" />
+        <row fromID="500003" fromName="Amarr Empire" standing="-0.01" />
+        <row fromID="500004" fromName="Gallente Federation" standing="0.02" />
+        <row fromID="500005" fromName="Jove Empire" standing="0.01" />
+        <row fromID="500007" fromName="Ammatar Mandate" standing="-0.02" />
+        <row fromID="500008" fromName="Khanid Kingdom" standing="-0.01" />
+        <row fromID="500009" fromName="The Syndicate" standing="-0.01" />
+        <row fromID="500011" fromName="Angel Cartel" standing="-0.02" />
+        <row fromID="500013" fromName="The InterBus" standing="0.00" />
+        <row fromID="500014" fromName="ORE" standing="0.01" />
+        <row fromID="500015" fromName="Thukker Tribe" standing="-0.01" />
+        <row fromID="500016" fromName="The Servant Sisters of EVE" standing="0.01" />
+        <row fromID="500017" fromName="The Society" standing="0.01" />
+        <row fromID="500018" fromName="Mordu's Legion Command" standing="-0.01" />
+        <row fromID="500020" fromName="Serpentis" standing="-0.02" />
+      </rowset>
+    </standingsFrom>
+  </result>
+  <cachedUntil>2010-04-02 23:22:59</cachedUntil>
+</eveapi>
