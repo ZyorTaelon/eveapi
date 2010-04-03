@@ -29,7 +29,6 @@ public class JournalParserTest {
 		assertEquals(190, entries.size());
 		boolean found = false;
 		for (ApiJournalEntry journalEntry : entries) {
-//		ownerName1="" ownerID1="" ownerName2="" ownerID2="" argName1= argID1="" amount="" balance="" reason="" taxReceiverID="" taxAmount="" />
 			if (journalEntry.getRefID() == 2531832751L) {
 				found = true;
 				Calendar calendar = Calendar.getInstance();
