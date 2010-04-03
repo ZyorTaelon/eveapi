@@ -15,7 +15,7 @@ import com.beimin.eveapi.corporation.starbase.list.StarbaseListParserTest;
 
 public class SkillTreeParserTest {
 	@Test
-	public void testSkillParser() throws IOException, SAXException {
+	public void skillTreeParser() throws IOException, SAXException {
 		InputStream input = StarbaseListParserTest.class.getResourceAsStream("/eve/SkillTree.xml");
 		SkillTreeParser parser = SkillTreeParser.getInstance();
 		SkillTreeResponse response = parser.getResponse(input);
