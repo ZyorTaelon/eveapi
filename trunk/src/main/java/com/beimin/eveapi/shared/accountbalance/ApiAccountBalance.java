@@ -1,9 +1,9 @@
 package com.beimin.eveapi.shared.accountbalance;
 
 public class ApiAccountBalance {
-	private int accountID;// ="4759"
-	private int accountKey;// ="1000"
-	private double balance;// ="74171957.08"
+	private int accountID;
+	private int accountKey;
+	private double balance;
 
 	public int getAccountID() {
 		return accountID;

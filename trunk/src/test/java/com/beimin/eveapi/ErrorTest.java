@@ -10,13 +10,14 @@ import java.io.InputStream;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.shared.assetlist.AssetListParser;
+import com.beimin.eveapi.character.assetlist.AssetListParser;
+import com.beimin.eveapi.shared.assetlist.AbstractAssetListParser;
 import com.beimin.eveapi.shared.assetlist.AssetListResponse;
 
 public class ErrorTest {
 	@Test
 	public void testAssetsParser() throws IOException, SAXException {
-		AssetListParser parser = AssetListParser.getInstance();
+		AbstractAssetListParser parser = AssetListParser.getInstance();
 		InputStream input = ErrorTest.class.getResourceAsStream("/ApiError115.xml");
 		AssetListResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
