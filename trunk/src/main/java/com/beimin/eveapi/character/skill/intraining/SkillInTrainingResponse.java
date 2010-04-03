@@ -6,7 +6,7 @@ import java.util.Date;
 
 import com.beimin.eveapi.ApiResponse;
 
-public class CharacterTrainingResponse extends ApiResponse {
+public class SkillInTrainingResponse extends ApiResponse {
 	private String currentTQTime;
 	private Date currentTQDate;
 	private String trainingEndTime;

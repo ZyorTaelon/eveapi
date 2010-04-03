@@ -12,13 +12,13 @@ import java.util.Date;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class InTrainingParserTest {
+public class SkillInTrainingParserTest {
 
 	@Test
 	public void skillInTrainingParser() throws IOException, SAXException, ParseException {
-		CharacterTrainingParser parser = CharacterTrainingParser.getInstance();
-		InputStream input = InTrainingParserTest.class.getResourceAsStream("/character/SkillInTraining.xml");
-		CharacterTrainingResponse response = parser.getResponse(input);
+		SkillInTrainingParser parser = SkillInTrainingParser.getInstance();
+		InputStream input = SkillInTrainingParserTest.class.getResourceAsStream("/character/SkillInTraining.xml");
+		SkillInTrainingResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(2008, 7, 17, 6, 43, 00); // 2008-08-17 06:43:00
