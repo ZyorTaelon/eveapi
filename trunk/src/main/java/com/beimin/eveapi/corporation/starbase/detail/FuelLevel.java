@@ -1,4 +1,4 @@
-package com.beimin.eveapi.starbase.detail;
+package com.beimin.eveapi.corporation.starbase.detail;
 
 public class FuelLevel {
 	private int typeID;

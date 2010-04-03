@@ -1,4 +1,4 @@
-package com.beimin.eveapi.starbase.list;
+package com.beimin.eveapi.corporation.starbase.list;
 
 import java.io.IOException;
 

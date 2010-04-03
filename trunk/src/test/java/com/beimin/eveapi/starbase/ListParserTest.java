@@ -13,9 +13,9 @@ import java.util.Date;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.starbase.list.ApiStarbase;
-import com.beimin.eveapi.starbase.list.StarbaseListParser;
-import com.beimin.eveapi.starbase.list.StarbaseListResponse;
+import com.beimin.eveapi.corporation.starbase.list.ApiStarbase;
+import com.beimin.eveapi.corporation.starbase.list.StarbaseListParser;
+import com.beimin.eveapi.corporation.starbase.list.StarbaseListResponse;
 
 public class ListParserTest {
 

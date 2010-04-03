@@ -1,4 +1,4 @@
-package com.beimin.eveapi.starbase.list;
+package com.beimin.eveapi.corporation.starbase.list;
 
 public enum ApiStarbaseState {
 	UNKNOWN("Unknown"), ANCHORED("Anchored"), ONLINING("Onlining"), REINFORCED("Reinforced"), ONLINE("Online");

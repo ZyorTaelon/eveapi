@@ -14,9 +14,9 @@ import java.util.Map;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.starbase.detail.ApiCombatSetting;
-import com.beimin.eveapi.starbase.detail.StarbaseDetailParser;
-import com.beimin.eveapi.starbase.detail.StarbaseDetailResponse;
+import com.beimin.eveapi.corporation.starbase.detail.ApiCombatSetting;
+import com.beimin.eveapi.corporation.starbase.detail.StarbaseDetailParser;
+import com.beimin.eveapi.corporation.starbase.detail.StarbaseDetailResponse;
 
 public class DetailParserTest {
 
