@@ -29,26 +29,29 @@ public class JournalParserTest {
 		assertEquals(5, entries.size());
 		boolean found = false;
 		for (ApiJournalEntry journalEntry : entries) {
-			if (journalEntry.getRefID() == 59149) {
+			if (journalEntry.getRefID() == 2566012762L) {
 				found = true;
 				Calendar calendar = Calendar.getInstance();
-				calendar.set(Calendar.YEAR, 2007);
-				calendar.set(Calendar.MONTH, 05);
-				calendar.set(Calendar.DAY_OF_MONTH, 15);
-				calendar.set(Calendar.HOUR_OF_DAY, 14);
-				calendar.set(Calendar.MINUTE, 13);
+				calendar.set(Calendar.YEAR, 2010);
+				calendar.set(Calendar.MONTH, 3);
+				calendar.set(Calendar.DAY_OF_MONTH, 9);
+				calendar.set(Calendar.HOUR_OF_DAY, 15);
+				calendar.set(Calendar.MINUTE, 53);
 				calendar.set(Calendar.SECOND, 0);
 				calendar.set(Calendar.MILLISECOND, 0);
 				assertEquals(calendar.getTime(), journalEntry.getDateTime());
-				assertEquals(54, journalEntry.getRefTypeID());
+				assertEquals(42, journalEntry.getRefTypeID());
+				assertEquals("corpslave", journalEntry.getOwnerName1());
 				assertEquals(150337897, journalEntry.getOwnerID1());
 				assertEquals("Secure Commerce Commission", journalEntry.getOwnerName2());
 				assertEquals(1000132, journalEntry.getOwnerID2());
 				assertEquals("", journalEntry.getArgName1());
 				assertEquals(0, journalEntry.getArgID1());
-				assertEquals(-7.93, journalEntry.getAmount());
-				assertEquals(190210393.87, journalEntry.getBalance());
+				assertEquals(-589996.29, journalEntry.getAmount());
+				assertEquals(337405445.52, journalEntry.getBalance());
 				assertEquals("", journalEntry.getReason());
+				assertEquals(0L, journalEntry.getTaxReceiverID());
+				assertEquals(0.0, journalEntry.getTaxAmount());
 			}
 		}
 		assertTrue("test journal entry wasn't found.", found);

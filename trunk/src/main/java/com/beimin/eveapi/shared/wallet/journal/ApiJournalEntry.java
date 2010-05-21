@@ -20,7 +20,7 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	private double amount;
 	private double balance;
 	private String reason;
-	private long taxRecieverID;
+	private long taxReceiverID;
 	private double taxAmount;
 	
 	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -126,12 +126,12 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 		this.reason = reason;
 	}
 
-	public long getTaxRecieverID() {
-		return taxRecieverID;
+	public long getTaxReceiverID() {
+		return taxReceiverID;
 	}
 
-	public void setTaxRecieverID(long taxRecieverID) {
-		this.taxRecieverID = taxRecieverID;
+	public void setTaxReceiverID(long taxReceiverID) {
+		this.taxReceiverID = taxReceiverID;
 	}
 
 	public double getTaxAmount() {
