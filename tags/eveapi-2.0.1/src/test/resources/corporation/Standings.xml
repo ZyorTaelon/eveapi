@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+  <currentTime>2010-04-02 20:22:34</currentTime>
+  <result>
+    <corporationStandings>
+      <standingsTo>
+        <rowset name="characters" key="toID" columns="toID,toName,standing">
+          <row toID="113391641" toName="Praporschik" standing="-0.60" />
+          <row toID="131285334" toName="Khanoonian Singh" standing="-5.40" />
+          <row toID="145958937" toName="Princess Aspire" standing="5.00" />
+        </rowset>
+        <rowset name="corporations" key="toID" columns="toID,toName,standing">
+          <row toID="109299958" toName="C C P" standing="1.10" />
+          <row toID="109788662" toName="Merch Industrial" standing="5.00" />
+          <row toID="125678321" toName="Constructive Influence" standing="-10.00" />
+          <row toID="144749962" toName="Evolution" standing="-10.00" />
+        </rowset>
+        <rowset name="alliances" key="toID" columns="toID,toName,standing">
+          <row toID="878776074" toName="IT Alliance" standing="-10.00" />
+          <row toID="581235492" toName="NOVA GOTISCHES IMPERIUM" standing="-1.30" />
+          <row toID="521942065" toName="Rebellion Alliance" standing="10.00" />
+          <row toID="741557221" toName="RAZOR Alliance" standing="10.00" />
+          <row toID="1698638724" toName="SUB ROSA ALLIANCE" standing="-10.00" />
+          <row toID="849565342" toName="" standing="-3.20" />
+          <row toID="605845106" toName="DarkSide." standing="-10.00" />
+        </rowset>
+      </standingsTo>
+      <standingsFrom>
+        <rowset name="agents" key="fromID" columns="fromID,fromName,standing">
+          <row fromID="3008430" fromName="Aratano Sabachi" standing="0.09" />
+          <row fromID="3008432" fromName="Jamon Outo" standing="0.11" />
+          <row fromID="3008451" fromName="Ichino Iesemi" standing="1.37" />
+          <row fromID="3008456" fromName="Yanumano Jaterjutti" standing="5.67" />
+          <row fromID="3008474" fromName="Ichosima Kakkaho" standing="0.32" />
+          <row fromID="3008492" fromName="Isudakken Reima" standing="3.07" />
+          <row fromID="3008501" fromName="Imaka Paalvalen" standing="1.32" />
+          <row fromID="3008504" fromName="Ahanada Nutsu" standing="-0.04" />
+        </rowset>
+        <rowset name="NPCCorporations" key="fromID" columns="fromID,fromName,standing">
+          <row fromID="1000002" fromName="CBD Corporation" standing="0.88" />
+          <row fromID="1000003" fromName="Prompt Delivery" standing="0.22" />
+          <row fromID="1000004" fromName="Ytiri" standing="0.37" />
+          <row fromID="1000005" fromName="Hyasyoda Corporation" standing="0.39" />
+          <row fromID="1000006" fromName="Deep Core Mining Inc." standing="-0.87" />
+          <row fromID="1000007" fromName="Poksu Mineral Group" standing="1.26" />
+          <row fromID="1000008" fromName="Minedrill" standing="1.60" />
+          <row fromID="1000009" fromName="Caldari Provisions" standing="-0.63" />
+          <row fromID="1000010" fromName="Kaalakiota Corporation" standing="1.27" />
+        </rowset>
+        <rowset name="factions" key="fromID" columns="fromID,fromName,standing">
+          <row fromID="500001" fromName="Caldari State" standing="1.17" />
+          <row fromID="500002" fromName="Minmatar Republic" standing="-0.47" />
+          <row fromID="500003" fromName="Amarr Empire" standing="0.43" />
+          <row fromID="500004" fromName="Gallente Federation" standing="-0.62" />
+          <row fromID="500005" fromName="Jove Empire" standing="0.35" />
+          <row fromID="500006" fromName="CONCORD Assembly" standing="0.12" />
+          <row fromID="500007" fromName="Ammatar Mandate" standing="0.98" />
+          <row fromID="500008" fromName="Khanid Kingdom" standing="0.76" />
+          <row fromID="500009" fromName="The Syndicate" standing="-0.79" />
+          <row fromID="500010" fromName="Guristas Pirates" standing="-3.25" />
+          <row fromID="500011" fromName="Angel Cartel" standing="-3.54" />
+          <row fromID="500012" fromName="The Blood Raider Covenant" standing="-4.26" />
+          <row fromID="500013" fromName="The InterBus" standing="0.52" />
+          <row fromID="500014" fromName="ORE" standing="-0.26" />
+          <row fromID="500015" fromName="Thukker Tribe" standing="-1.48" />
+          <row fromID="500016" fromName="The Servant Sisters of EVE" standing="0.41" />
+          <row fromID="500017" fromName="The Society" standing="0.36" />
+          <row fromID="500018" fromName="Mordu's Legion Command" standing="1.37" />
+          <row fromID="500019" fromName="Sansha's Nation" standing="-3.03" />
+          <row fromID="500020" fromName="Serpentis" standing="-2.15" />
+        </rowset>
+      </standingsFrom>
+    </corporationStandings>
+    <allianceStandings>
+      <standingsTo>
+        <rowset name="corporations" key="toID" columns="toID,toName,standing">
+          <row toID="127311194" toName="Air Amarria" standing="5" />
+          <row toID="302750157" toName="ElitistOps" standing="-10" />
+          <row toID="320162553" toName="Ars ex Discordia" standing="10" />
+          <row toID="462315846" toName="Igneus Auctorita" standing="10" />
+          <row toID="491428498" toName="Rho Holding Corp" standing="5" />
+          <row toID="733986540" toName="FSP-B - Academy" standing="10" />
+          <row toID="1018389948" toName="Dreddit" standing="10" />
+          <row toID="1185914160" toName="Mineral Interchange and Transposition Services" standing="5" />
+          <row toID="1268814498" toName="Free Space Pilots  aka Banderlogs" standing="10" />
+        </rowset>
+        <rowset name="alliances" key="toID" columns="toID,toName,standing">
+          <row toID="1733643802" toName="Mostly  Harmless" standing="5" />
+          <row toID="878776074" toName="IT Alliance" standing="-10" />
+          <row toID="521942065" toName="Rebellion Alliance" standing="10" />
+          <row toID="741557221" toName="RAZOR Alliance" standing="10" />
+          <row toID="288377808" toName="Against ALL Authorities" standing="-10" />
+          <row toID="1137908185" toName="Looney Toons." standing="5" />
+          <row toID="703129312" toName="Cry Havoc." standing="-10" />
+          <row toID="1698753304" toName="R.A.G.E" standing="5" />
+          <row toID="301425651" toName="Damage Control II" standing="10" />
+          <row toID="1645202949" toName="DEFI4NT" standing="5" />
+          <row toID="1081578607" toName="Clockwork Pineapple" standing="10" />
+          <row toID="1438160193" toName="Ev0ke" standing="-10" />
+          <row toID="1182801433" toName="On the Rocks" standing="5" />
+          <row toID="150097440" toName="Get Off My Lawn" standing="5" />
+          <row toID="212716751" toName="Majesta Empire" standing="5" />
+          <row toID="1555742183" toName="Here Be Dragons" standing="10" />
+          <row toID="723015129" toName="OWN Alliance" standing="5" />
+          <row toID="1228472388" toName="RED.OverLord" standing="-10" />
+          <row toID="628991027" toName="Morsus Mihi" standing="10" />
+          <row toID="1208295500" toName="SOLAR FLEET" standing="-10" />
+          <row toID="1494254776" toName="Stella Polaris." standing="5" />
+          <row toID="1717525216" toName="Systematic-Chaos" standing="-10" />
+          <row toID="166439722" toName="Tau Ceti Federation" standing="10" />
+          <row toID="1443952531" toName="THE FEW." standing="5" />
+          <row toID="607212516" toName="United Front Alliance" standing="5" />
+          <row toID="1899990246" toName="Wildly Inappropriate." standing="5" />
+          <row toID="228932850" toName="Zenith Affinity" standing="10" />
+        </rowset>
+      </standingsTo>
+    </allianceStandings>
+  </result>
+  <cachedUntil>2010-04-02 23:22:34</cachedUntil>
+</eveapi>
