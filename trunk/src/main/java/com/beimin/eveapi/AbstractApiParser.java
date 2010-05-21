@@ -75,7 +75,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	 * 
 	 * @return the default API URL.
 	 */
-	public static String getDrfaultApiUrl() {
+	public static String getDefaultApiUrl() {
 		return DEFAULT_EVE_API_URL;
 	}
 
