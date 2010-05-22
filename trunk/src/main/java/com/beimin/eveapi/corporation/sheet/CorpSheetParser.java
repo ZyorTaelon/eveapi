@@ -69,9 +69,9 @@ public class CorpSheetParser extends AbstractApiParser<CorpSheetResponse> {
 		return getResponse(auth);
 	}
 
-	public CorpSheetResponse getCorporationSheet(int corporationID) throws IOException, SAXException {
+	public CorpSheetResponse getCorporationSheet(long corporationID) throws IOException, SAXException {
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("corporationID", Integer.toString(corporationID));
+		params.put("corporationID", Long.toString(corporationID));
 		return getResponse(params);
 	}
 
