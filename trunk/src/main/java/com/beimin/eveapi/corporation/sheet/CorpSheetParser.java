@@ -1,6 +1,8 @@
 package com.beimin.eveapi.corporation.sheet;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.digester.AbstractObjectCreationFactory;
 import org.apache.commons.digester.Digester;
@@ -65,6 +67,12 @@ public class CorpSheetParser extends AbstractApiParser<CorpSheetResponse> {
 
 	public CorpSheetResponse getCorporationSheet(ApiAuth auth) throws IOException, SAXException {
 		return getResponse(auth);
+	}
+
+	public CorpSheetResponse getCorporationSheet(int corporationID) throws IOException, SAXException {
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("corporationID", Integer.toString(corporationID));
+		return getResponse(params);
 	}
 
 	public static CorpSheetParser getInstance() {
