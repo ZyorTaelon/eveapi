@@ -44,7 +44,7 @@ public class TransactionsParserTest {
 				assertEquals(50000, walletTransaction.getQuantity());
 				assertEquals("Oxygen Isotopes", walletTransaction.getTypeName());
 				assertEquals(17887, walletTransaction.getTypeID());
-				assertEquals(250.00, walletTransaction.getPrice());
+				assertEquals(250.01, walletTransaction.getPrice(), 0.00001);
 				assertEquals(174312871, walletTransaction.getClientID());
 				assertEquals("ACHAR", walletTransaction.getClientName());
 				assertEquals(000000000, walletTransaction.getCharacterID());

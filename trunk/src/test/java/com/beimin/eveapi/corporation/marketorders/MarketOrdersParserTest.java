@@ -41,8 +41,8 @@ public class MarketOrdersParserTest {
 				assertEquals(32767, order.getRange());
 				assertEquals(1000, order.getAccountKey());
 				assertEquals(90, order.getDuration());
-				assertEquals(0.00, order.getEscrow());
-				assertEquals(325.00, order.getPrice());
+				assertEquals(0.00, order.getEscrow(), 0.00001);
+				assertEquals(325.00, order.getPrice(), 0.00001);
 				assertEquals(0, order.getBid());
 				Calendar calendar = Calendar.getInstance();
 				calendar.set(Calendar.YEAR, 2007);

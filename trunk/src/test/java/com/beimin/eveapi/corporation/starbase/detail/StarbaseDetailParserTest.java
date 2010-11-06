@@ -50,14 +50,14 @@ public class StarbaseDetailParserTest {
 		assertTrue(onCorporationWar.isEnabled());
 		Map<Integer, Integer> fuelMap = response.getFuelMap();
 		assertNotNull("Should have a fuelMap.", fuelMap);
-		assertEquals(423, fuelMap.get(44));
-		assertEquals(2542, fuelMap.get(3683));
-		assertEquals(850, fuelMap.get(3689));
-		assertEquals(850, fuelMap.get(9832));
-		assertEquals(423, fuelMap.get(9848));
-		assertEquals(10800, fuelMap.get(16272));
-		assertEquals(4878, fuelMap.get(16273));
-		assertEquals(35955, fuelMap.get(16274));
-		assertEquals(150, fuelMap.get(16275));
+		assertEquals(423L, fuelMap.get(44).longValue());
+		assertEquals(2542L, fuelMap.get(3683).longValue());
+		assertEquals(850L, fuelMap.get(3689).longValue());
+		assertEquals(850L, fuelMap.get(9832).longValue());
+		assertEquals(423L, fuelMap.get(9848).longValue());
+		assertEquals(10800L, fuelMap.get(16272).longValue());
+		assertEquals(4878L, fuelMap.get(16273).longValue());
+		assertEquals(35955L, fuelMap.get(16274).longValue());
+		assertEquals(150L, fuelMap.get(16275).longValue());
 	}
 }

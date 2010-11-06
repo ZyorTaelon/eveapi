@@ -26,7 +26,7 @@ public class SheetParserTest {
 		assertEquals("Female", response.getGender());
 		assertEquals("corpexport Corp", response.getCorporationName());
 		assertEquals(150337746L, response.getCorporationID());
-		assertEquals(190210393.87, response.getBalance());
+		assertEquals(190210393.87, response.getBalance(), 0.00001);
 
 		Set<ApiAttributeEnhancer> attributeEnhancers = response.getAttributeEnhancers();
 		assertEquals(2, attributeEnhancers.size());

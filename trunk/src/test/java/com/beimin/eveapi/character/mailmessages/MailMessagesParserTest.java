@@ -39,7 +39,7 @@ public class MailMessagesParserTest {
 				calendar.set(Calendar.MILLISECOND, 0);
 				assertEquals(calendar.getTime(), mail.getSentDate());
 				assertEquals("FW: hulkageddon 2", mail.getTitle());
-				assertEquals(1449814438L, mail.getToCorpOrAllianceID());
+				assertEquals(1449814438L, mail.getToCorpOrAllianceID().longValue());
 				assertNull(mail.getToCharacterIDs());
 				assertNull(mail.getToListIDs());
 				assertEquals(false, mail.isRead());

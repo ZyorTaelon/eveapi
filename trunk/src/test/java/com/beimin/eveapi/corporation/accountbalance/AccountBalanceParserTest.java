@@ -32,7 +32,7 @@ public class AccountBalanceParserTest {
 			if (accountBalance.getAccountID() == 5689) {
 				found = true;
 				assertEquals(1003, accountBalance.getAccountKey());
-				assertEquals(17349111.00, accountBalance.getBalance());
+				assertEquals(17349111.00, accountBalance.getBalance(), 0.00001);
 			}
 		}
 		assertTrue("test accountBalance wasn't found.", found);

@@ -29,9 +29,9 @@ public class SheetParserTest {
 		assertEquals("Garth's testing corp of awesome sauce, win sauce as it were. In this\n            corp...<br><br>IT HAPPENS ALL OVER", response
 				.getDescription());
 		assertEquals("some url", response.getUrl());
-		assertEquals(150430947, response.getAllianceID());
+		assertEquals(150430947L, response.getAllianceID().longValue());
 		assertEquals("The Dead Rabbits", response.getAllianceName());
-		assertEquals(93.7, response.getTaxRate());
+		assertEquals(93.7, response.getTaxRate(), 0.0001);
 		assertEquals(3, response.getMemberCount());
 		assertEquals(6300, response.getMemberLimit());
 		assertEquals(1, response.getShares());

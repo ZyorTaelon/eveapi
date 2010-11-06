@@ -20,9 +20,9 @@ public class JumpsParserTest {
 		assertNotNull(response);
 		Map<Integer, Integer> systemJumps = response.getSystemJumps();
 		assertNotNull(systemJumps);
-		assertEquals(4294, systemJumps.size());
-		assertEquals(1040, systemJumps.get(30003504));
-		assertEquals(13, systemJumps.get(30003089));
-		assertEquals(209, systemJumps.get(30004978));
+		assertEquals(4294L, systemJumps.size());
+		assertEquals(1040L, systemJumps.get(30003504).longValue());
+		assertEquals(13L, systemJumps.get(30003089).longValue());
+		assertEquals(209L, systemJumps.get(30004978).longValue());
 	}
 }

@@ -27,11 +27,11 @@ public class KillsParserTest {
 		Map<Integer, Integer> podKills = response.getPodKills();
 		assertNotNull(podKills);
 		assertEquals(2603, podKills.size());
-		assertEquals(3, shipKills.get(30001001));
-		assertEquals(203, factionKills.get(30001001));
-		assertEquals(5, podKills.get(30001001));
-		assertEquals(0, shipKills.get(30001039));
-		assertEquals(40, factionKills.get(30001039));
-		assertEquals(0, podKills.get(30001039));
+		assertEquals(3, shipKills.get(30001001).longValue());
+		assertEquals(203, factionKills.get(30001001).longValue());
+		assertEquals(5, podKills.get(30001001).longValue());
+		assertEquals(0, shipKills.get(30001039).longValue());
+		assertEquals(40, factionKills.get(30001039).longValue());
+		assertEquals(0, podKills.get(30001039).longValue());
 	}
 }

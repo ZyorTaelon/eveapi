@@ -28,8 +28,8 @@ public class ResearchParserTest {
 				found=true;
 				assertEquals(11452, researchAgent.getSkillTypeID());
 				assertEquals("2009-10-14 21:37:42", researchAgent.getResearchStartDate());
-				assertEquals(111.78, researchAgent.getPointsPerDay());
-				assertEquals(40.9576281249902, researchAgent.getRemainderPoints());
+				assertEquals(111.78, researchAgent.getPointsPerDay(), 0.0001);
+				assertEquals(40.9576281249902, researchAgent.getRemainderPoints(), 1E-15);
 				break;
 			}
 		}

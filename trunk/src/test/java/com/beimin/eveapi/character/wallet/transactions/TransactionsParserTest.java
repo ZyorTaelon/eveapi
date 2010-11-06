@@ -43,7 +43,7 @@ public class TransactionsParserTest {
 				assertEquals(1000, walletTransaction.getQuantity());
 				assertEquals("Tungsten Charge M", walletTransaction.getTypeName());
 				assertEquals(224, walletTransaction.getTypeID());
-				assertEquals(25.11, walletTransaction.getPrice());
+				assertEquals(25.11, walletTransaction.getPrice(), 0.00001);
 				assertEquals(696416951L, walletTransaction.getClientID());
 				assertEquals("OMG Junior", walletTransaction.getClientName());
 				assertEquals(60012667, walletTransaction.getStationID());

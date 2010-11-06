@@ -47,11 +47,11 @@ public class JournalParserTest {
 				assertEquals("anonymous", journalEntry.getOwnerName2());
 				assertEquals(30001660L, journalEntry.getArgID1());
 				assertEquals("Jita", journalEntry.getArgName1());
-				assertEquals(135000.00, journalEntry.getAmount());
-				assertEquals(609292267.52, journalEntry.getBalance());
+				assertEquals(135000.00, journalEntry.getAmount(), 0.00001);
+				assertEquals(609292267.52, journalEntry.getBalance(), 0.00001);
 				assertEquals("29200:15,", journalEntry.getReason());
 				assertEquals(1734917694L, journalEntry.getTaxReceiverID());
-				assertEquals(15000.00, journalEntry.getTaxAmount());
+				assertEquals(15000.00, journalEntry.getTaxAmount(), 0.00001);
 			}
 		}
 		assertTrue("test journal entry wasn't found.", found);

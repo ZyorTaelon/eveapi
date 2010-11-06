@@ -37,7 +37,7 @@ public class StandingsParserTest {
 				ApiStanding apiStanding = standingsList.iterator().next();
 				assertEquals(1508869323, apiStanding.getID());
 				assertEquals("Sileo In Pacis", apiStanding.getName());
-				assertEquals(-2.00, apiStanding.getStanding());
+				assertEquals(-2.00, apiStanding.getStanding(), 1E-15);
 			}
 		}
 		
@@ -55,7 +55,7 @@ public class StandingsParserTest {
 						found = true;
 						assertEquals(3009237, apiStanding.getID());
 						assertEquals("Ardoroule Ophone", apiStanding.getName());
-						assertEquals(4.68, apiStanding.getStanding());
+						assertEquals(4.68, apiStanding.getStanding(), 1E-15);
 					}
 				}
 				assertTrue("Test standing not found", found);

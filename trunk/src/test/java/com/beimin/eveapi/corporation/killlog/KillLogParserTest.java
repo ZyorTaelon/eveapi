@@ -51,7 +51,7 @@ public class KillLogParserTest {
 				assertEquals(victim.getCharacterName(), "Pi'rat Tealon");
 				assertEquals(victim.getCorporationID(), 1449814438);
 				assertEquals(victim.getCorporationName(), "The Bastards");
-				assertEquals(victim.getAllianceID(), 1311549668);
+				assertEquals(victim.getAllianceID().longValue(), 1311549668L);
 				assertEquals(victim.getAllianceName(), "The Bastards.");
 				assertEquals(victim.getFactionID(), 0);
 				assertEquals(victim.getFactionName(), "");
@@ -66,11 +66,11 @@ public class KillLogParserTest {
 				assertEquals(attacker.getCharacterName(), "Blackfiredaemon");
 				assertEquals(attacker.getCorporationID(), 1885670269);
 				assertEquals(attacker.getCorporationName(), "Letiferi Praedones");
-				assertEquals(attacker.getAllianceID(), 1652934118);
+				assertEquals(attacker.getAllianceID().longValue(), 1652934118L);
 				assertEquals(attacker.getAllianceName(), "Wong Thong Crew");
 				assertEquals(attacker.getFactionID(), 0);
 				assertEquals(attacker.getFactionName(), "");
-				assertEquals(attacker.getSecurityStatus(), -3.72675620703378);
+				assertEquals(attacker.getSecurityStatus(), -3.72675620703378, 1E-20d);
 				assertEquals(attacker.getDamageDone(), 1415);
 				assertEquals(attacker.isFinalBlow(), true);
 				assertEquals(attacker.getWeaponTypeID(), 2897);
