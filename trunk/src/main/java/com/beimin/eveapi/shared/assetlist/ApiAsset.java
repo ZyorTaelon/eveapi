@@ -5,9 +5,9 @@ import java.util.HashSet;
 
 public class ApiAsset {
 	private final Collection<ApiAsset> assets = new HashSet<ApiAsset>();
-	private long itemID;
-	private int locationID;
-	private int typeID;
+	private long itemID; //ItemID : long
+	private long locationID; //LocationID : long
+	private int typeID; //TypeID : int
 	private int quantity;
 	private int flag;
 	private boolean singleton;
@@ -28,11 +28,11 @@ public class ApiAsset {
 		this.itemID = itemID;
 	}
 
-	public int getLocationID() {
+	public long getLocationID() {
 		return locationID;
 	}
 
-	public void setLocationID(int locationID) {
+	public void setLocationID(long locationID) {
 		this.locationID = locationID;
 	}
 

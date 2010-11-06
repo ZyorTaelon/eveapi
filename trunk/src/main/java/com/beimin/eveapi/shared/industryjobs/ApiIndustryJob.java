@@ -6,26 +6,26 @@ import java.util.Date;
 
 public class ApiIndustryJob {
 	private long jobID;
-	private long containerID;
-	private long installedItemID;
-	private long installedItemLocationID;
+	private long containerID; //LocationID or ItemID : long
+	private long installedItemID; //ItemID : long
+	private long installedItemLocationID; //LocationID : long
 	private int installedItemQuantity;
 	private int installedItemProductivityLevel;
 	private int installedItemMaterialLevel;
 	private int installedItemLicensedProductionRunsRemaining;
-	private long outputLocationID;
-	private long installerID;
+	private long outputLocationID; //LocationID : long
+	private long installerID; //OwnerID : int
 	private int runs;
 	private int licensedProductionRuns;
-	private long installedInSolarSystemID;
-	private long containerLocationID;
+	private long installedInSolarSystemID; //LocationID : long
+	private long containerLocationID; //LocationID : long
 	private int materialMultiplier;
 	private int charMaterialMultiplier;
 	private int timeMultiplier;
 	private int charTimeMultiplier;
-	private long installedItemTypeID;
-	private long outputTypeID;
-	private long containerTypeID;
+	private int installedItemTypeID; //TypeID : int
+	private int outputTypeID; //TypeID : int
+	private int containerTypeID; //TypeID : int
 	private long installedItemCopy;
 	private int completed;
 	private int completedSuccessfully;
@@ -183,27 +183,27 @@ public class ApiIndustryJob {
 		this.charTimeMultiplier = charTimeMultiplier;
 	}
 
-	public long getInstalledItemTypeID() {
+	public int getInstalledItemTypeID() {
 		return installedItemTypeID;
 	}
 
-	public void setInstalledItemTypeID(long installedItemTypeID) {
+	public void setInstalledItemTypeID(int installedItemTypeID) {
 		this.installedItemTypeID = installedItemTypeID;
 	}
 
-	public long getOutputTypeID() {
+	public int getOutputTypeID() {
 		return outputTypeID;
 	}
 
-	public void setOutputTypeID(long outputTypeID) {
+	public void setOutputTypeID(int outputTypeID) {
 		this.outputTypeID = outputTypeID;
 	}
 
-	public long getContainerTypeID() {
+	public int getContainerTypeID() {
 		return containerTypeID;
 	}
 
-	public void setContainerTypeID(long containerTypeID) {
+	public void setContainerTypeID(int containerTypeID) {
 		this.containerTypeID = containerTypeID;
 	}
 

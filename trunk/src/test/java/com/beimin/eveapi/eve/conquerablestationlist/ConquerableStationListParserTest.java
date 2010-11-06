@@ -19,9 +19,9 @@ public class ConquerableStationListParserTest {
 		InputStream input = ConquerableStationListParserTest.class.getResourceAsStream("/eve/ConquerableStationList.xml");
 		StationListResponse response = parser.getResponse(input);
 		assertNotNull(response);
-		Map<Integer, ApiStation> stations = response.getStations();
+		Map<Long, ApiStation> stations = response.getStations();
 		assertEquals(242, stations.size());
-		ApiStation hzfStation = stations.get(61000118);
+		ApiStation hzfStation = stations.get(61000118l);
 		assertNotNull(hzfStation);
 		assertEquals("HZF RAPTURE", hzfStation.getStationName());
 		assertEquals(21646, hzfStation.getStationTypeID());

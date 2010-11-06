@@ -5,14 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ApiMarketOrder {
-	private long orderID;
-	private long charID;
-	private long stationID;
+	private long orderID; //ItemID : long
+	private long charID; //OwnerID : int
+	private long stationID; //LocationID : long
 	private int volEntered;
 	private int volRemaining;
 	private int minVolume;
 	private int orderState;
-	private long typeID;
+	private int typeID;  //TypeID : int
 	private int range;
 	private int accountKey;
 	private int duration;
@@ -78,11 +78,11 @@ public class ApiMarketOrder {
 		this.orderState = orderState;
 	}
 
-	public long getTypeID() {
+	public int getTypeID() {
 		return typeID;
 	}
 
-	public void setTypeID(long typeID) {
+	public void setTypeID(int typeID) {
 		this.typeID = typeID;
 	}
 
