@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+  <currentTime>2010-08-17 07:05:59</currentTime>
+  <result>
+    <standingsTo>
+      <rowset name="characters" key="toID" columns="toID,toName,standing" />
+      <rowset name="corporations" key="toID" columns="toID,toName,standing">
+        <row toID="1508869323" toName="Sileo In Pacis" standing="-2.00" />
+      </rowset>
+    </standingsTo>
+    <standingsFrom>
+      <rowset name="agents" key="fromID" columns="fromID,fromName,standing">
+        <row fromID="3009237" fromName="Ardoroule Ophone" standing="4.68" />
+        <row fromID="3012295" fromName="Bjerd Erand" standing="2.08" />
+        <row fromID="3012386" fromName="Gatgisi Kornher" standing="2.51" />
+        <row fromID="3012450" fromName="Ludalerad Teolisi" standing="3.74" />
+        <row fromID="3012504" fromName="Dadunur Iggadnur" standing="8.33" />
+        <row fromID="3012673" fromName="Adelhar Atelar" standing="2.17" />
+        <row fromID="3012680" fromName="Arngredin Gutard" standing="2.74" />
+        <row fromID="3013467" fromName="Arrald Arilfer" standing="1.70" />
+        <row fromID="3013705" fromName="Iksmur Aggert" standing="2.95" />
+        <row fromID="3014051" fromName="Odrakur Salfgekur" standing="6.64" />
+        <row fromID="3014066" fromName="Ronuken Baudold" standing="1.52" />
+        <row fromID="3014068" fromName="Raldoran Irfrik" standing="2.05" />
+        <row fromID="3014071" fromName="Bomnikar Riaf" standing="1.81" />
+        <row fromID="3017059" fromName="Akrada Toksdakber" standing="2.85" />
+        <row fromID="3017061" fromName="Bustatber Velsalran" standing="0.99" />
+        <row fromID="3017062" fromName="Rember Esmur" standing="1.59" />
+        <row fromID="3017065" fromName="Haftildar Honledok" standing="4.37" />
+        <row fromID="3017440" fromName="Emormulf Trinkruntur" standing="0.58" />
+        <row fromID="3018613" fromName="Half Triat" standing="1.17" />
+        <row fromID="3018618" fromName="Hakar Ogok" standing="0.31" />
+        <row fromID="3018619" fromName="Eslin Stein" standing="0.23" />
+        <row fromID="3018620" fromName="Vilhara Vit" standing="0.52" />
+        <row fromID="3018623" fromName="Benur Errus" standing="0.08" />
+        <row fromID="3018624" fromName="Evika Deng" standing="0.11" />
+        <row fromID="3018678" fromName="Geil Ustegokkur" standing="10.00" />
+        <row fromID="3018920" fromName="Fykalia Adaferid" standing="2.62" />
+        <row fromID="3019356" fromName="Sister Alitura" standing="5.18" />
+        <row fromID="3019358" fromName="Delphine Xarasier" standing="2.51" />
+        <row fromID="3019359" fromName="Immuri Asaka" standing="1.86" />
+        <row fromID="3019361" fromName="Keita Eslin" standing="1.64" />
+        <row fromID="3019362" fromName="Tarak Erand" standing="0.88" />
+        <row fromID="3019363" fromName="Dovirch Anselm" standing="1.34" />
+        <row fromID="3019364" fromName="Doctor Canius" standing="1.28" />
+        <row fromID="3019366" fromName="Kitar Ang" standing="1.00" />
+        <row fromID="3019369" fromName="Tevis Jak" standing="0.58" />
+      </rowset>
+      <rowset name="NPCCorporations" key="fromID" columns="fromID,fromName,standing">
+        <row fromID="1000005" fromName="Hyasyoda Corporation" standing="0.12" />
+        <row fromID="1000047" fromName="Krusual tribe" standing="0.22" />
+        <row fromID="1000048" fromName="Vherokior tribe" standing="0.04" />
+        <row fromID="1000049" fromName="Brutor tribe" standing="3.10" />
+        <row fromID="1000051" fromName="Republic Fleet" standing="1.17" />
+        <row fromID="1000052" fromName="Republic Justice Department" standing="0.11" />
+        <row fromID="1000053" fromName="Urban Management" standing="0.51" />
+        <row fromID="1000054" fromName="Republic Security Services" standing="1.76" />
+        <row fromID="1000056" fromName="Core Complexion Inc." standing="0.02" />
+        <row fromID="1000059" fromName="Six Kin Development" standing="0.39" />
+        <row fromID="1000060" fromName="Native Freshfood" standing="0.08" />
+        <row fromID="1000093" fromName="Theology Council" standing="0.08" />
+        <row fromID="1000100" fromName="Quafe Company" standing="0.38" />
+        <row fromID="1000101" fromName="CreoDron" standing="0.18" />
+        <row fromID="1000125" fromName="CONCORD" standing="0.18" />
+        <row fromID="1000126" fromName="Ammatar Consulate" standing="0.14" />
+        <row fromID="1000129" fromName="Outer Ring Excavations" standing="0.05" />
+        <row fromID="1000130" fromName="Sisters of EVE" standing="0.55" />
+        <row fromID="1000170" fromName="Republic Military School" standing="0.35" />
+        <row fromID="1000171" fromName="Republic University" standing="0.04" />
+      </rowset>
+      <rowset name="factions" key="fromID" columns="fromID,fromName,standing">
+        <row fromID="500001" fromName="Caldari State" standing="-0.64" />
+        <row fromID="500002" fromName="Minmatar Republic" standing="0.81" />
+        <row fromID="500003" fromName="Amarr Empire" standing="-1.51" />
+        <row fromID="500004" fromName="Gallente Federation" standing="0.68" />
+        <row fromID="500005" fromName="Jove Empire" standing="0.21" />
+        <row fromID="500007" fromName="Ammatar Mandate" standing="-0.61" />
+        <row fromID="500008" fromName="Khanid Kingdom" standing="-0.41" />
+        <row fromID="500009" fromName="The Syndicate" standing="-0.53" />
+        <row fromID="500011" fromName="Angel Cartel" standing="-5.12" />
+        <row fromID="500012" fromName="The Blood Raider Covenant" standing="0.00" />
+        <row fromID="500013" fromName="The InterBus" standing="0.21" />
+        <row fromID="500014" fromName="ORE" standing="0.55" />
+        <row fromID="500015" fromName="Thukker Tribe" standing="0.28" />
+        <row fromID="500016" fromName="The Servant Sisters of EVE" standing="0.61" />
+        <row fromID="500017" fromName="The Society" standing="0.30" />
+        <row fromID="500018" fromName="Mordu's Legion Command" standing="-1.05" />
+        <row fromID="500019" fromName="Sansha's Nation" standing="-0.59" />
+        <row fromID="500020" fromName="Serpentis" standing="-2.29" />
+      </rowset>
+    </standingsFrom>
+  </result>
+  <cachedUntil>2010-08-17 10:05:59</cachedUntil>
+</eveapi>
