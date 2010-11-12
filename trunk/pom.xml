@@ -26,6 +26,9 @@
 			<timezone>+1</timezone>
 		</developer>
 	</developers>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>commons-digester</groupId>
@@ -54,6 +57,7 @@
 					<target>1.6</target>
 					<debug>${java.debug}</debug>
 					<optimize>${java.optimize}</optimize>
+					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
