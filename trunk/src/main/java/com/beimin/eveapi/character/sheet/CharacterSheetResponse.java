@@ -6,6 +6,7 @@ import java.util.Set;
 import com.beimin.eveapi.ApiResponse;
 
 public class CharacterSheetResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private long characterID;
 	private String name;
 	private String race;

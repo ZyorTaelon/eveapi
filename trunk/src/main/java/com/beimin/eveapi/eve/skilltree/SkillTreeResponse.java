@@ -6,6 +6,7 @@ import java.util.HashSet;
 import com.beimin.eveapi.ApiResponse;
 
 public class SkillTreeResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final Collection<ApiSkillGroup> skillGroups = new HashSet<ApiSkillGroup>();
 
 	public void addSkillGroup(ApiSkillGroup skillGroup) {

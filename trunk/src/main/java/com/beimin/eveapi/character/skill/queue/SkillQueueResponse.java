@@ -6,8 +6,9 @@ import java.util.List;
 import com.beimin.eveapi.ApiResponse;
 
 public class SkillQueueResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final List<ApiSkillQueueItem> skillQueueItems = new ArrayList<ApiSkillQueueItem>();
-	
+
 	public void addSkillQueueItem(ApiSkillQueueItem skillQueueItem) {
 		skillQueueItems.add(skillQueueItem);
 	}

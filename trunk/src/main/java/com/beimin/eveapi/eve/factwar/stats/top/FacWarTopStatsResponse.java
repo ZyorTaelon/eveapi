@@ -3,10 +3,11 @@ package com.beimin.eveapi.eve.factwar.stats.top;
 import com.beimin.eveapi.ApiResponse;
 
 public class FacWarTopStatsResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private CharacterStats characterStats;
 	private CorporationStats corporationStats;
 	private FactionStats factionStats;
-	
+
 	public CharacterStats getCharacterStats() {
 		return characterStats;
 	}

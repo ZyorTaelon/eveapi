@@ -6,6 +6,7 @@ import java.util.Collection;
 import com.beimin.eveapi.ApiResponse;
 
 public class RefTypesResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final Collection<ApiRefType> refTypes = new ArrayList<ApiRefType>();
 
 	public void addRefType(ApiRefType refType) {

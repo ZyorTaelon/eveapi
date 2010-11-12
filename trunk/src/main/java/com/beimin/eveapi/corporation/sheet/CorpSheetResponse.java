@@ -7,6 +7,7 @@ import java.util.Map;
 import com.beimin.eveapi.ApiResponse;
 
 public class CorpSheetResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private Long corporationID;
 	private String corporationName;
 	private long allianceID;
@@ -158,13 +159,15 @@ public class CorpSheetResponse extends ApiResponse {
 		if (divisionList.getName().equals("divisions")) {
 			Collection<Division> divisions = divisionList.getDivisions();
 			for (Division division : divisions) {
-				this.divisions.put(division.getAccountKey(), division.getDescription());
+				this.divisions.put(division.getAccountKey(),
+						division.getDescription());
 			}
 		}
 		if (divisionList.getName().equals("walletDivisions")) {
 			Collection<Division> divisions = divisionList.getDivisions();
 			for (Division division : divisions) {
-				this.walletDivisions.put(division.getAccountKey(), division.getDescription());
+				this.walletDivisions.put(division.getAccountKey(),
+						division.getDescription());
 			}
 		}
 

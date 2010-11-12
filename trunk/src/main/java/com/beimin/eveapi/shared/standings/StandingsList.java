@@ -3,6 +3,7 @@ package com.beimin.eveapi.shared.standings;
 import java.util.ArrayList;
 
 public class StandingsList extends ArrayList<ApiStanding> {
+	private static final long serialVersionUID = 1L;
 	public String name;
 	public String key;
 	public String columns;

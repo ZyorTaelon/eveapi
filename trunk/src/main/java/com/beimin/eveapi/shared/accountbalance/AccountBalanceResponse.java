@@ -6,6 +6,7 @@ import java.util.HashSet;
 import com.beimin.eveapi.ApiResponse;
 
 public class AccountBalanceResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final Collection<ApiAccountBalance> accountBalances = new HashSet<ApiAccountBalance>();
 
 	public void addAccountBalance(ApiAccountBalance accountBalance) {

@@ -3,6 +3,7 @@ package com.beimin.eveapi.shared.factwar.stats;
 import com.beimin.eveapi.ApiResponse;
 
 public class FacWarStats extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private int factionID;
 	private String factionName;
 	private String enlisted;

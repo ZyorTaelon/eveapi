@@ -6,13 +6,16 @@ import java.util.Map;
 import com.beimin.eveapi.ApiResponse;
 
 public class MapKillsResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final Map<Integer, Integer> shipKills = new HashMap<Integer, Integer>();
 	private final Map<Integer, Integer> factionKills = new HashMap<Integer, Integer>();
 	private final Map<Integer, Integer> podKills = new HashMap<Integer, Integer>();
 
 	public void addSystemKills(ApiSystemKills systemKills) {
-		shipKills.put(systemKills.getSolarSystemID(), systemKills.getShipKills());
-		factionKills.put(systemKills.getSolarSystemID(), systemKills.getFactionKills());
+		shipKills.put(systemKills.getSolarSystemID(),
+				systemKills.getShipKills());
+		factionKills.put(systemKills.getSolarSystemID(),
+				systemKills.getFactionKills());
 		podKills.put(systemKills.getSolarSystemID(), systemKills.getPodKills());
 	}
 

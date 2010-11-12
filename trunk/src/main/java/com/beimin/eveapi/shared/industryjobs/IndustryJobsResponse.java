@@ -6,6 +6,7 @@ import java.util.Collection;
 import com.beimin.eveapi.ApiResponse;
 
 public class IndustryJobsResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final Collection<ApiIndustryJob> industryJobs = new ArrayList<ApiIndustryJob>();
 
 	public void addIndustryJob(ApiIndustryJob industryJob) {

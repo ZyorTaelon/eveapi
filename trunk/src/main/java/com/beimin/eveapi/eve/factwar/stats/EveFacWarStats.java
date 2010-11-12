@@ -6,6 +6,7 @@ import java.util.List;
 import com.beimin.eveapi.ApiResponse;
 
 public class EveFacWarStats extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final List<ApiFactionStats> factions = new ArrayList<ApiFactionStats>();
 	private final List<ApiFactionWar> wars = new ArrayList<ApiFactionWar>();
 	private int killsYesterday;

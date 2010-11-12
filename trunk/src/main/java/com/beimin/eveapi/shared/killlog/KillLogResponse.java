@@ -6,6 +6,7 @@ import java.util.Collection;
 import com.beimin.eveapi.ApiResponse;
 
 public class KillLogResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final Collection<ApiKill> kills = new ArrayList<ApiKill>();
 
 	public void addKill(ApiKill entry) {

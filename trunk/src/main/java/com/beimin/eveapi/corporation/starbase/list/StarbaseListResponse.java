@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import com.beimin.eveapi.ApiResponse;
 
 public class StarbaseListResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final Collection<ApiStarbase> starbases = new HashSet<ApiStarbase>();
 
 	public void addStarbase(ApiStarbase starbase) {
@@ -30,7 +31,9 @@ public class StarbaseListResponse extends ApiResponse {
 
 	@Override
 	public String toString() {
-		String result = "Current time: " + getCurrentTime() + "\nCached Untill: " + getCachedUntil() + "\nWe currently have " + starbases.size()
+		String result = "Current time: " + getCurrentTime()
+				+ "\nCached Untill: " + getCachedUntil()
+				+ "\nWe currently have " + starbases.size()
 				+ " starbases in space\n\n";
 		Map<Integer, Integer> typeIds = new HashMap<Integer, Integer>();
 		for (ApiStarbase starbase : starbases) {

@@ -6,11 +6,12 @@ import java.util.Collection;
 import com.beimin.eveapi.ApiResponse;
 
 public class ShareholdersResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final Collection<ApiShareholder> characters = new ArrayList<ApiShareholder>();
 	private final Collection<ApiShareholder> corporations = new ArrayList<ApiShareholder>();
 
 	public void addShareholder(ApiShareholder shareholder) {
-		if(shareholder.getShareholderCorporationName() == null) {
+		if (shareholder.getShareholderCorporationName() == null) {
 			corporations.add(shareholder);
 		} else {
 			characters.add(shareholder);

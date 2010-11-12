@@ -7,15 +7,16 @@ import com.beimin.eveapi.ApiResponse;
 import com.beimin.eveapi.shared.standings.StandingsList;
 
 public class StandingsResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final Collection<StandingsList> corporationStandingsTo = new ArrayList<StandingsList>();
 	private final Collection<StandingsList> corporationStandingsFrom = new ArrayList<StandingsList>();
 	private final Collection<StandingsList> allianceStandingsTo = new ArrayList<StandingsList>();
 	private final Collection<StandingsList> allianceStandingsFrom = new ArrayList<StandingsList>();
-	
+
 	public void addCorporationStandingsToList(StandingsList standingsList) {
 		corporationStandingsTo.add(standingsList);
 	}
-	
+
 	public void addCorporationStandingsFromList(StandingsList standingsList) {
 		corporationStandingsFrom.add(standingsList);
 	}
@@ -23,7 +24,7 @@ public class StandingsResponse extends ApiResponse {
 	public void addAllianceStandingsToList(StandingsList standingsList) {
 		allianceStandingsTo.add(standingsList);
 	}
-	
+
 	public void addAllianceStandingsFromList(StandingsList standingsList) {
 		allianceStandingsFrom.add(standingsList);
 	}

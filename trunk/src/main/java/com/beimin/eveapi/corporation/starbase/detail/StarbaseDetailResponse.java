@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 import com.beimin.eveapi.ApiResponse;
 
 public class StarbaseDetailResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	// general settings
 	private int usageFlags;
 	private int deployFlags;

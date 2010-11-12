@@ -6,6 +6,7 @@ import java.util.Set;
 import com.beimin.eveapi.ApiResponse;
 
 public class MemberTrackingResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	Set<ApiMember> members = new HashSet<ApiMember>();
 
 	public void addMember(ApiMember member) {

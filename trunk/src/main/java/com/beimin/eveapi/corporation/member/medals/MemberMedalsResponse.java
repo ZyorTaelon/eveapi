@@ -6,6 +6,7 @@ import java.util.List;
 import com.beimin.eveapi.ApiResponse;
 
 public class MemberMedalsResponse extends ApiResponse {
+	private static final long serialVersionUID = 1L;
 	private final List<MemberMedal> medals = new ArrayList<MemberMedal>();
 
 	public void addMedal(MemberMedal entry) {
