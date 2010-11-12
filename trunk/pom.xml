@@ -5,7 +5,7 @@
 	<artifactId>eveapi</artifactId>
 	<packaging>jar</packaging>
 	<name>EveAPI</name>
-	<version>2.0.2</version>
+	<version>2.0.3-SNAPSHOT</version>
 	<description>Parsers for the eve-api</description>
 	<url>http://code.google.com/p/eveapi/</url>
 	<distributionManagement>
@@ -15,8 +15,8 @@
 		</site>
 	</distributionManagement>
 	<scm>
-		<connection>scm:svn:https://eveapi.googlecode.com/svn/tags/eveapi-2.0.2</connection>
-		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/tags/eveapi-2.0.2</developerConnection>
+		<connection>scm:svn:https://eveapi.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/trunk</developerConnection>
 	</scm>
 	<developers>
 		<developer>
