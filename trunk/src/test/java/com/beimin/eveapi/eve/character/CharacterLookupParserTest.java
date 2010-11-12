@@ -8,28 +8,31 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.eve.character.ApiCharacterLookup;
-import com.beimin.eveapi.eve.character.CharacterLookupParser;
-
 public class CharacterLookupParserTest {
-	
+	private static final int CHAR_ID = 797400947;
+	private static final String NAME = "CCP Garthagk";
+
 	@Test
-	public void testName2IdConversion() throws IOException, SAXException{
-		CharacterLookupParser parser = CharacterLookupParser.getName2IdInstance();
-		Collection<ApiCharacterLookup> chars = parser.getCharacterList("CCP Garthagk");
+	public void testName2IdConversion() throws IOException, SAXException {
+		CharacterLookupParser parser = CharacterLookupParser
+				.getName2IdInstance();
+		CharacterLookupResponse response = parser.getCharacterList(NAME);
+		Collection<ApiCharacterLookup> chars = response.getCharacterLookups();
 		assertEquals(1, chars.size());
 		ApiCharacterLookup garthagk = chars.iterator().next();
 		long characterID = garthagk.getCharacterID();
-		assertEquals(797400947, characterID);
+		assertEquals(CHAR_ID, characterID);
 	}
-	
+
 	@Test
-	public void testId2NameConversion() throws IOException, SAXException{
-		CharacterLookupParser parser = CharacterLookupParser.getId2NameInstance();
-		Collection<ApiCharacterLookup> chars = parser.getCharacterList(797400947);
+	public void testId2NameConversion() throws IOException, SAXException {
+		CharacterLookupParser parser = CharacterLookupParser
+				.getId2NameInstance();
+		CharacterLookupResponse response = parser.getCharacterList(CHAR_ID);
+		Collection<ApiCharacterLookup> chars = response.getCharacterLookups();
 		assertEquals(1, chars.size());
 		ApiCharacterLookup garthagk = chars.iterator().next();
 		String name = garthagk.getName();
-		assertEquals("CCP Garthagk", name);
+		assertEquals(NAME, name);
 	}
 }
