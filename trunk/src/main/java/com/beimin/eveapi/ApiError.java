@@ -42,9 +42,9 @@ public class ApiError {
 	public Date getRetryAfterDate() {
 		return retryAfterDate;
 	}
-	
+
 	@Override
 	public String toString() {
-		return code+": "+error;
+		return code + ": " + error;
 	}
 }
