@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -20,9 +21,11 @@ import com.beimin.eveapi.shared.wallet.journal.WalletJournalResponse;
 public class JournalParserTest {
 
 	@Test
-	public void walletJournalParser() throws IOException, SAXException, ParseException {
+	public void walletJournalParser() throws IOException, SAXException,
+			ParseException {
 		AbstractWalletJournalParser parser = WalletJournalParser.getInstance();
-		InputStream input = JournalParserTest.class.getResourceAsStream("/character/WalletJournal.xml");
+		InputStream input = JournalParserTest.class
+				.getResourceAsStream("/character/WalletJournal.xml");
 		WalletJournalResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiJournalEntry> entries = response.getJournalEntries();
@@ -31,7 +34,8 @@ public class JournalParserTest {
 		for (ApiJournalEntry journalEntry : entries) {
 			if (journalEntry.getRefID() == 1575178032L) {
 				found = true;
-				Calendar calendar = Calendar.getInstance();
+				Calendar calendar = Calendar.getInstance(TimeZone
+						.getTimeZone("GMT"));
 				calendar.set(Calendar.YEAR, 2008);
 				calendar.set(Calendar.MONTH, 7);
 				calendar.set(Calendar.DAY_OF_MONTH, 20);

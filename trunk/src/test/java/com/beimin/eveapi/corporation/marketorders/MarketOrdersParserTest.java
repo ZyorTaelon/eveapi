@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -20,9 +21,11 @@ import com.beimin.eveapi.shared.marketorders.MarketOrdersResponse;
 public class MarketOrdersParserTest {
 
 	@Test
-	public void marketOrderParser() throws IOException, SAXException, ParseException {
+	public void marketOrderParser() throws IOException, SAXException,
+			ParseException {
 		AbstractMarketOrdersParser parser = MarketOrdersParser.getInstance();
-		InputStream input = MarketOrdersParserTest.class.getResourceAsStream("/corporation/MarketOrders.xml");
+		InputStream input = MarketOrdersParserTest.class
+				.getResourceAsStream("/corporation/MarketOrders.xml");
 		MarketOrdersResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiMarketOrder> orders = response.getMarketOrders();
@@ -44,7 +47,8 @@ public class MarketOrdersParserTest {
 				assertEquals(0.00, order.getEscrow(), 0.00001);
 				assertEquals(325.00, order.getPrice(), 0.00001);
 				assertEquals(0, order.getBid());
-				Calendar calendar = Calendar.getInstance();
+				Calendar calendar = Calendar.getInstance(TimeZone
+						.getTimeZone("GMT"));
 				calendar.set(Calendar.YEAR, 2007);
 				calendar.set(Calendar.MONTH, 11);
 				calendar.set(Calendar.DAY_OF_MONTH, 2);

@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -16,9 +17,11 @@ import org.xml.sax.SAXException;
 public class AllianceListParserTest {
 
 	@Test
-	public void allianceListParser() throws IOException, SAXException, ParseException {
+	public void allianceListParser() throws IOException, SAXException,
+			ParseException {
 		AllianceListParser parser = AllianceListParser.getInstance();
-		InputStream input = AllianceListParserTest.class.getResourceAsStream("/eve/AllianceList.xml");
+		InputStream input = AllianceListParserTest.class
+				.getResourceAsStream("/eve/AllianceList.xml");
 		AllianceListResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiAlliance> alliances = response.getAlliances();
@@ -31,7 +34,8 @@ public class AllianceListParserTest {
 				assertEquals("OHGOD", alliance.getShortName());
 				assertEquals(749147334, alliance.getExecutorCorpID());
 				assertEquals(5925, alliance.getMemberCount());
-				Calendar calendar = Calendar.getInstance();
+				Calendar calendar = Calendar.getInstance(TimeZone
+						.getTimeZone("GMT"));
 				calendar.set(Calendar.YEAR, 2006);
 				calendar.set(Calendar.MONTH, 5);
 				calendar.set(Calendar.DAY_OF_MONTH, 3);
@@ -41,7 +45,8 @@ public class AllianceListParserTest {
 				calendar.set(Calendar.MILLISECOND, 0);
 				assertEquals(calendar.getTime(), alliance.getStartDateTime());
 
-				Collection<ApiMemberCorporation> memberCorporations = alliance.getMemberCorporations();
+				Collection<ApiMemberCorporation> memberCorporations = alliance
+						.getMemberCorporations();
 				assertEquals(69, memberCorporations.size());
 				boolean corpFound = false;
 				for (ApiMemberCorporation memberCorporation : memberCorporations) {
@@ -54,7 +59,8 @@ public class AllianceListParserTest {
 						calendar.set(Calendar.MINUTE, 12);
 						calendar.set(Calendar.SECOND, 0);
 						calendar.set(Calendar.MILLISECOND, 0);
-						assertEquals(calendar.getTime(), memberCorporation.getStartDateTime());
+						assertEquals(calendar.getTime(),
+								memberCorporation.getStartDateTime());
 					}
 				}
 				assertTrue("test memberCorporation wasn't found.", corpFound);

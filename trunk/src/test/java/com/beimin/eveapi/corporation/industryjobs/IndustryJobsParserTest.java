@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -20,9 +21,11 @@ import com.beimin.eveapi.shared.industryjobs.IndustryJobsResponse;
 public class IndustryJobsParserTest {
 
 	@Test
-	public void industryJobsParser() throws IOException, SAXException, ParseException {
+	public void industryJobsParser() throws IOException, SAXException,
+			ParseException {
 		AbstractIndustryJobsParser parser = IndustryJobsParser.getInstance();
-		InputStream input = IndustryJobsParserTest.class.getResourceAsStream("/corporation/IndustryJobs.xml");
+		InputStream input = IndustryJobsParserTest.class
+				.getResourceAsStream("/corporation/IndustryJobs.xml");
 		IndustryJobsResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiIndustryJob> industryJobs = response.getIndustryJobs();
@@ -38,12 +41,16 @@ public class IndustryJobsParserTest {
 				assertEquals(1, industryJob.getInstalledItemQuantity());
 				assertEquals(0, industryJob.getInstalledItemProductivityLevel());
 				assertEquals(0, industryJob.getInstalledItemMaterialLevel());
-				assertEquals(300, industryJob.getInstalledItemLicensedProductionRunsRemaining());
+				assertEquals(
+						300,
+						industryJob
+								.getInstalledItemLicensedProductionRunsRemaining());
 				assertEquals(60010783, industryJob.getOutputLocationID());
 				assertEquals(150208955, industryJob.getInstallerID());
 				assertEquals(1, industryJob.getRuns());
 				assertEquals(10, industryJob.getLicensedProductionRuns());
-				assertEquals(30004969, industryJob.getInstalledInSolarSystemID());
+				assertEquals(30004969,
+						industryJob.getInstalledInSolarSystemID());
 				assertEquals(30004969, industryJob.getContainerLocationID());
 				assertEquals(-4, industryJob.getMaterialMultiplier());
 				assertEquals(1, industryJob.getCharMaterialMultiplier());
@@ -59,7 +66,8 @@ public class IndustryJobsParserTest {
 				assertEquals(4, industryJob.getOutputFlag());
 				assertEquals(8, industryJob.getActivityID());
 				assertEquals(0, industryJob.getCompletedStatus());
-				Calendar calendar = Calendar.getInstance();
+				Calendar calendar = Calendar.getInstance(TimeZone
+						.getTimeZone("GMT"));
 				calendar.set(Calendar.YEAR, 2007);
 				calendar.set(Calendar.MONTH, 10);
 				calendar.set(Calendar.DAY_OF_MONTH, 30);
@@ -67,11 +75,14 @@ public class IndustryJobsParserTest {
 				calendar.set(Calendar.MINUTE, 59);
 				calendar.set(Calendar.SECOND, 0);
 				calendar.set(Calendar.MILLISECOND, 0);
-				assertEquals(calendar.getTime(), industryJob.getInstallTimeDate());
-				assertEquals(calendar.getTime(), industryJob.getBeginProductionTimeDate());
+				assertEquals(calendar.getTime(),
+						industryJob.getInstallTimeDate());
+				assertEquals(calendar.getTime(),
+						industryJob.getBeginProductionTimeDate());
 				calendar.set(Calendar.HOUR_OF_DAY, 14);
 				calendar.set(Calendar.MINUTE, 29);
-				assertEquals(calendar.getTime(), industryJob.getEndProductionTimeDate());
+				assertEquals(calendar.getTime(),
+						industryJob.getEndProductionTimeDate());
 				calendar.set(Calendar.YEAR, 1);
 				calendar.set(Calendar.MONTH, 0);
 				calendar.set(Calendar.DAY_OF_MONTH, 1);
@@ -79,7 +90,8 @@ public class IndustryJobsParserTest {
 				calendar.set(Calendar.MINUTE, 0);
 				calendar.set(Calendar.SECOND, 0);
 				calendar.set(Calendar.MILLISECOND, 0);
-				assertEquals(calendar.getTime(), industryJob.getPauseProductionTimeDate());
+				assertEquals(calendar.getTime(),
+						industryJob.getPauseProductionTimeDate());
 			}
 		}
 		assertTrue("test job wasn't found.", found);

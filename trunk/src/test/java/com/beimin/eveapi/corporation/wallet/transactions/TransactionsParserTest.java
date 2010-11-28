@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -20,18 +21,23 @@ import com.beimin.eveapi.shared.wallet.transactions.WalletTransactionsResponse;
 public class TransactionsParserTest {
 
 	@Test
-	public void walletTransactionParser() throws IOException, SAXException, ParseException {
-		AbstractWalletTransactionsParser parser = WalletTransactionsParser.getInstance();
-		InputStream input = TransactionsParserTest.class.getResourceAsStream("/corporation/WalletTransactions.xml");
+	public void walletTransactionParser() throws IOException, SAXException,
+			ParseException {
+		AbstractWalletTransactionsParser parser = WalletTransactionsParser
+				.getInstance();
+		InputStream input = TransactionsParserTest.class
+				.getResourceAsStream("/corporation/WalletTransactions.xml");
 		WalletTransactionsResponse response = parser.getResponse(input);
 		assertNotNull(response);
-		Collection<ApiWalletTransaction> walletTransactions = response.getWalletTransactions();
+		Collection<ApiWalletTransaction> walletTransactions = response
+				.getWalletTransactions();
 		assertEquals(4, walletTransactions.size());
 		boolean found = false;
 		for (ApiWalletTransaction walletTransaction : walletTransactions) {
 			if (walletTransaction.getTransactionID() == 705664738) {
 				found = true;
-				Calendar calendar = Calendar.getInstance();
+				Calendar calendar = Calendar.getInstance(TimeZone
+						.getTimeZone("GMT"));
 				calendar.set(Calendar.YEAR, 2008);
 				calendar.set(Calendar.MONTH, 7);
 				calendar.set(Calendar.DAY_OF_MONTH, 4);
@@ -39,7 +45,8 @@ public class TransactionsParserTest {
 				calendar.set(Calendar.MINUTE, 01);
 				calendar.set(Calendar.SECOND, 0);
 				calendar.set(Calendar.MILLISECOND, 0);
-				assertEquals(calendar.getTime(), walletTransaction.getTransactionDate());
+				assertEquals(calendar.getTime(),
+						walletTransaction.getTransactionDate());
 
 				assertEquals(50000, walletTransaction.getQuantity());
 				assertEquals("Oxygen Isotopes", walletTransaction.getTypeName());
@@ -50,9 +57,12 @@ public class TransactionsParserTest {
 				assertEquals(000000000, walletTransaction.getCharacterID());
 				assertEquals("SELLER", walletTransaction.getCharacterName());
 				assertEquals(60004375, walletTransaction.getStationID());
-				assertEquals("SYSTEM IV - Moon 10 - Corporate Police Force Testing Facilities", walletTransaction.getStationName());
+				assertEquals(
+						"SYSTEM IV - Moon 10 - Corporate Police Force Testing Facilities",
+						walletTransaction.getStationName());
 				assertEquals("buy", walletTransaction.getTransactionType());
-				assertEquals("corporation", walletTransaction.getTransactionFor());
+				assertEquals("corporation",
+						walletTransaction.getTransactionFor());
 			}
 		}
 		assertTrue("test order wasn't found.", found);
