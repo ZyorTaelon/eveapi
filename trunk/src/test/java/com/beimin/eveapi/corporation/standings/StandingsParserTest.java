@@ -11,7 +11,9 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.shared.standings.ApiStanding;
 import com.beimin.eveapi.shared.standings.StandingsList;
+import com.beimin.eveapi.shared.standings.StandingsResponse;
 
 public class StandingsParserTest {
 
@@ -21,47 +23,31 @@ public class StandingsParserTest {
 		InputStream input = StandingsParserTest.class.getResourceAsStream("/corporation/Standings.xml");
 		StandingsResponse response = parser.getResponse(input);
 		assertNotNull(response);
-		
-		Collection<StandingsList> corporationStandingsTo = response.getCorporationStandingsTo();
-		assertNotNull(corporationStandingsTo);
-		assertEquals(3, corporationStandingsTo.size());
-		for (StandingsList standingsList : corporationStandingsTo) {
+
+		Collection<StandingsList> corporationStandingsLists = response.getStandingsLists();
+		assertNotNull(corporationStandingsLists);
+		assertEquals(3, corporationStandingsLists.size());
+		for (StandingsList standingsList : corporationStandingsLists) {
 			assertNotNull(standingsList);
 			String name = standingsList.getName();
-			if(name.equals("characters")) {
-				assertEquals(3, standingsList.size());
-			} else if(name.equals("corporations")) {
-				assertEquals(4, standingsList.size());
-			} else if(name.equals("alliances")) {
-				assertEquals(7, standingsList.size());
-			} 
-		}
-		
-		Collection<StandingsList> corporationStandingsFrom = response.getCorporationStandingsFrom();
-		assertNotNull(corporationStandingsFrom);
-		assertEquals(3, corporationStandingsFrom.size());
-		for (StandingsList standingsList : corporationStandingsTo) {
-			assertNotNull(standingsList);
-			String name = standingsList.getName();
-			if(name.equals("agents")) {
-				assertEquals(8, standingsList.size());
-			} else if(name.equals("NPCCorporations")) {
-				assertEquals(9, standingsList.size());
-			} else if(name.equals("factions")) {
+			if (name.equals("agents")) {
+				assertEquals(1871, standingsList.size());
+				ApiStanding apiStanding = standingsList.iterator().next();
+				assertEquals(3008420, apiStanding.getID());
+				assertEquals("Appi Intaa", apiStanding.getName());
+				assertEquals(-0.33, apiStanding.getStanding(), 1E-15);
+			} else if (name.equals("NPCCorporations")) {
+				assertEquals(154, standingsList.size());
+				ApiStanding apiStanding = standingsList.iterator().next();
+				assertEquals(1000002, apiStanding.getID());
+				assertEquals("CBD Corporation", apiStanding.getName());
+				assertEquals(0.52, apiStanding.getStanding(), 1E-15);
+			} else if (name.equals("factions")) {
 				assertEquals(20, standingsList.size());
-			} 
-		}
-		
-		Collection<StandingsList> allianceStandingsTo = response.getAllianceStandingsTo();
-		assertNotNull(allianceStandingsTo);
-		assertEquals(2, allianceStandingsTo.size());
-		for (StandingsList standingsList : allianceStandingsTo) {
-			assertNotNull(standingsList);
-			String name = standingsList.getName();
-			if(name.equals("corporations")) {
-				assertEquals(9, standingsList.size());
-			} else if(name.equals("alliances")) {
-				assertEquals(27, standingsList.size());
+				ApiStanding apiStanding = standingsList.iterator().next();
+				assertEquals(500001, apiStanding.getID());
+				assertEquals("Caldari State", apiStanding.getName());
+				assertEquals(1.47, apiStanding.getStanding(), 1E-15);
 			}
 		}
 	}
