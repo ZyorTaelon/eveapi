@@ -9,14 +9,14 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class CharactersParser extends AbstractApiParser<CharactersResponse> {
-	protected static final String CHARACTER_LIST_URL = "/account/Characters.xml.aspx";
+	protected static final String CHARACTER_LIST_URL = "/Characters.xml.aspx";
 
 	public CharactersParser() {
 		super(CharactersResponse.class, 1, CHARACTER_LIST_URL);
 	}
 
 	public CharactersResponse getEveCharacters(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		return getResponse(auth, Path.ACCOUNT);
 	}
 
 	@Override

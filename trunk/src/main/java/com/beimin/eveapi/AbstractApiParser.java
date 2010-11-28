@@ -27,7 +27,7 @@ import com.beimin.eveapi.utils.DateUtils;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
 	protected enum Path {
-		CORP("/corp"), CHARACTER("/char"), NONE("");
+		ACCOUNT("/account"), CHARACTER("/char"), CORP("/corp"), NONE("");
 		private final String path;
 
 		Path(String path) {
@@ -55,8 +55,6 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	protected static String eveApiURL = "http://api.eve-online.com";
 	protected static Proxy httpProxy = null;
 
-	protected static final String CORP_PATH = "/corp";
-	protected static final String CHAR_PATH = "/char";
 	private final Class<E> clazz;
 	private final int apiVersion;
 	protected final Map<String, E> cache = new HashMap<String, E>();
