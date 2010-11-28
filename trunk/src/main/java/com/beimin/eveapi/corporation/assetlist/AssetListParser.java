@@ -5,7 +5,7 @@ import com.beimin.eveapi.shared.assetlist.AbstractAssetListParser;
 public class AssetListParser extends AbstractAssetListParser {
 
 	private AssetListParser() {
-		super(Path.CORP);
+		super(Path.CORPORATION);
 	}
 
 	public static AssetListParser getInstance() {

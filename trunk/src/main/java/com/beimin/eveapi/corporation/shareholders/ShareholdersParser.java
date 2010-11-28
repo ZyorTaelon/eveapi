@@ -16,7 +16,7 @@ public class ShareholdersParser extends AbstractApiParser<ShareholdersResponse> 
 	}
 
 	public ShareholdersResponse getShareholders(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.CORP);
+		return getResponse(auth, Path.CORPORATION);
 	}
 
 	@Override

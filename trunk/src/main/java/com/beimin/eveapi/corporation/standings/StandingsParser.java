@@ -1,12 +1,11 @@
 package com.beimin.eveapi.corporation.standings;
 
 import com.beimin.eveapi.shared.standings.AbstractStandingsParser;
-import com.beimin.eveapi.shared.standings.StandingsResponse;
 
-public class StandingsParser extends AbstractStandingsParser<StandingsResponse> {
+public class StandingsParser extends AbstractStandingsParser {
 
 	private StandingsParser() {
-		super(StandingsResponse.class, Path.CORP);
+		super(Path.CORPORATION);
 	}
 
 	public static StandingsParser getInstance() {

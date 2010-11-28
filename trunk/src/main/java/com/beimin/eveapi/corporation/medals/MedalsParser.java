@@ -5,7 +5,7 @@ import com.beimin.eveapi.shared.medals.AbstractMedalsParser;
 public class MedalsParser extends AbstractMedalsParser<CorpMedal> {
 	
 	private MedalsParser() {
-		super(Path.CORP, CorpMedal.class);
+		super(Path.CORPORATION, CorpMedal.class);
 	}
 
 	public static MedalsParser getInstance() {

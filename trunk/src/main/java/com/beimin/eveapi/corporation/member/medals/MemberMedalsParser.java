@@ -16,7 +16,7 @@ public class MemberMedalsParser extends AbstractApiParser<MemberMedalsResponse> 
 	}
 
 	public MemberMedalsResponse getKillList(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.CORP);
+		return getResponse(auth, Path.CORPORATION);
 	}
 
 	@Override

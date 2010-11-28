@@ -5,7 +5,7 @@ import com.beimin.eveapi.shared.wallet.transactions.AbstractWalletTransactionsPa
 public class WalletTransactionsParser extends AbstractWalletTransactionsParser{
 
 	private WalletTransactionsParser() {
-		super(Path.CORP);
+		super(Path.CORPORATION);
 	}
 
 	public static WalletTransactionsParser getInstance() {

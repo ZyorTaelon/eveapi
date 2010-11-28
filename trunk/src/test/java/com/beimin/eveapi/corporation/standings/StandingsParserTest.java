@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
-import java.util.Collection;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -24,31 +23,28 @@ public class StandingsParserTest {
 		StandingsResponse response = parser.getResponse(input);
 		assertNotNull(response);
 
-		Collection<StandingsList> corporationStandingsLists = response.getStandingsLists();
-		assertNotNull(corporationStandingsLists);
-		assertEquals(3, corporationStandingsLists.size());
-		for (StandingsList standingsList : corporationStandingsLists) {
-			assertNotNull(standingsList);
-			String name = standingsList.getName();
-			if (name.equals("agents")) {
-				assertEquals(1871, standingsList.size());
-				ApiStanding apiStanding = standingsList.iterator().next();
-				assertEquals(3008420, apiStanding.getID());
-				assertEquals("Appi Intaa", apiStanding.getName());
-				assertEquals(-0.33, apiStanding.getStanding(), 1E-15);
-			} else if (name.equals("NPCCorporations")) {
-				assertEquals(154, standingsList.size());
-				ApiStanding apiStanding = standingsList.iterator().next();
-				assertEquals(1000002, apiStanding.getID());
-				assertEquals("CBD Corporation", apiStanding.getName());
-				assertEquals(0.52, apiStanding.getStanding(), 1E-15);
-			} else if (name.equals("factions")) {
-				assertEquals(20, standingsList.size());
-				ApiStanding apiStanding = standingsList.iterator().next();
-				assertEquals(500001, apiStanding.getID());
-				assertEquals("Caldari State", apiStanding.getName());
-				assertEquals(1.47, apiStanding.getStanding(), 1E-15);
-			}
-		}
+		StandingsList agentStandings = response.getAgentStandings();
+		assertEquals("agents", agentStandings.getName());
+		assertEquals(116, agentStandings.size());
+		ApiStanding apiStanding = agentStandings.iterator().next();
+		assertEquals(3008420, apiStanding.getFromID());
+		assertEquals("Appi Intaa", apiStanding.getFromName());
+		assertEquals(-0.33, apiStanding.getStanding(), 1E-15);
+
+		StandingsList npcCorporations = response.getNpcCorporationStandings();
+		assertEquals("NPCCorporations", npcCorporations.getName());
+		assertEquals(51, npcCorporations.size());
+		apiStanding = npcCorporations.iterator().next();
+		assertEquals(1000002, apiStanding.getFromID());
+		assertEquals("CBD Corporation", apiStanding.getFromName());
+		assertEquals(0.52, apiStanding.getStanding(), 1E-15);
+
+		StandingsList factionStandings = response.getFactionStandings();
+		assertEquals("factions", factionStandings.getName());
+		assertEquals(20, factionStandings.size());
+		apiStanding = factionStandings.iterator().next();
+		assertEquals(500001, apiStanding.getFromID());
+		assertEquals("Caldari State", apiStanding.getFromName());
+		assertEquals(1.47, apiStanding.getStanding(), 1E-15);
 	}
 }

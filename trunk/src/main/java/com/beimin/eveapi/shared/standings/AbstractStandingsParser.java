@@ -7,20 +7,19 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
-import com.beimin.eveapi.ApiResponse;
 
-public abstract class AbstractStandingsParser<SR extends ApiResponse> extends AbstractApiParser<SR> {
+public abstract class AbstractStandingsParser extends AbstractApiParser<StandingsResponse> {
 	protected static final String STANDINGS_URL = "/Standings.xml.aspx";
 	private final Path path;
 
-	protected AbstractStandingsParser(Class<SR> responseClass, Path path) {
-		super(responseClass, 2, STANDINGS_URL);
+	protected AbstractStandingsParser(Path path) {
+		super(StandingsResponse.class, 2, STANDINGS_URL);
 		this.path = path;
 	}
 
 	protected Digester getDigester() {
 		switch (path) {
-		case CORP:
+		case CORPORATION:
 			return getDigester("corporationNPCStandings");
 		case CHARACTER:
 			return getDigester("characterNPCStandings");
@@ -33,14 +32,14 @@ public abstract class AbstractStandingsParser<SR extends ApiResponse> extends Ab
 		Digester digester = super.getDigester();
 		digester.addObjectCreate("eveapi/result/" + path + "/rowset", StandingsList.class);
 		digester.addSetProperties("eveapi/result/" + path + "/rowset");
-		digester.addObjectCreate("eveapi/result/" + path + "/rowset/row", ApiStandingFrom.class);
+		digester.addObjectCreate("eveapi/result/" + path + "/rowset/row", ApiStanding.class);
 		digester.addSetProperties("eveapi/result/" + path + "/rowset/row");
 		digester.addSetNext("eveapi/result/" + path + "/rowset/row", "add");
 		digester.addSetNext("eveapi/result/" + path + "/rowset", "addStandingsList");
 		return digester;
 	}
 
-	public SR getStandingsResponse(ApiAuth auth) throws IOException, SAXException {
+	public StandingsResponse getStandingsResponse(ApiAuth auth) throws IOException, SAXException {
 		return getResponse(auth, path);
 	}
 }

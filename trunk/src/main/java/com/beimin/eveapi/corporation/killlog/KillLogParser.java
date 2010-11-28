@@ -5,7 +5,7 @@ import com.beimin.eveapi.shared.killlog.AbstractKillLogParser;
 public class KillLogParser extends AbstractKillLogParser {
 
 	private KillLogParser() {
-		super(Path.CORP);
+		super(Path.CORPORATION);
 	}
 
 	public static KillLogParser getInstance() {

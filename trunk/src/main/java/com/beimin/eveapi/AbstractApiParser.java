@@ -27,7 +27,7 @@ import com.beimin.eveapi.utils.DateUtils;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
 	protected enum Path {
-		ACCOUNT("/account"), CHARACTER("/char"), CORP("/corp"), NONE("");
+		ACCOUNT("/account"), CHARACTER("/char"), CORPORATION("/corp"), NONE("");
 		private final String path;
 
 		Path(String path) {

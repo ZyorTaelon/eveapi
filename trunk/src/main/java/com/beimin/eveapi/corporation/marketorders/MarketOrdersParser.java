@@ -5,7 +5,7 @@ import com.beimin.eveapi.shared.marketorders.AbstractMarketOrdersParser;
 public class MarketOrdersParser extends AbstractMarketOrdersParser {
 
 	private MarketOrdersParser() {
-		super(Path.CORP);
+		super(Path.CORPORATION);
 	}
 
 	public static MarketOrdersParser getInstance() {

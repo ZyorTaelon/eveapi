@@ -5,7 +5,7 @@ import com.beimin.eveapi.shared.industryjobs.AbstractIndustryJobsParser;
 public class IndustryJobsParser extends AbstractIndustryJobsParser {
 
 	private IndustryJobsParser() {
-		super(Path.CORP);
+		super(Path.CORPORATION);
 	}
 
 	public static IndustryJobsParser getInstance() {

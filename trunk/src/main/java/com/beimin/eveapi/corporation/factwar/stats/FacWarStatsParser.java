@@ -5,7 +5,7 @@ import com.beimin.eveapi.shared.factwar.stats.AbstractFactWarStatsParser;
 public class FacWarStatsParser extends AbstractFactWarStatsParser {
 
 	private FacWarStatsParser() {
-		super(Path.CORP);
+		super(Path.CORPORATION);
 	}
 
 	public static FacWarStatsParser getInstance() {
