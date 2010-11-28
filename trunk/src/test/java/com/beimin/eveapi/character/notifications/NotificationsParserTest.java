@@ -1,5 +1,6 @@
 package com.beimin.eveapi.character.notifications;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -24,12 +25,12 @@ public class NotificationsParserTest {
 		assertEquals(3, notifications.size());
 		boolean found = false;
 		for (ApiNotification notification : notifications) {
-			if(notification.getNotificationID()==295043380L){
-				found=true;
+			if (notification.getNotificationID() == 295043380L) {
+				found = true;
 				assertEquals(5, notification.getTypeID());
 				assertEquals("Alliance war declared", notification.getType());
 				assertEquals(1000125L, notification.getSenderID());
-				assertEquals("2010-01-14 20:45:00", notification.getSentDate());
+				assertDate(2010, 1, 14, 20, 45, 0, notification.getSentDate());
 				assertEquals(false, notification.isRead());
 				break;
 			}
