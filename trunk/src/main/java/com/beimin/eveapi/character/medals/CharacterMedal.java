@@ -1,10 +1,10 @@
 package com.beimin.eveapi.character.medals;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.beimin.eveapi.shared.medals.Medal;
+import com.beimin.eveapi.utils.DateUtils;
 
 public class CharacterMedal extends Medal {
 	private String reason;
@@ -12,7 +12,6 @@ public class CharacterMedal extends Medal {
 	private long issuerID;
 	private String issued;
 	private long corporationID;
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public String getReason() {
 		return reason;
@@ -29,11 +28,11 @@ public class CharacterMedal extends Medal {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+
 	public boolean isPublic() {
 		return status.equals("public");
 	}
-	
+
 	public long getIssuerID() {
 		return issuerID;
 	}
@@ -43,7 +42,7 @@ public class CharacterMedal extends Medal {
 	}
 
 	public Date getIssuedDateTime() throws ParseException {
-		return sdf.parse(issued);
+		return DateUtils.parse(issued);
 	}
 
 	public String getIssued() {

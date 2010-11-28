@@ -1,8 +1,9 @@
 package com.beimin.eveapi.corporation.member.medals;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.beimin.eveapi.utils.DateUtils;
 
 public class MemberMedal {
 	private int medalID;
@@ -11,7 +12,6 @@ public class MemberMedal {
 	private String status;
 	private long issuerID;
 	private String issued;
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public int getMedalID() {
 		return medalID;
@@ -44,7 +44,7 @@ public class MemberMedal {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+
 	public boolean isPublic() {
 		return status.equals("public");
 	}
@@ -58,7 +58,7 @@ public class MemberMedal {
 	}
 
 	public Date getIssuedDateTime() throws ParseException {
-		return sdf.parse(issued);
+		return DateUtils.parse(issued);
 	}
 
 	public String getIssued() {

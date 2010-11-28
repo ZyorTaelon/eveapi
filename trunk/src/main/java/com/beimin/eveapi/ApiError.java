@@ -1,10 +1,10 @@
 package com.beimin.eveapi;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.beimin.eveapi.utils.DateUtils;
+
 public class ApiError {
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private int code;
 	private String error;
 	private Date retryAfterDate = null;
@@ -28,7 +28,7 @@ public class ApiError {
 			if (retryIndex > 0) {
 				int beginIndex = retryIndex + 12;
 				String substring = error.substring(beginIndex, beginIndex + 19);
-				retryAfterDate = sdf.parse(substring);
+				retryAfterDate = DateUtils.parse(substring);
 			}
 		} catch (Exception e) {
 			// ignore.

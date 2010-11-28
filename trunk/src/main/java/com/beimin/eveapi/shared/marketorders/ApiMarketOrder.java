@@ -1,18 +1,19 @@
 package com.beimin.eveapi.shared.marketorders;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.beimin.eveapi.utils.DateUtils;
+
 public class ApiMarketOrder {
-	private long orderID; //ItemID : long
-	private long charID; //OwnerID : int
-	private long stationID; //LocationID : long
+	private long orderID; // ItemID : long
+	private long charID; // OwnerID : int
+	private long stationID; // LocationID : long
 	private int volEntered;
 	private int volRemaining;
 	private int minVolume;
 	private int orderState;
-	private int typeID;  //TypeID : int
+	private int typeID; // TypeID : int
 	private int range;
 	private int accountKey;
 	private int duration;
@@ -20,7 +21,6 @@ public class ApiMarketOrder {
 	private double price;
 	private int bid;
 	private String issued;
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public long getOrderID() {
 		return orderID;
@@ -135,7 +135,7 @@ public class ApiMarketOrder {
 	}
 
 	public Date getIssuedDate() throws ParseException {
-		return sdf.parse(issued);
+		return DateUtils.parse(issued);
 	}
 
 	public String getIssued() {

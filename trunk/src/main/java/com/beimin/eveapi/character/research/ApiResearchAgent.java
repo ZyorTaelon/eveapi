@@ -1,9 +1,10 @@
 package com.beimin.eveapi.character.research;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import com.beimin.eveapi.utils.DateUtils;
 
 public class ApiResearchAgent {
 	private int agentID;
@@ -11,7 +12,6 @@ public class ApiResearchAgent {
 	private String researchStartDate;
 	private double pointsPerDay;
 	private double remainderPoints;
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public int getAgentID() {
 		return agentID;
@@ -30,7 +30,7 @@ public class ApiResearchAgent {
 	}
 
 	public Date getResearchStartDateTime() throws ParseException {
-		return sdf.parse(researchStartDate);
+		return DateUtils.parse(researchStartDate);
 	}
 
 	public String getResearchStartDate() {
@@ -56,7 +56,7 @@ public class ApiResearchAgent {
 	public void setRemainderPoints(double remainderPoints) {
 		this.remainderPoints = remainderPoints;
 	}
-	
+
 	public double getCurrentPoints() {
 		try {
 			long startDate = getResearchStartDateTime().getTime();

@@ -1,10 +1,10 @@
 package com.beimin.eveapi.character.skill.intraining;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.utils.DateUtils;
 
 public class SkillInTrainingResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
@@ -19,8 +19,6 @@ public class SkillInTrainingResponse extends ApiResponse {
 	private int trainingDestinationSP;
 	private int trainingToLevel;
 	private boolean skillInTraining;
-	private final SimpleDateFormat sdf = new SimpleDateFormat(
-			"yyyy-MM-dd HH:mm:ss");
 
 	public String getCurrentTQTime() {
 		return currentTQTime;
@@ -28,8 +26,7 @@ public class SkillInTrainingResponse extends ApiResponse {
 
 	public void setCurrentTQTime(String currentTQTime) throws ParseException {
 		this.currentTQTime = currentTQTime;
-		this.currentTQDate = sdf.parse(currentTQTime);
-		;
+		this.currentTQDate = DateUtils.parse(currentTQTime);
 	}
 
 	public Date getCurrentTQDate() {
@@ -43,7 +40,7 @@ public class SkillInTrainingResponse extends ApiResponse {
 	public void setTrainingEndTime(String trainingEndTime)
 			throws ParseException {
 		this.trainingEndTime = trainingEndTime;
-		this.trainingEndDate = sdf.parse(trainingEndTime);
+		this.trainingEndDate = DateUtils.parse(trainingEndTime);
 	}
 
 	public Date getTrainingEndDate() {
@@ -57,7 +54,7 @@ public class SkillInTrainingResponse extends ApiResponse {
 	public void setTrainingStartTime(String trainingStartTime)
 			throws ParseException {
 		this.trainingStartTime = trainingStartTime;
-		this.trainingStartDate = sdf.parse(trainingStartTime);
+		this.trainingStartDate = DateUtils.parse(trainingStartTime);
 	}
 
 	public Date getTrainingStartDate() {

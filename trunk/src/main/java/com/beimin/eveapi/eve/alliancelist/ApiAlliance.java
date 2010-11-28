@@ -1,10 +1,11 @@
 package com.beimin.eveapi.eve.alliancelist;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+
+import com.beimin.eveapi.utils.DateUtils;
 
 public class ApiAlliance {
 	private String name;// ="GoonSwarm"
@@ -14,7 +15,6 @@ public class ApiAlliance {
 	private int memberCount;// ="5925"
 	private String startDate;// ="2006-06-03 00:50:00"
 	private final Collection<ApiMemberCorporation> memberCorporations = new ArrayList<ApiMemberCorporation>();
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public String getName() {
 		return name;
@@ -57,7 +57,7 @@ public class ApiAlliance {
 	}
 
 	public Date getStartDateTime() throws ParseException {
-		return sdf.parse(startDate);
+		return DateUtils.parse(startDate);
 	}
 
 	public String getStartDate() {

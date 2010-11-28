@@ -1,8 +1,9 @@
 package com.beimin.eveapi.character.skill.queue;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.beimin.eveapi.utils.DateUtils;
 
 public class ApiSkillQueueItem {
 	private int queuePosition;
@@ -12,7 +13,6 @@ public class ApiSkillQueueItem {
 	private int endSP;
 	private String startTime;
 	private String endTime;
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public int getQueuePosition() {
 		return queuePosition;
@@ -55,7 +55,7 @@ public class ApiSkillQueueItem {
 	}
 
 	public Date getStartDate() throws ParseException {
-		return sdf.parse(startTime);
+		return DateUtils.parse(startTime);
 	}
 
 	public String getStartTime() {
@@ -67,7 +67,7 @@ public class ApiSkillQueueItem {
 	}
 
 	public Date getEndDate() throws ParseException {
-		return sdf.parse(endTime);
+		return DateUtils.parse(endTime);
 	}
 
 	public String getEndTime() {

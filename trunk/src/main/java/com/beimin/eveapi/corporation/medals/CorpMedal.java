@@ -1,15 +1,14 @@
 package com.beimin.eveapi.corporation.medals;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.beimin.eveapi.shared.medals.Medal;
+import com.beimin.eveapi.utils.DateUtils;
 
 public class CorpMedal extends Medal {
 	private long creatorID;
 	private String created;
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public long getCreatorID() {
 		return creatorID;
@@ -20,7 +19,7 @@ public class CorpMedal extends Medal {
 	}
 
 	public Date getCreatedDateTime() throws ParseException {
-		return sdf.parse(created);
+		return DateUtils.parse(created);
 	}
 
 	public String getCreated() {

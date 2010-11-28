@@ -1,13 +1,13 @@
 package com.beimin.eveapi.eve.alliancelist;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.beimin.eveapi.utils.DateUtils;
+
 public class ApiMemberCorporation {
-	private long corporationID;// ="109788662"
-	private String startDate;// ="2007-09-09 19:12:00"
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private long corporationID;
+	private String startDate;
 
 	public long getCorporationID() {
 		return corporationID;
@@ -18,7 +18,7 @@ public class ApiMemberCorporation {
 	}
 
 	public Date getStartDateTime() throws ParseException {
-		return sdf.parse(startDate);
+		return DateUtils.parse(startDate);
 	}
 
 	public String getStartDate() {

@@ -1,10 +1,11 @@
 package com.beimin.eveapi.shared.wallet.journal;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.beimin.eveapi.utils.DateUtils;
 
 public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	private String date;
@@ -22,8 +23,6 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	private String reason;
 	private long taxReceiverID;
 	private double taxAmount;
-	
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public Date getDateTime() {
 		return dateTime;
@@ -34,7 +33,7 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	}
 
 	public void setDate(String date) throws ParseException {
-		this.dateTime = sdf.parse(date);
+		this.dateTime = DateUtils.parse(date);
 		this.date = date;
 	}
 

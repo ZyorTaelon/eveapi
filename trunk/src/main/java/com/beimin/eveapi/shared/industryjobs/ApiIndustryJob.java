@@ -1,31 +1,32 @@
 package com.beimin.eveapi.shared.industryjobs;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.beimin.eveapi.utils.DateUtils;
 
 public class ApiIndustryJob {
 	private long jobID;
-	private long containerID; //LocationID or ItemID : long
-	private long installedItemID; //ItemID : long
-	private long installedItemLocationID; //LocationID : long
+	private long containerID; // LocationID or ItemID : long
+	private long installedItemID; // ItemID : long
+	private long installedItemLocationID; // LocationID : long
 	private int installedItemQuantity;
 	private int installedItemProductivityLevel;
 	private int installedItemMaterialLevel;
 	private int installedItemLicensedProductionRunsRemaining;
-	private long outputLocationID; //LocationID : long
-	private long installerID; //OwnerID : int
+	private long outputLocationID; // LocationID : long
+	private long installerID; // OwnerID : int
 	private int runs;
 	private int licensedProductionRuns;
-	private long installedInSolarSystemID; //LocationID : long
-	private long containerLocationID; //LocationID : long
+	private long installedInSolarSystemID; // LocationID : long
+	private long containerLocationID; // LocationID : long
 	private int materialMultiplier;
 	private int charMaterialMultiplier;
 	private int timeMultiplier;
 	private int charTimeMultiplier;
-	private int installedItemTypeID; //TypeID : int
-	private int outputTypeID; //TypeID : int
-	private int containerTypeID; //TypeID : int
+	private int installedItemTypeID; // TypeID : int
+	private int outputTypeID; // TypeID : int
+	private int containerTypeID; // TypeID : int
 	private long installedItemCopy;
 	private int completed;
 	private int completedSuccessfully;
@@ -37,7 +38,6 @@ public class ApiIndustryJob {
 	private String beginProductionTime;
 	private String endProductionTime;
 	private String pauseProductionTime;
-	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public long getJobID() {
 		return jobID;
@@ -83,7 +83,8 @@ public class ApiIndustryJob {
 		return installedItemProductivityLevel;
 	}
 
-	public void setInstalledItemProductivityLevel(int installedItemProductivityLevel) {
+	public void setInstalledItemProductivityLevel(
+			int installedItemProductivityLevel) {
 		this.installedItemProductivityLevel = installedItemProductivityLevel;
 	}
 
@@ -99,7 +100,8 @@ public class ApiIndustryJob {
 		return installedItemLicensedProductionRunsRemaining;
 	}
 
-	public void setInstalledItemLicensedProductionRunsRemaining(int installedItemLicensedProductionRunsRemaining) {
+	public void setInstalledItemLicensedProductionRunsRemaining(
+			int installedItemLicensedProductionRunsRemaining) {
 		this.installedItemLicensedProductionRunsRemaining = installedItemLicensedProductionRunsRemaining;
 	}
 
@@ -264,7 +266,7 @@ public class ApiIndustryJob {
 	}
 
 	public Date getInstallTimeDate() throws ParseException {
-		return sdf.parse(installTime);
+		return DateUtils.parse(installTime);
 	}
 
 	public String getInstallTime() {
@@ -276,7 +278,7 @@ public class ApiIndustryJob {
 	}
 
 	public Date getBeginProductionTimeDate() throws ParseException {
-		return sdf.parse(beginProductionTime);
+		return DateUtils.parse(beginProductionTime);
 	}
 
 	public String getBeginProductionTime() {
@@ -288,7 +290,7 @@ public class ApiIndustryJob {
 	}
 
 	public Date getEndProductionTimeDate() throws ParseException {
-		return sdf.parse(endProductionTime);
+		return DateUtils.parse(endProductionTime);
 	}
 
 	public String getEndProductionTime() {
@@ -300,7 +302,7 @@ public class ApiIndustryJob {
 	}
 
 	public Date getPauseProductionTimeDate() throws ParseException {
-		return sdf.parse(pauseProductionTime);
+		return DateUtils.parse(pauseProductionTime);
 	}
 
 	public String getPauseProductionTime() {
