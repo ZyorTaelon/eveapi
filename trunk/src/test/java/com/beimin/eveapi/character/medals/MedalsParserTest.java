@@ -1,5 +1,6 @@
 package com.beimin.eveapi.character.medals;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -32,7 +33,7 @@ public class MedalsParserTest {
 			CharacterMedal charMedal = (CharacterMedal) medal;
 			assertEquals("Wrong member name", "cuz hes awesome", charMedal.getReason());
 			assertEquals("Wrong member name", 753005810L, charMedal.getIssuerID());
-			assertEquals("Wrong member name", "2009-12-23 00:32:04", charMedal.getIssued());
+			assertDate(2009, 12, 23, 0, 32, 04, charMedal.getIssued());
 			assertEquals("Wrong member name", 182784411L, charMedal.getCorporationID());
 			assertTrue("Should be public", charMedal.isPublic());
 		} else {

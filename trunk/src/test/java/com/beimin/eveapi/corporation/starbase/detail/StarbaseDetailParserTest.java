@@ -1,5 +1,6 @@
 package com.beimin.eveapi.corporation.starbase.detail;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -7,8 +8,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Map;
 
 import org.junit.Test;
@@ -22,13 +21,8 @@ public class StarbaseDetailParserTest {
 		InputStream input = StarbaseDetailParserTest.class.getResourceAsStream("/corporation/StarbaseDetail.xml");
 		StarbaseDetailResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(2008, 1, 3, 1, 54, 2);
-		Date currentTime = calendar.getTime();
-		assertEquals(currentTime.toString(), response.getCurrentTime().toString());
-		calendar.set(2008, 1, 3, 7, 54, 2);
-		Date cachedUntil = calendar.getTime();
-		assertEquals(cachedUntil.toString(), response.getCachedUntil().toString());
+		assertDate(2008, 2, 3, 1, 54, 2, response.getCurrentTime());
+		assertDate(2008, 2, 3, 7, 54, 2, response.getCachedUntil());
 		assertEquals(3, response.getUsageFlags());
 		assertEquals(0, response.getDeployFlags());
 		assertTrue(response.isAllowCorporationMembers());

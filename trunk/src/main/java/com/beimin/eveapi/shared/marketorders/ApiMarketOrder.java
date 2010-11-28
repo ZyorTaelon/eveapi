@@ -1,9 +1,6 @@
 package com.beimin.eveapi.shared.marketorders;
 
-import java.text.ParseException;
 import java.util.Date;
-
-import com.beimin.eveapi.utils.DateUtils;
 
 public class ApiMarketOrder {
 	private long orderID; // ItemID : long
@@ -20,7 +17,7 @@ public class ApiMarketOrder {
 	private double escrow;
 	private double price;
 	private int bid;
-	private String issued;
+	private Date issued;
 
 	public long getOrderID() {
 		return orderID;
@@ -134,15 +131,11 @@ public class ApiMarketOrder {
 		this.bid = bid;
 	}
 
-	public Date getIssuedDate() throws ParseException {
-		return DateUtils.parse(issued);
-	}
-
-	public String getIssued() {
+	public Date getIssued() {
 		return issued;
 	}
 
-	public void setIssued(String issued) {
+	public void setIssued(Date issued) {
 		this.issued = issued;
 	}
 }

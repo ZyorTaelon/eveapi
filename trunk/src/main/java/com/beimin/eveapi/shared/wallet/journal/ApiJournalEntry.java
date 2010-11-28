@@ -5,11 +5,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.beimin.eveapi.utils.DateUtils;
-
 public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
-	private String date;
-	private Date dateTime;
+	private Date date;
 	private long refID;
 	private long refTypeID;
 	private String ownerName1;
@@ -24,16 +21,11 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	private long taxReceiverID;
 	private double taxAmount;
 
-	public Date getDateTime() {
-		return dateTime;
-	}
-
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) throws ParseException {
-		this.dateTime = DateUtils.parse(date);
+	public void setDate(Date date) throws ParseException {
 		this.date = date;
 	}
 

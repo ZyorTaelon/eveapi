@@ -1,15 +1,13 @@
 package com.beimin.eveapi.character.research;
 
-import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
-
-import com.beimin.eveapi.utils.DateUtils;
+import java.util.TimeZone;
 
 public class ApiResearchAgent {
 	private int agentID;
 	private int skillTypeID;
-	private String researchStartDate;
+	private Date researchStartDate;
 	private double pointsPerDay;
 	private double remainderPoints;
 
@@ -29,15 +27,11 @@ public class ApiResearchAgent {
 		this.skillTypeID = skillTypeID;
 	}
 
-	public Date getResearchStartDateTime() throws ParseException {
-		return DateUtils.parse(researchStartDate);
-	}
-
-	public String getResearchStartDate() {
+	public Date getResearchStartDate() {
 		return researchStartDate;
 	}
 
-	public void setResearchStartDate(String researchStartDate) {
+	public void setResearchStartDate(Date researchStartDate) {
 		this.researchStartDate = researchStartDate;
 	}
 
@@ -58,15 +52,10 @@ public class ApiResearchAgent {
 	}
 
 	public double getCurrentPoints() {
-		try {
-			long startDate = getResearchStartDateTime().getTime();
-			long now = Calendar.getInstance().getTime().getTime();
-			long elapse = now - startDate;
-			double daysSinceStart = elapse / (1000.0 * 60 * 60 * 24);
-			return remainderPoints + (pointsPerDay * daysSinceStart);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return remainderPoints;
+		long startDate = researchStartDate.getTime();
+		long now = Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis();
+		long elapse = now - startDate;
+		double daysSinceStart = elapse / (1000.0 * 60 * 60 * 24);
+		return remainderPoints + (pointsPerDay * daysSinceStart);
 	}
 }

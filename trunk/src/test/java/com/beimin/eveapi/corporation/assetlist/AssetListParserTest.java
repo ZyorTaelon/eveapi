@@ -1,14 +1,13 @@
 package com.beimin.eveapi.corporation.assetlist;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -17,7 +16,6 @@ import com.beimin.eveapi.shared.assetlist.AbstractAssetListParser;
 import com.beimin.eveapi.shared.assetlist.ApiAsset;
 import com.beimin.eveapi.shared.assetlist.AssetListResponse;
 
-
 public class AssetListParserTest {
 	@Test
 	public void assetListParser() throws IOException, SAXException {
@@ -25,13 +23,8 @@ public class AssetListParserTest {
 		InputStream input = AssetListParserTest.class.getResourceAsStream("/corporation/AssetList.xml");
 		AssetListResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(2008, 1, 3, 4, 43, 55);
-		Date currentTime = calendar.getTime();
-		assertEquals(currentTime.toString(), response.getCurrentTime().toString());
-		calendar.set(2008, 1, 4, 3, 43, 55);
-		Date cachedUntil = calendar.getTime();
-		assertEquals(cachedUntil.toString(), response.getCachedUntil().toString());
+		assertDate(2008, 2, 3, 4, 43, 55, response.getCurrentTime());
+		assertDate(2008, 2, 4, 3, 43, 55, response.getCachedUntil());
 		Collection<ApiAsset> assets = response.getAssets();
 		assertNotNull("Should have returned assets.", assets);
 		assertEquals("There should have been 4 assets.", 4, assets.size());

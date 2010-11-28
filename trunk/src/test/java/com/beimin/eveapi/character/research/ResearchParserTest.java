@@ -1,5 +1,6 @@
 package com.beimin.eveapi.character.research;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -24,10 +25,10 @@ public class ResearchParserTest {
 		assertEquals(5, researchAgents.size());
 		boolean found = false;
 		for (ApiResearchAgent researchAgent : researchAgents) {
-			if(researchAgent.getAgentID()==3012659){
-				found=true;
+			if (researchAgent.getAgentID() == 3012659) {
+				found = true;
 				assertEquals(11452, researchAgent.getSkillTypeID());
-				assertEquals("2009-10-14 21:37:42", researchAgent.getResearchStartDate());
+				assertDate(2009, 10, 14, 21, 37, 42, researchAgent.getResearchStartDate());
 				assertEquals(111.78, researchAgent.getPointsPerDay(), 0.0001);
 				assertEquals(40.9576281249902, researchAgent.getRemainderPoints(), 1E-15);
 				break;

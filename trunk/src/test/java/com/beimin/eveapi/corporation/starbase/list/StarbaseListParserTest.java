@@ -1,14 +1,13 @@
 package com.beimin.eveapi.corporation.starbase.list;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -21,13 +20,8 @@ public class StarbaseListParserTest {
 		InputStream input = StarbaseListParserTest.class.getResourceAsStream("/corporation/StarbasesList.xml");
 		StarbaseListResponse response = parser.getResponse(input);
 		assertNotNull("Should have returned a result.", response);
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(2008, 1, 3, 1, 5, 55);
-		Date currentTime = calendar.getTime();
-		assertEquals(currentTime.toString(), response.getCurrentTime().toString());
-		calendar.set(2008, 1, 3, 7, 5, 55);
-		Date cachedUntil = calendar.getTime();
-		assertEquals(cachedUntil.toString(), response.getCachedUntil().toString());
+		assertDate(2008, 2, 3, 1, 5, 55, response.getCurrentTime());
+		assertDate(2008, 2, 3, 7, 5, 55, response.getCachedUntil());
 		Collection<ApiStarbase> starbases = response.getStarbases();
 		assertNotNull("Should have returned a collection with starbases.", starbases);
 		assertEquals("Should have returned 2 starbases.", 2, starbases.size());

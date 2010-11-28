@@ -1,5 +1,6 @@
 package com.beimin.eveapi.corporation.medals;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
@@ -27,11 +28,14 @@ public class MedalsParserTest {
 		Medal medal = medals.iterator().next();
 		assertEquals("Wrong member characterID", 1745, medal.getMedalID());
 		assertEquals("Wrong member name", "Capital Red Eyed Award", medal.getTitle());
-		assertEquals("Wrong member name", "This award is given to captial pilots that not only fought on the front lines but stayed up way to late and past their 9pm bedtimes to kill the scum that think they are better than us.", medal.getDescription());
+		assertEquals(
+				"Wrong member name",
+				"This award is given to captial pilots that not only fought on the front lines but stayed up way to late and past their 9pm bedtimes to kill the scum that think they are better than us.",
+				medal.getDescription());
 		if (medal instanceof CorpMedal) {
 			CorpMedal corpMedal = (CorpMedal) medal;
 			assertEquals("Wrong member name", 817217271L, corpMedal.getCreatorID());
-			assertEquals("Wrong member name", "2008-11-12 07:37:00", corpMedal.getCreated());
+			assertDate(2008, 11, 12, 7, 37, 0, corpMedal.getCreated());
 		} else {
 			fail("wrong medal type.");
 		}

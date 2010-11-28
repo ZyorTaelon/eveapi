@@ -3,11 +3,8 @@ package com.beimin.eveapi.shared.wallet.transactions;
 import java.text.ParseException;
 import java.util.Date;
 
-import com.beimin.eveapi.utils.DateUtils;
-
 public class ApiWalletTransaction implements Comparable<ApiWalletTransaction> {
-	private String transactionDateTime;
-	private Date transactionDate;
+	private Date transactionDateTime;
 	private long transactionID;
 	private long quantity;
 	private String typeName;
@@ -22,17 +19,11 @@ public class ApiWalletTransaction implements Comparable<ApiWalletTransaction> {
 	private String transactionType;
 	private String transactionFor;
 
-	public Date getTransactionDate() {
-		return transactionDate;
-	}
-
-	public String getTransactionDateTime() {
+	public Date getTransactionDateTime() {
 		return transactionDateTime;
 	}
 
-	public void setTransactionDateTime(String transactionDateTime)
-			throws ParseException {
-		this.transactionDate = DateUtils.parse(transactionDateTime);
+	public void setTransactionDateTime(Date transactionDateTime) throws ParseException {
 		this.transactionDateTime = transactionDateTime;
 	}
 

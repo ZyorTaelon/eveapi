@@ -1,13 +1,10 @@
 package com.beimin.eveapi.eve.alliancelist;
 
-import java.text.ParseException;
 import java.util.Date;
-
-import com.beimin.eveapi.utils.DateUtils;
 
 public class ApiMemberCorporation {
 	private long corporationID;
-	private String startDate;
+	private Date startDate;
 
 	public long getCorporationID() {
 		return corporationID;
@@ -17,15 +14,11 @@ public class ApiMemberCorporation {
 		this.corporationID = corporationID;
 	}
 
-	public Date getStartDateTime() throws ParseException {
-		return DateUtils.parse(startDate);
-	}
-
-	public String getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 }

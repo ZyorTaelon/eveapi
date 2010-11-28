@@ -1,5 +1,6 @@
 package com.beimin.eveapi.character.skill.queue;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -27,7 +28,7 @@ public class SkillQueueParserTest {
 		assertEquals(5, skillQueueItem.getLevel());
 		assertEquals(362039, skillQueueItem.getStartSP());
 		assertEquals(2048000, skillQueueItem.getEndSP());
-		assertEquals("2010-03-28 11:00:01", skillQueueItem.getStartTime());
-		assertEquals("2010-04-30 04:59:46", skillQueueItem.getEndTime());
+		assertDate(2010, 03, 28, 11, 00, 01, skillQueueItem.getStartTime());
+		assertDate(2010, 04, 30, 4, 59, 46, skillQueueItem.getEndTime());
 	}
 }

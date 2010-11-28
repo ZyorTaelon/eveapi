@@ -1,5 +1,6 @@
 package com.beimin.eveapi.corporation.killlog;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -7,10 +8,8 @@ import static org.junit.Assert.assertTrue;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
-import java.util.TimeZone;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -25,11 +24,9 @@ import com.beimin.eveapi.shared.killlog.KillLogResponse;
 public class KillLogParserTest {
 
 	@Test
-	public void killLogParser() throws IOException, SAXException,
-			ParseException {
+	public void killLogParser() throws IOException, SAXException, ParseException {
 		AbstractKillLogParser parser = KillLogParser.getInstance();
-		InputStream input = KillLogParserTest.class
-				.getResourceAsStream("/corporation/KillLog.xml");
+		InputStream input = KillLogParserTest.class.getResourceAsStream("/corporation/KillLog.xml");
 		KillLogResponse response = parser.getResponse(input);
 		assertNotNull(response);
 		Collection<ApiKill> entries = response.getKills();
@@ -38,16 +35,7 @@ public class KillLogParserTest {
 		for (ApiKill kill : entries) {
 			if (kill.getKillID() == 4879947) {
 				found = true;
-				Calendar calendar = Calendar.getInstance(TimeZone
-						.getTimeZone("GMT"));
-				calendar.set(Calendar.YEAR, 2008);
-				calendar.set(Calendar.MONTH, 11);
-				calendar.set(Calendar.DAY_OF_MONTH, 18);
-				calendar.set(Calendar.HOUR_OF_DAY, 23);
-				calendar.set(Calendar.MINUTE, 57);
-				calendar.set(Calendar.SECOND, 0);
-				calendar.set(Calendar.MILLISECOND, 0);
-				assertEquals(calendar.getTime(), kill.getKillDateTime());
+				assertDate(2008, 12, 18, 23, 57, 0, kill.getKillTime());
 				ApiKillVictim victim = kill.getVictim();
 				assertNotNull(victim);
 
@@ -69,14 +57,12 @@ public class KillLogParserTest {
 				assertEquals(attacker.getCharacterID(), 1134301496);
 				assertEquals(attacker.getCharacterName(), "Blackfiredaemon");
 				assertEquals(attacker.getCorporationID(), 1885670269);
-				assertEquals(attacker.getCorporationName(),
-						"Letiferi Praedones");
+				assertEquals(attacker.getCorporationName(), "Letiferi Praedones");
 				assertEquals(attacker.getAllianceID().longValue(), 1652934118L);
 				assertEquals(attacker.getAllianceName(), "Wong Thong Crew");
 				assertEquals(attacker.getFactionID(), 0);
 				assertEquals(attacker.getFactionName(), "");
-				assertEquals(attacker.getSecurityStatus(), -3.72675620703378,
-						1E-20d);
+				assertEquals(attacker.getSecurityStatus(), -3.72675620703378, 1E-20d);
 				assertEquals(attacker.getDamageDone(), 1415);
 				assertEquals(attacker.isFinalBlow(), true);
 				assertEquals(attacker.getWeaponTypeID(), 2897);

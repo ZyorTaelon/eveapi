@@ -1,9 +1,6 @@
 package com.beimin.eveapi.shared.industryjobs;
 
-import java.text.ParseException;
 import java.util.Date;
-
-import com.beimin.eveapi.utils.DateUtils;
 
 public class ApiIndustryJob {
 	private long jobID;
@@ -34,10 +31,10 @@ public class ApiIndustryJob {
 	private int outputFlag;
 	private int activityID;
 	private int completedStatus;
-	private String installTime;
-	private String beginProductionTime;
-	private String endProductionTime;
-	private String pauseProductionTime;
+	private Date installTime;
+	private Date beginProductionTime;
+	private Date endProductionTime;
+	private Date pauseProductionTime;
 
 	public long getJobID() {
 		return jobID;
@@ -83,8 +80,7 @@ public class ApiIndustryJob {
 		return installedItemProductivityLevel;
 	}
 
-	public void setInstalledItemProductivityLevel(
-			int installedItemProductivityLevel) {
+	public void setInstalledItemProductivityLevel(int installedItemProductivityLevel) {
 		this.installedItemProductivityLevel = installedItemProductivityLevel;
 	}
 
@@ -100,8 +96,7 @@ public class ApiIndustryJob {
 		return installedItemLicensedProductionRunsRemaining;
 	}
 
-	public void setInstalledItemLicensedProductionRunsRemaining(
-			int installedItemLicensedProductionRunsRemaining) {
+	public void setInstalledItemLicensedProductionRunsRemaining(int installedItemLicensedProductionRunsRemaining) {
 		this.installedItemLicensedProductionRunsRemaining = installedItemLicensedProductionRunsRemaining;
 	}
 
@@ -265,51 +260,35 @@ public class ApiIndustryJob {
 		this.completedStatus = completedStatus;
 	}
 
-	public Date getInstallTimeDate() throws ParseException {
-		return DateUtils.parse(installTime);
-	}
-
-	public String getInstallTime() {
+	public Date getInstallTime() {
 		return installTime;
 	}
 
-	public void setInstallTime(String installTime) {
+	public void setInstallTime(Date installTime) {
 		this.installTime = installTime;
 	}
 
-	public Date getBeginProductionTimeDate() throws ParseException {
-		return DateUtils.parse(beginProductionTime);
-	}
-
-	public String getBeginProductionTime() {
+	public Date getBeginProductionTime() {
 		return beginProductionTime;
 	}
 
-	public void setBeginProductionTime(String beginProductionTime) {
+	public void setBeginProductionTime(Date beginProductionTime) {
 		this.beginProductionTime = beginProductionTime;
 	}
 
-	public Date getEndProductionTimeDate() throws ParseException {
-		return DateUtils.parse(endProductionTime);
-	}
-
-	public String getEndProductionTime() {
+	public Date getEndProductionTime() {
 		return endProductionTime;
 	}
 
-	public void setEndProductionTime(String endProductionTime) {
+	public void setEndProductionTime(Date endProductionTime) {
 		this.endProductionTime = endProductionTime;
 	}
 
-	public Date getPauseProductionTimeDate() throws ParseException {
-		return DateUtils.parse(pauseProductionTime);
-	}
-
-	public String getPauseProductionTime() {
+	public Date getPauseProductionTime() {
 		return pauseProductionTime;
 	}
 
-	public void setPauseProductionTime(String pauseProductionTime) {
+	public void setPauseProductionTime(Date pauseProductionTime) {
 		this.pauseProductionTime = pauseProductionTime;
 	}
 }

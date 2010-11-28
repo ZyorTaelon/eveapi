@@ -1,9 +1,6 @@
 package com.beimin.eveapi.corporation.member.medals;
 
-import java.text.ParseException;
 import java.util.Date;
-
-import com.beimin.eveapi.utils.DateUtils;
 
 public class MemberMedal {
 	private int medalID;
@@ -11,7 +8,7 @@ public class MemberMedal {
 	private String reason;
 	private String status;
 	private long issuerID;
-	private String issued;
+	private Date issued;
 
 	public int getMedalID() {
 		return medalID;
@@ -57,15 +54,11 @@ public class MemberMedal {
 		this.issuerID = issuerID;
 	}
 
-	public Date getIssuedDateTime() throws ParseException {
-		return DateUtils.parse(issued);
-	}
-
-	public String getIssued() {
+	public Date getIssued() {
 		return issued;
 	}
 
-	public void setIssued(String issued) {
+	public void setIssued(Date issued) {
 		this.issued = issued;
 	}
 }

@@ -4,61 +4,40 @@ import java.text.ParseException;
 import java.util.Date;
 
 import com.beimin.eveapi.ApiResponse;
-import com.beimin.eveapi.utils.DateUtils;
 
 public class SkillInTrainingResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
-	private String currentTQTime;
-	private Date currentTQDate;
-	private String trainingEndTime;
-	private Date trainingEndDate;
-	private String trainingStartTime;
-	private Date trainingStartDate;
+	private Date currentTQTime;
+	private Date trainingEndTime;
+	private Date trainingStartTime;
 	private int trainingTypeID;
 	private int trainingStartSP;
 	private int trainingDestinationSP;
 	private int trainingToLevel;
 	private boolean skillInTraining;
 
-	public String getCurrentTQTime() {
+	public Date getCurrentTQTime() {
 		return currentTQTime;
 	}
 
-	public void setCurrentTQTime(String currentTQTime) throws ParseException {
+	public void setCurrentTQTime(Date currentTQTime) throws ParseException {
 		this.currentTQTime = currentTQTime;
-		this.currentTQDate = DateUtils.parse(currentTQTime);
 	}
 
-	public Date getCurrentTQDate() {
-		return currentTQDate;
-	}
-
-	public String getTrainingEndTime() throws ParseException {
+	public Date getTrainingEndTime() throws ParseException {
 		return trainingEndTime;
 	}
 
-	public void setTrainingEndTime(String trainingEndTime)
-			throws ParseException {
+	public void setTrainingEndTime(Date trainingEndTime) throws ParseException {
 		this.trainingEndTime = trainingEndTime;
-		this.trainingEndDate = DateUtils.parse(trainingEndTime);
 	}
 
-	public Date getTrainingEndDate() {
-		return trainingEndDate;
-	}
-
-	public String getTrainingStartTime() throws ParseException {
+	public Date getTrainingStartTime() {
 		return trainingStartTime;
 	}
 
-	public void setTrainingStartTime(String trainingStartTime)
-			throws ParseException {
+	public void setTrainingStartTime(Date trainingStartTime) throws ParseException {
 		this.trainingStartTime = trainingStartTime;
-		this.trainingStartDate = DateUtils.parse(trainingStartTime);
-	}
-
-	public Date getTrainingStartDate() {
-		return trainingStartDate;
 	}
 
 	public int getTrainingTypeID() {

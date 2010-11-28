@@ -1,17 +1,14 @@
 package com.beimin.eveapi.shared.killlog;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.beimin.eveapi.utils.DateUtils;
-
 public class ApiKill {
-	private long killID; // ="4879947"
-	private long solarSystemID;// ="30002058"
-	private String killTime;// ="2008-12-18 23:57:00"
-	private Integer moonID;// ="0"
+	private long killID;
+	private long solarSystemID;
+	private Date killTime;
+	private Integer moonID;
 	private ApiKillVictim victim;
 	private final List<ApiKillAttacker> attackers = new ArrayList<ApiKillAttacker>();
 	private final List<ApiKillItem> items = new ArrayList<ApiKillItem>();
@@ -32,15 +29,11 @@ public class ApiKill {
 		this.solarSystemID = solarSystemID;
 	}
 
-	public Date getKillDateTime() throws ParseException {
-		return DateUtils.parse(killTime);
-	}
-
-	public String getKillTime() {
+	public Date getKillTime() {
 		return killTime;
 	}
 
-	public void setKillTime(String killTime) {
+	public void setKillTime(Date killTime) {
 		this.killTime = killTime;
 	}
 

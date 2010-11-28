@@ -14,15 +14,16 @@ import java.net.URLConnection;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TimeZone;
 
 import org.apache.commons.beanutils.ConvertUtils;
-import org.apache.commons.beanutils.locale.converters.DateLocaleConverter;
 import org.apache.commons.digester.Digester;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
+
+import com.beimin.eveapi.utils.DateUtils;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
 	protected enum Path {
@@ -126,9 +127,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 
 	protected Digester getDigester() {
 		Digester digester = new Digester();
-		DateLocaleConverter converter = new DateLocaleConverter(Locale.getDefault(), "yyyy-MM-dd HH:mm:ss");
-		converter.setLenient(true);
-		ConvertUtils.register(converter, java.util.Date.class);
+		ConvertUtils.register(DateUtils.getGMTConverter(), java.util.Date.class);
 		digester.setValidating(false);
 		digester.addObjectCreate("eveapi", clazz);
 		digester.addSetProperties("eveapi");
@@ -146,8 +145,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		if (containsKey) {
 			E cachedResponse = cache.get(requestUrl);
 			Date cachedUntil = cachedResponse.getCachedUntil();
-			Date now = Calendar.getInstance().getTime();
-			return cachedUntil.after(now);
+			return cachedUntil.after(Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTime());
 		}
 		return false;
 	}
