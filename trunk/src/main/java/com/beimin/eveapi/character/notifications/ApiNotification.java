@@ -1,103 +1,127 @@
 package com.beimin.eveapi.character.notifications;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ApiNotification {
-	private static final Map<Integer, String> types = getNotificationTypes();
 	private long notificationID;
 	private int typeID;
 	private long senderID;
 	private Date sentDate;
 	private boolean read;
 
-	private static Map<Integer, String> getNotificationTypes() {
-		HashMap<Integer, String> types = new HashMap<Integer, String>();
-		types.put(2, "Character deleted");
-		types.put(3, "Give medal to character");
-		types.put(4, "Alliance maintenance bill");
-		types.put(5, "Alliance war declared");
-		types.put(6, "Alliance war surrender");
-		types.put(7, "Alliance war retracted");
-		types.put(8, "Alliance war invalidated by Concord");
-		types.put(9, "Bill issued to a character");
-		types.put(10, "Bill issued to corporation or alliance");
-		types.put(11, "Bill not paid because there's not enough ISK available");
-		types.put(12, "Bill, issued by a character, paid");
-		types.put(13, "Bill, issued by a corporation or alliance, paid");
-		types.put(14, "Bounty claimed");
-		types.put(15, "Clone activated");
-		types.put(16, "New corp member application");
-		types.put(17, "Corp application rejected");
-		types.put(18, "Corp application accepted");
-		types.put(19, "Corp tax rate changed");
-		types.put(20, "Corp news report, typically for shareholders");
-		types.put(21, "Player leaves corp");
-		types.put(22, "Corp news, new CEO");
-		types.put(23, "Corp dividend/liquidation, sent to shareholders");
-		types.put(24, "Corp dividend payout, sent to shareholders");
-		types.put(25, "Corp vote created");
-		types.put(26, "Corp CEO votes revoked during voting");
-		types.put(27, "Corp declares war");
-		types.put(28, "Corp war has started");
-		types.put(29, "Corp surrenders war");
-		types.put(30, "Corp retracts war");
-		types.put(31, "Corp war invalidated by Concord");
-		types.put(32, "Container password retrieval");
-		types.put(33, "Contraband or low standings cause an attack or items being confiscated");
-		types.put(34, "First ship insurance");
-		types.put(35, "Ship destroyed, insurance payed");
-		types.put(36, "Insurance contract invalidated/runs out");
-		types.put(37, "Sovereignty claim fails (alliance)");
-		types.put(38, "Sovereignty claim fails (corporation)");
-		types.put(39, "Sovereignty bill late (alliance)");
-		types.put(40, "Sovereignty bill late (corporation)");
-		types.put(41, "Sovereignty claim lost (alliance)");
-		types.put(42, "Sovereignty claim lost (corporation)");
-		types.put(43, "Sovereignty claim aquired (alliance)");
-		types.put(44, "Sovereignty claim aquired (corporation)");
-		types.put(45, "Alliance anchoring alert");
-		types.put(46, "Alliance structure turns vulnerable");
-		types.put(47, "Alliance structure turns invulnerable");
-		types.put(48, "Sovereignty disruptor anchored");
-		types.put(49, "Structure won/lost");
-		types.put(50, "Corp office lease expiration notice");
-		types.put(51, "Clone contract revoked by station manager");
-		types.put(52, "Corp member clones moved between stations");
-		types.put(53, "Clone contract revoked by station manager");
-		types.put(54, "Insurance contract expired");
-		types.put(55, "Insurance contract issued");
-		types.put(56, "Jump clone destroyed");
-		types.put(57, "Jump clone destroyed");
-		types.put(58, "Corporation joining factional warfare");
-		types.put(59, "Corporation leaving factional warfare");
-		types.put(60, "Corporation kicked from factional warfare on startup because of too low standing to the faction");
-		types.put(61, "Character kicked from factional warfare on startup because of too low standing to the faction");
-		types.put(62, "Corporation in factional warfare warned on startup because of too low standing to the faction");
-		types.put(63, "Character in factional warfare warned on startup because of too low standing to the faction");
-		types.put(64, "Character loses factional warfare rank");
-		types.put(65, "Character gains factional warfare rank");
-		types.put(66, "Agent has moved");
-		types.put(67, "Mass transaction reversal message");
-		types.put(68, "Reimbursement message");
-		types.put(69, "Agent locates a character");
-		types.put(70, "Research mission becomes available from an agent");
-		types.put(71, "Agent mission offer expires");
-		types.put(72, "Agent mission times out");
-		types.put(73, "Agent offers a storyline mission");
-		types.put(74, "Tutorial message sent on character creation");
-		types.put(75, "Tower alert");
-		types.put(76, "Tower resource alert");
-		types.put(77, "Station aggression message");
-		types.put(78, "Station state change message");
-		types.put(79, "Station conquered message");
-		types.put(80, "Station aggression message");
-		types.put(81, "Corporation requests joining factional warfare");
-		types.put(82, "Corporation requests leaving factional warfare");
-		types.put(83, "Corporation withdrawing a request to join factional warfare");
-		types.put(84, "Corporation withdrawing a request to leave factional warfare");
-		return types;
+	public enum NotificationType {
+		CHARACTER_DELETED(2, "Character deleted"), //
+		GIVE_MEDAL(3, "Give medal to character"), //
+		ALLIANCE_MAINTENANCE_BILL(4, "Alliance maintenance bill"), //
+		ALLIANCE_WAR_DECLARED(5, "Alliance war declared"), //
+		ALLIANCE_WAR_SURRENDER(6, "Alliance war surrender"), //
+		ALLIANCE_WAR_RETRACTED(7, "Alliance war retracted"), //
+		ALLIANCE_WAR_INVALIDATED(8, "Alliance war invalidated by Concord"), //
+		BILL_ISSUED_CHARACTER(9, "Bill issued to a character"), //
+		BILL_ISSUED_CORPORATION_ALLIANCE(10, "Bill issued to corporation or alliance"), //
+		BILL_NOT_PAID(11, "Bill not paid because there's not enough ISK available"), //
+		BILL_BY_CHARACTER_PAID(12, "Bill, issued by a character, paid"), //
+		BILL_BY_CORP_OR_ALLIANCE_PAID(13, "Bill, issued by a corporation or alliance, paid"), //
+		BOUNTY_CLAIMED(14, "Bounty claimed"), //
+		CLONE_ACTIVATED(15, "Clone activated"), //
+		APPLICATION_REJECTED(17, "Corp application rejected"), //
+		NEW_APPLICATION(16, "New corp member application"), //
+		CORP_TAX_CHANGED(19, "Corp tax rate changed"), //
+		APPLICATION_ACCEPTED(18, "Corp application accepted"), //
+		PLAYER_LEAVES_CORP(21, "Player leaves corp"), //
+		CORP_NEWS_REPORT(20, "Corp news report, typically for shareholders"), //
+		CORP_DIVIDEND_LIQUIDATION(23, "Corp dividend/liquidation, sent to shareholders"), //
+		CORP_NEW_CEO(22, "Corp news, new CEO"), //
+		CORP_VOTE(25, "Corp vote created"), //
+		CORP_DIVIDEND_PAYOUT(24, "Corp dividend payout, sent to shareholders"), //
+		WAR_DECLARATION(27, "Corp declares war"), //
+		CORP_CEO_VOTES_REVOKED(26, "Corp CEO votes revoked during voting"), //
+		CORP_SURRENDERS_WAR(29, "Corp surrenders war"), //
+		CORP_WAR_HAS_STARTED(28, "Corp war has started"), //
+		CORP_WAR_INVALIDATED(31, "Corp war invalidated by Concord"), //
+		CORP_RETRACTS_WAR(30, "Corp retracts war"), //
+		FIRST_SHIP_INSURANCE(34, "First ship insurance"), //
+		INSURANCE_PAYED(35, "Ship destroyed, insurance payed"), //
+		CONTAINER_PASSWORD_RETRIEVAL(32, "Container password retrieval"), //
+		POLICE_TROUBLE(33, "Contraband or low standings cause an attack or items being confiscated"), //
+		SOVEREIGNTY_CLAIM_FAILS_CORPORATION(38, "Sovereignty claim fails (corporation)"), //
+		SOVEREIGNTY_BILL_LATE_ALLIANCE(39, "Sovereignty bill late (alliance)"), //
+		INSURANCE_CONTRACT_INVALIDATED(36, "Insurance contract invalidated/runs out"), //
+		SOVEREIGNTY_CLAIM_FAILS_ALLIANCE(37, "Sovereignty claim fails (alliance)"), //
+		SOVEREIGNTY_CLAIM_LOST_CORPORATION(42, "Sovereignty claim lost (corporation)"), //
+		SOVEREIGNTY_CLAIM_AQUIRED_ALLIANCE(43, "Sovereignty claim aquired (alliance)"), //
+		SOVEREIGNTY_BILL_LATE_CORPORATION(40, "Sovereignty bill late (corporation)"), //
+		SOVEREIGNTY_CLAIM_LOST_ALLIANCE(41, "Sovereignty claim lost (alliance)"), //
+		ALLIANCE_STRUCTURE_VULNERABLE(46, "Alliance structure turns vulnerable"), //
+		ALLIANCE_STRUCTURE_INVULNERABLE(47, "Alliance structure turns invulnerable"), //
+		SOVEREIGNTY_CLAIM_AQUIRED_CORPORATION(44, "Sovereignty claim aquired (corporation)"), //
+		ALLIANCE_ANCHORING_ALERT(45, "Alliance anchoring alert"), //
+		CLONE_CONTRACT_REVOKED1(51, "Clone contract revoked by station manager"), //
+		CORP_OFFICE_EXPIRATION_NOTICE(50, "Corp office lease expiration notice"), //
+		STRUCTURE_WON_LOST(49, "Structure won/lost"), //
+		SOVEREIGNTY_DISRUPTOR_ANCHORED(48, "Sovereignty disruptor anchored"), //
+		INSURANCE_CONTRACT_ISSUED(55, "Insurance contract issued"), //
+		INSURANCE_CONTRACT_EXPIRED(54, "Insurance contract expired"), //
+		CLONE_CONTRACT_REVOKED2(53, "Clone contract revoked by station manager"), //
+		CORP_MEMBER_CLONES_MOVED(52, "Corp member clones moved between stations"), //
+		CORPORATION_LEAVING_FACTIONAL_WARFARE(59, "Corporation leaving factional warfare"), //
+		CORPORATION_JOINING_FACTIONAL_WARFARE(58, "Corporation joining factional warfare"), //
+		JUMP_CLONE_DESTROYED1(57, "Jump clone destroyed"), //
+		JUMP_CLONE_DESTROYED2(56, "Jump clone destroyed"), //
+		CHARACTER_FACTIONAL_WARFARE_LOW_STANDINGS_WARNING(63,
+				"Character in factional warfare warned on startup because of too low standing to the faction"), //
+		CORPORATION_FACTIONAL_WARFARE_LOW_STANDINGS_WARNING(62,
+				"Corporation in factional warfare warned on startup because of too low standing to the faction"), //
+		CHARACTER_FROM_FACTIONAL_KICKED(61,
+				"Character kicked from factional warfare on startup because of too low standing to the faction"), //
+		CORPORATION_FROM_FACTIONAL_KICKED(60,
+				"Corporation kicked from factional warfare on startup because of too low standing to the faction"), //
+		REIMBURSEMENT_MESSAGE(68, "Reimbursement message"), //
+		CHARACTER_LOCATED(69, "Agent locates a character"), //
+		RESEARCH_MISSION_AVAILABLE(70, "Research mission becomes available from an agent"), //
+		AGENT_MISSION_OFFER_EXPIRES(71, "Agent mission offer expires"), //
+		FACTIONAL_WARFARE_RANK_LOSS(64, "Character loses factional warfare rank"), //
+		FACTIONAL_WARFARE_RANK_GAIN(65, "Character gains factional warfare rank"), //
+		AGENT_MOVED(66, "Agent has moved"), //
+		MASS_TRANSACTION_REVERSAL(67, "Mass transaction reversal message"), //
+		TOWER_RESOURCE_ALERT(76, "Tower resource alert"), //
+		STATION_AGGRESSION1(77, "Station aggression message"), //
+		STATION_STATE_CHANGE(78, "Station state change message"), //
+		STATION_CONQUERED(79, "Station conquered message"), //
+		MISSION_TIMEOUT(72, "Agent mission times out"), //
+		STORYLINE_MISSION_OFFER(73, "Agent offers a storyline mission"), //
+		TUTORIAL_MESSAGE(74, "Tutorial message sent on character creation"), //
+		TOWER_ALERT(75, "Tower alert"), //
+		FACTIONAL_WARFARE_LEAVE_WITHDRAWN(84, "Corporation withdrawing a request to leave factional warfare"), //
+		FACTIONAL_WARFARE_JOIN(81, "Corporation requests joining factional warfare"), //
+		STATION_AGGRESSION_MESSAGE2(80, "Station aggression message"), //
+		FACTIONAL_WARFARE_JOIN_WITHDRAWN(83, "Corporation withdrawing a request to join factional warfare"), //
+		FACTIONAL_WARFARE_LEAVE(82, "Corporation requests leaving factional warfare"), //
+		UNKNOWN(0, "Unknown notification type");
+
+		private final int id;
+		private final String description;
+
+		private NotificationType(int id, String description) {
+			this.id = id;
+			this.description = description;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public String getDescription() {
+			return description;
+		}
+
+		public static NotificationType get(int typeID) {
+			for (NotificationType notificationType : values()) {
+				if (notificationType.getId() == typeID)
+					return notificationType;
+			}
+			return UNKNOWN;
+		}
 	}
 
 	public long getNotificationID() {
@@ -116,8 +140,8 @@ public class ApiNotification {
 		this.typeID = typeID;
 	}
 
-	public String getType() {
-		return types.get(typeID);
+	public NotificationType getType() {
+		return NotificationType.get(typeID);
 	}
 
 	public long getSenderID() {

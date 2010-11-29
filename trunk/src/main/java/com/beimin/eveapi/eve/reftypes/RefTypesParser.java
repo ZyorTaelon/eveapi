@@ -8,7 +8,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class RefTypesParser extends AbstractApiParser<RefTypesResponse> {
-	protected static final String REFTYPES_LIST_URL = "/eve/RefTypes.xml.aspx";
+	protected static final String REFTYPES_LIST_URL = "/eve/RefTypes";
 
 	public RefTypesParser() {
 		super(RefTypesResponse.class, 1, REFTYPES_LIST_URL);

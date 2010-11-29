@@ -1,6 +1,5 @@
 package com.beimin.eveapi.character.skill.intraining;
 
-import java.text.ParseException;
 import java.util.Date;
 
 import com.beimin.eveapi.ApiResponse;
@@ -20,15 +19,15 @@ public class SkillInTrainingResponse extends ApiResponse {
 		return currentTQTime;
 	}
 
-	public void setCurrentTQTime(Date currentTQTime) throws ParseException {
+	public void setCurrentTQTime(Date currentTQTime) {
 		this.currentTQTime = currentTQTime;
 	}
 
-	public Date getTrainingEndTime() throws ParseException {
+	public Date getTrainingEndTime() {
 		return trainingEndTime;
 	}
 
-	public void setTrainingEndTime(Date trainingEndTime) throws ParseException {
+	public void setTrainingEndTime(Date trainingEndTime) {
 		this.trainingEndTime = trainingEndTime;
 	}
 
@@ -36,7 +35,7 @@ public class SkillInTrainingResponse extends ApiResponse {
 		return trainingStartTime;
 	}
 
-	public void setTrainingStartTime(Date trainingStartTime) throws ParseException {
+	public void setTrainingStartTime(Date trainingStartTime) {
 		this.trainingStartTime = trainingStartTime;
 	}
 

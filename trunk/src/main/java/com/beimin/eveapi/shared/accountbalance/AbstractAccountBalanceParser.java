@@ -10,7 +10,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractAccountBalanceParser extends AbstractApiParser<AccountBalanceResponse> {
-	protected static final String ACCOUNTBALANCE_URL = "/AccountBalance.xml.aspx";
+	protected static final String ACCOUNTBALANCE_URL = "/AccountBalance";
 	private final Path path;
 
 	protected AbstractAccountBalanceParser(Path path) {

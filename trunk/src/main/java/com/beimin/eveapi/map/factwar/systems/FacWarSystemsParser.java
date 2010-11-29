@@ -8,7 +8,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class FacWarSystemsParser extends AbstractApiParser<FacWarSystemsResponse> {
-	private static final String FACTION_WAR_SYSTEMS_URL = "/map/FacWarSystems.xml.aspx";
+	private static final String FACTION_WAR_SYSTEMS_URL = "/map/FacWarSystems";
 
 	private FacWarSystemsParser() {
 		super(FacWarSystemsResponse.class, 2, FACTION_WAR_SYSTEMS_URL);

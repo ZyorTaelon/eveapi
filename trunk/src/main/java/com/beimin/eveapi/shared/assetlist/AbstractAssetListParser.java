@@ -10,7 +10,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractAssetListParser extends AbstractApiParser<AssetListResponse> {
-	protected static final String ASSETLIST_URL = "/AssetList.xml.aspx";
+	protected static final String ASSETLIST_URL = "/AssetList";
 	private final Path path;
 
 	protected AbstractAssetListParser(Path path) {

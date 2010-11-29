@@ -82,9 +82,10 @@ public class ApiTitle {
 			target = rolesAtOther;
 		} else if (name.equals("grantableRolesAtOther")) {
 			target = grantableRolesAtOther;
+		} else {
+			throw new RuntimeException("unknown role bag type");
 		}
-		Collection<ApiRole> roles = roleBag.getRoles();
-		for (ApiRole role : roles) {
+		for (ApiRole role : roleBag.getRoles()) {
 			target.add(role);
 		}
 	}

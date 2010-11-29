@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class SkillQueueParser extends AbstractApiParser<SkillQueueResponse> {
-	protected static final String CHARACTER_SKILL_QUEUE_URL = Path.CHARACTER.getPath() + "/SkillQueue.xml.aspx";
+	protected static final String CHARACTER_SKILL_QUEUE_URL = Path.CHARACTER.getPath() + "/SkillQueue";
 
 	public SkillQueueParser() {
 		super(SkillQueueResponse.class, 2, CHARACTER_SKILL_QUEUE_URL);

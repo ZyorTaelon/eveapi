@@ -10,7 +10,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class MailingListsParser extends AbstractApiParser<MailingListsResponse> {
-	private static final String MAILING_LIST_URL = "/MailingList.xml.aspx";
+	private static final String MAILING_LIST_URL = "/MailingList";
 
 	private MailingListsParser() {
 		super(MailingListsResponse.class, 2, MAILING_LIST_URL);

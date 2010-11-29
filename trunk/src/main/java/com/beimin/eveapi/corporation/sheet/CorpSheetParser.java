@@ -13,7 +13,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class CorpSheetParser extends AbstractApiParser<CorpSheetResponse> {
-	protected static final String CORPORATION_SHEET_URL = Path.CORPORATION.getPath() + "/CorporationSheet.xml.aspx";
+	protected static final String CORPORATION_SHEET_URL = Path.CORPORATION.getPath() + "/CorporationSheet";
 
 	public CorpSheetParser() {
 		super(CorpSheetResponse.class, 2, CORPORATION_SHEET_URL);

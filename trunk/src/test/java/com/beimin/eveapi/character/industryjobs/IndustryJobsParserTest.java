@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.Collection;
 
 import org.junit.Test;
@@ -20,7 +19,7 @@ import com.beimin.eveapi.shared.industryjobs.IndustryJobsResponse;
 public class IndustryJobsParserTest {
 
 	@Test
-	public void industryJobsParser() throws IOException, SAXException, ParseException {
+	public void industryJobsParser() throws IOException, SAXException {
 		AbstractIndustryJobsParser parser = IndustryJobsParser.getInstance();
 		InputStream input = IndustryJobsParserTest.class.getResourceAsStream("/character/IndustryJobs.xml");
 		IndustryJobsResponse response = parser.getResponse(input);

@@ -12,7 +12,7 @@ import com.beimin.eveapi.ApiAuth;
 import com.beimin.eveapi.corporation.member.security.ApiSecurityRole;
 
 public class MemberSecurityLogParser extends AbstractApiParser<MemberSecurityLogResponse> {
-	protected static final String MEMBER_SECURITY_LOG_URL = "/corp/MemberSecurityLog.xml.aspx";
+	protected static final String MEMBER_SECURITY_LOG_URL = "/corp/MemberSecurityLog";
 
 	public MemberSecurityLogParser() {
 		super(MemberSecurityLogResponse.class, 2, MEMBER_SECURITY_LOG_URL);

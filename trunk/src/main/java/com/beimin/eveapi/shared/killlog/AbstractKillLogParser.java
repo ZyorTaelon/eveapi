@@ -12,7 +12,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractKillLogParser extends AbstractApiParser<KillLogResponse> {
-	protected static final String KILL_LIST = "/KillLog.xml.aspx";
+	protected static final String KILL_LIST = "/KillLog";
 	private final Path path;
 
 	protected AbstractKillLogParser(Path path) {

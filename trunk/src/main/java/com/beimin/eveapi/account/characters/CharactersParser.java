@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class CharactersParser extends AbstractApiParser<CharactersResponse> {
-	protected static final String CHARACTER_LIST_URL = "/Characters.xml.aspx";
+	protected static final String CHARACTER_LIST_URL = "/Characters";
 
 	public CharactersParser() {
 		super(CharactersResponse.class, 1, CHARACTER_LIST_URL);

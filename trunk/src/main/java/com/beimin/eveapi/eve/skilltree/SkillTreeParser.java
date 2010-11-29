@@ -10,7 +10,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class SkillTreeParser extends AbstractApiParser<SkillTreeResponse> {
-	private static final String SKILLS_URL = "/eve/SkillTree.xml.aspx";
+	private static final String SKILLS_URL = "/eve/SkillTree";
 
 	public SkillTreeParser() {
 		super(SkillTreeResponse.class, 2, SKILLS_URL);

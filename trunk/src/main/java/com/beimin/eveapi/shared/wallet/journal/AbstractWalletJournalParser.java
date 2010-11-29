@@ -11,7 +11,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractWalletJournalParser extends AbstractApiParser<WalletJournalResponse> {
-	protected static final String JOURNAL_URL = "/WalletJournal.xml.aspx";
+	protected static final String JOURNAL_URL = "/WalletJournal";
 	protected final Path path;
 
 	public AbstractWalletJournalParser(Path path) {

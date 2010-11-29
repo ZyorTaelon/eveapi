@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -17,7 +16,7 @@ import com.beimin.eveapi.shared.standings.StandingsResponse;
 public class StandingsParserTest {
 
 	@Test
-	public void standingsParser() throws IOException, SAXException, ParseException {
+	public void standingsParser() throws IOException, SAXException {
 		StandingsParser parser = StandingsParser.getInstance();
 		InputStream input = StandingsParserTest.class.getResourceAsStream("/character/Standings.xml");
 		StandingsResponse response = parser.getResponse(input);

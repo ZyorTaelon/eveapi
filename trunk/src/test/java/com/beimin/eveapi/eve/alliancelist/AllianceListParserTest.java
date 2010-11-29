@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.Collection;
 
 import org.junit.Test;
@@ -16,7 +15,7 @@ import org.xml.sax.SAXException;
 public class AllianceListParserTest {
 
 	@Test
-	public void allianceListParser() throws IOException, SAXException, ParseException {
+	public void allianceListParser() throws IOException, SAXException {
 		AllianceListParser parser = AllianceListParser.getInstance();
 		InputStream input = AllianceListParserTest.class.getResourceAsStream("/eve/AllianceList.xml");
 		AllianceListResponse response = parser.getResponse(input);

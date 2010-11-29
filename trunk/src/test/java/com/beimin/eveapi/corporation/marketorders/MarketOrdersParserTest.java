@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.Collection;
 
 import org.junit.Test;
@@ -20,7 +19,7 @@ import com.beimin.eveapi.shared.marketorders.MarketOrdersResponse;
 public class MarketOrdersParserTest {
 
 	@Test
-	public void marketOrderParser() throws IOException, SAXException, ParseException {
+	public void marketOrderParser() throws IOException, SAXException {
 		AbstractMarketOrdersParser parser = MarketOrdersParser.getInstance();
 		InputStream input = MarketOrdersParserTest.class.getResourceAsStream("/corporation/MarketOrders.xml");
 		MarketOrdersResponse response = parser.getResponse(input);

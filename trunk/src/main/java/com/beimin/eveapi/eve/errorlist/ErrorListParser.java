@@ -8,7 +8,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class ErrorListParser extends AbstractApiParser<ErrorListResponse> {
-	protected static final String ERROR_LIST_URL = "/eve/ErrorList.xml.aspx";
+	protected static final String ERROR_LIST_URL = "/eve/ErrorList";
 
 	public ErrorListParser() {
 		super(ErrorListResponse.class, 2, ERROR_LIST_URL);

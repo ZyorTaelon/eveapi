@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class AbstractFactWarStatsParser extends AbstractApiParser<FacWarStats> {
-	private static final String FACT_WAR_STATS_URL = "/FacWarStats.xml.aspx";
+	private static final String FACT_WAR_STATS_URL = "/FacWarStats";
 	private final Path path;
 
 	protected AbstractFactWarStatsParser(Path path) {

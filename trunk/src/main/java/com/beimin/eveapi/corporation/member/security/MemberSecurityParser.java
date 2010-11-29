@@ -11,7 +11,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class MemberSecurityParser extends AbstractApiParser<MemberSecurityResponse> {
-	protected static final String MEMBER_SECURITY_URL = "/corp/MemberSecurity.xml.aspx";
+	protected static final String MEMBER_SECURITY_URL = "/corp/MemberSecurity";
 
 	public MemberSecurityParser() {
 		super(MemberSecurityResponse.class, 2, MEMBER_SECURITY_URL);

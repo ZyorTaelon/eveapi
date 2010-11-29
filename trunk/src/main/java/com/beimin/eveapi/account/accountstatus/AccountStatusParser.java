@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class AccountStatusParser extends AbstractApiParser<AccountStatusResponse> {
-	protected static final String ACCOUNT_STATUS_URL = "/AccountStatus.xml.aspx";
+	protected static final String ACCOUNT_STATUS_URL = "/AccountStatus";
 
 	public AccountStatusParser() {
 		super(AccountStatusResponse.class, 2, ACCOUNT_STATUS_URL);

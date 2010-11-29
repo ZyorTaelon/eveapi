@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.List;
 
 import org.junit.Test;
@@ -15,7 +14,7 @@ import org.xml.sax.SAXException;
 public class SkillQueueParserTest {
 
 	@Test
-	public void skillInTrainingParser() throws IOException, SAXException, ParseException {
+	public void skillInTrainingParser() throws IOException, SAXException {
 		SkillQueueParser parser = SkillQueueParser.getInstance();
 		InputStream input = SkillQueueParserTest.class.getResourceAsStream("/character/SkillQueue.xml");
 		SkillQueueResponse response = parser.getResponse(input);

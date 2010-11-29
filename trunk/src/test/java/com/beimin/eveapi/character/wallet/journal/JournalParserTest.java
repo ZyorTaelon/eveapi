@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.Collection;
 
 import org.junit.Test;
@@ -20,7 +19,7 @@ import com.beimin.eveapi.shared.wallet.journal.WalletJournalResponse;
 public class JournalParserTest {
 
 	@Test
-	public void walletJournalParser() throws IOException, SAXException, ParseException {
+	public void walletJournalParser() throws IOException, SAXException {
 		AbstractWalletJournalParser parser = WalletJournalParser.getInstance();
 		InputStream input = JournalParserTest.class.getResourceAsStream("/character/WalletJournal.xml");
 		WalletJournalResponse response = parser.getResponse(input);

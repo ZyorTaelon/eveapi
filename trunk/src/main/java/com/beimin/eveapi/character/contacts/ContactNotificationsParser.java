@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class ContactNotificationsParser extends AbstractApiParser<ContactNotificationsResponse> {
-	private static final String CONTACT_NOTIFICATIONS_URL = "/ContactNotifications.xml.aspx";
+	private static final String CONTACT_NOTIFICATIONS_URL = "/ContactNotifications";
 
 	protected ContactNotificationsParser() {
 		super(ContactNotificationsResponse.class, 2, CONTACT_NOTIFICATIONS_URL);

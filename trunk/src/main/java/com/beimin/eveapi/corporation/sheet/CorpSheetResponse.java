@@ -1,6 +1,5 @@
 package com.beimin.eveapi.corporation.sheet;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -157,17 +156,13 @@ public class CorpSheetResponse extends ApiResponse {
 
 	public void addDivisionList(DivisionList divisionList) {
 		if (divisionList.getName().equals("divisions")) {
-			Collection<Division> divisions = divisionList.getDivisions();
-			for (Division division : divisions) {
-				this.divisions.put(division.getAccountKey(),
-						division.getDescription());
+			for (Division division : divisionList.getDivisions()) {
+				this.divisions.put(division.getAccountKey(), division.getDescription());
 			}
 		}
 		if (divisionList.getName().equals("walletDivisions")) {
-			Collection<Division> divisions = divisionList.getDivisions();
-			for (Division division : divisions) {
-				this.walletDivisions.put(division.getAccountKey(),
-						division.getDescription());
+			for (Division division : divisionList.getDivisions()) {
+				this.walletDivisions.put(division.getAccountKey(), division.getDescription());
 			}
 		}
 

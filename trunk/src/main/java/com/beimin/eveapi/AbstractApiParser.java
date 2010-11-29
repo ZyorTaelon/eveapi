@@ -37,7 +37,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		public String getPath() {
 			return path;
 		}
-	};
+	}
 
 	private final String filename = "cacheFile.ser";
 
@@ -148,18 +148,20 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		return false;
 	}
 
-	private String getRequestUrl(ApiAuth auth, Path path, String pageURL, Map<String, String> extraParams) throws UnsupportedEncodingException {
-		String requestUrl = eveApiURL;
-		requestUrl += path.getPath();
-		requestUrl += pageURL;
-		requestUrl += auth.getUrlParams();
-		requestUrl += "&version=" + apiVersion;
+	private String getRequestUrl(ApiAuth auth, Path path, String page, Map<String, String> extraParams)
+			throws UnsupportedEncodingException {
+		StringBuilder requestUrl = new StringBuilder(eveApiURL);
+		requestUrl.append(path.getPath());
+		requestUrl.append(page);
+		requestUrl.append(".xml.aspx");
+		requestUrl.append(auth.getUrlParams());
+		requestUrl.append("&version=" + apiVersion);
 		if (extraParams != null) {
 			for (Entry<String, String> entry : extraParams.entrySet()) {
-				requestUrl += "&" + entry.getKey() + "=" + entry.getValue();
+				requestUrl.append("&" + entry.getKey() + "=" + entry.getValue());
 			}
 		}
-		return requestUrl;
+		return requestUrl.toString();
 	}
 
 	protected E getResponse(ApiAuth auth, Path path, Map<String, String> extraParams) throws IOException, SAXException {
@@ -179,25 +181,26 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	}
 
 	protected E getResponse(Map<String, String> extraParams) throws IOException, SAXException {
-		String requestUrl = eveApiURL + pageURL;
+		StringBuilder requestUrl = new StringBuilder(eveApiURL);
+		requestUrl.append(pageURL).append(".xml.aspx");
 		boolean first = true;
 		for (Entry<String, String> entry : extraParams.entrySet()) {
 			if (first)
-				requestUrl += "?";
+				requestUrl.append("?");
 			else
-				requestUrl += "&";
-			requestUrl += entry.getKey() + "=" + entry.getValue();
+				requestUrl.append("&");
+			requestUrl.append(entry.getKey()).append("=").append(entry.getValue());
 			first = false;
 		}
-		return getResponse(requestUrl);
+		return getResponse(requestUrl.toString());
 	}
 
 	protected E getResponse(String paramName, String paramValue) throws IOException, SAXException {
-		return getResponse(eveApiURL + pageURL + "?" + paramName + "=" + paramValue);
+		return getResponse(eveApiURL + pageURL + ".xml.aspx" + "?" + paramName + "=" + paramValue);
 	}
 
 	protected E getResponse() throws IOException, SAXException {
-		return getResponse(eveApiURL + pageURL);
+		return getResponse(eveApiURL + pageURL + ".xml.aspx");
 	}
 
 	private E getResponse(String requestUrl) throws IOException, SAXException {

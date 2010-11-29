@@ -10,7 +10,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class MailMessagesParser extends AbstractApiParser<MailMessagesResponse> {
-	private static final String MAIL_MESSAGES_URL = "/MailMessages.xml.aspx";
+	private static final String MAIL_MESSAGES_URL = "/MailMessages";
 
 	private MailMessagesParser() {
 		super(MailMessagesResponse.class, 2, MAIL_MESSAGES_URL);
@@ -25,12 +25,12 @@ public class MailMessagesParser extends AbstractApiParser<MailMessagesResponse> 
 		return digester;
 	}
 
-	public MailMessagesResponse getEveMaiResponse(ApiAuth auth) throws IOException, SAXException {
+	public MailMessagesResponse getMailMessagesResponse(ApiAuth auth) throws IOException, SAXException {
 		return getResponse(auth, Path.CHARACTER);
 	}
 	
-	public Set<ApiMailMessage> getEveMails(ApiAuth auth) throws IOException, SAXException {
-		return getEveMaiResponse(auth).getApiMails();
+	public Set<ApiMailMessage> getMailMessages(ApiAuth auth) throws IOException, SAXException {
+		return getMailMessagesResponse(auth).getApiMails();
 	}
 	
 	public static MailMessagesParser getInstance() {

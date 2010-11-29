@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractStandingsParser extends AbstractApiParser<StandingsResponse> {
-	protected static final String STANDINGS_URL = "/Standings.xml.aspx";
+	protected static final String STANDINGS_URL = "/Standings";
 	private final Path path;
 
 	protected AbstractStandingsParser(Path path) {
@@ -17,25 +17,26 @@ public abstract class AbstractStandingsParser extends AbstractApiParser<Standing
 		this.path = path;
 	}
 
+	@Override
 	protected Digester getDigester() {
+		String charCorpPath;
 		switch (path) {
 		case CORPORATION:
-			return getDigester("corporationNPCStandings");
+			charCorpPath = "corporationNPCStandings";
+			break;
 		case CHARACTER:
-			return getDigester("characterNPCStandings");
+			charCorpPath = "characterNPCStandings";
+			break;
 		default:
 			throw new RuntimeException("No valid path.");
 		}
-	}
-
-	private Digester getDigester(String path) {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/" + path + "/rowset", StandingsList.class);
-		digester.addSetProperties("eveapi/result/" + path + "/rowset");
-		digester.addObjectCreate("eveapi/result/" + path + "/rowset/row", ApiStanding.class);
-		digester.addSetProperties("eveapi/result/" + path + "/rowset/row");
-		digester.addSetNext("eveapi/result/" + path + "/rowset/row", "add");
-		digester.addSetNext("eveapi/result/" + path + "/rowset", "addStandingsList");
+		digester.addObjectCreate("eveapi/result/" + charCorpPath + "/rowset", StandingsList.class);
+		digester.addSetProperties("eveapi/result/" + charCorpPath + "/rowset");
+		digester.addObjectCreate("eveapi/result/" + charCorpPath + "/rowset/row", ApiStanding.class);
+		digester.addSetProperties("eveapi/result/" + charCorpPath + "/rowset/row");
+		digester.addSetNext("eveapi/result/" + charCorpPath + "/rowset/row", "add");
+		digester.addSetNext("eveapi/result/" + charCorpPath + "/rowset", "addStandingsList");
 		return digester;
 	}
 

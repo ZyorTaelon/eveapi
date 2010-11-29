@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.List;
 
 import org.junit.Test;
@@ -14,7 +13,7 @@ import org.xml.sax.SAXException;
 public class ContainerLogParserTest {
 
 	@Test
-	public void containerLogParser() throws IOException, SAXException, ParseException {
+	public void containerLogParser() throws IOException, SAXException {
 		ContainerLogParser parser = ContainerLogParser.getInstance();
 		InputStream input = ContainerLogParserTest.class.getResourceAsStream("/corporation/ContainerLog.xml");
 		ContainerLogResponse response = parser.getResponse(input);

@@ -10,7 +10,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class NotificationsParser extends AbstractApiParser<NotificationsResponse> {
-	private static final String NOTIFICATIONS_URL = "/Notifications.xml.aspx";
+	private static final String NOTIFICATIONS_URL = "/Notifications";
 
 	private NotificationsParser() {
 		super(NotificationsResponse.class, 2, NOTIFICATIONS_URL);

@@ -10,7 +10,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class ResearchParser extends AbstractApiParser<ResearchResponse> {
-	private static final String RESEARCH_URL = "/Research.xml.aspx";
+	private static final String RESEARCH_URL = "/Research";
 
 	private ResearchParser() {
 		super(ResearchResponse.class, 1, RESEARCH_URL);

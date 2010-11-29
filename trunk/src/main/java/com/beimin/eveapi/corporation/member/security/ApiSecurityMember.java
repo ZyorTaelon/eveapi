@@ -1,6 +1,5 @@
 package com.beimin.eveapi.corporation.member.security;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,36 +33,33 @@ public class ApiSecurityMember {
 	}
 
 	public void addSecurityRoleBag(SecurityRoleOrTitleBag securityRoleBag) {
-		String name = securityRoleBag.getName();
-		if (name.equals("roles")) {
+		String bagName = securityRoleBag.getName();
+		if (bagName.equals("roles"))
 			addSecurityRoles(roles, securityRoleBag);
-		} else if (name.equals("grantableRoles")) {
+		else if (bagName.equals("grantableRoles"))
 			addSecurityRoles(grantableRoles, securityRoleBag);
-		} else if (name.equals("rolesAtHQ")) {
+		else if (bagName.equals("rolesAtHQ"))
 			addSecurityRoles(rolesAtHQ, securityRoleBag);
-		} else if (name.equals("grantableRolesAtHQ")) {
+		else if (bagName.equals("grantableRolesAtHQ"))
 			addSecurityRoles(grantableRolesAtHQ, securityRoleBag);
-		} else if (name.equals("rolesAtBase")) {
+		else if (bagName.equals("rolesAtBase"))
 			addSecurityRoles(rolesAtBase, securityRoleBag);
-		} else if (name.equals("grantableRolesAtBase")) {
+		else if (bagName.equals("grantableRolesAtBase"))
 			addSecurityRoles(grantableRolesAtBase, securityRoleBag);
-		} else if (name.equals("rolesAtOther")) {
+		else if (bagName.equals("rolesAtOther"))
 			addSecurityRoles(rolesAtOther, securityRoleBag);
-		} else if (name.equals("grantableRolesAtOther")) {
+		else if (bagName.equals("grantableRolesAtOther"))
 			addSecurityRoles(grantableRolesAtOther, securityRoleBag);
-		} else if (name.equals("titles")) {
-			Collection<SecurityRoleOrTitle> securityRoles = securityRoleBag.getSecurityRoles();
-			for (SecurityRoleOrTitle securityRoleOrTitle : securityRoles) {
+		else if (bagName.equals("titles"))
+			for (SecurityRoleOrTitle securityRoleOrTitle : securityRoleBag.getSecurityRoles())
 				titles.add(securityRoleOrTitle.getTitle());
-			}
-		}
+		else
+			throw new RuntimeException("Unknown roleOrTitleBag name");
 	}
 
 	private void addSecurityRoles(Set<ApiSecurityRole> roleSet, SecurityRoleOrTitleBag securityRoleBag) {
-		Collection<SecurityRoleOrTitle> securityRoles = securityRoleBag.getSecurityRoles();
-		for (SecurityRoleOrTitle securityRoleOrTitle : securityRoles) {
+		for (SecurityRoleOrTitle securityRoleOrTitle : securityRoleBag.getSecurityRoles())
 			roleSet.add(securityRoleOrTitle.getRole());
-		}
 	}
 
 	public Set<ApiSecurityRole> getRoles() {

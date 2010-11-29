@@ -6,7 +6,6 @@ import static org.junit.Assert.fail;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.Collection;
 
 import org.junit.Test;
@@ -15,7 +14,7 @@ import org.xml.sax.SAXException;
 public class CharactersParserTest {
 
 	@Test
-	public void testCharacterListParser() throws IOException, SAXException, ParseException {
+	public void testCharacterListParser() throws IOException, SAXException {
 		CharactersParser parser = CharactersParser.getInstance();
 		InputStream input = CharactersParserTest.class.getResourceAsStream("/account/Characters.xml");
 		CharactersResponse response = parser.getResponse(input);

@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class MemberMedalsParser extends AbstractApiParser<MemberMedalsResponse> {
-	protected static final String MEMBER_MEDALS_URL = "/MemberMedals.xml.aspx";
+	protected static final String MEMBER_MEDALS_URL = "/MemberMedals";
 
 	public MemberMedalsParser() {
 		super(MemberMedalsResponse.class, 2, MEMBER_MEDALS_URL);

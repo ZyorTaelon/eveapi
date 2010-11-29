@@ -8,7 +8,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class ConquerableStationListParser extends AbstractApiParser<StationListResponse> {
-	protected static final String STATION_LIST_URL = "/eve/ConquerableStationList.xml.aspx";
+	protected static final String STATION_LIST_URL = "/eve/ConquerableStationList";
 
 	public ConquerableStationListParser() {
 		super(StationListResponse.class, 2, STATION_LIST_URL);

@@ -8,7 +8,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class MapJumpsParser extends AbstractApiParser<MapJumpsResponse> {
-	private static final String JUMPS_URL = "/map/Jumps.xml.aspx";
+	private static final String JUMPS_URL = "/map/Jumps";
 
 	public MapJumpsParser() {
 		super(MapJumpsResponse.class, 2, JUMPS_URL);

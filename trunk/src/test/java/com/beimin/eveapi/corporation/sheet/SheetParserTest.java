@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.Map;
 
 import org.junit.Test;
@@ -14,7 +13,7 @@ import org.xml.sax.SAXException;
 public class SheetParserTest {
 
 	@Test
-	public void corporationSheetParser() throws IOException, SAXException, ParseException {
+	public void corporationSheetParser() throws IOException, SAXException {
 		CorpSheetParser parser = CorpSheetParser.getInstance();
 		InputStream input = SheetParserTest.class.getResourceAsStream("/corporation/Sheet.xml");
 		CorpSheetResponse response = parser.getResponse(input);
@@ -26,8 +25,9 @@ public class SheetParserTest {
 		assertEquals("Mark Roled", response.getCeoName());
 		assertEquals(60003469, response.getStationID());
 		assertEquals("Jita IV - Caldari Business Tribunal Information Center", response.getStationName());
-		assertEquals("Garth's testing corp of awesome sauce, win sauce as it were. In this\n            corp...<br><br>IT HAPPENS ALL OVER", response
-				.getDescription());
+		assertEquals(
+				"Garth's testing corp of awesome sauce, win sauce as it were. In this\n            corp...<br><br>IT HAPPENS ALL OVER",
+				response.getDescription());
 		assertEquals("some url", response.getUrl());
 		assertEquals(150430947L, response.getAllianceID().longValue());
 		assertEquals("The Dead Rabbits", response.getAllianceName());

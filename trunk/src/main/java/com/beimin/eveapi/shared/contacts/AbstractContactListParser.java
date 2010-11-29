@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractContactListParser<CLR extends AbstractContactListResponse> extends AbstractApiParser<CLR> {
-	protected static final String CONTACT_LIST_URL = "/ContactList.xml.aspx";
+	protected static final String CONTACT_LIST_URL = "/ContactList";
 	private final Path path;
 
 	protected AbstractContactListParser(Class<CLR> responseClass, Path path) {
@@ -17,18 +17,8 @@ public abstract class AbstractContactListParser<CLR extends AbstractContactListR
 		this.path = path;
 	}
 
+	@Override
 	protected Digester getDigester() {
-		switch (path) {
-		case CORPORATION:
-			return getDigester("corporationNPCStandings");
-		case CHARACTER:
-			return getDigester("characterNPCStandings");
-		default:
-			throw new RuntimeException("No valid path.");
-		}
-	}
-
-	private Digester getDigester(String path) {
 		Digester digester = super.getDigester();
 		digester.addObjectCreate("eveapi/result/rowset", ContactList.class);
 		digester.addSetProperties("eveapi/result/rowset");

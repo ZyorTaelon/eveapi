@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.Collection;
 
 import org.junit.Test;
@@ -20,7 +19,7 @@ import com.beimin.eveapi.shared.wallet.transactions.WalletTransactionsResponse;
 public class TransactionsParserTest {
 
 	@Test
-	public void walletTransactionParser() throws IOException, SAXException, ParseException {
+	public void walletTransactionParser() throws IOException, SAXException {
 		AbstractWalletTransactionsParser parser = WalletTransactionsParser.getInstance();
 		InputStream input = TransactionsParserTest.class.getResourceAsStream("/corporation/WalletTransactions.xml");
 		WalletTransactionsResponse response = parser.getResponse(input);
@@ -41,7 +40,8 @@ public class TransactionsParserTest {
 				assertEquals(000000000, walletTransaction.getCharacterID());
 				assertEquals("SELLER", walletTransaction.getCharacterName());
 				assertEquals(60004375, walletTransaction.getStationID());
-				assertEquals("SYSTEM IV - Moon 10 - Corporate Police Force Testing Facilities", walletTransaction.getStationName());
+				assertEquals("SYSTEM IV - Moon 10 - Corporate Police Force Testing Facilities",
+						walletTransaction.getStationName());
 				assertEquals("buy", walletTransaction.getTransactionType());
 				assertEquals("corporation", walletTransaction.getTransactionFor());
 			}

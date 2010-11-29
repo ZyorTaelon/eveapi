@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class StarbaseListParser extends AbstractApiParser<StarbaseListResponse> {
-	private static final String STARBASE_LIST_URL = Path.CORPORATION.getPath() + "/StarbaseList.xml.aspx";
+	private static final String STARBASE_LIST_URL = Path.CORPORATION.getPath() + "/StarbaseList";
 
 	public StarbaseListParser() {
 		super(StarbaseListResponse.class, 2, STARBASE_LIST_URL);

@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -17,7 +16,7 @@ import com.beimin.eveapi.shared.contacts.ContactList;
 public class ContactListParserTest {
 
 	@Test
-	public void contactListParser() throws IOException, SAXException, ParseException {
+	public void contactListParser() throws IOException, SAXException {
 		ContactListParser parser = ContactListParser.getInstance();
 		InputStream input = ContactListParserTest.class.getResourceAsStream("/corporation/ContactList.xml");
 		ContactListResponse response = parser.getResponse(input);

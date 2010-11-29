@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -14,7 +13,7 @@ import org.xml.sax.SAXException;
 public class SkillInTrainingParserTest {
 
 	@Test
-	public void skillInTrainingParser() throws IOException, SAXException, ParseException {
+	public void skillInTrainingParser() throws IOException, SAXException {
 		SkillInTrainingParser parser = SkillInTrainingParser.getInstance();
 		InputStream input = SkillInTrainingParserTest.class.getResourceAsStream("/character/SkillInTraining.xml");
 		SkillInTrainingResponse response = parser.getResponse(input);

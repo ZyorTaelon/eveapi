@@ -10,7 +10,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractIndustryJobsParser extends AbstractApiParser<IndustryJobsResponse> {
-	protected static final String INDUSTRY_JOBS_URL = "/IndustryJobs.xml.aspx";
+	protected static final String INDUSTRY_JOBS_URL = "/IndustryJobs";
 	private final Path path;
 
 	protected AbstractIndustryJobsParser(Path path) {

@@ -11,7 +11,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class StarbaseDetailParser extends AbstractApiParser<StarbaseDetailResponse> {
-	private static final String STARBASE_DETAIL_URL = Path.CORPORATION.getPath() + "/StarbaseDetail.xml.aspx";
+	private static final String STARBASE_DETAIL_URL = Path.CORPORATION.getPath() + "/StarbaseDetail";
 
 	public StarbaseDetailParser() {
 		super(StarbaseDetailResponse.class, 2, STARBASE_DETAIL_URL);

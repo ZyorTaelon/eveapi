@@ -10,7 +10,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractMarketOrdersParser extends AbstractApiParser<MarketOrdersResponse> {
-	protected static final String MARKET_ORDERS_URL = "/MarketOrders.xml.aspx";
+	protected static final String MARKET_ORDERS_URL = "/MarketOrders";
 	private final Path path;
 
 	protected AbstractMarketOrdersParser(Path path) {

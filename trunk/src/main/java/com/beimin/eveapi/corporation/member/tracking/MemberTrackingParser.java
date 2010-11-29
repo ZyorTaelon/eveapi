@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class MemberTrackingParser extends AbstractApiParser<MemberTrackingResponse> {
-	protected static final String MEMBER_TRACKING_URL = "/corp/MemberTracking.xml.aspx";
+	protected static final String MEMBER_TRACKING_URL = "/corp/MemberTracking";
 
 	public MemberTrackingParser() {
 		super(MemberTrackingResponse.class, 2, MEMBER_TRACKING_URL);

@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class ShareholdersParser extends AbstractApiParser<ShareholdersResponse> {
-	protected static final String SHAREHOLDERS_URL = "/Shareholders.xml.aspx";
+	protected static final String SHAREHOLDERS_URL = "/Shareholders";
 
 	public ShareholdersParser() {
 		super(ShareholdersResponse.class, 2, SHAREHOLDERS_URL);

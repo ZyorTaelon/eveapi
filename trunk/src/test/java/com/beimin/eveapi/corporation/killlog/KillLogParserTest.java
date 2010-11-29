@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.Collection;
 import java.util.List;
 
@@ -24,7 +23,7 @@ import com.beimin.eveapi.shared.killlog.KillLogResponse;
 public class KillLogParserTest {
 
 	@Test
-	public void killLogParser() throws IOException, SAXException, ParseException {
+	public void killLogParser() throws IOException, SAXException {
 		AbstractKillLogParser parser = KillLogParser.getInstance();
 		InputStream input = KillLogParserTest.class.getResourceAsStream("/corporation/KillLog.xml");
 		KillLogResponse response = parser.getResponse(input);

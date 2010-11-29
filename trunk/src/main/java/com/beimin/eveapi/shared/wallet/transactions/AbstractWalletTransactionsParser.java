@@ -11,7 +11,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractWalletTransactionsParser extends AbstractApiParser<WalletTransactionsResponse> {
-	protected static final String TRANSACTIONS_URL = "/WalletTransactions.xml.aspx";
+	protected static final String TRANSACTIONS_URL = "/WalletTransactions";
 	private final Path path;
 
 	public AbstractWalletTransactionsParser(Path path) {

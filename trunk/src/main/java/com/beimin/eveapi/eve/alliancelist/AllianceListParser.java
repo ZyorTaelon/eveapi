@@ -8,7 +8,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class AllianceListParser extends AbstractApiParser<AllianceListResponse> {
-	protected static final String ALLIANCE_LIST_URL = "/eve/AllianceList.xml.aspx";
+	protected static final String ALLIANCE_LIST_URL = "/eve/AllianceList";
 
 	public AllianceListParser() {
 		super(AllianceListResponse.class, 1, ALLIANCE_LIST_URL);

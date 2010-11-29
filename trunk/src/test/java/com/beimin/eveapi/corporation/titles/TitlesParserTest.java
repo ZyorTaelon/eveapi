@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.Collection;
 
 import org.junit.Test;
@@ -15,7 +14,7 @@ import org.xml.sax.SAXException;
 public class TitlesParserTest {
 
 	@Test
-	public void testTitlesParser() throws IOException, SAXException, ParseException {
+	public void testTitlesParser() throws IOException, SAXException {
 		CorporationTitlesParser parser = CorporationTitlesParser.getInstance();
 		InputStream input = TitlesParserTest.class.getResourceAsStream("/corporation/Titles.xml");
 		CorporationTitlesResponse response = parser.getResponse(input);

@@ -8,7 +8,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class ServerStatusParser extends AbstractApiParser<ServerStatusResponse> {
-	protected static final String SERVER_STATUS_URL = "/server/ServerStatus.xml.aspx";
+	protected static final String SERVER_STATUS_URL = "/server/ServerStatus";
 
 	public ServerStatusParser() {
 		super(ServerStatusResponse.class, 2, SERVER_STATUS_URL);

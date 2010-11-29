@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.util.Collection;
 
 import org.junit.Test;
@@ -14,7 +13,7 @@ import org.xml.sax.SAXException;
 public class ShareholdersParserTest {
 
 	@Test
-	public void shareholdersParser() throws IOException, SAXException, ParseException {
+	public void shareholdersParser() throws IOException, SAXException {
 		ShareholdersParser parser = ShareholdersParser.getInstance();
 		InputStream input = ShareholdersParserTest.class.getResourceAsStream("/corporation/Shareholders.xml");
 		ShareholdersResponse response = parser.getResponse(input);

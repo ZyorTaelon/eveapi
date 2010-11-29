@@ -9,7 +9,7 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class SkillInTrainingParser extends AbstractApiParser<SkillInTrainingResponse> {
-	protected static final String CHARACTER_SHEET_URL = Path.CHARACTER.getPath() + "/SkillInTraining.xml.aspx";
+	protected static final String CHARACTER_SHEET_URL = Path.CHARACTER.getPath() + "/SkillInTraining";
 
 	public SkillInTrainingParser() {
 		super(SkillInTrainingResponse.class, 2, CHARACTER_SHEET_URL);

@@ -10,7 +10,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class FacWarTopStatsParser extends AbstractApiParser<FacWarTopStatsResponse> {
-	private static final String FACT_WAR_TOP_STATS_URL = "/eve/FacWarTopStats.xml.aspx";
+	private static final String FACT_WAR_TOP_STATS_URL = "/eve/FacWarTopStats";
 
 	private FacWarTopStatsParser() {
 		super(FacWarTopStatsResponse.class, 2, FACT_WAR_TOP_STATS_URL);

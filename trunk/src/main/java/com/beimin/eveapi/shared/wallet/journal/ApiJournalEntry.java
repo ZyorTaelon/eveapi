@@ -1,6 +1,5 @@
 package com.beimin.eveapi.shared.wallet.journal;
 
-import java.text.ParseException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +24,7 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 		return date;
 	}
 
-	public void setDate(Date date) throws ParseException {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

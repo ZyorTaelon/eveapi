@@ -9,8 +9,8 @@ import com.beimin.eveapi.AbstractApiParser;
 
 public class CharacterLookupParser extends
 		AbstractApiParser<CharacterLookupResponse> {
-	protected static final String CHARACTER_NAME_URL = "/eve/CharacterName.xml.aspx";
-	protected static final String CHARACTER_ID_URL = "/eve/CharacterID.xml.aspx";
+	protected static final String CHARACTER_NAME_URL = "/eve/CharacterName";
+	protected static final String CHARACTER_ID_URL = "/eve/CharacterID";
 	private final String paramName;
 
 	public CharacterLookupParser(String url, String paramName) {
