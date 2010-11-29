@@ -25,7 +25,7 @@ public class StandingsParserTest {
 
 		StandingsList agentStandings = response.getAgentStandings();
 		assertEquals("agents", agentStandings.getName());
-		assertEquals(116, agentStandings.size());
+		assertEquals(1871, agentStandings.size());
 		ApiStanding apiStanding = agentStandings.iterator().next();
 		assertEquals(3008420, apiStanding.getFromID());
 		assertEquals("Appi Intaa", apiStanding.getFromName());
@@ -33,7 +33,7 @@ public class StandingsParserTest {
 
 		StandingsList npcCorporations = response.getNpcCorporationStandings();
 		assertEquals("NPCCorporations", npcCorporations.getName());
-		assertEquals(51, npcCorporations.size());
+		assertEquals(154, npcCorporations.size());
 		apiStanding = npcCorporations.iterator().next();
 		assertEquals(1000002, apiStanding.getFromID());
 		assertEquals("CBD Corporation", apiStanding.getFromName());
