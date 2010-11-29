@@ -1,4 +1,4 @@
-package com.beimin.eveapi.character.mailmessages;
+package com.beimin.eveapi.character.mail;
 
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
@@ -13,19 +13,23 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.character.mail.messages.ApiMailMessage;
+import com.beimin.eveapi.character.mail.messages.MailMessagesResponse;
+import com.beimin.eveapi.character.mail.messages.MailMessagesParser;
+
 public class MailMessagesParserTest {
 
 	@Test
 	public void mailMessagesParser() throws IOException, SAXException {
-		EveMailParser parser = EveMailParser.getInstance();
+		MailMessagesParser parser = MailMessagesParser.getInstance();
 		InputStream input = MailMessagesParserTest.class.getResourceAsStream("/character/MailMessages.xml");
-		EveMaiResponse response = parser.getResponse(input);
+		MailMessagesResponse response = parser.getResponse(input);
 		assertNotNull(response);
-		Set<ApiEveMai> mails = response.getApiMails();
+		Set<ApiMailMessage> mails = response.getApiMails();
 		assertNotNull(mails);
 		assertEquals(2, mails.size());
 		boolean found = false;
-		for (ApiEveMai mail : mails) {
+		for (ApiMailMessage mail : mails) {
 			if (mail.getMessageID() == 291362193L) {
 				found = true;
 				assertEquals(267936250L, mail.getSenderID());

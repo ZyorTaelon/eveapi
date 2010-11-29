@@ -1,8 +1,8 @@
-package com.beimin.eveapi.character.mailmessages;
+package com.beimin.eveapi.character.mail.messages;
 
 import java.util.Date;
 
-public class ApiEveMai {
+public class ApiMailMessage {
 	private long messageID;
 	private long senderID;
 	private Date sentDate;

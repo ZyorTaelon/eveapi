@@ -1,4 +1,4 @@
-package com.beimin.eveapi.character.mailinglists;
+package com.beimin.eveapi.character.mail;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -10,6 +10,10 @@ import java.util.Set;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
+
+import com.beimin.eveapi.character.mail.lists.ApiMailingList;
+import com.beimin.eveapi.character.mail.lists.MailingListsParser;
+import com.beimin.eveapi.character.mail.lists.MailingListsResponse;
 
 public class MailingListsParserTest {
 

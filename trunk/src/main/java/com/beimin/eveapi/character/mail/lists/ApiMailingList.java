@@ -1,4 +1,4 @@
-package com.beimin.eveapi.character.mailinglists;
+package com.beimin.eveapi.character.mail.lists;
 
 public class ApiMailingList {
 	private long listID;
