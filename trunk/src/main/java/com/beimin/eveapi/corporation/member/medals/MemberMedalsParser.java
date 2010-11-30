@@ -12,11 +12,11 @@ public class MemberMedalsParser extends AbstractApiParser<MemberMedalsResponse> 
 	protected static final String MEMBER_MEDALS_URL = "/MemberMedals";
 
 	public MemberMedalsParser() {
-		super(MemberMedalsResponse.class, 2, MEMBER_MEDALS_URL);
+		super(MemberMedalsResponse.class, 2, Path.CORPORATION, MEMBER_MEDALS_URL);
 	}
 
 	public MemberMedalsResponse getKillList(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.CORPORATION);
+		return getResponse(auth);
 	}
 
 	@Override

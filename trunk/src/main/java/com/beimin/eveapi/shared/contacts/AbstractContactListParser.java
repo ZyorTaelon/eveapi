@@ -10,11 +10,9 @@ import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractContactListParser<CLR extends AbstractContactListResponse> extends AbstractApiParser<CLR> {
 	protected static final String CONTACT_LIST_URL = "/ContactList";
-	private final Path path;
 
 	protected AbstractContactListParser(Class<CLR> responseClass, Path path) {
-		super(responseClass, 2, CONTACT_LIST_URL);
-		this.path = path;
+		super(responseClass, 2, path, CONTACT_LIST_URL);
 	}
 
 	@Override
@@ -30,6 +28,6 @@ public abstract class AbstractContactListParser<CLR extends AbstractContactListR
 	}
 
 	public CLR getContactListResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, path);
+		return getResponse(auth);
 	}
 }

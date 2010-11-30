@@ -11,11 +11,9 @@ import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractAssetListParser extends AbstractApiParser<AssetListResponse> {
 	protected static final String ASSETLIST_URL = "/AssetList";
-	private final Path path;
 
 	protected AbstractAssetListParser(Path path) {
-		super(AssetListResponse.class, 2, ASSETLIST_URL);
-		this.path = path;
+		super(AssetListResponse.class, 2, path, ASSETLIST_URL);
 	}
 
 	@Override
@@ -28,10 +26,10 @@ public abstract class AbstractAssetListParser extends AbstractApiParser<AssetLis
 	}
 
 	public AssetListResponse getAssetListResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, path);
+		return getResponse(auth);
 	}
 
 	public Collection<ApiAsset> getAssets(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, path).getAssets();
+		return getResponse(auth).getAssets();
 	}
 }

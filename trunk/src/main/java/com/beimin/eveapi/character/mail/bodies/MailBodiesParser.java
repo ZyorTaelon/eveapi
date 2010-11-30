@@ -15,7 +15,7 @@ public class MailBodiesParser extends AbstractApiParser<MailBodiesResponse> {
 	private static final String MAIL_MESSAGES_URL = "/MailBodies";
 
 	private MailBodiesParser() {
-		super(MailBodiesResponse.class, 2, MAIL_MESSAGES_URL);
+		super(MailBodiesResponse.class, 2, Path.CHARACTER, MAIL_MESSAGES_URL);
 	}
 
 	@Override
@@ -32,12 +32,12 @@ public class MailBodiesParser extends AbstractApiParser<MailBodiesResponse> {
 		StringBuilder idString = new StringBuilder();
 		for (int i = 0; i < ids.length; i++) {
 			idString.append(ids[i]);
-			if (i > ids.length - 1)
+			if (i < ids.length - 1)
 				idString.append(",");
 		}
 		Map<String, String> extraParams = new HashMap<String, String>();
 		extraParams.put("ids", idString.toString());
-		return getResponse(auth, Path.CHARACTER, extraParams);
+		return getResponse(auth, extraParams);
 	}
 
 	public Set<ApiMailBody> getMailBodies(ApiAuth auth, long... ids) throws IOException, SAXException {

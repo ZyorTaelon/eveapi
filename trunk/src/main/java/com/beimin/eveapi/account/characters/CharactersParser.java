@@ -12,11 +12,11 @@ public class CharactersParser extends AbstractApiParser<CharactersResponse> {
 	protected static final String CHARACTER_LIST_URL = "/Characters";
 
 	public CharactersParser() {
-		super(CharactersResponse.class, 1, CHARACTER_LIST_URL);
+		super(CharactersResponse.class, 1, Path.ACCOUNT, CHARACTER_LIST_URL);
 	}
 
 	public CharactersResponse getEveCharacters(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.ACCOUNT);
+		return getResponse(auth);
 	}
 
 	@Override

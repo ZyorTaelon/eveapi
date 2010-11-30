@@ -12,11 +12,9 @@ import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractWalletJournalParser extends AbstractApiParser<WalletJournalResponse> {
 	protected static final String JOURNAL_URL = "/WalletJournal";
-	protected final Path path;
 
 	public AbstractWalletJournalParser(Path path) {
-		super(WalletJournalResponse.class, 2, JOURNAL_URL);
-		this.path = path;
+		super(WalletJournalResponse.class, 2, path, JOURNAL_URL);
 	}
 
 	@Override
@@ -31,13 +29,13 @@ public abstract class AbstractWalletJournalParser extends AbstractApiParser<Wall
 	public WalletJournalResponse getWalletJournalResponse(ApiAuth auth, int accountKey) throws IOException, SAXException {
 		Map<String, String> extraParams = new HashMap<String, String>();
 		extraParams.put("accountKey", Integer.toString(accountKey));
-		return getResponse(auth, path, extraParams);	
+		return getResponse(auth, extraParams);
 	}
 
 	public WalletJournalResponse getWalletJournalResponse(ApiAuth auth, int accountKey, long beforeRefID) throws IOException, SAXException {
 		Map<String, String> extraParams = new HashMap<String, String>();
 		extraParams.put("accountKey", Integer.toString(accountKey));
 		extraParams.put("beforeRefID", Long.toString(beforeRefID));
-		return getResponse(auth, path, extraParams);	
+		return getResponse(auth, extraParams);
 	}
 }

@@ -8,10 +8,10 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class ServerStatusParser extends AbstractApiParser<ServerStatusResponse> {
-	protected static final String SERVER_STATUS_URL = "/server/ServerStatus";
+	protected static final String SERVER_STATUS_URL = "/ServerStatus";
 
 	public ServerStatusParser() {
-		super(ServerStatusResponse.class, 2, SERVER_STATUS_URL);
+		super(ServerStatusResponse.class, 2, Path.SERVER, SERVER_STATUS_URL);
 	}
 
 	public ServerStatusResponse getServerStatus() throws IOException, SAXException {

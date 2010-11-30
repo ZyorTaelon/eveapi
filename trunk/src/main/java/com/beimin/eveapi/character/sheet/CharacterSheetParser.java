@@ -9,10 +9,10 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class CharacterSheetParser extends AbstractApiParser<CharacterSheetResponse> {
-	protected static final String CHARACTER_SHEET_URL = Path.CHARACTER.getPath() + "/CharacterSheet";
+	protected static final String CHARACTER_SHEET_URL = "/CharacterSheet";
 
 	public CharacterSheetParser() {
-		super(CharacterSheetResponse.class, 1, CHARACTER_SHEET_URL);
+		super(CharacterSheetResponse.class, 1, Path.CHARACTER, CHARACTER_SHEET_URL);
 	}
 
 	public CharacterSheetResponse getCharacterSheet(ApiAuth auth) throws IOException, SAXException {

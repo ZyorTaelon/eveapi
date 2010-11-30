@@ -8,10 +8,10 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class RefTypesParser extends AbstractApiParser<RefTypesResponse> {
-	protected static final String REFTYPES_LIST_URL = "/eve/RefTypes";
+	protected static final String REFTYPES_LIST_URL = "/RefTypes";
 
 	public RefTypesParser() {
-		super(RefTypesResponse.class, 1, REFTYPES_LIST_URL);
+		super(RefTypesResponse.class, 1, Path.EVE, REFTYPES_LIST_URL);
 	}
 
 	public RefTypesResponse getRefTypes() throws IOException, SAXException {

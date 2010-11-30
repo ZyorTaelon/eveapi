@@ -10,10 +10,10 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class EveFacWarStatsParser extends AbstractApiParser<EveFacWarStats> {
-	private static final String FACT_WAR_STATS_URL = "/eve/FacWarStats";
+	private static final String FACT_WAR_STATS_URL = "/FacWarStats";
 
 	private EveFacWarStatsParser() {
-		super(EveFacWarStats.class, 2, FACT_WAR_STATS_URL);
+		super(EveFacWarStats.class, 2, Path.EVE, FACT_WAR_STATS_URL);
 	}
 
 	@Override

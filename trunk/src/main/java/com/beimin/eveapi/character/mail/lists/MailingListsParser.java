@@ -13,7 +13,7 @@ public class MailingListsParser extends AbstractApiParser<MailingListsResponse> 
 	private static final String MAILING_LIST_URL = "/MailingList";
 
 	private MailingListsParser() {
-		super(MailingListsResponse.class, 2, MAILING_LIST_URL);
+		super(MailingListsResponse.class, 2, Path.CHARACTER, MAILING_LIST_URL);
 	}
 
 	@Override
@@ -26,13 +26,13 @@ public class MailingListsParser extends AbstractApiParser<MailingListsResponse> 
 	}
 
 	public MailingListsResponse getMailingListsResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.CHARACTER);
+		return getResponse(auth);
 	}
-	
+
 	public Set<ApiMailingList> getMailingLists(ApiAuth auth) throws IOException, SAXException {
 		return getMailingListsResponse(auth).getMailingLists();
 	}
-	
+
 	public static MailingListsParser getInstance() {
 		return new MailingListsParser();
 	}

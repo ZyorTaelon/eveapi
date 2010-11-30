@@ -8,10 +8,10 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class MapJumpsParser extends AbstractApiParser<MapJumpsResponse> {
-	private static final String JUMPS_URL = "/map/Jumps";
+	private static final String JUMPS_URL = "/Jumps";
 
 	public MapJumpsParser() {
-		super(MapJumpsResponse.class, 2, JUMPS_URL);
+		super(MapJumpsResponse.class, 2, Path.MAP, JUMPS_URL);
 	}
 
 	@Override

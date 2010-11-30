@@ -8,10 +8,10 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class MapSovereigntyParser extends AbstractApiParser<MapSovereigntyResponse> {
-	private static final String SOVEREIGNTY_URL = "/map/Sovereignty";
+	private static final String SOVEREIGNTY_URL = "/Sovereignty";
 
 	public MapSovereigntyParser() {
-		super(MapSovereigntyResponse.class, 1, SOVEREIGNTY_URL);
+		super(MapSovereigntyResponse.class, 1, Path.MAP, SOVEREIGNTY_URL);
 	}
 
 	@Override

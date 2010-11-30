@@ -12,7 +12,7 @@ public class ContactNotificationsParser extends AbstractApiParser<ContactNotific
 	private static final String CONTACT_NOTIFICATIONS_URL = "/ContactNotifications";
 
 	protected ContactNotificationsParser() {
-		super(ContactNotificationsResponse.class, 2, CONTACT_NOTIFICATIONS_URL);
+		super(ContactNotificationsResponse.class, 2, Path.CHARACTER, CONTACT_NOTIFICATIONS_URL);
 	}
 
 	public static ContactNotificationsParser getInstance() {
@@ -29,6 +29,6 @@ public class ContactNotificationsParser extends AbstractApiParser<ContactNotific
 	}
 
 	public ContactNotificationsResponse getContactNotificationsResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.CHARACTER);
+		return getResponse(auth);
 	}
 }

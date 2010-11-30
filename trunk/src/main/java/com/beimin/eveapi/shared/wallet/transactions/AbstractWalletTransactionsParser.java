@@ -12,11 +12,9 @@ import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractWalletTransactionsParser extends AbstractApiParser<WalletTransactionsResponse> {
 	protected static final String TRANSACTIONS_URL = "/WalletTransactions";
-	private final Path path;
 
 	public AbstractWalletTransactionsParser(Path path) {
-		super(WalletTransactionsResponse.class, 2, TRANSACTIONS_URL);
-		this.path = path;
+		super(WalletTransactionsResponse.class, 2, path, TRANSACTIONS_URL);
 	}
 
 	@Override
@@ -31,13 +29,13 @@ public abstract class AbstractWalletTransactionsParser extends AbstractApiParser
 	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth, int accountKey) throws IOException, SAXException {
 		Map<String, String> extraParams = new HashMap<String, String>();
 		extraParams.put("accountKey", Integer.toString(accountKey));
-		return getResponse(auth, path, extraParams);	
+		return getResponse(auth, extraParams);
 	}
 
 	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth, int accountKey, long beforeTransID) throws IOException, SAXException {
-			Map<String, String> extraParams = new HashMap<String, String>();
-			extraParams.put("accountKey", Integer.toString(accountKey));
-			extraParams.put("beforeTransID", Long.toString(beforeTransID));
-			return getResponse(auth, path, extraParams);	
+		Map<String, String> extraParams = new HashMap<String, String>();
+		extraParams.put("accountKey", Integer.toString(accountKey));
+		extraParams.put("beforeTransID", Long.toString(beforeTransID));
+		return getResponse(auth, extraParams);
 	}
 }

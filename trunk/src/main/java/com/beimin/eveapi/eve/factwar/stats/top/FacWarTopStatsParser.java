@@ -10,10 +10,10 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class FacWarTopStatsParser extends AbstractApiParser<FacWarTopStatsResponse> {
-	private static final String FACT_WAR_TOP_STATS_URL = "/eve/FacWarTopStats";
+	private static final String FACT_WAR_TOP_STATS_URL = "/FacWarTopStats";
 
 	private FacWarTopStatsParser() {
-		super(FacWarTopStatsResponse.class, 2, FACT_WAR_TOP_STATS_URL);
+		super(FacWarTopStatsResponse.class, 2, Path.EVE, FACT_WAR_TOP_STATS_URL);
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class FacWarTopStatsParser extends AbstractApiParser<FacWarTopStatsRespon
 		digester.addObjectCreate("eveapi/result/characters", CharacterStats.class);
 		digester.addObjectCreate("eveapi/result/characters/rowset", StatsList.class);
 		digester.addSetProperties("eveapi/result/characters/rowset");
-		digester.addFactoryCreate(	"eveapi/result/characters/rowset/row", 	new AbstractObjectCreationFactory() {
+		digester.addFactoryCreate("eveapi/result/characters/rowset/row", new AbstractObjectCreationFactory() {
 			@Override
 			public Object createObject(Attributes attributes) throws Exception {
 				if (attributes.getValue("kills") != null)
@@ -40,7 +40,7 @@ public class FacWarTopStatsParser extends AbstractApiParser<FacWarTopStatsRespon
 		digester.addObjectCreate("eveapi/result/corporations", CorporationStats.class);
 		digester.addObjectCreate("eveapi/result/corporations/rowset", StatsList.class);
 		digester.addSetProperties("eveapi/result/corporations/rowset");
-		digester.addFactoryCreate(	"eveapi/result/corporations/rowset/row", 	new AbstractObjectCreationFactory() {
+		digester.addFactoryCreate("eveapi/result/corporations/rowset/row", new AbstractObjectCreationFactory() {
 			@Override
 			public Object createObject(Attributes attributes) throws Exception {
 				if (attributes.getValue("kills") != null)
@@ -58,7 +58,7 @@ public class FacWarTopStatsParser extends AbstractApiParser<FacWarTopStatsRespon
 		digester.addObjectCreate("eveapi/result/factions", FactionStats.class);
 		digester.addObjectCreate("eveapi/result/factions/rowset", StatsList.class);
 		digester.addSetProperties("eveapi/result/factions/rowset");
-		digester.addFactoryCreate(	"eveapi/result/factions/rowset/row", 	new AbstractObjectCreationFactory() {
+		digester.addFactoryCreate("eveapi/result/factions/rowset/row", new AbstractObjectCreationFactory() {
 			@Override
 			public Object createObject(Attributes attributes) throws Exception {
 				if (attributes.getValue("kills") != null)

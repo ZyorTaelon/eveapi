@@ -9,10 +9,10 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class SkillInTrainingParser extends AbstractApiParser<SkillInTrainingResponse> {
-	protected static final String CHARACTER_SHEET_URL = Path.CHARACTER.getPath() + "/SkillInTraining";
+	protected static final String CHARACTER_SHEET_URL = "/SkillInTraining";
 
 	public SkillInTrainingParser() {
-		super(SkillInTrainingResponse.class, 2, CHARACTER_SHEET_URL);
+		super(SkillInTrainingResponse.class, 2, Path.CHARACTER, CHARACTER_SHEET_URL);
 	}
 
 	public SkillInTrainingResponse getSkillInTraining(ApiAuth auth) throws IOException, SAXException {

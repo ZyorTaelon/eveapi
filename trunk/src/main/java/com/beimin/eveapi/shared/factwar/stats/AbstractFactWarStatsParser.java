@@ -10,11 +10,9 @@ import com.beimin.eveapi.ApiAuth;
 
 public class AbstractFactWarStatsParser extends AbstractApiParser<FacWarStats> {
 	private static final String FACT_WAR_STATS_URL = "/FacWarStats";
-	private final Path path;
 
 	protected AbstractFactWarStatsParser(Path path) {
-		super(FacWarStats.class, 2, FACT_WAR_STATS_URL);
-		this.path = path;
+		super(FacWarStats.class, 2, path, FACT_WAR_STATS_URL);
 	}
 
 	@Override
@@ -36,6 +34,6 @@ public class AbstractFactWarStatsParser extends AbstractApiParser<FacWarStats> {
 	}
 
 	public FacWarStats getFacWarStats(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, path);
+		return getResponse(auth);
 	}
 }

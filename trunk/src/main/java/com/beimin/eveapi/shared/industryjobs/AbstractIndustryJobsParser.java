@@ -11,11 +11,9 @@ import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractIndustryJobsParser extends AbstractApiParser<IndustryJobsResponse> {
 	protected static final String INDUSTRY_JOBS_URL = "/IndustryJobs";
-	private final Path path;
 
 	protected AbstractIndustryJobsParser(Path path) {
-		super(IndustryJobsResponse.class, 2, INDUSTRY_JOBS_URL);
-		this.path = path;
+		super(IndustryJobsResponse.class, 2, path, INDUSTRY_JOBS_URL);
 	}
 
 	@Override
@@ -26,12 +24,12 @@ public abstract class AbstractIndustryJobsParser extends AbstractApiParser<Indus
 		digester.addSetNext("eveapi/result/rowset/row", "addIndustryJob");
 		return digester;
 	}
-	
+
 	public IndustryJobsResponse getIndustryJobsResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, path);
+		return getResponse(auth);
 	}
-	
-	public Collection<ApiIndustryJob> getIndustryJobs(ApiAuth auth) throws IOException, SAXException{
+
+	public Collection<ApiIndustryJob> getIndustryJobs(ApiAuth auth) throws IOException, SAXException {
 		return getIndustryJobsResponse(auth).getIndustryJobs();
 	}
 }

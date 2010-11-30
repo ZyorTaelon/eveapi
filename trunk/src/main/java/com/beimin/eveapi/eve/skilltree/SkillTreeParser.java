@@ -10,10 +10,10 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class SkillTreeParser extends AbstractApiParser<SkillTreeResponse> {
-	private static final String SKILLS_URL = "/eve/SkillTree";
+	private static final String SKILLS_URL = "/SkillTree";
 
 	public SkillTreeParser() {
-		super(SkillTreeResponse.class, 2, SKILLS_URL);
+		super(SkillTreeResponse.class, 2, Path.EVE, SKILLS_URL);
 	}
 
 	public SkillTreeResponse getSkills() throws IOException, SAXException {

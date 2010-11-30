@@ -8,10 +8,10 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class MapKillsParser extends AbstractApiParser<MapKillsResponse> {
-	private static final String KIILS_URL = "/map/Kills";
+	private static final String KIILS_URL = "/Kills";
 
 	public MapKillsParser() {
-		super(MapKillsResponse.class, 2, KIILS_URL);
+		super(MapKillsResponse.class, 2, Path.MAP, KIILS_URL);
 	}
 
 	@Override

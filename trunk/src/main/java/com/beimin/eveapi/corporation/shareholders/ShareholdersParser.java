@@ -12,11 +12,11 @@ public class ShareholdersParser extends AbstractApiParser<ShareholdersResponse> 
 	protected static final String SHAREHOLDERS_URL = "/Shareholders";
 
 	public ShareholdersParser() {
-		super(ShareholdersResponse.class, 2, SHAREHOLDERS_URL);
+		super(ShareholdersResponse.class, 2, Path.CORPORATION, SHAREHOLDERS_URL);
 	}
 
 	public ShareholdersResponse getShareholders(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.CORPORATION);
+		return getResponse(auth);
 	}
 
 	@Override

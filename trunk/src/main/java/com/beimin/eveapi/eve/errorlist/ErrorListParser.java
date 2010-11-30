@@ -8,10 +8,10 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.AbstractApiParser;
 
 public class ErrorListParser extends AbstractApiParser<ErrorListResponse> {
-	protected static final String ERROR_LIST_URL = "/eve/ErrorList";
+	protected static final String ERROR_LIST_URL = "/ErrorList";
 
 	public ErrorListParser() {
-		super(ErrorListResponse.class, 2, ERROR_LIST_URL);
+		super(ErrorListResponse.class, 2, Path.EVE, ERROR_LIST_URL);
 	}
 
 	public ErrorListResponse getErrorList() throws IOException, SAXException {

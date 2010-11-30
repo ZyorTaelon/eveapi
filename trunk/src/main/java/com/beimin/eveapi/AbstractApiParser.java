@@ -12,6 +12,7 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +28,7 @@ import com.beimin.eveapi.utils.DateUtils;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
 	protected enum Path {
-		ACCOUNT("/account"), CHARACTER("/char"), CORPORATION("/corp"), NONE("");
+		ACCOUNT("/account"), CHARACTER("/char"), CORPORATION("/corp"), EVE("/eve"), MAP("/map"), NONE(""), SERVER("/server");
 		private final String path;
 
 		Path(String path) {
@@ -61,6 +62,8 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	private final String pageURL;
 	private boolean cachingEnabled = false;
 	private boolean serializeCaching = false;
+
+	protected final Path path;
 
 	/**
 	 * 
@@ -116,9 +119,10 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		AbstractApiParser.httpProxy = httpProxy;
 	}
 
-	public AbstractApiParser(Class<E> clazz, int apiVersion, String pageURL) {
+	public AbstractApiParser(Class<E> clazz, int apiVersion, Path path, String pageURL) {
 		this.clazz = clazz;
 		this.apiVersion = apiVersion;
+		this.path = path;
 		this.pageURL = pageURL;
 		deSerializeCache();
 	}
@@ -148,59 +152,42 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		return false;
 	}
 
-	private String getRequestUrl(ApiAuth auth, Path path, String page, Map<String, String> extraParams)
-			throws UnsupportedEncodingException {
+	private String buildRequestUrl(ApiAuth auth, Map<String, String> extraParams) throws UnsupportedEncodingException {
 		StringBuilder requestUrl = new StringBuilder(eveApiURL);
 		requestUrl.append(path.getPath());
-		requestUrl.append(page);
+		requestUrl.append(pageURL);
 		requestUrl.append(".xml.aspx");
-		requestUrl.append(auth.getUrlParams());
-		requestUrl.append("&version=" + apiVersion);
+		requestUrl.append("?version=" + apiVersion);
+		Map<String, String> params = new HashMap<String, String>();
+		if (auth != null)
+			params.putAll(auth.getParams());
 		if (extraParams != null) {
-			for (Entry<String, String> entry : extraParams.entrySet()) {
-				requestUrl.append("&" + entry.getKey() + "=" + entry.getValue());
-			}
+			params.putAll(extraParams);
+		}
+		for (Entry<String, String> entry : params.entrySet()) {
+			requestUrl.append("&" + entry.getKey() + "=" + entry.getValue());
 		}
 		return requestUrl.toString();
 	}
 
-	protected E getResponse(ApiAuth auth, Path path, Map<String, String> extraParams) throws IOException, SAXException {
-		return getResponse(getRequestUrl(auth, path, pageURL, extraParams));
-	}
-
-	protected E getResponse(ApiAuth auth, Path path) throws IOException, SAXException {
-		return getResponse(getRequestUrl(auth, path, pageURL, null));
+	protected E getResponse() throws IOException, SAXException {
+		return getResponse(buildRequestUrl(null, null));
 	}
 
 	protected E getResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(getRequestUrl(auth, Path.NONE, pageURL, null));
+		return getResponse(buildRequestUrl(auth, null));
 	}
 
 	protected E getResponse(ApiAuth auth, Map<String, String> extraParams) throws IOException, SAXException {
-		return getResponse(getRequestUrl(auth, Path.NONE, pageURL, extraParams));
+		return getResponse(buildRequestUrl(auth, extraParams));
 	}
 
 	protected E getResponse(Map<String, String> extraParams) throws IOException, SAXException {
-		StringBuilder requestUrl = new StringBuilder(eveApiURL);
-		requestUrl.append(pageURL).append(".xml.aspx");
-		boolean first = true;
-		for (Entry<String, String> entry : extraParams.entrySet()) {
-			if (first)
-				requestUrl.append("?");
-			else
-				requestUrl.append("&");
-			requestUrl.append(entry.getKey()).append("=").append(entry.getValue());
-			first = false;
-		}
-		return getResponse(requestUrl.toString());
+		return getResponse(buildRequestUrl(null, extraParams));
 	}
 
 	protected E getResponse(String paramName, String paramValue) throws IOException, SAXException {
-		return getResponse(eveApiURL + pageURL + ".xml.aspx" + "?" + paramName + "=" + paramValue);
-	}
-
-	protected E getResponse() throws IOException, SAXException {
-		return getResponse(eveApiURL + pageURL + ".xml.aspx");
+		return getResponse(Collections.singletonMap(paramName, paramValue));
 	}
 
 	private E getResponse(String requestUrl) throws IOException, SAXException {

@@ -12,11 +12,11 @@ public class AccountStatusParser extends AbstractApiParser<AccountStatusResponse
 	protected static final String ACCOUNT_STATUS_URL = "/AccountStatus";
 
 	public AccountStatusParser() {
-		super(AccountStatusResponse.class, 2, ACCOUNT_STATUS_URL);
+		super(AccountStatusResponse.class, 2, Path.ACCOUNT, ACCOUNT_STATUS_URL);
 	}
 
-	public AccountStatusResponse getEveCharacters(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.ACCOUNT);
+	public AccountStatusResponse getAccountStatus(ApiAuth auth) throws IOException, SAXException {
+		return getResponse(auth);
 	}
 
 	@Override

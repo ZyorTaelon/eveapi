@@ -13,7 +13,7 @@ public class NotificationsParser extends AbstractApiParser<NotificationsResponse
 	private static final String NOTIFICATIONS_URL = "/Notifications";
 
 	private NotificationsParser() {
-		super(NotificationsResponse.class, 2, NOTIFICATIONS_URL);
+		super(NotificationsResponse.class, 2, Path.CHARACTER, NOTIFICATIONS_URL);
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class NotificationsParser extends AbstractApiParser<NotificationsResponse
 	}
 
 	public NotificationsResponse getNotificationsResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.CHARACTER);
+		return getResponse(auth);
 	}
 
 	public Set<ApiNotification> getNotifications(ApiAuth auth) throws IOException, SAXException {

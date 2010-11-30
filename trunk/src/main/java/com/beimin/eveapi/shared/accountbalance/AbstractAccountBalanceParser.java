@@ -11,11 +11,9 @@ import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractAccountBalanceParser extends AbstractApiParser<AccountBalanceResponse> {
 	protected static final String ACCOUNTBALANCE_URL = "/AccountBalance";
-	private final Path path;
 
 	protected AbstractAccountBalanceParser(Path path) {
-		super(AccountBalanceResponse.class, 2, ACCOUNTBALANCE_URL);
-		this.path = path;
+		super(AccountBalanceResponse.class, 2, path, ACCOUNTBALANCE_URL);
 	}
 
 	@Override
@@ -28,9 +26,9 @@ public abstract class AbstractAccountBalanceParser extends AbstractApiParser<Acc
 	}
 
 	public AccountBalanceResponse getAccountBalanceResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, path);
+		return getResponse(auth);
 	}
-	
+
 	public Collection<ApiAccountBalance> getAccountBalances(ApiAuth auth) throws IOException, SAXException {
 		return getAccountBalanceResponse(auth).getAccountBalances();
 	}

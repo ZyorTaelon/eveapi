@@ -9,10 +9,10 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class MemberTrackingParser extends AbstractApiParser<MemberTrackingResponse> {
-	protected static final String MEMBER_TRACKING_URL = "/corp/MemberTracking";
+	protected static final String MEMBER_TRACKING_URL = "/MemberTracking";
 
 	public MemberTrackingParser() {
-		super(MemberTrackingResponse.class, 2, MEMBER_TRACKING_URL);
+		super(MemberTrackingResponse.class, 2, Path.CORPORATION, MEMBER_TRACKING_URL);
 	}
 
 	public MemberTrackingResponse getMembers(ApiAuth auth) throws IOException, SAXException {

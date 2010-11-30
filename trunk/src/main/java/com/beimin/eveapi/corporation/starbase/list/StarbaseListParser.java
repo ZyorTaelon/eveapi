@@ -9,10 +9,10 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class StarbaseListParser extends AbstractApiParser<StarbaseListResponse> {
-	private static final String STARBASE_LIST_URL = Path.CORPORATION.getPath() + "/StarbaseList";
+	private static final String STARBASE_LIST_URL = "/StarbaseList";
 
 	public StarbaseListParser() {
-		super(StarbaseListResponse.class, 2, STARBASE_LIST_URL);
+		super(StarbaseListResponse.class, 2, Path.CORPORATION, STARBASE_LIST_URL);
 	}
 
 	public StarbaseListResponse getList(ApiAuth auth) throws IOException, SAXException {

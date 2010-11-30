@@ -10,11 +10,9 @@ import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractStandingsParser extends AbstractApiParser<StandingsResponse> {
 	protected static final String STANDINGS_URL = "/Standings";
-	private final Path path;
 
 	protected AbstractStandingsParser(Path path) {
-		super(StandingsResponse.class, 2, STANDINGS_URL);
-		this.path = path;
+		super(StandingsResponse.class, 2, path, STANDINGS_URL);
 	}
 
 	@Override
@@ -41,6 +39,6 @@ public abstract class AbstractStandingsParser extends AbstractApiParser<Standing
 	}
 
 	public StandingsResponse getStandingsResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, path);
+		return getResponse(auth);
 	}
 }

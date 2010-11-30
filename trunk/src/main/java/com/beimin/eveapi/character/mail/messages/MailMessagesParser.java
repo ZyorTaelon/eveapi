@@ -13,7 +13,7 @@ public class MailMessagesParser extends AbstractApiParser<MailMessagesResponse> 
 	private static final String MAIL_MESSAGES_URL = "/MailMessages";
 
 	private MailMessagesParser() {
-		super(MailMessagesResponse.class, 2, MAIL_MESSAGES_URL);
+		super(MailMessagesResponse.class, 2, Path.CHARACTER, MAIL_MESSAGES_URL);
 	}
 
 	@Override
@@ -26,13 +26,13 @@ public class MailMessagesParser extends AbstractApiParser<MailMessagesResponse> 
 	}
 
 	public MailMessagesResponse getMailMessagesResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.CHARACTER);
+		return getResponse(auth);
 	}
-	
+
 	public Set<ApiMailMessage> getMailMessages(ApiAuth auth) throws IOException, SAXException {
 		return getMailMessagesResponse(auth).getApiMails();
 	}
-	
+
 	public static MailMessagesParser getInstance() {
 		return new MailMessagesParser();
 	}

@@ -9,10 +9,10 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class ContainerLogParser extends AbstractApiParser<ContainerLogResponse> {
-	protected static final String CONTAINER_LOG_URL = "/corp/ContainerLog.xml.aspx ";
+	protected static final String CONTAINER_LOG_URL = "/ContainerLog.xml.aspx ";
 
 	public ContainerLogParser() {
-		super(ContainerLogResponse.class, 2, CONTAINER_LOG_URL);
+		super(ContainerLogResponse.class, 2, Path.CORPORATION, CONTAINER_LOG_URL);
 	}
 
 	public ContainerLogResponse getContainerLog(ApiAuth auth) throws IOException, SAXException {

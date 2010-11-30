@@ -13,11 +13,9 @@ import com.beimin.eveapi.ApiAuth;
 
 public abstract class AbstractKillLogParser extends AbstractApiParser<KillLogResponse> {
 	protected static final String KILL_LIST = "/KillLog";
-	private final Path path;
 
 	protected AbstractKillLogParser(Path path) {
-		super(KillLogResponse.class, 1, KILL_LIST);
-		this.path = path;
+		super(KillLogResponse.class, 1, path, KILL_LIST);
 	}
 
 	@Override
@@ -45,7 +43,7 @@ public abstract class AbstractKillLogParser extends AbstractApiParser<KillLogRes
 	}
 
 	public KillLogResponse getKillLogResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, path);
+		return getResponse(auth);
 	}
 
 	public Collection<ApiKill> getKills(ApiAuth auth) throws IOException, SAXException {

@@ -11,10 +11,10 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class MemberSecurityParser extends AbstractApiParser<MemberSecurityResponse> {
-	protected static final String MEMBER_SECURITY_URL = "/corp/MemberSecurity";
+	protected static final String MEMBER_SECURITY_URL = "/MemberSecurity";
 
 	public MemberSecurityParser() {
-		super(MemberSecurityResponse.class, 2, MEMBER_SECURITY_URL);
+		super(MemberSecurityResponse.class, 2, Path.CORPORATION, MEMBER_SECURITY_URL);
 	}
 
 	public MemberSecurityResponse getMembers(ApiAuth auth) throws IOException, SAXException {

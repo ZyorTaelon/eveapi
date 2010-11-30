@@ -11,10 +11,10 @@ import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 
 public class CorporationTitlesParser extends AbstractApiParser<CorporationTitlesResponse> {
-	protected static final String CORPORATION_TITLES_URL = Path.CORPORATION.getPath() + "/Titles";
+	protected static final String CORPORATION_TITLES_URL = "/Titles";
 
 	public CorporationTitlesParser() {
-		super(CorporationTitlesResponse.class, 2, CORPORATION_TITLES_URL);
+		super(CorporationTitlesResponse.class, 2, Path.CORPORATION, CORPORATION_TITLES_URL);
 	}
 
 	public CorporationTitlesResponse getTitles(ApiAuth auth) throws IOException, SAXException {

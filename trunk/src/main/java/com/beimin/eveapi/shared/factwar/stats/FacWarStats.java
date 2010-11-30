@@ -1,12 +1,14 @@
 package com.beimin.eveapi.shared.factwar.stats;
 
+import java.util.Date;
+
 import com.beimin.eveapi.ApiResponse;
 
 public class FacWarStats extends ApiResponse {
 	private static final long serialVersionUID = 1L;
 	private int factionID;
 	private String factionName;
-	private String enlisted;
+	private Date enlisted;
 	private int currentRank;
 	private int highestRank;
 	private int killsYesterday;
@@ -33,11 +35,11 @@ public class FacWarStats extends ApiResponse {
 		this.factionName = factionName;
 	}
 
-	public String getEnlisted() {
+	public Date getEnlisted() {
 		return enlisted;
 	}
 
-	public void setEnlisted(String enlisted) {
+	public void setEnlisted(Date enlisted) {
 		this.enlisted = enlisted;
 	}
 

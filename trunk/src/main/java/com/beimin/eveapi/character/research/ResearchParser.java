@@ -13,7 +13,7 @@ public class ResearchParser extends AbstractApiParser<ResearchResponse> {
 	private static final String RESEARCH_URL = "/Research";
 
 	private ResearchParser() {
-		super(ResearchResponse.class, 1, RESEARCH_URL);
+		super(ResearchResponse.class, 1, Path.CHARACTER, RESEARCH_URL);
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class ResearchParser extends AbstractApiParser<ResearchResponse> {
 	}
 
 	public ResearchResponse getResearchResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth, Path.CHARACTER);
+		return getResponse(auth);
 	}
 
 	public List<ApiResearchAgent> getResearchAgents(ApiAuth auth) throws IOException, SAXException {
