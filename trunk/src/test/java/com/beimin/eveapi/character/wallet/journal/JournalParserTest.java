@@ -6,23 +6,32 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.FullApiParserTest;
 import com.beimin.eveapi.shared.wallet.journal.AbstractWalletJournalParser;
 import com.beimin.eveapi.shared.wallet.journal.ApiJournalEntry;
 import com.beimin.eveapi.shared.wallet.journal.WalletJournalResponse;
 
-public class JournalParserTest {
+public class JournalParserTest extends FullApiParserTest {
+	public JournalParserTest() {
+		super("/char/WalletJournal.xml.aspx", "/character/WalletJournal.xml");
+	}
+
+	@Override
+	protected void extraAsserts(HttpServletRequest req) {
+		assertEquals("1000", req.getParameter("accountKey"));
+	}
 
 	@Test
 	public void walletJournalParser() throws IOException, SAXException {
 		AbstractWalletJournalParser parser = WalletJournalParser.getInstance();
-		InputStream input = JournalParserTest.class.getResourceAsStream("/character/WalletJournal.xml");
-		WalletJournalResponse response = parser.getResponse(input);
+		WalletJournalResponse response = parser.getWalletJournalResponse(auth, 1000);
 		assertNotNull(response);
 		Collection<ApiJournalEntry> entries = response.getJournalEntries();
 		assertEquals(10, entries.size());

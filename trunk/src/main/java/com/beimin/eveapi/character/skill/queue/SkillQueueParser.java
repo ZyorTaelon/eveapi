@@ -15,7 +15,7 @@ public class SkillQueueParser extends AbstractApiParser<SkillQueueResponse> {
 		super(SkillQueueResponse.class, 2, Path.CHARACTER, CHARACTER_SKILL_QUEUE_URL);
 	}
 
-	public SkillQueueResponse getSkillInTraining(ApiAuth auth) throws IOException, SAXException {
+	public SkillQueueResponse getSkillQueue(ApiAuth auth) throws IOException, SAXException {
 		return getResponse(auth);
 	}
 

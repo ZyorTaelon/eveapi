@@ -5,18 +5,21 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class SkillInTrainingParserTest {
+import com.beimin.eveapi.FullApiParserTest;
+
+public class SkillInTrainingParserTest extends FullApiParserTest {
+	public SkillInTrainingParserTest() {
+		super("/char/SkillInTraining.xml.aspx", "/character/SkillInTraining.xml");
+	}
 
 	@Test
 	public void skillInTrainingParser() throws IOException, SAXException {
 		SkillInTrainingParser parser = SkillInTrainingParser.getInstance();
-		InputStream input = SkillInTrainingParserTest.class.getResourceAsStream("/character/SkillInTraining.xml");
-		SkillInTrainingResponse response = parser.getResponse(input);
+		SkillInTrainingResponse response = parser.getSkillInTraining(auth);
 		assertNotNull(response);
 		assertDate(2008, 8, 17, 6, 43, 0, response.getCurrentTQTime());
 		assertDate(2008, 8, 17, 15, 29, 44, response.getTrainingEndTime());

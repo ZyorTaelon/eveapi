@@ -4,22 +4,24 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.FullApiParserTest;
 import com.beimin.eveapi.shared.standings.ApiStanding;
 import com.beimin.eveapi.shared.standings.StandingsList;
 import com.beimin.eveapi.shared.standings.StandingsResponse;
 
-public class StandingsParserTest {
+public class StandingsParserTest extends FullApiParserTest {
+	public StandingsParserTest() {
+		super("/char/Standings.xml.aspx", "/character/Standings.xml");
+	}
 
 	@Test
 	public void standingsParser() throws IOException, SAXException {
 		StandingsParser parser = StandingsParser.getInstance();
-		InputStream input = StandingsParserTest.class.getResourceAsStream("/character/Standings.xml");
-		StandingsResponse response = parser.getResponse(input);
+		StandingsResponse response = parser.getStandingsResponse(auth);
 		assertNotNull(response);
 
 		StandingsList agentStandings = response.getAgentStandings();

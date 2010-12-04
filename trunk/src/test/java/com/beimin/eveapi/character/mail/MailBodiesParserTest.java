@@ -9,51 +9,23 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.camel.CamelContext;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
-import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.impl.DefaultCamelContext;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
 import com.beimin.eveapi.ApiAuthorization;
+import com.beimin.eveapi.FullApiParserTest;
 import com.beimin.eveapi.character.mail.bodies.ApiMailBody;
 import com.beimin.eveapi.character.mail.bodies.MailBodiesParser;
 import com.beimin.eveapi.character.mail.bodies.MailBodiesResponse;
-import com.beimin.eveapi.utils.MockApi;
 
-public class MailBodiesParserTest {
-	private static final CamelContext context = new DefaultCamelContext();
-
-	@BeforeClass
-	public static void setup() throws Exception {
-		context.addRoutes(new RouteBuilder() {
-			public void configure() {
-				from("jetty:" + MockApi.URL + "/char/MailBodies.xml.aspx").process(new Processor() {
-					public void process(Exchange exchange) {
-						HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
-						assertNotNull(req);
-						assertEquals("123", req.getParameter("userID"));
-						assertEquals("456", req.getParameter("characterID"));
-						assertEquals("abc", req.getParameter("apiKey"));
-						assertEquals("299279683,299280303", req.getParameter("ids"));
-						exchange.getOut().setBody(MockApi.response("/character/MailBodies.xml"));
-					}
-				});
-			}
-		});
-		context.start();
-		AbstractApiParser.setEveApiURL(MockApi.URL);
+public class MailBodiesParserTest extends FullApiParserTest {
+	public MailBodiesParserTest() {
+		super("/char/MailBodies.xml.aspx", "/character/MailBodies.xml");
 	}
 
-	@AfterClass
-	public static void cleanup() throws Exception {
-		context.stop();
+	protected void extraAsserts(HttpServletRequest req) {
+		assertEquals("299279683,299280303", req.getParameter("ids"));
 	}
 
 	@Test

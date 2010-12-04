@@ -28,7 +28,7 @@ public class ApiError {
 			if (retryIndex > 0) {
 				int beginIndex = retryIndex + 12;
 				String substring = error.substring(beginIndex, beginIndex + 19);
-				retryAfterDate = DateUtils.parseDate(substring);
+				retryAfterDate = DateUtils.getGMTConverter().convert(Date.class, substring);
 			}
 		} catch (Exception e) {
 			// ignore.

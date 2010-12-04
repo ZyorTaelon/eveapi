@@ -5,31 +5,33 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Set;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.FullApiParserTest;
 import com.beimin.eveapi.character.mail.lists.ApiMailingList;
 import com.beimin.eveapi.character.mail.lists.MailingListsParser;
 import com.beimin.eveapi.character.mail.lists.MailingListsResponse;
 
-public class MailingListsParserTest {
+public class MailingListsParserTest extends FullApiParserTest {
+	public MailingListsParserTest() {
+		super("/char/MailingLists.xml.aspx", "/character/MailingLists.xml");
+	}
 
 	@Test
 	public void mailMailingListsParser() throws IOException, SAXException {
 		MailingListsParser parser = MailingListsParser.getInstance();
-		InputStream input = MailingListsParserTest.class.getResourceAsStream("/character/MailingLists.xml");
-		MailingListsResponse response = parser.getResponse(input);
+		MailingListsResponse response = parser.getMailingListsResponse(auth);
 		assertNotNull(response);
 		Set<ApiMailingList> mailinglists = response.getMailingLists();
 		assertNotNull(mailinglists);
 		assertEquals(3, mailinglists.size());
 		boolean found = false;
 		for (ApiMailingList mailinglist : mailinglists) {
-			if(mailinglist.getListID()==128250439L){
-				found=true;
+			if (mailinglist.getListID() == 128250439L) {
+				found = true;
 				assertEquals("EVETycoonMail", mailinglist.getDisplayName());
 				break;
 			}

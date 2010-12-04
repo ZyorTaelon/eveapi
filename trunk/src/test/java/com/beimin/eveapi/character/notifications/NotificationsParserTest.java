@@ -6,21 +6,23 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Set;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.FullApiParserTest;
 import com.beimin.eveapi.character.notifications.ApiNotification.NotificationType;
 
-public class NotificationsParserTest {
+public class NotificationsParserTest extends FullApiParserTest {
+	public NotificationsParserTest() {
+		super("/char/Notifications.xml.aspx", "/character/Notifications.xml");
+	}
 
 	@Test
 	public void notificationsParser() throws IOException, SAXException {
 		NotificationsParser parser = NotificationsParser.getInstance();
-		InputStream input = NotificationsParserTest.class.getResourceAsStream("/character/Notifications.xml");
-		NotificationsResponse response = parser.getResponse(input);
+		NotificationsResponse response = parser.getNotificationsResponse(auth);
 		assertNotNull(response);
 		Set<ApiNotification> notifications = response.getNotifications();
 		assertNotNull(notifications);

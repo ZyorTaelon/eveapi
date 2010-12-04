@@ -7,23 +7,25 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Set;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.FullApiParserTest;
 import com.beimin.eveapi.character.mail.messages.ApiMailMessage;
-import com.beimin.eveapi.character.mail.messages.MailMessagesResponse;
 import com.beimin.eveapi.character.mail.messages.MailMessagesParser;
+import com.beimin.eveapi.character.mail.messages.MailMessagesResponse;
 
-public class MailMessagesParserTest {
+public class MailMessagesParserTest extends FullApiParserTest {
+	public MailMessagesParserTest() {
+		super("/char/MailMessages.xml.aspx", "/character/MailMessages.xml");
+	}
 
 	@Test
 	public void mailMessagesParser() throws IOException, SAXException {
 		MailMessagesParser parser = MailMessagesParser.getInstance();
-		InputStream input = MailMessagesParserTest.class.getResourceAsStream("/character/MailMessages.xml");
-		MailMessagesResponse response = parser.getResponse(input);
+		MailMessagesResponse response = parser.getMailMessagesResponse(auth);
 		assertNotNull(response);
 		Set<ApiMailMessage> mails = response.getApiMails();
 		assertNotNull(mails);

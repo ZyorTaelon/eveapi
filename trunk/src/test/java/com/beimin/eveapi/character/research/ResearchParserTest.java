@@ -6,19 +6,22 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class ResearchParserTest {
+import com.beimin.eveapi.FullApiParserTest;
+
+public class ResearchParserTest extends FullApiParserTest {
+	public ResearchParserTest() {
+		super("/char/Research.xml.aspx", "/character/Research.xml");
+	}
 
 	@Test
 	public void notificationsParser() throws IOException, SAXException {
 		ResearchParser parser = ResearchParser.getInstance();
-		InputStream input = ResearchParserTest.class.getResourceAsStream("/character/Research.xml");
-		ResearchResponse response = parser.getResponse(input);
+		ResearchResponse response = parser.getResearchResponse(auth);
 		assertNotNull(response);
 		List<ApiResearchAgent> researchAgents = response.getResearchAgents();
 		assertNotNull(researchAgents);

@@ -6,23 +6,25 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.FullApiParserTest;
 import com.beimin.eveapi.shared.marketorders.AbstractMarketOrdersParser;
 import com.beimin.eveapi.shared.marketorders.ApiMarketOrder;
 import com.beimin.eveapi.shared.marketorders.MarketOrdersResponse;
 
-public class MarketOrdersParserTest {
+public class MarketOrdersParserTest extends FullApiParserTest {
+	public MarketOrdersParserTest() {
+		super("/char/MarketOrders.xml.aspx", "/character/MarketOrders.xml");
+	}
 
 	@Test
 	public void marketOrderParser() throws IOException, SAXException {
 		AbstractMarketOrdersParser parser = MarketOrdersParser.getInstance();
-		InputStream input = MarketOrdersParserTest.class.getResourceAsStream("/character/MarketOrders.xml");
-		MarketOrdersResponse response = parser.getResponse(input);
+		MarketOrdersResponse response = parser.getMarketOrdersResponse(auth);
 		assertNotNull(response);
 		Collection<ApiMarketOrder> orders = response.getMarketOrders();
 		assertEquals(9, orders.size());

@@ -5,19 +5,22 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class SkillQueueParserTest {
+import com.beimin.eveapi.FullApiParserTest;
+
+public class SkillQueueParserTest extends FullApiParserTest {
+	public SkillQueueParserTest() {
+		super("/char/SkillQueue.xml.aspx", "/character/SkillQueue.xml");
+	}
 
 	@Test
 	public void skillInTrainingParser() throws IOException, SAXException {
 		SkillQueueParser parser = SkillQueueParser.getInstance();
-		InputStream input = SkillQueueParserTest.class.getResourceAsStream("/character/SkillQueue.xml");
-		SkillQueueResponse response = parser.getResponse(input);
+		SkillQueueResponse response = parser.getSkillQueue(auth);
 		assertNotNull(response);
 		List<ApiSkillQueueItem> skillQueueItems = response.getSkillQueueItems();
 		assertEquals(2, skillQueueItems.size());

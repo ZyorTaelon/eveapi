@@ -6,23 +6,32 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.FullApiParserTest;
 import com.beimin.eveapi.shared.wallet.transactions.AbstractWalletTransactionsParser;
 import com.beimin.eveapi.shared.wallet.transactions.ApiWalletTransaction;
 import com.beimin.eveapi.shared.wallet.transactions.WalletTransactionsResponse;
 
-public class TransactionsParserTest {
+public class TransactionsParserTest extends FullApiParserTest {
+	public TransactionsParserTest() {
+		super("/char/WalletTransactions.xml.aspx", "/character/WalletTransactions.xml");
+	}
+
+	@Override
+	protected void extraAsserts(HttpServletRequest req) {
+		assertEquals("1000", req.getParameter("accountKey"));
+	}
 
 	@Test
 	public void walletTransactionParser() throws IOException, SAXException {
 		AbstractWalletTransactionsParser parser = WalletTransactionsParser.getInstance();
-		InputStream input = TransactionsParserTest.class.getResourceAsStream("/character/WalletTransactions.xml");
-		WalletTransactionsResponse response = parser.getResponse(input);
+		WalletTransactionsResponse response = parser.getTransactionsResponse(auth, 1000);
 		assertNotNull(response);
 		Collection<ApiWalletTransaction> walletTransactions = response.getWalletTransactions();
 		assertEquals(25, walletTransactions.size());

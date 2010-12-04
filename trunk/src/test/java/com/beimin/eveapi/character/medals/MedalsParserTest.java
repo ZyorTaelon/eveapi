@@ -7,21 +7,24 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.FullApiParserTest;
 import com.beimin.eveapi.shared.medals.Medal;
 import com.beimin.eveapi.shared.medals.MedalsResponse;
 
-public class MedalsParserTest {
+public class MedalsParserTest extends FullApiParserTest {
+	public MedalsParserTest() {
+		super("/char/Medals.xml.aspx", "/character/Medals.xml");
+	}
+
 	@Test
 	public void testMedalParserCharacter() throws IOException, SAXException {
 		MedalsParser parser = MedalsParser.getInstance();
-		InputStream input = MedalsParserTest.class.getResourceAsStream("/character/Medals.xml");
-		MedalsResponse response = parser.getResponse(input);
+		MedalsResponse response = parser.getMedalsResponse(auth);
 		assertNotNull(response);
 		List<Medal> medals = response.getMedals();
 		assertEquals("Incorrect amount of members found.", 1, medals.size());

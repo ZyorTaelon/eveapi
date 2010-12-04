@@ -5,19 +5,22 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Set;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class SheetParserTest {
+import com.beimin.eveapi.FullApiParserTest;
+
+public class SheetParserTest extends FullApiParserTest {
+	public SheetParserTest() {
+		super("/char/CharacterSheet.xml.aspx", "/character/CharacterSheet.xml");
+	}
 
 	@Test
 	public void characterSheetParser() throws IOException, SAXException {
 		CharacterSheetParser parser = CharacterSheetParser.getInstance();
-		InputStream input = SheetParserTest.class.getResourceAsStream("/character/CharacterSheet.xml");
-		CharacterSheetResponse response = parser.getResponse(input);
+		CharacterSheetResponse response = parser.getCharacterSheet(auth);
 		assertNotNull(response);
 		assertEquals(150337897L, response.getCharacterID());
 		assertEquals("corpslave", response.getName());
