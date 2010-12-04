@@ -4,21 +4,25 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Iterator;
 import java.util.List;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.corporation.starbase.list.StarbaseListParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.NoAuthParserTest;
 
-public class CertificateTreeParserTest {
+public class CertificateTreeParserTest extends NoAuthParserTest {
+	public CertificateTreeParserTest() {
+		super(ApiPath.EVE, ApiPage.CERTIFICATE_TREE);
+	}
+
 	@Test
-	public void certificateTreeParser() throws IOException, SAXException {
-		InputStream input = StarbaseListParserTest.class.getResourceAsStream("/eve/CertificateTree.xml");
+	public void getResponse() throws IOException, SAXException {
 		CertificateTreeParser parser = CertificateTreeParser.getInstance();
-		CertificateTreeResponse response = parser.getResponse(input);
+		CertificateTreeResponse response = parser.getResponse();
 		assertNotNull("Should have returned a response.", response);
 		assertEquals("version 2 expected.", 2, response.getVersion());
 		assertNotNull("Response should contain the current time.", response.getCurrentTime());
@@ -41,7 +45,9 @@ public class CertificateTreeParserTest {
 		assertEquals(6, certificate.getCertificateID());
 		assertEquals(2, certificate.getGrade());
 		assertEquals(1000125, certificate.getCorporationID());
-		assertEquals("This certificate represents a standard level of competence in fitting ships. It certifies that the holder is able to use Micro Auxiliary Power Cores and many Tech 2 fitting modules. The holder knows that MAPCs are the best way to increase power output on Frigate-class ships. This provides you with a broad range of fitting options", certificate.getDescription());
+		assertEquals(
+				"This certificate represents a standard level of competence in fitting ships. It certifies that the holder is able to use Micro Auxiliary Power Cores and many Tech 2 fitting modules. The holder knows that MAPCs are the best way to increase power output on Frigate-class ships. This provides you with a broad range of fitting options",
+				certificate.getDescription());
 		List<RequiredSkill> requiredSkills = certificate.getRequiredSkills();
 		assertEquals("Wrong number of required skills", 5, requiredSkills.size());
 		RequiredSkill requiredSkill = requiredSkills.iterator().next();

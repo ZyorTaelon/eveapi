@@ -1,26 +1,18 @@
 package com.beimin.eveapi.corporation.starbase.detail;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class StarbaseDetailParser extends AbstractApiParser<StarbaseDetailResponse> {
-	private static final String STARBASE_DETAIL_URL = "/StarbaseDetail";
-
 	public StarbaseDetailParser() {
-		super(StarbaseDetailResponse.class, 2, Path.CORPORATION, STARBASE_DETAIL_URL);
-	}
-
-	public StarbaseDetailResponse getDetail(ApiAuth auth, int itemID) throws IOException, SAXException {
-		Map<String, String> extraParams = new HashMap<String, String>();
-		extraParams.put("itemID", Integer.toString(itemID));
-		return getResponse(auth, extraParams);
+		super(StarbaseDetailResponse.class, 2, ApiPath.CORPORATION, ApiPage.STARBASE_DETAIL);
 	}
 
 	@Override
@@ -56,5 +48,9 @@ public class StarbaseDetailParser extends AbstractApiParser<StarbaseDetailRespon
 
 	public static StarbaseDetailParser getInstance() {
 		return new StarbaseDetailParser();
+	}
+
+	public StarbaseDetailResponse getResponse(ApiAuth auth, int itemID) throws IOException, SAXException {
+		return super.getResponse(auth, "itemID", Integer.toString(itemID));
 	}
 }

@@ -12,20 +12,22 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.character.mail.messages.ApiMailMessage;
 import com.beimin.eveapi.character.mail.messages.MailMessagesParser;
 import com.beimin.eveapi.character.mail.messages.MailMessagesResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class MailMessagesParserTest extends FullApiParserTest {
+public class MailMessagesParserTest extends FullAuthParserTest {
 	public MailMessagesParserTest() {
-		super("/char/MailMessages.xml.aspx", "/character/MailMessages.xml");
+		super(ApiPath.CHARACTER, ApiPage.MAIL_MESSAGES);
 	}
 
 	@Test
-	public void mailMessagesParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		MailMessagesParser parser = MailMessagesParser.getInstance();
-		MailMessagesResponse response = parser.getMailMessagesResponse(auth);
+		MailMessagesResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiMailMessage> mails = response.getApiMails();
 		assertNotNull(mails);

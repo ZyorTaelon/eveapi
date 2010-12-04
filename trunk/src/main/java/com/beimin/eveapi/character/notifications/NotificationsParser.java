@@ -1,19 +1,18 @@
 package com.beimin.eveapi.character.notifications;
 
 import java.io.IOException;
-import java.util.Set;
 
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class NotificationsParser extends AbstractApiParser<NotificationsResponse> {
-	private static final String NOTIFICATIONS_URL = "/Notifications";
-
 	private NotificationsParser() {
-		super(NotificationsResponse.class, 2, Path.CHARACTER, NOTIFICATIONS_URL);
+		super(NotificationsResponse.class, 2, ApiPath.CHARACTER, ApiPage.NOTIFICATIONS);
 	}
 
 	@Override
@@ -25,15 +24,11 @@ public class NotificationsParser extends AbstractApiParser<NotificationsResponse
 		return digester;
 	}
 
-	public NotificationsResponse getNotificationsResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
-	}
-
-	public Set<ApiNotification> getNotifications(ApiAuth auth) throws IOException, SAXException {
-		return getNotificationsResponse(auth).getNotifications();
-	}
-
 	public static NotificationsParser getInstance() {
 		return new NotificationsParser();
+	}
+
+	public NotificationsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

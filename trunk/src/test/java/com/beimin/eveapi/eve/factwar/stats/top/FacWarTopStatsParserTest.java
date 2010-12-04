@@ -3,19 +3,24 @@ package com.beimin.eveapi.eve.factwar.stats.top;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class FacWarTopStatsParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.NoAuthParserTest;
+
+public class FacWarTopStatsParserTest extends NoAuthParserTest {
+	public FacWarTopStatsParserTest() {
+		super(ApiPath.EVE, ApiPage.FACT_WAR_TOP_STATS);
+	}
 
 	@Test
-	public void facWarStats() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		FacWarTopStatsParser parser = FacWarTopStatsParser.getInstance();
-		InputStream input = FacWarTopStatsParserTest.class.getResourceAsStream("/eve/FacWarTopStats.xml");
-		FacWarTopStatsResponse facWarStats = parser.getResponse(input);
+		FacWarTopStatsResponse facWarStats = parser.getResponse();
 		CharacterStats characterStats = facWarStats.getCharacterStats();
 		List<CharacterKills> charKillsYesterday = characterStats.getKillsYesterday();
 		assertKillerChar(1394672077, "Adolf Ehrnrooth", 17, charKillsYesterday);
@@ -29,7 +34,7 @@ public class FacWarTopStatsParserTest {
 		assertVictoryPointerChar(395923478, "sasawong", 13837, charVictoryPointsLastWeek);
 		List<CharacterVictoryPoints> charVictoryPointsTotal = characterStats.getVictoryPointsTotal();
 		assertVictoryPointerChar(395923478, "sasawong", 699423, charVictoryPointsTotal);
-		
+
 		CorporationStats corporationStats = facWarStats.getCorporationStats();
 		List<CorporationKills> corpKillsYesterday = corporationStats.getKillsYesterday();
 		assertKillerCorp(207613888L, "Space Perverts and Forum Warriors United", 37, corpKillsYesterday);
@@ -43,7 +48,7 @@ public class FacWarTopStatsParserTest {
 		assertVictoryPointerCorp(637428501L, "Independent Corp.", 13837, corpVictoryPointsLastWeek);
 		List<CorporationVictoryPoints> corpVictoryPointsTotal = corporationStats.getVictoryPointsTotal();
 		assertVictoryPointerCorp(1000180L, "State Protectorate", 1673108, corpVictoryPointsTotal);
-		
+
 		FactionStats factionStats = facWarStats.getFactionStats();
 		List<FactionKills> facKillsYesterday = factionStats.getKillsYesterday();
 		assertKillerFaction(500004, "Gallente Federation", 116, facKillsYesterday);

@@ -6,16 +6,12 @@ import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class ErrorListParser extends AbstractApiParser<ErrorListResponse> {
-	protected static final String ERROR_LIST_URL = "/ErrorList";
-
 	public ErrorListParser() {
-		super(ErrorListResponse.class, 2, Path.EVE, ERROR_LIST_URL);
-	}
-
-	public ErrorListResponse getErrorList() throws IOException, SAXException {
-		return getResponse();
+		super(ErrorListResponse.class, 2, ApiPath.EVE, ApiPage.ERROR_LIST);
 	}
 
 	@Override
@@ -29,5 +25,9 @@ public class ErrorListParser extends AbstractApiParser<ErrorListResponse> {
 
 	public static ErrorListParser getInstance() {
 		return new ErrorListParser();
+	}
+
+	public ErrorListResponse getResponse() throws IOException, SAXException {
+		return super.getResponse();
 	}
 }

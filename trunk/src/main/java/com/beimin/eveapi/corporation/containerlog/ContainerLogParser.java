@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class ContainerLogParser extends AbstractApiParser<ContainerLogResponse> {
-	protected static final String CONTAINER_LOG_URL = "/ContainerLog.xml.aspx ";
-
 	public ContainerLogParser() {
-		super(ContainerLogResponse.class, 2, Path.CORPORATION, CONTAINER_LOG_URL);
-	}
-
-	public ContainerLogResponse getContainerLog(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(ContainerLogResponse.class, 2, ApiPath.CORPORATION, ApiPage.CONTAINER_LOG);
 	}
 
 	@Override
@@ -30,5 +26,9 @@ public class ContainerLogParser extends AbstractApiParser<ContainerLogResponse> 
 
 	public static ContainerLogParser getInstance() {
 		return new ContainerLogParser();
+	}
+
+	public ContainerLogResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class MemberTrackingParser extends AbstractApiParser<MemberTrackingResponse> {
-	protected static final String MEMBER_TRACKING_URL = "/MemberTracking";
-
 	public MemberTrackingParser() {
-		super(MemberTrackingResponse.class, 2, Path.CORPORATION, MEMBER_TRACKING_URL);
-	}
-
-	public MemberTrackingResponse getMembers(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(MemberTrackingResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_TRACKING);
 	}
 
 	@Override
@@ -30,5 +26,9 @@ public class MemberTrackingParser extends AbstractApiParser<MemberTrackingRespon
 
 	public static MemberTrackingParser getInstance() {
 		return new MemberTrackingParser();
+	}
+
+	public MemberTrackingResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

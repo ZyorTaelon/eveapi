@@ -6,12 +6,12 @@ import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class MapJumpsParser extends AbstractApiParser<MapJumpsResponse> {
-	private static final String JUMPS_URL = "/Jumps";
-
 	public MapJumpsParser() {
-		super(MapJumpsResponse.class, 2, Path.MAP, JUMPS_URL);
+		super(MapJumpsResponse.class, 2, ApiPath.MAP, ApiPage.JUMPS);
 	}
 
 	@Override
@@ -23,11 +23,11 @@ public class MapJumpsParser extends AbstractApiParser<MapJumpsResponse> {
 		return digester;
 	}
 
-	public MapJumpsResponse getJumps() throws IOException, SAXException {
-		return getResponse();
-	}
-
 	public static MapJumpsParser getInstance() {
 		return new MapJumpsParser();
+	}
+
+	public MapJumpsResponse getResponse() throws IOException, SAXException {
+		return super.getResponse();
 	}
 }

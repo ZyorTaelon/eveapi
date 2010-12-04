@@ -1,20 +1,20 @@
 package com.beimin.eveapi.shared.medals;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public abstract class AbstractMedalsParser<M extends Medal> extends AbstractApiParser<MedalsResponse> {
-	protected static final String MEDALS_URL = "/Medals";
 	private final Class<M> medalClass;
 
-	protected AbstractMedalsParser(Path path, Class<M> medalClass) {
-		super(MedalsResponse.class, 2, path, MEDALS_URL);
+	protected AbstractMedalsParser(ApiPath path, Class<M> medalClass) {
+		super(MedalsResponse.class, 2, path, ApiPage.MEDALS);
 		this.medalClass = medalClass;
 	}
 
@@ -27,11 +27,7 @@ public abstract class AbstractMedalsParser<M extends Medal> extends AbstractApiP
 		return digester;
 	}
 
-	public MedalsResponse getMedalsResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
-	}
-
-	public List<Medal> getMedals(ApiAuth auth) throws IOException, SAXException {
-		return getMedalsResponse(auth).getMedals();
+	public MedalsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

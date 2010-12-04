@@ -13,25 +13,22 @@ import javax.servlet.http.HttpServletRequest;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.wallet.transactions.AbstractWalletTransactionsParser;
 import com.beimin.eveapi.shared.wallet.transactions.ApiWalletTransaction;
 import com.beimin.eveapi.shared.wallet.transactions.WalletTransactionsResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class TransactionsParserTest extends FullApiParserTest {
+public class TransactionsParserTest extends FullAuthParserTest {
 	public TransactionsParserTest() {
-		super("/char/WalletTransactions.xml.aspx", "/character/WalletTransactions.xml");
-	}
-
-	@Override
-	protected void extraAsserts(HttpServletRequest req) {
-		assertEquals("1000", req.getParameter("accountKey"));
+		super(ApiPath.CHARACTER, ApiPage.WALLET_TRANSACTIONS);
 	}
 
 	@Test
-	public void walletTransactionParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		AbstractWalletTransactionsParser parser = WalletTransactionsParser.getInstance();
-		WalletTransactionsResponse response = parser.getTransactionsResponse(auth, 1000);
+		WalletTransactionsResponse response = parser.getResponse(auth, 1000);
 		assertNotNull(response);
 		Collection<ApiWalletTransaction> walletTransactions = response.getWalletTransactions();
 		assertEquals(25, walletTransactions.size());
@@ -53,5 +50,10 @@ public class TransactionsParserTest extends FullApiParserTest {
 			}
 		}
 		assertTrue("test order wasn't found.", found);
+	}
+
+	@Override
+	protected void extraAsserts(HttpServletRequest req) {
+		assertEquals("1000", req.getParameter("accountKey"));
 	}
 }

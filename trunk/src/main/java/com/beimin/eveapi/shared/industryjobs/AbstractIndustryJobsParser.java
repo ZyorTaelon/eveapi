@@ -1,19 +1,18 @@
 package com.beimin.eveapi.shared.industryjobs;
 
 import java.io.IOException;
-import java.util.Collection;
 
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public abstract class AbstractIndustryJobsParser extends AbstractApiParser<IndustryJobsResponse> {
-	protected static final String INDUSTRY_JOBS_URL = "/IndustryJobs";
-
-	protected AbstractIndustryJobsParser(Path path) {
-		super(IndustryJobsResponse.class, 2, path, INDUSTRY_JOBS_URL);
+	protected AbstractIndustryJobsParser(ApiPath path) {
+		super(IndustryJobsResponse.class, 2, path, ApiPage.INDUSTRY_JOBS);
 	}
 
 	@Override
@@ -25,11 +24,7 @@ public abstract class AbstractIndustryJobsParser extends AbstractApiParser<Indus
 		return digester;
 	}
 
-	public IndustryJobsResponse getIndustryJobsResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
-	}
-
-	public Collection<ApiIndustryJob> getIndustryJobs(ApiAuth auth) throws IOException, SAXException {
-		return getIndustryJobsResponse(auth).getIndustryJobs();
+	public IndustryJobsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

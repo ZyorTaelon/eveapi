@@ -6,19 +6,24 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class AllianceListParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.NoAuthParserTest;
+
+public class AllianceListParserTest extends NoAuthParserTest {
+	public AllianceListParserTest() {
+		super(ApiPath.EVE, ApiPage.ALLIANCE_LIST);
+	}
 
 	@Test
-	public void allianceListParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		AllianceListParser parser = AllianceListParser.getInstance();
-		InputStream input = AllianceListParserTest.class.getResourceAsStream("/eve/AllianceList.xml");
-		AllianceListResponse response = parser.getResponse(input);
+		AllianceListResponse response = parser.getResponse();
 		assertNotNull(response);
 		Collection<ApiAlliance> alliances = response.getAlliances();
 		assertEquals(605, alliances.size());

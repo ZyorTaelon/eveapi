@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class ShareholdersParser extends AbstractApiParser<ShareholdersResponse> {
-	protected static final String SHAREHOLDERS_URL = "/Shareholders";
-
 	public ShareholdersParser() {
-		super(ShareholdersResponse.class, 2, Path.CORPORATION, SHAREHOLDERS_URL);
-	}
-
-	public ShareholdersResponse getShareholders(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(ShareholdersResponse.class, 2, ApiPath.CORPORATION, ApiPage.SHAREHOLDERS);
 	}
 
 	@Override
@@ -30,5 +26,9 @@ public class ShareholdersParser extends AbstractApiParser<ShareholdersResponse> 
 
 	public static ShareholdersParser getInstance() {
 		return new ShareholdersParser();
+	}
+
+	public ShareholdersResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

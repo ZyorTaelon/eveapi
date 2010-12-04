@@ -8,16 +8,12 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class CertificateTreeParser extends AbstractApiParser<CertificateTreeResponse> {
-	private static final String SKILLS_URL = "/SkillTree";
-
 	public CertificateTreeParser() {
-		super(CertificateTreeResponse.class, 2, Path.EVE, SKILLS_URL);
-	}
-
-	public CertificateTreeResponse getSkills() throws IOException, SAXException {
-		return getResponse();
+		super(CertificateTreeResponse.class, 2, ApiPath.EVE, ApiPage.CERTIFICATE_TREE);
 	}
 
 	@Override
@@ -49,5 +45,9 @@ public class CertificateTreeParser extends AbstractApiParser<CertificateTreeResp
 
 	public static CertificateTreeParser getInstance() {
 		return new CertificateTreeParser();
+	}
+
+	public CertificateTreeResponse getResponse() throws IOException, SAXException {
+		return super.getResponse();
 	}
 }

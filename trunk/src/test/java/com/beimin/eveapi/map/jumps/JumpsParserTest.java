@@ -4,19 +4,24 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class JumpsParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.NoAuthParserTest;
+
+public class JumpsParserTest extends NoAuthParserTest {
+	public JumpsParserTest() {
+		super(ApiPath.MAP, ApiPage.JUMPS);
+	}
 
 	@Test
-	public void mapJumpsParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		MapJumpsParser parser = MapJumpsParser.getInstance();
-		InputStream input = JumpsParserTest.class.getResourceAsStream("/map/Jumps.xml");
-		MapJumpsResponse response = parser.getResponse(input);
+		MapJumpsResponse response = parser.getResponse();
 		assertNotNull(response);
 		Map<Integer, Integer> systemJumps = response.getSystemJumps();
 		assertNotNull(systemJumps);

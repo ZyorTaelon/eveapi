@@ -4,19 +4,24 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class ShareholdersParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
+
+public class ShareholdersParserTest extends FullAuthParserTest {
+	public ShareholdersParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.SHAREHOLDERS);
+	}
 
 	@Test
-	public void shareholdersParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		ShareholdersParser parser = ShareholdersParser.getInstance();
-		InputStream input = ShareholdersParserTest.class.getResourceAsStream("/corporation/Shareholders.xml");
-		ShareholdersResponse response = parser.getResponse(input);
+		ShareholdersResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<ApiShareholder> characters = response.getCharacters();
 		assertEquals(1, characters.size());

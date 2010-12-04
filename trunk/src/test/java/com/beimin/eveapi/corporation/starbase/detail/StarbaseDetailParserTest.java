@@ -7,19 +7,26 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class StarbaseDetailParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
+
+public class StarbaseDetailParserTest extends FullAuthParserTest {
+	public StarbaseDetailParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.STARBASE_DETAIL);
+	}
 
 	@Test
-	public void starbaseDetail() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		StarbaseDetailParser parser = StarbaseDetailParser.getInstance();
-		InputStream input = StarbaseDetailParserTest.class.getResourceAsStream("/corporation/StarbaseDetail.xml");
-		StarbaseDetailResponse response = parser.getResponse(input);
+		StarbaseDetailResponse response = parser.getResponse(auth, 123456789);
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 1, 54, 2, response.getCurrentTime());
 		assertDate(2008, 2, 3, 7, 54, 2, response.getCachedUntil());
@@ -53,5 +60,10 @@ public class StarbaseDetailParserTest {
 		assertEquals(4878L, fuelMap.get(16273).longValue());
 		assertEquals(35955L, fuelMap.get(16274).longValue());
 		assertEquals(150L, fuelMap.get(16275).longValue());
+	}
+
+	@Override
+	protected void extraAsserts(HttpServletRequest req) {
+		assertEquals("123456789", req.getParameter("itemID"));
 	}
 }

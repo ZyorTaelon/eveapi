@@ -5,19 +5,24 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class TitlesParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
+
+public class TitlesParserTest extends FullAuthParserTest {
+	public TitlesParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.TITLES);
+	}
 
 	@Test
-	public void testTitlesParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		CorporationTitlesParser parser = CorporationTitlesParser.getInstance();
-		InputStream input = TitlesParserTest.class.getResourceAsStream("/corporation/Titles.xml");
-		CorporationTitlesResponse response = parser.getResponse(input);
+		CorporationTitlesResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<ApiTitle> titles = response.getTitles();
 		assertEquals(2, titles.size());

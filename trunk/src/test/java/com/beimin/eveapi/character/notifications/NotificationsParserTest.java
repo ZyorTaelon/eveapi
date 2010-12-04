@@ -11,18 +11,20 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.character.notifications.ApiNotification.NotificationType;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class NotificationsParserTest extends FullApiParserTest {
+public class NotificationsParserTest extends FullAuthParserTest {
 	public NotificationsParserTest() {
-		super("/char/Notifications.xml.aspx", "/character/Notifications.xml");
+		super(ApiPath.CHARACTER, ApiPage.NOTIFICATIONS);
 	}
 
 	@Test
-	public void notificationsParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		NotificationsParser parser = NotificationsParser.getInstance();
-		NotificationsResponse response = parser.getNotificationsResponse(auth);
+		NotificationsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiNotification> notifications = response.getNotifications();
 		assertNotNull(notifications);

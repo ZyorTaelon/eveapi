@@ -6,23 +6,29 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.wallet.journal.AbstractWalletJournalParser;
 import com.beimin.eveapi.shared.wallet.journal.ApiJournalEntry;
 import com.beimin.eveapi.shared.wallet.journal.WalletJournalResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class JournalParserTest {
+public class JournalParserTest extends FullAuthParserTest {
+	public JournalParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.WALLET_JOURNAL);
+	}
 
 	@Test
-	public void walletJournalParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		AbstractWalletJournalParser parser = WalletJournalParser.getInstance();
-		InputStream input = JournalParserTest.class.getResourceAsStream("/corporation/WalletJournal.xml");
-		WalletJournalResponse response = parser.getResponse(input);
+		WalletJournalResponse response = parser.getResponse(auth, 1000);
 		assertNotNull(response);
 		Collection<ApiJournalEntry> entries = response.getJournalEntries();
 		assertEquals(5, entries.size());
@@ -46,5 +52,10 @@ public class JournalParserTest {
 			}
 		}
 		assertTrue("test journal entry wasn't found.", found);
+	}
+
+	@Override
+	protected void extraAsserts(HttpServletRequest req) {
+		assertEquals("1000", req.getParameter("accountKey"));
 	}
 }

@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class CharacterSheetParser extends AbstractApiParser<CharacterSheetResponse> {
-	protected static final String CHARACTER_SHEET_URL = "/CharacterSheet";
-
 	public CharacterSheetParser() {
-		super(CharacterSheetResponse.class, 1, Path.CHARACTER, CHARACTER_SHEET_URL);
-	}
-
-	public CharacterSheetResponse getCharacterSheet(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(CharacterSheetResponse.class, 1, ApiPath.CHARACTER, ApiPage.CHARACTER_SHEET);
 	}
 
 	@Override
@@ -69,5 +65,9 @@ public class CharacterSheetParser extends AbstractApiParser<CharacterSheetRespon
 
 	public static CharacterSheetParser getInstance() {
 		return new CharacterSheetParser();
+	}
+
+	public CharacterSheetResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

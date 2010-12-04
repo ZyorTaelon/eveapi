@@ -1,7 +1,6 @@
 package com.beimin.eveapi.shared.killlog;
 
 import java.io.IOException;
-import java.util.Collection;
 
 import org.apache.commons.digester.AbstractObjectCreationFactory;
 import org.apache.commons.digester.Digester;
@@ -10,12 +9,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public abstract class AbstractKillLogParser extends AbstractApiParser<KillLogResponse> {
-	protected static final String KILL_LIST = "/KillLog";
-
-	protected AbstractKillLogParser(Path path) {
-		super(KillLogResponse.class, 1, path, KILL_LIST);
+	protected AbstractKillLogParser(ApiPath path) {
+		super(KillLogResponse.class, 1, path, ApiPage.KILL_LOG);
 	}
 
 	@Override
@@ -42,11 +41,7 @@ public abstract class AbstractKillLogParser extends AbstractApiParser<KillLogRes
 		return digester;
 	}
 
-	public KillLogResponse getKillLogResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
-	}
-
-	public Collection<ApiKill> getKills(ApiAuth auth) throws IOException, SAXException {
-		return getKillLogResponse(auth).getKills();
+	public KillLogResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

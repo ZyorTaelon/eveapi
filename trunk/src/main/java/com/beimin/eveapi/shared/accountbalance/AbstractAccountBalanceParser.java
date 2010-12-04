@@ -1,19 +1,18 @@
 package com.beimin.eveapi.shared.accountbalance;
 
 import java.io.IOException;
-import java.util.Collection;
 
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public abstract class AbstractAccountBalanceParser extends AbstractApiParser<AccountBalanceResponse> {
-	protected static final String ACCOUNTBALANCE_URL = "/AccountBalance";
-
-	protected AbstractAccountBalanceParser(Path path) {
-		super(AccountBalanceResponse.class, 2, path, ACCOUNTBALANCE_URL);
+	protected AbstractAccountBalanceParser(ApiPath path) {
+		super(AccountBalanceResponse.class, 2, path, ApiPage.ACCOUNT_BALANCE);
 	}
 
 	@Override
@@ -25,11 +24,7 @@ public abstract class AbstractAccountBalanceParser extends AbstractApiParser<Acc
 		return digester;
 	}
 
-	public AccountBalanceResponse getAccountBalanceResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
-	}
-
-	public Collection<ApiAccountBalance> getAccountBalances(ApiAuth auth) throws IOException, SAXException {
-		return getAccountBalanceResponse(auth).getAccountBalances();
+	public AccountBalanceResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

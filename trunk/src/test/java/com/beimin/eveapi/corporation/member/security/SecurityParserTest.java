@@ -4,19 +4,24 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Set;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class SecurityParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
+
+public class SecurityParserTest extends FullAuthParserTest {
+	public SecurityParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.MEMBER_SECURITY);
+	}
 
 	@Test
-	public void memberSecurityParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		MemberSecurityParser parser = MemberSecurityParser.getInstance();
-		InputStream input = SecurityParserTest.class.getResourceAsStream("/corporation/MemberSecurity.xml");
-		MemberSecurityResponse response = parser.getResponse(input);
+		MemberSecurityResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiSecurityMember> members = response.getMembers();
 		assertEquals("Incorrect amount of members found.", 1, members.size());
@@ -33,13 +38,13 @@ public class SecurityParserTest {
 		for (ApiSecurityTitle securityTitle : titles) {
 			long titleID = securityTitle.getTitleID();
 			String titleName = securityTitle.getTitleName();
-			if(titleID == 1L) {
+			if (titleID == 1L) {
 				assertEquals("Member", titleName);
 				temp++;
-			} else if(titleID == 512) {
+			} else if (titleID == 512) {
 				assertEquals("Gas Attendant", titleName);
 				temp++;
-			} else if(titleID == 16384) {
+			} else if (titleID == 16384) {
 				assertEquals("General Manager", titleName);
 				temp++;
 			}

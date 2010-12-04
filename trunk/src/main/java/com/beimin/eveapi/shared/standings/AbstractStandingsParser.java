@@ -7,27 +7,17 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public abstract class AbstractStandingsParser extends AbstractApiParser<StandingsResponse> {
-	protected static final String STANDINGS_URL = "/Standings";
-
-	protected AbstractStandingsParser(Path path) {
-		super(StandingsResponse.class, 2, path, STANDINGS_URL);
+	protected AbstractStandingsParser(ApiPath path) {
+		super(StandingsResponse.class, 2, path, ApiPage.STANDINGS);
 	}
 
-	@Override
-	protected Digester getDigester() {
-		String charCorpPath;
-		switch (path) {
-		case CORPORATION:
-			charCorpPath = "corporationNPCStandings";
-			break;
-		case CHARACTER:
-			charCorpPath = "characterNPCStandings";
-			break;
-		default:
-			throw new RuntimeException("No valid path.");
-		}
+	protected abstract Digester getDigester();
+
+	protected Digester getDigester(String charCorpPath) {
 		Digester digester = super.getDigester();
 		digester.addObjectCreate("eveapi/result/" + charCorpPath + "/rowset", StandingsList.class);
 		digester.addSetProperties("eveapi/result/" + charCorpPath + "/rowset");
@@ -38,7 +28,7 @@ public abstract class AbstractStandingsParser extends AbstractApiParser<Standing
 		return digester;
 	}
 
-	public StandingsResponse getStandingsResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+	public StandingsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

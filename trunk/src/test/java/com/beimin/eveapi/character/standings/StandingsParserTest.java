@@ -8,20 +8,22 @@ import java.io.IOException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.standings.ApiStanding;
 import com.beimin.eveapi.shared.standings.StandingsList;
 import com.beimin.eveapi.shared.standings.StandingsResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class StandingsParserTest extends FullApiParserTest {
+public class StandingsParserTest extends FullAuthParserTest {
 	public StandingsParserTest() {
-		super("/char/Standings.xml.aspx", "/character/Standings.xml");
+		super(ApiPath.CHARACTER, ApiPage.STANDINGS);
 	}
 
 	@Test
-	public void standingsParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		StandingsParser parser = StandingsParser.getInstance();
-		StandingsResponse response = parser.getStandingsResponse(auth);
+		StandingsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 
 		StandingsList agentStandings = response.getAgentStandings();

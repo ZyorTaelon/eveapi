@@ -5,19 +5,24 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class FacWarSystemsParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.NoAuthParserTest;
+
+public class FacWarSystemsParserTest extends NoAuthParserTest {
+	public FacWarSystemsParserTest() {
+		super(ApiPath.MAP, ApiPage.FACTION_WAR_SYSTEMS);
+	}
 
 	@Test
-	public void facWarfareSystems() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		FacWarSystemsParser parser = FacWarSystemsParser.getInstance();
-		InputStream input = FacWarSystemsParserTest.class.getResourceAsStream("/map/FacWarSystems.xml");
-		FacWarSystemsResponse response = parser.getResponse(input);
+		FacWarSystemsResponse response = parser.getResponse();
 		List<ApiFacWarSystem> systems = response.getSystems();
 		assertEquals(171, systems.size());
 		ApiFacWarSystem facWarSystem = systems.iterator().next();

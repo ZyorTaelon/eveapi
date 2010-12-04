@@ -6,23 +6,29 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.wallet.transactions.AbstractWalletTransactionsParser;
 import com.beimin.eveapi.shared.wallet.transactions.ApiWalletTransaction;
 import com.beimin.eveapi.shared.wallet.transactions.WalletTransactionsResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class TransactionsParserTest {
+public class TransactionsParserTest extends FullAuthParserTest {
+	public TransactionsParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.WALLET_TRANSACTIONS);
+	}
 
 	@Test
-	public void walletTransactionParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		AbstractWalletTransactionsParser parser = WalletTransactionsParser.getInstance();
-		InputStream input = TransactionsParserTest.class.getResourceAsStream("/corporation/WalletTransactions.xml");
-		WalletTransactionsResponse response = parser.getResponse(input);
+		WalletTransactionsResponse response = parser.getResponse(auth, 1000);
 		assertNotNull(response);
 		Collection<ApiWalletTransaction> walletTransactions = response.getWalletTransactions();
 		assertEquals(4, walletTransactions.size());
@@ -40,12 +46,16 @@ public class TransactionsParserTest {
 				assertEquals(000000000, walletTransaction.getCharacterID());
 				assertEquals("SELLER", walletTransaction.getCharacterName());
 				assertEquals(60004375, walletTransaction.getStationID());
-				assertEquals("SYSTEM IV - Moon 10 - Corporate Police Force Testing Facilities",
-						walletTransaction.getStationName());
+				assertEquals("SYSTEM IV - Moon 10 - Corporate Police Force Testing Facilities", walletTransaction.getStationName());
 				assertEquals("buy", walletTransaction.getTransactionType());
 				assertEquals("corporation", walletTransaction.getTransactionFor());
 			}
 		}
 		assertTrue("test order wasn't found.", found);
+	}
+
+	@Override
+	protected void extraAsserts(HttpServletRequest req) {
+		assertEquals("1000", req.getParameter("accountKey"));
 	}
 }

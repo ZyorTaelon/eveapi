@@ -1,8 +1,6 @@
 package com.beimin.eveapi.corporation.sheet;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.commons.digester.AbstractObjectCreationFactory;
 import org.apache.commons.digester.Digester;
@@ -11,12 +9,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class CorpSheetParser extends AbstractApiParser<CorpSheetResponse> {
-	protected static final String CORPORATION_SHEET_URL = "/CorporationSheet";
-
 	public CorpSheetParser() {
-		super(CorpSheetResponse.class, 2, Path.CORPORATION, CORPORATION_SHEET_URL);
+		super(CorpSheetResponse.class, 2, ApiPath.CORPORATION, ApiPage.CORPORATION_SHEET);
 	}
 
 	@Override
@@ -65,17 +63,15 @@ public class CorpSheetParser extends AbstractApiParser<CorpSheetResponse> {
 		return digester;
 	}
 
-	public CorpSheetResponse getCorporationSheet(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
-	}
-
-	public CorpSheetResponse getCorporationSheet(long corporationID) throws IOException, SAXException {
-		Map<String, String> params = new HashMap<String, String>();
-		params.put("corporationID", Long.toString(corporationID));
-		return getResponse(params);
-	}
-
 	public static CorpSheetParser getInstance() {
 		return new CorpSheetParser();
+	}
+
+	public CorpSheetResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
+	}
+
+	public CorpSheetResponse getResponse(long corporationID) throws IOException, SAXException {
+		return getResponse("corporationID", Long.toString(corporationID));
 	}
 }

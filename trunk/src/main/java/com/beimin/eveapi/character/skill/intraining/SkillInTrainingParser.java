@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class SkillInTrainingParser extends AbstractApiParser<SkillInTrainingResponse> {
-	protected static final String CHARACTER_SHEET_URL = "/SkillInTraining";
-
 	public SkillInTrainingParser() {
-		super(SkillInTrainingResponse.class, 2, Path.CHARACTER, CHARACTER_SHEET_URL);
-	}
-
-	public SkillInTrainingResponse getSkillInTraining(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(SkillInTrainingResponse.class, 2, ApiPath.CHARACTER, ApiPage.SKILL_IN_TRAINING);
 	}
 
 	@Override
@@ -35,5 +31,9 @@ public class SkillInTrainingParser extends AbstractApiParser<SkillInTrainingResp
 
 	public static SkillInTrainingParser getInstance() {
 		return new SkillInTrainingParser();
+	}
+
+	public SkillInTrainingResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

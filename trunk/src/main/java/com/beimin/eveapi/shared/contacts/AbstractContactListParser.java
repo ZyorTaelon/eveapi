@@ -7,12 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public abstract class AbstractContactListParser<CLR extends AbstractContactListResponse> extends AbstractApiParser<CLR> {
-	protected static final String CONTACT_LIST_URL = "/ContactList";
-
-	protected AbstractContactListParser(Class<CLR> responseClass, Path path) {
-		super(responseClass, 2, path, CONTACT_LIST_URL);
+	protected AbstractContactListParser(Class<CLR> responseClass, ApiPath path) {
+		super(responseClass, 2, path, ApiPage.CONTACT_LIST);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public abstract class AbstractContactListParser<CLR extends AbstractContactListR
 		return digester;
 	}
 
-	public CLR getContactListResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+	public CLR getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.beimin.eveapi.ApiResponse;
 
-public class FacWarStats extends ApiResponse {
+public class FacWarStatsResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
 	private int factionID;
 	private String factionName;

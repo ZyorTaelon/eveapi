@@ -6,35 +6,16 @@ import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.StringUtils;
 
 public class CharacterLookupParser extends AbstractApiParser<CharacterLookupResponse> {
-	protected static final String CHARACTER_NAME_URL = "/CharacterName";
-	protected static final String CHARACTER_ID_URL = "/CharacterID";
 	private final String paramName;
 
-	public CharacterLookupParser(String url, String paramName) {
-		super(CharacterLookupResponse.class, 2, Path.EVE, url);
+	public CharacterLookupParser(ApiPage page, String paramName) {
+		super(CharacterLookupResponse.class, 2, ApiPath.EVE, page);
 		this.paramName = paramName;
-	}
-
-	public CharacterLookupResponse getCharacterList(String... arguments) throws IOException, SAXException {
-		String paramValue = "";
-		for (int i = 0; i < arguments.length; i++) {
-			paramValue += arguments[i];
-			if (i < arguments.length - 1)
-				paramValue += ",";
-		}
-		return getResponse(paramName, paramValue.replaceAll(" ", "%20"));
-	}
-
-	public CharacterLookupResponse getCharacterList(long... arguments) throws IOException, SAXException {
-		String paramValue = "";
-		for (int i = 0; i < arguments.length; i++) {
-			paramValue += arguments[i];
-			if (i < arguments.length - 1)
-				paramValue += ",";
-		}
-		return getResponse(paramName, paramValue);
 	}
 
 	@Override
@@ -47,10 +28,18 @@ public class CharacterLookupParser extends AbstractApiParser<CharacterLookupResp
 	}
 
 	public static CharacterLookupParser getName2IdInstance() {
-		return new CharacterLookupParser(CHARACTER_ID_URL, "names");
+		return new CharacterLookupParser(ApiPage.CHARACTER_ID, "names");
 	}
 
 	public static CharacterLookupParser getId2NameInstance() {
-		return new CharacterLookupParser(CHARACTER_NAME_URL, "ids");
+		return new CharacterLookupParser(ApiPage.CHARACTER_NAME, "ids");
+	}
+
+	public CharacterLookupResponse getResponse(String... arguments) throws IOException, SAXException {
+		return super.getResponse(paramName, StringUtils.join(",", arguments).replaceAll(" ", "%20"));
+	}
+
+	public CharacterLookupResponse getResponse(long... arguments) throws IOException, SAXException {
+		return super.getResponse(paramName, StringUtils.join(",", arguments));
 	}
 }

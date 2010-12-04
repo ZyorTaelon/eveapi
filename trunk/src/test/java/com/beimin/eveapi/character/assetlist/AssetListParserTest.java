@@ -11,20 +11,22 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.assetlist.AbstractAssetListParser;
 import com.beimin.eveapi.shared.assetlist.ApiAsset;
 import com.beimin.eveapi.shared.assetlist.AssetListResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class AssetListParserTest extends FullApiParserTest {
+public class AssetListParserTest extends FullAuthParserTest {
 	public AssetListParserTest() {
-		super("/char/AssetList.xml.aspx", "/character/AssetList.xml");
+		super(ApiPath.CHARACTER, ApiPage.ASSET_LIST);
 	}
 
 	@Test
-	public void testAssetsParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		AbstractAssetListParser parser = AssetListParser.getInstance();
-		AssetListResponse response = parser.getAssetListResponse(auth);
+		AssetListResponse response = parser.getResponse(auth);
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 4, 43, 55, response.getCurrentTime());
 		assertDate(2008, 2, 4, 3, 43, 55, response.getCachedUntil());

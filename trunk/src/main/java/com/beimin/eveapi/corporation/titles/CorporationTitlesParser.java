@@ -9,16 +9,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class CorporationTitlesParser extends AbstractApiParser<CorporationTitlesResponse> {
-	protected static final String CORPORATION_TITLES_URL = "/Titles";
-
 	public CorporationTitlesParser() {
-		super(CorporationTitlesResponse.class, 2, Path.CORPORATION, CORPORATION_TITLES_URL);
-	}
-
-	public CorporationTitlesResponse getTitles(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(CorporationTitlesResponse.class, 2, ApiPath.CORPORATION, ApiPage.TITLES);
 	}
 
 	@Override
@@ -48,5 +44,9 @@ public class CorporationTitlesParser extends AbstractApiParser<CorporationTitles
 
 	public static CorporationTitlesParser getInstance() {
 		return new CorporationTitlesParser();
+	}
+
+	public CorporationTitlesResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

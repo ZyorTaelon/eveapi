@@ -9,20 +9,22 @@ import java.util.List;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.character.calendar.upcomingevents.ApiUpcomingCalendarEvent;
 import com.beimin.eveapi.character.calendar.upcomingevents.UpcomingCalendarEventsParser;
 import com.beimin.eveapi.character.calendar.upcomingevents.UpcomingCalendarEventsResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class UpcomingCalendarEventsParserTest extends FullApiParserTest {
+public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
 	public UpcomingCalendarEventsParserTest() {
-		super("/char/UpcomingCalendarEvents.xml.aspx", "/character/UpcomingCalendarEvents.xml");
+		super(ApiPath.CHARACTER, ApiPage.UPCOMING_CALENDAR_EVENTS);
 	}
 
 	@Test
-	public void testUpcomingCalendarEventsParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		UpcomingCalendarEventsParser parser = UpcomingCalendarEventsParser.getInstance();
-		UpcomingCalendarEventsResponse response = parser.getUpcomingCalendarEvents(auth);
+		UpcomingCalendarEventsResponse response = parser.getResponse(auth);
 		List<ApiUpcomingCalendarEvent> events = response.getUpcomingCalendarEvents();
 		assertEquals(1, events.size());
 		ApiUpcomingCalendarEvent event = events.iterator().next();

@@ -9,17 +9,19 @@ import java.io.IOException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class SkillInTrainingParserTest extends FullApiParserTest {
+public class SkillInTrainingParserTest extends FullAuthParserTest {
 	public SkillInTrainingParserTest() {
-		super("/char/SkillInTraining.xml.aspx", "/character/SkillInTraining.xml");
+		super(ApiPath.CHARACTER, ApiPage.SKILL_IN_TRAINING);
 	}
 
 	@Test
-	public void skillInTrainingParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		SkillInTrainingParser parser = SkillInTrainingParser.getInstance();
-		SkillInTrainingResponse response = parser.getSkillInTraining(auth);
+		SkillInTrainingResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		assertDate(2008, 8, 17, 6, 43, 0, response.getCurrentTQTime());
 		assertDate(2008, 8, 17, 15, 29, 44, response.getTrainingEndTime());

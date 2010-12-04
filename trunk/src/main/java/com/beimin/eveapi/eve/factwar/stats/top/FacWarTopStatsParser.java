@@ -8,12 +8,12 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class FacWarTopStatsParser extends AbstractApiParser<FacWarTopStatsResponse> {
-	private static final String FACT_WAR_TOP_STATS_URL = "/FacWarTopStats";
-
 	private FacWarTopStatsParser() {
-		super(FacWarTopStatsResponse.class, 2, Path.EVE, FACT_WAR_TOP_STATS_URL);
+		super(FacWarTopStatsResponse.class, 2, ApiPath.EVE, ApiPage.FACT_WAR_TOP_STATS);
 	}
 
 	@Override
@@ -75,11 +75,11 @@ public class FacWarTopStatsParser extends AbstractApiParser<FacWarTopStatsRespon
 		return digester;
 	}
 
-	public FacWarTopStatsResponse getFacWarStats() throws IOException, SAXException {
-		return getResponse();
-	}
-
 	public static FacWarTopStatsParser getInstance() {
 		return new FacWarTopStatsParser();
+	}
+
+	public FacWarTopStatsResponse getResponse() throws IOException, SAXException {
+		return super.getResponse();
 	}
 }

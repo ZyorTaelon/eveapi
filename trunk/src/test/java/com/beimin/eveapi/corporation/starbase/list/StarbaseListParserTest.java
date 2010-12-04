@@ -6,19 +6,24 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class StarbaseListParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
+
+public class StarbaseListParserTest extends FullAuthParserTest {
+	public StarbaseListParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.STARBASE_LIST);
+	}
 
 	@Test
-	public void starbaseList() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		StarbaseListParser parser = StarbaseListParser.getInstance();
-		InputStream input = StarbaseListParserTest.class.getResourceAsStream("/corporation/StarbasesList.xml");
-		StarbaseListResponse response = parser.getResponse(input);
+		StarbaseListResponse response = parser.getResponse(auth);
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 1, 5, 55, response.getCurrentTime());
 		assertDate(2008, 2, 3, 7, 5, 55, response.getCachedUntil());

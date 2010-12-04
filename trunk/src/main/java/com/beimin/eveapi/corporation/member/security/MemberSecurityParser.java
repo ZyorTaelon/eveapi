@@ -9,16 +9,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class MemberSecurityParser extends AbstractApiParser<MemberSecurityResponse> {
-	protected static final String MEMBER_SECURITY_URL = "/MemberSecurity";
-
 	public MemberSecurityParser() {
-		super(MemberSecurityResponse.class, 2, Path.CORPORATION, MEMBER_SECURITY_URL);
-	}
-
-	public MemberSecurityResponse getMembers(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(MemberSecurityResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_SECURITY);
 	}
 
 	@Override
@@ -48,5 +44,9 @@ public class MemberSecurityParser extends AbstractApiParser<MemberSecurityRespon
 
 	public static MemberSecurityParser getInstance() {
 		return new MemberSecurityParser();
+	}
+
+	public MemberSecurityResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

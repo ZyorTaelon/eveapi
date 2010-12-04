@@ -5,19 +5,24 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class ConquerableStationListParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.NoAuthParserTest;
+
+public class ConquerableStationListParserTest extends NoAuthParserTest {
+	public ConquerableStationListParserTest() {
+		super(ApiPath.EVE, ApiPage.CONQUERABLE_STATION_LIST);
+	}
 
 	@Test
-	public void testConquerableStationListParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		ConquerableStationListParser parser = ConquerableStationListParser.getInstance();
-		InputStream input = ConquerableStationListParserTest.class.getResourceAsStream("/eve/ConquerableStationList.xml");
-		StationListResponse response = parser.getResponse(input);
+		StationListResponse response = parser.getResponse();
 		assertNotNull(response);
 		Map<Long, ApiStation> stations = response.getStations();
 		assertEquals(242, stations.size());

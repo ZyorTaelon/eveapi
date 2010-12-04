@@ -6,12 +6,12 @@ import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class MapSovereigntyParser extends AbstractApiParser<MapSovereigntyResponse> {
-	private static final String SOVEREIGNTY_URL = "/Sovereignty";
-
 	public MapSovereigntyParser() {
-		super(MapSovereigntyResponse.class, 1, Path.MAP, SOVEREIGNTY_URL);
+		super(MapSovereigntyResponse.class, 1, ApiPath.MAP, ApiPage.SOVEREIGNTY);
 	}
 
 	@Override
@@ -23,11 +23,11 @@ public class MapSovereigntyParser extends AbstractApiParser<MapSovereigntyRespon
 		return digester;
 	}
 
-	public MapSovereigntyResponse getSovereignties() throws IOException, SAXException {
-		return getResponse();
-	}
-
 	public static MapSovereigntyParser getInstance() {
 		return new MapSovereigntyParser();
+	}
+
+	public MapSovereigntyResponse getResponse() throws IOException, SAXException {
+		return super.getResponse();
 	}
 }

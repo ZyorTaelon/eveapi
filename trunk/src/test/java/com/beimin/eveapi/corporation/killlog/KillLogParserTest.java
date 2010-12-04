@@ -6,27 +6,31 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.List;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.killlog.AbstractKillLogParser;
 import com.beimin.eveapi.shared.killlog.ApiKill;
 import com.beimin.eveapi.shared.killlog.ApiKillAttacker;
 import com.beimin.eveapi.shared.killlog.ApiKillItem;
 import com.beimin.eveapi.shared.killlog.ApiKillVictim;
 import com.beimin.eveapi.shared.killlog.KillLogResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class KillLogParserTest {
+public class KillLogParserTest extends FullAuthParserTest {
+	public KillLogParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.KILL_LOG);
+	}
 
 	@Test
-	public void killLogParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		AbstractKillLogParser parser = KillLogParser.getInstance();
-		InputStream input = KillLogParserTest.class.getResourceAsStream("/corporation/KillLog.xml");
-		KillLogResponse response = parser.getResponse(input);
+		KillLogResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<ApiKill> entries = response.getKills();
 		assertEquals(18, entries.size());

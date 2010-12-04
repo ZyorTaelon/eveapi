@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class SkillQueueParser extends AbstractApiParser<SkillQueueResponse> {
-	protected static final String CHARACTER_SKILL_QUEUE_URL = "/SkillQueue";
-
 	public SkillQueueParser() {
-		super(SkillQueueResponse.class, 2, Path.CHARACTER, CHARACTER_SKILL_QUEUE_URL);
-	}
-
-	public SkillQueueResponse getSkillQueue(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(SkillQueueResponse.class, 2, ApiPath.CHARACTER, ApiPage.SKILL_QUEUE);
 	}
 
 	@Override
@@ -30,5 +26,9 @@ public class SkillQueueParser extends AbstractApiParser<SkillQueueResponse> {
 
 	public static SkillQueueParser getInstance() {
 		return new SkillQueueParser();
+	}
+
+	public SkillQueueResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

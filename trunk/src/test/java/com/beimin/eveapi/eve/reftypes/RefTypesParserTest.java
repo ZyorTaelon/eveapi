@@ -5,19 +5,24 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class RefTypesParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.NoAuthParserTest;
+
+public class RefTypesParserTest extends NoAuthParserTest {
+	public RefTypesParserTest() {
+		super(ApiPath.EVE, ApiPage.REF_TYPES);
+	}
 
 	@Test
-	public void refTypesParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		RefTypesParser parser = RefTypesParser.getInstance();
-		InputStream input = RefTypesParserTest.class.getResourceAsStream("/eve/RefTypes.xml");
-		RefTypesResponse response = parser.getResponse(input);
+		RefTypesResponse response = parser.getResponse();
 		assertNotNull(response);
 		Collection<ApiRefType> refTypes = response.getRefTypes();
 		assertEquals(87, refTypes.size());

@@ -4,19 +4,24 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class SheetParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
+
+public class CorpSheetParserTest extends FullAuthParserTest {
+	public CorpSheetParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.CORPORATION_SHEET);
+	}
 
 	@Test
-	public void corporationSheetParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		CorpSheetParser parser = CorpSheetParser.getInstance();
-		InputStream input = SheetParserTest.class.getResourceAsStream("/corporation/Sheet.xml");
-		CorpSheetResponse response = parser.getResponse(input);
+		CorpSheetResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		assertEquals(150212025, response.getCorporationID());
 		assertEquals("Banana Republic", response.getCorporationName());
@@ -25,8 +30,7 @@ public class SheetParserTest {
 		assertEquals("Mark Roled", response.getCeoName());
 		assertEquals(60003469, response.getStationID());
 		assertEquals("Jita IV - Caldari Business Tribunal Information Center", response.getStationName());
-		assertEquals(
-				"Garth's testing corp of awesome sauce, win sauce as it were. In this\n            corp...<br><br>IT HAPPENS ALL OVER",
+		assertEquals("Garth's testing corp of awesome sauce, win sauce as it were. In this\n            corp...<br><br>IT HAPPENS ALL OVER",
 				response.getDescription());
 		assertEquals("some url", response.getUrl());
 		assertEquals(150430947L, response.getAllianceID().longValue());

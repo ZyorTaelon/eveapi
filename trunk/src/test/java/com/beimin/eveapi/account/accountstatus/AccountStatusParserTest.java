@@ -6,17 +6,19 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class AccountStatusParserTest extends FullApiParserTest {
+public class AccountStatusParserTest extends FullAuthParserTest {
 	public AccountStatusParserTest() {
-		super("/account/AccountStatus.xml.aspx", "/account/AccountStatus.xml");
+		super(ApiPath.ACCOUNT, ApiPage.ACCOUNT_STATUS);
 	}
 
 	@Test
-	public void testMockAPI() throws Exception {
+	public void getResponse() throws Exception {
 		AccountStatusParser accountStatusParser = AccountStatusParser.getInstance();
-		AccountStatusResponse response = accountStatusParser.getAccountStatus(auth);
+		AccountStatusResponse response = accountStatusParser.getResponse(auth);
 		assertNotNull(response);
 		assertEquals(541354, response.getUserID());
 		assertDate(2011, 03, 13, 18, 40, 0, response.getPaidUntil());

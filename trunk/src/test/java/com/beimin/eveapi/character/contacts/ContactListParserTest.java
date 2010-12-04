@@ -10,19 +10,21 @@ import java.io.IOException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.contacts.ApiContact;
 import com.beimin.eveapi.shared.contacts.ContactList;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class ContactListParserTest extends FullApiParserTest {
+public class ContactListParserTest extends FullAuthParserTest {
 	public ContactListParserTest() {
-		super("/char/ContactList.xml.aspx", "/character/ContactList.xml");
+		super(ApiPath.CHARACTER, ApiPage.CONTACT_LIST);
 	}
 
 	@Test
-	public void contactListParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		ContactListParser parser = ContactListParser.getInstance();
-		ContactListResponse response = parser.getContactListResponse(auth);
+		ContactListResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 
 		ContactList contactList = response.getContactList();

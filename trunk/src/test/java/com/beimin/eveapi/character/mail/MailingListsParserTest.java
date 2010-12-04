@@ -10,20 +10,22 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.character.mail.lists.ApiMailingList;
 import com.beimin.eveapi.character.mail.lists.MailingListsParser;
 import com.beimin.eveapi.character.mail.lists.MailingListsResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class MailingListsParserTest extends FullApiParserTest {
+public class MailingListsParserTest extends FullAuthParserTest {
 	public MailingListsParserTest() {
-		super("/char/MailingLists.xml.aspx", "/character/MailingLists.xml");
+		super(ApiPath.CHARACTER, ApiPage.MAILING_LISTS);
 	}
 
 	@Test
-	public void mailMailingListsParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		MailingListsParser parser = MailingListsParser.getInstance();
-		MailingListsResponse response = parser.getMailingListsResponse(auth);
+		MailingListsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiMailingList> mailinglists = response.getMailingLists();
 		assertNotNull(mailinglists);

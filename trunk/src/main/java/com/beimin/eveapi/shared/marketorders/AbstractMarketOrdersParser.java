@@ -1,19 +1,18 @@
 package com.beimin.eveapi.shared.marketorders;
 
 import java.io.IOException;
-import java.util.Collection;
 
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public abstract class AbstractMarketOrdersParser extends AbstractApiParser<MarketOrdersResponse> {
-	protected static final String MARKET_ORDERS_URL = "/MarketOrders";
-
-	protected AbstractMarketOrdersParser(Path path) {
-		super(MarketOrdersResponse.class, 2, path, MARKET_ORDERS_URL);
+	protected AbstractMarketOrdersParser(ApiPath path) {
+		super(MarketOrdersResponse.class, 2, path, ApiPage.MARKET_ORDERS);
 	}
 
 	@Override
@@ -25,11 +24,7 @@ public abstract class AbstractMarketOrdersParser extends AbstractApiParser<Marke
 		return digester;
 	}
 
-	public MarketOrdersResponse getMarketOrdersResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
-	}
-
-	public Collection<ApiMarketOrder> getMarketOrders(ApiAuth auth) throws IOException, SAXException {
-		return getMarketOrdersResponse(auth).getMarketOrders();
+	public MarketOrdersResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

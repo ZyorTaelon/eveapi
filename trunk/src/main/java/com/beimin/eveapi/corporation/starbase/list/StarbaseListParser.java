@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class StarbaseListParser extends AbstractApiParser<StarbaseListResponse> {
-	private static final String STARBASE_LIST_URL = "/StarbaseList";
-
 	public StarbaseListParser() {
-		super(StarbaseListResponse.class, 2, Path.CORPORATION, STARBASE_LIST_URL);
-	}
-
-	public StarbaseListResponse getList(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(StarbaseListResponse.class, 2, ApiPath.CORPORATION, ApiPage.STARBASE_LIST);
 	}
 
 	@Override
@@ -30,5 +26,9 @@ public class StarbaseListParser extends AbstractApiParser<StarbaseListResponse> 
 
 	public static StarbaseListParser getInstance() {
 		return new StarbaseListParser();
+	}
+
+	public StarbaseListResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

@@ -6,22 +6,26 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.medals.Medal;
 import com.beimin.eveapi.shared.medals.MedalsResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class MedalsParserTest {
+public class MedalsParserTest extends FullAuthParserTest {
+	public MedalsParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.MEDALS);
+	}
 
 	@Test
-	public void testMedalParserCorp() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		MedalsParser parser = MedalsParser.getInstance();
-		InputStream input = MedalsParserTest.class.getResourceAsStream("/corporation/Medals.xml");
-		MedalsResponse response = parser.getResponse(input);
+		MedalsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		List<Medal> medals = response.getMedals();
 		assertEquals("Incorrect amount of members found.", 18, medals.size());

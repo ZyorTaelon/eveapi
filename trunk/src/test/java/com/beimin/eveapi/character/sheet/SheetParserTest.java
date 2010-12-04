@@ -10,17 +10,19 @@ import java.util.Set;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class SheetParserTest extends FullApiParserTest {
+public class SheetParserTest extends FullAuthParserTest {
 	public SheetParserTest() {
-		super("/char/CharacterSheet.xml.aspx", "/character/CharacterSheet.xml");
+		super(ApiPath.CHARACTER, ApiPage.CHARACTER_SHEET);
 	}
 
 	@Test
-	public void characterSheetParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		CharacterSheetParser parser = CharacterSheetParser.getInstance();
-		CharacterSheetResponse response = parser.getCharacterSheet(auth);
+		CharacterSheetResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		assertEquals(150337897L, response.getCharacterID());
 		assertEquals("corpslave", response.getName());

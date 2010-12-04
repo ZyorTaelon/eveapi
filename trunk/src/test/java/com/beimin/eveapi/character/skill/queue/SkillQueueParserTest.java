@@ -10,17 +10,19 @@ import java.util.List;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class SkillQueueParserTest extends FullApiParserTest {
+public class SkillQueueParserTest extends FullAuthParserTest {
 	public SkillQueueParserTest() {
-		super("/char/SkillQueue.xml.aspx", "/character/SkillQueue.xml");
+		super(ApiPath.CHARACTER, ApiPage.SKILL_QUEUE);
 	}
 
 	@Test
-	public void skillInTrainingParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		SkillQueueParser parser = SkillQueueParser.getInstance();
-		SkillQueueResponse response = parser.getSkillQueue(auth);
+		SkillQueueResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		List<ApiSkillQueueItem> skillQueueItems = response.getSkillQueueItems();
 		assertEquals(2, skillQueueItems.size());

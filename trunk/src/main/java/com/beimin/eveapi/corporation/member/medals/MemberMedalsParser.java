@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class MemberMedalsParser extends AbstractApiParser<MemberMedalsResponse> {
-	protected static final String MEMBER_MEDALS_URL = "/MemberMedals";
-
 	public MemberMedalsParser() {
-		super(MemberMedalsResponse.class, 2, Path.CORPORATION, MEMBER_MEDALS_URL);
-	}
-
-	public MemberMedalsResponse getKillList(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(MemberMedalsResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_MEDALS);
 	}
 
 	@Override
@@ -30,5 +26,9 @@ public class MemberMedalsParser extends AbstractApiParser<MemberMedalsResponse> 
 
 	public static MemberMedalsParser getInstance() {
 		return new MemberMedalsParser();
+	}
+
+	public MemberMedalsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

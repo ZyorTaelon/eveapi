@@ -4,19 +4,24 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class KillsParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.NoAuthParserTest;
+
+public class KillsParserTest extends NoAuthParserTest {
+	public KillsParserTest() {
+		super(ApiPath.MAP, ApiPage.KILLS);
+	}
 
 	@Test
-	public void mapKillsParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		MapKillsParser parser = MapKillsParser.getInstance();
-		InputStream input = KillsParserTest.class.getResourceAsStream("/map/Kills.xml");
-		MapKillsResponse response = parser.getResponse(input);
+		MapKillsResponse response = parser.getResponse();
 		assertNotNull(response);
 		Map<Integer, Integer> shipKills = response.getShipKills();
 		assertNotNull(shipKills);

@@ -1,11 +1,11 @@
 package com.beimin.eveapi.corporation.killlog;
 
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.killlog.AbstractKillLogParser;
 
 public class KillLogParser extends AbstractKillLogParser {
-
 	private KillLogParser() {
-		super(Path.CORPORATION);
+		super(ApiPath.CORPORATION);
 	}
 
 	public static KillLogParser getInstance() {

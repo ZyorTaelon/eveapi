@@ -1,19 +1,18 @@
 package com.beimin.eveapi.character.research;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class ResearchParser extends AbstractApiParser<ResearchResponse> {
-	private static final String RESEARCH_URL = "/Research";
-
 	private ResearchParser() {
-		super(ResearchResponse.class, 1, Path.CHARACTER, RESEARCH_URL);
+		super(ResearchResponse.class, 1, ApiPath.CHARACTER, ApiPage.RESEARCH);
 	}
 
 	@Override
@@ -25,15 +24,11 @@ public class ResearchParser extends AbstractApiParser<ResearchResponse> {
 		return digester;
 	}
 
-	public ResearchResponse getResearchResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
-	}
-
-	public List<ApiResearchAgent> getResearchAgents(ApiAuth auth) throws IOException, SAXException {
-		return getResearchResponse(auth).getResearchAgents();
-	}
-
 	public static ResearchParser getInstance() {
 		return new ResearchParser();
+	}
+
+	public ResearchResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

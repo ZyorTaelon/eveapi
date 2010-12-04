@@ -1,21 +1,19 @@
 package com.beimin.eveapi.character.mail.bodies;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.StringUtils;
 
 public class MailBodiesParser extends AbstractApiParser<MailBodiesResponse> {
-	private static final String MAIL_MESSAGES_URL = "/MailBodies";
-
 	private MailBodiesParser() {
-		super(MailBodiesResponse.class, 2, Path.CHARACTER, MAIL_MESSAGES_URL);
+		super(MailBodiesResponse.class, 2, ApiPath.CHARACTER, ApiPage.MAIL_BODIES);
 	}
 
 	@Override
@@ -28,23 +26,11 @@ public class MailBodiesParser extends AbstractApiParser<MailBodiesResponse> {
 		return digester;
 	}
 
-	public MailBodiesResponse getMailBodiesResponse(ApiAuth auth, long... ids) throws IOException, SAXException {
-		StringBuilder idString = new StringBuilder();
-		for (int i = 0; i < ids.length; i++) {
-			idString.append(ids[i]);
-			if (i < ids.length - 1)
-				idString.append(",");
-		}
-		Map<String, String> extraParams = new HashMap<String, String>();
-		extraParams.put("ids", idString.toString());
-		return getResponse(auth, extraParams);
-	}
-
-	public Set<ApiMailBody> getMailBodies(ApiAuth auth, long... ids) throws IOException, SAXException {
-		return getMailBodiesResponse(auth, ids).getMailBodies();
-	}
-
 	public static MailBodiesParser getInstance() {
 		return new MailBodiesParser();
+	}
+
+	public MailBodiesResponse getResponse(ApiAuth auth, long... ids) throws IOException, SAXException {
+		return getResponse(auth, "ids", StringUtils.join(",", ids));
 	}
 }

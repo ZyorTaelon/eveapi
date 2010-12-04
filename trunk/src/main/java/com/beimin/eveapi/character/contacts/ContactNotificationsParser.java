@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class ContactNotificationsParser extends AbstractApiParser<ContactNotificationsResponse> {
-	private static final String CONTACT_NOTIFICATIONS_URL = "/ContactNotifications";
-
 	protected ContactNotificationsParser() {
-		super(ContactNotificationsResponse.class, 2, Path.CHARACTER, CONTACT_NOTIFICATIONS_URL);
-	}
-
-	public static ContactNotificationsParser getInstance() {
-		return new ContactNotificationsParser();
+		super(ContactNotificationsResponse.class, 2, ApiPath.CHARACTER, ApiPage.CONTACT_NOTIFICATIONS);
 	}
 
 	@Override
@@ -28,7 +24,11 @@ public class ContactNotificationsParser extends AbstractApiParser<ContactNotific
 		return digester;
 	}
 
-	public ContactNotificationsResponse getContactNotificationsResponse(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+	public static ContactNotificationsParser getInstance() {
+		return new ContactNotificationsParser();
+	}
+
+	public ContactNotificationsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

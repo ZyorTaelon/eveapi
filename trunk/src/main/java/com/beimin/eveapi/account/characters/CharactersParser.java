@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class CharactersParser extends AbstractApiParser<CharactersResponse> {
-	protected static final String CHARACTER_LIST_URL = "/Characters";
-
 	public CharactersParser() {
-		super(CharactersResponse.class, 1, Path.ACCOUNT, CHARACTER_LIST_URL);
-	}
-
-	public CharactersResponse getEveCharacters(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(CharactersResponse.class, 1, ApiPath.ACCOUNT, ApiPage.CHARACTERS);
 	}
 
 	@Override
@@ -30,5 +26,9 @@ public class CharactersParser extends AbstractApiParser<CharactersResponse> {
 
 	public static CharactersParser getInstance() {
 		return new CharactersParser();
+	}
+
+	public CharactersResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

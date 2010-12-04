@@ -1,11 +1,11 @@
 package com.beimin.eveapi.character.assetlist;
 
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.assetlist.AbstractAssetListParser;
 
 public class AssetListParser extends AbstractAssetListParser {
-
 	private AssetListParser() {
-		super(Path.CHARACTER);
+		super(ApiPath.CHARACTER);
 	}
 
 	public static AssetListParser getInstance() {

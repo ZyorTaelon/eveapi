@@ -9,12 +9,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public abstract class AbstractWalletJournalParser extends AbstractApiParser<WalletJournalResponse> {
-	protected static final String JOURNAL_URL = "/WalletJournal";
-
-	public AbstractWalletJournalParser(Path path) {
-		super(WalletJournalResponse.class, 2, path, JOURNAL_URL);
+	public AbstractWalletJournalParser(ApiPath path) {
+		super(WalletJournalResponse.class, 2, path, ApiPage.WALLET_JOURNAL);
 	}
 
 	@Override
@@ -26,13 +26,11 @@ public abstract class AbstractWalletJournalParser extends AbstractApiParser<Wall
 		return digester;
 	}
 
-	public WalletJournalResponse getWalletJournalResponse(ApiAuth auth, int accountKey) throws IOException, SAXException {
-		Map<String, String> extraParams = new HashMap<String, String>();
-		extraParams.put("accountKey", Integer.toString(accountKey));
-		return getResponse(auth, extraParams);
+	public WalletJournalResponse getResponse(ApiAuth auth, int accountKey) throws IOException, SAXException {
+		return getResponse(auth, "accountKey", Integer.toString(accountKey));
 	}
 
-	public WalletJournalResponse getWalletJournalResponse(ApiAuth auth, int accountKey, long beforeRefID) throws IOException, SAXException {
+	public WalletJournalResponse getResponse(ApiAuth auth, int accountKey, long beforeRefID) throws IOException, SAXException {
 		Map<String, String> extraParams = new HashMap<String, String>();
 		extraParams.put("accountKey", Integer.toString(accountKey));
 		extraParams.put("beforeRefID", Long.toString(beforeRefID));

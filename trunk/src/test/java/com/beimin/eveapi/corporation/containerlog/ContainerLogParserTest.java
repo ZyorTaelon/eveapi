@@ -4,19 +4,24 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class ContainerLogParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
+
+public class ContainerLogParserTest extends FullAuthParserTest {
+	public ContainerLogParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.CONTAINER_LOG);
+	}
 
 	@Test
-	public void containerLogParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		ContainerLogParser parser = ContainerLogParser.getInstance();
-		InputStream input = ContainerLogParserTest.class.getResourceAsStream("/corporation/ContainerLog.xml");
-		ContainerLogResponse response = parser.getResponse(input);
+		ContainerLogResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		List<ApiContainerLog> containerLogs = response.getContainerLogs();
 		assertNotNull(containerLogs);

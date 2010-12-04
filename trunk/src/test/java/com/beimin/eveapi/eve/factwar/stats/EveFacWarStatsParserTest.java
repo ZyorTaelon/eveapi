@@ -3,19 +3,24 @@ package com.beimin.eveapi.eve.factwar.stats;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class EveFacWarStatsParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.NoAuthParserTest;
+
+public class EveFacWarStatsParserTest extends NoAuthParserTest {
+	public EveFacWarStatsParserTest() {
+		super(ApiPath.EVE, ApiPage.FACT_WAR_STATS);
+	}
 
 	@Test
-	public void facWarStats() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		EveFacWarStatsParser parser = EveFacWarStatsParser.getInstance();
-		InputStream input = EveFacWarStatsParserTest.class.getResourceAsStream("/eve/FacWarStats.xml");
-		EveFacWarStats facWarStats = parser.getResponse(input);
+		EveFacWarStats facWarStats = parser.getResponse();
 		assertEquals(677, facWarStats.getKillsYesterday());
 		assertEquals(3246, facWarStats.getKillsLastWeek());
 		assertEquals(232772, facWarStats.getKillsTotal());

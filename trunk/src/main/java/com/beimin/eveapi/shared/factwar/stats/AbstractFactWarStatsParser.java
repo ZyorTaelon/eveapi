@@ -7,12 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
-public class AbstractFactWarStatsParser extends AbstractApiParser<FacWarStats> {
-	private static final String FACT_WAR_STATS_URL = "/FacWarStats";
-
-	protected AbstractFactWarStatsParser(Path path) {
-		super(FacWarStats.class, 2, path, FACT_WAR_STATS_URL);
+public class AbstractFactWarStatsParser extends AbstractApiParser<FacWarStatsResponse> {
+	protected AbstractFactWarStatsParser(ApiPath path) {
+		super(FacWarStatsResponse.class, 2, path, ApiPage.FACT_WAR_STATS);
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class AbstractFactWarStatsParser extends AbstractApiParser<FacWarStats> {
 		return digester;
 	}
 
-	public FacWarStats getFacWarStats(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+	public FacWarStatsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

@@ -9,20 +9,21 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.accountbalance.AccountBalanceResponse;
 import com.beimin.eveapi.shared.accountbalance.ApiAccountBalance;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class AccountBalanceParserTest extends FullApiParserTest {
-
+public class AccountBalanceParserTest extends FullAuthParserTest {
 	public AccountBalanceParserTest() {
-		super("/char/AccountBalance.xml.aspx", "/character/AccountBalance.xml");
+		super(ApiPath.CHARACTER, ApiPage.ACCOUNT_BALANCE);
 	}
 
 	@Test
-	public void accountBalanceParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		AccountBalanceParser parser = AccountBalanceParser.getInstance();
-		AccountBalanceResponse response = parser.getAccountBalanceResponse(auth);
+		AccountBalanceResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<ApiAccountBalance> accountBalances = response.getAccountBalances();
 		assertNotNull(accountBalances);

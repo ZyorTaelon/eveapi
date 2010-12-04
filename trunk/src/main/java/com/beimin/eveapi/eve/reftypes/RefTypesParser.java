@@ -6,16 +6,12 @@ import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class RefTypesParser extends AbstractApiParser<RefTypesResponse> {
-	protected static final String REFTYPES_LIST_URL = "/RefTypes";
-
 	public RefTypesParser() {
-		super(RefTypesResponse.class, 1, Path.EVE, REFTYPES_LIST_URL);
-	}
-
-	public RefTypesResponse getRefTypes() throws IOException, SAXException {
-		return getResponse();
+		super(RefTypesResponse.class, 1, ApiPath.EVE, ApiPage.REF_TYPES);
 	}
 
 	@Override
@@ -29,5 +25,9 @@ public class RefTypesParser extends AbstractApiParser<RefTypesResponse> {
 
 	public static RefTypesParser getInstance() {
 		return new RefTypesParser();
+	}
+
+	public RefTypesResponse getResponse() throws IOException, SAXException {
+		return super.getResponse();
 	}
 }

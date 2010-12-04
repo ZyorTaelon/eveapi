@@ -11,17 +11,19 @@ import java.util.List;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class ResearchParserTest extends FullApiParserTest {
+public class ResearchParserTest extends FullAuthParserTest {
 	public ResearchParserTest() {
-		super("/char/Research.xml.aspx", "/character/Research.xml");
+		super(ApiPath.CHARACTER, ApiPage.RESEARCH);
 	}
 
 	@Test
-	public void notificationsParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		ResearchParser parser = ResearchParser.getInstance();
-		ResearchResponse response = parser.getResearchResponse(auth);
+		ResearchResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		List<ApiResearchAgent> researchAgents = response.getResearchAgents();
 		assertNotNull(researchAgents);

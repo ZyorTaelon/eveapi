@@ -1,11 +1,11 @@
 package com.beimin.eveapi.corporation.factwar.stats;
 
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.factwar.stats.AbstractFactWarStatsParser;
 
 public class FacWarStatsParser extends AbstractFactWarStatsParser {
-
 	private FacWarStatsParser() {
-		super(Path.CORPORATION);
+		super(ApiPath.CORPORATION);
 	}
 
 	public static FacWarStatsParser getInstance() {

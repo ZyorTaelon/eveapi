@@ -5,13 +5,13 @@ import java.io.IOException;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.wallet.journal.AbstractWalletJournalParser;
 import com.beimin.eveapi.shared.wallet.journal.WalletJournalResponse;
 
-public class WalletJournalParser extends AbstractWalletJournalParser{
-
+public class WalletJournalParser extends AbstractWalletJournalParser {
 	private WalletJournalParser() {
-		super(Path.CHARACTER);
+		super(ApiPath.CHARACTER);
 	}
 
 	public static WalletJournalParser getInstance() {
@@ -19,10 +19,10 @@ public class WalletJournalParser extends AbstractWalletJournalParser{
 	}
 
 	public WalletJournalResponse getWalletJournalResponse(ApiAuth auth) throws IOException, SAXException {
-		return getWalletJournalResponse(auth, 1000);	
+		return getResponse(auth, 1000);
 	}
 
 	public WalletJournalResponse getWalletJournalResponse(ApiAuth auth, long beforeRefID) throws IOException, SAXException {
-		return getWalletJournalResponse(auth, 1000, beforeRefID);
+		return getResponse(auth, 1000, beforeRefID);
 	}
 }

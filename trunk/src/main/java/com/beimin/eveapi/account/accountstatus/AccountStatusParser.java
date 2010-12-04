@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class AccountStatusParser extends AbstractApiParser<AccountStatusResponse> {
-	protected static final String ACCOUNT_STATUS_URL = "/AccountStatus";
-
 	public AccountStatusParser() {
-		super(AccountStatusResponse.class, 2, Path.ACCOUNT, ACCOUNT_STATUS_URL);
-	}
-
-	public AccountStatusResponse getAccountStatus(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(AccountStatusResponse.class, 2, ApiPath.ACCOUNT, ApiPage.ACCOUNT_STATUS);
 	}
 
 	@Override
@@ -32,5 +28,9 @@ public class AccountStatusParser extends AbstractApiParser<AccountStatusResponse
 
 	public static AccountStatusParser getInstance() {
 		return new AccountStatusParser();
+	}
+
+	public AccountStatusResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

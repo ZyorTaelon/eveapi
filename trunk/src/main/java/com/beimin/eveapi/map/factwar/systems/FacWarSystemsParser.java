@@ -6,12 +6,12 @@ import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class FacWarSystemsParser extends AbstractApiParser<FacWarSystemsResponse> {
-	private static final String FACTION_WAR_SYSTEMS_URL = "/FacWarSystems";
-
 	private FacWarSystemsParser() {
-		super(FacWarSystemsResponse.class, 2, Path.MAP, FACTION_WAR_SYSTEMS_URL);
+		super(FacWarSystemsResponse.class, 2, ApiPath.MAP, ApiPage.FACTION_WAR_SYSTEMS);
 	}
 
 	@Override
@@ -23,11 +23,11 @@ public class FacWarSystemsParser extends AbstractApiParser<FacWarSystemsResponse
 		return digester;
 	}
 
-	public FacWarSystemsResponse getFacWarSystemsResponse() throws IOException, SAXException {
-		return getResponse();
-	}
-
 	public static FacWarSystemsParser getInstance() {
 		return new FacWarSystemsParser();
+	}
+
+	public FacWarSystemsResponse getResponse() throws IOException, SAXException {
+		return super.getResponse();
 	}
 }

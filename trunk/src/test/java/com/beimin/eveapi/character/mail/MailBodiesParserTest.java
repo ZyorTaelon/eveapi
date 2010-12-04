@@ -12,27 +12,22 @@ import javax.servlet.http.HttpServletRequest;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.ApiAuth;
-import com.beimin.eveapi.ApiAuthorization;
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.character.mail.bodies.ApiMailBody;
 import com.beimin.eveapi.character.mail.bodies.MailBodiesParser;
 import com.beimin.eveapi.character.mail.bodies.MailBodiesResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class MailBodiesParserTest extends FullApiParserTest {
+public class MailBodiesParserTest extends FullAuthParserTest {
 	public MailBodiesParserTest() {
-		super("/char/MailBodies.xml.aspx", "/character/MailBodies.xml");
-	}
-
-	protected void extraAsserts(HttpServletRequest req) {
-		assertEquals("299279683,299280303", req.getParameter("ids"));
+		super(ApiPath.CHARACTER, ApiPage.MAIL_BODIES);
 	}
 
 	@Test
-	public void mailMessagesParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		MailBodiesParser parser = MailBodiesParser.getInstance();
-		ApiAuth auth = new ApiAuthorization(123, 456, "abc");
-		MailBodiesResponse response = parser.getMailBodiesResponse(auth, 299279683L, 299280303L);
+		MailBodiesResponse response = parser.getResponse(auth, 299279683L, 299280303L);
 		assertNotNull(response);
 		Set<ApiMailBody> mailBodies = response.getMailBodies();
 		assertNotNull(mailBodies);
@@ -47,5 +42,9 @@ public class MailBodiesParserTest extends FullApiParserTest {
 			}
 		}
 		assertTrue("Test mail wasn't found.", found);
+	}
+
+	protected void extraAsserts(HttpServletRequest req) {
+		assertEquals("299279683,299280303", req.getParameter("ids"));
 	}
 }

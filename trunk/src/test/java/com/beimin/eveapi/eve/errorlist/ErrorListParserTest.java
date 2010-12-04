@@ -5,19 +5,24 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-public class ErrorListParserTest {
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.NoAuthParserTest;
+
+public class ErrorListParserTest extends NoAuthParserTest {
+	public ErrorListParserTest() {
+		super(ApiPath.EVE, ApiPage.ERROR_LIST);
+	}
 
 	@Test
-	public void errorListParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		ErrorListParser parser = ErrorListParser.getInstance();
-		InputStream input = ErrorListParserTest.class.getResourceAsStream("/eve/ErrorList.xml");
-		ErrorListResponse response = parser.getResponse(input);
+		ErrorListResponse response = parser.getResponse();
 		assertNotNull(response);
 		Collection<ApiErrorListItem> errorListItems = response.getApiErrorListItems();
 		assertEquals(61, errorListItems.size());

@@ -27,19 +27,6 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.utils.DateUtils;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
-	protected enum Path {
-		ACCOUNT("/account"), CHARACTER("/char"), CORPORATION("/corp"), EVE("/eve"), MAP("/map"), NONE(""), SERVER("/server");
-		private final String path;
-
-		Path(String path) {
-			this.path = path;
-		}
-
-		public String getPath() {
-			return path;
-		}
-	}
-
 	private final String filename = "cacheFile.ser";
 
 	protected Logger logger = Logger.getLogger(getClass());
@@ -59,11 +46,11 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	private final Class<E> clazz;
 	private final int apiVersion;
 	protected final Map<String, E> cache = new HashMap<String, E>();
-	private final String pageURL;
 	private boolean cachingEnabled = false;
 	private boolean serializeCaching = false;
 
-	protected final Path path;
+	protected final ApiPath path;
+	private final ApiPage page;
 
 	/**
 	 * 
@@ -119,11 +106,11 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		AbstractApiParser.httpProxy = httpProxy;
 	}
 
-	public AbstractApiParser(Class<E> clazz, int apiVersion, Path path, String pageURL) {
+	public AbstractApiParser(Class<E> clazz, int apiVersion, ApiPath path, ApiPage page) {
 		this.clazz = clazz;
 		this.apiVersion = apiVersion;
 		this.path = path;
-		this.pageURL = pageURL;
+		this.page = page;
 		deSerializeCache();
 	}
 
@@ -155,7 +142,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	private String buildRequestUrl(ApiAuth auth, Map<String, String> extraParams) throws UnsupportedEncodingException {
 		StringBuilder requestUrl = new StringBuilder(eveApiURL);
 		requestUrl.append(path.getPath());
-		requestUrl.append(pageURL);
+		requestUrl.append("/").append(page.getPage());
 		requestUrl.append(".xml.aspx");
 		requestUrl.append("?version=" + apiVersion);
 		Map<String, String> params = new HashMap<String, String>();
@@ -176,6 +163,10 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 
 	protected E getResponse(ApiAuth auth) throws IOException, SAXException {
 		return getResponse(buildRequestUrl(auth, null));
+	}
+
+	protected E getResponse(ApiAuth auth, String paramName, String paramValue) throws IOException, SAXException {
+		return getResponse(buildRequestUrl(auth, Collections.singletonMap(paramName, paramValue)));
 	}
 
 	protected E getResponse(ApiAuth auth, Map<String, String> extraParams) throws IOException, SAXException {

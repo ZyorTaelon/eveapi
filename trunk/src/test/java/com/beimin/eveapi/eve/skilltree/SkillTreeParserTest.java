@@ -5,20 +5,24 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.corporation.starbase.list.StarbaseListParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.utils.NoAuthParserTest;
 
-public class SkillTreeParserTest {
+public class SkillTreeParserTest extends NoAuthParserTest {
+	public SkillTreeParserTest() {
+		super(ApiPath.EVE, ApiPage.SKILL_TREE);
+	}
+
 	@Test
-	public void skillTreeParser() throws IOException, SAXException {
-		InputStream input = StarbaseListParserTest.class.getResourceAsStream("/eve/SkillTree.xml");
+	public void getResponse() throws IOException, SAXException {
 		SkillTreeParser parser = SkillTreeParser.getInstance();
-		SkillTreeResponse response = parser.getResponse(input);
+		SkillTreeResponse response = parser.getResponse();
 		assertNotNull("Should have returned a response.", response);
 		assertEquals("version 2 expected.", 2, response.getVersion());
 		assertNotNull("Response should contain the current time.", response.getCurrentTime());

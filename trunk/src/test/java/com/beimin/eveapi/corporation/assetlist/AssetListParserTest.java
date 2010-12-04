@@ -6,22 +6,27 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Collection;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.assetlist.AbstractAssetListParser;
 import com.beimin.eveapi.shared.assetlist.ApiAsset;
 import com.beimin.eveapi.shared.assetlist.AssetListResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class AssetListParserTest {
+public class AssetListParserTest extends FullAuthParserTest {
+	public AssetListParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.ASSET_LIST);
+	}
+
 	@Test
-	public void assetListParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		AbstractAssetListParser parser = AssetListParser.getInstance();
-		InputStream input = AssetListParserTest.class.getResourceAsStream("/corporation/AssetList.xml");
-		AssetListResponse response = parser.getResponse(input);
+		AssetListResponse response = parser.getResponse(auth);
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 4, 43, 55, response.getCurrentTime());
 		assertDate(2008, 2, 4, 3, 43, 55, response.getCachedUntil());

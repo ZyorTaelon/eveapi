@@ -5,21 +5,25 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Set;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.corporation.member.security.ApiSecurityRole;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class SecurityLogParserTest {
+public class SecurityLogParserTest extends FullAuthParserTest {
+	public SecurityLogParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.MEMBER_SECURITY_LOG);
+	}
 
 	@Test
-	public void memberSecurityLogParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		MemberSecurityLogParser parser = MemberSecurityLogParser.getInstance();
-		InputStream input = SecurityLogParserTest.class.getResourceAsStream("/corporation/MemberSecurityLog.xml");
-		MemberSecurityLogResponse response = parser.getResponse(input);
+		MemberSecurityLogResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiRoleHistory> roleHistories = response.getRoleHistories();
 		assertNotNull(roleHistories);

@@ -8,16 +8,12 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class SkillTreeParser extends AbstractApiParser<SkillTreeResponse> {
-	private static final String SKILLS_URL = "/SkillTree";
-
 	public SkillTreeParser() {
-		super(SkillTreeResponse.class, 2, Path.EVE, SKILLS_URL);
-	}
-
-	public SkillTreeResponse getSkills() throws IOException, SAXException {
-		return getResponse();
+		super(SkillTreeResponse.class, 2, ApiPath.EVE, ApiPage.SKILL_TREE);
 	}
 
 	@Override
@@ -48,5 +44,9 @@ public class SkillTreeParser extends AbstractApiParser<SkillTreeResponse> {
 
 	public static SkillTreeParser getInstance() {
 		return new SkillTreeParser();
+	}
+
+	public SkillTreeResponse getResponse() throws IOException, SAXException {
+		return super.getResponse();
 	}
 }

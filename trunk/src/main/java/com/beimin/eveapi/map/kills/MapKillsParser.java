@@ -6,12 +6,12 @@ import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class MapKillsParser extends AbstractApiParser<MapKillsResponse> {
-	private static final String KIILS_URL = "/Kills";
-
 	public MapKillsParser() {
-		super(MapKillsResponse.class, 2, Path.MAP, KIILS_URL);
+		super(MapKillsResponse.class, 2, ApiPath.MAP, ApiPage.KILLS);
 	}
 
 	@Override
@@ -23,11 +23,11 @@ public class MapKillsParser extends AbstractApiParser<MapKillsResponse> {
 		return digester;
 	}
 
-	public MapKillsResponse getKills() throws IOException, SAXException {
-		return getResponse();
-	}
-
 	public static MapKillsParser getInstance() {
 		return new MapKillsParser();
+	}
+
+	public MapKillsResponse getResponse() throws IOException, SAXException {
+		return super.getResponse();
 	}
 }

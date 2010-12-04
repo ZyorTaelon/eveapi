@@ -7,16 +7,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
 import com.beimin.eveapi.ApiAuth;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class UpcomingCalendarEventsParser extends AbstractApiParser<UpcomingCalendarEventsResponse> {
-	private static final String UPCOMING_CALENDAR_EVENTS_URL = "/UpcomingCalendarEvents";
-
 	public UpcomingCalendarEventsParser() {
-		super(UpcomingCalendarEventsResponse.class, 2, Path.CHARACTER, UPCOMING_CALENDAR_EVENTS_URL);
-	}
-
-	public UpcomingCalendarEventsResponse getUpcomingCalendarEvents(ApiAuth auth) throws IOException, SAXException {
-		return getResponse(auth);
+		super(UpcomingCalendarEventsResponse.class, 2, ApiPath.CHARACTER, ApiPage.UPCOMING_CALENDAR_EVENTS);
 	}
 
 	@Override
@@ -30,5 +26,9 @@ public class UpcomingCalendarEventsParser extends AbstractApiParser<UpcomingCale
 
 	public static UpcomingCalendarEventsParser getInstance() {
 		return new UpcomingCalendarEventsParser();
+	}
+
+	public UpcomingCalendarEventsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+		return super.getResponse(auth);
 	}
 }

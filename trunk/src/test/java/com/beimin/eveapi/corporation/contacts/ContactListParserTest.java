@@ -5,21 +5,25 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.contacts.ApiContact;
 import com.beimin.eveapi.shared.contacts.ContactList;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class ContactListParserTest {
+public class ContactListParserTest extends FullAuthParserTest {
+	public ContactListParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.CONTACT_LIST);
+	}
 
 	@Test
-	public void contactListParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		ContactListParser parser = ContactListParser.getInstance();
-		InputStream input = ContactListParserTest.class.getResourceAsStream("/corporation/ContactList.xml");
-		ContactListResponse response = parser.getResponse(input);
+		ContactListResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 
 		ContactList corporateContactList = response.getCorporateContactList();

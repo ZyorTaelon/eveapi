@@ -11,20 +11,22 @@ import java.util.Collection;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.shared.industryjobs.AbstractIndustryJobsParser;
 import com.beimin.eveapi.shared.industryjobs.ApiIndustryJob;
 import com.beimin.eveapi.shared.industryjobs.IndustryJobsResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class IndustryJobsParserTest extends FullApiParserTest {
+public class IndustryJobsParserTest extends FullAuthParserTest {
 	public IndustryJobsParserTest() {
-		super("/char/IndustryJobs.xml.aspx", "/character/IndustryJobs.xml");
+		super(ApiPath.CHARACTER, ApiPage.INDUSTRY_JOBS);
 	}
 
 	@Test
-	public void industryJobsParser() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		AbstractIndustryJobsParser parser = IndustryJobsParser.getInstance();
-		IndustryJobsResponse response = parser.getIndustryJobsResponse(auth);
+		IndustryJobsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<ApiIndustryJob> industryJobs = response.getIndustryJobs();
 		assertNotNull(industryJobs);

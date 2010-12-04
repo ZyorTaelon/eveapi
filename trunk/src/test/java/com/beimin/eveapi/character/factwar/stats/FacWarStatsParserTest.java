@@ -8,19 +8,21 @@ import java.io.IOException;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.FullApiParserTest;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 import com.beimin.eveapi.character.facwar.stats.FacWarStatsParser;
-import com.beimin.eveapi.shared.factwar.stats.FacWarStats;
+import com.beimin.eveapi.shared.factwar.stats.FacWarStatsResponse;
+import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class FacWarStatsParserTest extends FullApiParserTest {
+public class FacWarStatsParserTest extends FullAuthParserTest {
 	public FacWarStatsParserTest() {
-		super("/char/FacWarStats.xml.aspx", "/character/FacWarStats.xml");
+		super(ApiPath.CHARACTER, ApiPage.FACT_WAR_STATS);
 	}
 
 	@Test
-	public void facWarStats() throws IOException, SAXException {
+	public void getResponse() throws IOException, SAXException {
 		FacWarStatsParser parser = FacWarStatsParser.getInstance();
-		FacWarStats facWarStats = parser.getFacWarStats(auth);
+		FacWarStatsResponse facWarStats = parser.getResponse(auth);
 		assertEquals(500001, facWarStats.getFactionID());
 		assertEquals("Caldari State", facWarStats.getFactionName());
 		assertDate(2008, 6, 10, 22, 10, 0, facWarStats.getEnlisted());

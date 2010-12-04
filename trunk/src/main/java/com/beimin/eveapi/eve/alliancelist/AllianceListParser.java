@@ -6,16 +6,12 @@ import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class AllianceListParser extends AbstractApiParser<AllianceListResponse> {
-	protected static final String ALLIANCE_LIST_URL = "/AllianceList";
-
 	public AllianceListParser() {
-		super(AllianceListResponse.class, 1, Path.EVE, ALLIANCE_LIST_URL);
-	}
-
-	public AllianceListResponse getAllianceList() throws IOException, SAXException {
-		return getResponse();
+		super(AllianceListResponse.class, 1, ApiPath.EVE, ApiPage.ALLIANCE_LIST);
 	}
 
 	@Override
@@ -32,5 +28,9 @@ public class AllianceListParser extends AbstractApiParser<AllianceListResponse> 
 
 	public static AllianceListParser getInstance() {
 		return new AllianceListParser();
+	}
+
+	public AllianceListResponse getResponse() throws IOException, SAXException {
+		return super.getResponse();
 	}
 }

@@ -6,16 +6,12 @@ import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.AbstractApiParser;
+import com.beimin.eveapi.ApiPage;
+import com.beimin.eveapi.ApiPath;
 
 public class ConquerableStationListParser extends AbstractApiParser<StationListResponse> {
-	protected static final String STATION_LIST_URL = "/ConquerableStationList";
-
 	public ConquerableStationListParser() {
-		super(StationListResponse.class, 2, Path.EVE, STATION_LIST_URL);
-	}
-
-	public StationListResponse getStationList() throws IOException, SAXException {
-		return getResponse();
+		super(StationListResponse.class, 2, ApiPath.EVE, ApiPage.CONQUERABLE_STATION_LIST);
 	}
 
 	@Override
@@ -29,5 +25,9 @@ public class ConquerableStationListParser extends AbstractApiParser<StationListR
 
 	public static ConquerableStationListParser getInstance() {
 		return new ConquerableStationListParser();
+	}
+
+	public StationListResponse getResponse() throws IOException, SAXException {
+		return super.getResponse();
 	}
 }
