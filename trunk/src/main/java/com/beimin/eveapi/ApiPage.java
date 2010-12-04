@@ -47,7 +47,8 @@ public enum ApiPage {
 	JUMPS("Jumps"), //
 	KILLS("Kills"), //
 	SOVEREIGNTY("Sovereignty"), //
-	SERVER_STATUS("ServerStatus");
+	SERVER_STATUS("ServerStatus"), //
+	CHARACTER_INFO("CharacterInfo");
 
 	private final String url;
 

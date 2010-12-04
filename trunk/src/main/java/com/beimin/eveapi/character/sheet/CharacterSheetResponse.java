@@ -4,13 +4,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.shared.character.EveBloodline;
+import com.beimin.eveapi.shared.character.EveRace;
 
 public class CharacterSheetResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
 	private long characterID;
 	private String name;
-	private String race;
-	private String bloodLine;
+	private EveRace race;
+	private EveBloodline bloodLine;
 	private String gender;
 	private String corporationName;
 	private long corporationID;
@@ -39,19 +41,19 @@ public class CharacterSheetResponse extends ApiResponse {
 		this.name = name;
 	}
 
-	public String getRace() {
+	public EveRace getRace() {
 		return race;
 	}
 
-	public void setRace(String race) {
+	public void setRace(EveRace race) {
 		this.race = race;
 	}
 
-	public String getBloodLine() {
+	public EveBloodline getBloodLine() {
 		return bloodLine;
 	}
 
-	public void setBloodLine(String bloodLine) {
+	public void setBloodLine(EveBloodline bloodLine) {
 		this.bloodLine = bloodLine;
 	}
 

@@ -12,6 +12,8 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.ApiPage;
 import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.shared.character.EveBloodline;
+import com.beimin.eveapi.shared.character.EveRace;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class SheetParserTest extends FullAuthParserTest {
@@ -26,8 +28,8 @@ public class SheetParserTest extends FullAuthParserTest {
 		assertNotNull(response);
 		assertEquals(150337897L, response.getCharacterID());
 		assertEquals("corpslave", response.getName());
-		assertEquals("Minmatar", response.getRace());
-		assertEquals("Brutor", response.getBloodLine());
+		assertEquals(EveRace.MINMATAR, response.getRace());
+		assertEquals(EveBloodline.BRUTOR, response.getBloodLine());
 		assertEquals("Female", response.getGender());
 		assertEquals("corpexport Corp", response.getCorporationName());
 		assertEquals(150337746L, response.getCorporationID());

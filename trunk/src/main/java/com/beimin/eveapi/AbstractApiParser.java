@@ -24,6 +24,10 @@ import org.apache.commons.digester.Digester;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
+import com.beimin.eveapi.shared.character.EveBloodline;
+import com.beimin.eveapi.shared.character.EveBloodlineConverter;
+import com.beimin.eveapi.shared.character.EveRace;
+import com.beimin.eveapi.shared.character.EveRaceConverter;
 import com.beimin.eveapi.utils.DateUtils;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
@@ -116,7 +120,9 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 
 	protected Digester getDigester() {
 		Digester digester = new Digester();
-		ConvertUtils.register(DateUtils.getGMTConverter(), java.util.Date.class);
+		ConvertUtils.register(DateUtils.getGMTConverter(), Date.class);
+		ConvertUtils.register(new EveRaceConverter(), EveRace.class);
+		ConvertUtils.register(new EveBloodlineConverter(), EveBloodline.class);
 		digester.setValidating(false);
 		digester.addObjectCreate("eveapi", clazz);
 		digester.addSetProperties("eveapi");
