@@ -8,7 +8,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 public class MockApi {
-	public static String URL = "http://localhost/api";
+	public static String URL = "http://localhost:12344/api";
 
 	public static String response(String file) {
 		try {
