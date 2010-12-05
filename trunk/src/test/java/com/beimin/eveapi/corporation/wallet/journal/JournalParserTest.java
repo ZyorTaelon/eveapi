@@ -15,6 +15,7 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.ApiPage;
 import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.shared.wallet.RefType;
 import com.beimin.eveapi.shared.wallet.journal.AbstractWalletJournalParser;
 import com.beimin.eveapi.shared.wallet.journal.ApiJournalEntry;
 import com.beimin.eveapi.shared.wallet.journal.WalletJournalResponse;
@@ -37,7 +38,7 @@ public class JournalParserTest extends FullAuthParserTest {
 			if (journalEntry.getRefID() == 2566012762L) {
 				found = true;
 				assertDate(2010, 4, 9, 15, 53, 0, journalEntry.getDate());
-				assertEquals(42, journalEntry.getRefTypeID());
+				assertEquals(RefType.MARKET_ESCROW, journalEntry.getRefType());
 				assertEquals("corpslave", journalEntry.getOwnerName1());
 				assertEquals(150337897, journalEntry.getOwnerID1());
 				assertEquals("Secure Commerce Commission", journalEntry.getOwnerName2());

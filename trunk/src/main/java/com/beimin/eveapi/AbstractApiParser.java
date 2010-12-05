@@ -21,7 +21,8 @@ import java.util.TimeZone;
 
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.digester.Digester;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.shared.character.EveBloodline;
@@ -31,9 +32,8 @@ import com.beimin.eveapi.shared.character.EveRaceConverter;
 import com.beimin.eveapi.utils.DateUtils;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	private final String filename = "cacheFile.ser";
-
-	protected Logger logger = Logger.getLogger(getClass());
 
 	protected static final String DEFAULT_EVE_API_URL = "http://api.eve-online.com";
 	/*

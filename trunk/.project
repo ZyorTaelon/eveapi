@@ -1,6 +1,6 @@
 <projectDescription>
   <name>eveapi</name>
-  <comment>Parsers for the eve-api</comment>
+  <comment>Parsers for the eve-api. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects/>
   <buildSpec>
     <buildCommand>
