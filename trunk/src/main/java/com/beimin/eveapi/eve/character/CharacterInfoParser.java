@@ -46,6 +46,7 @@ public class CharacterInfoParser extends AbstractApiParser<CharacterInfoResponse
 		return super.getResponse("characterID", Integer.toString(characterID));
 	}
 
+	@Override
 	public CharacterInfoResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

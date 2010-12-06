@@ -28,6 +28,7 @@ public class ContactNotificationsParser extends AbstractApiParser<ContactNotific
 		return new ContactNotificationsParser();
 	}
 
+	@Override
 	public ContactNotificationsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

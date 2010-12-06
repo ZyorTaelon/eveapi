@@ -28,6 +28,7 @@ public class StarbaseListParser extends AbstractApiParser<StarbaseListResponse> 
 		return new StarbaseListParser();
 	}
 
+	@Override
 	public StarbaseListResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

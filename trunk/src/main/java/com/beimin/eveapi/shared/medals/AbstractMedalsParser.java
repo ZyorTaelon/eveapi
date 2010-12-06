@@ -27,6 +27,7 @@ public abstract class AbstractMedalsParser<M extends Medal> extends AbstractApiP
 		return digester;
 	}
 
+	@Override
 	public MedalsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

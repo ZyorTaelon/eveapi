@@ -44,6 +44,7 @@ public class EveFacWarStatsParser extends AbstractApiParser<EveFacWarStats> {
 		return new EveFacWarStatsParser();
 	}
 
+	@Override
 	public EveFacWarStats getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

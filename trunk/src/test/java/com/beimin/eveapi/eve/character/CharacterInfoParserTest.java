@@ -124,23 +124,28 @@ public class CharacterInfoParserTest {
 	}
 
 	private RouteBuilder limitedApiRoute = new RouteBuilder() {
+		@Override
 		public void configure() {
 			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new Processor() {
+				@Override
 				public void process(Exchange exchange) {
 					HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
 					assertNotNull(req);
 					assertEquals("123", req.getParameter("userID"));
 					assertEquals("1380128241", req.getParameter("characterID"));
 					assertEquals("abc", req.getParameter("apiKey"));
-					exchange.getOut().setBody(MockApi.response(path.getPath() + "/" + page.getPage() + "_LimitedAPI.xml"));
+					exchange.getOut().setBody(
+							MockApi.response(path.getPath() + "/" + page.getPage() + "_LimitedAPI.xml"));
 				}
 			}).end();
 		}
 	};
 
 	private RouteBuilder noAPI = new RouteBuilder() {
+		@Override
 		public void configure() {
 			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new Processor() {
+				@Override
 				public void process(Exchange exchange) {
 					HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
 					assertNotNull(req);
@@ -152,8 +157,10 @@ public class CharacterInfoParserTest {
 	};
 
 	private RouteBuilder fullApiRoute = new RouteBuilder() {
+		@Override
 		public void configure() {
 			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new Processor() {
+				@Override
 				public void process(Exchange exchange) {
 					HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
 					assertNotNull(req);

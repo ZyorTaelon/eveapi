@@ -46,6 +46,7 @@ public class CorporationTitlesParser extends AbstractApiParser<CorporationTitles
 		return new CorporationTitlesParser();
 	}
 
+	@Override
 	public CorporationTitlesResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

@@ -28,6 +28,7 @@ public class MemberTrackingParser extends AbstractApiParser<MemberTrackingRespon
 		return new MemberTrackingParser();
 	}
 
+	@Override
 	public MemberTrackingResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

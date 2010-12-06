@@ -46,6 +46,7 @@ public class MemberSecurityParser extends AbstractApiParser<MemberSecurityRespon
 		return new MemberSecurityParser();
 	}
 
+	@Override
 	public MemberSecurityResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

@@ -27,6 +27,7 @@ public class RefTypesParser extends AbstractApiParser<RefTypesResponse> {
 		return new RefTypesParser();
 	}
 
+	@Override
 	public RefTypesResponse getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

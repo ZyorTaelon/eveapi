@@ -24,6 +24,7 @@ public abstract class AbstractAccountBalanceParser extends AbstractApiParser<Acc
 		return digester;
 	}
 
+	@Override
 	public AccountBalanceResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

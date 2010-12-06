@@ -15,6 +15,7 @@ public abstract class AbstractStandingsParser extends AbstractApiParser<Standing
 		super(StandingsResponse.class, 2, path, ApiPage.STANDINGS);
 	}
 
+	@Override
 	protected abstract Digester getDigester();
 
 	protected Digester getDigester(String charCorpPath) {
@@ -28,6 +29,7 @@ public abstract class AbstractStandingsParser extends AbstractApiParser<Standing
 		return digester;
 	}
 
+	@Override
 	public StandingsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

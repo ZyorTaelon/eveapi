@@ -27,6 +27,7 @@ public class ConquerableStationListParser extends AbstractApiParser<StationListR
 		return new ConquerableStationListParser();
 	}
 
+	@Override
 	public StationListResponse getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

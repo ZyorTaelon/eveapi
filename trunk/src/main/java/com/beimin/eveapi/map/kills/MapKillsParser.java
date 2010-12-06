@@ -27,6 +27,7 @@ public class MapKillsParser extends AbstractApiParser<MapKillsResponse> {
 		return new MapKillsParser();
 	}
 
+	@Override
 	public MapKillsResponse getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

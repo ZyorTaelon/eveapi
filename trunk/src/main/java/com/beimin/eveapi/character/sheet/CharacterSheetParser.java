@@ -67,6 +67,7 @@ public class CharacterSheetParser extends AbstractApiParser<CharacterSheetRespon
 		return new CharacterSheetParser();
 	}
 
+	@Override
 	public CharacterSheetResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

@@ -79,6 +79,7 @@ public class FacWarTopStatsParser extends AbstractApiParser<FacWarTopStatsRespon
 		return new FacWarTopStatsParser();
 	}
 
+	@Override
 	public FacWarTopStatsResponse getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

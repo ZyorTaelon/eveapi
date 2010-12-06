@@ -27,6 +27,7 @@ public abstract class AbstractContactListParser<CLR extends AbstractContactListR
 		return digester;
 	}
 
+	@Override
 	public CLR getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

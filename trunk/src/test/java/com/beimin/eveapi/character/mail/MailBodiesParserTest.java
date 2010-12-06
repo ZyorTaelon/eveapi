@@ -44,6 +44,7 @@ public class MailBodiesParserTest extends FullAuthParserTest {
 		assertTrue("Test mail wasn't found.", found);
 	}
 
+	@Override
 	protected void extraAsserts(HttpServletRequest req) {
 		assertEquals("299279683,299280303", req.getParameter("ids"));
 	}

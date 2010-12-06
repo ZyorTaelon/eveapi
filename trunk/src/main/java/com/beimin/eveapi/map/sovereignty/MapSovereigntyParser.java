@@ -27,6 +27,7 @@ public class MapSovereigntyParser extends AbstractApiParser<MapSovereigntyRespon
 		return new MapSovereigntyParser();
 	}
 
+	@Override
 	public MapSovereigntyResponse getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

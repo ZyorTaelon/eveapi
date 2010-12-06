@@ -27,6 +27,7 @@ public class FacWarSystemsParser extends AbstractApiParser<FacWarSystemsResponse
 		return new FacWarSystemsParser();
 	}
 
+	@Override
 	public FacWarSystemsResponse getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

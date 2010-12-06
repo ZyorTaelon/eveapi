@@ -28,6 +28,7 @@ public class MemberMedalsParser extends AbstractApiParser<MemberMedalsResponse> 
 		return new MemberMedalsParser();
 	}
 
+	@Override
 	public MemberMedalsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

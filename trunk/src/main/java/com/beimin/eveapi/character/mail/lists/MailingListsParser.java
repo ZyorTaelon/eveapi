@@ -28,6 +28,7 @@ public class MailingListsParser extends AbstractApiParser<MailingListsResponse> 
 		return new MailingListsParser();
 	}
 
+	@Override
 	public MailingListsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

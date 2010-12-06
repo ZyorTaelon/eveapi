@@ -28,6 +28,7 @@ public class ResearchParser extends AbstractApiParser<ResearchResponse> {
 		return new ResearchParser();
 	}
 
+	@Override
 	public ResearchResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

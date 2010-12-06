@@ -28,6 +28,7 @@ public class SkillQueueParser extends AbstractApiParser<SkillQueueResponse> {
 		return new SkillQueueParser();
 	}
 
+	@Override
 	public SkillQueueResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

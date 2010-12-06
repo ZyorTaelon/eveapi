@@ -25,16 +25,17 @@ public class CertificateTreeParser extends AbstractApiParser<CertificateTreeResp
 		digester.addSetProperties("eveapi/result/rowset/row/rowset/row");
 		digester.addObjectCreate("eveapi/result/rowset/row/rowset/row/rowset/row", ApiCertificate.class);
 		digester.addSetProperties("eveapi/result/rowset/row/rowset/row/rowset/row");
-		digester.addFactoryCreate("eveapi/result/rowset/row/rowset/row/rowset/row/rowset/row", new AbstractObjectCreationFactory() {
-			@Override
-			public Object createObject(Attributes attributes) throws Exception {
-				if (attributes.getValue("typeID") != null)
-					return new RequiredSkill();
-				if (attributes.getValue("certificateID") != null)
-					return new RequiredCertificate();
-				return null;
-			}
-		});
+		digester.addFactoryCreate("eveapi/result/rowset/row/rowset/row/rowset/row/rowset/row",
+				new AbstractObjectCreationFactory() {
+					@Override
+					public Object createObject(Attributes attributes) throws Exception {
+						if (attributes.getValue("typeID") != null)
+							return new RequiredSkill();
+						if (attributes.getValue("certificateID") != null)
+							return new RequiredCertificate();
+						return null;
+					}
+				});
 		digester.addSetProperties("eveapi/result/rowset/row/rowset/row/rowset/row/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row/rowset/row/rowset/row/rowset/row", "addRequirement");
 		digester.addSetNext("eveapi/result/rowset/row/rowset/row/rowset/row", "addCertificate");
@@ -47,6 +48,7 @@ public class CertificateTreeParser extends AbstractApiParser<CertificateTreeResp
 		return new CertificateTreeParser();
 	}
 
+	@Override
 	public CertificateTreeResponse getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

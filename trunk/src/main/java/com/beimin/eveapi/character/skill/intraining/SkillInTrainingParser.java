@@ -33,6 +33,7 @@ public class SkillInTrainingParser extends AbstractApiParser<SkillInTrainingResp
 		return new SkillInTrainingParser();
 	}
 
+	@Override
 	public SkillInTrainingResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

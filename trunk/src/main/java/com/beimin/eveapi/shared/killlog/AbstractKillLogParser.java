@@ -41,6 +41,7 @@ public abstract class AbstractKillLogParser extends AbstractApiParser<KillLogRes
 		return digester;
 	}
 
+	@Override
 	public KillLogResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

@@ -28,6 +28,7 @@ public class ContainerLogParser extends AbstractApiParser<ContainerLogResponse> 
 		return new ContainerLogParser();
 	}
 
+	@Override
 	public ContainerLogResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

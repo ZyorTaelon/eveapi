@@ -24,6 +24,7 @@ public abstract class AbstractAssetListParser extends AbstractApiParser<AssetLis
 		return digester;
 	}
 
+	@Override
 	public AssetListResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

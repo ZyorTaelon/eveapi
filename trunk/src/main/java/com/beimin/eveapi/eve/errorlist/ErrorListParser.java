@@ -27,6 +27,7 @@ public class ErrorListParser extends AbstractApiParser<ErrorListResponse> {
 		return new ErrorListParser();
 	}
 
+	@Override
 	public ErrorListResponse getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

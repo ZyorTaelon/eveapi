@@ -27,6 +27,7 @@ public class MapJumpsParser extends AbstractApiParser<MapJumpsResponse> {
 		return new MapJumpsParser();
 	}
 
+	@Override
 	public MapJumpsResponse getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

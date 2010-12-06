@@ -30,6 +30,7 @@ public class AccountStatusParser extends AbstractApiParser<AccountStatusResponse
 		return new AccountStatusParser();
 	}
 
+	@Override
 	public AccountStatusResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

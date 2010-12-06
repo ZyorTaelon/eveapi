@@ -24,6 +24,7 @@ public abstract class AbstractIndustryJobsParser extends AbstractApiParser<Indus
 		return digester;
 	}
 
+	@Override
 	public IndustryJobsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

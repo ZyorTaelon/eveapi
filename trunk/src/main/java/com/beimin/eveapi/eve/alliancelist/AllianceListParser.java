@@ -30,6 +30,7 @@ public class AllianceListParser extends AbstractApiParser<AllianceListResponse> 
 		return new AllianceListParser();
 	}
 
+	@Override
 	public AllianceListResponse getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

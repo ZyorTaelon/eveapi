@@ -26,16 +26,17 @@ public class SkillTreeParser extends AbstractApiParser<SkillTreeResponse> {
 		digester.addSetProperties("eveapi/result/rowset/row/rowset/row");
 		digester.addBeanPropertySetter("eveapi/result/rowset/row/rowset/row/description");
 		digester.addBeanPropertySetter("eveapi/result/rowset/row/rowset/row/rank");
-		digester.addFactoryCreate("eveapi/result/rowset/row/rowset/row/rowset/row", new AbstractObjectCreationFactory() {
-			@Override
-			public Object createObject(Attributes attributes) throws Exception {
-				if (attributes.getValue("typeID") != null)
-					return new ApiRequirement();
-				if (attributes.getValue("bonusType") != null)
-					return new ApiBonus();
-				return null;
-			}
-		});
+		digester.addFactoryCreate("eveapi/result/rowset/row/rowset/row/rowset/row",
+				new AbstractObjectCreationFactory() {
+					@Override
+					public Object createObject(Attributes attributes) throws Exception {
+						if (attributes.getValue("typeID") != null)
+							return new ApiRequirement();
+						if (attributes.getValue("bonusType") != null)
+							return new ApiBonus();
+						return null;
+					}
+				});
 		digester.addSetProperties("eveapi/result/rowset/row/rowset/row/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row/rowset/row/rowset/row", "addSkillDetail");
 		digester.addSetNext("eveapi/result/rowset/row/rowset/row", "addSkill");
@@ -46,6 +47,7 @@ public class SkillTreeParser extends AbstractApiParser<SkillTreeResponse> {
 		return new SkillTreeParser();
 	}
 
+	@Override
 	public SkillTreeResponse getResponse() throws IOException, SAXException {
 		return super.getResponse();
 	}

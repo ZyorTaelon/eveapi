@@ -28,6 +28,7 @@ public class CharactersParser extends AbstractApiParser<CharactersResponse> {
 		return new CharactersParser();
 	}
 
+	@Override
 	public CharactersResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

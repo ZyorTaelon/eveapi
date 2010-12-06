@@ -33,6 +33,7 @@ public class AbstractFactWarStatsParser extends AbstractApiParser<FacWarStatsRes
 		return digester;
 	}
 
+	@Override
 	public FacWarStatsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

@@ -28,6 +28,7 @@ public class UpcomingCalendarEventsParser extends AbstractApiParser<UpcomingCale
 		return new UpcomingCalendarEventsParser();
 	}
 
+	@Override
 	public UpcomingCalendarEventsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}

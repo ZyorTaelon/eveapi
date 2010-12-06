@@ -24,6 +24,7 @@ public abstract class AbstractMarketOrdersParser extends AbstractApiParser<Marke
 		return digester;
 	}
 
+	@Override
 	public MarketOrdersResponse getResponse(ApiAuth auth) throws IOException, SAXException {
 		return super.getResponse(auth);
 	}
