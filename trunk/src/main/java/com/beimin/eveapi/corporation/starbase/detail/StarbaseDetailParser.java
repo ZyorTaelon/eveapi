@@ -1,14 +1,14 @@
 package com.beimin.eveapi.corporation.starbase.detail;
 
-import java.io.IOException;
 
 import org.apache.commons.digester.Digester;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.AbstractApiParser;
-import com.beimin.eveapi.ApiAuth;
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.ApiAuth;
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 
 public class StarbaseDetailParser extends AbstractApiParser<StarbaseDetailResponse> {
 	public StarbaseDetailParser() {
@@ -50,7 +50,7 @@ public class StarbaseDetailParser extends AbstractApiParser<StarbaseDetailRespon
 		return new StarbaseDetailParser();
 	}
 
-	public StarbaseDetailResponse getResponse(ApiAuth auth, int itemID) throws IOException, SAXException {
+	public StarbaseDetailResponse getResponse(ApiAuth auth, int itemID) throws ApiException {
 		return super.getResponse(auth, "itemID", Integer.toString(itemID));
 	}
 }

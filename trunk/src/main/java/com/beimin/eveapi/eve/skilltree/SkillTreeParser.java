@@ -1,15 +1,15 @@
 package com.beimin.eveapi.eve.skilltree;
 
-import java.io.IOException;
 
 import org.apache.commons.digester.AbstractObjectCreationFactory;
 import org.apache.commons.digester.Digester;
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.AbstractApiParser;
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 
 public class SkillTreeParser extends AbstractApiParser<SkillTreeResponse> {
 	public SkillTreeParser() {
@@ -48,7 +48,7 @@ public class SkillTreeParser extends AbstractApiParser<SkillTreeResponse> {
 	}
 
 	@Override
-	public SkillTreeResponse getResponse() throws IOException, SAXException {
+	public SkillTreeResponse getResponse() throws ApiException {
 		return super.getResponse();
 	}
 }

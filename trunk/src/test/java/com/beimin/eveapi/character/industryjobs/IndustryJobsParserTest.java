@@ -5,14 +5,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
 import java.util.Collection;
 
 import org.junit.Test;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.industryjobs.AbstractIndustryJobsParser;
 import com.beimin.eveapi.shared.industryjobs.ApiIndustryJob;
 import com.beimin.eveapi.shared.industryjobs.IndustryJobsResponse;
@@ -24,7 +24,7 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 	}
 
 	@Test
-	public void getResponse() throws IOException, SAXException {
+	public void getResponse() throws ApiException {
 		AbstractIndustryJobsParser parser = IndustryJobsParser.getInstance();
 		IndustryJobsResponse response = parser.getResponse(auth);
 		assertNotNull(response);

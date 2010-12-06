@@ -1,13 +1,13 @@
 package com.beimin.eveapi.server;
 
-import java.io.IOException;
 
 import org.apache.commons.digester.Digester;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.AbstractApiParser;
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 
 public class ServerStatusParser extends AbstractApiParser<ServerStatusResponse> {
 	public ServerStatusParser() {
@@ -26,7 +26,7 @@ public class ServerStatusParser extends AbstractApiParser<ServerStatusResponse> 
 		return new ServerStatusParser();
 	}
 
-	public ServerStatusResponse getServerStatus() throws IOException, SAXException {
+	public ServerStatusResponse getServerStatus() throws ApiException {
 		return getResponse();
 	}
 }

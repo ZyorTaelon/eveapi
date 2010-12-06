@@ -1,6 +1,6 @@
 package com.beimin.eveapi.shared.standings;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class StandingsResponse extends ApiResponse {
 	private static final long serialVersionUID = 2L;

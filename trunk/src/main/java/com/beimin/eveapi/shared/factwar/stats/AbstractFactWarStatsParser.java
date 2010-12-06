@@ -1,14 +1,14 @@
 package com.beimin.eveapi.shared.factwar.stats;
 
-import java.io.IOException;
 
 import org.apache.commons.digester.Digester;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.AbstractApiParser;
-import com.beimin.eveapi.ApiAuth;
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.ApiAuth;
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 
 public class AbstractFactWarStatsParser extends AbstractApiParser<FacWarStatsResponse> {
 	protected AbstractFactWarStatsParser(ApiPath path) {
@@ -34,7 +34,7 @@ public class AbstractFactWarStatsParser extends AbstractApiParser<FacWarStatsRes
 	}
 
 	@Override
-	public FacWarStatsResponse getResponse(ApiAuth auth) throws IOException, SAXException {
+	public FacWarStatsResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

@@ -6,8 +6,8 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class AccountStatusParserTest extends FullAuthParserTest {

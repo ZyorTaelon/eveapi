@@ -2,16 +2,16 @@ package com.beimin.eveapi.eve.character;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.IOException;
 import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class CharacterNameLookupParserTest extends NoAuthParserTest {
@@ -20,7 +20,7 @@ public class CharacterNameLookupParserTest extends NoAuthParserTest {
 	}
 
 	@Test
-	public void getResponse() throws IOException, SAXException {
+	public void getResponse() throws ApiException {
 		CharacterLookupParser parser = CharacterLookupParser.getId2NameInstance();
 		CharacterLookupResponse response = parser.getResponse(797400947);
 		Collection<ApiCharacterLookup> chars = response.getCharacterLookups();

@@ -1,6 +1,6 @@
 package com.beimin.eveapi.corporation.industryjobs;
 
-import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.industryjobs.AbstractIndustryJobsParser;
 
 public class IndustryJobsParser extends AbstractIndustryJobsParser {

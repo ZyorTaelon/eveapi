@@ -1,16 +1,16 @@
 package com.beimin.eveapi.shared.wallet.journal;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.digester.Digester;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.AbstractApiParser;
-import com.beimin.eveapi.ApiAuth;
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.ApiAuth;
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 
 public abstract class AbstractWalletJournalParser extends AbstractApiParser<WalletJournalResponse> {
 	public AbstractWalletJournalParser(ApiPath path) {
@@ -26,11 +26,11 @@ public abstract class AbstractWalletJournalParser extends AbstractApiParser<Wall
 		return digester;
 	}
 
-	public WalletJournalResponse getResponse(ApiAuth auth, int accountKey) throws IOException, SAXException {
+	public WalletJournalResponse getResponse(ApiAuth auth, int accountKey) throws ApiException {
 		return getResponse(auth, "accountKey", Integer.toString(accountKey));
 	}
 
-	public WalletJournalResponse getResponse(ApiAuth auth, int accountKey, long beforeRefID) throws IOException, SAXException {
+	public WalletJournalResponse getResponse(ApiAuth auth, int accountKey, long beforeRefID) throws ApiException {
 		Map<String, String> extraParams = new HashMap<String, String>();
 		extraParams.put("accountKey", Integer.toString(accountKey));
 		extraParams.put("beforeRefID", Long.toString(beforeRefID));

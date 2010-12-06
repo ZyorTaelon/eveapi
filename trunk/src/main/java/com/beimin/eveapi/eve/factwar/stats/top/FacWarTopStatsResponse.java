@@ -1,6 +1,6 @@
 package com.beimin.eveapi.eve.factwar.stats.top;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class FacWarTopStatsResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;

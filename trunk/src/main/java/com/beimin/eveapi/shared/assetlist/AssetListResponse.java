@@ -3,7 +3,7 @@ package com.beimin.eveapi.shared.assetlist;
 import java.util.Collection;
 import java.util.HashSet;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class AssetListResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;

@@ -1,4 +1,4 @@
-package com.beimin.eveapi;
+package com.beimin.eveapi.core;
 
 public enum ApiPage {
 	ACCOUNT_STATUS("AccountStatus"), //

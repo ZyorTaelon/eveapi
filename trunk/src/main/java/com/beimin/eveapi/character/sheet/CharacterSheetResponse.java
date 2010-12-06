@@ -3,7 +3,7 @@ package com.beimin.eveapi.character.sheet;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 import com.beimin.eveapi.shared.character.EveBloodline;
 import com.beimin.eveapi.shared.character.EveRace;
 

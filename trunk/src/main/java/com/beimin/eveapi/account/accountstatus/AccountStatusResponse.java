@@ -2,7 +2,7 @@ package com.beimin.eveapi.account.accountstatus;
 
 import java.util.Date;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class AccountStatusResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;

@@ -3,7 +3,7 @@ package com.beimin.eveapi.map.jumps;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class MapJumpsResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;

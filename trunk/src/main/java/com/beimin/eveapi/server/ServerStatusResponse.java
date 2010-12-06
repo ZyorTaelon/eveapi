@@ -1,6 +1,6 @@
 package com.beimin.eveapi.server;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class ServerStatusResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;

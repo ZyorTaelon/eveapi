@@ -13,11 +13,12 @@ import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.After;
 import org.junit.Before;
 
-import com.beimin.eveapi.AbstractApiParser;
-import com.beimin.eveapi.ApiAuth;
-import com.beimin.eveapi.ApiAuthorization;
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.EveApi;
+import com.beimin.eveapi.connectors.ApiConnector;
+import com.beimin.eveapi.core.ApiAuth;
+import com.beimin.eveapi.core.ApiAuthorization;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 
 public abstract class FullAuthParserTest {
 	private final CamelContext context = new DefaultCamelContext();
@@ -35,27 +36,24 @@ public abstract class FullAuthParserTest {
 		context.addRoutes(new RouteBuilder() {
 			@Override
 			public void configure() {
-				from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(
-						new Processor() {
-							@Override
-							public void process(Exchange exchange) {
-								HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
-								assertNotNull(req);
-								assertEquals("123", req.getParameter("userID"));
-								assertEquals("456", req.getParameter("characterID"));
-								assertEquals("abc", req.getParameter("apiKey"));
-								extraAsserts(req);
-								exchange.getOut().setBody(
-										MockApi.response(path.getPath() + "/" + page.getPage() + ".xml"));
-							}
-						}).end();
+				from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new Processor() {
+					@Override
+					public void process(Exchange exchange) {
+						HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
+						assertNotNull(req);
+						assertEquals("123", req.getParameter("userID"));
+						assertEquals("456", req.getParameter("characterID"));
+						assertEquals("abc", req.getParameter("apiKey"));
+						extraAsserts(req);
+						exchange.getOut().setBody(MockApi.response(path.getPath() + "/" + page.getPage() + ".xml"));
+					}
+				}).end();
 			}
 		});
 		context.start();
-		AbstractApiParser.setEveApiURL(MockApi.URL);
+		EveApi.setConnector(new ApiConnector(MockApi.URL));
 	}
 
-	@SuppressWarnings("unused")
 	protected void extraAsserts(HttpServletRequest req) {
 		// overridable
 	}

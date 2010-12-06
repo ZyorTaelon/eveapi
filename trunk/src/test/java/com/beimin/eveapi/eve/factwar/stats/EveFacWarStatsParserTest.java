@@ -2,14 +2,14 @@ package com.beimin.eveapi.eve.factwar.stats;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.junit.Test;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class EveFacWarStatsParserTest extends NoAuthParserTest {
@@ -18,7 +18,7 @@ public class EveFacWarStatsParserTest extends NoAuthParserTest {
 	}
 
 	@Test
-	public void getResponse() throws IOException, SAXException {
+	public void getResponse() throws ApiException {
 		EveFacWarStatsParser parser = EveFacWarStatsParser.getInstance();
 		EveFacWarStats facWarStats = parser.getResponse();
 		assertEquals(677, facWarStats.getKillsYesterday());

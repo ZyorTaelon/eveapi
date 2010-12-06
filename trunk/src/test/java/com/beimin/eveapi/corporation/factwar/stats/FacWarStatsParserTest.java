@@ -3,13 +3,13 @@ package com.beimin.eveapi.corporation.factwar.stats;
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 
-import java.io.IOException;
 
 import org.junit.Test;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.factwar.stats.FacWarStatsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
@@ -19,7 +19,7 @@ public class FacWarStatsParserTest extends FullAuthParserTest {
 	}
 
 	@Test
-	public void getResponse() throws IOException, SAXException {
+	public void getResponse() throws ApiException {
 		FacWarStatsParser parser = FacWarStatsParser.getInstance();
 		FacWarStatsResponse facWarStats = parser.getResponse(auth);
 		assertEquals(500001, facWarStats.getFactionID());

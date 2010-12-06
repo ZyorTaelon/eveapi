@@ -1,11 +1,11 @@
 package com.beimin.eveapi.character.wallet.transactions;
 
-import java.io.IOException;
 
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.ApiAuth;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.ApiAuth;
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.wallet.transactions.AbstractWalletTransactionsParser;
 import com.beimin.eveapi.shared.wallet.transactions.WalletTransactionsResponse;
 
@@ -18,11 +18,11 @@ public class WalletTransactionsParser extends AbstractWalletTransactionsParser {
 		return new WalletTransactionsParser();
 	}
 
-	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth) throws IOException, SAXException {
+	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth) throws ApiException {
 		return getResponse(auth, 1000);
 	}
 
-	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth, long beforeTransID) throws IOException, SAXException {
+	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth, long beforeTransID) throws ApiException {
 		return getResponse(auth, 1000, beforeTransID);
 	}
 }

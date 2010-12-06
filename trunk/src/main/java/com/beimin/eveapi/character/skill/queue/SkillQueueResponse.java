@@ -3,7 +3,7 @@ package com.beimin.eveapi.character.skill.queue;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class SkillQueueResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;

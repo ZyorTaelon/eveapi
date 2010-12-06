@@ -1,13 +1,13 @@
 package com.beimin.eveapi.eve.character;
 
-import java.io.IOException;
 
 import org.apache.commons.digester.Digester;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.AbstractApiParser;
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.StringUtils;
 
 public class CharacterLookupParser extends AbstractApiParser<CharacterLookupResponse> {
@@ -35,11 +35,11 @@ public class CharacterLookupParser extends AbstractApiParser<CharacterLookupResp
 		return new CharacterLookupParser(ApiPage.CHARACTER_NAME, "ids");
 	}
 
-	public CharacterLookupResponse getResponse(String... arguments) throws IOException, SAXException {
+	public CharacterLookupResponse getResponse(String... arguments) throws ApiException {
 		return super.getResponse(paramName, StringUtils.join(",", arguments).replaceAll(" ", "%20"));
 	}
 
-	public CharacterLookupResponse getResponse(long... arguments) throws IOException, SAXException {
+	public CharacterLookupResponse getResponse(long... arguments) throws ApiException {
 		return super.getResponse(paramName, StringUtils.join(",", arguments));
 	}
 }

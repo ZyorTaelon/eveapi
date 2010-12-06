@@ -1,13 +1,13 @@
 package com.beimin.eveapi.map.jumps;
 
-import java.io.IOException;
 
 import org.apache.commons.digester.Digester;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.AbstractApiParser;
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 
 public class MapJumpsParser extends AbstractApiParser<MapJumpsResponse> {
 	public MapJumpsParser() {
@@ -28,7 +28,7 @@ public class MapJumpsParser extends AbstractApiParser<MapJumpsResponse> {
 	}
 
 	@Override
-	public MapJumpsResponse getResponse() throws IOException, SAXException {
+	public MapJumpsResponse getResponse() throws ApiException {
 		return super.getResponse();
 	}
 }

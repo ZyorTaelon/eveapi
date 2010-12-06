@@ -3,7 +3,7 @@ package com.beimin.eveapi.map.sovereignty;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class MapSovereigntyResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;

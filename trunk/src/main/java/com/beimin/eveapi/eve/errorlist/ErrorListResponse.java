@@ -3,7 +3,7 @@ package com.beimin.eveapi.eve.errorlist;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class ErrorListResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;

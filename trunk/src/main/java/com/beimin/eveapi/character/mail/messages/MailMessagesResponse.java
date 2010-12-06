@@ -3,7 +3,7 @@ package com.beimin.eveapi.character.mail.messages;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class MailMessagesResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;

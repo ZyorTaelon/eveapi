@@ -14,11 +14,12 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.Test;
 
-import com.beimin.eveapi.AbstractApiParser;
-import com.beimin.eveapi.ApiAuth;
-import com.beimin.eveapi.ApiAuthorization;
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.EveApi;
+import com.beimin.eveapi.connectors.ApiConnector;
+import com.beimin.eveapi.core.ApiAuth;
+import com.beimin.eveapi.core.ApiAuthorization;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.character.EveBloodline;
 import com.beimin.eveapi.shared.character.EveRace;
 import com.beimin.eveapi.utils.MockApi;
@@ -35,7 +36,7 @@ public class CharacterInfoParserTest {
 
 		context.addRoutes(noAPI);
 		context.start();
-		AbstractApiParser.setEveApiURL(MockApi.URL);
+		EveApi.setConnector(new ApiConnector(MockApi.URL));
 		CharacterInfoParser parser = CharacterInfoParser.getInstance();
 		CharacterInfoResponse response = parser.getResponse(1380128241);
 		assertNotNull(response);
@@ -66,7 +67,7 @@ public class CharacterInfoParserTest {
 		CamelContext context = new DefaultCamelContext();
 		context.addRoutes(limitedApiRoute);
 		context.start();
-		AbstractApiParser.setEveApiURL(MockApi.URL);
+		EveApi.setConnector(new ApiConnector(MockApi.URL));
 		CharacterInfoParser parser = CharacterInfoParser.getInstance();
 		CharacterInfoResponse response = parser.getResponse(limitedAPI);
 		assertNotNull(response);
@@ -97,7 +98,7 @@ public class CharacterInfoParserTest {
 		CamelContext context = new DefaultCamelContext();
 		context.addRoutes(fullApiRoute);
 		context.start();
-		AbstractApiParser.setEveApiURL(MockApi.URL);
+		EveApi.setConnector(new ApiConnector(MockApi.URL));
 		CharacterInfoParser parser = CharacterInfoParser.getInstance();
 		CharacterInfoResponse response = parser.getResponse(fullAPI);
 		assertNotNull(response);
@@ -134,8 +135,7 @@ public class CharacterInfoParserTest {
 					assertEquals("123", req.getParameter("userID"));
 					assertEquals("1380128241", req.getParameter("characterID"));
 					assertEquals("abc", req.getParameter("apiKey"));
-					exchange.getOut().setBody(
-							MockApi.response(path.getPath() + "/" + page.getPage() + "_LimitedAPI.xml"));
+					exchange.getOut().setBody(MockApi.response(path.getPath() + "/" + page.getPage() + "_LimitedAPI.xml"));
 				}
 			}).end();
 		}

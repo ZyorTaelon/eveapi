@@ -3,14 +3,14 @@ package com.beimin.eveapi.map.jumps;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.io.IOException;
 import java.util.Map;
 
 import org.junit.Test;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class JumpsParserTest extends NoAuthParserTest {
@@ -19,7 +19,7 @@ public class JumpsParserTest extends NoAuthParserTest {
 	}
 
 	@Test
-	public void getResponse() throws IOException, SAXException {
+	public void getResponse() throws ApiException {
 		MapJumpsParser parser = MapJumpsParser.getInstance();
 		MapJumpsResponse response = parser.getResponse();
 		assertNotNull(response);

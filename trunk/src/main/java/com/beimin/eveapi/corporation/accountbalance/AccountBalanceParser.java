@@ -1,6 +1,6 @@
 package com.beimin.eveapi.corporation.accountbalance;
 
-import com.beimin.eveapi.ApiPath;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.accountbalance.AbstractAccountBalanceParser;
 
 public class AccountBalanceParser extends AbstractAccountBalanceParser {

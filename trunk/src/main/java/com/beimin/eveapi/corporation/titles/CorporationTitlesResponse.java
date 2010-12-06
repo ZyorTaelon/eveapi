@@ -3,7 +3,7 @@ package com.beimin.eveapi.corporation.titles;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class CorporationTitlesResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;

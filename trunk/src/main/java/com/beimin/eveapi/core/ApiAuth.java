@@ -1,11 +1,11 @@
-package com.beimin.eveapi;
+package com.beimin.eveapi.core;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class ApiAuth {
+public abstract class ApiAuth implements Comparable<ApiAuth> {
 
 	public abstract int getUserID();
 

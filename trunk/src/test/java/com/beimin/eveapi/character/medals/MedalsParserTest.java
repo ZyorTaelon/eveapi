@@ -6,14 +6,14 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.junit.Test;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.medals.Medal;
 import com.beimin.eveapi.shared.medals.MedalsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
@@ -24,7 +24,7 @@ public class MedalsParserTest extends FullAuthParserTest {
 	}
 
 	@Test
-	public void getResponse() throws IOException, SAXException {
+	public void getResponse() throws ApiException {
 		MedalsParser parser = MedalsParser.getInstance();
 		MedalsResponse response = parser.getResponse(auth);
 		assertNotNull(response);

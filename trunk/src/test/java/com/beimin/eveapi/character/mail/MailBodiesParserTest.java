@@ -4,19 +4,19 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
-import org.xml.sax.SAXException;
 
-import com.beimin.eveapi.ApiPage;
-import com.beimin.eveapi.ApiPath;
+
 import com.beimin.eveapi.character.mail.bodies.ApiMailBody;
 import com.beimin.eveapi.character.mail.bodies.MailBodiesParser;
 import com.beimin.eveapi.character.mail.bodies.MailBodiesResponse;
+import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.core.ApiPage;
+import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class MailBodiesParserTest extends FullAuthParserTest {
@@ -25,7 +25,7 @@ public class MailBodiesParserTest extends FullAuthParserTest {
 	}
 
 	@Test
-	public void getResponse() throws IOException, SAXException {
+	public void getResponse() throws ApiException {
 		MailBodiesParser parser = MailBodiesParser.getInstance();
 		MailBodiesResponse response = parser.getResponse(auth, 299279683L, 299280303L);
 		assertNotNull(response);

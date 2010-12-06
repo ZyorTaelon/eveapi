@@ -2,7 +2,7 @@ package com.beimin.eveapi.shared.factwar.stats;
 
 import java.util.Date;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 
 public class FacWarStatsResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;

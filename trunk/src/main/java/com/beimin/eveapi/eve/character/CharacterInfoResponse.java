@@ -2,7 +2,7 @@ package com.beimin.eveapi.eve.character;
 
 import java.util.Date;
 
-import com.beimin.eveapi.ApiResponse;
+import com.beimin.eveapi.core.ApiResponse;
 import com.beimin.eveapi.shared.character.EveBloodline;
 import com.beimin.eveapi.shared.character.EveRace;
 
