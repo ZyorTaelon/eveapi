@@ -32,6 +32,5 @@
   <classpathentry kind="var" path="M2_REPO/ch/qos/logback/logback-classic/0.9.26/logback-classic-0.9.26.jar" sourcepath="M2_REPO/ch/qos/logback/logback-classic/0.9.26/logback-classic-0.9.26-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/ch/qos/logback/logback-core/0.9.26/logback-core-0.9.26.jar" sourcepath="M2_REPO/ch/qos/logback/logback-core/0.9.26/logback-core-0.9.26-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1-sources.jar"/>
-  <classpathentry kind="lib" path="C:/Program Files/Java/jdk1.6.0_22/lib/tools.jar"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 </classpath>
