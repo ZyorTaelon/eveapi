@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 
-import org.xml.sax.SAXException;
-
 import com.beimin.eveapi.core.ApiException;
 
 import freemarker.template.Configuration;
@@ -15,7 +13,7 @@ import freemarker.template.TemplateException;
 
 public class RefTypeEnumGenerator {
 
-	public static void main(String[] args) throws IOException, TemplateException, SAXException, ApiException {
+	public static void main(String[] args) throws IOException, TemplateException, ApiException {
 		RefTypesParser parser = RefTypesParser.getInstance();
 		RefTypesResponse response = parser.getResponse();
 		Collection<ApiRefType> refTypes = response.getRefTypes();

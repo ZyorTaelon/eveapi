@@ -35,6 +35,7 @@ public class LoggingConnector extends ApiConnector {
 		return getApiResponse(digester, is, clazz);
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	protected <E> E getApiResponse(Digester digester, InputStream inputStream, Class<E> clazz) throws ApiException {
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -50,6 +51,7 @@ public class LoggingConnector extends ApiConnector {
 		}
 	}
 
+	@Override
 	protected ApiConnector getConnector() {
 		if (baseConnector != null)
 			return baseConnector;

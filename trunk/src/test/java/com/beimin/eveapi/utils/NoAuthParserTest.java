@@ -38,21 +38,24 @@ public abstract class NoAuthParserTest {
 		context.addRoutes(new RouteBuilder() {
 			@Override
 			public void configure() {
-				from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new Processor() {
-					@Override
-					public void process(Exchange exchange) {
-						HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
-						assertNotNull(req);
-						extraAsserts(req);
-						exchange.getOut().setBody(MockApi.response(path.getPath() + "/" + page.getPage() + fileSuffix + ".xml"));
-					}
-				}).end();
+				from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(
+						new Processor() {
+							@Override
+							public void process(Exchange exchange) {
+								HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
+								assertNotNull(req);
+								extraAsserts(req);
+								exchange.getOut().setBody(
+										MockApi.response(path.getPath() + "/" + page.getPage() + fileSuffix + ".xml"));
+							}
+						}).end();
 			}
 		});
 		context.start();
 		EveApi.setConnector(new ApiConnector(MockApi.URL));
 	}
 
+	@SuppressWarnings("unused")
 	protected void extraAsserts(HttpServletRequest req) {
 		// overridable
 	}

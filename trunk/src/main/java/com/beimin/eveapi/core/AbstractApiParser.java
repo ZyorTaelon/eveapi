@@ -68,6 +68,6 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	}
 
 	private E getResponse(ApiRequest request) throws ApiException {
-		return (E) EveApi.getConnector().execute(request, getDigester(), clazz);
+		return EveApi.getConnector().execute(request, getDigester(), clazz);
 	}
 }

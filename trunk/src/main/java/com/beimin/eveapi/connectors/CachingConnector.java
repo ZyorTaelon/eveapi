@@ -29,6 +29,7 @@ public class CachingConnector extends ApiConnector {
 		return (E) cache.get(request);
 	}
 
+	@Override
 	protected ApiConnector getConnector() {
 		if (baseConnector != null)
 			return baseConnector;

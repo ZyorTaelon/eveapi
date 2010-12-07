@@ -20,6 +20,7 @@ public class ProxyConnector extends ApiConnector {
 		this.baseConnector = baseConnector;
 	}
 
+	@Override
 	protected URLConnection openConnection(URL requestUrl) throws ApiException {
 		try {
 			return requestUrl.openConnection(proxy);
@@ -28,6 +29,7 @@ public class ProxyConnector extends ApiConnector {
 		}
 	}
 
+	@Override
 	protected ApiConnector getConnector() {
 		if (baseConnector != null)
 			return baseConnector;
