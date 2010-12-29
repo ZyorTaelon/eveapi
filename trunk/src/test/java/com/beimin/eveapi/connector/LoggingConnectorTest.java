@@ -19,6 +19,7 @@ import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 import com.beimin.eveapi.utils.MockApi;
+import org.junit.Ignore;
 
 public class LoggingConnectorTest extends FullAuthParserTest {
 	public LoggingConnectorTest() {
@@ -31,6 +32,7 @@ public class LoggingConnectorTest extends FullAuthParserTest {
 		EveApi.setConnector(new LoggingConnector(new ApiConnector(MockApi.URL)));
 	}
 
+	@Ignore
 	@Test
 	public void getResponse() throws ApiException, IOException {
 		PrintStream backup = System.out;
