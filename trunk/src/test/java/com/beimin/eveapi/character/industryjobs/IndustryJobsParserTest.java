@@ -35,6 +35,7 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 		for (ApiIndustryJob job : industryJobs) {
 			if (job.getJobID() == 444) {
 				found = true;
+				assertEquals(100518790L, job.getAssemblyLineID());
 				assertEquals(60010783, job.getContainerID());
 				assertEquals(150438239, job.getInstalledItemID());
 				assertEquals(60010783, job.getInstalledItemLocationID());

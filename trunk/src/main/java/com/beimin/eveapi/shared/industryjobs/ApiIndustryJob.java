@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ApiIndustryJob {
 	private long jobID;
+	private long assemblyLineID;
 	private long containerID; // LocationID or ItemID : long
 	private long installedItemID; // ItemID : long
 	private long installedItemLocationID; // LocationID : long
@@ -102,6 +103,14 @@ public class ApiIndustryJob {
 
 	public long getOutputLocationID() {
 		return outputLocationID;
+	}
+
+	public long getAssemblyLineID() {
+		return assemblyLineID;
+	}
+
+	public void setAssemblyLineID(long assemblyLineID) {
+		this.assemblyLineID = assemblyLineID;
 	}
 
 	public void setOutputLocationID(long outputLocationID) {
