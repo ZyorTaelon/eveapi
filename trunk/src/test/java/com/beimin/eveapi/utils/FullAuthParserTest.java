@@ -24,11 +24,25 @@ public abstract class FullAuthParserTest {
 	private final CamelContext context = new DefaultCamelContext();
 	private final ApiPath path;
 	private final ApiPage page;
+	private final String resourcePath;
 	protected ApiAuth auth = new ApiAuthorization(123, 456, "abc");
 
+	/**
+	 * Creates the test framework for running tests that require parsing
+	 * XML.
+	 * @param path The API Path for the request - e.g. 'CHAR' or 'CORP'
+	 * @param page The individual requested page.
+	 */
 	public FullAuthParserTest(ApiPath path, ApiPage page) {
 		this.path = path;
 		this.page = page;
+		this.resourcePath = null;
+	}
+
+	public FullAuthParserTest(String resourcePath) {
+		this.path = null;
+		this.page = null;
+		this.resourcePath = resourcePath;
 	}
 
 	@Before
@@ -36,7 +50,16 @@ public abstract class FullAuthParserTest {
 		context.addRoutes(new RouteBuilder() {
 			@Override
 			public void configure() {
-				from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(
+				final String resPath;
+				if (path != null && page != null && resourcePath == null) {
+					resPath = path.getPath() + "/" + page.getPage() + ".xml.aspx";
+				} else if (path == null && page == null && resourcePath != null) {
+					resPath = resourcePath;
+				} else {
+					throw new RuntimeException("One of the construction options has been missed: path: " + path + " page: " + " resourcePath: " + resourcePath);
+				}
+
+				from("jetty:" + MockApi.URL + resPath).process(
 						new Processor() {
 							@Override
 							public void process(Exchange exchange) {

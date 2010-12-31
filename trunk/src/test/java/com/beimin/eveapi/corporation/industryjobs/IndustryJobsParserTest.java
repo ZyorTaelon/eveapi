@@ -22,6 +22,9 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 	public IndustryJobsParserTest() {
 		super(ApiPath.CORPORATION, ApiPage.INDUSTRY_JOBS);
 	}
+	public IndustryJobsParserTest(String resourcePath) {
+		super(resourcePath);
+	}
 
 	@Test
 	public void getResponse() throws ApiException {
