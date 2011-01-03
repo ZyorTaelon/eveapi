@@ -65,7 +65,8 @@ public class ApiConnector {
 			result.append(request.getPath().getPath());
 			result.append("/").append(request.getPage().getPage());
 			result.append(".xml.aspx");
-			result.append("?version=" + request.getVersion());
+			result.append("?version=");
+			result.append(request.getVersion());
 			Map<String, String> urlParams = new HashMap<String, String>();
 			ApiAuth auth = request.getAuth();
 			if (auth != null)
@@ -75,7 +76,10 @@ public class ApiConnector {
 				urlParams.putAll(params);
 			}
 			for (Entry<String, String> entry : urlParams.entrySet()) {
-				result.append("&" + entry.getKey() + "=" + entry.getValue());
+				result.append("&")
+						.append(entry.getKey())
+						.append("=")
+						.append(entry.getValue());
 			}
 			return new URL(result.toString());
 		} catch (Exception e) {
