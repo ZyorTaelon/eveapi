@@ -1,12 +1,12 @@
 package com.beimin.eveapi.eve.skilltree;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 
-public class ApiSkillGroup {
+public class ApiSkillGroup implements Comparable<ApiSkillGroup> {
 	private String groupName;
 	private int groupID;
-	private final Collection<ApiSkill> skills = new HashSet<ApiSkill>();
+	private final Collection<ApiSkill> skills = new ArrayList<ApiSkill>();
 
 	public String getGroupName() {
 		return groupName;
@@ -39,5 +39,10 @@ public class ApiSkillGroup {
 			result += "\t" + skill + "\n";
 		}
 		return result;
+	}
+
+	@Override
+	public int compareTo(ApiSkillGroup o) {
+		return groupName.compareTo(o.groupName);
 	}
 }

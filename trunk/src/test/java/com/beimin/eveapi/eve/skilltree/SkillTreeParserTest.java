@@ -1,13 +1,14 @@
 package com.beimin.eveapi.eve.skilltree;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -29,10 +30,21 @@ public class SkillTreeParserTest extends NoAuthParserTest {
 		assertNotNull("Response should contain the time untill this response data is cached.", response.getCachedUntil());
 		assertTrue("Should return some skill groups.", response.getSkillGroups().size() > 0);
 		Collection<ApiSkillGroup> skillGroups = response.getSkillGroups();
-		for (ApiSkillGroup skillGroup : skillGroups) {
-			assertNotNull("Group should have a name.", skillGroup.getGroupName());
-			assertTrue("Group should have an Id.", skillGroup.getGroupID() > 0);
-			assertTrue("Group " + skillGroup.getGroupName() + " should have some skills.", skillGroup.getSkills().size() > 0);
-		}
+		assertEquals(17, skillGroups.size());
+		ApiSkillGroup skillGroup = skillGroups.iterator().next();
+		assertEquals("Corporation Management", skillGroup.getGroupName());
+		assertEquals(266, skillGroup.getGroupID());
+		Collection<ApiSkill> skills = skillGroup.getSkills();
+		assertEquals(15, skills.size());
+		Iterator<ApiSkill> iterator = skills.iterator();
+		ApiSkill skill = iterator.next();
+		assertEquals(11584, skill.getTypeID());
+		assertEquals("Anchoring", skill.getTypeName());
+		assertTrue(skill.isPublished());
+		skill = iterator.next();
+		assertEquals(3369, skill.getTypeID());
+		assertEquals("CFO Training", skill.getTypeName());
+		assertFalse(skill.isPublished());
+
 	}
 }

@@ -3,12 +3,13 @@ package com.beimin.eveapi.eve.skilltree;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class ApiSkill {
+public class ApiSkill implements Comparable<ApiSkill> {
 	private int typeID;
 	private int groupID;
 	private String typeName;
 	private String description;
 	private int rank;
+	private boolean published;
 	private Collection<ApiRequirement> requiredSkills = new HashSet<ApiRequirement>();
 	private final Collection<ApiBonus> boneses = new HashSet<ApiBonus>();
 
@@ -52,6 +53,14 @@ public class ApiSkill {
 		this.rank = rank;
 	}
 
+	public boolean isPublished() {
+		return published;
+	}
+
+	public void setPublished(boolean published) {
+		this.published = published;
+	}
+
 	public Collection<ApiRequirement> getRequiredSkills() {
 		return requiredSkills;
 	}
@@ -81,5 +90,10 @@ public class ApiSkill {
 		}
 
 		return result;
+	}
+
+	@Override
+	public int compareTo(ApiSkill o) {
+		return typeName.compareTo(o.typeName);
 	}
 }
