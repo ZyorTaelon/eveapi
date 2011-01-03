@@ -28,10 +28,12 @@ public abstract class FullAuthParserTest {
 	protected ApiAuth auth = new ApiAuthorization(123, 456, "abc");
 
 	/**
-	 * Creates the test framework for running tests that require parsing
-	 * XML.
-	 * @param path The API Path for the request - e.g. 'CHAR' or 'CORP'
-	 * @param page The individual requested page.
+	 * Creates the test framework for running tests that require parsing XML.
+	 * 
+	 * @param path
+	 *            The API Path for the request - e.g. 'CHAR' or 'CORP'
+	 * @param page
+	 *            The individual requested page.
 	 */
 	public FullAuthParserTest(ApiPath path, ApiPage page) {
 		this.path = path;
@@ -59,27 +61,24 @@ public abstract class FullAuthParserTest {
 					throw new RuntimeException("One of the construction options has been missed: path: " + path + " page: " + " resourcePath: " + resourcePath);
 				}
 
-				from("jetty:" + MockApi.URL + resPath).process(
-						new Processor() {
-							@Override
-							public void process(Exchange exchange) {
-								HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
-								assertNotNull(req);
-								assertEquals("123", req.getParameter("userID"));
-								assertEquals("456", req.getParameter("characterID"));
-								assertEquals("abc", req.getParameter("apiKey"));
-								extraAsserts(req);
-								exchange.getOut().setBody(
-										MockApi.response(path.getPath() + "/" + page.getPage() + ".xml"));
-							}
-						}).end();
+				from("jetty:" + MockApi.URL + resPath).process(new Processor() {
+					@Override
+					public void process(Exchange exchange) {
+						HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
+						assertNotNull(req);
+						assertEquals("123", req.getParameter("userID"));
+						assertEquals("456", req.getParameter("characterID"));
+						assertEquals("abc", req.getParameter("apiKey"));
+						extraAsserts(req);
+						exchange.getOut().setBody(MockApi.response(path.getPath() + "/" + page.getPage() + ".xml"));
+					}
+				}).end();
 			}
 		});
 		context.start();
 		EveApi.setConnector(new ApiConnector(MockApi.URL));
 	}
 
-	@SuppressWarnings("unused")
 	protected void extraAsserts(HttpServletRequest req) {
 		// overridable
 	}

@@ -1,8 +1,6 @@
 package com.beimin.eveapi.character.sheet;
 
-
 import org.apache.commons.digester.Digester;
-
 
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiAuth;
@@ -21,7 +19,9 @@ public class CharacterSheetParser extends AbstractApiParser<CharacterSheetRespon
 		digester.addBeanPropertySetter("eveapi/result/characterID");
 		digester.addBeanPropertySetter("eveapi/result/name");
 		digester.addBeanPropertySetter("eveapi/result/race");
+		digester.addBeanPropertySetter("eveapi/result/DoB", "dateOfBirth");
 		digester.addBeanPropertySetter("eveapi/result/bloodLine");
+		digester.addBeanPropertySetter("eveapi/result/ancestry");
 		digester.addBeanPropertySetter("eveapi/result/gender");
 		digester.addBeanPropertySetter("eveapi/result/corporationName");
 		digester.addBeanPropertySetter("eveapi/result/corporationID");

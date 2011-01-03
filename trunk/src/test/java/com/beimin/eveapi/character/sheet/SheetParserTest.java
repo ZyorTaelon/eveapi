@@ -1,5 +1,6 @@
 package com.beimin.eveapi.character.sheet;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
@@ -8,10 +9,10 @@ import java.util.Set;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.shared.character.EveAncestry;
 import com.beimin.eveapi.shared.character.EveBloodline;
 import com.beimin.eveapi.shared.character.EveRace;
 import com.beimin.eveapi.utils.FullAuthParserTest;
@@ -29,6 +30,8 @@ public class SheetParserTest extends FullAuthParserTest {
 		assertEquals(150337897L, response.getCharacterID());
 		assertEquals("corpslave", response.getName());
 		assertEquals(EveRace.MINMATAR, response.getRace());
+		assertEquals(EveAncestry.SLAVE_CHILD, response.getAncestry());
+		assertDate(2006, 1, 1, 0, 0, 0, response.getDateOfBirth());
 		assertEquals(EveBloodline.BRUTOR, response.getBloodLine());
 		assertEquals("Female", response.getGender());
 		assertEquals("corpexport Corp", response.getCorporationName());

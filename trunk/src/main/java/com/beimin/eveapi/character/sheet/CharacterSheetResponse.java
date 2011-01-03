@@ -1,9 +1,11 @@
 package com.beimin.eveapi.character.sheet;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 import com.beimin.eveapi.core.ApiResponse;
+import com.beimin.eveapi.shared.character.EveAncestry;
 import com.beimin.eveapi.shared.character.EveBloodline;
 import com.beimin.eveapi.shared.character.EveRace;
 
@@ -12,7 +14,9 @@ public class CharacterSheetResponse extends ApiResponse {
 	private long characterID;
 	private String name;
 	private EveRace race;
+	private Date dateOfBirth;
 	private EveBloodline bloodLine;
+	private EveAncestry ancestry;
 	private String gender;
 	private String corporationName;
 	private long corporationID;
@@ -49,12 +53,28 @@ public class CharacterSheetResponse extends ApiResponse {
 		this.race = race;
 	}
 
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date doB) {
+		dateOfBirth = doB;
+	}
+
 	public EveBloodline getBloodLine() {
 		return bloodLine;
 	}
 
 	public void setBloodLine(EveBloodline bloodLine) {
 		this.bloodLine = bloodLine;
+	}
+
+	public EveAncestry getAncestry() {
+		return ancestry;
+	}
+
+	public void setAncestry(EveAncestry ancestry) {
+		this.ancestry = ancestry;
 	}
 
 	public String getGender() {

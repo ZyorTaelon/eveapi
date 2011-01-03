@@ -34,7 +34,7 @@ public class ApiConnector {
 		}
 	}
 
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings({ "unchecked" })
 	protected <E> E getApiResponse(Digester digester, InputStream inputStream, Class<E> clazz) throws ApiException {
 		try {
 			return (E) digester.parse(inputStream);

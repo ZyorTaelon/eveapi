@@ -5,7 +5,9 @@
         <characterID>150337897</characterID>
         <name>corpslave</name>
         <race>Minmatar</race>
+        <DoB>2006-01-01 00:00:00</DoB>
         <bloodLine>Brutor</bloodLine>
+        <ancestry>Slave Child</ancestry>
         <gender>Female</gender>
         <corporationName>corpexport Corp</corporationName>
         <corporationID>150337746</corporationID>
