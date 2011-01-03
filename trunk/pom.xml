@@ -6,13 +6,13 @@
 	<artifactId>eveapi</artifactId>
 	<packaging>jar</packaging>
 	<name>EveAPI</name>
-	<version>2.0.3-SNAPSHOT</version>
+	<version>3.0.0-SNAPSHOT</version>
 	<description>Parsers for the eve-api</description>
 	<url>http://code.google.com/p/eveapi/</url>
 	<distributionManagement>
 		<site>
 			<id>website</id>
-			<url>${site.location}-3.6</url>
+			<url>${site.location}-3.0</url>
 		</site>
 	</distributionManagement>
 	<scm>

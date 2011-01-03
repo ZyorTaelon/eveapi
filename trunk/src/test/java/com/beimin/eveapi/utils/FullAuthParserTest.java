@@ -58,7 +58,8 @@ public abstract class FullAuthParserTest {
 				} else if (path == null && page == null && resourcePath != null) {
 					resPath = resourcePath;
 				} else {
-					throw new RuntimeException("One of the construction options has been missed: path: " + path + " page: " + " resourcePath: " + resourcePath);
+					throw new RuntimeException("One of the construction options has been missed: path: " + path
+							+ " page: " + " resourcePath: " + resourcePath);
 				}
 
 				from("jetty:" + MockApi.URL + resPath).process(new Processor() {
@@ -79,7 +80,7 @@ public abstract class FullAuthParserTest {
 		EveApi.setConnector(new ApiConnector(MockApi.URL));
 	}
 
-	protected void extraAsserts(HttpServletRequest req) {
+	protected void extraAsserts(@SuppressWarnings("unused") HttpServletRequest req) {
 		// overridable
 	}
 

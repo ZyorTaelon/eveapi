@@ -1,5 +1,6 @@
 package com.beimin.eveapi.connector;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -19,7 +20,6 @@ import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 import com.beimin.eveapi.utils.MockApi;
-import org.junit.Ignore;
 
 public class LoggingConnectorTest extends FullAuthParserTest {
 	public LoggingConnectorTest() {
@@ -32,10 +32,9 @@ public class LoggingConnectorTest extends FullAuthParserTest {
 		EveApi.setConnector(new LoggingConnector(new ApiConnector(MockApi.URL)));
 	}
 
-	@Ignore
 	@Test
 	public void getResponse() throws ApiException, IOException {
-		PrintStream backup = System.out;
+		PrintStream defaultStdout = System.out;
 		ByteArrayOutputStream temp = new ByteArrayOutputStream();
 		PrintStream printStream = new PrintStream(temp);
 		System.setOut(printStream);
@@ -48,10 +47,26 @@ public class LoggingConnectorTest extends FullAuthParserTest {
 		temp.flush();
 		temp.close();
 		String result = temp.toString();
-		System.setOut(backup);
-		String expected = "INFO  [main] com.beimin.eveapi.connectors.ApiConnector.execute:31 - \nRequest:\nPath: /char\nPage: SkillQueue\nVersion: 2\nAuth: userID: 123, characterID: 456\n";
-		assertTrue(result.contains(expected));
-		expected = "INFO  [main] com.beimin.eveapi.connectors.ApiConnector.getApiResponse:49 - \nResponse:\n<?xml version='1.0' encoding='UTF-8'?>\n<eveapi version=\"2\">\n  <currentTime>2010-04-03 16:33:20</currentTime>\n  <result>\n    <rowset name=\"skillqueue\" key=\"queuePosition\" columns=\"queuePosition,typeID,level,startSP,endSP,startTime,endTime\">\n      <row queuePosition=\"0\" typeID=\"25739\" level=\"5\" startSP=\"362039\" endSP=\"2048000\" startTime=\"2010-03-28 11:00:01\" endTime=\"2010-04-30 04:59:46\" />\n      <row queuePosition=\"1\" typeID=\"20533\" level=\"4\" startSP=\"112000\" endSP=\"633542\" startTime=\"2010-04-30 04:59:46\" endTime=\"2010-05-12 15:19:21\" />\n    </rowset>\n  </result>\n  <cachedUntil>2010-04-03 16:48:20</cachedUntil>\n</eveapi>";
-		assertTrue(result.contains(expected));
+		System.setOut(defaultStdout);
+		String[] lines = result.split("\n");
+		assertTrue(lines[0].contains("INFO  [main] com.beimin.eveapi.connectors.ApiConnector.execute:"));
+		assertEquals("Request:", lines[1]);
+		assertEquals("Path: /char", lines[2]);
+		assertEquals("Page: SkillQueue", lines[3]);
+		assertEquals("Version: 2", lines[4]);
+		assertEquals("Auth: userID: 123, characterID: 456", lines[5]);
+		assertTrue(lines[7].contains("INFO  [main] com.beimin.eveapi.connectors.ApiConnector.getApiResponse:"));
+		assertEquals("Response:", lines[8]);
+		assertEquals("<?xml version='1.0' encoding='UTF-8'?>", lines[9]);
+		assertEquals("<eveapi version=\"2\">", lines[10]);
+		assertEquals("  <currentTime>2010-04-03 16:33:20</currentTime>", lines[11]);
+		assertEquals("  <result>", lines[12]);
+		assertEquals("    <rowset name=\"skillqueue\" key=\"queuePosition\" columns=\"queuePosition,typeID,level,startSP,endSP,startTime,endTime\">", lines[13]);
+		assertEquals("      <row queuePosition=\"0\" typeID=\"25739\" level=\"5\" startSP=\"362039\" endSP=\"2048000\" startTime=\"2010-03-28 11:00:01\" endTime=\"2010-04-30 04:59:46\" />", lines[14]);
+		assertEquals("      <row queuePosition=\"1\" typeID=\"20533\" level=\"4\" startSP=\"112000\" endSP=\"633542\" startTime=\"2010-04-30 04:59:46\" endTime=\"2010-05-12 15:19:21\" />", lines[15]);
+		assertEquals("    </rowset>", lines[16]);
+		assertEquals("  </result>", lines[17]);
+		assertEquals("  <cachedUntil>2010-04-03 16:48:20</cachedUntil>", lines[18]);
+		assertEquals("</eveapi>", lines[19]);
 	}
 }
