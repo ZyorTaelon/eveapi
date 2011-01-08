@@ -26,8 +26,8 @@ public class ApiIndustryJob {
 	private int outputTypeID; // TypeID : int
 	private int containerTypeID; // TypeID : int
 	private long installedItemCopy;
-	private int completed;
-	private int completedSuccessfully;
+	private boolean completed;
+	private boolean completedSuccessfully;
 	private int installedItemFlag;
 	private int outputFlag;
 	private int activityID;
@@ -221,19 +221,19 @@ public class ApiIndustryJob {
 		this.installedItemCopy = installedItemCopy;
 	}
 
-	public int getCompleted() {
+	public boolean isCompleted() {
 		return completed;
 	}
 
-	public void setCompleted(int completed) {
+	public void setCompleted(boolean completed) {
 		this.completed = completed;
 	}
 
-	public int getCompletedSuccessfully() {
+	public boolean isCompletedSuccessfully() {
 		return completedSuccessfully;
 	}
 
-	public void setCompletedSuccessfully(int completedSuccessfully) {
+	public void setCompletedSuccessfully(boolean completedSuccessfully) {
 		this.completedSuccessfully = completedSuccessfully;
 	}
 

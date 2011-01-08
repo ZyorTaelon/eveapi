@@ -2,13 +2,13 @@ package com.beimin.eveapi.character.industryjobs;
 
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -21,9 +21,6 @@ import com.beimin.eveapi.utils.FullAuthParserTest;
 public class IndustryJobsParserTest extends FullAuthParserTest {
 	public IndustryJobsParserTest() {
 		super(ApiPath.CHARACTER, ApiPage.INDUSTRY_JOBS);
-	}
-	public IndustryJobsParserTest(String resourcePath) {
-		super(resourcePath);
 	}
 
 	@Test
@@ -60,8 +57,8 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 				assertEquals(1080, job.getOutputTypeID());
 				assertEquals(3869, job.getContainerTypeID());
 				assertEquals(1, job.getInstalledItemCopy());
-				assertEquals(0, job.getCompleted());
-				assertEquals(0, job.getCompletedSuccessfully());
+				assertFalse(job.isCompleted());
+				assertFalse(job.isCompletedSuccessfully());
 				assertEquals(4, job.getInstalledItemFlag());
 				assertEquals(4, job.getOutputFlag());
 				assertEquals(8, job.getActivityID());
