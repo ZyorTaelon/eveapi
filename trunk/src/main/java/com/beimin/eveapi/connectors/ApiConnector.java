@@ -15,7 +15,7 @@ import com.beimin.eveapi.core.ApiRequest;
 import com.beimin.eveapi.core.ApiResponse;
 
 public class ApiConnector {
-	public static final String EVE_API_URL = "http://api.eve-online.com";
+	public static final String EVE_API_URL = "https://api.eveonline.com";
 	private final String baseUrl;
 
 	public ApiConnector() {
@@ -76,10 +76,7 @@ public class ApiConnector {
 				urlParams.putAll(params);
 			}
 			for (Entry<String, String> entry : urlParams.entrySet()) {
-				result.append("&")
-						.append(entry.getKey())
-						.append("=")
-						.append(entry.getValue());
+				result.append("&").append(entry.getKey()).append("=").append(entry.getValue());
 			}
 			return new URL(result.toString());
 		} catch (Exception e) {
