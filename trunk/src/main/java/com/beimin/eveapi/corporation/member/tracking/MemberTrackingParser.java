@@ -29,7 +29,7 @@ public class MemberTrackingParser extends AbstractApiParser<MemberTrackingRespon
 	}
 
 	@Override
-	public MemberTrackingResponse getResponse(ApiAuth auth) throws ApiException {
+	public MemberTrackingResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

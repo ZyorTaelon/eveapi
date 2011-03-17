@@ -68,7 +68,7 @@ public class CorpSheetParser extends AbstractApiParser<CorpSheetResponse> {
 	}
 
 	@Override
-	public CorpSheetResponse getResponse(ApiAuth auth) throws ApiException {
+	public CorpSheetResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 

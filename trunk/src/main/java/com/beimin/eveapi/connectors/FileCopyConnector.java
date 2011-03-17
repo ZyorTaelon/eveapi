@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Date;
+import java.util.Map;
 
 import org.apache.commons.digester.Digester;
 import org.slf4j.Logger;
@@ -37,7 +38,8 @@ public class FileCopyConnector extends ApiConnector {
 	public <E extends ApiResponse> E execute(ApiRequest request, Digester digester, Class<E> clazz) throws ApiException {
 		ApiConnector connector = getConnector();
 		URL url = connector.getURL(request);
-		InputStream inputStream = connector.getInputStream(url);
+		Map<String, String> params = connector.getParams(request);
+		InputStream inputStream = connector.getInputStream(url, params);
 		String outputFileName = request.getPage().getPage() + "-" + new Date().getTime() + ".xml";
 		File outputFile = new File(destinationDirectory, outputFileName);
 		FileOutputStream outputStream = null;

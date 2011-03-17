@@ -29,7 +29,7 @@ public class StarbaseListParser extends AbstractApiParser<StarbaseListResponse> 
 	}
 
 	@Override
-	public StarbaseListResponse getResponse(ApiAuth auth) throws ApiException {
+	public StarbaseListResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

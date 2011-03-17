@@ -1,8 +1,6 @@
 package com.beimin.eveapi.shared.contacts;
 
-
 import org.apache.commons.digester.Digester;
-
 
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiAuth;
@@ -28,7 +26,7 @@ public abstract class AbstractContactListParser<CLR extends AbstractContactListR
 	}
 
 	@Override
-	public CLR getResponse(ApiAuth auth) throws ApiException {
+	public CLR getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

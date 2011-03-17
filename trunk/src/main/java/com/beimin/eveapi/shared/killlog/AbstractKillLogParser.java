@@ -42,7 +42,7 @@ public abstract class AbstractKillLogParser extends AbstractApiParser<KillLogRes
 	}
 
 	@Override
-	public KillLogResponse getResponse(ApiAuth auth) throws ApiException {
+	public KillLogResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

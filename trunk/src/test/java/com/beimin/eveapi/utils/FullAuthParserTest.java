@@ -15,7 +15,6 @@ import org.junit.Before;
 
 import com.beimin.eveapi.EveApi;
 import com.beimin.eveapi.connectors.ApiConnector;
-import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiAuthorization;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -25,7 +24,7 @@ public abstract class FullAuthParserTest {
 	private final ApiPath path;
 	private final ApiPage page;
 	private final String resourcePath;
-	protected ApiAuth auth = new ApiAuthorization(123, 456, "abc");
+	protected ApiAuthorization auth = new ApiAuthorization(123, 456, "abc");
 
 	/**
 	 * Creates the test framework for running tests that require parsing XML.

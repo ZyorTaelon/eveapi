@@ -29,7 +29,7 @@ public class MemberMedalsParser extends AbstractApiParser<MemberMedalsResponse> 
 	}
 
 	@Override
-	public MemberMedalsResponse getResponse(ApiAuth auth) throws ApiException {
+	public MemberMedalsResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

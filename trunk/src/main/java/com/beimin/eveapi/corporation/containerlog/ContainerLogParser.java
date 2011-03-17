@@ -29,7 +29,7 @@ public class ContainerLogParser extends AbstractApiParser<ContainerLogResponse> 
 	}
 
 	@Override
-	public ContainerLogResponse getResponse(ApiAuth auth) throws ApiException {
+	public ContainerLogResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

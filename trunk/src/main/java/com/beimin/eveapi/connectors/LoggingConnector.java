@@ -3,6 +3,7 @@ package com.beimin.eveapi.connectors;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Map;
 
 import org.apache.commons.digester.Digester;
 import org.slf4j.Logger;
@@ -31,7 +32,8 @@ public class LoggingConnector extends ApiConnector {
 			logger.info("\nRequest:\n" + request.toString());
 		ApiConnector connector = getConnector();
 		URL url = connector.getURL(request);
-		InputStream is = connector.getInputStream(url);
+		Map<String, String> params = connector.getParams(request);
+		InputStream is = connector.getInputStream(url, params);
 		return getApiResponse(digester, is, clazz);
 	}
 

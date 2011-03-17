@@ -18,11 +18,11 @@ public class WalletJournalParser extends AbstractWalletJournalParser {
 		return new WalletJournalParser();
 	}
 
-	public WalletJournalResponse getWalletJournalResponse(ApiAuth auth) throws ApiException {
+	public WalletJournalResponse getWalletJournalResponse(ApiAuth<?> auth) throws ApiException {
 		return getResponse(auth, 1000);
 	}
 
-	public WalletJournalResponse getWalletJournalResponse(ApiAuth auth, long beforeRefID) throws ApiException {
+	public WalletJournalResponse getWalletJournalResponse(ApiAuth<?> auth, long beforeRefID) throws ApiException {
 		return getResponse(auth, 1000, beforeRefID);
 	}
 }

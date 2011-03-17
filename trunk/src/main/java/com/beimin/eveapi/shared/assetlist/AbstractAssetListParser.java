@@ -1,8 +1,6 @@
 package com.beimin.eveapi.shared.assetlist;
 
-
 import org.apache.commons.digester.Digester;
-
 
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiAuth;
@@ -25,7 +23,7 @@ public abstract class AbstractAssetListParser extends AbstractApiParser<AssetLis
 	}
 
 	@Override
-	public AssetListResponse getResponse(ApiAuth auth) throws ApiException {
+	public AssetListResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

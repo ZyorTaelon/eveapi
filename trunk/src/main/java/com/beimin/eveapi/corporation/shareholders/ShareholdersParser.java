@@ -29,7 +29,7 @@ public class ShareholdersParser extends AbstractApiParser<ShareholdersResponse> 
 	}
 
 	@Override
-	public ShareholdersResponse getResponse(ApiAuth auth) throws ApiException {
+	public ShareholdersResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

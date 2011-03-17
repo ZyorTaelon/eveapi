@@ -16,7 +16,6 @@ import org.junit.Test;
 
 import com.beimin.eveapi.EveApi;
 import com.beimin.eveapi.connectors.ApiConnector;
-import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiAuthorization;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -27,8 +26,8 @@ import com.beimin.eveapi.utils.MockApi;
 public class CharacterInfoParserTest {
 	private final ApiPath path = ApiPath.EVE;
 	private final ApiPage page = ApiPage.CHARACTER_INFO;
-	private ApiAuth limitedAPI = new ApiAuthorization(123, 1380128241, "abc");
-	private ApiAuth fullAPI = new ApiAuthorization(123, 1380128241, "abcdef");
+	private ApiAuthorization limitedAPI = new ApiAuthorization(123, 1380128241, "abc");
+	private ApiAuthorization fullAPI = new ApiAuthorization(123, 1380128241, "abcdef");
 
 	@Test
 	public void parserTestWithoutAuth() throws Exception {
@@ -135,7 +134,8 @@ public class CharacterInfoParserTest {
 					assertEquals("123", req.getParameter("userID"));
 					assertEquals("1380128241", req.getParameter("characterID"));
 					assertEquals("abc", req.getParameter("apiKey"));
-					exchange.getOut().setBody(MockApi.response(path.getPath() + "/" + page.getPage() + "_LimitedAPI.xml"));
+					exchange.getOut().setBody(
+							MockApi.response(path.getPath() + "/" + page.getPage() + "_LimitedAPI.xml"));
 				}
 			}).end();
 		}

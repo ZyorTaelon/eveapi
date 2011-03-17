@@ -47,7 +47,7 @@ public class CorporationTitlesParser extends AbstractApiParser<CorporationTitles
 	}
 
 	@Override
-	public CorporationTitlesResponse getResponse(ApiAuth auth) throws ApiException {
+	public CorporationTitlesResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

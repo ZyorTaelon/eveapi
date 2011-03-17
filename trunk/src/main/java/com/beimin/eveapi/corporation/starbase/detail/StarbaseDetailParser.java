@@ -50,7 +50,7 @@ public class StarbaseDetailParser extends AbstractApiParser<StarbaseDetailRespon
 		return new StarbaseDetailParser();
 	}
 
-	public StarbaseDetailResponse getResponse(ApiAuth auth, int itemID) throws ApiException {
+	public StarbaseDetailResponse getResponse(ApiAuth<?> auth, int itemID) throws ApiException {
 		return super.getResponse(auth, "itemID", Integer.toString(itemID));
 	}
 }

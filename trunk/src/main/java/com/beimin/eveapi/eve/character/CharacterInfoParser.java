@@ -1,8 +1,6 @@
 package com.beimin.eveapi.eve.character;
 
-
 import org.apache.commons.digester.Digester;
-
 
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiAuth;
@@ -42,12 +40,12 @@ public class CharacterInfoParser extends AbstractApiParser<CharacterInfoResponse
 		return new CharacterInfoParser();
 	}
 
-	public CharacterInfoResponse getResponse(int characterID) throws ApiException {
-		return super.getResponse("characterID", Integer.toString(characterID));
+	public CharacterInfoResponse getResponse(long characterID) throws ApiException {
+		return super.getResponse("characterID", Long.toString(characterID));
 	}
 
 	@Override
-	public CharacterInfoResponse getResponse(ApiAuth auth) throws ApiException {
+	public CharacterInfoResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

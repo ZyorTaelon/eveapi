@@ -23,7 +23,7 @@ public abstract class AbstractAccountBalanceParser extends AbstractApiParser<Acc
 	}
 
 	@Override
-	public AccountBalanceResponse getResponse(ApiAuth auth) throws ApiException {
+	public AccountBalanceResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

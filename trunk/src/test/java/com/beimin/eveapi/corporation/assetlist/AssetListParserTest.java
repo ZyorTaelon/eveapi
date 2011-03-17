@@ -9,7 +9,6 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -18,11 +17,13 @@ import com.beimin.eveapi.shared.assetlist.ApiAsset;
 import com.beimin.eveapi.shared.assetlist.AssetListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
+@SuppressWarnings("rawtypes")
 public class AssetListParserTest extends FullAuthParserTest {
 	public AssetListParserTest() {
 		super(ApiPath.CORPORATION, ApiPage.ASSET_LIST);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void getResponse() throws ApiException {
 		AbstractAssetListParser parser = AssetListParser.getInstance();

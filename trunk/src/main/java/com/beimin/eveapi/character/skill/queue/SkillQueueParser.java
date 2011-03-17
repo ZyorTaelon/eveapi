@@ -29,7 +29,7 @@ public class SkillQueueParser extends AbstractApiParser<SkillQueueResponse> {
 	}
 
 	@Override
-	public SkillQueueResponse getResponse(ApiAuth auth) throws ApiException {
+	public SkillQueueResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

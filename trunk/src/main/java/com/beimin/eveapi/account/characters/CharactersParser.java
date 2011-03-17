@@ -27,7 +27,7 @@ public class CharactersParser extends AbstractApiParser<CharactersResponse> {
 	}
 
 	@Override
-	public CharactersResponse getResponse(ApiAuth auth) throws ApiException {
+	public CharactersResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

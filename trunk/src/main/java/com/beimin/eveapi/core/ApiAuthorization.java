@@ -1,6 +1,6 @@
 package com.beimin.eveapi.core;
 
-public class ApiAuthorization extends ApiAuth {
+public class ApiAuthorization extends ApiAuth<ApiAuthorization> {
 	private final int userID;
 	private final long characterID;
 	private final String apiKey;
@@ -32,14 +32,14 @@ public class ApiAuthorization extends ApiAuth {
 	}
 
 	@Override
-	public int compareTo(ApiAuth o) {
+	public int compareTo(ApiAuthorization o) {
 		return o.hashCode() - hashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj instanceof ApiAuth)
-			return compareTo((ApiAuth) obj) == 0;
+		if (obj instanceof ApiAuthorization)
+			return compareTo((ApiAuthorization) obj) == 0;
 		return false;
 	}
 

@@ -1,11 +1,9 @@
 package com.beimin.eveapi.core;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class ApiAuth implements Comparable<ApiAuth> {
+public abstract class ApiAuth<A extends ApiAuth<?>> implements Comparable<A> {
 
 	public abstract int getUserID();
 
@@ -13,11 +11,11 @@ public abstract class ApiAuth implements Comparable<ApiAuth> {
 
 	public abstract String getApiKey();
 
-	public Map<String, String> getParams() throws UnsupportedEncodingException {
+	public Map<String, String> getParams() {
 		Map<String, String> result = new HashMap<String, String>();
 		result.put("userID", Integer.toString(getUserID()));
 		result.put("characterID", Long.toString(getCharacterID()));
-		result.put("apiKey", URLEncoder.encode(getApiKey(), "UTF8"));
+		result.put("apiKey", getApiKey());
 		return result;
 	}
 }

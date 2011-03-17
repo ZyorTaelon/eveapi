@@ -30,7 +30,7 @@ public class MailBodiesParser extends AbstractApiParser<MailBodiesResponse> {
 		return new MailBodiesParser();
 	}
 
-	public MailBodiesResponse getResponse(ApiAuth auth, long... ids) throws ApiException {
+	public MailBodiesResponse getResponse(ApiAuth<?> auth, long... ids) throws ApiException {
 		return getResponse(auth, "ids", StringUtils.join(",", ids));
 	}
 }

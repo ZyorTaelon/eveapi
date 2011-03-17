@@ -30,7 +30,7 @@ public abstract class AbstractStandingsParser extends AbstractApiParser<Standing
 	}
 
 	@Override
-	public StandingsResponse getResponse(ApiAuth auth) throws ApiException {
+	public StandingsResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

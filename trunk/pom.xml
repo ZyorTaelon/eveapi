@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.beimin</groupId>
 	<artifactId>eveapi</artifactId>
+	<version>3.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>EveAPI</name>
-	<version>3.0.0-SNAPSHOT</version>
 	<description>Parsers for the eve-api</description>
 	<url>http://code.google.com/p/eveapi/</url>
 	<distributionManagement>

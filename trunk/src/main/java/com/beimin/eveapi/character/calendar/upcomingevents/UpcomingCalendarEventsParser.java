@@ -29,7 +29,7 @@ public class UpcomingCalendarEventsParser extends AbstractApiParser<UpcomingCale
 	}
 
 	@Override
-	public UpcomingCalendarEventsResponse getResponse(ApiAuth auth) throws ApiException {
+	public UpcomingCalendarEventsResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

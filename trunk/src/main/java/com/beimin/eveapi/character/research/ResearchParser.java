@@ -29,7 +29,7 @@ public class ResearchParser extends AbstractApiParser<ResearchResponse> {
 	}
 
 	@Override
-	public ResearchResponse getResponse(ApiAuth auth) throws ApiException {
+	public ResearchResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

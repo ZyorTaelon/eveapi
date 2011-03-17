@@ -10,10 +10,10 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 	private ApiPath path;
 	private ApiPage page;
 	private int version;
-	private ApiAuth auth;
+	private ApiAuth<?> auth;
 	private Map<String, String> params;
 
-	public ApiRequest(ApiPath path, ApiPage page, int version, ApiAuth auth, Map<String, String> params) {
+	public ApiRequest(ApiPath path, ApiPage page, int version, ApiAuth<?> auth, Map<String, String> params) {
 		this.path = path;
 		this.page = page;
 		this.version = version;
@@ -25,7 +25,7 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 		this(path, page, version, null, params);
 	}
 
-	public ApiRequest(ApiPath path, ApiPage page, int version, ApiAuth auth) {
+	public ApiRequest(ApiPath path, ApiPage page, int version, ApiAuth<?> auth) {
 		this(path, page, version, auth, new HashMap<String, String>());
 	}
 
@@ -45,7 +45,7 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 		return version;
 	}
 
-	public ApiAuth getAuth() {
+	public ApiAuth<?> getAuth() {
 		return auth;
 	}
 
@@ -56,7 +56,8 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 	@Override
 	public int hashCode() {
 		StringBuilder temp = new StringBuilder(path.getPath());
-		temp.append(page).append(version).append(auth.getUserID()).append(auth.getCharacterID()).append(auth.getApiKey());
+		temp.append(page).append(version).append(auth.getUserID()).append(auth.getCharacterID())
+				.append(auth.getApiKey());
 		for (Entry<String, String> entry : params.entrySet()) {
 			temp.append(entry.getKey()).append(entry.getValue());
 		}

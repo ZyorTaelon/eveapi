@@ -1,8 +1,11 @@
 package com.beimin.eveapi.connectors;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -28,13 +31,13 @@ public class ApiConnector {
 
 	public <E extends ApiResponse> E execute(ApiRequest request, Digester digester, Class<E> clazz) throws ApiException {
 		try {
-			return getApiResponse(digester, getInputStream(getURL(request)), clazz);
+			return getApiResponse(digester, getInputStream(getURL(request), getParams(request)), clazz);
 		} catch (Exception e) {
 			throw new ApiException(e);
 		}
 	}
 
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "unchecked", "unused" })
 	protected <E> E getApiResponse(Digester digester, InputStream inputStream, Class<E> clazz) throws ApiException {
 		try {
 			return (E) digester.parse(inputStream);
@@ -43,11 +46,33 @@ public class ApiConnector {
 		}
 	}
 
-	protected InputStream getInputStream(URL requestUrl) throws ApiException {
+	protected InputStream getInputStream(URL requestUrl, Map<String, String> params) throws ApiException {
+		OutputStreamWriter wr = null;
 		try {
-			return openConnection(requestUrl).getInputStream();
+			URLConnection conn = openConnection(requestUrl);
+			conn.setDoOutput(true);
+			wr = new OutputStreamWriter(conn.getOutputStream());
+			StringBuilder data = new StringBuilder();
+			for (Entry<String, String> entry : params.entrySet()) {
+				String key = entry.getKey();
+				String value = entry.getValue();
+				data.append(URLEncoder.encode(key, "UTF8"));
+				data.append("=");
+				data.append(URLEncoder.encode(value, "UTF8"));
+				data.append("&");
+			}
+			wr.write(data.toString());
+			wr.flush();
+			return conn.getInputStream();
 		} catch (Exception e) {
 			throw new ApiException(e);
+		} finally {
+			if (wr != null)
+				try {
+					wr.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 		}
 	}
 
@@ -65,23 +90,23 @@ public class ApiConnector {
 			result.append(request.getPath().getPath());
 			result.append("/").append(request.getPage().getPage());
 			result.append(".xml.aspx");
-			result.append("?version=");
-			result.append(request.getVersion());
-			Map<String, String> urlParams = new HashMap<String, String>();
-			ApiAuth auth = request.getAuth();
-			if (auth != null)
-				urlParams.putAll(auth.getParams());
-			Map<String, String> params = request.getParams();
-			if (params != null) {
-				urlParams.putAll(params);
-			}
-			for (Entry<String, String> entry : urlParams.entrySet()) {
-				result.append("&").append(entry.getKey()).append("=").append(entry.getValue());
-			}
 			return new URL(result.toString());
 		} catch (Exception e) {
 			throw new ApiException(e);
 		}
+	}
+
+	protected Map<String, String> getParams(ApiRequest request) {
+		Map<String, String> result = new HashMap<String, String>();
+		result.put("version", Integer.toString(request.getVersion()));
+		ApiAuth<?> auth = request.getAuth();
+		if (auth != null)
+			result.putAll(auth.getParams());
+		Map<String, String> params = request.getParams();
+		if (params != null) {
+			result.putAll(params);
+		}
+		return result;
 	}
 
 	protected String getBaseUrl() {

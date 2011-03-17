@@ -29,7 +29,7 @@ public class NotificationsParser extends AbstractApiParser<NotificationsResponse
 	}
 
 	@Override
-	public NotificationsResponse getResponse(ApiAuth auth) throws ApiException {
+	public NotificationsResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

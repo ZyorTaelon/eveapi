@@ -1,8 +1,6 @@
 package com.beimin.eveapi.eve.character;
 
-
 import org.apache.commons.digester.Digester;
-
 
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiException;
@@ -36,7 +34,7 @@ public class CharacterLookupParser extends AbstractApiParser<CharacterLookupResp
 	}
 
 	public CharacterLookupResponse getResponse(String... arguments) throws ApiException {
-		return super.getResponse(paramName, StringUtils.join(",", arguments).replaceAll(" ", "%20"));
+		return super.getResponse(paramName, StringUtils.join(",", arguments));
 	}
 
 	public CharacterLookupResponse getResponse(long... arguments) throws ApiException {

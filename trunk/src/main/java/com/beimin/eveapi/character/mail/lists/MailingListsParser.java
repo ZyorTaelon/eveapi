@@ -29,7 +29,7 @@ public class MailingListsParser extends AbstractApiParser<MailingListsResponse> 
 	}
 
 	@Override
-	public MailingListsResponse getResponse(ApiAuth auth) throws ApiException {
+	public MailingListsResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

@@ -1,8 +1,6 @@
 package com.beimin.eveapi.shared.factwar.stats;
 
-
 import org.apache.commons.digester.Digester;
-
 
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiAuth;
@@ -34,7 +32,7 @@ public class AbstractFactWarStatsParser extends AbstractApiParser<FacWarStatsRes
 	}
 
 	@Override
-	public FacWarStatsResponse getResponse(ApiAuth auth) throws ApiException {
+	public FacWarStatsResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

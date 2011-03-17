@@ -29,7 +29,7 @@ public class ContactNotificationsParser extends AbstractApiParser<ContactNotific
 	}
 
 	@Override
-	public ContactNotificationsResponse getResponse(ApiAuth auth) throws ApiException {
+	public ContactNotificationsResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

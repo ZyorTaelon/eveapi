@@ -29,7 +29,7 @@ public class AccountStatusParser extends AbstractApiParser<AccountStatusResponse
 	}
 
 	@Override
-	public AccountStatusResponse getResponse(ApiAuth auth) throws ApiException {
+	public AccountStatusResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

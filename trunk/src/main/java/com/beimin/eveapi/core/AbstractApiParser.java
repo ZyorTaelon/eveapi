@@ -54,15 +54,15 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		return getResponse(new ApiRequest(path, page, version));
 	}
 
-	protected E getResponse(ApiAuth auth) throws ApiException {
+	protected E getResponse(ApiAuth<?> auth) throws ApiException {
 		return getResponse(new ApiRequest(path, page, version, auth));
 	}
 
-	protected E getResponse(ApiAuth auth, String paramName, String paramValue) throws ApiException {
+	protected E getResponse(ApiAuth<?> auth, String paramName, String paramValue) throws ApiException {
 		return getResponse(new ApiRequest(path, page, version, auth, Collections.singletonMap(paramName, paramValue)));
 	}
 
-	protected E getResponse(ApiAuth auth, Map<String, String> extraParams) throws ApiException {
+	protected E getResponse(ApiAuth<?> auth, Map<String, String> extraParams) throws ApiException {
 		return getResponse(new ApiRequest(path, page, version, auth, extraParams));
 	}
 

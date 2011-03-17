@@ -34,7 +34,7 @@ public class SkillInTrainingParser extends AbstractApiParser<SkillInTrainingResp
 	}
 
 	@Override
-	public SkillInTrainingResponse getResponse(ApiAuth auth) throws ApiException {
+	public SkillInTrainingResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }
