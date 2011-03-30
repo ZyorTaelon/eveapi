@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 
@@ -18,6 +17,7 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.FullAuthParserTest;
+import java.util.Map;
 
 public class MailBodiesParserTest extends FullAuthParserTest {
 	public MailBodiesParserTest() {
@@ -45,7 +45,8 @@ public class MailBodiesParserTest extends FullAuthParserTest {
 	}
 
 	@Override
-	protected void extraAsserts(HttpServletRequest req) {
-		assertEquals("299279683,299280303", req.getParameter("ids"));
+	public void extraAsserts(Map<String, String> req) {
+		super.extraAsserts(req);
+		assertEquals("299279683,299280303", req.get("ids"));
 	}
 }

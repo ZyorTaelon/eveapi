@@ -54,12 +54,12 @@ public class ApiConnector {
 			wr = new OutputStreamWriter(conn.getOutputStream());
 			StringBuilder data = new StringBuilder();
 			for (Entry<String, String> entry : params.entrySet()) {
+				if (data.length() > 0) data.append("&"); // to ensure that we don't append an '&' to the end.
 				String key = entry.getKey();
 				String value = entry.getValue();
 				data.append(URLEncoder.encode(key, "UTF8"));
 				data.append("=");
 				data.append(URLEncoder.encode(value, "UTF8"));
-				data.append("&");
 			}
 			wr.write(data.toString());
 			wr.flush();

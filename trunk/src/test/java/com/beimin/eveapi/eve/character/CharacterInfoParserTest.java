@@ -1,6 +1,7 @@
 package com.beimin.eveapi.eve.character;
 
 import static com.beimin.eveapi.utils.Assert.assertDate;
+import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -21,6 +22,7 @@ import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.character.EveBloodline;
 import com.beimin.eveapi.shared.character.EveRace;
+import com.beimin.eveapi.utils.ExchangeProcessor;
 import com.beimin.eveapi.utils.MockApi;
 
 public class CharacterInfoParserTest {
@@ -126,50 +128,58 @@ public class CharacterInfoParserTest {
 	private RouteBuilder limitedApiRoute = new RouteBuilder() {
 		@Override
 		public void configure() {
-			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new Processor() {
-				@Override
-				public void process(Exchange exchange) {
-					HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
-					assertNotNull(req);
-					assertEquals("123", req.getParameter("userID"));
-					assertEquals("1380128241", req.getParameter("characterID"));
-					assertEquals("abc", req.getParameter("apiKey"));
-					exchange.getOut().setBody(
-							MockApi.response(path.getPath() + "/" + page.getPage() + "_LimitedAPI.xml"));
-				}
-			}).end();
+			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx")
+					.process(new ExchangeProcessor(
+						new ExchangeProcessor.ExtraAsserts() {
+							@Override
+							public void extraAsserts(Map<String, String> params) {
+								assertNotNull(params);
+								assertEquals("123", params.get("userID"));
+								assertEquals("1380128241", params.get("characterID"));
+								assertEquals("abc", params.get("apiKey"));
+							}
+						},
+						path.getPath() + "/" + page.getPage() + "_LimitedAPI.xml"
+					))
+					.end();
 		}
 	};
 
 	private RouteBuilder noAPI = new RouteBuilder() {
 		@Override
 		public void configure() {
-			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new Processor() {
-				@Override
-				public void process(Exchange exchange) {
-					HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
-					assertNotNull(req);
-					assertEquals("1380128241", req.getParameter("characterID"));
-					exchange.getOut().setBody(MockApi.response(path.getPath() + "/" + page.getPage() + "_NoAPI.xml"));
-				}
-			}).end();
+			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx")
+					.process(new ExchangeProcessor(
+						new ExchangeProcessor.ExtraAsserts() {
+							@Override
+							public void extraAsserts(Map<String, String> params) {
+								assertNotNull(params);
+								assertEquals("1380128241", params.get("characterID"));
+							}
+						},
+						path.getPath() + "/" + page.getPage() + "_NoAPI.xml"
+					))
+					.end();
 		}
 	};
 
 	private RouteBuilder fullApiRoute = new RouteBuilder() {
 		@Override
 		public void configure() {
-			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new Processor() {
-				@Override
-				public void process(Exchange exchange) {
-					HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
-					assertNotNull(req);
-					assertEquals("123", req.getParameter("userID"));
-					assertEquals("1380128241", req.getParameter("characterID"));
-					assertEquals("abcdef", req.getParameter("apiKey"));
-					exchange.getOut().setBody(MockApi.response(path.getPath() + "/" + page.getPage() + "_FullAPI.xml"));
-				}
-			}).end();
+			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx")
+					.process(new ExchangeProcessor(
+						new ExchangeProcessor.ExtraAsserts() {
+							@Override
+							public void extraAsserts(Map<String, String> params) {
+								assertNotNull(params);
+								assertEquals("123", params.get("userID"));
+								assertEquals("1380128241", params.get("characterID"));
+								assertEquals("abcdef", params.get("apiKey"));
+							}
+						},
+						path.getPath() + "/" + page.getPage() + "_FullAPI.xml"
+					))
+					.end();
 		}
 	};
 }

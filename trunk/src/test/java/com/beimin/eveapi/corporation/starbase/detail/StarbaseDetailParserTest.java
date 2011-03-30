@@ -8,7 +8,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 
@@ -63,7 +62,8 @@ public class StarbaseDetailParserTest extends FullAuthParserTest {
 	}
 
 	@Override
-	protected void extraAsserts(HttpServletRequest req) {
-		assertEquals("123456789", req.getParameter("itemID"));
+	public void extraAsserts(Map<String, String> req) {
+		super.extraAsserts(req);
+		assertEquals("123456789", req.get("itemID"));
 	}
 }

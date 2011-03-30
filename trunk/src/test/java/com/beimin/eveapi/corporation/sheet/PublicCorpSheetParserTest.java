@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 
@@ -13,6 +12,7 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.NoAuthParserTest;
+import java.util.Map;
 
 public class PublicCorpSheetParserTest extends NoAuthParserTest {
 	public PublicCorpSheetParserTest() {
@@ -48,9 +48,15 @@ public class PublicCorpSheetParserTest extends NoAuthParserTest {
 		assertEquals(0, logo.getColor2());
 		assertEquals(0, logo.getColor3());
 	}
+	
+	@Override
+	protected String getResourcePath() {
+		return getPath().getPath() + "/" + getPage().getPage() + "Public" + ".xml";
+	}
 
 	@Override
-	protected void extraAsserts(HttpServletRequest req) {
-		assertEquals("150333466", req.getParameter("corporationID"));
+	public void extraAsserts(Map<String, String> req) {
+		super.extraAsserts(req);
+		assertEquals("150333466", req.get("corporationID"));
 	}
 }

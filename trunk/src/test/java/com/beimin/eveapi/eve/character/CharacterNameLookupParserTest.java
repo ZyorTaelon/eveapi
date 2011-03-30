@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Collection;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 
@@ -13,6 +12,7 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.NoAuthParserTest;
+import java.util.Map;
 
 public class CharacterNameLookupParserTest extends NoAuthParserTest {
 	public CharacterNameLookupParserTest() {
@@ -31,7 +31,8 @@ public class CharacterNameLookupParserTest extends NoAuthParserTest {
 	}
 
 	@Override
-	protected void extraAsserts(HttpServletRequest req) {
-		assertEquals("797400947", req.getParameter("ids"));
+	public void extraAsserts(Map<String, String> req) {
+		super.extraAsserts(req);
+		assertEquals("797400947", req.get("ids"));
 	}
 }

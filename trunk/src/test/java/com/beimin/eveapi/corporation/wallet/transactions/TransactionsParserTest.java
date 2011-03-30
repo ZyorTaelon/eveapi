@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Test;
 
@@ -19,6 +18,7 @@ import com.beimin.eveapi.shared.wallet.transactions.AbstractWalletTransactionsPa
 import com.beimin.eveapi.shared.wallet.transactions.ApiWalletTransaction;
 import com.beimin.eveapi.shared.wallet.transactions.WalletTransactionsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
+import java.util.Map;
 
 public class TransactionsParserTest extends FullAuthParserTest {
 	public TransactionsParserTest() {
@@ -55,7 +55,8 @@ public class TransactionsParserTest extends FullAuthParserTest {
 	}
 
 	@Override
-	protected void extraAsserts(HttpServletRequest req) {
-		assertEquals("1000", req.getParameter("accountKey"));
+	public void extraAsserts(Map<String, String> req) {
+		super.extraAsserts(req);
+		assertEquals("1000", req.get("accountKey"));
 	}
 }

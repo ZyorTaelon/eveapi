@@ -1,16 +1,10 @@
 package com.beimin.eveapi.utils;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.camel.CamelContext;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 
 import com.beimin.eveapi.EveApi;
@@ -18,8 +12,9 @@ import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.core.ApiAuthorization;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import java.util.Map;
 
-public abstract class FullAuthParserTest {
+public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsserts {
 	private final CamelContext context = new DefaultCamelContext();
 	private final ApiPath path;
 	private final ApiPage page;
@@ -61,26 +56,23 @@ public abstract class FullAuthParserTest {
 							+ " page: " + " resourcePath: " + resourcePath);
 				}
 
-				from("jetty:" + MockApi.URL + resPath).process(new Processor() {
-					@Override
-					public void process(Exchange exchange) {
-						HttpServletRequest req = exchange.getIn().getBody(HttpServletRequest.class);
-						assertNotNull(req);
-						assertEquals("123", req.getParameter("userID"));
-						assertEquals("456", req.getParameter("characterID"));
-						assertEquals("abc", req.getParameter("apiKey"));
-						extraAsserts(req);
-						exchange.getOut().setBody(MockApi.response(path.getPath() + "/" + page.getPage() + ".xml"));
-					}
-				}).end();
+				from("jetty:" + MockApi.URL + resPath)
+						.process(
+							new ExchangeProcessor(
+								FullAuthParserTest.this,
+								path.getPath() + "/" + page.getPage() + ".xml"))
+						.end();
 			}
 		});
 		context.start();
 		EveApi.setConnector(new ApiConnector(MockApi.URL));
 	}
-
-	protected void extraAsserts(@SuppressWarnings("unused") HttpServletRequest req) {
-		// overridable
+  
+	@Override
+	public void extraAsserts(@SuppressWarnings("unused") Map<String, String> req) {
+		assertEquals("123", req.get("userID"));
+		assertEquals("456", req.get("characterID"));
+		assertEquals("abc", req.get("apiKey"));
 	}
 
 	@After
