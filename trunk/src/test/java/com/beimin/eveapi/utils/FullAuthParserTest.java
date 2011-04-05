@@ -1,10 +1,13 @@
 package com.beimin.eveapi.utils;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.Map;
+
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.After;
-import static org.junit.Assert.*;
 import org.junit.Before;
 
 import com.beimin.eveapi.EveApi;
@@ -12,7 +15,6 @@ import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.core.ApiAuthorization;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
-import java.util.Map;
 
 public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsserts {
 	private final CamelContext context = new DefaultCamelContext();
@@ -69,7 +71,7 @@ public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsser
 	}
   
 	@Override
-	public void extraAsserts(@SuppressWarnings("unused") Map<String, String> req) {
+	public void extraAsserts(Map<String, String> req) {
 		assertEquals("123", req.get("userID"));
 		assertEquals("456", req.get("characterID"));
 		assertEquals("abc", req.get("apiKey"));
