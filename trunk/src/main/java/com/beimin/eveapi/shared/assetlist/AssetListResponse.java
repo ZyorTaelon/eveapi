@@ -5,16 +5,15 @@ import java.util.HashSet;
 
 import com.beimin.eveapi.core.ApiResponse;
 
-@SuppressWarnings("rawtypes")
 public class AssetListResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
-	private final Collection<ApiAsset> assets = new HashSet<ApiAsset>();
+	private final Collection<ApiAsset<ApiAsset<?>>> assets = new HashSet<ApiAsset<ApiAsset<?>>>();
 
-	public void addAsset(ApiAsset asset) {
+	public void addAsset(ApiAsset<ApiAsset<?>> asset) {
 		assets.add(asset);
 	}
 
-	public Collection<ApiAsset> getAssets() {
+	public Collection<ApiAsset<ApiAsset<?>>> getAssets() {
 		return assets;
 	}
 }

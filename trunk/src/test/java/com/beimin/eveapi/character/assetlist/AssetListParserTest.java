@@ -30,7 +30,7 @@ public class AssetListParserTest extends FullAuthParserTest {
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 4, 43, 55, response.getCurrentTime());
 		assertDate(2008, 2, 4, 3, 43, 55, response.getCachedUntil());
-		Collection<ApiAsset> assets = response.getAssets();
+		Collection<ApiAsset<ApiAsset<?>>> assets = response.getAssets();
 		assertNotNull("Should have returned assets.", assets);
 		assertEquals("There should have been 4 assets.", 4, assets.size());
 		boolean assetFound = false;
