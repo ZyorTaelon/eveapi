@@ -20,13 +20,13 @@ public class StarbaseListResponse extends ApiResponse {
 		return starbases;
 	}
 
-	private void addTypeId(int itemID, Map<Integer, Integer> typeIds) {
+	private void addTypeId(int typeID, Map<Integer, Integer> typeIds) {
 		int amount = 0;
-		if (typeIds.containsKey(itemID)) {
-			amount = typeIds.get(itemID);
-			typeIds.remove(itemID);
+		if (typeIds.containsKey(typeID)) {
+			amount = typeIds.get(typeID);
+			typeIds.remove(typeID);
 		}
-		typeIds.put(itemID, amount + 1);
+		typeIds.put(typeID, amount + 1);
 	}
 
 	@Override

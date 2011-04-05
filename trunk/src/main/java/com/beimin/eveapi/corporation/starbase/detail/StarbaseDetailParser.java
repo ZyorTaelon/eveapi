@@ -3,7 +3,6 @@ package com.beimin.eveapi.corporation.starbase.detail;
 
 import org.apache.commons.digester.Digester;
 
-
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
@@ -50,7 +49,7 @@ public class StarbaseDetailParser extends AbstractApiParser<StarbaseDetailRespon
 		return new StarbaseDetailParser();
 	}
 
-	public StarbaseDetailResponse getResponse(ApiAuth<?> auth, int itemID) throws ApiException {
-		return super.getResponse(auth, "itemID", Integer.toString(itemID));
+	public StarbaseDetailResponse getResponse(ApiAuth<?> auth, long itemID) throws ApiException {
+		return super.getResponse(auth, "itemID", Long.toString(itemID));
 	}
 }

@@ -3,7 +3,7 @@ package com.beimin.eveapi.corporation.starbase.list;
 import java.util.Date;
 
 public class ApiStarbase {
-	private int itemID;
+	private long itemID;
 	private int typeID;
 	private int locationID;
 	private int moonID;
@@ -11,11 +11,11 @@ public class ApiStarbase {
 	private Date stateTimestamp; // ="2008-02-03 01:26:55"
 	private Date onlineTimestamp; // ="2007-11-29 19:23:58"
 
-	public int getItemID() {
+	public long getItemID() {
 		return itemID;
 	}
 
-	public void setItemID(int itemID) {
+	public void setItemID(long itemID) {
 		this.itemID = itemID;
 	}
 
