@@ -3,7 +3,6 @@ package com.beimin.eveapi.eve.alliancelist;
 
 import org.apache.commons.digester.Digester;
 
-
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -11,7 +10,7 @@ import com.beimin.eveapi.core.ApiPath;
 
 public class AllianceListParser extends AbstractApiParser<AllianceListResponse> {
 	public AllianceListParser() {
-		super(AllianceListResponse.class, 1, ApiPath.EVE, ApiPage.ALLIANCE_LIST);
+		super(AllianceListResponse.class, 2, ApiPath.EVE, ApiPage.ALLIANCE_LIST);
 	}
 
 	@Override
