@@ -1,16 +1,13 @@
 package com.beimin.eveapi.eve.character;
 
 import static com.beimin.eveapi.utils.Assert.assertDate;
-import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 import org.apache.camel.CamelContext;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.Test;
