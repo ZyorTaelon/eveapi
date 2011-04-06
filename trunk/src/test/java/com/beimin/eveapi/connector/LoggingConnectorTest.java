@@ -67,6 +67,5 @@ public class LoggingConnectorTest extends FullAuthParserTest {
 		assertEquals("    </rowset>", lines[16]);
 		assertEquals("  </result>", lines[17]);
 		assertEquals("  <cachedUntil>2010-04-03 16:48:20</cachedUntil>", lines[18]);
-		assertEquals("</eveapi>\r", lines[19]); 
 	}
 }
