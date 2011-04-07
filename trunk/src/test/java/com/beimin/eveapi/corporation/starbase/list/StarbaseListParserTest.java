@@ -9,7 +9,6 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -27,7 +26,7 @@ public class StarbaseListParserTest extends FullAuthParserTest {
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 1, 5, 55, response.getCurrentTime());
 		assertDate(2008, 2, 3, 7, 5, 55, response.getCachedUntil());
-		Collection<ApiStarbase> starbases = response.getStarbases();
+		Collection<ApiStarbase> starbases = response.getAll();
 		assertNotNull("Should have returned a collection with starbases.", starbases);
 		assertEquals("Should have returned 2 starbases.", 2, starbases.size());
 		ApiStarbase starbase1 = starbases.iterator().next();

@@ -9,9 +9,8 @@ public class MapSovereigntyResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
 	private final Map<Integer, ApiSystemSovereignty> systemSovereignties = new HashMap<Integer, ApiSystemSovereignty>();
 
-	public void addSystemSovereignty(ApiSystemSovereignty systemSovereignty) {
-		systemSovereignties.put(systemSovereignty.getSolarSystemID(),
-				systemSovereignty);
+	public void add(ApiSystemSovereignty systemSovereignty) {
+		systemSovereignties.put(systemSovereignty.getSolarSystemID(), systemSovereignty);
 	}
 
 	public Map<Integer, ApiSystemSovereignty> getSystemSovereignties() {

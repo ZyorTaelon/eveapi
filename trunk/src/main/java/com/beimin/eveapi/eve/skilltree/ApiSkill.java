@@ -69,12 +69,12 @@ public class ApiSkill implements Comparable<ApiSkill> {
 		this.requiredSkills = requiredSkills;
 	}
 
-	public void addSkillDetail(Detail skillDetail) {
-		if (skillDetail instanceof ApiRequirement) {
-			requiredSkills.add((ApiRequirement) skillDetail);
-		} else if (skillDetail instanceof ApiBonus) {
-			boneses.add((ApiBonus) skillDetail);
-		}
+	public void add(ApiRequirement requirement) {
+		requiredSkills.add(requirement);
+	}
+
+	public void add(ApiBonus bonus) {
+		boneses.add(bonus);
 	}
 
 	@Override

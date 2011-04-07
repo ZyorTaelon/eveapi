@@ -2,6 +2,8 @@ package com.beimin.eveapi.utils;
 
 
 
+import java.util.Map;
+
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
@@ -12,7 +14,6 @@ import com.beimin.eveapi.EveApi;
 import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
-import java.util.Map;
 
 public abstract class NoAuthParserTest implements ExchangeProcessor.ExtraAsserts {
 	private final CamelContext context = new DefaultCamelContext();

@@ -8,7 +8,6 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -24,7 +23,7 @@ public class TitlesParserTest extends FullAuthParserTest {
 		CorporationTitlesParser parser = CorporationTitlesParser.getInstance();
 		CorporationTitlesResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<ApiTitle> titles = response.getTitles();
+		Collection<ApiTitle> titles = response.getAll();
 		assertEquals(2, titles.size());
 		boolean found = false;
 		for (ApiTitle title : titles) {

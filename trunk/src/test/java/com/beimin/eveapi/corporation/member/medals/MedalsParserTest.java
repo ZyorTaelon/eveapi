@@ -5,10 +5,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.List;
+import java.util.Set;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -25,7 +24,7 @@ public class MedalsParserTest extends FullAuthParserTest {
 		MemberMedalsParser parser = MemberMedalsParser.getInstance();
 		MemberMedalsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		List<MemberMedal> memberMedals = response.getMemberMedals();
+		Set<MemberMedal> memberMedals = response.getAll();
 		assertNotNull(memberMedals);
 		assertEquals(45, memberMedals.size());
 		MemberMedal memberMedal = memberMedals.iterator().next();

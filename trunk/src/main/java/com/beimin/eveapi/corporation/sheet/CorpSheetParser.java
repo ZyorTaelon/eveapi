@@ -5,7 +5,6 @@ import org.apache.commons.digester.AbstractObjectCreationFactory;
 import org.apache.commons.digester.Digester;
 import org.xml.sax.Attributes;
 
-
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
@@ -58,8 +57,8 @@ public class CorpSheetParser extends AbstractApiParser<CorpSheetResponse> {
 		});
 		digester.addObjectCreate("eveapi/result/rowset/row", Division.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "addDivision");
-		digester.addSetNext("eveapi/result/rowset", "addDivisionList");
+		digester.addSetNext("eveapi/result/rowset/row", "add");
+		digester.addSetNext("eveapi/result/rowset", "add");
 		return digester;
 	}
 

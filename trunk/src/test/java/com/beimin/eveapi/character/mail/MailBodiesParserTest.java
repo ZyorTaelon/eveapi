@@ -4,11 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Map;
 import java.util.Set;
 
-
 import org.junit.Test;
-
 
 import com.beimin.eveapi.character.mail.bodies.ApiMailBody;
 import com.beimin.eveapi.character.mail.bodies.MailBodiesParser;
@@ -17,7 +16,6 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import java.util.Map;
 
 public class MailBodiesParserTest extends FullAuthParserTest {
 	public MailBodiesParserTest() {
@@ -29,7 +27,7 @@ public class MailBodiesParserTest extends FullAuthParserTest {
 		MailBodiesParser parser = MailBodiesParser.getInstance();
 		MailBodiesResponse response = parser.getResponse(auth, 299279683L, 299280303L);
 		assertNotNull(response);
-		Set<ApiMailBody> mailBodies = response.getMailBodies();
+		Set<ApiMailBody> mailBodies = response.getAll();
 		assertNotNull(mailBodies);
 		assertEquals(2, mailBodies.size());
 		boolean found = false;

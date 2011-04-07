@@ -41,7 +41,7 @@ public class StarbaseDetailParser extends AbstractApiParser<StarbaseDetailRespon
 
 		digester.addObjectCreate("eveapi/result/rowset/row", FuelLevel.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "addFuelLevel");
+		digester.addSetNext("eveapi/result/rowset/row", "add");
 		return digester;
 	}
 

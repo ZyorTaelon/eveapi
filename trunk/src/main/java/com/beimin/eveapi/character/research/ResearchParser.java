@@ -1,27 +1,15 @@
 package com.beimin.eveapi.character.research;
 
 
-import org.apache.commons.digester.Digester;
-
-
-import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.AbstractListParser;
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public class ResearchParser extends AbstractApiParser<ResearchResponse> {
+public class ResearchParser extends AbstractListParser<ResearchResponse, ApiResearchAgent> {
 	private ResearchParser() {
-		super(ResearchResponse.class, 1, ApiPath.CHARACTER, ApiPage.RESEARCH);
-	}
-
-	@Override
-	protected Digester getDigester() {
-		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", ApiResearchAgent.class);
-		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "addResearchAgent");
-		return digester;
+		super(ResearchResponse.class, 1, ApiPath.CHARACTER, ApiPage.RESEARCH, ApiResearchAgent.class);
 	}
 
 	public static ResearchParser getInstance() {

@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -32,7 +31,7 @@ public class KillLogParserTest extends FullAuthParserTest {
 		AbstractKillLogParser parser = KillLogParser.getInstance();
 		KillLogResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<ApiKill> entries = response.getKills();
+		Collection<ApiKill> entries = response.getAll();
 		assertEquals(18, entries.size());
 		boolean found = false;
 		for (ApiKill kill : entries) {

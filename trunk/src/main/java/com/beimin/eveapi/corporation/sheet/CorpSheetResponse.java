@@ -154,7 +154,7 @@ public class CorpSheetResponse extends ApiResponse {
 		this.logo = logo;
 	}
 
-	public void addDivisionList(DivisionList divisionList) {
+	public void add(DivisionList divisionList) {
 		if (divisionList.getName().equals("divisions")) {
 			for (Division division : divisionList.getDivisions()) {
 				this.divisions.put(division.getAccountKey(), division.getDescription());

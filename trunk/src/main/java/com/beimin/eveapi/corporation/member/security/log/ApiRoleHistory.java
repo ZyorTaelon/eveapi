@@ -64,7 +64,7 @@ public class ApiRoleHistory {
 		this.roleLocationType = roleLocationType;
 	}
 
-	public void addSecurityRoleBag(SecurityRoleBag securityRoleBag) {
+	public void add(SecurityRoleBag securityRoleBag) {
 		String name = securityRoleBag.getName();
 		if (name.equals("oldRoles")) {
 			oldRoles.addAll(securityRoleBag.getSecurityRoles());

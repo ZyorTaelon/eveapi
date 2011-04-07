@@ -5,10 +5,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.List;
+import java.util.Set;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -25,7 +24,7 @@ public class ResearchParserTest extends FullAuthParserTest {
 		ResearchParser parser = ResearchParser.getInstance();
 		ResearchResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		List<ApiResearchAgent> researchAgents = response.getResearchAgents();
+		Set<ApiResearchAgent> researchAgents = response.getAll();
 		assertNotNull(researchAgents);
 		assertEquals(5, researchAgents.size());
 		boolean found = false;

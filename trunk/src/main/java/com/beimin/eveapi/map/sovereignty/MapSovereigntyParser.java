@@ -3,7 +3,6 @@ package com.beimin.eveapi.map.sovereignty;
 
 import org.apache.commons.digester.Digester;
 
-
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -19,7 +18,7 @@ public class MapSovereigntyParser extends AbstractApiParser<MapSovereigntyRespon
 		Digester digester = super.getDigester();
 		digester.addObjectCreate("eveapi/result/rowset/row", ApiSystemSovereignty.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "addSystemSovereignty");
+		digester.addSetNext("eveapi/result/rowset/row", "add");
 		return digester;
 	}
 

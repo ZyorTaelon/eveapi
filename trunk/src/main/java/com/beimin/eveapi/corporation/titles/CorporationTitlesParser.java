@@ -5,22 +5,20 @@ import org.apache.commons.digester.AbstractObjectCreationFactory;
 import org.apache.commons.digester.Digester;
 import org.xml.sax.Attributes;
 
-
-import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.AbstractListParser;
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public class CorporationTitlesParser extends AbstractApiParser<CorporationTitlesResponse> {
+public class CorporationTitlesParser extends AbstractListParser<CorporationTitlesResponse, ApiTitle> {
 	public CorporationTitlesParser() {
-		super(CorporationTitlesResponse.class, 2, ApiPath.CORPORATION, ApiPage.TITLES);
+		super(CorporationTitlesResponse.class, 2, ApiPath.CORPORATION, ApiPage.TITLES, ApiTitle.class);
 	}
 
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", ApiTitle.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addFactoryCreate("eveapi/result/rowset/row/rowset", new AbstractObjectCreationFactory() {
 			@Override
@@ -36,9 +34,8 @@ public class CorporationTitlesParser extends AbstractApiParser<CorporationTitles
 		});
 		digester.addObjectCreate("eveapi/result/rowset/row/rowset/row", ApiRole.class);
 		digester.addSetProperties("eveapi/result/rowset/row/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row/rowset/row", "addRole");
-		digester.addSetNext("eveapi/result/rowset/row/rowset", "addRoleBag");
-		digester.addSetNext("eveapi/result/rowset/row", "addTitle");
+		digester.addSetNext("eveapi/result/rowset/row/rowset/row", "add");
+		digester.addSetNext("eveapi/result/rowset/row/rowset", "add");
 		return digester;
 	}
 

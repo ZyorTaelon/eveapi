@@ -3,27 +3,15 @@ package com.beimin.eveapi.shared.wallet.transactions;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.digester.Digester;
-
-
-import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.AbstractListParser;
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public abstract class AbstractWalletTransactionsParser extends AbstractApiParser<WalletTransactionsResponse> {
+public abstract class AbstractWalletTransactionsParser extends AbstractListParser<WalletTransactionsResponse, ApiWalletTransaction> {
 	public AbstractWalletTransactionsParser(ApiPath path) {
-		super(WalletTransactionsResponse.class, 2, path, ApiPage.WALLET_TRANSACTIONS);
-	}
-
-	@Override
-	protected Digester getDigester() {
-		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", ApiWalletTransaction.class);
-		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "addWalletTransaction");
-		return digester;
+		super(WalletTransactionsResponse.class, 2, path, ApiPage.WALLET_TRANSACTIONS, ApiWalletTransaction.class);
 	}
 
 	public WalletTransactionsResponse getResponse(ApiAuth<?> auth, int accountKey) throws ApiException {

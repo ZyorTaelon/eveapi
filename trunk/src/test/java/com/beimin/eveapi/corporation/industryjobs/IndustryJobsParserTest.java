@@ -28,7 +28,7 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 		AbstractIndustryJobsParser parser = IndustryJobsParser.getInstance();
 		IndustryJobsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<ApiIndustryJob> industryJobs = response.getIndustryJobs();
+		Collection<ApiIndustryJob> industryJobs = response.getAll();
 		assertNotNull(industryJobs);
 		assertEquals(22, industryJobs.size());
 		boolean found = false;

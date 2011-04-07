@@ -1,19 +1,7 @@
 package com.beimin.eveapi.character.skill.queue;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.beimin.eveapi.core.ApiListResponse;
 
-import com.beimin.eveapi.core.ApiResponse;
-
-public class SkillQueueResponse extends ApiResponse {
+public class SkillQueueResponse extends ApiListResponse<ApiSkillQueueItem> {
 	private static final long serialVersionUID = 1L;
-	private final List<ApiSkillQueueItem> skillQueueItems = new ArrayList<ApiSkillQueueItem>();
-
-	public void addSkillQueueItem(ApiSkillQueueItem skillQueueItem) {
-		skillQueueItems.add(skillQueueItem);
-	}
-
-	public List<ApiSkillQueueItem> getSkillQueueItems() {
-		return skillQueueItems;
-	}
 }

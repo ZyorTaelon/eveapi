@@ -8,7 +8,7 @@ public class ApiCertificateCategory {
 	private int categoryID;
 	private String categoryName;
 	
-	public void addCertificateClass(ApiCertificateClass certificateClass) {
+	public void add(ApiCertificateClass certificateClass) {
 		certificateClasses.add(certificateClass);
 	}
 	

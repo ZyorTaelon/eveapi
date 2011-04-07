@@ -4,10 +4,9 @@ import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.List;
+import java.util.Set;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -24,7 +23,7 @@ public class ContactNotificationsParserTest extends FullAuthParserTest {
 		ContactNotificationsParser parser = ContactNotificationsParser.getInstance();
 		ContactNotificationsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		List<ApiContactNotification> contactNotifications = response.getContactNotifications();
+		Set<ApiContactNotification> contactNotifications = response.getAll();
 		assertEquals(1, contactNotifications.size());
 		ApiContactNotification contactNotification = contactNotifications.iterator().next();
 		assertEquals(308734131, contactNotification.getNotificationID());

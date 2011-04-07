@@ -43,12 +43,12 @@ public class ApiCertificate {
 		this.description = description;
 	}
 	
-	public void addRequirement(CertificateRequirement requirement) {
-		if (requirement instanceof RequiredSkill) {
-			requiredSkills.add((RequiredSkill) requirement);
-		} else if (requirement instanceof RequiredCertificate) {
-			requiredCertificates.add((RequiredCertificate) requirement);
-		}  
+	public void add(RequiredSkill requirement) {
+		requiredSkills.add(requirement);
+	}
+
+	public void add(RequiredCertificate requirement) {
+		requiredCertificates.add(requirement);
 	}
 
 	public List<RequiredSkill> getRequiredSkills() {

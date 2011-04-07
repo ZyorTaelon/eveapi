@@ -3,10 +3,9 @@ package com.beimin.eveapi.character.accountbalance;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Collection;
+import java.util.Set;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -25,7 +24,7 @@ public class AccountBalanceParserTest extends FullAuthParserTest {
 		AccountBalanceParser parser = AccountBalanceParser.getInstance();
 		AccountBalanceResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<ApiAccountBalance> accountBalances = response.getAccountBalances();
+		Set<ApiAccountBalance> accountBalances = response.getAll();
 		assertNotNull(accountBalances);
 		assertEquals(1, accountBalances.size());
 		ApiAccountBalance accountBalance = accountBalances.iterator().next();

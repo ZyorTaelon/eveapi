@@ -17,7 +17,7 @@ public class SecurityRoleBag {
 		this.name = name;
 	}
 
-	public void addSecurityRole(ApiSecurityRole securityRole) {
+	public void add(ApiSecurityRole securityRole) {
 		securityRoles.add(securityRole);
 	}
 

@@ -6,10 +6,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
-
+import java.util.Map;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -19,7 +18,6 @@ import com.beimin.eveapi.shared.wallet.journal.AbstractWalletJournalParser;
 import com.beimin.eveapi.shared.wallet.journal.ApiJournalEntry;
 import com.beimin.eveapi.shared.wallet.journal.WalletJournalResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import java.util.Map;
 
 public class JournalParserTest extends FullAuthParserTest {
 	public JournalParserTest() {
@@ -31,7 +29,7 @@ public class JournalParserTest extends FullAuthParserTest {
 		AbstractWalletJournalParser parser = WalletJournalParser.getInstance();
 		WalletJournalResponse response = parser.getResponse(auth, 1000);
 		assertNotNull(response);
-		Collection<ApiJournalEntry> entries = response.getJournalEntries();
+		Collection<ApiJournalEntry> entries = response.getAll();
 		assertEquals(5, entries.size());
 		boolean found = false;
 		for (ApiJournalEntry journalEntry : entries) {

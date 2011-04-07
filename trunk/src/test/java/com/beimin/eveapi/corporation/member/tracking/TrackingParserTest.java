@@ -7,7 +7,6 @@ import java.util.Set;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -23,7 +22,7 @@ public class TrackingParserTest extends FullAuthParserTest {
 		MemberTrackingParser parser = MemberTrackingParser.getInstance();
 		MemberTrackingResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiMember> members = response.getMembers();
+		Set<ApiMember> members = response.getAll();
 		for (ApiMember member : members) {
 			System.out.println(member.getName());
 		}

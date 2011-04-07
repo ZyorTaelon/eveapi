@@ -61,7 +61,7 @@ public class ApiAlliance {
 		this.startDate = startDate;
 	}
 
-	public void addMemberCorporation(ApiMemberCorporation memberCorporation) {
+	public void add(ApiMemberCorporation memberCorporation) {
 		memberCorporations.add(memberCorporation);
 	}
 

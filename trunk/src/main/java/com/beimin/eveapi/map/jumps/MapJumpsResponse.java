@@ -9,7 +9,7 @@ public class MapJumpsResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
 	private final Map<Integer, Integer> systemJumps = new HashMap<Integer, Integer>();
 
-	public void addSystemJumps(ApiSystemJumps systemJump) {
+	public void add(ApiSystemJumps systemJump) {
 		systemJumps.put(systemJump.getSolarSystemID(),
 				systemJump.getShipJumps());
 	}

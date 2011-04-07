@@ -9,7 +9,7 @@ public class AbstractContactListResponse extends ApiResponse {
 	private static final long serialVersionUID = 2L;
 	protected Map<String, ContactList> contactLists = new HashMap<String, ContactList>();
 
-	public void addContactList(ContactList contactList) {
+	public void add(ContactList contactList) {
 		contactLists.put(contactList.getName(), contactList);
 	}
 }

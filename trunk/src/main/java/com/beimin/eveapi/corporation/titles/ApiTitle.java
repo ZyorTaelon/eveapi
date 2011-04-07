@@ -63,7 +63,7 @@ public class ApiTitle {
 		return grantableRolesAtOther;
 	}
 
-	public void addRoleBag(RoleBag roleBag) {
+	public void add(RoleBag roleBag) {
 		String name = roleBag.getName();
 		Collection<ApiRole> target = null;
 		if (name.equals("roles")) {

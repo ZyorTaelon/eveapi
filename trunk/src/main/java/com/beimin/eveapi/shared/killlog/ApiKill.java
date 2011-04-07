@@ -53,7 +53,7 @@ public class ApiKill {
 		this.victim = victim;
 	}
 
-	public void addKillDetail(ApiKillAttacker attacker) {
+	public void add(ApiKillAttacker attacker) {
 		attackers.add(attacker);
 	}
 
@@ -61,7 +61,7 @@ public class ApiKill {
 		return attackers;
 	}
 
-	public void addKillDetail(ApiKillItem item) {
+	public void add(ApiKillItem item) {
 		items.add(item);
 	}
 

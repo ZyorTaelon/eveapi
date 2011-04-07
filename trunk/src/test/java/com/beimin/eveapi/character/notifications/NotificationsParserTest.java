@@ -9,7 +9,6 @@ import java.util.Set;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.character.notifications.ApiNotification.NotificationType;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -26,7 +25,7 @@ public class NotificationsParserTest extends FullAuthParserTest {
 		NotificationsParser parser = NotificationsParser.getInstance();
 		NotificationsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiNotification> notifications = response.getNotifications();
+		Set<ApiNotification> notifications = response.getAll();
 		assertNotNull(notifications);
 		assertEquals(3, notifications.size());
 		boolean found = false;

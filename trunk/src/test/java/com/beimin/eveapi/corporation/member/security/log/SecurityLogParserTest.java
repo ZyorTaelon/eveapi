@@ -8,7 +8,6 @@ import java.util.Set;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -25,7 +24,7 @@ public class SecurityLogParserTest extends FullAuthParserTest {
 		MemberSecurityLogParser parser = MemberSecurityLogParser.getInstance();
 		MemberSecurityLogResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiRoleHistory> roleHistories = response.getRoleHistories();
+		Set<ApiRoleHistory> roleHistories = response.getAll();
 		assertNotNull(roleHistories);
 		assertEquals("Incorrect amount of role histories found.", 4, roleHistories.size());
 		boolean found = false;

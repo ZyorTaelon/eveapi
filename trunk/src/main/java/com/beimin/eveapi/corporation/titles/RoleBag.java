@@ -15,7 +15,7 @@ public class RoleBag {
 		this.name = name;
 	}
 
-	public void addRole(ApiRole role) {
+	public void add(ApiRole role) {
 		roles.add(role);
 	}
 

@@ -28,8 +28,8 @@ public class SkillTreeParserTest extends NoAuthParserTest {
 		assertEquals("version 2 expected.", 2, response.getVersion());
 		assertNotNull("Response should contain the current time.", response.getCurrentTime());
 		assertNotNull("Response should contain the time untill this response data is cached.", response.getCachedUntil());
-		assertTrue("Should return some skill groups.", response.getSkillGroups().size() > 0);
-		Collection<ApiSkillGroup> skillGroups = response.getSkillGroups();
+		assertTrue("Should return some skill groups.", response.getAll().size() > 0);
+		Collection<ApiSkillGroup> skillGroups = response.getAll();
 		assertEquals(17, skillGroups.size());
 		ApiSkillGroup skillGroup = skillGroups.iterator().next();
 		assertEquals("Corporation Management", skillGroup.getGroupName());

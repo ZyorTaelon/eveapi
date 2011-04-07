@@ -3,16 +3,14 @@ package com.beimin.eveapi.eve.character;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Collection;
-
+import java.util.Map;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.NoAuthParserTest;
-import java.util.Map;
 
 public class CharacterIDLookupParserTest extends NoAuthParserTest {
 	public CharacterIDLookupParserTest() {
@@ -23,7 +21,7 @@ public class CharacterIDLookupParserTest extends NoAuthParserTest {
 	public void getResponse() throws ApiException {
 		CharacterLookupParser parser = CharacterLookupParser.getName2IdInstance();
 		CharacterLookupResponse response = parser.getResponse("CCP Garthagk");
-		Collection<ApiCharacterLookup> chars = response.getCharacterLookups();
+		Collection<ApiCharacterLookup> chars = response.getAll();
 		assertEquals(1, chars.size());
 		ApiCharacterLookup garthagk = chars.iterator().next();
 		assertEquals("CCP Garthagk", garthagk.getName());

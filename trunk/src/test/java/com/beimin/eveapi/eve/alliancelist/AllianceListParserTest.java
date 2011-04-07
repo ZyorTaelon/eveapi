@@ -9,7 +9,6 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -25,7 +24,7 @@ public class AllianceListParserTest extends NoAuthParserTest {
 		AllianceListParser parser = AllianceListParser.getInstance();
 		AllianceListResponse response = parser.getResponse();
 		assertNotNull(response);
-		Collection<ApiAlliance> alliances = response.getAlliances();
+		Collection<ApiAlliance> alliances = response.getAll();
 		assertEquals(605, alliances.size());
 		boolean found = false;
 		for (ApiAlliance alliance : alliances) {

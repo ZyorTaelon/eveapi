@@ -8,7 +8,6 @@ import java.util.Set;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.character.mail.lists.ApiMailingList;
 import com.beimin.eveapi.character.mail.lists.MailingListsParser;
 import com.beimin.eveapi.character.mail.lists.MailingListsResponse;
@@ -27,7 +26,7 @@ public class MailingListsParserTest extends FullAuthParserTest {
 		MailingListsParser parser = MailingListsParser.getInstance();
 		MailingListsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiMailingList> mailinglists = response.getMailingLists();
+		Set<ApiMailingList> mailinglists = response.getAll();
 		assertNotNull(mailinglists);
 		assertEquals(3, mailinglists.size());
 		boolean found = false;

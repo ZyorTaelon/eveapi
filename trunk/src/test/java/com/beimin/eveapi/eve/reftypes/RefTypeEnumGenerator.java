@@ -16,7 +16,7 @@ public class RefTypeEnumGenerator {
 	public static void main(String[] args) throws IOException, TemplateException, ApiException {
 		RefTypesParser parser = RefTypesParser.getInstance();
 		RefTypesResponse response = parser.getResponse();
-		Collection<ApiRefType> refTypes = response.getRefTypes();
+		Collection<ApiRefType> refTypes = response.getAll();
 		Configuration cfg = new Configuration();
 		Template tpl = cfg.getTemplate("src/test/resources/refType.ftl");
 		FileWriter output = new FileWriter("src/test/java/com/beimin/eveapi/shared/wallet/RefType.java");

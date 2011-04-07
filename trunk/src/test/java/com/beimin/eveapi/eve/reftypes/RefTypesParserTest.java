@@ -8,7 +8,6 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -24,7 +23,7 @@ public class RefTypesParserTest extends NoAuthParserTest {
 		RefTypesParser parser = RefTypesParser.getInstance();
 		RefTypesResponse response = parser.getResponse();
 		assertNotNull(response);
-		Collection<ApiRefType> refTypes = response.getRefTypes();
+		Collection<ApiRefType> refTypes = response.getAll();
 		assertEquals(87, refTypes.size());
 		boolean found = false;
 		for (ApiRefType refType : refTypes) {

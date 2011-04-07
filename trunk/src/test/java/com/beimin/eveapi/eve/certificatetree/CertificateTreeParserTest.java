@@ -5,9 +5,9 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -27,7 +27,7 @@ public class CertificateTreeParserTest extends NoAuthParserTest {
 		assertEquals("version 2 expected.", 2, response.getVersion());
 		assertNotNull("Response should contain the current time.", response.getCurrentTime());
 		assertNotNull("Response should contain the time untill this response data is cached.", response.getCachedUntil());
-		List<ApiCertificateCategory> certificateCategories = response.getCertificateCategories();
+		Set<ApiCertificateCategory> certificateCategories = response.getAll();
 		assertEquals("Wrong number of Certificate Categories", 11, certificateCategories.size());
 		ApiCertificateCategory certificateCategory = certificateCategories.iterator().next();
 		assertEquals(3, certificateCategory.getCategoryID());

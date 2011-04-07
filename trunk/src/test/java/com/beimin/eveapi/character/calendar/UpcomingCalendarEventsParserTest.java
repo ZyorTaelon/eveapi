@@ -3,7 +3,7 @@ package com.beimin.eveapi.character.calendar;
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 
-import java.util.List;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -25,9 +25,9 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
 	public void getResponse() throws ApiException {
 		UpcomingCalendarEventsParser parser = UpcomingCalendarEventsParser.getInstance();
 		UpcomingCalendarEventsResponse response = parser.getResponse(auth);
-		List<ApiUpcomingCalendarEvent> events = response.getUpcomingCalendarEvents();
+		Set<ApiUpcomingCalendarEvent> events = response.getAll();
 		assertEquals(1, events.size());
-		ApiUpcomingCalendarEvent event = events.get(0);
+		ApiUpcomingCalendarEvent event = events.iterator().next();
 		assertEquals(90864L, event.getEventID());
 		assertEquals(786344537L, event.getOwnerID());
 		assertEquals("Some Alliance", event.getOwnerName());

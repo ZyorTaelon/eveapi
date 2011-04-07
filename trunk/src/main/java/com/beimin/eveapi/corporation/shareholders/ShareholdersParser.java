@@ -3,7 +3,6 @@ package com.beimin.eveapi.corporation.shareholders;
 
 import org.apache.commons.digester.Digester;
 
-
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
@@ -20,7 +19,7 @@ public class ShareholdersParser extends AbstractApiParser<ShareholdersResponse> 
 		Digester digester = super.getDigester();
 		digester.addObjectCreate("eveapi/result/rowset/row", ApiShareholder.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "addShareholder");
+		digester.addSetNext("eveapi/result/rowset/row", "add");
 		return digester;
 	}
 

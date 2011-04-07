@@ -24,7 +24,7 @@ public class ApiSkillGroup implements Comparable<ApiSkillGroup> {
 		this.groupID = groupID;
 	}
 
-	public void addSkill(ApiSkill skill) {
+	public void add(ApiSkill skill) {
 		skills.add(skill);
 	}
 

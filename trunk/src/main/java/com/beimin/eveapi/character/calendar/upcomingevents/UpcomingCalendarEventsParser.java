@@ -4,7 +4,7 @@ package com.beimin.eveapi.character.calendar.upcomingevents;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.digester.Digester;
 
-import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.AbstractListParser;
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -12,18 +12,15 @@ import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.calendar.CalendarEventResponse;
 import com.beimin.eveapi.shared.calendar.CalendarEventResponseConverter;
 
-public class UpcomingCalendarEventsParser extends AbstractApiParser<UpcomingCalendarEventsResponse> {
+public class UpcomingCalendarEventsParser extends AbstractListParser<UpcomingCalendarEventsResponse, ApiUpcomingCalendarEvent> {
 	public UpcomingCalendarEventsParser() {
-		super(UpcomingCalendarEventsResponse.class, 2, ApiPath.CHARACTER, ApiPage.UPCOMING_CALENDAR_EVENTS);
+		super(UpcomingCalendarEventsResponse.class, 2, ApiPath.CHARACTER, ApiPage.UPCOMING_CALENDAR_EVENTS, ApiUpcomingCalendarEvent.class);
 	}
 
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
 		ConvertUtils.register(new CalendarEventResponseConverter(), CalendarEventResponse.class);
-		digester.addObjectCreate("eveapi/result/rowset/row", ApiUpcomingCalendarEvent.class);
-		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "add");
 		return digester;
 	}
 

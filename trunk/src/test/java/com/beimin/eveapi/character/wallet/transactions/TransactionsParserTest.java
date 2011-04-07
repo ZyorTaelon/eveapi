@@ -5,11 +5,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Collection;
-
+import java.util.Map;
+import java.util.Set;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -18,7 +17,6 @@ import com.beimin.eveapi.shared.wallet.transactions.AbstractWalletTransactionsPa
 import com.beimin.eveapi.shared.wallet.transactions.ApiWalletTransaction;
 import com.beimin.eveapi.shared.wallet.transactions.WalletTransactionsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import java.util.Map;
 
 public class TransactionsParserTest extends FullAuthParserTest {
 	public TransactionsParserTest() {
@@ -30,7 +28,7 @@ public class TransactionsParserTest extends FullAuthParserTest {
 		AbstractWalletTransactionsParser parser = WalletTransactionsParser.getInstance();
 		WalletTransactionsResponse response = parser.getResponse(auth, 1000);
 		assertNotNull(response);
-		Collection<ApiWalletTransaction> walletTransactions = response.getWalletTransactions();
+		Set<ApiWalletTransaction> walletTransactions = response.getAll();
 		assertEquals(25, walletTransactions.size());
 		boolean found = false;
 		for (ApiWalletTransaction walletTransaction : walletTransactions) {

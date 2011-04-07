@@ -15,7 +15,7 @@ public class DivisionList {
 		this.name = name;
 	}
 
-	public void addDivision(Division division) {
+	public void add(Division division) {
 		divisions.add(division);
 	}
 

@@ -8,7 +8,6 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -24,7 +23,7 @@ public class ErrorListParserTest extends NoAuthParserTest {
 		ErrorListParser parser = ErrorListParser.getInstance();
 		ErrorListResponse response = parser.getResponse();
 		assertNotNull(response);
-		Collection<ApiErrorListItem> errorListItems = response.getApiErrorListItems();
+		Collection<ApiErrorListItem> errorListItems = response.getAll();
 		assertEquals(61, errorListItems.size());
 		boolean found = false;
 		for (ApiErrorListItem apiErrorListItem : errorListItems) {

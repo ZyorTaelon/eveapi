@@ -9,7 +9,6 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -28,7 +27,7 @@ public class MarketOrdersParserTest extends FullAuthParserTest {
 		AbstractMarketOrdersParser parser = MarketOrdersParser.getInstance();
 		MarketOrdersResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<ApiMarketOrder> orders = response.getMarketOrders();
+		Collection<ApiMarketOrder> orders = response.getAll();
 		assertEquals(9, orders.size());
 		boolean found = false;
 		for (ApiMarketOrder order : orders) {
