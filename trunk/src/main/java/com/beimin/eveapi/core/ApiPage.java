@@ -5,6 +5,7 @@ public enum ApiPage {
 	CHARACTERS("Characters"), //
 	ACCOUNT_BALANCE("AccountBalance"), //
 	ASSET_LIST("AssetList"), //
+	CALENDAR_EVENT_ATTENDEES("/CalendarEventAttendees"), //
 	UPCOMING_CALENDAR_EVENTS("UpcomingCalendarEvents"), //
 	CONTACT_LIST("ContactList"), //
 	CONTACT_NOTIFICATIONS("ContactNotifications"), //

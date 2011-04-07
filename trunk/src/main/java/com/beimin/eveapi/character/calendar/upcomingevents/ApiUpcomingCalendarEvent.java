@@ -2,22 +2,24 @@ package com.beimin.eveapi.character.calendar.upcomingevents;
 
 import java.util.Date;
 
+import com.beimin.eveapi.shared.calendar.CalendarEventResponse;
+
 public class ApiUpcomingCalendarEvent {
-	private int eventID;
+	private long eventID;
 	private long ownerID;
 	private String ownerName;
 	private Date eventDate;
 	private String eventTitle;
 	private int duration;
 	private boolean important;
-	private String response;
+	private CalendarEventResponse response;
 	private String eventText;
 
-	public int getEventID() {
+	public long getEventID() {
 		return eventID;
 	}
 
-	public void setEventID(int eventID) {
+	public void setEventID(long eventID) {
 		this.eventID = eventID;
 	}
 
@@ -69,11 +71,11 @@ public class ApiUpcomingCalendarEvent {
 		this.important = importance == 1;
 	}
 
-	public String getResponse() {
+	public CalendarEventResponse getResponse() {
 		return response;
 	}
 
-	public void setResponse(String response) {
+	public void setResponse(CalendarEventResponse response) {
 		this.response = response;
 	}
 
