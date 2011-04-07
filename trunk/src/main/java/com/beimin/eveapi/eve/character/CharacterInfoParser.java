@@ -1,5 +1,6 @@
 package com.beimin.eveapi.eve.character;
 
+import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.digester.Digester;
 
 import com.beimin.eveapi.core.AbstractApiParser;
@@ -7,6 +8,12 @@ import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.shared.character.EveAncestry;
+import com.beimin.eveapi.shared.character.EveAncestryConverter;
+import com.beimin.eveapi.shared.character.EveBloodline;
+import com.beimin.eveapi.shared.character.EveBloodlineConverter;
+import com.beimin.eveapi.shared.character.EveRace;
+import com.beimin.eveapi.shared.character.EveRaceConverter;
 
 public class CharacterInfoParser extends AbstractApiParser<CharacterInfoResponse> {
 	public CharacterInfoParser() {
@@ -16,6 +23,9 @@ public class CharacterInfoParser extends AbstractApiParser<CharacterInfoResponse
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
+		ConvertUtils.register(new EveRaceConverter(), EveRace.class);
+		ConvertUtils.register(new EveBloodlineConverter(), EveBloodline.class);
+		ConvertUtils.register(new EveAncestryConverter(), EveAncestry.class);
 		digester.addBeanPropertySetter("eveapi/result/characterID");
 		digester.addBeanPropertySetter("eveapi/result/characterName");
 		digester.addBeanPropertySetter("eveapi/result/race");

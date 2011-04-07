@@ -10,14 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.beimin.eveapi.EveApi;
-import com.beimin.eveapi.shared.calendar.CalendarEventResponse;
-import com.beimin.eveapi.shared.calendar.CalendarEventResponseConverter;
-import com.beimin.eveapi.shared.character.EveAncestry;
-import com.beimin.eveapi.shared.character.EveAncestryConverter;
-import com.beimin.eveapi.shared.character.EveBloodline;
-import com.beimin.eveapi.shared.character.EveBloodlineConverter;
-import com.beimin.eveapi.shared.character.EveRace;
-import com.beimin.eveapi.shared.character.EveRaceConverter;
 import com.beimin.eveapi.utils.DateUtils;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
@@ -37,10 +29,6 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	protected Digester getDigester() {
 		Digester digester = new Digester();
 		ConvertUtils.register(DateUtils.getGMTConverter(), Date.class);
-		ConvertUtils.register(new EveRaceConverter(), EveRace.class);
-		ConvertUtils.register(new EveBloodlineConverter(), EveBloodline.class);
-		ConvertUtils.register(new EveAncestryConverter(), EveAncestry.class);
-		ConvertUtils.register(new CalendarEventResponseConverter(), CalendarEventResponse.class);
 		digester.setValidating(false);
 		digester.addObjectCreate("eveapi", clazz);
 		digester.addSetProperties("eveapi");

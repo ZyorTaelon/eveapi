@@ -1,6 +1,7 @@
 package com.beimin.eveapi.character.calendar.attendees;
 
 
+import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.digester.Digester;
 
 import com.beimin.eveapi.core.AbstractApiParser;
@@ -8,6 +9,9 @@ import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.shared.calendar.CalendarEventResponse;
+import com.beimin.eveapi.shared.calendar.CalendarEventResponseConverter;
+import com.beimin.eveapi.utils.StringUtils;
 
 public class CalendarEventAttendeesParser extends AbstractApiParser<CalendarEventAttendeesResponse> {
 	public CalendarEventAttendeesParser() {
@@ -17,6 +21,7 @@ public class CalendarEventAttendeesParser extends AbstractApiParser<CalendarEven
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
+		ConvertUtils.register(new CalendarEventResponseConverter(), CalendarEventResponse.class);
 		digester.addObjectCreate("eveapi/result/rowset/row", ApiCalendarEventAttendee.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row", "add");
@@ -27,8 +32,7 @@ public class CalendarEventAttendeesParser extends AbstractApiParser<CalendarEven
 		return new CalendarEventAttendeesParser();
 	}
 
-	@Override
-	public CalendarEventAttendeesResponse getResponse(ApiAuth<?> auth) throws ApiException {
-		return super.getResponse(auth);
+	public CalendarEventAttendeesResponse getResponse(ApiAuth<?> auth, long... eventIDs) throws ApiException {
+		return super.getResponse(auth, "eventIDs", StringUtils.join(",", eventIDs));
 	}
 }
