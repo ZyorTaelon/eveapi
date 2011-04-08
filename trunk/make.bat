@@ -36,7 +36,7 @@ echo no goal specified doing fast
 	call mvn -Plocal install
 	call mvn -Plocal release:prepare
 	call svn up -r head
-	call mvn -Plocal install
+	call mvn -Plocal install jar:test-jar javadoc:jar javadoc:test-jar source:jar source:test-jar assembly:single
 	call mvn -Plocal release:prepare -Dresume
 	call mvn release:clean
 	goto :done
