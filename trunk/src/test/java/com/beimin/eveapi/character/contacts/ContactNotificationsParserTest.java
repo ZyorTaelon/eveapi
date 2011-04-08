@@ -8,6 +8,9 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import com.beimin.eveapi.character.contact.notifications.EveContactNotification;
+import com.beimin.eveapi.character.contact.notifications.ContactNotificationsParser;
+import com.beimin.eveapi.character.contact.notifications.ContactNotificationsResponse;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -23,9 +26,9 @@ public class ContactNotificationsParserTest extends FullAuthParserTest {
 		ContactNotificationsParser parser = ContactNotificationsParser.getInstance();
 		ContactNotificationsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiContactNotification> contactNotifications = response.getAll();
+		Set<EveContactNotification> contactNotifications = response.getAll();
 		assertEquals(1, contactNotifications.size());
-		ApiContactNotification contactNotification = contactNotifications.iterator().next();
+		EveContactNotification contactNotification = contactNotifications.iterator().next();
 		assertEquals(308734131, contactNotification.getNotificationID());
 		assertEquals(797400947L, contactNotification.getSenderID());
 		assertEquals("CCP Garthagk", contactNotification.getSenderName());

@@ -1,6 +1,6 @@
 package com.beimin.eveapi.shared.contacts;
 
-public class ApiContact {
+public class EveContact {
 	private int contactID;
 	private String contactName;
 	private double standing;

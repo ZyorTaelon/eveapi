@@ -20,10 +20,11 @@ public class AccountStatusParserTest extends FullAuthParserTest {
 		AccountStatusParser accountStatusParser = AccountStatusParser.getInstance();
 		AccountStatusResponse response = accountStatusParser.getResponse(auth);
 		assertNotNull(response);
-		assertEquals(541354, response.getUserID());
-		assertDate(2011, 03, 13, 18, 40, 0, response.getPaidUntil());
-		assertDate(2004, 07, 22, 23, 54, 0, response.getCreateDate());
-		assertEquals(5603, response.getLogonCount());
-		assertEquals(504903, response.getLogonMinutes());
+		EveAccountStatus accountStatus = response.get();
+		assertEquals(541354, accountStatus.getUserID());
+		assertDate(2011, 03, 13, 18, 40, 0, accountStatus.getPaidUntil());
+		assertDate(2004, 07, 22, 23, 54, 0, accountStatus.getCreateDate());
+		assertEquals(5603, accountStatus.getLogonCount());
+		assertEquals(504903, accountStatus.getLogonMinutes());
 	}
 }

@@ -2,7 +2,7 @@ package com.beimin.eveapi.shared.contacts;
 
 import java.util.ArrayList;
 
-public class ContactList extends ArrayList<ApiContact> {
+public class ContactList extends ArrayList<EveContact> {
 	private static final long serialVersionUID = 1L;
 	public String name;
 	public String key;

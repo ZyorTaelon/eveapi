@@ -1,6 +1,6 @@
 package com.beimin.eveapi.account.characters;
 
-public class ApiCharacter {
+public class EveCharacter {
 	private String name;
 	private long characterID;
 	private String corporationName;

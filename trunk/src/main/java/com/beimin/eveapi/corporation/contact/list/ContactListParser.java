@@ -1,11 +1,11 @@
-package com.beimin.eveapi.character.contacts;
+package com.beimin.eveapi.corporation.contact.list;
 
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.contacts.AbstractContactListParser;
 
 public class ContactListParser extends AbstractContactListParser<ContactListResponse> {
 	protected ContactListParser() {
-		super(ContactListResponse.class, ApiPath.CHARACTER);
+		super(ContactListResponse.class, ApiPath.CORPORATION);
 	}
 
 	public static ContactListParser getInstance() {

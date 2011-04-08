@@ -18,7 +18,7 @@ public abstract class AbstractContactListParser<CLR extends AbstractContactListR
 		Digester digester = super.getDigester();
 		digester.addObjectCreate("eveapi/result/rowset", ContactList.class);
 		digester.addSetProperties("eveapi/result/rowset");
-		digester.addObjectCreate("eveapi/result/rowset/row", ApiContact.class);
+		digester.addObjectCreate("eveapi/result/rowset/row", EveContact.class);
 		digester.addSetProperties("eveapi/result/rowset/row");
 		digester.addSetNext("eveapi/result/rowset/row", "add");
 		digester.addSetNext("eveapi/result/rowset", "add");

@@ -11,7 +11,9 @@ import org.junit.Test;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
-import com.beimin.eveapi.shared.contacts.ApiContact;
+import com.beimin.eveapi.corporation.contact.list.ContactListParser;
+import com.beimin.eveapi.corporation.contact.list.ContactListResponse;
+import com.beimin.eveapi.shared.contacts.EveContact;
 import com.beimin.eveapi.shared.contacts.ContactList;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
@@ -29,7 +31,7 @@ public class ContactListParserTest extends FullAuthParserTest {
 		ContactList corporateContactList = response.getCorporateContactList();
 		assertEquals("corporateContactList", corporateContactList.getName());
 		assertEquals(19, corporateContactList.size());
-		ApiContact apiContact = corporateContactList.iterator().next();
+		EveContact apiContact = corporateContactList.iterator().next();
 		assertEquals(126118228, apiContact.getContactID());
 		assertEquals("Alpha Guardians", apiContact.getContactName());
 		assertEquals(10.0, apiContact.getStanding(), 1E-15);

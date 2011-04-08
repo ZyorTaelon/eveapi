@@ -16,11 +16,13 @@ public class AccountStatusParser extends AbstractApiParser<AccountStatusResponse
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
+		digester.addObjectCreate("eveapi/result", EveAccountStatus.class);
 		digester.addBeanPropertySetter("eveapi/result/userID");
 		digester.addBeanPropertySetter("eveapi/result/paidUntil");
 		digester.addBeanPropertySetter("eveapi/result/createDate");
 		digester.addBeanPropertySetter("eveapi/result/logonCount");
 		digester.addBeanPropertySetter("eveapi/result/logonMinutes");
+		digester.addSetNext("eveapi/result", "set");
 		return digester;
 	}
 

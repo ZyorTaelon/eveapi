@@ -1,6 +1,6 @@
 package com.beimin.eveapi.shared.accountbalance;
 
-public class ApiAccountBalance {
+public class EveAccountBalance {
 	private int accountID;
 	private int accountKey;
 	private double balance;

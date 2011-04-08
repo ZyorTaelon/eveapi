@@ -16,9 +16,9 @@ public abstract class AbstractAssetListParser extends AbstractApiParser<AssetLis
 	@Override
 	protected Digester getDigester() {
 		Digester digester = super.getDigester();
-		digester.addObjectCreate("*/rowset/row", ApiAsset.class);
+		digester.addObjectCreate("*/rowset/row", EveAsset.class);
 		digester.addSetProperties("*/rowset/row");
-		digester.addSetNext("*/rowset/row", "addAsset");
+		digester.addSetNext("*/rowset/row", "add");
 		return digester;
 	}
 

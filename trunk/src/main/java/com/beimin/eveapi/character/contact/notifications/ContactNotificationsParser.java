@@ -1,4 +1,4 @@
-package com.beimin.eveapi.character.contacts;
+package com.beimin.eveapi.character.contact.notifications;
 
 
 import com.beimin.eveapi.core.AbstractListParser;
@@ -7,9 +7,9 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public class ContactNotificationsParser extends AbstractListParser<ContactNotificationsResponse, ApiContactNotification> {
+public class ContactNotificationsParser extends AbstractListParser<ContactNotificationsResponse, EveContactNotification> {
 	protected ContactNotificationsParser() {
-		super(ContactNotificationsResponse.class, 2, ApiPath.CHARACTER, ApiPage.CONTACT_NOTIFICATIONS, ApiContactNotification.class);
+		super(ContactNotificationsResponse.class, 2, ApiPath.CHARACTER, ApiPage.CONTACT_NOTIFICATIONS, EveContactNotification.class);
 	}
 
 	public static ContactNotificationsParser getInstance() {

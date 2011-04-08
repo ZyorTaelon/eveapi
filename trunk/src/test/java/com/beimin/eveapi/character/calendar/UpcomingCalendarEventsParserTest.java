@@ -7,7 +7,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.character.calendar.upcomingevents.ApiUpcomingCalendarEvent;
+import com.beimin.eveapi.character.calendar.upcomingevents.EveUpcomingCalendarEvent;
 import com.beimin.eveapi.character.calendar.upcomingevents.UpcomingCalendarEventsParser;
 import com.beimin.eveapi.character.calendar.upcomingevents.UpcomingCalendarEventsResponse;
 import com.beimin.eveapi.core.ApiException;
@@ -25,9 +25,9 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
 	public void getResponse() throws ApiException {
 		UpcomingCalendarEventsParser parser = UpcomingCalendarEventsParser.getInstance();
 		UpcomingCalendarEventsResponse response = parser.getResponse(auth);
-		Set<ApiUpcomingCalendarEvent> events = response.getAll();
+		Set<EveUpcomingCalendarEvent> events = response.getAll();
 		assertEquals(1, events.size());
-		ApiUpcomingCalendarEvent event = events.iterator().next();
+		EveUpcomingCalendarEvent event = events.iterator().next();
 		assertEquals(90864L, event.getEventID());
 		assertEquals(786344537L, event.getOwnerID());
 		assertEquals("Some Alliance", event.getOwnerName());

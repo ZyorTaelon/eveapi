@@ -13,9 +13,9 @@ import com.beimin.eveapi.shared.calendar.CalendarEventResponse;
 import com.beimin.eveapi.shared.calendar.CalendarEventResponseConverter;
 import com.beimin.eveapi.utils.StringUtils;
 
-public class CalendarEventAttendeesParser extends AbstractListParser<CalendarEventAttendeesResponse, ApiCalendarEventAttendee> {
+public class CalendarEventAttendeesParser extends AbstractListParser<CalendarEventAttendeesResponse, EveCalendarEventAttendee> {
 	public CalendarEventAttendeesParser() {
-		super(CalendarEventAttendeesResponse.class, 2, ApiPath.CHARACTER, ApiPage.CALENDAR_EVENT_ATTENDEES, ApiCalendarEventAttendee.class);
+		super(CalendarEventAttendeesResponse.class, 2, ApiPath.CHARACTER, ApiPage.CALENDAR_EVENT_ATTENDEES, EveCalendarEventAttendee.class);
 	}
 
 	@Override
@@ -30,6 +30,8 @@ public class CalendarEventAttendeesParser extends AbstractListParser<CalendarEve
 	}
 
 	public CalendarEventAttendeesResponse getResponse(ApiAuth<?> auth, long... eventIDs) throws ApiException {
+		if (eventIDs.length == 0)
+			throw new ApiException("no eventIds provided");
 		return super.getResponse(auth, "eventIDs", StringUtils.join(",", eventIDs));
 	}
 }

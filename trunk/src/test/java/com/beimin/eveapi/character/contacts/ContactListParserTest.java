@@ -9,10 +9,12 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 
+import com.beimin.eveapi.character.contact.list.ContactListParser;
+import com.beimin.eveapi.character.contact.list.ContactListResponse;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
-import com.beimin.eveapi.shared.contacts.ApiContact;
+import com.beimin.eveapi.shared.contacts.EveContact;
 import com.beimin.eveapi.shared.contacts.ContactList;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
@@ -30,7 +32,7 @@ public class ContactListParserTest extends FullAuthParserTest {
 		ContactList contactList = response.getContactList();
 		assertEquals("contactList", contactList.getName());
 		assertEquals(106, contactList.size());
-		ApiContact apiContact = contactList.iterator().next();
+		EveContact apiContact = contactList.iterator().next();
 		assertEquals(3008667, apiContact.getContactID());
 		assertEquals("Falian Khivad", apiContact.getContactName());
 		assertEquals(5.0, apiContact.getStanding(), 1E-15);

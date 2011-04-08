@@ -12,7 +12,7 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.accountbalance.AccountBalanceResponse;
-import com.beimin.eveapi.shared.accountbalance.ApiAccountBalance;
+import com.beimin.eveapi.shared.accountbalance.EveAccountBalance;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class AccountBalanceParserTest extends FullAuthParserTest {
@@ -25,11 +25,11 @@ public class AccountBalanceParserTest extends FullAuthParserTest {
 		AccountBalanceParser parser = AccountBalanceParser.getInstance();
 		AccountBalanceResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiAccountBalance> accountBalances = response.getAll();
+		Set<EveAccountBalance> accountBalances = response.getAll();
 		assertNotNull(accountBalances);
 		assertEquals(7, accountBalances.size());
 		boolean found = false;
-		for (ApiAccountBalance accountBalance : accountBalances) {
+		for (EveAccountBalance accountBalance : accountBalances) {
 			if (accountBalance.getAccountID() == 5689) {
 				found = true;
 				assertEquals(1003, accountBalance.getAccountKey());

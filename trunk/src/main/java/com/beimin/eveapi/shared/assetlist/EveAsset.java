@@ -3,7 +3,7 @@ package com.beimin.eveapi.shared.assetlist;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class ApiAsset<A extends ApiAsset<?>> {
+public class EveAsset<A extends EveAsset<?>> {
 	private final Collection<A> assets = new HashSet<A>();
 	private long itemID;
 	private Long locationID;
@@ -16,7 +16,7 @@ public class ApiAsset<A extends ApiAsset<?>> {
 		return assets;
 	}
 
-	public void addAsset(A asset) {
+	public void add(A asset) {
 		assets.add(asset);
 	}
 

@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.beimin.eveapi.shared.calendar.CalendarEventResponse;
 
-public class ApiUpcomingCalendarEvent {
+public class EveUpcomingCalendarEvent {
 	private long eventID;
 	private long ownerID;
 	private String ownerName;

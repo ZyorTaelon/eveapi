@@ -12,9 +12,9 @@ import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.calendar.CalendarEventResponse;
 import com.beimin.eveapi.shared.calendar.CalendarEventResponseConverter;
 
-public class UpcomingCalendarEventsParser extends AbstractListParser<UpcomingCalendarEventsResponse, ApiUpcomingCalendarEvent> {
+public class UpcomingCalendarEventsParser extends AbstractListParser<UpcomingCalendarEventsResponse, EveUpcomingCalendarEvent> {
 	public UpcomingCalendarEventsParser() {
-		super(UpcomingCalendarEventsResponse.class, 2, ApiPath.CHARACTER, ApiPage.UPCOMING_CALENDAR_EVENTS, ApiUpcomingCalendarEvent.class);
+		super(UpcomingCalendarEventsResponse.class, 2, ApiPath.CHARACTER, ApiPage.UPCOMING_CALENDAR_EVENTS, EveUpcomingCalendarEvent.class);
 	}
 
 	@Override

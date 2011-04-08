@@ -1,8 +1,8 @@
-package com.beimin.eveapi.character.contacts;
+package com.beimin.eveapi.character.contact.notifications;
 
 import java.util.Date;
 
-public class ApiContactNotification {
+public class EveContactNotification {
 	private long notificationID;
 	private long senderID;
 	private String senderName;

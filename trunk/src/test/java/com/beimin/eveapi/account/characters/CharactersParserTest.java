@@ -23,9 +23,9 @@ public class CharactersParserTest extends FullAuthParserTest {
 		CharactersParser parser = CharactersParser.getInstance();
 		CharactersResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<ApiCharacter> eveCharacters = response.getAll();
+		Collection<EveCharacter> eveCharacters = response.getAll();
 		assertEquals(2, eveCharacters.size());
-		for (ApiCharacter eveCharacter : eveCharacters) {
+		for (EveCharacter eveCharacter : eveCharacters) {
 			long characterID = eveCharacter.getCharacterID();
 			if (characterID == 46135126) {
 				assertEquals("Test Character 1", eveCharacter.getName());
