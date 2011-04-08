@@ -49,7 +49,9 @@ public enum ApiPage {
 	KILLS("Kills"), //
 	SOVEREIGNTY("Sovereignty"), //
 	SERVER_STATUS("ServerStatus"), //
-	CHARACTER_INFO("CharacterInfo");
+	CHARACTER_INFO("CharacterInfo"), //
+	OUTPOST_LIST("OutpostList"), //
+	OUTPOST_SERVICE_DETAIL("OutpostServiceDetail");
 
 	private final String url;
 

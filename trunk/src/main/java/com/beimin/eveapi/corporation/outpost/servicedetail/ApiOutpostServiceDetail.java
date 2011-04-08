@@ -1,76 +1,59 @@
 package com.beimin.eveapi.corporation.outpost.servicedetail;
 
-import java.util.Date;
 
 public class ApiOutpostServiceDetail {
-	private long itemID;
-	private int typeID;
-	private int locationID;
-	private int moonID;
-	private int state;
-	private Date stateTimestamp; // ="2008-02-03 01:26:55"
-	private Date onlineTimestamp; // ="2007-11-29 19:23:58"
+	private int stationID;//="61000244" 
+	private long ownerID;//="773499566" 
+	private String serviceName;//="Reprocessing Plant" 
+	private double minStanding;//="2" 
+	private double surchargePerBadStanding;//="10" 
+	private double discountPerGoodStanding;//="0"
 
-	public long getItemID() {
-		return itemID;
+	public int getStationID() {
+		return stationID;
 	}
 
-	public void setItemID(long itemID) {
-		this.itemID = itemID;
+	public void setStationID(int stationID) {
+		this.stationID = stationID;
 	}
 
-	public int getTypeID() {
-		return typeID;
+	public long getOwnerID() {
+		return ownerID;
 	}
 
-	public void setTypeID(int typeID) {
-		this.typeID = typeID;
+	public void setOwnerID(long ownerID) {
+		this.ownerID = ownerID;
 	}
 
-	public int getLocationID() {
-		return locationID;
+	public String getServiceName() {
+		return serviceName;
 	}
 
-	public void setLocationID(int locationID) {
-		this.locationID = locationID;
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
 	}
 
-	public int getMoonID() {
-		return moonID;
+	public double getMinStanding() {
+		return minStanding;
 	}
 
-	public void setMoonID(int moonID) {
-		this.moonID = moonID;
+	public void setMinStanding(double minStanding) {
+		this.minStanding = minStanding;
 	}
 
-	public int getState() {
-		return state;
+	public double getSurchargePerBadStanding() {
+		return surchargePerBadStanding;
 	}
 
-	public void setState(int state) {
-		this.state = state;
+	public void setSurchargePerBadStanding(double surchargePerBadStanding) {
+		this.surchargePerBadStanding = surchargePerBadStanding;
 	}
 
-	public Date getStateTimestamp() {
-		return stateTimestamp;
+	public double getDiscountPerGoodStanding() {
+		return discountPerGoodStanding;
 	}
 
-	public void setStateTimestamp(Date stateTimestamp) {
-		this.stateTimestamp = stateTimestamp;
-	}
-
-	public Date getOnlineTimestamp() {
-		return onlineTimestamp;
-	}
-
-	public void setOnlineTimestamp(Date onlineTimestamp) {
-		this.onlineTimestamp = onlineTimestamp;
-	}
-
-	@Override
-	public String toString() {
-		String result = "Location: " + locationID + " Moon: " + moonID
- + " TypeID: " + typeID;
-		return result;
+	public void setDiscountPerGoodStanding(double discountPerGoodStanding) {
+		this.discountPerGoodStanding = discountPerGoodStanding;
 	}
 }

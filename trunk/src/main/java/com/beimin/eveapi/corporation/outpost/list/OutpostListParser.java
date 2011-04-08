@@ -9,7 +9,7 @@ import com.beimin.eveapi.core.ApiPath;
 
 public class OutpostListParser extends AbstractListParser<OutpostListResponse, ApiOutpost> {
 	public OutpostListParser() {
-		super(OutpostListResponse.class, 2, ApiPath.CORPORATION, ApiPage.STARBASE_LIST, ApiOutpost.class);
+		super(OutpostListResponse.class, 2, ApiPath.CORPORATION, ApiPage.OUTPOST_LIST, ApiOutpost.class);
 	}
 
 
