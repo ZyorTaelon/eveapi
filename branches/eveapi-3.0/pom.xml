@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.beimin</groupId>
 	<artifactId>eveapi</artifactId>
-	<version>3.0.0</version>
+	<version>3.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>EveAPI</name>
 	<description>Parsers for the eve online api</description>
@@ -15,10 +15,8 @@
 		</site>
 	</distributionManagement>
 	<scm>
-		<connection>scm:svn:https://eveapi.googlecode.com/svn/tags/eveapi-3.0.0
-		</connection>
-		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/tags/eveapi-3.0.0
-		</developerConnection>
+		<connection>scm:svn:https://eveapi.googlecode.com/svn/branches/eveapi-3.0</connection>
+		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/branches/eveapi-3.0</developerConnection>
 	</scm>
 	<developers>
 		<developer>
@@ -141,6 +139,17 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2.1</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/assembly/all.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>

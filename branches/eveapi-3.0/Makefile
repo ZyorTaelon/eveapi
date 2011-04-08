@@ -1,5 +1,5 @@
 all:
-		mvn -Plocal install
+		mvn -Plocal install jar:test-jar javadoc:jar javadoc:test-jar source:jar source:test-jar assembly:single
 fast:
 		mvn -Plocal -Dmaven.test.skip=true install
 test:
