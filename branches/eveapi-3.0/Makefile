@@ -11,4 +11,4 @@ config:
 site:
 		mvn -Plocal site-deploy
 release:
-		mvn -Plocal install; mvn -Plocal release:prepare; svn up -r head; mvn -Plocal install; mvn -Plocal release:prepare -Dresume; mvn release:clean;
+		mvn -Plocal install; mvn -Plocal release:prepare; svn up -r head; mvn -Plocal install jar:test-jar javadoc:jar javadoc:test-jar source:jar source:test-jar assembly:single; mvn -Plocal release:prepare -Dresume; mvn release:clean;
