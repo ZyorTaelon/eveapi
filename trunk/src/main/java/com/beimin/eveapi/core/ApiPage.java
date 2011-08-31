@@ -51,7 +51,9 @@ public enum ApiPage {
 	SERVER_STATUS("ServerStatus"), //
 	CHARACTER_INFO("CharacterInfo"), //
 	OUTPOST_LIST("OutpostList"), //
-	OUTPOST_SERVICE_DETAIL("OutpostServiceDetail");
+	OUTPOST_SERVICE_DETAIL("OutpostServiceDetail"),
+	CALL_LIST("CallList"),
+	;
 
 	private final String url;
 
