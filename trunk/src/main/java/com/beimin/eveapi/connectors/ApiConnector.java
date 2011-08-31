@@ -16,8 +16,12 @@ import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiRequest;
 import com.beimin.eveapi.core.ApiResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ApiConnector {
+	private static final Logger LOG = LoggerFactory.getLogger(ApiConnector.class);
+	
 	public static final String EVE_API_URL = "https://api.eveonline.com";
 	private final String baseUrl;
 
@@ -71,7 +75,7 @@ public class ApiConnector {
 				try {
 					wr.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					LOG.warn("Error closing the stream", e);
 				}
 		}
 	}
