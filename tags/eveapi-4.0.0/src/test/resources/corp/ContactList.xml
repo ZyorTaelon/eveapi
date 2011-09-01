@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eveapi version="2">
+  <currentTime>2010-11-28 20:23:15</currentTime>
+  <result>
+    <rowset name="corporateContactList" key="contactID" columns="contactID,contactName,standing">
+      <row contactID="126118228" contactName="Alpha Guardians" standing="10"/>
+      <row contactID="473619855" contactName="Pitcarin" standing="10"/>
+      <row contactID="531535869" contactName="EvE Finance" standing="10"/>
+      <row contactID="585899923" contactName="Knickerbollockoff" standing="10"/>
+      <row contactID="644405100" contactName="sindergosa" standing="10"/>
+      <row contactID="709533258" contactName="SpoonFed Mouse" standing="10"/>
+      <row contactID="792458040" contactName="Ta8ula Rasa" standing="10"/>
+      <row contactID="866765375" contactName="Monkeys in Space" standing="10"/>
+      <row contactID="964827390" contactName="OreGrabber" standing="10"/>
+      <row contactID="1203552209" contactName="ShadowFinder" standing="10"/>
+      <row contactID="1335928278" contactName="no VAT" standing="10"/>
+      <row contactID="1391420319" contactName="Degothin" standing="5"/>
+      <row contactID="1420461979" contactName="Black Mesa Mavericks" standing="10"/>
+      <row contactID="1479326323" contactName="Capitain Rimmer" standing="10"/>
+      <row contactID="1530899873" contactName="Krav Damar" standing="10"/>
+      <row contactID="1672057596" contactName="Mrs Rimmers" standing="10"/>
+      <row contactID="1801181297" contactName="Santairia" standing="10"/>
+      <row contactID="1980129004" contactName="Gear Stick" standing="10"/>
+      <row contactID="2022575723" contactName="LEGION." standing="10"/>
+    </rowset>
+    <rowset name="allianceContactList" key="contactID" columns="contactID,contactName,standing">
+      <row contactID="121766272" contactName="X-COM" standing="5"/>
+      <row contactID="131511956" contactName="Tactical Narcotics Team" standing="5"/>
+      <row contactID="150097440" contactName="Get Off My Lawn" standing="5"/>
+      <row contactID="157420922" contactName="Rough Necks" standing="-10"/>
+      <row contactID="160174668" contactName="0utbreak" standing="-10"/>
+      <row contactID="166439722" contactName="Tau Ceti Federation" standing="0"/>
+      <row contactID="167433096" contactName="coracao ardente" standing="-5"/>
+      <row contactID="212716751" contactName="Majesta Empire" standing="10"/>
+      <row contactID="220243444" contactName="Genos Occidere" standing="-10"/>
+      <row contactID="225616427" contactName="Teabaggers" standing="-10"/>
+      <row contactID="228932850" contactName="Zenith Affinity" standing="0"/>
+      <row contactID="233278303" contactName="Gam3rs For Lif3" standing="-10"/>
+      <row contactID="239739827" contactName="Aegis Militia" standing="10"/>
+      <row contactID="261982681" contactName="Freaks In The Sheets" standing="5"/>
+      <row contactID="273495145" contactName="" standing="-10"/>
+      <row contactID="278169456" contactName="Forbidden Domain" standing="-10"/>
+      <row contactID="284278305" contactName="Atlas Alliance" standing="-10"/>
+      <row contactID="288377808" contactName="Against ALL Authorities" standing="-10"/>
+      <row contactID="292840783" contactName="" standing="-10"/>
+      <row contactID="304762162" contactName="KrisTeta" standing="5"/>
+      <row contactID="354719028" contactName="" standing="5"/>
+      <row contactID="359381534" contactName="Neutron Advanced Industries" standing="-10"/>
+      <row contactID="359486041" contactName="" standing="-10"/>
+      <row contactID="361107026" contactName="" standing="-10"/>
+      <row contactID="370380903" contactName="Vladimarous" standing="5"/>
+      <row contactID="372018475" contactName="" standing="-10"/>
+      <row contactID="374464406" contactName="Blade." standing="-10"/>
+      <row contactID="382958961" contactName="Cyrus Ildemar" standing="-10"/>
+      <row contactID="386292982" contactName="Pandemic Legion" standing="-10"/>
+      <row contactID="392155885" contactName="" standing="10"/>
+      <row contactID="412368634" contactName="YARRR and CO" standing="-10"/>
+      <row contactID="419732684" contactName="HELLS REJECTS" standing="0"/>
+      <row contactID="425446653" contactName="Dead Reckoning Alliance" standing="-10"/>
+      <row contactID="437847786" contactName="The-Defiant" standing="-10"/>
+      <row contactID="467942520" contactName="Warped Aggression" standing="-10"/>
+      <row contactID="498125261" contactName="Test Alliance Please Ignore" standing="5"/>
+      <row contactID="515150526" contactName="The Compass Reloaded" standing="-10"/>
+      <row contactID="521942065" contactName="Rebellion Alliance" standing="5"/>
+      <row contactID="532507245" contactName="" standing="-5"/>
+      <row contactID="546523850" contactName="DEM0N HUNTERS" standing="5"/>
+      <row contactID="551692893" contactName="HYDRA RELOADED" standing="-10"/>
+      <row contactID="559784179" contactName="Cpt nikku" standing="-10"/>
+      <row contactID="569751089" contactName="The Gentlemen of Low Moral Fibre" standing="-10"/>
+      <row contactID="572951382" contactName="STRAG3S" standing="-10"/>
+      <row contactID="577583162" contactName="Priory of Empire" standing="10"/>
+      <row contactID="583103382" contactName="" standing="-10"/>
+      <row contactID="605845106" contactName="DarkSide." standing="-10"/>
+      <row contactID="606743571" contactName="Deaths Right Hand" standing="-10"/>
+      <row contactID="607212516" contactName="United Front Alliance" standing="5"/>
+      <row contactID="628991027" contactName="Morsus Mihi" standing="10"/>
+      <row contactID="644040121" contactName="Buzz Dura" standing="10"/>
+      <row contactID="648853935" contactName="Zahadume" standing="-10"/>
+      <row contactID="670303846" contactName="Cold Steel Alliance" standing="5"/>
+      <row contactID="673381830" contactName="Intrepid Crossing" standing="-10"/>
+      <row contactID="677736532" contactName="Gatlin penguins" standing="-10"/>
+      <row contactID="678102573" contactName="Digital assassins" standing="-10"/>
+      <row contactID="679584932" contactName="SpaceMonkey's Alliance" standing="5"/>
+      <row contactID="686819242" contactName="Borealis Innovations" standing="10"/>
+      <row contactID="701459600" contactName="Electus Matari" standing="-10"/>
+      <row contactID="702590930" contactName="Oe'hi" standing="-10"/>
+      <row contactID="703129312" contactName="Cry Havoc." standing="-10"/>
+      <row contactID="707612228" contactName="Exit Strategy." standing="5"/>
+      <row contactID="723015129" contactName="OWN Alliance" standing="5"/>
+      <row contactID="728630599" contactName="The Boat Violencing Initiative" standing="-10"/>
+      <row contactID="741557221" contactName="RAZOR Alliance" standing="10"/>
+      <row contactID="743826619" contactName="Legionnaire Services Ltd." standing="5"/>
+      <row contactID="753644383" contactName="Privateer Alliance" standing="-10"/>
+      <row contactID="788930973" contactName="The Exodus Project" standing="-10"/>
+      <row contactID="791571262" contactName="New Justice" standing="-10"/>
+      <row contactID="797297129" contactName="Ascendancy United" standing="10"/>
+      <row contactID="818960303" contactName="Beatus Venator" standing="-10"/>
+      <row contactID="824518128" contactName="GoonSwarm" standing="-10"/>
+      <row contactID="854534413" contactName="Violent Entity" standing="5"/>
+      <row contactID="855555544" contactName="Black Core Alliance" standing="5"/>
+      <row contactID="869740032" contactName="Dust 2 Dust" standing="5"/>
+      <row contactID="873672554" contactName="" standing="-5"/>
+      <row contactID="878776074" contactName="IT Alliance" standing="-10"/>
+      <row contactID="880013768" contactName="Slammer's Republic" standing="0"/>
+      <row contactID="898617242" contactName="Chaos Theory Alliance" standing="-10"/>
+      <row contactID="905861359" contactName="BricK sQuAD." standing="0"/>
+      <row contactID="906457582" contactName="The G0dfathers" standing="5"/>
+      <row contactID="917344903" contactName="Slackers Incorporated" standing="-10"/>
+      <row contactID="922171437" contactName="GOP KOHTOPA" standing="-10"/>
+      <row contactID="924012559" contactName="Elvish Space Terror Brigade" standing="-10"/>
+      <row contactID="924777585" contactName="Primary Stellar Inter-Corp Holdings" standing="10"/>
+      <row contactID="927292903" contactName="Rote Kapelle" standing="-10"/>
+      <row contactID="933731581" contactName="Triumvirate." standing="-10"/>
+      <row contactID="935808947" contactName="Dead Void" standing="10"/>
+      <row contactID="952418311" contactName="Ivan Schnyder" standing="-10"/>
+      <row contactID="954452553" contactName="colonel gayfayce" standing="-10"/>
+      <row contactID="961192363" contactName="Noir. Mercenary Group" standing="-10"/>
+      <row contactID="974455223" contactName="Killer Instinct Industries Inc" standing="-10"/>
+      <row contactID="975528208" contactName="The Fendahlian Collective" standing="5"/>
+      <row contactID="982284363" contactName="Sev3rance" standing="5"/>
+      <row contactID="991389427" contactName="LurkerZ" standing="5"/>
+      <row contactID="991857862" contactName="Dark Region" standing="5"/>
+      <row contactID="999315127" contactName="Voodoo Tribes" standing="5"/>
+      <row contactID="1006628817" contactName="Aeternus." standing="-10"/>
+      <row contactID="1006830534" contactName="Fidelas Constans" standing="10"/>
+      <row contactID="1014468640" contactName="" standing="-10"/>
+      <row contactID="1018389948" contactName="Dreddit" standing="5"/>
+      <row contactID="1045664212" contactName="Legion Of The ShiningStar" standing="10"/>
+      <row contactID="1060992628" contactName="Donkey Punch." standing="-10"/>
+      <row contactID="1082138174" contactName="Nomad LLP" standing="10"/>
+      <row contactID="1136157539" contactName="C0VEN" standing="-10"/>
+      <row contactID="1137908185" contactName="" standing="5"/>
+      <row contactID="1141482267" contactName="Chaos Reborn" standing="-10"/>
+      <row contactID="1146667473" contactName="" standing="5"/>
+      <row contactID="1147488332" contactName="The Kadeshi" standing="-10"/>
+      <row contactID="1161301829" contactName="The DEVIL'S REJECT'S" standing="5"/>
+      <row contactID="1163099440" contactName="Nightscream" standing="-10"/>
+      <row contactID="1169749181" contactName="TaX DoDger" standing="-10"/>
+      <row contactID="1169948630" contactName="Never Enough Ammo" standing="-10"/>
+      <row contactID="1171218469" contactName="" standing="-10"/>
+      <row contactID="1182801433" contactName="On the Rocks" standing="0"/>
+      <row contactID="1193172928" contactName="bwise86" standing="-10"/>
+      <row contactID="1198020766" contactName="C0NVICTED" standing="5"/>
+      <row contactID="1204148554" contactName="Ewoks" standing="-10"/>
+      <row contactID="1207914383" contactName="Assisted Genocide" standing="-10"/>
+      <row contactID="1208650174" contactName="Sodalitas XX" standing="-10"/>
+      <row contactID="1210775195" contactName="Aristocratic Bastards" standing="-10"/>
+      <row contactID="1216945871" contactName="White Noise." standing="-10"/>
+      <row contactID="1220174199" contactName="Fatal Ascension" standing="5"/>
+      <row contactID="1220922756" contactName="Red Alliance" standing="-10"/>
+      <row contactID="1228472388" contactName="RED.OverLord" standing="-10"/>
+      <row contactID="1232975879" contactName="Fusion Fleet" standing="-10"/>
+      <row contactID="1235915896" contactName="Solar Revenue Service" standing="-10"/>
+      <row contactID="1257907499" contactName="Redarmy Special Forces" standing="-10"/>
+      <row contactID="1263833767" contactName="Elite Assualt Squad" standing="10"/>
+      <row contactID="1271973829" contactName="The Final Stand." standing="-10"/>
+      <row contactID="1282059165" contactName="Van Diemen's Demise" standing="-10"/>
+      <row contactID="1301367357" contactName="Mordus Angels" standing="-10"/>
+      <row contactID="1305407762" contactName="Transient Atmospherics" standing="10"/>
+      <row contactID="1314208988" contactName="Polar Splendour" standing="5"/>
+      <row contactID="1343655549" contactName="" standing="5"/>
+      <row contactID="1346279275" contactName="Praetorian Networking Group" standing="5"/>
+      <row contactID="1354830081" contactName="Goonswarm Federation" standing="5"/>
+      <row contactID="1392182840" contactName="" standing="-10"/>
+      <row contactID="1408176736" contactName="sizzlore" standing="-10"/>
+      <row contactID="1411711376" contactName="Legion of xXDEATHXx" standing="-10"/>
+      <row contactID="1421691163" contactName="IUS PRIMAE N0CTIS" standing="-10"/>
+      <row contactID="1438160193" contactName="Ev0ke" standing="-10"/>
+      <row contactID="1439278447" contactName="Paxton Federation" standing="10"/>
+      <row contactID="1443952531" contactName="THE FEW." standing="5"/>
+      <row contactID="1455941207" contactName="Mutineers" standing="-10"/>
+      <row contactID="1478426199" contactName="Plutonix" standing="5"/>
+      <row contactID="1494254776" contactName="Stella Polaris." standing="10"/>
+      <row contactID="1496436353" contactName="TIGER888" standing="10"/>
+      <row contactID="1508316288" contactName="NibbleTek" standing="-10"/>
+      <row contactID="1522788853" contactName="En Garde" standing="-10"/>
+      <row contactID="1522842604" contactName="IMPERIAL LEGI0N" standing="0"/>
+      <row contactID="1529325298" contactName="Tread Alliance" standing="10"/>
+      <row contactID="1531067603" contactName="Fool Mental Junket" standing="-10"/>
+      <row contactID="1547299718" contactName="Controlled Chaos" standing="5"/>
+      <row contactID="1548582972" contactName="Mercenary Coalition" standing="-10"/>
+      <row contactID="1570958397" contactName="Bluewater Industries" standing="10"/>
+      <row contactID="1577922045" contactName="Important Internet Spaceship League" standing="-10"/>
+      <row contactID="1583651328" contactName="Northwind Orbital" standing="10"/>
+      <row contactID="1585858780" contactName="Legiunea ROmana" standing="-10"/>
+      <row contactID="1603281980" contactName="Anarchy." standing="-5"/>
+      <row contactID="1613946799" contactName="Intrepid Explorers" standing="5"/>
+      <row contactID="1615084596" contactName="Ion Heavy Industries" standing="10"/>
+      <row contactID="1625277583" contactName="Cosmic Cimmerians" standing="-10"/>
+      <row contactID="1645363239" contactName="Dirt Nap Squad." standing="-10"/>
+      <row contactID="1646124186" contactName="DOGEZA Busters" standing="-10"/>
+      <row contactID="1649108174" contactName="Legion of The Damned." standing="5"/>
+      <row contactID="1649178705" contactName="Everto Rex Regis" standing="-5"/>
+      <row contactID="1650726986" contactName="Evoke." standing="-10"/>
+      <row contactID="1661366862" contactName="The Naked Peas Group Plc." standing="-10"/>
+      <row contactID="1667318335" contactName="IDLE EMPIRE" standing="-10"/>
+      <row contactID="1671078301" contactName="Cult of War" standing="-10"/>
+      <row contactID="1678486127" contactName="G-Force Enterprises" standing="-10"/>
+      <row contactID="1691647675" contactName="Ishuk-Raata Enforcement Directive" standing="10"/>
+      <row contactID="1695357456" contactName="Circle-Of-Two" standing="-10"/>
+      <row contactID="1698753304" contactName="R.A.G.E" standing="10"/>
+      <row contactID="1717525216" contactName="Systematic-Chaos" standing="-10"/>
+      <row contactID="1727758877" contactName="Northern Coalition." standing="-5"/>
+      <row contactID="1728396456" contactName="Dead Terrorists" standing="-10"/>
+      <row contactID="1733643802" contactName="-Mostly Harmless-" standing="10"/>
+      <row contactID="1737362789" contactName="RaVeN Federation" standing="0"/>
+      <row contactID="1744448379" contactName="Inner Shadow" standing="10"/>
+      <row contactID="1776870349" contactName="Brotherhood of Legion's" standing="10"/>
+      <row contactID="1779785385" contactName="neogod3" standing="-10"/>
+      <row contactID="1793718161" contactName="TransWarp Ventures" standing="10"/>
+      <row contactID="1802176600" contactName="Shadow of xXDEATHXx" standing="-10"/>
+      <row contactID="1805778824" contactName="Guardian Angels Corp 1" standing="-10"/>
+      <row contactID="1819965161" contactName="FireStar Legion" standing="10"/>
+      <row contactID="1830664414" contactName="United Abominations" standing="-10"/>
+      <row contactID="1834673134" contactName="Steel Fleet" standing="-10"/>
+      <row contactID="1850896162" contactName="Majesta Frontier Alliance" standing="5"/>
+      <row contactID="1877101147" contactName="Gentlemen's Club" standing="-10"/>
+      <row contactID="1878184099" contactName="Yarrbear Inc." standing="-10"/>
+      <row contactID="1880773238" contactName="Angel Causalities Demolition Crew" standing="10"/>
+      <row contactID="1888622604" contactName="Prime Orbital Systems" standing="-10"/>
+      <row contactID="1898195179" contactName="OMEGA." standing="-10"/>
+      <row contactID="1899990246" contactName="Wildly Inappropriate." standing="10"/>
+      <row contactID="1900696668" contactName="The Initiative." standing="-10"/>
+      <row contactID="1903500835" contactName="Quasar Generation" standing="10"/>
+      <row contactID="1905250435" contactName="AAA Citizens" standing="-10"/>
+      <row contactID="1912170926" contactName="Veneratio Venator Alliance" standing="0"/>
+      <row contactID="1913014423" contactName="" standing="-10"/>
+      <row contactID="1953602912" contactName="Secret Squirrel Readiness Group" standing="5"/>
+      <row contactID="1957501652" contactName="The Foray Project" standing="-5"/>
+      <row contactID="1958196311" contactName="Arcane Alliance" standing="5"/>
+      <row contactID="1963696385" contactName="UN1CUM" standing="-10"/>
+      <row contactID="1965209336" contactName="R.E.P.O." standing="-10"/>
+      <row contactID="1966049571" contactName="Ushra'Khan" standing="-10"/>
+      <row contactID="1966235613" contactName="Black Star Alliance" standing="-10"/>
+      <row contactID="1988009451" contactName="Curatores Veritatis Alliance" standing="0"/>
+      <row contactID="2030512064" contactName="ACE WRECKING COMPANY" standing="5"/>
+    </rowset>
+  </result>
+  <cachedUntil>2010-11-28 20:38:15</cachedUntil>
+</eveapi>
