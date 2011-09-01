@@ -131,9 +131,9 @@ public class CharacterInfoParserTest {
 							@Override
 							public void extraAsserts(Map<String, String> params) {
 								assertNotNull(params);
-								assertEquals("123", params.get("userID"));
+								assertEquals("123", params.get("keyID"));
 								assertEquals("1380128241", params.get("characterID"));
-								assertEquals("abc", params.get("apiKey"));
+								assertEquals("abc", params.get("vCode"));
 							}
 						},
 						path.getPath() + "/" + page.getPage() + "_LimitedAPI.xml"
@@ -169,9 +169,9 @@ public class CharacterInfoParserTest {
 							@Override
 							public void extraAsserts(Map<String, String> params) {
 								assertNotNull(params);
-								assertEquals("123", params.get("userID"));
+								assertEquals("123", params.get("keyID"));
 								assertEquals("1380128241", params.get("characterID"));
-								assertEquals("abcdef", params.get("apiKey"));
+								assertEquals("abcdef", params.get("vCode"));
 							}
 						},
 						path.getPath() + "/" + page.getPage() + "_FullAPI.xml"

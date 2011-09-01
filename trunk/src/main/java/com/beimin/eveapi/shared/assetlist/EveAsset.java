@@ -9,6 +9,7 @@ public class EveAsset<A extends EveAsset<?>> {
 	private Long locationID;
 	private int typeID;
 	private int quantity;
+	private int rawQuantity;
 	private int flag;
 	private boolean singleton;
 
@@ -17,6 +18,10 @@ public class EveAsset<A extends EveAsset<?>> {
 	}
 
 	public void add(A asset) {
+		assets.add(asset);
+	}
+
+	public void addAsset(A asset) {
 		assets.add(asset);
 	}
 
@@ -58,6 +63,14 @@ public class EveAsset<A extends EveAsset<?>> {
 
 	public void setFlag(int flag) {
 		this.flag = flag;
+	}
+
+	public int getRawQuantity() {
+		return rawQuantity;
+	}
+
+	public void setRawQuantity(int rawQuantity) {
+		this.rawQuantity = rawQuantity;
 	}
 
 	public boolean getSingleton() {

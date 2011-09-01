@@ -56,8 +56,8 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 	@Override
 	public int hashCode() {
 		StringBuilder temp = new StringBuilder(path.getPath());
-		temp.append(page).append(version).append(auth.getUserID()).append(auth.getCharacterID())
-				.append(auth.getApiKey());
+		temp.append(page).append(version).append(auth.getKeyID()).append(auth.getCharacterID())
+				.append(auth.getVCode());
 		for (Entry<String, String> entry : params.entrySet()) {
 			temp.append(entry.getKey()).append(entry.getValue());
 		}

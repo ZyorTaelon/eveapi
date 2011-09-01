@@ -3,45 +3,46 @@
     <currentTime>2008-02-03 04:43:55</currentTime>
     <result>
         <rowset name="assets" key="itemID" columns="itemID,locationID,typeID,quantity,flag,singleton">
-            <row itemID="60014878" locationID="30004492" typeID="12242" quantity="1" flag="0" singleton="1" />
-            <row itemID="100173218" locationID="67000118" typeID="27" quantity="1" flag="4" singleton="1">
+            <row itemID="60014878" locationID="30004492" typeID="12242" quantity="1" flag="0" singleton="1" rawQuantity="-1" />
+            <row itemID="100173218" locationID="67000118" typeID="27" quantity="1" flag="4" singleton="1" rawQuantity="-1" >
                 <rowset name="contents" key="itemID" columns="itemID,typeID,quantity,flag,singleton">
                     <row itemID="105204776" typeID="12618" quantity="55807" flag="118" singleton="0" />
                     <row itemID="105204820" typeID="12620" quantity="109368" flag="118" singleton="0" >
                         <rowset name="contents" key="itemID" columns="itemID,typeID,quantity,flag,singleton">
-                            <row itemID="129065409" typeID="24697" quantity="1" flag="120" singleton="1" />
+                            <row itemID="129065409" typeID="24697" quantity="1" flag="120" singleton="1" rawQuantity="-1" />
+                            <row itemID="1727437878" typeID="1153" quantity="1" flag="64" singleton="1" rawQuantity="-2" />
                         </rowset>         
                     </row>
                     <row itemID="116042518" typeID="257" quantity="1" flag="117" singleton="0" />
-                    <row itemID="129065409" typeID="24697" quantity="1" flag="120" singleton="1" />
-                    <row itemID="129065513" typeID="24697" quantity="1" flag="120" singleton="1" />
+                    <row itemID="129065409" typeID="24697" quantity="1" flag="120" singleton="1" rawQuantity="-1" />
+                    <row itemID="129065513" typeID="24697" quantity="1" flag="120" singleton="1" rawQuantity="-1" />
                 </rowset>
             </row>
-            <row itemID="61073008" locationID="30004490" typeID="21646" quantity="1" flag="0" singleton="1" >
+            <row itemID="61073008" locationID="30004490" typeID="21646" quantity="1" flag="0" singleton="1" rawQuantity="-1" >
                 <rowset name="contents" key="itemID" columns="itemID,typeID,quantity,flag,singleton">
                     <row itemID="105204876" typeID="12618" quantity="55807" flag="118" singleton="0" />
                     <row itemID="105209720" typeID="12620" quantity="109368" flag="118" singleton="0" >
                         <rowset name="contents" key="itemID" columns="itemID,typeID,quantity,flag,singleton">
-                            <row itemID="124565409" typeID="24697" quantity="1" flag="120" singleton="1" />
+                            <row itemID="124565409" typeID="24697" quantity="1" flag="120" singleton="1" rawQuantity="-1" />
                         </rowset>         
                     </row>
                     <row itemID="186042518" typeID="257" quantity="1" flag="117" singleton="0" />
-                    <row itemID="129675409" typeID="24697" quantity="1" flag="120" singleton="1" />
-                    <row itemID="129478513" typeID="24697" quantity="1" flag="120" singleton="1" />
+                    <row itemID="129675409" typeID="24697" quantity="1" flag="120" singleton="1" rawQuantity="-1" />
+                    <row itemID="129478513" typeID="24697" quantity="1" flag="120" singleton="1" rawQuantity="-1" />
                 </rowset>
             </row>
-            <row itemID="61045118" locationID="30000482" typeID="21646" quantity="1" flag="0" singleton="1" >
+            <row itemID="61045118" locationID="30000482" typeID="21646" quantity="1" flag="0" singleton="1" rawQuantity="-1" >
                 <rowset name="contents" key="itemID" columns="itemID,typeID,quantity,flag,singleton">
                     <row itemID="125304776" typeID="12618" quantity="55807" flag="118" singleton="0" />
                     <row itemID="135204820" typeID="12620" quantity="109368" flag="118" singleton="0" />
                     <row itemID="146042618" typeID="257" quantity="1" flag="117" singleton="0" />
-                    <row itemID="149865409" typeID="24697" quantity="1" flag="120" singleton="1" />
-                    <row itemID="139005513" typeID="24697" quantity="1" flag="120" singleton="1" />
+                    <row itemID="149865409" typeID="24697" quantity="1" flag="120" singleton="1" rawQuantity="-1" />
+                    <row itemID="139005513" typeID="24697" quantity="1" flag="120" singleton="1" rawQuantity="-1" />
                     <row itemID="125874776" typeID="12618" quantity="55807" flag="118" singleton="0" />
                     <row itemID="165204320" typeID="12620" quantity="109368" flag="118" singleton="0" />
                     <row itemID="156045418" typeID="257" quantity="1" flag="117" singleton="0" />
-                    <row itemID="145065409" typeID="24697" quantity="1" flag="120" singleton="1" />
-                    <row itemID="119065343" typeID="24697" quantity="1" flag="120" singleton="1" />
+                    <row itemID="145065409" typeID="24697" quantity="1" flag="120" singleton="1" rawQuantity="-1" />
+                    <row itemID="119065343" typeID="24697" quantity="1" flag="120" singleton="1" rawQuantity="-1" />
                 </rowset>
             </row>
         </rowset>

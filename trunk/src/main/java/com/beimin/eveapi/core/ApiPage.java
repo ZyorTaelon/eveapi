@@ -53,6 +53,7 @@ public enum ApiPage {
 	OUTPOST_LIST("OutpostList"), //
 	OUTPOST_SERVICE_DETAIL("OutpostServiceDetail"),
 	CALL_LIST("CallList"),
+	API_KEY_INFO("APIKeyInfo"),
 	;
 
 	private final String url;

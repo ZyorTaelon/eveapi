@@ -72,9 +72,9 @@ public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsser
   
 	@Override
 	public void extraAsserts(Map<String, String> req) {
-		assertEquals("123", req.get("userID"));
+		assertEquals("123", req.get("keyID"));
 		assertEquals("456", req.get("characterID"));
-		assertEquals("abc", req.get("apiKey"));
+		assertEquals("abc", req.get("vCode"));
 	}
 
 	@After

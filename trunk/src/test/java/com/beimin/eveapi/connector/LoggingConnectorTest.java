@@ -54,7 +54,7 @@ public class LoggingConnectorTest extends FullAuthParserTest {
 		assertEquals("Path: /char", lines[2]);
 		assertEquals("Page: SkillQueue", lines[3]);
 		assertEquals("Version: 2", lines[4]);
-		assertEquals("Auth: userID: 123, characterID: 456", lines[5]);
+		assertEquals("Auth: keyID: 123, characterID: 456", lines[5]);
 		assertTrue(lines[7].contains("INFO  [main] com.beimin.eveapi.connectors.ApiConnector.getApiResponse:"));
 		assertEquals("Response:", lines[8]);
 		assertEquals("<?xml version='1.0' encoding='UTF-8'?>", lines[9]);

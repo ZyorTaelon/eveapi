@@ -1,25 +1,25 @@
 package com.beimin.eveapi.core;
 
 public class ApiAuthorization extends ApiAuth<ApiAuthorization> {
-	private final int userID;
+	private final int keyID;
 	private Long characterID;
-	private final String apiKey;
+	private final String vCode;
 
-	public ApiAuthorization(int userID, String apiKey) {
-		this.userID = userID;
-		this.apiKey = apiKey;
+	public ApiAuthorization(int keyID, long characterID, String vCode) {
+		this.keyID = keyID;
+		this.vCode = vCode;
+		this.characterID = characterID;
+	}
+
+	public ApiAuthorization(int keyID, String vCode) {
+		this.keyID = keyID;
+		this.vCode = vCode;
 		this.characterID = null;
 	}
 
-	public ApiAuthorization(int userID, long characterID, String apiKey) {
-		this.userID = userID;
-		this.characterID = characterID;
-		this.apiKey = apiKey;
-	}
-
 	@Override
-	public int getUserID() {
-		return userID;
+	public int getKeyID() {
+		return keyID;
 	}
 
 	@Override
@@ -32,13 +32,13 @@ public class ApiAuthorization extends ApiAuth<ApiAuthorization> {
 		this.characterID = characterID;
 	}
 	@Override
-	public String getApiKey() {
-		return apiKey;
+	public String getVCode() {
+		return vCode;
 	}
 
 	@Override
 	public int hashCode() {
-		return new StringBuilder(userID).append(characterID).append(apiKey).toString().hashCode();
+		return new StringBuilder(keyID).append(characterID).append(vCode).toString().hashCode();
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public class ApiAuthorization extends ApiAuth<ApiAuthorization> {
 	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder();
-		result.append("userID: ").append(userID).append(", characterID: ").append(characterID);
+		result.append("keyID: ").append(keyID).append(", characterID: ").append(characterID);
 		return result.toString();
 	}
 }
