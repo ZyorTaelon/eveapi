@@ -11,13 +11,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.commons.digester.Digester;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiRequest;
 import com.beimin.eveapi.core.ApiResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class ApiConnector {
 	private static final Logger LOG = LoggerFactory.getLogger(ApiConnector.class);
@@ -41,7 +41,7 @@ public class ApiConnector {
 		}
 	}
 
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings("unchecked")
 	protected <E> E getApiResponse(Digester digester, InputStream inputStream, Class<E> clazz) throws ApiException {
 		try {
 			return (E) digester.parse(inputStream);

@@ -19,7 +19,6 @@ public abstract class NoAuthParserTest implements ExchangeProcessor.ExtraAsserts
 	private final CamelContext context = new DefaultCamelContext();
 	private final ApiPath path;
 	private final ApiPage page;
-	private final String fileSuffix;
 
 	public NoAuthParserTest(ApiPath apiUrl, ApiPage returnXmlFile) {
 		this(apiUrl, returnXmlFile, "");
@@ -28,7 +27,6 @@ public abstract class NoAuthParserTest implements ExchangeProcessor.ExtraAsserts
 	public NoAuthParserTest(ApiPath path, ApiPage page, String fileSuffix) {
 		this.path = path;
 		this.page = page;
-		this.fileSuffix = fileSuffix;
 	}
 
 	@Before
@@ -63,7 +61,7 @@ public abstract class NoAuthParserTest implements ExchangeProcessor.ExtraAsserts
 	}
 
 	@Override
-	public void extraAsserts(@SuppressWarnings("unused") Map<String, String> req) {
+	public void extraAsserts(Map<String, String> req) {
 		// overridable
 	}
 

@@ -14,8 +14,8 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.assetlist.AbstractAssetListParser;
-import com.beimin.eveapi.shared.assetlist.EveAsset;
 import com.beimin.eveapi.shared.assetlist.AssetListResponse;
+import com.beimin.eveapi.shared.assetlist.EveAsset;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class AssetListParserTest extends FullAuthParserTest {
@@ -59,6 +59,7 @@ public class AssetListParserTest extends FullAuthParserTest {
 		testSingleton(assets);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void testSingleton(Collection<EveAsset<EveAsset<?>>> assets){
 		for (EveAsset asset : assets) {
 			testSingleton(asset);
@@ -66,7 +67,7 @@ public class AssetListParserTest extends FullAuthParserTest {
 		}
 	}
 
-	private void testSingleton(EveAsset asset){
+	private void testSingleton(EveAsset<EveAsset<?>> asset){
 		if (asset.getSingleton() && asset.getRawQuantity() != -1 && asset.getRawQuantity() != -2){
 			fail("When Singleton is true: RawQuantity should be -1 or -2 was: "+asset.getRawQuantity()+" itemID: "+asset.getItemID());
 		}
