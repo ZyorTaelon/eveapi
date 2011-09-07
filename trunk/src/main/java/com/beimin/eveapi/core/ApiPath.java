@@ -2,7 +2,7 @@ package com.beimin.eveapi.core;
 
 public enum ApiPath {
 	ACCOUNT("/account"), CHARACTER("/char"), CORPORATION("/corp"),
-	EVE("/eve"), MAP("/map"), NONE(""), SERVER("/server"),
+	EVE("/eve"), MAP("/map"), API("/api"), NONE(""), SERVER("/server"),
 	;
 	private final String path;
 

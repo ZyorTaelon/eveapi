@@ -1,17 +1,17 @@
 package com.beimin.eveapi.api.calllist;
 
+import org.apache.commons.digester.AbstractObjectCreationFactory;
 import org.apache.commons.digester.Digester;
+import org.xml.sax.Attributes;
 
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
-import org.apache.commons.digester.AbstractObjectCreationFactory;
-import org.xml.sax.Attributes;
 
 public class CallListParser extends AbstractApiParser<CallListResponse> {
 	public CallListParser() {
-		super(CallListResponse.class, 2, ApiPath.NONE, ApiPage.CALL_LIST);
+		super(CallListResponse.class, 2, ApiPath.API, ApiPage.CALL_LIST);
 	}
 
 	@Override

@@ -1,15 +1,20 @@
 package com.beimin.eveapi.api.calllist;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import org.junit.Test;
+
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.NoAuthParserTest;
-import java.util.Collections;
-import java.util.Comparator;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -17,7 +22,7 @@ import static org.junit.Assert.*;
  */
 public class CallListParserTest extends NoAuthParserTest {
 	public CallListParserTest() {
-		super(ApiPath.NONE, ApiPage.CALL_LIST);
+		super(ApiPath.API, ApiPage.CALL_LIST);
 	}
 
 	@Test
@@ -26,7 +31,7 @@ public class CallListParserTest extends NoAuthParserTest {
 		CallListResponse response = parser.getResponse();
 		assertNotNull(response);
 		
-		List<CallGroup> callGroups = new ArrayList(response.get().getCallGroups());
+		List<CallGroup> callGroups = new ArrayList<CallGroup>(response.get().getCallGroups());
 		assertFalse("There were no call groups", callGroups.isEmpty());
 		Collections.sort(callGroups, new Comparator<CallGroup>() {
 			@Override
@@ -37,7 +42,7 @@ public class CallListParserTest extends NoAuthParserTest {
 		assertEquals(1, callGroups.get(0).getGroupID());
 		assertEquals("Account and Market", callGroups.get(0).getName());
 		
-		List<Call> calls = new ArrayList(response.get().getCalls());
+		List<Call> calls = new ArrayList<Call>(response.get().getCalls());
 		assertFalse("There were no calls", calls.isEmpty());
 		Collections.sort(calls, new Comparator<Call>() {
 			@Override
