@@ -6,10 +6,14 @@ import java.util.Date;
 import com.beimin.eveapi.core.ApiResponse;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Locale;
 
 
 public class ApiKeyInfoResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
+	public static final String CORPORATION_KEY = "Corporation";
+	public static final String ACCOUNT_KEY = "Account";
+	public static final String CHARACTER_KEY = "Character";
 	public enum AccessMask{
 		ACCOUNT_BALANCE(1),
 		ASSET_LIST(2),
@@ -86,5 +90,17 @@ public class ApiKeyInfoResponse extends ApiResponse {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public boolean isCorporationKey() {
+		return getType().toUpperCase(Locale.ENGLISH).equals(CORPORATION_KEY.toUpperCase(Locale.ENGLISH));
+	}
+
+	public boolean isAccountKey() {
+		return getType().toUpperCase(Locale.ENGLISH).equals(ACCOUNT_KEY.toUpperCase(Locale.ENGLISH));
+	}
+
+	public boolean isCharacterKey() {
+		return getType().toUpperCase(Locale.ENGLISH).equals(CHARACTER_KEY.toUpperCase(Locale.ENGLISH));
 	}
 }
