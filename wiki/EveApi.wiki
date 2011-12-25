@@ -44,3 +44,17 @@ And you'll need some slf4j implementation like
 You can find where to download those jars [http://google.com here].
 
 = Usage =
+Generally you can look at the automated unit tests that are available in the subversion and in the google code web interface. For instance http://code.google.com/p/eveapi/source/browse/trunk/src/test/java/com/beimin/eveapi/account/characters/CharactersParserTest.java which tests and shows how to retrieve the list of Characters connected to an API key.
+
+Really all you need is to determine which information you want to retrieve and ergo which Parser you need to use.
+<code language="java">
+CharactersParser parser = CharactersParser.getInstance();
+int keyId = 123;
+String vCode = "abc";
+ApiAuthorization auth = new ApiAuthorization(keyId, vCode);
+CharactersResponse response = parser.getResponse(auth);
+Collection<EveCharacter> eveCharacters = response.getAll();
+</code>
+Which gives you the characters connected to a certain account.
+
+I hope this gets you started with using EveApi.
