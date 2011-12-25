@@ -1,0 +1,43 @@
+#How to use the EveApi library.
+
+= Introduction =
+
+It isn't always evident how this library is best used. This document will explain how you can easily depend on EveApi and how to actually use it in your Java program.
+
+
+= Details =
+== Building / depending ==
+EveApi uses Maven as it's build tool (http://maven.apache.org/). Since I don't have my own server EveApi isn't readily available in some central repository. 
+You can install the downloaded jar into your repository by:
+
+<pre>
+mvn install:install-file -DgroupId=com.beimin  \
+-DartifactId=eveapi  \
+-Dversion=3.0.1  \
+-Dfile=<path_to_your_jar_file>  \
+-Dpackaging=jar \
+-DgeneratePom=true
+</pre>
+
+Then include this dependency in your own pom.xml
+<code>
+<dependency>
+
+ <groupId>com.beimin</groupId>
+
+ <artifactId>eveapi</artifactId>
+
+ <version>3.0.1</version>
+
+</dependency>
+</code>
+== Non maven ==
+EveApi depends on the following libraries:
+
+* commons-digester-2.1.jar
+* commons-beanutils-1.8.3.jar
+* slf4j-api-1.6.1.jar
+
+And you'll need some slf4j immplementation like
+logback-classic-0.9.26.jar
+
