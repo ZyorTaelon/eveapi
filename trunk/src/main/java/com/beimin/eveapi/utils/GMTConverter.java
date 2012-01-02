@@ -15,7 +15,6 @@ public class GMTConverter implements Converter {
 	}
 
 	@SuppressWarnings("rawtypes")
-	@Override
 	public Date convert(Class type, Object value) {
 		if (!(value instanceof String))
 			throw new RuntimeException("wrong input value");

@@ -130,7 +130,6 @@ public class ApiWalletTransaction implements Comparable<ApiWalletTransaction> {
 		this.transactionFor = transactionFor;
 	}
 
-	@Override
 	public int compareTo(ApiWalletTransaction o) {
 		return Math.round(this.getTransactionID() - o.getTransactionID());
 	}

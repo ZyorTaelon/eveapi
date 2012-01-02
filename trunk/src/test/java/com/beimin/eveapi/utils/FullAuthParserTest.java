@@ -70,7 +70,6 @@ public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsser
 		EveApi.setConnector(new ApiConnector(MockApi.URL));
 	}
   
-	@Override
 	public void extraAsserts(Map<String, String> req) {
 		assertEquals("123", req.get("keyID"));
 		assertEquals("456", req.get("characterID"));

@@ -25,7 +25,6 @@ public class ExchangeProcessor implements Processor {
 		this.fullPath = fullPath;
 	}
 
-	@Override
 	public void process(Exchange exchange) {
 		String s = exchange.getIn().getBody(String.class);
 		Map<String, String> params = CamelUtils.parsePostParams(s);

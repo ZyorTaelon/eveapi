@@ -34,7 +34,6 @@ public class CallListParserTest extends NoAuthParserTest {
 		List<CallGroup> callGroups = new ArrayList<CallGroup>(response.get().getCallGroups());
 		assertFalse("There were no call groups", callGroups.isEmpty());
 		Collections.sort(callGroups, new Comparator<CallGroup>() {
-			@Override
 			public int compare(CallGroup o1, CallGroup o2) {
 				return o1.getGroupID() - o2.getGroupID();
 			}
@@ -45,7 +44,6 @@ public class CallListParserTest extends NoAuthParserTest {
 		List<Call> calls = new ArrayList<Call>(response.get().getCalls());
 		assertFalse("There were no calls", calls.isEmpty());
 		Collections.sort(calls, new Comparator<Call>() {
-			@Override
 			public int compare(Call o1, Call o2) {
 				int ret = o1.getType().compareTo(o2.getType());
 				if (ret == 0) {

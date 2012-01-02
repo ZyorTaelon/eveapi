@@ -189,7 +189,6 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	// return refTypes;
 	// }
 
-	@Override
 	public int compareTo(ApiJournalEntry o) {
 		return Math.round(this.getRefID() - o.getRefID());
 	}

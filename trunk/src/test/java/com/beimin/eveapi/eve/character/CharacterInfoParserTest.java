@@ -128,7 +128,6 @@ public class CharacterInfoParserTest {
 			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx")
 					.process(new ExchangeProcessor(
 						new ExchangeProcessor.ExtraAsserts() {
-							@Override
 							public void extraAsserts(Map<String, String> params) {
 								assertNotNull(params);
 								assertEquals("123", params.get("keyID"));
@@ -148,7 +147,6 @@ public class CharacterInfoParserTest {
 			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx")
 					.process(new ExchangeProcessor(
 						new ExchangeProcessor.ExtraAsserts() {
-							@Override
 							public void extraAsserts(Map<String, String> params) {
 								assertNotNull(params);
 								assertEquals("1380128241", params.get("characterID"));
@@ -166,7 +164,6 @@ public class CharacterInfoParserTest {
 			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx")
 					.process(new ExchangeProcessor(
 						new ExchangeProcessor.ExtraAsserts() {
-							@Override
 							public void extraAsserts(Map<String, String> params) {
 								assertNotNull(params);
 								assertEquals("123", params.get("keyID"));

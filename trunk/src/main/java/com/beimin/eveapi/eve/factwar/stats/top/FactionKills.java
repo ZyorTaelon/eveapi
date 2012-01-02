@@ -3,7 +3,6 @@ package com.beimin.eveapi.eve.factwar.stats.top;
 public class FactionKills extends FactionStat implements KillStat {
 	private int kills;
 
-	@Override
 	public int getKills() {
 		return kills;
 	}

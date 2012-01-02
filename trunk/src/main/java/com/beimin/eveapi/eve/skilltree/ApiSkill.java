@@ -92,7 +92,6 @@ public class ApiSkill implements Comparable<ApiSkill> {
 		return result;
 	}
 
-	@Override
 	public int compareTo(ApiSkill o) {
 		return typeName.compareTo(o.typeName);
 	}

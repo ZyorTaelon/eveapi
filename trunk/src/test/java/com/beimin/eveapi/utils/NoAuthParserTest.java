@@ -60,7 +60,6 @@ public abstract class NoAuthParserTest implements ExchangeProcessor.ExtraAsserts
 		return path;
 	}
 
-	@Override
 	public void extraAsserts(Map<String, String> req) {
 		// overridable
 	}

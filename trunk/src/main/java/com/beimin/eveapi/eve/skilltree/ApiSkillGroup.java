@@ -41,7 +41,6 @@ public class ApiSkillGroup implements Comparable<ApiSkillGroup> {
 		return result;
 	}
 
-	@Override
 	public int compareTo(ApiSkillGroup o) {
 		return groupName.compareTo(o.groupName);
 	}

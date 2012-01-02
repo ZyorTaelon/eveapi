@@ -25,14 +25,12 @@ public class EveApiRouteBuilder extends RouteBuilder implements Processor, Excha
 		from("jetty:" + MockApi.URL + resPath + ".xml.aspx").process(new ExchangeProcessor(EveApiRouteBuilder.this, resPath + ".xml")).end();
 	}
 
-	@Override
 	public void process(Exchange exchange) throws Exception {
 		String body = exchange.getIn().getBody(String.class);
 		Map<String, String> params = CamelUtils.parsePostParams(body);
 		assertNotNull(params);
 	}
 
-	@Override
 	public void extraAsserts(Map<String, String> params) {
 		// TODO Auto-generated method stub
 	}

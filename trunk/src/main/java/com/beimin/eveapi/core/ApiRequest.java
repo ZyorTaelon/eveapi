@@ -64,7 +64,6 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 		return temp.toString().hashCode();
 	}
 
-	@Override
 	public int compareTo(ApiRequest o) {
 		return o.hashCode() - hashCode();
 	}

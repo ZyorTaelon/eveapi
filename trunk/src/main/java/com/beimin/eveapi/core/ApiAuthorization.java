@@ -41,7 +41,6 @@ public class ApiAuthorization extends ApiAuth<ApiAuthorization> {
 		return new StringBuilder(keyID).append(characterID).append(vCode).toString().hashCode();
 	}
 
-	@Override
 	public int compareTo(ApiAuthorization o) {
 		return o.hashCode() - hashCode();
 	}
