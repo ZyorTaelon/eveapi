@@ -15,10 +15,8 @@
 		</site>
 	</distributionManagement>
 	<scm>
-		<connection>scm:svn:https://eveapi.googlecode.com/svn/trunk
-		</connection>
-		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/trunk
-		</developerConnection>
+		<connection>scm:svn:https://eveapi.googlecode.com/svn/branches/eveapi-4.0</connection>
+		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/branches/eveapi-4.0</developerConnection>
 	</scm>
 	<developers>
 		<developer>
