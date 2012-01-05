@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eveapi version="2">
+  <currentTime>2010-11-28 20:08:33</currentTime>
+  <result>
+    <rowset name="contactList" key="contactID" columns="contactID,contactName,inWatchlist,standing">
+      <row contactID="3008667" contactName="Falian Khivad" inWatchlist="False" standing="5"/>
+      <row contactID="3008734" contactName="Nayeri Shushi" inWatchlist="False" standing="0"/>
+      <row contactID="3009524" contactName="Afdier Couster" inWatchlist="False" standing="0"/>
+      <row contactID="3011115" contactName="Kibayasu Jimmulen" inWatchlist="False" standing="0"/>
+      <row contactID="3012589" contactName="Jodgauren Olmeigar" inWatchlist="False" standing="0"/>
+      <row contactID="3013966" contactName="Thon Eney" inWatchlist="False" standing="0"/>
+      <row contactID="3014240" contactName="Aitakan Reinsdar" inWatchlist="False" standing="0"/>
+      <row contactID="3014820" contactName="Aneng Tzashrah" inWatchlist="False" standing="0"/>
+      <row contactID="3014891" contactName="Nirela Tzara" inWatchlist="False" standing="0"/>
+      <row contactID="3015092" contactName="Arnettylier Eulancke" inWatchlist="False" standing="0"/>
+      <row contactID="3015400" contactName="Mazuere Vyllocoure" inWatchlist="False" standing="0"/>
+      <row contactID="3016598" contactName="Muvila Milkina" inWatchlist="False" standing="0"/>
+      <row contactID="3016599" contactName="Kaurmoras Uesilen" inWatchlist="False" standing="0"/>
+      <row contactID="3016604" contactName="Yarela Ohio" inWatchlist="False" standing="0"/>
+      <row contactID="3017219" contactName="Uunse Matsikka" inWatchlist="False" standing="0"/>
+      <row contactID="3017262" contactName="Tyngidolf Aurtur" inWatchlist="False" standing="0"/>
+      <row contactID="3017293" contactName="Sotah Imya" inWatchlist="False" standing="0"/>
+      <row contactID="3017307" contactName="Ashokon Bofazan" inWatchlist="False" standing="0"/>
+      <row contactID="3017350" contactName="Kalon Andet" inWatchlist="False" standing="0"/>
+      <row contactID="3017372" contactName="Perrukainen Artoja" inWatchlist="False" standing="0"/>
+      <row contactID="3018463" contactName="Aram Ishtan" inWatchlist="False" standing="0"/>
+      <row contactID="3018474" contactName="Sakem Komal" inWatchlist="False" standing="0"/>
+      <row contactID="3018488" contactName="Demi Lazerus" inWatchlist="False" standing="0"/>
+      <row contactID="3018489" contactName="Nikmar Jyran" inWatchlist="False" standing="0"/>
+      <row contactID="3018490" contactName="Taspar Zolankor" inWatchlist="False" standing="0"/>
+      <row contactID="3018677" contactName="Rian Sumana" inWatchlist="False" standing="0"/>
+      <row contactID="3018678" contactName="Geil Ustegokkur" inWatchlist="False" standing="0"/>
+      <row contactID="3018679" contactName="Anuko Hugandur" inWatchlist="False" standing="0"/>
+      <row contactID="3018837" contactName="Alfiker Maliddar" inWatchlist="False" standing="0"/>
+      <row contactID="3018838" contactName="Ansdald Nyragi" inWatchlist="False" standing="0"/>
+      <row contactID="3018839" contactName="Bria Arnkorin" inWatchlist="False" standing="0"/>
+      <row contactID="3018840" contactName="Evuttur Arpen" inWatchlist="False" standing="0"/>
+      <row contactID="3018841" contactName="Firginia Fodelbert" inWatchlist="False" standing="0"/>
+      <row contactID="3018842" contactName="Halvuli Alfiker" inWatchlist="False" standing="0"/>
+      <row contactID="3018843" contactName="Hebrid Mangarik" inWatchlist="False" standing="0"/>
+      <row contactID="3018844" contactName="Herundio Bodweradat" inWatchlist="False" standing="0"/>
+      <row contactID="3018845" contactName="Jomodar Infreger" inWatchlist="False" standing="0"/>
+      <row contactID="3018846" contactName="Meinevedar Austrudelef" inWatchlist="False" standing="0"/>
+      <row contactID="3018847" contactName="Solur Erfar" inWatchlist="False" standing="0"/>
+      <row contactID="3018848" contactName="Vimeini Jomodar" inWatchlist="False" standing="0"/>
+      <row contactID="3018927" contactName="Uba Virserin" inWatchlist="False" standing="0"/>
+      <row contactID="3018932" contactName="Dalofer Mattore" inWatchlist="False" standing="0"/>
+      <row contactID="3019342" contactName="Eurbibad Kird" inWatchlist="False" standing="0"/>
+      <row contactID="3019343" contactName="Stird Odetlef" inWatchlist="False" standing="0"/>
+      <row contactID="3019346" contactName="Arninald Beinarakur" inWatchlist="False" standing="0"/>
+      <row contactID="3019347" contactName="Harbuko Bedgimund" inWatchlist="False" standing="0"/>
+      <row contactID="3019356" contactName="Sister Alitura" inWatchlist="False" standing="0"/>
+      <row contactID="3019402" contactName="Riff Hebian" inWatchlist="False" standing="0"/>
+      <row contactID="3019406" contactName="Kandus Sandar" inWatchlist="False" standing="0"/>
+      <row contactID="3019407" contactName="Aralin Jick" inWatchlist="False" standing="0"/>
+      <row contactID="3019415" contactName="Karde Romu" inWatchlist="False" standing="0"/>
+      <row contactID="3019455" contactName="Wettor Fugen" inWatchlist="False" standing="0"/>
+      <row contactID="3019456" contactName="Bradondar Alfalur" inWatchlist="False" standing="0"/>
+      <row contactID="3019478" contactName="Artgert Ardreas" inWatchlist="False" standing="0"/>
+      <row contactID="3019479" contactName="Sut Bjar" inWatchlist="False" standing="0"/>
+      <row contactID="138725217" contactName="Bloktar" inWatchlist="True" standing="0"/>
+      <row contactID="160810521" contactName="UnIQu3" inWatchlist="True" standing="0"/>
+      <row contactID="182784411" contactName="DarkStar 1" inWatchlist="False" standing="0"/>
+      <row contactID="186578963" contactName="pshepherd" inWatchlist="True" standing="0"/>
+      <row contactID="187357543" contactName="Detenaev Holanu" inWatchlist="True" standing="0"/>
+      <row contactID="206680731" contactName="Overlord Anubis" inWatchlist="True" standing="0"/>
+      <row contactID="482762628" contactName="CEO Pyrex" inWatchlist="True" standing="0"/>
+      <row contactID="498745672" contactName="Irie Alixyar" inWatchlist="True" standing="0"/>
+      <row contactID="499397358" contactName="Dispatch" inWatchlist="True" standing="0"/>
+      <row contactID="534481067" contactName="Marsian" inWatchlist="True" standing="0"/>
+      <row contactID="581630544" contactName="Perduim Oneraria" inWatchlist="True" standing="0"/>
+      <row contactID="582025121" contactName="Erubadriel" inWatchlist="True" standing="0"/>
+      <row contactID="588014499" contactName="Miffy" inWatchlist="True" standing="0"/>
+      <row contactID="612259562" contactName="Impinge" inWatchlist="True" standing="0"/>
+      <row contactID="644935007" contactName="Katie Door" inWatchlist="True" standing="0"/>
+      <row contactID="666656478" contactName="Inservio Letum" inWatchlist="True" standing="0"/>
+      <row contactID="682099525" contactName="Xotannar" inWatchlist="True" standing="10"/>
+      <row contactID="782937789" contactName="Shep88" inWatchlist="True" standing="0"/>
+      <row contactID="785409039" contactName="Esildra" inWatchlist="True" standing="0"/>
+      <row contactID="792458040" contactName="Ta8ula Rasa" inWatchlist="False" standing="10"/>
+      <row contactID="798678925" contactName="Gilbert Drillerson" inWatchlist="True" standing="0"/>
+      <row contactID="813738272" contactName="Arkasius" inWatchlist="True" standing="0"/>
+      <row contactID="817217271" contactName="Moostang" inWatchlist="True" standing="0"/>
+      <row contactID="825180053" contactName="Sutaa" inWatchlist="True" standing="0"/>
+      <row contactID="847198196" contactName="Cal Maestro" inWatchlist="True" standing="0"/>
+      <row contactID="852939468" contactName="Phsynobaby" inWatchlist="True" standing="10"/>
+      <row contactID="885370156" contactName="Maginot" inWatchlist="True" standing="0"/>
+      <row contactID="920407689" contactName="Ad Sales" inWatchlist="True" standing="5"/>
+      <row contactID="937386930" contactName="DonkeyKong" inWatchlist="True" standing="0"/>
+      <row contactID="963288509" contactName="Keiler" inWatchlist="True" standing="0"/>
+      <row contactID="999387023" contactName="Yunlai" inWatchlist="True" standing="0"/>
+      <row contactID="1004356136" contactName="Incub" inWatchlist="True" standing="10"/>
+      <row contactID="1012596743" contactName="Rexy" inWatchlist="True" standing="0"/>
+      <row contactID="1016150715" contactName="Eve Online Hold'Em" inWatchlist="False" standing="0"/>
+      <row contactID="1029841145" contactName="AnaphylacticShock" inWatchlist="True" standing="0"/>
+      <row contactID="1101668488" contactName="Krelo Reich" inWatchlist="True" standing="0"/>
+      <row contactID="1145153045" contactName="David Grogan" inWatchlist="True" standing="10"/>
+      <row contactID="1194179536" contactName="Zer Res" inWatchlist="True" standing="0"/>
+      <row contactID="1203552209" contactName="ShadowFinder" inWatchlist="True" standing="10"/>
+      <row contactID="1484336291" contactName="Dagroru Krulroo" inWatchlist="True" standing="0"/>
+      <row contactID="1513842584" contactName="Borazlak" inWatchlist="True" standing="10"/>
+      <row contactID="1522635141" contactName="Zuper" inWatchlist="True" standing="5"/>
+      <row contactID="1530899873" contactName="Krav Damar" inWatchlist="True" standing="10"/>
+      <row contactID="1629994714" contactName="speedy weedy" inWatchlist="True" standing="0"/>
+      <row contactID="1777969239" contactName="Ahrition" inWatchlist="True" standing="0"/>
+      <row contactID="1865456953" contactName="Ar'tee" inWatchlist="True" standing="0"/>
+      <row contactID="1865471026" contactName="Shau Chen" inWatchlist="True" standing="0"/>
+      <row contactID="1906262612" contactName="Landorcan" inWatchlist="True" standing="0"/>
+      <row contactID="1989750429" contactName="Shanzem" inWatchlist="True" standing="0"/>
+      <row contactID="2059097652" contactName="Marco drack" inWatchlist="True" standing="10"/>
+      <row contactID="2065725204" contactName="De Boer" inWatchlist="True" standing="10"/>
+    </rowset>
+  </result>
+  <cachedUntil>2010-11-28 20:23:34</cachedUntil>
+</eveapi>
