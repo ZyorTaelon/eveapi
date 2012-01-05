@@ -20,8 +20,8 @@ public class JumpsParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		MapJumpsParser parser = MapJumpsParser.getInstance();
-		MapJumpsResponse response = parser.getResponse();
+		JumpsParser parser = JumpsParser.getInstance();
+		JumpsResponse response = parser.getResponse();
 		assertNotNull(response);
 		Map<Integer, Integer> systemJumps = response.getSystemJumps();
 		assertNotNull(systemJumps);

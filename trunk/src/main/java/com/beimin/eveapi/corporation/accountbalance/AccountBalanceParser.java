@@ -11,12 +11,12 @@ public class AccountBalanceParser extends AbstractAccountBalanceParser {
 		super(ApiPath.CORPORATION);
 	}
 
-	public static AccountBalanceParser getInstance() {
-		return new AccountBalanceParser();
-	}
-
 	@Override
 	public AccountBalanceResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
+	}
+	
+	public static AccountBalanceParser getInstance() {
+		return new AccountBalanceParser();
 	}
 }

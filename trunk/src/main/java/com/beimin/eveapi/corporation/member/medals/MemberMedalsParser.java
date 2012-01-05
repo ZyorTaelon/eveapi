@@ -1,15 +1,14 @@
 package com.beimin.eveapi.corporation.member.medals;
 
-
 import com.beimin.eveapi.core.AbstractListParser;
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public class MemberMedalsParser extends AbstractListParser<MemberMedalsResponse, MemberMedal> {
+public class MemberMedalsParser extends AbstractListParser<MemberMedalsHandler, MemberMedalsResponse, MemberMedal> {
 	public MemberMedalsParser() {
-		super(MemberMedalsResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_MEDALS, MemberMedal.class);
+		super(MemberMedalsResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_MEDALS, MemberMedalsHandler.class);
 	}
 
 	public static MemberMedalsParser getInstance() {

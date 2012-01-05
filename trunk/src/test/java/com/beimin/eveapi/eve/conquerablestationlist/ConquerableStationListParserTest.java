@@ -2,12 +2,10 @@ package com.beimin.eveapi.eve.conquerablestationlist;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
@@ -24,15 +22,14 @@ public class ConquerableStationListParserTest extends NoAuthParserTest {
 		ConquerableStationListParser parser = ConquerableStationListParser.getInstance();
 		StationListResponse response = parser.getResponse();
 		assertNotNull(response);
-		Map<Long, ApiStation> stations = response.getStations();
+		Map<Integer, ApiStation> stations = response.getStations();
 		assertEquals(242, stations.size());
-		ApiStation hzfStation = stations.get(61000118l);
+		ApiStation hzfStation = stations.get(61000118);
 		assertNotNull(hzfStation);
 		assertEquals("HZF RAPTURE", hzfStation.getStationName());
 		assertEquals(21646, hzfStation.getStationTypeID());
 		assertEquals(30000482, hzfStation.getSolarSystemID());
 		assertEquals(182784411, hzfStation.getCorporationID());
 		assertEquals("DarkStar 1", hzfStation.getCorporationName());
-		assertTrue("Todo: ", true);
 	}
 }

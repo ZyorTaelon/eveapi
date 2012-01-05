@@ -1,8 +1,8 @@
 package com.beimin.eveapi.shared.character;
 
-import org.apache.commons.beanutils.Converter;
+//import org.apache.commons.beanutils.Converter;
 
-public class EveBloodlineConverter implements Converter {
+public class EveBloodlineConverter {// implements Converter {
 	@SuppressWarnings("rawtypes")
 	public Object convert(Class type, Object value) {
 		return EveBloodline.valueOf(((String) value).toUpperCase().replaceAll("-", "_"));

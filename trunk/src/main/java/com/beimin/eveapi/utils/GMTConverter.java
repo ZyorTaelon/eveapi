@@ -5,9 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-import org.apache.commons.beanutils.Converter;
-
-public class GMTConverter implements Converter {
+public class GMTConverter { //implements Converter {
 	private final String dateFormat;
 
 	public GMTConverter(String dateFormat) {

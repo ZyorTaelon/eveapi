@@ -1,11 +1,9 @@
 package com.beimin.eveapi.character.skill.intraining;
 
 
-import org.apache.commons.digester.Digester;
-
-
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiAuth;
+import com.beimin.eveapi.core.AbstractContentHandler;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -16,17 +14,8 @@ public class SkillInTrainingParser extends AbstractApiParser<SkillInTrainingResp
 	}
 
 	@Override
-	protected Digester getDigester() {
-		Digester digester = super.getDigester();
-		digester.addBeanPropertySetter("eveapi/result/currentTQTime");
-		digester.addBeanPropertySetter("eveapi/result/trainingEndTime");
-		digester.addBeanPropertySetter("eveapi/result/trainingStartTime");
-		digester.addBeanPropertySetter("eveapi/result/trainingTypeID");
-		digester.addBeanPropertySetter("eveapi/result/trainingStartSP");
-		digester.addBeanPropertySetter("eveapi/result/trainingDestinationSP");
-		digester.addBeanPropertySetter("eveapi/result/trainingToLevel");
-		digester.addBeanPropertySetter("eveapi/result/skillInTraining");
-		return digester;
+	protected AbstractContentHandler getContentHandler() {
+		return new SkillInTrainingHandler();
 	}
 
 	public static SkillInTrainingParser getInstance() {

@@ -6,11 +6,11 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public class FacWarSystemsParser extends AbstractListParser<FacWarSystemsResponse, ApiFacWarSystem> {
+public class FacWarSystemsParser extends AbstractListParser<FacWarSystemsHandler, FacWarSystemsResponse, ApiFacWarSystem> {
 	private FacWarSystemsParser() {
-		super(FacWarSystemsResponse.class, 2, ApiPath.MAP, ApiPage.FACTION_WAR_SYSTEMS, ApiFacWarSystem.class);
+		super(FacWarSystemsResponse.class, 2, ApiPath.MAP, ApiPage.FACTION_WAR_SYSTEMS, FacWarSystemsHandler.class);
 	}
-
+	
 	public static FacWarSystemsParser getInstance() {
 		return new FacWarSystemsParser();
 	}

@@ -9,10 +9,10 @@ import java.net.URL;
 import java.util.Date;
 import java.util.Map;
 
-import org.apache.commons.digester.Digester;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.beimin.eveapi.core.AbstractContentHandler;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiRequest;
 import com.beimin.eveapi.core.ApiResponse;
@@ -35,7 +35,7 @@ public class FileCopyConnector extends ApiConnector {
 	}
 
 	@Override
-	public <E extends ApiResponse> E execute(ApiRequest request, Digester digester, Class<E> clazz) throws ApiException {
+	public <E extends ApiResponse> E execute(ApiRequest request, AbstractContentHandler contentHandler, Class<E> clazz) throws ApiException {
 		ApiConnector connector = getConnector();
 		URL url = connector.getURL(request);
 		Map<String, String> params = connector.getParams(request);
@@ -49,7 +49,7 @@ public class FileCopyConnector extends ApiConnector {
 		} catch (FileNotFoundException e) {
 			logger.error("Could not write response xml to file: ", e);
 		}
-		E response = getApiResponse(digester, inputStream, clazz);
+		E response = getApiResponse(contentHandler, inputStream, clazz);
 		if (outputStream != null) {
 			try {
 				outputStream.flush();

@@ -4,7 +4,7 @@ package com.beimin.eveapi.corporation.shareholders;
 public class ApiShareholder {
 	private long shareholderID;
 	private String shareholderName;
-	private long shareholderCorporationID;
+	private Long shareholderCorporationID;
 	private String shareholderCorporationName;
 	private int shares;
 
@@ -24,11 +24,11 @@ public class ApiShareholder {
 		this.shareholderName = shareholderName;
 	}
 
-	public long getShareholderCorporationID() {
+	public Long getShareholderCorporationID() {
 		return shareholderCorporationID;
 	}
 
-	public void setShareholderCorporationID(long shareholderCorporationID) {
+	public void setShareholderCorporationID(Long shareholderCorporationID) {
 		this.shareholderCorporationID = shareholderCorporationID;
 	}
 

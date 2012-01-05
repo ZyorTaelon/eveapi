@@ -10,7 +10,8 @@ import org.junit.Test;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
-import com.beimin.eveapi.shared.factwar.stats.FacWarStatsResponse;
+import com.beimin.eveapi.corporation.facwar.stats.FacWarStatsParser;
+import com.beimin.eveapi.shared.facwar.stats.FacWarStatsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class FacWarStatsParserTest extends FullAuthParserTest {

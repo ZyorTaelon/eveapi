@@ -4,15 +4,6 @@ public class ApiSecurityRole {
 	private long roleID;
 	private String roleName;
 
-	public ApiSecurityRole() {
-		// default constructor needed for Digester
-	}
-
-	public ApiSecurityRole(long roleID, String roleName) {
-		this.roleID = roleID;
-		this.roleName = roleName;
-	}
-
 	public long getRoleID() {
 		return roleID;
 	}

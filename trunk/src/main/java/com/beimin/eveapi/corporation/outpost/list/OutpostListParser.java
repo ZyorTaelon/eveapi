@@ -1,17 +1,15 @@
 package com.beimin.eveapi.corporation.outpost.list;
 
-
 import com.beimin.eveapi.core.AbstractListParser;
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public class OutpostListParser extends AbstractListParser<OutpostListResponse, ApiOutpost> {
+public class OutpostListParser extends AbstractListParser<OutpostListHandler, OutpostListResponse, ApiOutpost> {
 	public OutpostListParser() {
-		super(OutpostListResponse.class, 2, ApiPath.CORPORATION, ApiPage.OUTPOST_LIST, ApiOutpost.class);
+		super(OutpostListResponse.class, 2, ApiPath.CORPORATION, ApiPage.OUTPOST_LIST, OutpostListHandler.class);
 	}
-
 
 	public static OutpostListParser getInstance() {
 		return new OutpostListParser();

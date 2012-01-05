@@ -10,11 +10,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.commons.digester.Digester;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
 
 import com.beimin.eveapi.core.ApiAuth;
+import com.beimin.eveapi.core.AbstractContentHandler;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiRequest;
 import com.beimin.eveapi.core.ApiResponse;
@@ -33,18 +38,23 @@ public class ApiConnector {
 		this.baseUrl = baseUrl;
 	}
 
-	public <E extends ApiResponse> E execute(ApiRequest request, Digester digester, Class<E> clazz) throws ApiException {
+	public <E extends ApiResponse> E execute(ApiRequest request, AbstractContentHandler contentHandler, Class<E> clazz) throws ApiException {
 		try {
-			return getApiResponse(digester, getInputStream(getURL(request), getParams(request)), clazz);
+			return getApiResponse(contentHandler, getInputStream(getURL(request), getParams(request)), clazz);
 		} catch (Exception e) {
 			throw new ApiException(e);
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	protected <E> E getApiResponse(Digester digester, InputStream inputStream, Class<E> clazz) throws ApiException {
+	protected <E> E getApiResponse(AbstractContentHandler contentHandler, InputStream inputStream, Class<E> clazz) throws ApiException {
 		try {
-			return (E) digester.parse(inputStream);
+			SAXParserFactory spf = SAXParserFactory.newInstance(); 
+		    SAXParser sp = spf.newSAXParser(); 
+		    XMLReader xr = sp.getXMLReader(); 
+		    xr.setContentHandler(contentHandler); 
+		    xr.parse(new InputSource(inputStream)); 
+			return (E) contentHandler.getResponse();
 		} catch (Exception e) {
 			throw new ApiException(e);
 		}

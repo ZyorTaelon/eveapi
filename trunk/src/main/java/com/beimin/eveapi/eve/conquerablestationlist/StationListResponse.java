@@ -7,13 +7,13 @@ import com.beimin.eveapi.core.ApiResponse;
 
 public class StationListResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
-	private final Map<Long, ApiStation> stationss = new HashMap<Long, ApiStation>();
+	private final Map<Integer, ApiStation> stations = new HashMap<Integer, ApiStation>();
 
 	public void add(ApiStation station) {
-		stationss.put(station.getStationID(), station);
+		stations.put(station.getStationID(), station);
 	}
 
-	public Map<Long, ApiStation> getStations() {
-		return stationss;
+	public Map<Integer, ApiStation> getStations() {
+		return stations;
 	}
 }

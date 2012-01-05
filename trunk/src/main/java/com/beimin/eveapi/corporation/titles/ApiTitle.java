@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class ApiTitle {
-	private long titleID; // ="1"
-	private String titleName; // ="Member"
+	private long titleID;
+	private String titleName;
 	private final Collection<ApiRole> roles = new ArrayList<ApiRole>();
 	private final Collection<ApiRole> grantableRoles = new ArrayList<ApiRole>();
 	private final Collection<ApiRole> rolesAtHQ = new ArrayList<ApiRole>();
@@ -63,30 +63,35 @@ public class ApiTitle {
 		return grantableRolesAtOther;
 	}
 
-	public void add(RoleBag roleBag) {
-		String name = roleBag.getName();
-		Collection<ApiRole> target = null;
-		if (name.equals("roles")) {
-			target = roles;
-		} else if (name.equals("grantableRoles")) {
-			target = grantableRoles;
-		} else if (name.equals("rolesAtHQ")) {
-			target = rolesAtHQ;
-		} else if (name.equals("grantableRolesAtHQ")) {
-			target = grantableRolesAtHQ;
-		} else if (name.equals("rolesAtBase")) {
-			target = rolesAtBase;
-		} else if (name.equals("grantableRolesAtBase")) {
-			target = grantableRolesAtBase;
-		} else if (name.equals("rolesAtOther")) {
-			target = rolesAtOther;
-		} else if (name.equals("grantableRolesAtOther")) {
-			target = grantableRolesAtOther;
-		} else {
-			throw new RuntimeException("unknown role bag type");
-		}
-		for (ApiRole role : roleBag.getRoles()) {
-			target.add(role);
-		}
+	public void addRole(ApiRole role) {
+		roles.add(role);
+	}
+	
+	public void addGrantableRole(ApiRole role) {
+		grantableRoles.add(role);
+	}
+	
+	public void addRoleAtHQ(ApiRole role) {
+		rolesAtHQ.add(role);
+	}
+	
+	public void addGrantableRoleAtHQ(ApiRole role) {
+		grantableRolesAtHQ.add(role);
+	}
+	
+	public void addRoleAtBase(ApiRole role) {
+		rolesAtBase.add(role);
+	}
+	
+	public void addGrantableRoleAtBase(ApiRole role) {
+		grantableRolesAtBase.add(role);
+	}
+	
+	public void addRoleAtOther(ApiRole role) {
+		rolesAtOther.add(role);
+	}
+	
+	public void addGrantableRoleAtOther(ApiRole role) {
+		grantableRolesAtOther.add(role);
 	}
 }

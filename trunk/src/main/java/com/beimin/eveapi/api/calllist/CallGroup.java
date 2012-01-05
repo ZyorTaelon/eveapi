@@ -7,6 +7,7 @@ package com.beimin.eveapi.api.calllist;
 public class CallGroup {
 	private int groupID;
 	private String name;
+	private String description;
 
 	public int getGroupID() {
 		return groupID;
@@ -22,5 +23,13 @@ public class CallGroup {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

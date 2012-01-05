@@ -1,43 +1,61 @@
 package com.beimin.eveapi.eve.factwar.stats.top;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public abstract class FacWarTopStats<K extends KillStat, VP extends VictoryPointsStat, E extends FacWarStat> {
-	private final Map<String, StatsList<? extends E>> stats = new HashMap<String, StatsList<? extends E>>();
+	private final List<K> killsYesterday = new ArrayList<K>();
+	private final List<K> killsLastWeek = new ArrayList<K>();
+	private final List<K> killsTotal = new ArrayList<K>();
+	private final List<VP> victoryPointsYesterday = new ArrayList<VP>();
+	private final List<VP> victoryPointsLastWeek = new ArrayList<VP>();
+	private final List<VP> victoryPointsTotal = new ArrayList<VP>();
 
-	public void addStatsList(StatsList<? extends E> statsList) {
-		stats.put(statsList.getName(), statsList);
+	public void addYesterday(K stat) {
+		killsYesterday.add(stat);
 	}
 
-	@SuppressWarnings("unchecked")
+	public void addLastWeek(K stat) {
+		killsLastWeek.add(stat);
+	}
+
+	public void addTotal(K stat) {
+		killsTotal.add(stat);
+	}
+
+	public void addYesterday(VP stat) {
+		victoryPointsYesterday.add(stat);
+	}
+
+	public void addLastWeek(VP stat) {
+		victoryPointsLastWeek.add(stat);
+	}
+
+	public void addTotal(VP stat) {
+		victoryPointsTotal.add(stat);
+	}
+
 	public List<K> getKillsYesterday() {
-		return (List<K>) stats.get("KillsYesterday");
+		return killsYesterday;
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<K> getKillsLastWeek() {
-		return (List<K>) stats.get("KillsLastWeek");
+		return killsLastWeek;
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<K> getKillsTotal() {
-		return (List<K>) stats.get("KillsTotal");
+		return killsTotal;
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<VP> getVictoryPointsYesterday() {
-		return (List<VP>) stats.get("VictoryPointsYesterday");
+		return victoryPointsYesterday;
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<VP> getVictoryPointsLastWeek() {
-		return (List<VP>) stats.get("VictoryPointsLastWeek");
+		return victoryPointsLastWeek;
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<VP> getVictoryPointsTotal() {
-		return (List<VP>) stats.get("VictoryPointsTotal");
+		return victoryPointsTotal;
 	}
 }

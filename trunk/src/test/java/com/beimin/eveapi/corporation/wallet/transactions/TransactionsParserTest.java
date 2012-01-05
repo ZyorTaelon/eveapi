@@ -3,7 +3,7 @@ package com.beimin.eveapi.corporation.wallet.transactions;
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.Map;
 import java.util.Set;
@@ -41,7 +41,7 @@ public class TransactionsParserTest extends FullAuthParserTest {
 				assertEquals(250.01, walletTransaction.getPrice(), 0.00001);
 				assertEquals(174312871, walletTransaction.getClientID());
 				assertEquals("ACHAR", walletTransaction.getClientName());
-				assertEquals(000000000, walletTransaction.getCharacterID());
+				assertEquals(0, walletTransaction.getCharacterID().intValue());
 				assertEquals("SELLER", walletTransaction.getCharacterName());
 				assertEquals(60004375, walletTransaction.getStationID());
 				assertEquals("SYSTEM IV - Moon 10 - Corporate Police Force Testing Facilities", walletTransaction.getStationName());

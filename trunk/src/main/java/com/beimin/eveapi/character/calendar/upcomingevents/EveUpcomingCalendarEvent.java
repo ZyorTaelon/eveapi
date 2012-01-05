@@ -2,7 +2,7 @@ package com.beimin.eveapi.character.calendar.upcomingevents;
 
 import java.util.Date;
 
-import com.beimin.eveapi.shared.calendar.CalendarEventResponse;
+import com.beimin.eveapi.character.calendar.CalendarEventResponse;
 
 public class EveUpcomingCalendarEvent {
 	private long eventID;

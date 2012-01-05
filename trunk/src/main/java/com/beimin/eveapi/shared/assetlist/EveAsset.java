@@ -9,7 +9,7 @@ public class EveAsset<A extends EveAsset<?>> {
 	private Long locationID;
 	private int typeID;
 	private int quantity;
-	private int rawQuantity;
+	private Integer rawQuantity;
 	private int flag;
 	private boolean singleton;
 
@@ -65,12 +65,14 @@ public class EveAsset<A extends EveAsset<?>> {
 		this.flag = flag;
 	}
 
-	public int getRawQuantity() {
+	public Integer getRawQuantity() {
 		return rawQuantity;
 	}
 
-	public void setRawQuantity(int rawQuantity) {
+	public void setRawQuantity(Integer rawQuantity) {
 		this.rawQuantity = rawQuantity;
+		if(this.rawQuantity == null)
+			this.rawQuantity = 0;
 	}
 
 	public boolean getSingleton() {

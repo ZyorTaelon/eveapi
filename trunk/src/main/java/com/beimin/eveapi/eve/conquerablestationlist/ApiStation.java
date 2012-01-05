@@ -1,18 +1,18 @@
 package com.beimin.eveapi.eve.conquerablestationlist;
 
 public class ApiStation {
-	private long stationID;
+	private int stationID;
 	private String stationName;
 	private int stationTypeID;
-	private long solarSystemID;
+	private int solarSystemID;
 	private int corporationID;
 	private String corporationName;
 
-	public long getStationID() {
+	public int getStationID() {
 		return stationID;
 	}
 
-	public void setStationID(long stationID) {
+	public void setStationID(int stationID) {
 		this.stationID = stationID;
 	}
 
@@ -32,11 +32,11 @@ public class ApiStation {
 		this.stationTypeID = stationTypeID;
 	}
 
-	public long getSolarSystemID() {
+	public int getSolarSystemID() {
 		return solarSystemID;
 	}
 
-	public void setSolarSystemID(long solarSystemID) {
+	public void setSolarSystemID(int solarSystemID) {
 		this.solarSystemID = solarSystemID;
 	}
 

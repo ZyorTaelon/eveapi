@@ -6,9 +6,9 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public class MedalsParser extends AbstractListParser<CorpMedalsResponse, CorpMedal> {
+public class MedalsParser extends AbstractListParser<MedalsHandler, CorpMedalsResponse, CorpMedal> {
 	private MedalsParser() {
-		super(CorpMedalsResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEDALS, CorpMedal.class);
+		super(CorpMedalsResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEDALS, MedalsHandler.class);
 	}
 
 	public static MedalsParser getInstance() {

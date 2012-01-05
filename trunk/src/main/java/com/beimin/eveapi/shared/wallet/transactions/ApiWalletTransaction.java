@@ -5,15 +5,15 @@ import java.util.Date;
 public class ApiWalletTransaction implements Comparable<ApiWalletTransaction> {
 	private Date transactionDateTime;
 	private long transactionID;
-	private long quantity;
+	private int quantity;
 	private String typeName;
-	private long typeID;
+	private int typeID;
 	private double price;
 	private long clientID;
 	private String clientName;
-	private long characterID;
+	private Long characterID;
 	private String characterName;
-	private long stationID;
+	private int stationID;
 	private String stationName;
 	private String transactionType;
 	private String transactionFor;
@@ -34,11 +34,11 @@ public class ApiWalletTransaction implements Comparable<ApiWalletTransaction> {
 		this.transactionID = transactionID;
 	}
 
-	public long getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(long quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
@@ -50,11 +50,11 @@ public class ApiWalletTransaction implements Comparable<ApiWalletTransaction> {
 		this.typeName = typeName;
 	}
 
-	public long getTypeID() {
+	public int getTypeID() {
 		return typeID;
 	}
 
-	public void setTypeID(long typeID) {
+	public void setTypeID(int typeID) {
 		this.typeID = typeID;
 	}
 
@@ -82,11 +82,11 @@ public class ApiWalletTransaction implements Comparable<ApiWalletTransaction> {
 		this.clientName = clientName;
 	}
 
-	public long getCharacterID() {
+	public Long getCharacterID() {
 		return characterID;
 	}
 
-	public void setCharacterID(long characterID) {
+	public void setCharacterID(Long characterID) {
 		this.characterID = characterID;
 	}
 
@@ -98,11 +98,11 @@ public class ApiWalletTransaction implements Comparable<ApiWalletTransaction> {
 		this.characterName = characterName;
 	}
 
-	public long getStationID() {
+	public int getStationID() {
 		return stationID;
 	}
 
-	public void setStationID(long stationID) {
+	public void setStationID(int stationID) {
 		this.stationID = stationID;
 	}
 

@@ -1,9 +1,8 @@
 package com.beimin.eveapi.shared.contacts;
 
-import org.apache.commons.digester.Digester;
-
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiAuth;
+import com.beimin.eveapi.core.AbstractContentHandler;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -14,15 +13,8 @@ public abstract class AbstractContactListParser<CLR extends AbstractContactListR
 	}
 
 	@Override
-	protected Digester getDigester() {
-		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset", ContactList.class);
-		digester.addSetProperties("eveapi/result/rowset");
-		digester.addObjectCreate("eveapi/result/rowset/row", EveContact.class);
-		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "add");
-		digester.addSetNext("eveapi/result/rowset", "add");
-		return digester;
+	protected AbstractContentHandler getContentHandler() {
+		return new ContactListHandler<CLR>(clazz);
 	}
 
 	@Override

@@ -28,7 +28,7 @@ public class ShareholdersParserTest extends FullAuthParserTest {
 		ApiShareholder characterShareholder = characters.iterator().next();
 		assertEquals(126891489L, characterShareholder.getShareholderID());
 		assertEquals("Dragonaire", characterShareholder.getShareholderName());
-		assertEquals(632257314L, characterShareholder.getShareholderCorporationID());
+		assertEquals(632257314L, characterShareholder.getShareholderCorporationID().longValue());
 		assertEquals("Corax.", characterShareholder.getShareholderCorporationName());
 		assertEquals(1, characterShareholder.getShares());
 

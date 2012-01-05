@@ -7,7 +7,7 @@ import com.beimin.eveapi.core.ApiResponse;
 
 public class CorpSheetResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
-	private Long corporationID;
+	private long corporationID;
 	private String corporationName;
 	private long allianceID;
 	private String allianceName;
@@ -153,19 +153,13 @@ public class CorpSheetResponse extends ApiResponse {
 	public void setLogo(ApiCorpLogo logo) {
 		this.logo = logo;
 	}
-
-	public void add(DivisionList divisionList) {
-		if (divisionList.getName().equals("divisions")) {
-			for (Division division : divisionList.getDivisions()) {
-				this.divisions.put(division.getAccountKey(), division.getDescription());
-			}
-		}
-		if (divisionList.getName().equals("walletDivisions")) {
-			for (Division division : divisionList.getDivisions()) {
-				this.walletDivisions.put(division.getAccountKey(), division.getDescription());
-			}
-		}
-
+	
+	public void addDivision(Division division) {
+		this.divisions.put(division.getAccountKey(), division.getDescription());
+	}
+	
+	public void addWalletDivision(Division division) {
+		this.walletDivisions.put(division.getAccountKey(), division.getDescription());
 	}
 
 	public Map<Integer, String> getDivisions() {

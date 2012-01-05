@@ -4,8 +4,8 @@ package com.beimin.eveapi.map.sovereignty;
 public class ApiSystemSovereignty {
 	private int solarSystemID;
 	private int allianceID;
-	private int corporationID;
-	private int factionID;
+	private Long corporationID;
+	private Integer factionID;
 	private String solarSystemName;
 	
 	public int getSolarSystemID() {
@@ -24,19 +24,19 @@ public class ApiSystemSovereignty {
 		this.allianceID = allianceID;
 	}
 
-	public int getCorporationID() {
+	public Long getCorporationID() {
 		return corporationID;
 	}
 
-	public void setCorporationID(int corporationID) {
+	public void setCorporationID(Long corporationID) {
 		this.corporationID = corporationID;
 	}
 
-	public int getFactionID() {
+	public Integer getFactionID() {
 		return factionID;
 	}
 
-	public void setFactionID(int factionID) {
+	public void setFactionID(Integer factionID) {
 		this.factionID = factionID;
 	}
 

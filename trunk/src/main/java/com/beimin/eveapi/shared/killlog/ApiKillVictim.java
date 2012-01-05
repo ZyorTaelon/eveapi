@@ -7,7 +7,7 @@ public class ApiKillVictim {
 	private String corporationName; // ="The Bastards"
 	private Long allianceID; // ="1311549668"
 	private String allianceName; // ="The Bastards."
-	private long factionID; // ="0"
+	private int factionID; // ="0"
 	private String factionName; // =""
 	private long damageTaken; // ="1415"
 	private int shipTypeID; // ="587"
@@ -60,11 +60,11 @@ public class ApiKillVictim {
 		this.allianceName = allianceName;
 	}
 
-	public long getFactionID() {
+	public int getFactionID() {
 		return factionID;
 	}
 
-	public void setFactionID(long factionID) {
+	public void setFactionID(int factionID) {
 		this.factionID = factionID;
 	}
 

@@ -64,20 +64,19 @@ public class ApiRoleHistory {
 		this.roleLocationType = roleLocationType;
 	}
 
-	public void add(SecurityRoleBag securityRoleBag) {
-		String name = securityRoleBag.getName();
-		if (name.equals("oldRoles")) {
-			oldRoles.addAll(securityRoleBag.getSecurityRoles());
-		} else if (name.equals("newRoles")) {
-			newRoles.addAll(securityRoleBag.getSecurityRoles());
-		}
-	}
-
 	public Set<ApiSecurityRole> getOldRoles() {
 		return oldRoles;
 	}
 
 	public Set<ApiSecurityRole> getNewRoles() {
 		return newRoles;
+	}
+
+	public void addOldRole(ApiSecurityRole securityRole) {
+		oldRoles.add(securityRole);
+	}
+
+	public void addNewRole(ApiSecurityRole securityRole) {
+		newRoles.add(securityRole);
 	}
 }

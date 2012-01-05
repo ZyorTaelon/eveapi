@@ -6,14 +6,14 @@ import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.StringUtils;
 
-public class CharacterLookupParser extends AbstractListParser<CharacterLookupResponse, ApiCharacterLookup> {
+public class CharacterLookupParser extends AbstractListParser<CharacterLookupHandler, CharacterLookupResponse, ApiCharacterLookup> {
 	private final String paramName;
 
 	public CharacterLookupParser(ApiPage page, String paramName) {
-		super(CharacterLookupResponse.class, 2, ApiPath.EVE, page, ApiCharacterLookup.class);
+		super(CharacterLookupResponse.class, 2, ApiPath.EVE, page, CharacterLookupHandler.class);
 		this.paramName = paramName;
 	}
-
+	
 	public static CharacterLookupParser getName2IdInstance() {
 		return new CharacterLookupParser(ApiPage.CHARACTER_ID, "names");
 	}

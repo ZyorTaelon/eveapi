@@ -1,15 +1,14 @@
 package com.beimin.eveapi.character.mail.messages;
 
-
 import com.beimin.eveapi.core.AbstractListParser;
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public class MailMessagesParser extends AbstractListParser<MailMessagesResponse, ApiMailMessage> {
+public class MailMessagesParser extends AbstractListParser<MailMessagesHandler, MailMessagesResponse, ApiMailMessage> {
 	private MailMessagesParser() {
-		super(MailMessagesResponse.class, 2, ApiPath.CHARACTER, ApiPage.MAIL_MESSAGES, ApiMailMessage.class);
+		super(MailMessagesResponse.class, 2, ApiPath.CHARACTER, ApiPage.MAIL_MESSAGES, MailMessagesHandler.class);
 	}
 
 	public static MailMessagesParser getInstance() {

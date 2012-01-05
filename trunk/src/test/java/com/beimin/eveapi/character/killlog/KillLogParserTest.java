@@ -73,6 +73,11 @@ public class KillLogParserTest extends FullAuthParserTest {
 				List<ApiKillItem> items = kill.getItems();
 				assertNotNull(items);
 				assertEquals(12, items.size());
+				ApiKillItem item = items.iterator().next();
+				assertEquals(530, item.getTypeID());
+				assertEquals(0, item.getFlag());
+				assertEquals(0, item.getQtyDropped());
+				assertEquals(1, item.getQtyDestroyed());
 			}
 		}
 		assertTrue("test KillLog entry wasn't found.", found);

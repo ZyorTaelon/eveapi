@@ -20,8 +20,8 @@ public class KillsParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		MapKillsParser parser = MapKillsParser.getInstance();
-		MapKillsResponse response = parser.getResponse();
+		KillsParser parser = KillsParser.getInstance();
+		KillsResponse response = parser.getResponse();
 		assertNotNull(response);
 		Map<Integer, Integer> shipKills = response.getShipKills();
 		assertNotNull(shipKills);

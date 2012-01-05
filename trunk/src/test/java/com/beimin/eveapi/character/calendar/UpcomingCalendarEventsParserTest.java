@@ -13,7 +13,6 @@ import com.beimin.eveapi.character.calendar.upcomingevents.UpcomingCalendarEvent
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
-import com.beimin.eveapi.shared.calendar.CalendarEventResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {

@@ -2,12 +2,12 @@ package com.beimin.eveapi.corporation.outpost.servicedetail;
 
 
 public class ApiOutpostServiceDetail {
-	private int stationID;//="61000244" 
-	private long ownerID;//="773499566" 
-	private String serviceName;//="Reprocessing Plant" 
-	private double minStanding;//="2" 
-	private double surchargePerBadStanding;//="10" 
-	private double discountPerGoodStanding;//="0"
+	private int stationID; 
+	private long ownerID; 
+	private String serviceName; 
+	private double minStanding; 
+	private double surchargePerBadStanding; 
+	private double discountPerGoodStanding;
 
 	public int getStationID() {
 		return stationID;

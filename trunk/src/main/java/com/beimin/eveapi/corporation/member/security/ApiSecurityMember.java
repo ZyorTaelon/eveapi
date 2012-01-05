@@ -32,36 +32,6 @@ public class ApiSecurityMember {
 		this.name = name;
 	}
 
-	public void addSecurityRoleBag(SecurityRoleOrTitleBag securityRoleBag) {
-		String bagName = securityRoleBag.getName();
-		if (bagName.equals("roles"))
-			addSecurityRoles(roles, securityRoleBag);
-		else if (bagName.equals("grantableRoles"))
-			addSecurityRoles(grantableRoles, securityRoleBag);
-		else if (bagName.equals("rolesAtHQ"))
-			addSecurityRoles(rolesAtHQ, securityRoleBag);
-		else if (bagName.equals("grantableRolesAtHQ"))
-			addSecurityRoles(grantableRolesAtHQ, securityRoleBag);
-		else if (bagName.equals("rolesAtBase"))
-			addSecurityRoles(rolesAtBase, securityRoleBag);
-		else if (bagName.equals("grantableRolesAtBase"))
-			addSecurityRoles(grantableRolesAtBase, securityRoleBag);
-		else if (bagName.equals("rolesAtOther"))
-			addSecurityRoles(rolesAtOther, securityRoleBag);
-		else if (bagName.equals("grantableRolesAtOther"))
-			addSecurityRoles(grantableRolesAtOther, securityRoleBag);
-		else if (bagName.equals("titles"))
-			for (SecurityRoleOrTitle securityRoleOrTitle : securityRoleBag.getSecurityRoles())
-				titles.add(securityRoleOrTitle.getTitle());
-		else
-			throw new RuntimeException("Unknown roleOrTitleBag name");
-	}
-
-	private void addSecurityRoles(Set<ApiSecurityRole> roleSet, SecurityRoleOrTitleBag securityRoleBag) {
-		for (SecurityRoleOrTitle securityRoleOrTitle : securityRoleBag.getSecurityRoles())
-			roleSet.add(securityRoleOrTitle.getRole());
-	}
-
 	public Set<ApiSecurityRole> getRoles() {
 		return roles;
 	}
@@ -96,5 +66,41 @@ public class ApiSecurityMember {
 
 	public Set<ApiSecurityTitle> getTitles() {
 		return titles;
+	}
+
+	public void addRole(ApiSecurityRole role) {
+		roles.add(role);
+	}
+
+	public void addGrantableRole(ApiSecurityRole role) {
+		grantableRoles.add(role);
+	}
+
+	public void addRoleAtHQ(ApiSecurityRole role) {
+		rolesAtHQ.add(role);
+	}
+
+	public void addGrantableRoleAtHQ(ApiSecurityRole role) {
+		grantableRolesAtHQ.add(role);
+	}
+
+	public void addRoleAtBase(ApiSecurityRole role) {
+		rolesAtBase.add(role);
+	}
+
+	public void addGrantableRoleAtBase(ApiSecurityRole role) {
+		grantableRolesAtBase.add(role);
+	}
+
+	public void addRoleAtOther(ApiSecurityRole role) {
+		rolesAtOther.add(role);
+	}
+
+	public void addGrantableRoleAtOther(ApiSecurityRole role) {
+		grantableRolesAtOther.add(role);
+	}
+
+	public void addTitle(ApiSecurityTitle title) {
+		titles.add(title);
 	}
 }

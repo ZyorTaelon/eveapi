@@ -3,6 +3,7 @@ package com.beimin.eveapi.corporation.wallet.journal;
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
@@ -46,8 +47,8 @@ public class JournalParserTest extends FullAuthParserTest {
 				assertEquals(-589996.29, journalEntry.getAmount(), 0.00001);
 				assertEquals(337405445.52, journalEntry.getBalance(), 0.00001);
 				assertEquals("", journalEntry.getReason());
-				assertEquals(0L, journalEntry.getTaxReceiverID());
-				assertEquals(0.0, journalEntry.getTaxAmount(), 0.00001);
+				assertNull(journalEntry.getTaxReceiverID());
+				assertNull(journalEntry.getTaxAmount());
 			}
 		}
 		assertTrue("test journal entry wasn't found.", found);

@@ -3,20 +3,21 @@ package com.beimin.eveapi.corporation.containerlog;
 import java.util.Date;
 
 public class ApiContainerLog {
-	private Date logTime; // ="2008-12-21 08:10:00"
-	private long itemID; // ="2051471251"
-	private long itemTypeID; // ="17366"
-	private long actorID; // ="783037732"
-	private String actorName; // ="Halo Glory"
-	private byte flag; // ="4"
-	private int locationID; // ="60011728"
-	private String action; // ="Set Name"
-	private String passwordType; // =""
-	private long typeID; // =""
-	private int quantity; // =""
-	private int oldConfiguration; // =""
-	private int newConfiguration; // =""
-
+	private Date logTime;
+	private long itemID;
+	private int itemTypeID;
+	private long actorID;
+	private String actorName;
+	private int flag;
+	private int locationID;
+	private String action;
+	private PasswordType passwordType;
+	private Integer typeID;
+	private Integer quantity;
+	private Integer oldConfiguration;
+	private Integer newConfiguration;
+//	passwordType="" typeID="" quantity="" oldConfiguration="" newConfiguration=""
+			
 	public Date getLogTime() {
 		return logTime;
 	}
@@ -33,11 +34,11 @@ public class ApiContainerLog {
 		this.itemID = itemID;
 	}
 
-	public long getItemTypeID() {
+	public int getItemTypeID() {
 		return itemTypeID;
 	}
 
-	public void setItemTypeID(long itemTypeID) {
+	public void setItemTypeID(int itemTypeID) {
 		this.itemTypeID = itemTypeID;
 	}
 
@@ -57,11 +58,11 @@ public class ApiContainerLog {
 		this.actorName = actorName;
 	}
 
-	public byte getFlag() {
+	public int getFlag() {
 		return flag;
 	}
 
-	public void setFlag(byte flag) {
+	public void setFlag(int flag) {
 		this.flag = flag;
 	}
 
@@ -81,43 +82,43 @@ public class ApiContainerLog {
 		this.action = action;
 	}
 
-	public String getPasswordType() {
+	public PasswordType getPasswordType() {
 		return passwordType;
 	}
 
-	public void setPasswordType(String passwordType) {
+	public void setPasswordType(PasswordType passwordType) {
 		this.passwordType = passwordType;
 	}
 
-	public long getTypeID() {
+	public Integer getTypeID() {
 		return typeID;
 	}
 
-	public void setTypeID(long typeID) {
+	public void setTypeID(Integer typeID) {
 		this.typeID = typeID;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
-	public int getOldConfiguration() {
+	public Integer getOldConfiguration() {
 		return oldConfiguration;
 	}
 
-	public void setOldConfiguration(int oldConfiguration) {
+	public void setOldConfiguration(Integer oldConfiguration) {
 		this.oldConfiguration = oldConfiguration;
 	}
 
-	public int getNewConfiguration() {
+	public Integer getNewConfiguration() {
 		return newConfiguration;
 	}
 
-	public void setNewConfiguration(int newConfiguration) {
+	public void setNewConfiguration(Integer newConfiguration) {
 		this.newConfiguration = newConfiguration;
 	}
 }

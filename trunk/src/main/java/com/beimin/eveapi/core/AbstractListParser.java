@@ -1,24 +1,25 @@
 package com.beimin.eveapi.core;
 
-import org.apache.commons.digester.Digester;
+public abstract class AbstractListParser<H extends AbstractContentListHandler<E, B>, E extends ApiListResponse<B>, B> extends AbstractApiParser<E> {
+	private final Class<H> handlerClazz;
 
-public abstract class AbstractListParser<E extends ApiListResponse<B>, B> extends AbstractApiParser<E> {
-	private final Class<B> itemClazz;
-
-	public AbstractListParser(Class<E> clazz, int version, ApiPath path, ApiPage page, Class<B> itemClazz) {
+	public AbstractListParser(Class<E> clazz, int version, ApiPath path, ApiPage page, Class<H> handlerClazz) {
 		super(clazz, version, path, page);
-		this.itemClazz = itemClazz;
+		this.handlerClazz = handlerClazz;
 	}
 
 	@Override
-	protected Digester getDigester() {
-		Digester digester = super.getDigester();
-		digester.addObjectCreate("eveapi/result/rowset/row", itemClazz);
-		digester.addSetProperties("eveapi/result/rowset/row");
-		digester.addSetNext("eveapi/result/rowset/row", "add");
-		return digester;
+	protected final AbstractContentHandler getContentHandler() {
+		try {
+			return handlerClazz.newInstance();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
-
+	
 	@Override
 	protected E getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

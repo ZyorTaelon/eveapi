@@ -1,10 +1,8 @@
 package com.beimin.eveapi.server;
 
 
-import org.apache.commons.digester.Digester;
-
-
 import com.beimin.eveapi.core.AbstractApiParser;
+import com.beimin.eveapi.core.AbstractContentHandler;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -15,11 +13,8 @@ public class ServerStatusParser extends AbstractApiParser<ServerStatusResponse> 
 	}
 
 	@Override
-	protected Digester getDigester() {
-		Digester digester = super.getDigester();
-		digester.addBeanPropertySetter("eveapi/result/serverOpen");
-		digester.addBeanPropertySetter("eveapi/result/onlinePlayers");
-		return digester;
+	protected AbstractContentHandler getContentHandler() {
+		return new ServerStatusHandler();
 	}
 
 	public static ServerStatusParser getInstance() {

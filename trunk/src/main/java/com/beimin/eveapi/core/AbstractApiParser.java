@@ -1,16 +1,12 @@
 package com.beimin.eveapi.core;
 
 import java.util.Collections;
-import java.util.Date;
 import java.util.Map;
 
-import org.apache.commons.beanutils.ConvertUtils;
-import org.apache.commons.digester.Digester;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.beimin.eveapi.EveApi;
-import com.beimin.eveapi.utils.DateUtils;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
 	protected final Logger logger = LoggerFactory.getLogger(getClass());
@@ -26,20 +22,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 		this.page = page;
 	}
 
-	protected Digester getDigester() {
-		Digester digester = new Digester();
-		ConvertUtils.register(DateUtils.getGMTConverter(), Date.class);
-		digester.setValidating(false);
-		digester.addObjectCreate("eveapi", clazz);
-		digester.addSetProperties("eveapi");
-		digester.addObjectCreate("eveapi/error", ApiError.class);
-		digester.addSetProperties("eveapi/error");
-		digester.addBeanPropertySetter("eveapi/error");
-		digester.addSetNext("eveapi/error", "setError");
-		digester.addBeanPropertySetter("eveapi/currentTime");
-		digester.addBeanPropertySetter("eveapi/cachedUntil");
-		return digester;
-	}
+	protected abstract AbstractContentHandler getContentHandler();
 
 	protected E getResponse() throws ApiException {
 		return getResponse(new ApiRequest(path, page, version));
@@ -62,6 +45,6 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 	}
 
 	private E getResponse(ApiRequest request) throws ApiException {
-		return EveApi.getConnector().execute(request, getDigester(), clazz);
+		return EveApi.getConnector().execute(request, getContentHandler(), clazz);
 	}
 }

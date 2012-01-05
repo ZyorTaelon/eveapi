@@ -46,7 +46,7 @@ public class JournalParserTest extends FullAuthParserTest {
 				assertEquals(135000.00, journalEntry.getAmount(), 0.00001);
 				assertEquals(609292267.52, journalEntry.getBalance(), 0.00001);
 				assertEquals("29200:15,", journalEntry.getReason());
-				assertEquals(1734917694L, journalEntry.getTaxReceiverID());
+				assertEquals(1734917694L, journalEntry.getTaxReceiverID().longValue());
 				assertEquals(15000.00, journalEntry.getTaxAmount(), 0.00001);
 			}
 		}

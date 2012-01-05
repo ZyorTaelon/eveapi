@@ -1,6 +1,7 @@
 package com.beimin.eveapi.character.calendar.attendees;
 
-import com.beimin.eveapi.shared.calendar.CalendarEventResponse;
+import com.beimin.eveapi.character.calendar.CalendarEventResponse;
+
 
 public class EveCalendarEventAttendee {
 	private long eventID;

@@ -20,8 +20,8 @@ public class ApiIndustryJob {
 	private long containerLocationID; // LocationID : long
 	private int materialMultiplier;
 	private int charMaterialMultiplier;
-	private int timeMultiplier;
-	private int charTimeMultiplier;
+	private double timeMultiplier;
+	private double charTimeMultiplier;
 	private int installedItemTypeID; // TypeID : int
 	private int outputTypeID; // TypeID : int
 	private int containerTypeID; // TypeID : int
@@ -173,19 +173,19 @@ public class ApiIndustryJob {
 		this.charMaterialMultiplier = charMaterialMultiplier;
 	}
 
-	public int getTimeMultiplier() {
+	public double getTimeMultiplier() {
 		return timeMultiplier;
 	}
 
-	public void setTimeMultiplier(int timeMultiplier) {
+	public void setTimeMultiplier(double timeMultiplier) {
 		this.timeMultiplier = timeMultiplier;
 	}
 
-	public int getCharTimeMultiplier() {
+	public double getCharTimeMultiplier() {
 		return charTimeMultiplier;
 	}
 
-	public void setCharTimeMultiplier(int charTimeMultiplier) {
+	public void setCharTimeMultiplier(double charTimeMultiplier) {
 		this.charTimeMultiplier = charTimeMultiplier;
 	}
 

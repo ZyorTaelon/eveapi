@@ -94,8 +94,8 @@ public class StarbaseDetailResponse extends ApiResponse {
 		this.onCorporationWar = onCorporationWar;
 	}
 
-	public void add(FuelLevel fuelLevel) {
-		fuelMap.put(fuelLevel.getTypeID(), fuelLevel.getQuantity());
+	public void addFuelLevel(int typeID, int quantity) {
+		fuelMap.put(typeID, quantity);
 	}
 
 	@Override

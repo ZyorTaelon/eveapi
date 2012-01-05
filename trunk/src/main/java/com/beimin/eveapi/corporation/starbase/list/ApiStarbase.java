@@ -8,8 +8,8 @@ public class ApiStarbase {
 	private int locationID;
 	private int moonID;
 	private int state;
-	private Date stateTimestamp; // ="2008-02-03 01:26:55"
-	private Date onlineTimestamp; // ="2007-11-29 19:23:58"
+	private Date stateTimestamp;
+	private Date onlineTimestamp;
 
 	public long getItemID() {
 		return itemID;

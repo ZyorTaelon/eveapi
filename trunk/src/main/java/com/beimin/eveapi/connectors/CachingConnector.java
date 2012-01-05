@@ -3,8 +3,7 @@ package com.beimin.eveapi.connectors;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.digester.Digester;
-
+import com.beimin.eveapi.core.AbstractContentHandler;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiRequest;
 import com.beimin.eveapi.core.ApiResponse;
@@ -23,9 +22,9 @@ public class CachingConnector extends ApiConnector {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <E extends ApiResponse> E execute(ApiRequest request, Digester digester, Class<E> clazz) throws ApiException {
+	public <E extends ApiResponse> E execute(ApiRequest request, AbstractContentHandler contentHandler, Class<E> clazz) throws ApiException {
 		if (!cache.containsKey(request))
-			cache.put(request, getConnector().execute(request, digester, clazz));
+			cache.put(request, getConnector().execute(request, contentHandler, clazz));
 		return (E) cache.get(request);
 	}
 

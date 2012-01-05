@@ -30,42 +30,52 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 		assertNotNull(response);
 		Collection<ApiIndustryJob> industryJobs = response.getAll();
 		assertNotNull(industryJobs);
-		assertEquals(22, industryJobs.size());
+		assertEquals(4, industryJobs.size());
 		boolean found = false;
+//		<row jobID="23174942" assemblyLineID="100185892" containerID="1080588655" installedItemID="495277991"
+//				installedItemLocationID="199583646" installedItemQuantity="1" installedItemProductivityLevel="0"
+//				installedItemMaterialLevel="40" installedItemLicensedProductionRunsRemaining="-1" outputLocationID="1080588655"
+//				installerID="674831735" runs="18" licensedProductionRuns="0" installedInSolarSystemID="30005005"
+//				containerLocationID="30005005" materialMultiplier="1" charMaterialMultiplier="1" timeMultiplier="0.75"
+//				charTimeMultiplier="0.75" installedItemTypeID="979" outputTypeID="979" containerTypeID="16216" installedItemCopy="0"
+//				completed="0" completedSuccessfully="0" installedItemFlag="118" outputFlag="0" activityID="3" completedStatus="0"
+//				installTime="2008-05-21 00:26:00" beginProductionTime="2008-05-21 00:26:00" endProductionTime="2008-06-18 03:26:00"
+//				pauseProductionTime="2008-05-25 10:04:00" />
 		for (ApiIndustryJob job : industryJobs) {
-			if (job.getJobID() == 444) {
+			if (job.getJobID() == 23174942) {
 				found = true;
-				assertEquals(60010783, job.getContainerID());
-				assertEquals(150438239, job.getInstalledItemID());
-				assertEquals(60010783, job.getInstalledItemLocationID());
+				assertEquals(100185892, job.getAssemblyLineID());
+				assertEquals(1080588655, job.getContainerID());
+				assertEquals(495277991, job.getInstalledItemID());
+				assertEquals(199583646, job.getInstalledItemLocationID());
 				assertEquals(1, job.getInstalledItemQuantity());
 				assertEquals(0, job.getInstalledItemProductivityLevel());
-				assertEquals(0, job.getInstalledItemMaterialLevel());
-				assertEquals(300, job.getInstalledItemLicensedProductionRunsRemaining());
-				assertEquals(60010783, job.getOutputLocationID());
-				assertEquals(150208955, job.getInstallerID());
-				assertEquals(1, job.getRuns());
-				assertEquals(10, job.getLicensedProductionRuns());
-				assertEquals(30004969, job.getInstalledInSolarSystemID());
-				assertEquals(30004969, job.getContainerLocationID());
-				assertEquals(-4, job.getMaterialMultiplier());
+				assertEquals(40, job.getInstalledItemMaterialLevel());
+				assertEquals(-1, job.getInstalledItemLicensedProductionRunsRemaining());
+				assertEquals(1080588655, job.getOutputLocationID());
+				assertEquals(674831735, job.getInstallerID());
+				assertEquals(18, job.getRuns());
+				assertEquals(0, job.getLicensedProductionRuns());
+				assertEquals(30005005, job.getInstalledInSolarSystemID());
+				assertEquals(30005005, job.getContainerLocationID());
+				assertEquals(1, job.getMaterialMultiplier());
 				assertEquals(1, job.getCharMaterialMultiplier());
-				assertEquals(-4, job.getTimeMultiplier());
-				assertEquals(1, job.getCharTimeMultiplier());
-				assertEquals(1079, job.getInstalledItemTypeID());
-				assertEquals(1080, job.getOutputTypeID());
-				assertEquals(3869, job.getContainerTypeID());
-				assertEquals(1, job.getInstalledItemCopy());
+				assertEquals(0.75, job.getTimeMultiplier(), 0.5);
+				assertEquals(0.75, job.getCharTimeMultiplier(), 0.5);
+				assertEquals(979, job.getInstalledItemTypeID());
+				assertEquals(979, job.getOutputTypeID());
+				assertEquals(16216, job.getContainerTypeID());
+				assertEquals(0, job.getInstalledItemCopy());
 				assertFalse(job.isCompleted());
 				assertFalse(job.isCompletedSuccessfully());
-				assertEquals(4, job.getInstalledItemFlag());
-				assertEquals(4, job.getOutputFlag());
-				assertEquals(8, job.getActivityID());
+				assertEquals(118, job.getInstalledItemFlag());
+				assertEquals(0, job.getOutputFlag());
+				assertEquals(3, job.getActivityID());
 				assertEquals(0, job.getCompletedStatus());
-				assertDate(2007, 11, 30, 11, 59, 0, job.getInstallTime());
-				assertDate(2007, 11, 30, 11, 59, 0, job.getBeginProductionTime());
-				assertDate(2007, 11, 30, 14, 29, 0, job.getEndProductionTime());
-				assertDate(1, 1, 1, 0, 0, 0, job.getPauseProductionTime());
+				assertDate(2008, 5, 21, 0, 26, 0, job.getInstallTime());
+				assertDate(2008, 5, 21, 0, 26, 0, job.getBeginProductionTime());
+				assertDate(2008, 6, 18, 3, 26, 0, job.getEndProductionTime());
+				assertDate(2008, 5, 25, 10, 4, 0, job.getPauseProductionTime());
 			}
 		}
 		assertTrue("test job wasn't found.", found);

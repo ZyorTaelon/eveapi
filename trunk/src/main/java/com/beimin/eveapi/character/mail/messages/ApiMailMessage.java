@@ -51,7 +51,7 @@ public class ApiMailMessage {
 	}
 
 	public void setToCorpOrAllianceID(Long toCorpOrAllianceID) {
-		if (toCorpOrAllianceID > 0L)
+		if (toCorpOrAllianceID != null && toCorpOrAllianceID > 0L)
 			this.toCorpOrAllianceID = toCorpOrAllianceID;
 	}
 

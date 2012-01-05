@@ -17,8 +17,8 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	private double amount;
 	private double balance;
 	private String reason;
-	private long taxReceiverID;
-	private double taxAmount;
+	private Long taxReceiverID;
+	private Double taxAmount;
 
 	public Date getDate() {
 		return date;
@@ -42,10 +42,6 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 
 	public RefType getRefType() {
 		return refType;
-	}
-
-	public void setRefType(RefType refType) {
-		this.refType = refType;
 	}
 
 	public String getOwnerName1() {
@@ -120,19 +116,19 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 		this.reason = reason;
 	}
 
-	public long getTaxReceiverID() {
+	public Long getTaxReceiverID() {
 		return taxReceiverID;
 	}
 
-	public void setTaxReceiverID(long taxReceiverID) {
+	public void setTaxReceiverID(Long taxReceiverID) {
 		this.taxReceiverID = taxReceiverID;
 	}
 
-	public double getTaxAmount() {
+	public Double getTaxAmount() {
 		return taxAmount;
 	}
 
-	public void setTaxAmount(double taxAmount) {
+	public void setTaxAmount(Double taxAmount) {
 		this.taxAmount = taxAmount;
 	}
 

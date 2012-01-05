@@ -1,14 +1,14 @@
 package com.beimin.eveapi.eve.factwar.stats.top;
 
 public abstract class CharacterStat implements FacWarStat {
-	private int characterID;
+	private long characterID;
 	private String characterName;
 
-	public int getCharacterID() {
+	public long getCharacterID() {
 		return characterID;
 	}
 
-	public void setCharacterID(int characterID) {
+	public void setCharacterID(long characterID) {
 		this.characterID = characterID;
 	}
 

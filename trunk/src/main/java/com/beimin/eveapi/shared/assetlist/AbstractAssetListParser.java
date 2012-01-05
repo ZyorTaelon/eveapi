@@ -1,9 +1,8 @@
 package com.beimin.eveapi.shared.assetlist;
 
-import org.apache.commons.digester.Digester;
-
 import com.beimin.eveapi.core.AbstractApiParser;
 import com.beimin.eveapi.core.ApiAuth;
+import com.beimin.eveapi.core.AbstractContentHandler;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -14,13 +13,18 @@ public abstract class AbstractAssetListParser extends AbstractApiParser<AssetLis
 	}
 
 	@Override
-	protected Digester getDigester() {
-		Digester digester = super.getDigester();
-		digester.addObjectCreate("*/rowset/row", EveAsset.class);
-		digester.addSetProperties("*/rowset/row");
-		digester.addSetNext("*/rowset/row", "add");
-		return digester;
+	protected AbstractContentHandler getContentHandler() {
+		return new AssetListHandler();
 	}
+
+//	@Override
+//	protected Digester getDigester() {
+//		Digester digester = super.getDigester();
+//		digester.addObjectCreate("*/rowset/row", EveAsset.class);
+//		digester.addSetProperties("*/rowset/row");
+//		digester.addSetNext("*/rowset/row", "add");
+//		return digester;
+//	}
 
 	@Override
 	public AssetListResponse getResponse(ApiAuth<?> auth) throws ApiException {

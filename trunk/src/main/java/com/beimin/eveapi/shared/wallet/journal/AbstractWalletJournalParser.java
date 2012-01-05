@@ -9,11 +9,11 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public abstract class AbstractWalletJournalParser extends AbstractListParser<WalletJournalResponse, ApiJournalEntry> {
+public abstract class AbstractWalletJournalParser extends AbstractListParser<WalletJournalHandler, WalletJournalResponse, ApiJournalEntry> {
 	public AbstractWalletJournalParser(ApiPath path) {
-		super(WalletJournalResponse.class, 2, path, ApiPage.WALLET_JOURNAL, ApiJournalEntry.class);
+		super(WalletJournalResponse.class, 2, path, ApiPage.WALLET_JOURNAL, WalletJournalHandler.class);
 	}
-
+	
 	public WalletJournalResponse getResponse(ApiAuth<?> auth, int accountKey) throws ApiException {
 		return getResponse(auth, "accountKey", Integer.toString(accountKey));
 	}

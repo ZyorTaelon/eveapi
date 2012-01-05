@@ -1,27 +1,15 @@
 package com.beimin.eveapi.character.calendar.upcomingevents;
 
 
-import org.apache.commons.beanutils.ConvertUtils;
-import org.apache.commons.digester.Digester;
-
 import com.beimin.eveapi.core.AbstractListParser;
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
-import com.beimin.eveapi.shared.calendar.CalendarEventResponse;
-import com.beimin.eveapi.shared.calendar.CalendarEventResponseConverter;
 
-public class UpcomingCalendarEventsParser extends AbstractListParser<UpcomingCalendarEventsResponse, EveUpcomingCalendarEvent> {
+public class UpcomingCalendarEventsParser extends AbstractListParser<UpcomingCalendarEventsHandler, UpcomingCalendarEventsResponse, EveUpcomingCalendarEvent> {
 	public UpcomingCalendarEventsParser() {
-		super(UpcomingCalendarEventsResponse.class, 2, ApiPath.CHARACTER, ApiPage.UPCOMING_CALENDAR_EVENTS, EveUpcomingCalendarEvent.class);
-	}
-
-	@Override
-	protected Digester getDigester() {
-		Digester digester = super.getDigester();
-		ConvertUtils.register(new CalendarEventResponseConverter(), CalendarEventResponse.class);
-		return digester;
+		super(UpcomingCalendarEventsResponse.class, 2, ApiPath.CHARACTER, ApiPage.UPCOMING_CALENDAR_EVENTS, UpcomingCalendarEventsHandler.class);
 	}
 
 	public static UpcomingCalendarEventsParser getInstance() {

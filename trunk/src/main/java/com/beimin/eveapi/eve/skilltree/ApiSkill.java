@@ -10,7 +10,9 @@ public class ApiSkill implements Comparable<ApiSkill> {
 	private String description;
 	private int rank;
 	private boolean published;
-	private Collection<ApiRequirement> requiredSkills = new HashSet<ApiRequirement>();
+	private CharacterAttribute primaryAttribute;
+	private CharacterAttribute secondaryAttribute;
+	private final Collection<ApiRequirement> requiredSkills = new HashSet<ApiRequirement>();
 	private final Collection<ApiBonus> boneses = new HashSet<ApiBonus>();
 
 	public int getTypeID() {
@@ -61,12 +63,28 @@ public class ApiSkill implements Comparable<ApiSkill> {
 		this.published = published;
 	}
 
+	public CharacterAttribute getPrimaryAttribute() {
+		return primaryAttribute;
+	}
+
+	public void setPrimaryAttribute(CharacterAttribute primaryAttribute) {
+		this.primaryAttribute = primaryAttribute;
+	}
+
+	public CharacterAttribute getSecondaryAttribute() {
+		return secondaryAttribute;
+	}
+
+	public void setSecondaryAttribute(CharacterAttribute secondaryAttribute) {
+		this.secondaryAttribute = secondaryAttribute;
+	}
+
 	public Collection<ApiRequirement> getRequiredSkills() {
 		return requiredSkills;
 	}
 
-	public void setRequiredSkills(Collection<ApiRequirement> requiredSkills) {
-		this.requiredSkills = requiredSkills;
+	public Collection<ApiBonus> getBoneses() {
+		return boneses;
 	}
 
 	public void add(ApiRequirement requirement) {

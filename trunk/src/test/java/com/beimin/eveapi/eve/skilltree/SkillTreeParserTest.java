@@ -45,6 +45,8 @@ public class SkillTreeParserTest extends NoAuthParserTest {
 		assertEquals(3369, skill.getTypeID());
 		assertEquals("CFO Training", skill.getTypeName());
 		assertFalse(skill.isPublished());
+		assertEquals(CharacterAttribute.MEMORY, skill.getPrimaryAttribute());
+		assertEquals(CharacterAttribute.CHARISMA, skill.getSecondaryAttribute());
 
 	}
 }

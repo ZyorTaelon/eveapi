@@ -6,9 +6,9 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public class CharactersParser extends AbstractListParser<CharactersResponse, EveCharacter> {
+public class CharactersParser extends AbstractListParser<CharactersHandler, CharactersResponse, EveCharacter> {
 	public CharactersParser() {
-		super(CharactersResponse.class, 1, ApiPath.ACCOUNT, ApiPage.CHARACTERS, EveCharacter.class);
+		super(CharactersResponse.class, 1, ApiPath.ACCOUNT, ApiPage.CHARACTERS, CharactersHandler.class);
 	}
 
 	public static CharactersParser getInstance() {

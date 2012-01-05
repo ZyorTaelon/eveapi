@@ -8,7 +8,7 @@ import com.beimin.eveapi.shared.character.EveRace;
 
 public class CharacterInfoResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
-	private int characterID;
+	private long characterID;
 	private String characterName;
 	private EveRace race;
 	private EveBloodline bloodline;
@@ -26,11 +26,11 @@ public class CharacterInfoResponse extends ApiResponse {
 	private String lastKnownLocation;
 	private double securityStatus;
 
-	public int getCharacterID() {
+	public long getCharacterID() {
 		return characterID;
 	}
 
-	public void setCharacterID(int characterID) {
+	public void setCharacterID(long characterID) {
 		this.characterID = characterID;
 	}
 

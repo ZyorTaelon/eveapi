@@ -7,9 +7,9 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public class NotificationsParser extends AbstractListParser<NotificationsResponse, ApiNotification> {
+public class NotificationsParser extends AbstractListParser<NotificationsHandler, NotificationsResponse, ApiNotification> {
 	private NotificationsParser() {
-		super(NotificationsResponse.class, 2, ApiPath.CHARACTER, ApiPage.NOTIFICATIONS, ApiNotification.class);
+		super(NotificationsResponse.class, 2, ApiPath.CHARACTER, ApiPage.NOTIFICATIONS, NotificationsHandler.class);
 	}
 
 	public static NotificationsParser getInstance() {

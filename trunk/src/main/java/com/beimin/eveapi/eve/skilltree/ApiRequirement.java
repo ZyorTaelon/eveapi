@@ -2,7 +2,7 @@ package com.beimin.eveapi.eve.skilltree;
 
 public class ApiRequirement implements Detail {
 	private int typeID;
-	private String skillLevel;
+	private int skillLevel;
 
 	public int getTypeID() {
 		return typeID;
@@ -12,11 +12,11 @@ public class ApiRequirement implements Detail {
 		this.typeID = typeID;
 	}
 
-	public String getSkillLevel() {
+	public int getSkillLevel() {
 		return skillLevel;
 	}
 
-	public void setSkillLevel(String skillLevel) {
+	public void setSkillLevel(int skillLevel) {
 		this.skillLevel = skillLevel;
 	}
 
