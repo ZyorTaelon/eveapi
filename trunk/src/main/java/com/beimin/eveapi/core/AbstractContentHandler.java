@@ -65,6 +65,8 @@ public abstract  class AbstractContentHandler extends DefaultHandler {
 			return Integer.parseInt(getString());
 		} catch (NumberFormatException e) {
 			return null;
+		} catch (NullPointerException e) {
+			return null;
 		}
 	}
 
@@ -72,6 +74,8 @@ public abstract  class AbstractContentHandler extends DefaultHandler {
 		try {
 			return Integer.parseInt(getString(attrs, qName));
 		} catch (NumberFormatException e) {
+			return null;
+		} catch (NullPointerException e) {
 			return null;
 		}
 	}
@@ -81,6 +85,8 @@ public abstract  class AbstractContentHandler extends DefaultHandler {
 			return Long.parseLong(getString());
 		} catch (NumberFormatException e) {
 			return null;
+		} catch (NullPointerException e) {
+			return null;
 		}
 	}
 
@@ -88,6 +94,8 @@ public abstract  class AbstractContentHandler extends DefaultHandler {
 		try {
 			return Long.parseLong(getString(attrs, qName));
 		} catch (NumberFormatException e) {
+			return null;
+		} catch (NullPointerException e) {
 			return null;
 		}
 	}
@@ -97,6 +105,8 @@ public abstract  class AbstractContentHandler extends DefaultHandler {
 			return Double.parseDouble(getString());
 		} catch (NumberFormatException e) {
 			return null;
+		} catch (NullPointerException e) {
+			return null;
 		}
 	}
 
@@ -104,6 +114,8 @@ public abstract  class AbstractContentHandler extends DefaultHandler {
 		try {
 			return Double.parseDouble(getString(attrs, qName));
 		} catch (NumberFormatException e) {
+			return null;
+		} catch (NullPointerException e) {
 			return null;
 		}
 	}
