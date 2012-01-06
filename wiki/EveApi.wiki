@@ -27,10 +27,9 @@ And add the following repository so maven can find the pom.
 </repositories>
 }}}
 == Non-maven ==
-EveApi depends on the following libraries:
-  * commons-digester-2.1.jar
-  * commons-beanutils-1.8.3.jar
+EveApi depends on the following library:
   * slf4j-api-1.6.1.jar
+The previous dependency on commons-digester has been removed in order to make EveAPI compatible with Android.
 
 And you'll need some slf4j implementation like
   * logback-classic-0.9.26.jar
