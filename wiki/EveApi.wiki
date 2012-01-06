@@ -7,31 +7,25 @@ It isn't always evident how this library is best used. This document will explai
 
 = Building / depending =
 == Maven ==
-EveApi uses Maven as it's build tool (http://maven.apache.org/). Since I don't have my own server EveApi isn't readily available in some central repository. 
-You can install the downloaded jar into your repository by:
-
-<pre>
-mvn install:install-file -DgroupId=com.beimin  \
--DartifactId=eveapi  \
--Dversion=3.0.1  \
--Dfile=<path_to_your_jar_file>  \
--Dpackaging=jar \
--DgeneratePom=true
-</pre>
+EveApi uses Maven as it's build tool (http://maven.apache.org/). I'm (ab-)using the googlecode subversion to double as a maven repository.
 
 Then include this dependency in your own pom.xml
-<code>
+{{{
 <dependency>
-
- <groupId>com.beimin</groupId>
-
- <artifactId>eveapi</artifactId>
-
- <version>3.0.1</version>
-
+    <groupId>com.beimin</groupId>
+    <artifactId>eveapi</artifactId>
+    <version>5.0.0</version>
 </dependency>
-</code>
-
+}}}
+And add the following repository so maven can find the pom.
+{{{
+<repositories>
+    <repository>
+        <id>eveapi</id>
+        <url>https://eveapi.googlecode.com/svn/artifacts/maven</url>
+    </repository>
+</repositories>
+}}}
 == Non-maven ==
 EveApi depends on the following libraries:
   * commons-digester-2.1.jar
