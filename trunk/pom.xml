@@ -7,18 +7,24 @@
 	<packaging>jar</packaging>
 	<name>EveAPI</name>
 	<description>Parsers for the eve online api</description>
-	<url>http://code.google.com/p/eveapi/</url>
+	<url>http://eveapi.googlecode.com/</url>
 	<distributionManagement>
-		<site>
-			<id>website</id>
-			<url>${site.location}-5.0</url>
-		</site>
+		<repository>
+			<id>repo</id>
+			<name>EveAPI Maven Repository</name>
+			<url>https://eveapi.googlecode.com/svn/artifacts/maven</url>
+		</repository>
 	</distributionManagement>
+	<licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 	<scm>
-		<connection>scm:svn:https://eveapi.googlecode.com/svn/trunk
-		</connection>
-		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/trunk
-		</developerConnection>
+		<connection>scm:svn:https://eveapi.googlecode.com/svn/trunk</connection>
+		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/trunk</developerConnection>
 	</scm>
 	<developers>
 		<developer>
