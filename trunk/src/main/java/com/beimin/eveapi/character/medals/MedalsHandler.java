@@ -13,7 +13,7 @@ public class MedalsHandler extends AbstractContentListHandler<CharacterMedalsRes
 	protected CharacterMedal getItem(Attributes attrs) {
 		CharacterMedal medal = new CharacterMedal();
 		medal.setMedalID(getInt(attrs, "medalID"));
-		medal.setCorporationID(getInt(attrs, "corporationID"));
+		medal.setCorporationID(getLong(attrs, "corporationID"));
 		medal.setDescription(getString(attrs, "description"));
 		medal.setIssued(getDate(attrs, "issued"));
 		medal.setIssuerID(getLong(attrs, "issuerID"));

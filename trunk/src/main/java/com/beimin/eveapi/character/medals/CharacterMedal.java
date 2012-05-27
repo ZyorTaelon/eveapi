@@ -9,7 +9,7 @@ public class CharacterMedal extends Medal {
 	private String status;
 	private long issuerID;
 	private Date issued;
-	private long corporationID;
+	private Long corporationID;
 
 	public String getReason() {
 		return reason;
@@ -47,11 +47,11 @@ public class CharacterMedal extends Medal {
 		this.issued = issued;
 	}
 
-	public long getCorporationID() {
+	public Long getCorporationID() {
 		return corporationID;
 	}
 
-	public void setCorporationID(long corporationID) {
+	public void setCorporationID(Long corporationID) {
 		this.corporationID = corporationID;
 	}
 }
