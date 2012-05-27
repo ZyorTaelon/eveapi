@@ -11,6 +11,7 @@ import com.beimin.eveapi.shared.character.EveRace;
 public class CharacterSheetHandler extends AbstractContentHandler {
 	private CharacterSheetResponse response;
 	private ApiAttributeEnhancer attributeEnhancer;
+	private String rowsetName;
 
 	@Override
 	public void startDocument() throws SAXException {
@@ -29,15 +30,48 @@ public class CharacterSheetHandler extends AbstractContentHandler {
 			attributeEnhancer = new PerceptionBonus();
 		else if (qName.equals("willpowerBonus"))
 			attributeEnhancer = new WillpowerBonus();
+		else if (qName.equals("rowset"))
+			rowsetName = getString(attrs, "name");
 		else if (qName.equals("row")) {
-			ApiSkill skill = new ApiSkill();
-			skill.setTypeID(getInt(attrs, "typeID"));
-			Integer level = getInt(attrs, "level");
-			if (level != null)
-				skill.setLevel(level);
-			skill.setSkillpoints(getInt(attrs, "skillpoints"));
-			skill.setUnpublished(getBoolean(attrs, "unpublished"));
-			response.addSkill(skill);
+			if ("skills".equals(rowsetName)) {
+				ApiSkill skill = new ApiSkill();
+				skill.setTypeID(getInt(attrs, "typeID"));
+				Integer level = getInt(attrs, "level");
+				if (level != null)
+					skill.setLevel(level);
+				skill.setSkillpoints(getInt(attrs, "skillpoints"));
+				skill.setUnpublished(getBoolean(attrs, "unpublished"));
+				response.addSkill(skill);
+			} else if ("certificates".equals(rowsetName)) {
+				ApiCertificate certificate = new ApiCertificate();
+				certificate.setCertificateID(getInt(attrs, "certificateID"));
+				response.addCertificate(certificate);
+			} else if ("corporationRoles".equals(rowsetName)) {
+				ApiCorporationRole corporationRole = new ApiCorporationRole();
+				corporationRole.setRoleID(getInt(attrs, "roleID"));
+				corporationRole.setRoleName(getString(attrs, "roleName"));
+				response.addCorporationRole(corporationRole);
+			} else if ("corporationRolesAtHQ".equals(rowsetName)) {
+				ApiCorporationRole corporationRole = new ApiCorporationRole();
+				corporationRole.setRoleID(getInt(attrs, "roleID"));
+				corporationRole.setRoleName(getString(attrs, "roleName"));
+				response.addCorporationRoleAtHQ(corporationRole);
+			} else if ("corporationRolesAtBase".equals(rowsetName)) {
+				ApiCorporationRole corporationRole = new ApiCorporationRole();
+				corporationRole.setRoleID(getInt(attrs, "roleID"));
+				corporationRole.setRoleName(getString(attrs, "roleName"));
+				response.addCorporationRoleAtBase(corporationRole);
+			} else if ("corporationRolesAtOther".equals(rowsetName)) {
+				ApiCorporationRole corporationRole = new ApiCorporationRole();
+				corporationRole.setRoleID(getInt(attrs, "roleID"));
+				corporationRole.setRoleName(getString(attrs, "roleName"));
+				response.addCorporationRoleAtOther(corporationRole);
+			} else if ("corporationTitles".equals(rowsetName)) {
+				ApiCorporationTitle corporationTitle = new ApiCorporationTitle();
+				corporationTitle.setTitleID(getLong(attrs, "titleID"));
+				corporationTitle.setTitleName(getString(attrs, "titleName"));
+				response.addCorporationTitle(corporationTitle);
+			}
 		}
 
 		super.startElement(uri, localName, qName, attrs);
@@ -83,7 +117,8 @@ public class CharacterSheetHandler extends AbstractContentHandler {
 			response.setPerception(getInt());
 		else if (qName.equals("willpower"))
 			response.setWillpower(getInt());
-
+		else if (qName.equals("rowset"))
+			rowsetName = null;
 		super.endElement(uri, localName, qName);
 	}
 

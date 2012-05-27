@@ -28,7 +28,13 @@ public class CharacterSheetResponse extends ApiResponse {
 	private int perception;
 	private int willpower;
 	private final Set<ApiSkill> skills = new HashSet<ApiSkill>();
-
+	private final Set<ApiCertificate> certificates = new HashSet<ApiCertificate>();
+	private final Set<ApiCorporationRole> corporationRoles = new HashSet<ApiCorporationRole>();
+	private final Set<ApiCorporationRole> corporationRolesAtHQ = new HashSet<ApiCorporationRole>();
+	private final Set<ApiCorporationRole> corporationRolesAtBase = new HashSet<ApiCorporationRole>();
+	private final Set<ApiCorporationRole> corporationRolesAtOther = new HashSet<ApiCorporationRole>();
+	private final Set<ApiCorporationTitle> corporationTitles = new HashSet<ApiCorporationTitle>();
+	
 	public long getCharacterID() {
 		return characterID;
 	}
@@ -163,5 +169,53 @@ public class CharacterSheetResponse extends ApiResponse {
 
 	public Set<ApiSkill> getSkills() {
 		return skills;
+	}
+
+	public void addCertificate(ApiCertificate certificate) {
+		certificates.add(certificate);
+	}
+
+	public Set<ApiCertificate> getCertificates() {
+		return certificates;
+	}
+
+	public void addCorporationRole(ApiCorporationRole corporationRole) {
+		corporationRoles.add(corporationRole);
+	}
+	
+	public Set<ApiCorporationRole> getCorporationRoles() {
+		return corporationRoles;
+	}
+
+	public void addCorporationRoleAtHQ(ApiCorporationRole corporationRole) {
+		corporationRolesAtHQ.add(corporationRole);
+	}
+
+	public Set<ApiCorporationRole> getCorporationRolesAtHQ() {
+		return corporationRolesAtHQ;
+	}
+
+	public void addCorporationRoleAtBase(ApiCorporationRole corporationRole) {
+		corporationRolesAtBase.add(corporationRole);
+	}
+
+	public Set<ApiCorporationRole> getCorporationRolesAtBase() {
+		return corporationRolesAtBase;
+	}
+
+	public void addCorporationRoleAtOther(ApiCorporationRole corporationRole) {
+		corporationRolesAtOther.add(corporationRole);
+	}
+	
+	public Set<ApiCorporationRole> getCorporationRolesAtOther() {
+		return corporationRolesAtOther;
+	}
+
+	public void addCorporationTitle(ApiCorporationTitle title) {
+		corporationTitles.add(title);
+	}
+
+	public Set<ApiCorporationTitle> getCorporationTitles() {
+		return corporationTitles;
 	}
 }

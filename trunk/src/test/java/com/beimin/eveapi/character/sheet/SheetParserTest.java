@@ -80,5 +80,11 @@ public class SheetParserTest extends FullAuthParserTest {
 				fail("skill parsing failed");
 			}
 		}
+		assertEquals(1, response.getCorporationRoles().size());
+		assertEquals(1, response.getCorporationRolesAtHQ().size());
+		assertEquals(1, response.getCorporationRolesAtBase().size());
+		assertEquals(1, response.getCorporationRolesAtOther().size());
+		assertEquals(1, response.getCorporationTitles().size());
+		assertEquals("Member", response.getCorporationTitles().iterator().next().getTitleName());
 	}
 }

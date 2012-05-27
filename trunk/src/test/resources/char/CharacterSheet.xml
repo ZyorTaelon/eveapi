@@ -36,6 +36,30 @@
             <row typeID="3416" level="3" skillpoints="8000"/>
             <row typeID="3445" unpublished="1" skillpoints="277578" />
         </rowset>
+		<rowset name="certificates" key="certificateID" columns="certificateID">
+			<row certificateID="1"/>
+			<row certificateID="5"/>
+			<row certificateID="19"/>
+			<row certificateID="239"/>
+			<row certificateID="282"/>
+			<row certificateID="32"/>
+			<row certificateID="258"/>
+		</rowset>
+		<rowset name="corporationRoles" key="roleID" columns="roleID,roleName">
+			<row roleID="1" roleName="roleDirector" />
+		</rowset>
+		<rowset name="corporationRolesAtHQ" key="roleID" columns="roleID,roleName">
+			<row roleID="1" roleName="roleDirector" />
+		</rowset>
+		<rowset name="corporationRolesAtBase" key="roleID" columns="roleID,roleName">
+			<row roleID="1" roleName="roleDirector" />
+		</rowset>
+		<rowset name="corporationRolesAtOther" key="roleID" columns="roleID,roleName">
+			<row roleID="1" roleName="roleDirector" />
+		</rowset>
+		<rowset name="corporationTitles" key="titleID" columns="titleID,titleName">
+			<row titleID="1" titleName="Member" />
+		</rowset>
     </result>
     <cachedUntil>2007-06-18 23:49:01</cachedUntil>
 </eveapi>
