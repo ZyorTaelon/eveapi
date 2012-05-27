@@ -9,18 +9,21 @@ import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 
-public abstract class AbstractWalletJournalParser extends AbstractListParser<WalletJournalHandler, WalletJournalResponse, ApiJournalEntry> {
+public abstract class AbstractWalletJournalParser extends
+		AbstractListParser<WalletJournalHandler, WalletJournalResponse, ApiJournalEntry> {
 	public AbstractWalletJournalParser(ApiPath path) {
 		super(WalletJournalResponse.class, 2, path, ApiPage.WALLET_JOURNAL, WalletJournalHandler.class);
 	}
-	
+
 	public WalletJournalResponse getResponse(ApiAuth<?> auth, int accountKey) throws ApiException {
 		return getResponse(auth, "accountKey", Integer.toString(accountKey));
 	}
 
-	public WalletJournalResponse getResponse(ApiAuth<?> auth, int accountKey, long beforeRefID) throws ApiException {
+	public WalletJournalResponse getResponse(ApiAuth<?> auth, int accountKey, long beforeRefID, int rowCount)
+			throws ApiException {
 		Map<String, String> extraParams = new HashMap<String, String>();
 		extraParams.put("accountKey", Integer.toString(accountKey));
+		extraParams.put("rowCount", Integer.toString(rowCount));
 		extraParams.put("beforeRefID", Long.toString(beforeRefID));
 		return getResponse(auth, extraParams);
 	}
