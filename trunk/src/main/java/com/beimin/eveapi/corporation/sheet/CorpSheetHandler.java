@@ -32,7 +32,7 @@ public class CorpSheetHandler extends AbstractContentHandler {
 				response.addDivision(division);
 			else if (walletDivisions)
 				response.addWalletDivision(division);
-		} 
+		}
 		super.startElement(uri, localName, qName, attrs);
 		accumulator.setLength(0);
 	}
@@ -68,7 +68,7 @@ public class CorpSheetHandler extends AbstractContentHandler {
 		} else if (qName.equals("memberLimit")) {
 			response.setMemberLimit(getInt());
 		} else if (qName.equals("shares")) {
-			response.setShares(getInt());
+			response.setShares(getLong());
 		} else if (qName.equals("graphicsID")) {
 			logo.setGraphicID(getInt());
 		} else if (qName.equals("shape1")) {
@@ -91,7 +91,7 @@ public class CorpSheetHandler extends AbstractContentHandler {
 				walletDivisions = false;
 			}
 		}
-		
+
 		super.endElement(uri, localName, qName);
 	}
 

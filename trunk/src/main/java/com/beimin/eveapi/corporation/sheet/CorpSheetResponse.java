@@ -21,7 +21,7 @@ public class CorpSheetResponse extends ApiResponse {
 	private double taxRate;
 	private int memberCount;
 	private int memberLimit;
-	private int shares;
+	private long shares;
 	private final Map<Integer, String> divisions = new HashMap<Integer, String>();
 	private final Map<Integer, String> walletDivisions = new HashMap<Integer, String>();
 	private ApiCorpLogo logo;
@@ -138,11 +138,11 @@ public class CorpSheetResponse extends ApiResponse {
 		this.memberLimit = memberLimit;
 	}
 
-	public int getShares() {
+	public long getShares() {
 		return shares;
 	}
 
-	public void setShares(int shares) {
+	public void setShares(long shares) {
 		this.shares = shares;
 	}
 
@@ -153,11 +153,11 @@ public class CorpSheetResponse extends ApiResponse {
 	public void setLogo(ApiCorpLogo logo) {
 		this.logo = logo;
 	}
-	
+
 	public void addDivision(Division division) {
 		this.divisions.put(division.getAccountKey(), division.getDescription());
 	}
-	
+
 	public void addWalletDivision(Division division) {
 		this.walletDivisions.put(division.getAccountKey(), division.getDescription());
 	}
