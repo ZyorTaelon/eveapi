@@ -27,6 +27,8 @@ public class CharacterSheetHandler extends AbstractContentHandler {
 			attributeEnhancer = new CharismaBonus();
 		else if (qName.equals("perceptionBonus"))
 			attributeEnhancer = new PerceptionBonus();
+		else if (qName.equals("willpowerBonus"))
+			attributeEnhancer = new WillpowerBonus();
 		else if (qName.equals("row")) {
 			ApiSkill skill = new ApiSkill();
 			skill.setTypeID(getInt(attrs, "typeID"));
