@@ -18,8 +18,8 @@ import com.beimin.eveapi.core.ApiPath;
 
 public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsserts {
 	private final CamelContext context = new DefaultCamelContext();
-	private final ApiPath path;
-	private final ApiPage page;
+	protected final ApiPath path;
+	protected final ApiPage page;
 	private final String resourcePath;
 	protected ApiAuthorization auth = new ApiAuthorization(123, 456, "abc");
 

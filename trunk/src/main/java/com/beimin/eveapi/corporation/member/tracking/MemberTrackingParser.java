@@ -20,4 +20,8 @@ public class MemberTrackingParser extends AbstractListParser<MemberTrackingHandl
 	public MemberTrackingResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
+
+	public MemberTrackingResponse getExtendedResponse(ApiAuth<?> auth) throws ApiException {
+		return super.getResponse(auth, "extended", "1");
+	}
 }
