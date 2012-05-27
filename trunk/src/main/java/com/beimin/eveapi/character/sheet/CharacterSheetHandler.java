@@ -98,7 +98,12 @@ public class CharacterSheetHandler extends AbstractContentHandler {
 			response.setCorporationID(getLong());
 		else if (qName.equals("corporationName"))
 			response.setCorporationName(getString());
-		else if (qName.equals("balance"))
+		else if (qName.equals("allianceID"))
+			response.setAllianceID(getLong());
+		else if (qName.equals("allianceName")) {
+			if (getString() != null && !getString().equals(""))
+				response.setAllianceName(getString());
+		} else if (qName.equals("balance"))
 			response.setBalance(getDouble());
 		else if (qName.equals("augmentatorName"))
 			attributeEnhancer.setAugmentatorName(getString());

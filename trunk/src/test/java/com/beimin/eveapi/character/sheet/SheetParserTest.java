@@ -3,6 +3,7 @@ package com.beimin.eveapi.character.sheet;
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
 import java.util.Set;
@@ -35,6 +36,7 @@ public class SheetParserTest extends FullAuthParserTest {
 		assertEquals(EveBloodline.BRUTOR, response.getBloodLine());
 		assertEquals("Female", response.getGender());
 		assertEquals("corpexport Corp", response.getCorporationName());
+		assertNull(response.getAllianceName());
 		assertEquals(150337746L, response.getCorporationID());
 		assertEquals(190210393.87, response.getBalance(), 0.00001);
 

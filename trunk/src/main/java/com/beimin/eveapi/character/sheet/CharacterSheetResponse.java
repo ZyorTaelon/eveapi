@@ -20,6 +20,8 @@ public class CharacterSheetResponse extends ApiResponse {
 	private String gender;
 	private String corporationName;
 	private long corporationID;
+	private Long allianceID;
+	private String allianceName;
 	private double balance;
 	private final Set<ApiAttributeEnhancer> attributeEnhancers = new HashSet<ApiAttributeEnhancer>();
 	private int intelligence;
@@ -105,6 +107,22 @@ public class CharacterSheetResponse extends ApiResponse {
 
 	public void setCorporationID(long corporationID) {
 		this.corporationID = corporationID;
+	}
+
+	public String getAllianceName() {
+		return allianceName;
+	}
+
+	public void setAllianceName(String allianceName) {
+		this.allianceName = allianceName;
+	}
+
+	public Long getAllianceID() {
+		return allianceID;
+	}
+
+	public void setAllianceID(Long allianceID) {
+		this.allianceID = allianceID;
 	}
 
 	public double getBalance() {
