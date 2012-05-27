@@ -1,10 +1,11 @@
 package com.beimin.eveapi.eve.character;
 
-import java.util.Date;
-
 import com.beimin.eveapi.core.ApiResponse;
 import com.beimin.eveapi.shared.character.EveBloodline;
 import com.beimin.eveapi.shared.character.EveRace;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class CharacterInfoResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
@@ -25,6 +26,7 @@ public class CharacterInfoResponse extends ApiResponse {
 	private Date allianceDate;
 	private String lastKnownLocation;
 	private double securityStatus;
+	private final List<CharacterEmployment> employment = new ArrayList<CharacterEmployment>();
 
 	public long getCharacterID() {
 		return characterID;
@@ -160,5 +162,13 @@ public class CharacterInfoResponse extends ApiResponse {
 
 	public void setSecurityStatus(double securityStatus) {
 		this.securityStatus = securityStatus;
+	}
+
+	public List<CharacterEmployment> getEmploymentHistory() {
+		return employment;
+	}
+
+	public void addEmployment(CharacterEmployment employ) {
+		employment.add(employ);
 	}
 }

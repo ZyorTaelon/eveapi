@@ -1,11 +1,11 @@
 package com.beimin.eveapi.eve.character;
 
-import org.xml.sax.SAXException;
-
 import com.beimin.eveapi.core.AbstractContentHandler;
 import com.beimin.eveapi.core.ApiResponse;
 import com.beimin.eveapi.shared.character.EveBloodline;
 import com.beimin.eveapi.shared.character.EveRace;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
 
 public class CharacterInfoHandler extends AbstractContentHandler {
 	private CharacterInfoResponse response;
@@ -14,6 +14,17 @@ public class CharacterInfoHandler extends AbstractContentHandler {
 	public void startDocument() throws SAXException {
 		response = new CharacterInfoResponse();
 		super.startDocument();
+	}
+
+	@Override
+	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+		if (qName.equals("row")) {
+			CharacterEmployment employ = new CharacterEmployment();
+			employ.setCorporationID(getLong(attrs, "corporationID"));
+			employ.setStartDate(getDate(attrs, "startDate"));
+			response.addEmployment(employ);
+		}
+		super.startElement(uri, localName, qName, attrs);
 	}
 
 	@Override

@@ -13,6 +13,13 @@
     <alliance>Wayfarer Stellar Initiative</alliance>
     <allianceDate>2010-11-22 00:57:00</allianceDate>
     <securityStatus>1.74600960835429</securityStatus>
+    <rowset name="employmentHistory" key="recordID" columns="redorcID,corporationID,startDate">
+        <row recordID="14649206" corporationID="217940508" startDate="2010-08-23 20:29:00"/>
+        <row recordID="12901844" corporationID="832138780" startDate="2010-02-07 23:02:00"/>
+        <row recordID="8033676" corporationID="182784411" startDate="2006-04-25 21:47:00"/>
+        <row recordID="8033675" corporationID="145465549" startDate="2004-07-23 20:44:00"/>
+        <row recordID="8033674" corporationID="1000167" startDate="2004-07-23 16:56:00"/>
+    </rowset>
   </result>
   <cachedUntil>2010-11-28 21:24:20</cachedUntil>
 </eveapi>
