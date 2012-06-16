@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 
-import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.exception.ApiException;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

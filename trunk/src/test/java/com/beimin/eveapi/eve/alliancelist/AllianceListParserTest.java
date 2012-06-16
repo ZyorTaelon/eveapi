@@ -9,9 +9,9 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class AllianceListParserTest extends NoAuthParserTest {

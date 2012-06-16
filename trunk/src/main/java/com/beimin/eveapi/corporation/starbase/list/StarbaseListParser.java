@@ -2,9 +2,9 @@ package com.beimin.eveapi.corporation.starbase.list;
 
 import com.beimin.eveapi.core.AbstractListParser;
 import com.beimin.eveapi.core.ApiAuth;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.exception.ApiException;
 
 public class StarbaseListParser extends AbstractListParser<StarbaseListHandler, StarbaseListResponse, ApiStarbase> {
 	public StarbaseListParser() {

@@ -1,8 +1,8 @@
 package com.beimin.eveapi.character.wallet.transactions;
 
 import com.beimin.eveapi.core.ApiAuth;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.shared.wallet.transactions.AbstractWalletTransactionsParser;
 import com.beimin.eveapi.shared.wallet.transactions.WalletTransactionsResponse;
 

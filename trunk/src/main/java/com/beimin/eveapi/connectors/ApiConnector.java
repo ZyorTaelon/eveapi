@@ -20,9 +20,9 @@ import org.xml.sax.XMLReader;
 
 import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.AbstractContentHandler;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiRequest;
 import com.beimin.eveapi.core.ApiResponse;
+import com.beimin.eveapi.exception.ApiException;
 
 public class ApiConnector {
 	private static final Logger LOG = LoggerFactory.getLogger(ApiConnector.class);
@@ -127,7 +127,7 @@ public class ApiConnector {
 		return baseUrl;
 	}
 
-	protected ApiConnector getConnector() {
-		return this;
+	public ApiConnector getInstance() {
+		return new ApiConnector(baseUrl);
 	}
 }

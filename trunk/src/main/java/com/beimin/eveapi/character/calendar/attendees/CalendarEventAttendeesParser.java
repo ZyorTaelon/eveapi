@@ -3,9 +3,9 @@ package com.beimin.eveapi.character.calendar.attendees;
 
 import com.beimin.eveapi.core.AbstractListParser;
 import com.beimin.eveapi.core.ApiAuth;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.utils.StringUtils;
 
 public class CalendarEventAttendeesParser extends AbstractListParser<CalendarEventAttendeesHandler, CalendarEventAttendeesResponse, EveCalendarEventAttendee> {

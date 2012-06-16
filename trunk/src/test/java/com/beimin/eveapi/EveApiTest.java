@@ -16,7 +16,7 @@ import com.beimin.eveapi.account.accountstatus.EveAccountStatus;
 import com.beimin.eveapi.account.characters.EveCharacter;
 import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.core.ApiAuthorization;
-import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.shared.accountbalance.EveAccountBalance;
 import com.beimin.eveapi.utils.EveApiRouteBuilder;
 import com.beimin.eveapi.utils.MockApi;

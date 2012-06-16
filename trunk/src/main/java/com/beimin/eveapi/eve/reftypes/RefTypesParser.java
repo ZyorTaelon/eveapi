@@ -1,9 +1,9 @@
 package com.beimin.eveapi.eve.reftypes;
 
 import com.beimin.eveapi.core.AbstractListParser;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.exception.ApiException;
 
 public class RefTypesParser extends AbstractListParser<RefTypesHandler, RefTypesResponse, ApiRefType> {
 	public RefTypesParser() {

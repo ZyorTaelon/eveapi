@@ -10,9 +10,9 @@ import org.junit.Test;
 import com.beimin.eveapi.character.calendar.attendees.EveCalendarEventAttendee;
 import com.beimin.eveapi.character.calendar.attendees.CalendarEventAttendeesParser;
 import com.beimin.eveapi.character.calendar.attendees.CalendarEventAttendeesResponse;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class CalendarEventAttendeesParserTest extends FullAuthParserTest {

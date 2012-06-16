@@ -2,9 +2,9 @@ package com.beimin.eveapi.corporation.member.tracking;
 
 import com.beimin.eveapi.core.AbstractListParser;
 import com.beimin.eveapi.core.ApiAuth;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.exception.ApiException;
 
 public class MemberTrackingParser extends AbstractListParser<MemberTrackingHandler, MemberTrackingResponse, ApiMember> {
 	public MemberTrackingParser() {

@@ -10,9 +10,9 @@ import java.util.Iterator;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class SkillTreeParserTest extends NoAuthParserTest {

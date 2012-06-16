@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.beimin.eveapi.EveApi;
+import com.beimin.eveapi.exception.ApiException;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
 	protected final Logger logger = LoggerFactory.getLogger(getClass());

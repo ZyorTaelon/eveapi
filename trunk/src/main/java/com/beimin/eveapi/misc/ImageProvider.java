@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 
-import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.exception.ApiException;
 
 public class ImageProvider {
 	private static String IMAGE_SERVICE_URL = "https://image.eveonline.com";

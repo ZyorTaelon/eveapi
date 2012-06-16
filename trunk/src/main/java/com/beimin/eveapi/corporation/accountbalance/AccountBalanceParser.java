@@ -1,8 +1,8 @@
 package com.beimin.eveapi.corporation.accountbalance;
 
 import com.beimin.eveapi.core.ApiAuth;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.shared.accountbalance.AbstractAccountBalanceParser;
 import com.beimin.eveapi.shared.accountbalance.AccountBalanceResponse;
 

@@ -14,9 +14,9 @@ import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
 import com.beimin.eveapi.core.AbstractContentHandler;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiRequest;
 import com.beimin.eveapi.core.ApiResponse;
+import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.utils.InputStreamSplitter;
 
 public class LoggingConnector extends ApiConnector {
@@ -64,9 +64,13 @@ public class LoggingConnector extends ApiConnector {
 	}
 
 	@Override
-	protected ApiConnector getConnector() {
+	public ApiConnector getInstance() {
+		return new LoggingConnector(baseConnector);
+	}
+
+	private ApiConnector getConnector() {
 		if (baseConnector != null)
-			return baseConnector;
-		return super.getConnector();
+			return baseConnector.getInstance();
+		return super.getInstance();
 	}
 }

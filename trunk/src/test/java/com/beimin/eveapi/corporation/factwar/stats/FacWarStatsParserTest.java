@@ -7,10 +7,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.corporation.facwar.stats.FacWarStatsParser;
+import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.shared.facwar.stats.FacWarStatsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

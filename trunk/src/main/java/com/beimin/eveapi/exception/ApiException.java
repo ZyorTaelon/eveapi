@@ -1,4 +1,4 @@
-package com.beimin.eveapi.core;
+package com.beimin.eveapi.exception;
 
 public class ApiException extends Exception {
 	private static final long serialVersionUID = 1L;

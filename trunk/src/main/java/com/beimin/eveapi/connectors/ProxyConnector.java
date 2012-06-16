@@ -4,7 +4,7 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 
-import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.exception.ApiException;
 
 public class ProxyConnector extends ApiConnector {
 	private final Proxy proxy;
@@ -30,9 +30,7 @@ public class ProxyConnector extends ApiConnector {
 	}
 
 	@Override
-	protected ApiConnector getConnector() {
-		if (baseConnector != null)
-			return baseConnector;
-		return super.getConnector();
+	public ApiConnector getInstance() {
+		return new ProxyConnector(proxy, baseConnector);
 	}
 }

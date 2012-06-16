@@ -17,14 +17,15 @@ import com.beimin.eveapi.character.contact.notifications.ContactNotificationsPar
 import com.beimin.eveapi.character.contact.notifications.EveContactNotification;
 import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.core.ApiAuth;
-import com.beimin.eveapi.core.ApiException;
+import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.exception.NoAuthException;
 import com.beimin.eveapi.shared.accountbalance.EveAccountBalance;
 import com.beimin.eveapi.shared.assetlist.EveAsset;
 import com.beimin.eveapi.shared.contacts.ContactList;
 
 public class EveApi {
 	private static ApiConnector connector = new ApiConnector();
-	private final ApiAuth<?> auth;
+	private ApiAuth<?> auth;
 	private AccountStatusParser accountStatusParser;
 	private CharactersParser charactersParser;
 	private AccountBalanceParser characterAccountBalanceParser;
@@ -34,12 +35,26 @@ public class EveApi {
 	private ContactListParser characterContactListParser;
 	private ContactNotificationsParser contactNotificationsParser;
 
+	public EveApi() {
+		// default constructor
+	}
+
 	public EveApi(ApiAuth<?> auth) {
+		this.auth = auth;
+	}
+	
+	public final ApiAuth<?> getAuth() {
+		if(auth == null)
+			throw new NoAuthException();
+		return auth;
+	}
+
+	public final void setAuth(ApiAuth<?> auth) {
 		this.auth = auth;
 	}
 
 	public static ApiConnector getConnector() {
-		return connector;
+		return connector.getInstance();
 	}
 
 	public static void setConnector(ApiConnector connector) {
@@ -47,7 +62,7 @@ public class EveApi {
 	}
 
 	public EveAccountStatus getAccountStatus() throws ApiException {
-		return getAccountStatusParser().getResponse(auth).get();
+		return getAccountStatusParser().getResponse(getAuth()).get();
 	}
 
 	private AccountStatusParser getAccountStatusParser() {
@@ -57,7 +72,7 @@ public class EveApi {
 	}
 
 	public Set<EveCharacter> getCharacters() throws ApiException {
-		return getCharactersParser().getResponse(auth).getAll();
+		return getCharactersParser().getResponse(getAuth()).getAll();
 	}
 
 	private CharactersParser getCharactersParser() {
@@ -67,15 +82,19 @@ public class EveApi {
 	}
 
 	public void selectCharacter(EveCharacter eveCharacter) {
+		if(auth == null)
+			throw new NoAuthException();
 		auth.setCharacterID(eveCharacter.getCharacterID());
 	}
 
 	public void selectCharacter(long characterID) {
+		if(auth == null)
+			throw new NoAuthException();
 		auth.setCharacterID(characterID);
 	}
 
 	public EveAccountBalance getAccountBalance() throws ApiException {
-		return getCharacterAccountBalanceParser().getResponse(auth).getAll().iterator().next();
+		return getCharacterAccountBalanceParser().getResponse(getAuth()).getAll().iterator().next();
 	}
 
 	private AccountBalanceParser getCharacterAccountBalanceParser() {
@@ -85,7 +104,7 @@ public class EveApi {
 	}
 
 	public Set<EveAsset<EveAsset<?>>> getCharacterAssets() throws ApiException {
-		return getCharacterAssetParser().getResponse(auth).getAll();
+		return getCharacterAssetParser().getResponse(getAuth()).getAll();
 	}
 
 	private AssetListParser getCharacterAssetParser() {
@@ -95,7 +114,7 @@ public class EveApi {
 	}
 
 	public Set<EveUpcomingCalendarEvent> getUpcomingCalendarEvents() throws ApiException {
-		return getUpcomingCalendatEventsParser().getResponse(auth).getAll();
+		return getUpcomingCalendatEventsParser().getResponse(getAuth()).getAll();
 	}
 
 	private UpcomingCalendarEventsParser getUpcomingCalendatEventsParser() {
@@ -105,7 +124,7 @@ public class EveApi {
 	}
 
 	public Set<EveCalendarEventAttendee> getCalendarEventAttendees(long... eventIds) throws ApiException {
-		return getCalendarEventAttendeesParser().getResponse(auth, eventIds).getAll();
+		return getCalendarEventAttendeesParser().getResponse(getAuth(), eventIds).getAll();
 	}
 
 	private CalendarEventAttendeesParser getCalendarEventAttendeesParser() {
@@ -115,7 +134,7 @@ public class EveApi {
 	}
 
 	public ContactList getContactList() throws ApiException {
-		return getCharacterContactListParser().getResponse(auth).getContactList();
+		return getCharacterContactListParser().getResponse(getAuth()).getContactList();
 	}
 
 	private ContactListParser getCharacterContactListParser() {
@@ -125,7 +144,7 @@ public class EveApi {
 	}
 
 	public Set<EveContactNotification> getContactNotifications() throws ApiException {
-		return getContactNotificationsParser().getResponse(auth).getAll();
+		return getContactNotificationsParser().getResponse(getAuth()).getAll();
 	}
 
 	private ContactNotificationsParser getContactNotificationsParser() {

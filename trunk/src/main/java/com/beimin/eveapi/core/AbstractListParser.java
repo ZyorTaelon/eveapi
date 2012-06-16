@@ -1,5 +1,7 @@
 package com.beimin.eveapi.core;
 
+import com.beimin.eveapi.exception.ApiException;
+
 public abstract class AbstractListParser<H extends AbstractContentListHandler<E, B>, E extends ApiListResponse<B>, B> extends AbstractApiParser<E> {
 	private final Class<H> handlerClazz;
 

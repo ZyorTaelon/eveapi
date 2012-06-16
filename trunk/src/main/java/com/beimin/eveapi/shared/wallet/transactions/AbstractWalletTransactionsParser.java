@@ -1,6 +1,8 @@
 package com.beimin.eveapi.shared.wallet.transactions;
 
 import com.beimin.eveapi.core.*;
+import com.beimin.eveapi.exception.ApiException;
+
 import java.util.HashMap;
 import java.util.Map;
 

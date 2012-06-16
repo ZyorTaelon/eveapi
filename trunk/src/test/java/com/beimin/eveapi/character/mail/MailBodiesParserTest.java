@@ -12,9 +12,9 @@ import org.junit.Test;
 import com.beimin.eveapi.character.mail.bodies.ApiMailBody;
 import com.beimin.eveapi.character.mail.bodies.MailBodiesParser;
 import com.beimin.eveapi.character.mail.bodies.MailBodiesResponse;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class MailBodiesParserTest extends FullAuthParserTest {

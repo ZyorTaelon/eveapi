@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.beimin.eveapi.core.AbstractContentHandler;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiRequest;
 import com.beimin.eveapi.core.ApiResponse;
+import com.beimin.eveapi.exception.ApiException;
 
 public class CachingConnector extends ApiConnector {
 	private final Map<ApiRequest, ApiResponse> cache = new HashMap<ApiRequest, ApiResponse>();
@@ -29,9 +29,13 @@ public class CachingConnector extends ApiConnector {
 	}
 
 	@Override
-	protected ApiConnector getConnector() {
+	public ApiConnector getInstance() {
+		return new CachingConnector(baseConnector);
+	}
+	
+	private ApiConnector getConnector() {
 		if (baseConnector != null)
-			return baseConnector;
-		return super.getConnector();
+			return baseConnector.getInstance();
+		return super.getInstance();
 	}
 }

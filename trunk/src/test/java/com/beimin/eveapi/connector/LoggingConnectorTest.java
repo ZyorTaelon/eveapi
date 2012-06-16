@@ -15,9 +15,9 @@ import com.beimin.eveapi.character.skill.queue.SkillQueueParser;
 import com.beimin.eveapi.character.skill.queue.SkillQueueResponse;
 import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.connectors.LoggingConnector;
-import com.beimin.eveapi.core.ApiException;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 import com.beimin.eveapi.utils.MockApi;
 
