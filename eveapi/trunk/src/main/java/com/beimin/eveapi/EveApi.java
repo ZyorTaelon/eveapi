@@ -6,6 +6,8 @@ import com.beimin.eveapi.account.accountstatus.AccountStatusParser;
 import com.beimin.eveapi.account.accountstatus.EveAccountStatus;
 import com.beimin.eveapi.account.characters.CharactersParser;
 import com.beimin.eveapi.account.characters.EveCharacter;
+import com.beimin.eveapi.api.calllist.CallList;
+import com.beimin.eveapi.api.calllist.CallListParser;
 import com.beimin.eveapi.character.accountbalance.AccountBalanceParser;
 import com.beimin.eveapi.character.assetlist.AssetListParser;
 import com.beimin.eveapi.character.calendar.attendees.CalendarEventAttendeesParser;
@@ -34,6 +36,7 @@ public class EveApi {
 	private CalendarEventAttendeesParser calendarEventAttendeesParser;
 	private ContactListParser characterContactListParser;
 	private ContactNotificationsParser contactNotificationsParser;
+	private CallListParser callListParser;
 
 	public EveApi() {
 		// default constructor
@@ -151,5 +154,15 @@ public class EveApi {
 		if (contactNotificationsParser == null)
 			contactNotificationsParser = ContactNotificationsParser.getInstance();
 		return contactNotificationsParser;
+	}
+	
+	private CallListParser getCallListParser() {
+		if(callListParser == null)
+			callListParser = CallListParser.getInstance();
+		return callListParser;
+	}
+
+	public CallList getCallList() throws ApiException {
+		return getCallListParser().getResponse().get();
 	}
 }

@@ -34,5 +34,11 @@ public class CallList {
 	
 	public void add(Call call) {
 		calls.add(call);
+		for (CallGroup callGroup : callGroups) {
+			if(call.getGroupID() == callGroup.getGroupID()) {
+				callGroup.addCall(call);
+				return;
+			}
+		}
 	}
 }

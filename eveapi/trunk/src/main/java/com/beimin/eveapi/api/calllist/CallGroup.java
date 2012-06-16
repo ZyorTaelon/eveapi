@@ -1,10 +1,14 @@
 package com.beimin.eveapi.api.calllist;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author andrew
  */
 public class CallGroup {
+	private List<Call> calls = new ArrayList<Call>();
 	private int groupID;
 	private String name;
 	private String description;
@@ -31,5 +35,13 @@ public class CallGroup {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public void addCall(Call call) {
+		calls.add(call);
+	}
+
+	public List<Call> getCalls() {
+		return calls;
 	}
 }
