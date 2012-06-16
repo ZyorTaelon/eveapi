@@ -18,18 +18,6 @@ public class ApiKeyInfoParser extends AbstractApiParser<ApiKeyInfoResponse> {
 		return new ApiKeyInfoHandler();
 	}
 
-//	@Override
-//	protected Digester getDigester() {
-//		Digester digester = super.getDigester();
-//		digester.addSetProperties("eveapi/result/key");
-//
-//		digester.addObjectCreate("eveapi/result/key/rowset/row", EveCharacter.class);
-//		digester.addSetProperties("eveapi/result/key/rowset/row");
-//		digester.addSetProperties("eveapi/result/key/rowset/row", "characterName", "name");
-//		digester.addSetNext("eveapi/result/key/rowset/row", "addEveCharacter");
-//		return digester;
-//	}
-
 	public static ApiKeyInfoParser getInstance() {
 		return new ApiKeyInfoParser();
 	}
