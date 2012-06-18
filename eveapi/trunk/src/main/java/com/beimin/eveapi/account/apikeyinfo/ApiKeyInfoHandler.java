@@ -5,6 +5,7 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.account.characters.EveCharacter;
 import com.beimin.eveapi.core.AbstractContentHandler;
+import com.beimin.eveapi.shared.KeyType;
 
 public class ApiKeyInfoHandler extends AbstractContentHandler {
 	private ApiKeyInfoResponse response;
@@ -19,7 +20,7 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
 			throws SAXException {
 		if (qName.equals("key")) {
 			response.setAccessMask(getInt(attrs, "accessMask"));
-			response.setType(getString(attrs, "type"));
+			response.setType(KeyType.valueOf(getString(attrs, "type")));
 			String expires = attrs.getValue("expires").trim();
 			if(expires.length() > 0)
 				response.setExpires(getDate(expires));

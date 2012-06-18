@@ -1,19 +1,15 @@
 package com.beimin.eveapi.account.apikeyinfo;
 
-import com.beimin.eveapi.account.characters.EveCharacter;
-import java.util.Date;
-
-import com.beimin.eveapi.core.ApiResponse;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Locale;
+import java.util.Date;
 
+import com.beimin.eveapi.account.characters.EveCharacter;
+import com.beimin.eveapi.core.ApiResponse;
+import com.beimin.eveapi.shared.KeyType;
 
 public class ApiKeyInfoResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
-	public static final String CORPORATION_KEY = "Corporation";
-	public static final String ACCOUNT_KEY = "Account";
-	public static final String CHARACTER_KEY = "Character";
 	public enum AccessMask{
 		ACCOUNT_BALANCE(1),
 		ASSET_LIST(2),
@@ -41,8 +37,7 @@ public class ApiKeyInfoResponse extends ApiResponse {
 		CHARACTER_INFO_PRIVATE(8388608),
 		CHARACTER_INFO_PUBLIC(16777216),
 		ACCOUNT_STATUS(33554432),
-		CONTRACTS(67108864)
-		;
+		CONTRACTS(67108864);
 		private final int accessMask;
 
 		private AccessMask(int accessMask) {
@@ -55,8 +50,8 @@ public class ApiKeyInfoResponse extends ApiResponse {
 	}
 
 
-	private int accessMask;
-	private String type;
+	private long accessMask;
+	private KeyType type;
 	private Date expires;
 	private final Collection<EveCharacter> eveCharacters = new ArrayList<EveCharacter>();
 
@@ -68,11 +63,11 @@ public class ApiKeyInfoResponse extends ApiResponse {
 		return eveCharacters;
 	}
 
-	public int getAccessMask() {
+	public long getAccessMask() {
 		return accessMask;
 	}
 
-	public void setAccessMask(int accessMask) {
+	public void setAccessMask(long accessMask) {
 		this.accessMask = accessMask;
 	}
 
@@ -84,23 +79,23 @@ public class ApiKeyInfoResponse extends ApiResponse {
 		this.expires = expires;
 	}
 
-	public String getType() {
+	public KeyType getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(KeyType type) {
 		this.type = type;
 	}
 
 	public boolean isCorporationKey() {
-		return getType().toUpperCase(Locale.ENGLISH).equals(CORPORATION_KEY.toUpperCase(Locale.ENGLISH));
+		return getType() == KeyType.Corporation;
 	}
 
 	public boolean isAccountKey() {
-		return getType().toUpperCase(Locale.ENGLISH).equals(ACCOUNT_KEY.toUpperCase(Locale.ENGLISH));
+		return getType() == KeyType.Account;
 	}
 
 	public boolean isCharacterKey() {
-		return getType().toUpperCase(Locale.ENGLISH).equals(CHARACTER_KEY.toUpperCase(Locale.ENGLISH));
+		return getType() == KeyType.Character;
 	}
 }

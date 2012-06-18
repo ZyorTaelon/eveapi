@@ -14,6 +14,7 @@ import org.junit.Test;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.shared.KeyType;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 /**
@@ -54,7 +55,7 @@ public class CallListParserTest extends NoAuthParserTest {
 		});
 
 		assertEquals("AccountBalance", calls.get(0).getName());
-		assertEquals("Character", calls.get(0).getType());
+		assertEquals(KeyType.Character, calls.get(0).getType());
 		assertEquals(1, calls.get(0).getGroupID());
 	}
 }

@@ -1,8 +1,10 @@
 package com.beimin.eveapi.api.calllist;
 
+import com.beimin.eveapi.shared.KeyType;
+
 public class Call {
 	private long accessMask;
-	private String type;
+	private KeyType type;
 	private String name;
 	private int groupID;
 	private String description;
@@ -39,11 +41,11 @@ public class Call {
 		this.name = name;
 	}
 
-	public String getType() {
+	public KeyType getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(KeyType type) {
 		this.type = type;
 	}
 }

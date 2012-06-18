@@ -17,6 +17,7 @@ import com.beimin.eveapi.account.characters.EveCharacter;
 import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.core.ApiAuthorization;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.shared.KeyType;
 import com.beimin.eveapi.shared.accountbalance.EveAccountBalance;
 import com.beimin.eveapi.utils.EveApiRouteBuilder;
 import com.beimin.eveapi.utils.MockApi;
@@ -75,7 +76,7 @@ public class EveApiTest {
 	@Test
 	public void getAccountBalance() throws ApiException {
 		eveApi.selectCharacter(testCharacter);
-		EveAccountBalance accountBalance = eveApi.getAccountBalance();
+		EveAccountBalance accountBalance = eveApi.getAccountBalance(KeyType.Character).iterator().next();
 		assertNotNull(accountBalance);
 		assertEquals(10094361, accountBalance.getAccountID());
 		assertEquals(1000, accountBalance.getAccountKey());

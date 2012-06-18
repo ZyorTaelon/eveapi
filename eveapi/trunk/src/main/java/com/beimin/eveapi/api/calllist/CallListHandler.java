@@ -4,6 +4,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.core.AbstractContentHandler;
+import com.beimin.eveapi.shared.KeyType;
 
 public class CallListHandler extends AbstractContentHandler {
 	private CallListResponse response;
@@ -39,7 +40,7 @@ public class CallListHandler extends AbstractContentHandler {
 			} else if(calls) {
 				Call call = new Call();
 				call.setAccessMask(getLong(attrs, "accessMask"));
-				call.setType(getString(attrs, "type"));
+				call.setType(KeyType.valueOf(getString(attrs, "type")));
 				call.setName(getString(attrs, "name"));
 				call.setGroupID(getInt(attrs, "groupID"));
 				callList.add(call);
