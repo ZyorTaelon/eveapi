@@ -1,6 +1,5 @@
 package com.beimin.eveapi.account.apikeyinfo;
 
-import com.beimin.eveapi.account.apikeyinfo.ApiKeyInfoResponse.AccessMask;
 import com.beimin.eveapi.account.characters.EveCharacter;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -49,15 +48,5 @@ public class ApiKeyInfoParserTest extends FullAuthParserTest {
 		assertEquals("The Golden Gnu Corp", characters.get(2).getCorporationName());
 		//assertEquals(5603, response.getCharacterID());
 		//assertEquals(504903, response.getLogonMinutes());
-	}
-
-	@Test
-	public void accessMaskTest() {
-		AccessMask[] accessMasks = ApiKeyInfoResponse.AccessMask.values();
-		int result = 1;
-		for (int i = 0; i < accessMasks.length; i++){
-			assertEquals(result, accessMasks[i].getAccessMask());
-			result *= 2;
-		}
 	}
 }
