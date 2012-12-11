@@ -10,6 +10,7 @@ public enum ApiPage {
 	CONTACT_LIST("ContactList"), //
 	CONTACT_NOTIFICATIONS("ContactNotifications"), //
 	CONTRACTS("Contracts"), //
+	CONTRACT_ITEMS("ContractItems"), //
 	FACT_WAR_STATS("FacWarStats"), //
 	INDUSTRY_JOBS("IndustryJobs"), //
 	KILL_LOG("KillLog"), //
