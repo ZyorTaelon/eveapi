@@ -9,6 +9,7 @@ public enum ApiPage {
 	UPCOMING_CALENDAR_EVENTS("UpcomingCalendarEvents"), //
 	CONTACT_LIST("ContactList"), //
 	CONTACT_NOTIFICATIONS("ContactNotifications"), //
+	CONTRACTS("Contracts"), //
 	FACT_WAR_STATS("FacWarStats"), //
 	INDUSTRY_JOBS("IndustryJobs"), //
 	KILL_LOG("KillLog"), //
