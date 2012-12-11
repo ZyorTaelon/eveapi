@@ -14,7 +14,6 @@ import org.apache.camel.Processor;
 public class ExchangeProcessor implements Processor {
 
 	public interface ExtraAsserts {
-
 		void extraAsserts(Map<String, String> params);
 	}
 	ExtraAsserts extras;
