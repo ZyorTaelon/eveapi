@@ -28,8 +28,8 @@ public class IndustryJobsHandler extends AbstractContentListHandler<IndustryJobs
 		job.setLicensedProductionRuns(getInt(attrs, "licensedProductionRuns"));
 		job.setInstalledInSolarSystemID(getLong(attrs, "installedInSolarSystemID"));
 		job.setContainerLocationID(getLong(attrs, "containerLocationID"));
-		job.setMaterialMultiplier(getInt(attrs, "materialMultiplier"));
-		job.setCharMaterialMultiplier(getInt(attrs, "charMaterialMultiplier"));
+		job.setMaterialMultiplier(getDouble(attrs, "materialMultiplier"));
+		job.setCharMaterialMultiplier(getDouble(attrs, "charMaterialMultiplier"));
 		job.setTimeMultiplier(getDouble(attrs, "timeMultiplier"));
 		job.setCharTimeMultiplier(getDouble(attrs, "charTimeMultiplier"));
 		job.setInstalledItemTypeID(getInt(attrs, "installedItemTypeID"));

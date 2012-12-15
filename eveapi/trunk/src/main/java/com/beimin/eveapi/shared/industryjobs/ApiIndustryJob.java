@@ -18,8 +18,8 @@ public class ApiIndustryJob {
 	private int licensedProductionRuns;
 	private long installedInSolarSystemID; // LocationID : long
 	private long containerLocationID; // LocationID : long
-	private int materialMultiplier;
-	private int charMaterialMultiplier;
+	private double materialMultiplier;
+	private double charMaterialMultiplier;
 	private double timeMultiplier;
 	private double charTimeMultiplier;
 	private int installedItemTypeID; // TypeID : int
@@ -157,19 +157,19 @@ public class ApiIndustryJob {
 		this.containerLocationID = containerLocationID;
 	}
 
-	public int getMaterialMultiplier() {
+	public double getMaterialMultiplier() {
 		return materialMultiplier;
 	}
 
-	public void setMaterialMultiplier(int materialMultiplier) {
+	public void setMaterialMultiplier(double materialMultiplier) {
 		this.materialMultiplier = materialMultiplier;
 	}
 
-	public int getCharMaterialMultiplier() {
+	public double getCharMaterialMultiplier() {
 		return charMaterialMultiplier;
 	}
 
-	public void setCharMaterialMultiplier(int charMaterialMultiplier) {
+	public void setCharMaterialMultiplier(double charMaterialMultiplier) {
 		this.charMaterialMultiplier = charMaterialMultiplier;
 	}
 

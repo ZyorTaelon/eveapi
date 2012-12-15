@@ -49,8 +49,8 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 				assertEquals(15, job.getLicensedProductionRuns());
 				assertEquals(30005005, job.getInstalledInSolarSystemID());
 				assertEquals(30005005, job.getContainerLocationID());
-				assertEquals(1, job.getMaterialMultiplier());
-				assertEquals(1, job.getCharMaterialMultiplier());
+				assertEquals(1.2, job.getMaterialMultiplier(), 0.5);
+				assertEquals(1.5, job.getCharMaterialMultiplier(), 0.5);
 				assertEquals(0.65, job.getTimeMultiplier(), 0.5);
 				assertEquals(1.5, job.getCharTimeMultiplier(), 0.5);
 				assertEquals(971, job.getInstalledItemTypeID());
