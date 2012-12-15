@@ -43,6 +43,7 @@ public enum ApiPage {
 	CERTIFICATE_TREE("CertificateTree"), //
 	CHARACTER_ID("CharacterID"), //
 	CHARACTER_NAME("CharacterName"), //
+	TYPE_NAME("TypeName"), //
 	CONQUERABLE_STATION_LIST("ConquerableStationList"), //
 	ERROR_LIST("ErrorList"), //
 	FACT_WAR_TOP_STATS("FacWarTopStats"), //
