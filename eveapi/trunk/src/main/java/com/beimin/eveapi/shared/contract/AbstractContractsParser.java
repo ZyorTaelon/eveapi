@@ -7,8 +7,8 @@ import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
 
 public abstract class AbstractContractsParser extends AbstractListParser<ContractsHandler, ContractsResponse, EveContract> {
-	protected AbstractContractsParser(int version, ApiPath path) {
-		super(ContractsResponse.class, version, path, ApiPage.CONTRACTS, ContractsHandler.class);
+	protected AbstractContractsParser(ApiPath path) {
+		super(ContractsResponse.class, 2, path, ApiPage.CONTRACTS, ContractsHandler.class);
 	}
 	
 	@Override

@@ -5,7 +5,7 @@ import com.beimin.eveapi.shared.contract.AbstractContractsParser;
 
 public class ContractsParser extends AbstractContractsParser {
 	protected ContractsParser() {
-		super(3, ApiPath.CORPORATION);
+		super(ApiPath.CORPORATION);
 	}
 	
 	public static ContractsParser getInstance() {
