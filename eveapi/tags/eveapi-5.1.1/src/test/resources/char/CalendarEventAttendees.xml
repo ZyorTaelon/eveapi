@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eveapi version="2">
+  <currentTime>2011-04-07 17:16:40</currentTime>
+  <result>
+    <rowset name="eventAttendees" key="eventID, characterID" columns="eventID,characterID,characterName,response">
+      <row eventID="133918" characterID="1380128241" characterName="Zy'or Tealon" response="Accepted"/>
+    </rowset>
+  </result>
+  <cachedUntil>2011-04-07 17:16:55</cachedUntil>
+</eveapi>
