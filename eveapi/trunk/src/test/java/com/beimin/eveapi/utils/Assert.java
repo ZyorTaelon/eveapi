@@ -20,4 +20,9 @@ public class Assert {
 		calendar.set(Calendar.MILLISECOND, 0);
 		assertEquals(calendar.getTime(), date);
 	}
+
+	public static void assertDate(String expected, Date actual) {
+		String[] split = expected.split("[\\s-:]+");
+		assertDate(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), Integer.parseInt(split[3]), Integer.parseInt(split[4]), Integer.parseInt(split[5]), actual);
+	}
 }
