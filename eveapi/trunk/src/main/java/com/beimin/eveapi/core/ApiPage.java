@@ -22,6 +22,7 @@ public enum ApiPage {
 	MARKET_ORDERS("MarketOrders"), //
 	MEDALS("Medals"), //
 	NOTIFICATIONS("Notifications"), //
+	NOTIFICATION_TEXTS("NotificationTexts"), //
 	RESEARCH("Research"), //
 	CHARACTER_SHEET("CharacterSheet"), //
 	SKILL_IN_TRAINING("SkillInTraining"), //
