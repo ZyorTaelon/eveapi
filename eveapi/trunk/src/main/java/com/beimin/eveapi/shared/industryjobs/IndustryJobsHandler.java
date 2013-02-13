@@ -22,7 +22,7 @@ public class IndustryJobsHandler extends AbstractContentListHandler<IndustryJobs
 		job.setInstalledItemProductivityLevel(getInt(attrs, "installedItemProductivityLevel"));
 		job.setInstalledItemMaterialLevel(getInt(attrs, "installedItemMaterialLevel"));
 		job.setInstalledItemLicensedProductionRunsRemaining(getInt(attrs, "installedItemLicensedProductionRunsRemaining"));
-		job.setOutputLocationID(getInt(attrs, "outputLocationID"));
+		job.setOutputLocationID(getLong(attrs, "outputLocationID"));
 		job.setInstallerID(getLong(attrs, "installerID"));
 		job.setRuns(getInt(attrs, "runs"));
 		job.setLicensedProductionRuns(getInt(attrs, "licensedProductionRuns"));
@@ -35,7 +35,7 @@ public class IndustryJobsHandler extends AbstractContentListHandler<IndustryJobs
 		job.setInstalledItemTypeID(getInt(attrs, "installedItemTypeID"));
 		job.setOutputTypeID(getInt(attrs, "outputTypeID"));
 		job.setContainerTypeID(getInt(attrs, "containerTypeID"));
-		job.setInstalledItemCopy(getInt(attrs, "installedItemCopy"));
+		job.setInstalledItemCopy(getLong(attrs, "installedItemCopy"));
 		job.setCompleted(getBoolean(attrs, "completed"));
 		job.setCompletedSuccessfully(getBoolean(attrs, "completedSuccessfully"));
 		job.setInstalledItemFlag(getInt(attrs, "installedItemFlag"));

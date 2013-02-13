@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
@@ -76,6 +77,7 @@ public class ImageProviderTest {
 		assertEquals("https://image.eveonline.com/InventoryType/22436_32.png", urlString);
 	}
 
+	@Ignore("Test shouldn't depend on outside source")
 	@Test
 	public void getTypeIcon() throws ApiException, IOException {
 		BufferedImage image = ImageProvider.getTypeIcon(22436, (short)32);
@@ -92,7 +94,8 @@ public class ImageProviderTest {
 		String urlString = url.toExternalForm();
 		assertEquals("https://image.eveonline.com/Render/22436_32.png", urlString);
 	}
-
+	
+	@Ignore("Test shouldn't depend on outside source")
 	@Test
 	public void getRender() throws ApiException, IOException {
 		BufferedImage image = ImageProvider.getRender(22436, (short)32);

@@ -13,8 +13,8 @@ public class CalendarEventAttendeesHandler extends AbstractContentListHandler<Ca
 	@Override
 	protected EveCalendarEventAttendee getItem(Attributes attrs) {
 		EveCalendarEventAttendee eventAttendee = new EveCalendarEventAttendee();
-		eventAttendee.setEventID(getInt(attrs, "eventID"));
-		eventAttendee.setCharacterID(getInt(attrs, "characterID"));
+		eventAttendee.setEventID(getLong(attrs, "eventID"));
+		eventAttendee.setCharacterID(getLong(attrs, "characterID"));
 		eventAttendee.setCharacterName(getString(attrs, "characterName"));
 		eventAttendee.setResponse(CalendarEventResponse.valueOf(getString(attrs, "response").toUpperCase()));
 		return eventAttendee;

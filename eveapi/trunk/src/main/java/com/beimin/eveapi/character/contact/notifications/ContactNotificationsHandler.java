@@ -13,8 +13,8 @@ public class ContactNotificationsHandler extends AbstractContentListHandler<Cont
 	@Override
 	protected EveContactNotification getItem(Attributes attrs) {
 		EveContactNotification contactNotification = new EveContactNotification();
-		contactNotification.setNotificationID(getInt(attrs, "notificationID"));
-		contactNotification.setSenderID(getInt(attrs, "senderID"));
+		contactNotification.setNotificationID(getLong(attrs, "notificationID"));
+		contactNotification.setSenderID(getLong(attrs, "senderID"));
 		contactNotification.setSenderName(getString(attrs, "senderName"));
 		contactNotification.setSentDate(getDate(attrs, "sentDate"));
 		contactNotification.setMessageData(getString(attrs, "messageData"));

@@ -48,22 +48,22 @@ public class CharacterSheetHandler extends AbstractContentHandler {
 				response.addCertificate(certificate);
 			} else if ("corporationRoles".equals(rowsetName)) {
 				ApiCorporationRole corporationRole = new ApiCorporationRole();
-				corporationRole.setRoleID(getInt(attrs, "roleID"));
+				corporationRole.setRoleID(getLong(attrs, "roleID"));
 				corporationRole.setRoleName(getString(attrs, "roleName"));
 				response.addCorporationRole(corporationRole);
 			} else if ("corporationRolesAtHQ".equals(rowsetName)) {
 				ApiCorporationRole corporationRole = new ApiCorporationRole();
-				corporationRole.setRoleID(getInt(attrs, "roleID"));
+				corporationRole.setRoleID(getLong(attrs, "roleID"));
 				corporationRole.setRoleName(getString(attrs, "roleName"));
 				response.addCorporationRoleAtHQ(corporationRole);
 			} else if ("corporationRolesAtBase".equals(rowsetName)) {
 				ApiCorporationRole corporationRole = new ApiCorporationRole();
-				corporationRole.setRoleID(getInt(attrs, "roleID"));
+				corporationRole.setRoleID(getLong(attrs, "roleID"));
 				corporationRole.setRoleName(getString(attrs, "roleName"));
 				response.addCorporationRoleAtBase(corporationRole);
 			} else if ("corporationRolesAtOther".equals(rowsetName)) {
 				ApiCorporationRole corporationRole = new ApiCorporationRole();
-				corporationRole.setRoleID(getInt(attrs, "roleID"));
+				corporationRole.setRoleID(getLong(attrs, "roleID"));
 				corporationRole.setRoleName(getString(attrs, "roleName"));
 				response.addCorporationRoleAtOther(corporationRole);
 			} else if ("corporationTitles".equals(rowsetName)) {

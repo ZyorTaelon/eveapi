@@ -20,7 +20,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
 		else if (qName.equals("row")) {
 			if (memberCorporations) {
 				ApiMemberCorporation memberCorporation = new ApiMemberCorporation();
-				memberCorporation.setCorporationID(getInt(attrs, "corporationID"));
+				memberCorporation.setCorporationID(getLong(attrs, "corporationID"));
 				memberCorporation.setStartDate(getDate(attrs, "startDate"));
 				alliance.add(memberCorporation);
 			} else {

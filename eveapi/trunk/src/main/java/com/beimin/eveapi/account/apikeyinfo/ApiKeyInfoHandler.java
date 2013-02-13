@@ -19,7 +19,7 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
 	public void startElement(String uri, String localName, String qName, Attributes attrs)
 			throws SAXException {
 		if (qName.equals("key")) {
-			response.setAccessMask(getInt(attrs, "accessMask"));
+			response.setAccessMask(getLong(attrs, "accessMask"));
 			response.setType(KeyType.valueOf(getString(attrs, "type")));
 			String expires = attrs.getValue("expires").trim();
 			if(expires.length() > 0)

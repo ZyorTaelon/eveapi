@@ -21,7 +21,7 @@ public class MemberTrackingHandler extends AbstractContentListHandler<MemberTrac
 		member.setTitle(getString(attrs, "title"));
 		
 		if( attrs.getValue("grantableRoles") != null )
-			member.setGrantableRoles(getInt(attrs, "grantableRoles"));
+			member.setGrantableRoles(getLong(attrs, "grantableRoles"));
 		
 		if( attrs.getValue("location") != null )
 			member.setLocation(getString(attrs, "location"));
