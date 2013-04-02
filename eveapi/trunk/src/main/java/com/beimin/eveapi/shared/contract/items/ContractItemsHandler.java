@@ -15,6 +15,7 @@ public class ContractItemsHandler extends AbstractContentListHandler<ContractIte
 		contractItem.setRecordID(getLong(attrs, "recordID"));
 		contractItem.setTypeID(getInt(attrs, "typeID"));
 		contractItem.setQuantity(getLong(attrs, "quantity"));
+		contractItem.setRawQuantity(getLong(attrs, "rawQuantity"));
 		contractItem.setSingleton(getBoolean(attrs, "singleton"));
 		contractItem.setIncluded(getBoolean(attrs, "included"));
 		return contractItem;

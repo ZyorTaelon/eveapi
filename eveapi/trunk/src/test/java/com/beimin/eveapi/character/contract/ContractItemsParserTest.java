@@ -3,6 +3,7 @@ package com.beimin.eveapi.character.contract;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
@@ -30,16 +31,26 @@ public class ContractItemsParserTest extends FullAuthParserTest {
 		Collection<EveContractItem> contracts = response.getAll();
 		assertNotNull(contracts);
 		assertEquals(2, contracts.size());
-		boolean found = false;
+		boolean foundOne = false;
+		boolean foundTwo = false;
 		for (EveContractItem contract : contracts) {
 			if(contract.getRecordID()==854257304L) {
-				found = true;
+				foundOne = true;
 				assertEquals(3683, contract.getTypeID());
 				assertEquals(10L, contract.getQuantity());
+				assertNull(contract.getRawQuantity());
 				assertFalse(contract.isSingleton());
 				assertTrue(contract.isIncluded());
+			} else if(contract.getRecordID()==854257305L) {
+				foundTwo = true;
+				assertEquals(3683, contract.getTypeID());
+				assertEquals(10L, contract.getQuantity());
+				assertEquals(1L, contract.getRawQuantity().longValue());
+				assertFalse(contract.isSingleton());
+				assertFalse(contract.isIncluded());
 			}
 		}
-		assertTrue("test contract item wasn't found.", found);
+		assertTrue("test contract item wasn't found.", foundOne);
+		assertTrue("test contract item wasn't found.", foundTwo);
 	}
 }
