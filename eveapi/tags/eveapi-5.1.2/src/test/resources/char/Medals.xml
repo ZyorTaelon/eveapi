@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+  <currentTime>2010-04-02 18:58:27</currentTime>
+  <result>
+    <rowset name="currentCorporation" key="medalID" columns="medalID,reason,status,issuerID,issued" >
+        <row medalID="38208" reason="found the undock button" status="private" issuerID="718955203" issued="2010-02-29 02:14:33" />
+    </rowset>
+    <rowset name="otherCorporations" key="medalID" columns="medalID,reason,status,issuerID,issued,corporationID,title,description">
+      <row medalID="40125" reason="cuz hes awesome" status="public" issuerID="753005810" issued="2009-12-23 00:32:04" corporationID="182784411" title="Christian Fundamentalist Award" description="For relentlessly trying to spread the Good Message. Even within an internet spaceship game." />
+    </rowset>
+  </result>
+  <cachedUntil>2010-04-03 17:58:27</cachedUntil>
+</eveapi>

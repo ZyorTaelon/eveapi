@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eveapi version="2">
+  <currentTime>2010-11-28 20:14:10</currentTime>
+  <result>
+    <characterNPCStandings>
+      <rowset name="agents" key="fromID" columns="fromID,fromName,standing">
+        <row fromID="3008577" fromName="Namai Manir" standing="0.07"/>
+        <row fromID="3008653" fromName="Arheh Aman" standing="4.90"/>
+        <row fromID="3008655" fromName="Hepeta Bis" standing="5.72"/>
+        <row fromID="3008667" fromName="Falian Khivad" standing="4.16"/>
+        <row fromID="3008668" fromName="Chana Andichouz" standing="0.24"/>
+        <row fromID="3008669" fromName="Ahayen Mulya" standing="1.21"/>
+        <row fromID="3008734" fromName="Nayeri Shushi" standing="4.37"/>
+        <row fromID="3008752" fromName="Gornoon Mezankhenij" standing="2.82"/>
+        <row fromID="3008766" fromName="Mirose Sahalondri" standing="0.18"/>
+        <row fromID="3008767" fromName="Sapi Nayhah" standing="7.31"/>
+        <row fromID="3009559" fromName="Ancevence Achelasse" standing="0.11"/>
+        <row fromID="3009892" fromName="Zwendt Brinalle" standing="0.25"/>
+        <row fromID="3010005" fromName="Gorn Erpidik" standing="3.94"/>
+        <row fromID="3010120" fromName="Orvyllerier Allerande" standing="6.74"/>
+        <row fromID="3010121" fromName="Penchareel Orlede" standing="5.38"/>
+        <row fromID="3010195" fromName="Ahremen Arkah" standing="4.23"/>
+        <row fromID="3010231" fromName="Unenailen Aaranen" standing="4.23"/>
+        <row fromID="3010811" fromName="Toiniainen Omu" standing="9.88"/>
+        <row fromID="3011150" fromName="Sutagaitoh Sanda" standing="9.19"/>
+        <row fromID="3012057" fromName="Otamon Heiminen" standing="2.32"/>
+        <row fromID="3012589" fromName="Jodgauren Olmeigar" standing="0.70"/>
+        <row fromID="3012590" fromName="Wamimber Eidalren" standing="0.09"/>
+        <row fromID="3012960" fromName="Mengoul Yak" standing="1.03"/>
+        <row fromID="3012994" fromName="Aimal Erza" standing="4.76"/>
+        <row fromID="3013005" fromName="Tzahri Veki" standing="2.82"/>
+        <row fromID="3013008" fromName="Jaliri Gavan" standing="3.37"/>
+        <row fromID="3013387" fromName="Hihrzoot Sohefema" standing="0.99"/>
+        <row fromID="3013406" fromName="Garmasi Samooh" standing="0.38"/>
+        <row fromID="3013415" fromName="Tzeya Ivah" standing="1.65"/>
+        <row fromID="3013457" fromName="Ensden Eofalvard" standing="0.12"/>
+        <row fromID="3013582" fromName="Mujaila Yleken" standing="2.00"/>
+        <row fromID="3013816" fromName="Ershol Arajah" standing="4.30"/>
+        <row fromID="3013966" fromName="Thon Eney" standing="2.54"/>
+        <row fromID="3013988" fromName="Scabriger Fitault" standing="1.33"/>
+        <row fromID="3014240" fromName="Aitakan Reinsdar" standing="3.37"/>
+        <row fromID="3014820" fromName="Aneng Tzashrah" standing="7.16"/>
+        <row fromID="3014881" fromName="Shetis Akabantan" standing="1.90"/>
+        <row fromID="3014884" fromName="Gutestna Amalir" standing="0.15"/>
+        <row fromID="3014891" fromName="Nirela Tzara" standing="6.81"/>
+        <row fromID="3014895" fromName="Sireyi Pasru" standing="5.54"/>
+        <row fromID="3014897" fromName="Heshuma Ussa" standing="6.64"/>
+        <row fromID="3014905" fromName="Hekhem Moranour" standing="4.07"/>
+        <row fromID="3015008" fromName="Sharenisali Sirjariad" standing="10.00"/>
+        <row fromID="3015400" fromName="Mazuere Vyllocoure" standing="0.61"/>
+        <row fromID="3015423" fromName="Moes Aildart" standing="0.25"/>
+        <row fromID="3015610" fromName="Zoelounore Arnanwaert" standing="0.20"/>
+        <row fromID="3015757" fromName="Raveeva Astihr" standing="6.88"/>
+        <row fromID="3015759" fromName="Estamel Tharchon" standing="4.57"/>
+        <row fromID="3015761" fromName="Hieyora Nalvas" standing="1.87"/>
+        <row fromID="3015820" fromName="Tarmori Trabboul" standing="1.36"/>
+        <row fromID="3015822" fromName="Draclira Merlonne" standing="1.01"/>
+        <row fromID="3015848" fromName="Gunonbjer Hagmulf" standing="2.11"/>
+        <row fromID="3016034" fromName="Tattonaert Angerjeneur" standing="0.02"/>
+        <row fromID="3016300" fromName="Kurmaru Auvulatoh" standing="0.93"/>
+        <row fromID="3016598" fromName="Muvila Milkina" standing="2.60"/>
+        <row fromID="3016599" fromName="Kaurmoras Uesilen" standing="2.54"/>
+        <row fromID="3016604" fromName="Yarela Ohio" standing="1.37"/>
+        <row fromID="3017111" fromName="Urara Oshuhad" standing="0.56"/>
+        <row fromID="3017125" fromName="Vepas Hapinen" standing="0.64"/>
+        <row fromID="3017166" fromName="Alloullen Toucard" standing="0.50"/>
+        <row fromID="3017219" fromName="Uunse Matsikka" standing="0.56"/>
+        <row fromID="3017289" fromName="Mabai Aty" standing="0.35"/>
+        <row fromID="3018120" fromName="Bordt Slaroyes" standing="6.68"/>
+        <row fromID="3018135" fromName="Isuma Munebainen" standing="0.92"/>
+        <row fromID="3018140" fromName="Uptore Lommnersin" standing="0.07"/>
+        <row fromID="3018239" fromName="Oriainesen Pala" standing="0.04"/>
+        <row fromID="3018273" fromName="Rora Pulina" standing="3.91"/>
+        <row fromID="3018317" fromName="Arted Fehya" standing="3.84"/>
+        <row fromID="3018461" fromName="Makra Ozman" standing="3.51"/>
+        <row fromID="3018463" fromName="Aram Ishtan" standing="3.57"/>
+        <row fromID="3018464" fromName="Nathrim Kazar" standing="0.66"/>
+        <row fromID="3018465" fromName="Korimor Rakk" standing="0.14"/>
+        <row fromID="3018471" fromName="Odrus Yakari" standing="3.62"/>
+        <row fromID="3018473" fromName="Lagrossa Mytil" standing="1.92"/>
+        <row fromID="3018474" fromName="Sakem Komal" standing="6.43"/>
+        <row fromID="3018475" fromName="Hazli Tamarom" standing="4.20"/>
+        <row fromID="3018632" fromName="Utaka Orasa" standing="0.19"/>
+        <row fromID="3018677" fromName="Rian Sumana" standing="0.25"/>
+        <row fromID="3018678" fromName="Geil Ustegokkur" standing="0.25"/>
+        <row fromID="3018679" fromName="Anuko Hugandur" standing="0.25"/>
+        <row fromID="3018694" fromName="Shi Aidek" standing="1.35"/>
+        <row fromID="3018837" fromName="Alfiker Maliddar" standing="0.25"/>
+        <row fromID="3018838" fromName="Ansdald Nyragi" standing="0.25"/>
+        <row fromID="3018839" fromName="Bria Arnkorin" standing="0.25"/>
+        <row fromID="3018840" fromName="Evuttur Arpen" standing="0.25"/>
+        <row fromID="3018841" fromName="Firginia Fodelbert" standing="0.25"/>
+        <row fromID="3018842" fromName="Halvuli Alfiker" standing="0.25"/>
+        <row fromID="3018843" fromName="Hebrid Mangarik" standing="0.25"/>
+        <row fromID="3018844" fromName="Herundio Bodweradat" standing="0.25"/>
+        <row fromID="3018845" fromName="Jomodar Infreger" standing="0.25"/>
+        <row fromID="3018846" fromName="Meinevedar Austrudelef" standing="0.25"/>
+        <row fromID="3018847" fromName="Solur Erfar" standing="0.25"/>
+        <row fromID="3018848" fromName="Vimeini Jomodar" standing="0.25"/>
+        <row fromID="3018927" fromName="Uba Virserin" standing="2.46"/>
+        <row fromID="3018932" fromName="Dalofer Mattore" standing="1.52"/>
+        <row fromID="3019342" fromName="Eurbibad Kird" standing="1.52"/>
+        <row fromID="3019343" fromName="Stird Odetlef" standing="1.94"/>
+        <row fromID="3019346" fromName="Arninald Beinarakur" standing="1.94"/>
+        <row fromID="3019347" fromName="Harbuko Bedgimund" standing="2.46"/>
+        <row fromID="3019356" fromName="Sister Alitura" standing="6.33"/>
+        <row fromID="3019358" fromName="Delphine Xarasier" standing="2.86"/>
+        <row fromID="3019359" fromName="Immuri Asaka" standing="2.83"/>
+        <row fromID="3019361" fromName="Keita Eslin" standing="2.28"/>
+        <row fromID="3019362" fromName="Tarak Erand" standing="1.31"/>
+        <row fromID="3019363" fromName="Dovirch Anselm" standing="1.47"/>
+        <row fromID="3019364" fromName="Doctor Canius" standing="1.61"/>
+        <row fromID="3019368" fromName="Adani Yusev" standing="1.06"/>
+        <row fromID="3019369" fromName="Tevis Jak" standing="0.85"/>
+        <row fromID="3019402" fromName="Riff Hebian" standing="1.15"/>
+        <row fromID="3019406" fromName="Kandus Sandar" standing="3.82"/>
+        <row fromID="3019407" fromName="Aralin Jick" standing="5.24"/>
+        <row fromID="3019415" fromName="Karde Romu" standing="0.92"/>
+        <row fromID="3019455" fromName="Wettor Fugen" standing="2.46"/>
+        <row fromID="3019456" fromName="Bradondar Alfalur" standing="2.46"/>
+        <row fromID="3019478" fromName="Artgert Ardreas" standing="1.39"/>
+        <row fromID="3019479" fromName="Sut Bjar" standing="1.40"/>
+      </rowset>
+      <rowset name="NPCCorporations" key="fromID" columns="fromID,fromName,standing">
+        <row fromID="1000002" fromName="CBD Corporation" standing="1.08"/>
+        <row fromID="1000005" fromName="Hyasyoda Corporation" standing="0.18"/>
+        <row fromID="1000009" fromName="Caldari Provisions" standing="-0.23"/>
+        <row fromID="1000010" fromName="Kaalakiota Corporation" standing="3.04"/>
+        <row fromID="1000022" fromName="Propel Dynamics" standing="0.31"/>
+        <row fromID="1000023" fromName="Expert Distribution" standing="1.29"/>
+        <row fromID="1000035" fromName="Caldari Navy" standing="2.66"/>
+        <row fromID="1000038" fromName="Ishukone Watch" standing="0.09"/>
+        <row fromID="1000041" fromName="Spacelane Patrol" standing="0.77"/>
+        <row fromID="1000044" fromName="School of Applied Knowledge" standing="-2.65"/>
+        <row fromID="1000047" fromName="Krusual tribe" standing="0.17"/>
+        <row fromID="1000049" fromName="Brutor tribe" standing="-0.17"/>
+        <row fromID="1000056" fromName="Core Complexion Inc." standing="0.67"/>
+        <row fromID="1000061" fromName="Freedom Extension" standing="0.35"/>
+        <row fromID="1000064" fromName="Carthum Conglomerate" standing="0.13"/>
+        <row fromID="1000065" fromName="Imperial Armaments" standing="0.55"/>
+        <row fromID="1000066" fromName="Viziam" standing="0.29"/>
+        <row fromID="1000067" fromName="Zoar and Sons" standing="3.72"/>
+        <row fromID="1000073" fromName="Amarr Certified News" standing="1.24"/>
+        <row fromID="1000077" fromName="Royal Amarr Institute" standing="-4.51"/>
+        <row fromID="1000079" fromName="Amarr Civil Service" standing="2.80"/>
+        <row fromID="1000080" fromName="Ministry of War" standing="0.26"/>
+        <row fromID="1000082" fromName="Ministry of Internal Order" standing="7.66"/>
+        <row fromID="1000084" fromName="Amarr Navy" standing="8.63"/>
+        <row fromID="1000085" fromName="Court Chamberlain" standing="1.94"/>
+        <row fromID="1000089" fromName="Kor-Azor Family" standing="3.51"/>
+        <row fromID="1000091" fromName="Tash-Murkon Family" standing="8.08"/>
+        <row fromID="1000093" fromName="Theology Council" standing="0.10"/>
+        <row fromID="1000095" fromName="Federal Freight" standing="0.15"/>
+        <row fromID="1000101" fromName="CreoDron" standing="0.21"/>
+        <row fromID="1000107" fromName="The Scope" standing="0.05"/>
+        <row fromID="1000109" fromName="Duvolle Laboratories" standing="0.11"/>
+        <row fromID="1000115" fromName="University of Caille" standing="-1.43"/>
+        <row fromID="1000120" fromName="Federation Navy" standing="0.05"/>
+        <row fromID="1000124" fromName="Archangels" standing="-1.14"/>
+        <row fromID="1000125" fromName="CONCORD" standing="1.75"/>
+        <row fromID="1000126" fromName="Ammatar Consulate" standing="0.15"/>
+        <row fromID="1000127" fromName="Guristas" standing="7.73"/>
+        <row fromID="1000129" fromName="Outer Ring Excavations" standing="0.07"/>
+        <row fromID="1000130" fromName="Sisters of EVE" standing="0.74"/>
+        <row fromID="1000134" fromName="Blood Raiders" standing="8.40"/>
+        <row fromID="1000135" fromName="Serpentis Corporation" standing="-0.11"/>
+        <row fromID="1000136" fromName="Guardian Angels" standing="8.49"/>
+        <row fromID="1000161" fromName="True Creations" standing="0.00"/>
+        <row fromID="1000162" fromName="True Power" standing="-5.08"/>
+        <row fromID="1000166" fromName="Imperial Academy" standing="-1.62"/>
+        <row fromID="1000167" fromName="State War Academy" standing="-1.58"/>
+        <row fromID="1000168" fromName="Federal Navy Academy" standing="-1.82"/>
+        <row fromID="1000170" fromName="Republic Military School" standing="-2.28"/>
+        <row fromID="1000171" fromName="Republic University" standing="2.33"/>
+        <row fromID="1000172" fromName="Pator Tech School" standing="2.28"/>
+      </rowset>
+      <rowset name="factions" key="fromID" columns="fromID,fromName,standing">
+        <row fromID="500001" fromName="Caldari State" standing="-1.95"/>
+        <row fromID="500002" fromName="Minmatar Republic" standing="-4.66"/>
+        <row fromID="500003" fromName="Amarr Empire" standing="-2.06"/>
+        <row fromID="500004" fromName="Gallente Federation" standing="-3.38"/>
+        <row fromID="500005" fromName="Jove Empire" standing="0.34"/>
+        <row fromID="500006" fromName="CONCORD Assembly" standing="-3.59"/>
+        <row fromID="500007" fromName="Ammatar Mandate" standing="0.30"/>
+        <row fromID="500008" fromName="Khanid Kingdom" standing="-2.05"/>
+        <row fromID="500009" fromName="The Syndicate" standing="-1.61"/>
+        <row fromID="500010" fromName="Guristas Pirates" standing="-6.12"/>
+        <row fromID="500011" fromName="Angel Cartel" standing="-8.84"/>
+        <row fromID="500012" fromName="The Blood Raider Covenant" standing="-9.26"/>
+        <row fromID="500013" fromName="The InterBus" standing="-0.43"/>
+        <row fromID="500014" fromName="ORE" standing="-1.03"/>
+        <row fromID="500015" fromName="Thukker Tribe" standing="-3.47"/>
+        <row fromID="500016" fromName="The Servant Sisters of EVE" standing="-0.56"/>
+        <row fromID="500017" fromName="The Society" standing="0.10"/>
+        <row fromID="500018" fromName="Mordu's Legion Command" standing="-2.07"/>
+        <row fromID="500019" fromName="Sansha's Nation" standing="-9.05"/>
+        <row fromID="500020" fromName="Serpentis" standing="-5.68"/>
+      </rowset>
+    </characterNPCStandings>
+  </result>
+  <cachedUntil>2010-11-28 23:11:10</cachedUntil>
+</eveapi>
