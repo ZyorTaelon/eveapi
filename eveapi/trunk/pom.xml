@@ -10,7 +10,7 @@
 	<url>http://eveapi.googlecode.com/</url>
 	<distributionManagement>
 		<repository>
-			<id>repo</id>
+			<id>eveapi.googlecode.com</id>
 			<name>EveAPI Maven Repository</name>
 			<url>https://eveapi.googlecode.com/svn/artifacts/maven</url>
 		</repository>
