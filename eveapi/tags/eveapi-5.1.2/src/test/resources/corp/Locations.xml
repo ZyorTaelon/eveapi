@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+	<currentTime>2012-06-18 19:09:23</currentTime>
+	<result>
+		<rowset name="locations" key="itemID" columns="itemID,itemName,x,y,z">
+			<row itemID="1002861698719" itemName="Caldari Control Tower Medium" x="-896690626560" y="-163314032640" z="-1323431485440" />
+		</rowset>
+	</result>
+	<cachedUntil>2012-06-18 20:09:23</cachedUntil>
+</eveapi>
