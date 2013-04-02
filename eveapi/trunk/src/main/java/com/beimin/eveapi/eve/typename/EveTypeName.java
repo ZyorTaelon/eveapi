@@ -4,19 +4,19 @@ public class EveTypeName {
 	private int typeID;
 	private String typeName;
 
-	public final int getTypeID() {
+	public int getTypeID() {
 		return typeID;
 	}
 
-	public final void setTypeID(int typeID) {
+	public void setTypeID(int typeID) {
 		this.typeID = typeID;
 	}
 
-	public final String getTypeName() {
+	public String getTypeName() {
 		return typeName;
 	}
 
-	public final void setTypeName(String typeName) {
+	public void setTypeName(String typeName) {
 		this.typeName = typeName;
 	}
 }

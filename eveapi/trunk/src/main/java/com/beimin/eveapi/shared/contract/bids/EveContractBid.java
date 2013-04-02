@@ -9,43 +9,43 @@ public class EveContractBid {
 	private Date dateBid;
 	private double amount;
 
-	public final long getBidID() {
+	public long getBidID() {
 		return bidID;
 	}
 
-	public final void setBidID(long bidID) {
+	public void setBidID(long bidID) {
 		this.bidID = bidID;
 	}
 
-	public final long getContractID() {
+	public long getContractID() {
 		return contractID;
 	}
 
-	public final void setContractID(long contractID) {
+	public void setContractID(long contractID) {
 		this.contractID = contractID;
 	}
 
-	public final long getBidderID() {
+	public long getBidderID() {
 		return bidderID;
 	}
 
-	public final void setBidderID(long bidderID) {
+	public void setBidderID(long bidderID) {
 		this.bidderID = bidderID;
 	}
 
-	public final Date getDateBid() {
+	public Date getDateBid() {
 		return dateBid;
 	}
 
-	public final void setDateBid(Date dateBid) {
+	public void setDateBid(Date dateBid) {
 		this.dateBid = dateBid;
 	}
 
-	public final double getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public final void setAmount(double amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 }

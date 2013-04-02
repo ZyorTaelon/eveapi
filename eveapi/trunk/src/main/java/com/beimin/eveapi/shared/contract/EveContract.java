@@ -26,179 +26,179 @@ public class EveContract {
 	private double buyout;
 	private double volume;
 
-	public final long getContractID() {
+	public long getContractID() {
 		return contractID;
 	}
 
-	public final void setContractID(long contractID) {
+	public void setContractID(long contractID) {
 		this.contractID = contractID;
 	}
 
-	public final long getIssuerID() {
+	public long getIssuerID() {
 		return issuerID;
 	}
 
-	public final void setIssuerID(long issuerID) {
+	public void setIssuerID(long issuerID) {
 		this.issuerID = issuerID;
 	}
 
-	public final long getIssuerCorpID() {
+	public long getIssuerCorpID() {
 		return issuerCorpID;
 	}
 
-	public final void setIssuerCorpID(long issuerCorpID) {
+	public void setIssuerCorpID(long issuerCorpID) {
 		this.issuerCorpID = issuerCorpID;
 	}
 
-	public final long getAssigneeID() {
+	public long getAssigneeID() {
 		return assigneeID;
 	}
 
-	public final void setAssigneeID(long assigneeID) {
+	public void setAssigneeID(long assigneeID) {
 		this.assigneeID = assigneeID;
 	}
 
-	public final long getAcceptorID() {
+	public long getAcceptorID() {
 		return acceptorID;
 	}
 
-	public final void setAcceptorID(long acceptorID) {
+	public void setAcceptorID(long acceptorID) {
 		this.acceptorID = acceptorID;
 	}
 
-	public final int getStartStationID() {
+	public int getStartStationID() {
 		return startStationID;
 	}
 
-	public final void setStartStationID(int startStationID) {
+	public void setStartStationID(int startStationID) {
 		this.startStationID = startStationID;
 	}
 
-	public final int getEndStationID() {
+	public int getEndStationID() {
 		return endStationID;
 	}
 
-	public final void setEndStationID(int endStationID) {
+	public void setEndStationID(int endStationID) {
 		this.endStationID = endStationID;
 	}
 
-	public final ContractType getType() {
+	public ContractType getType() {
 		return type;
 	}
 
-	public final void setType(ContractType type) {
+	public void setType(ContractType type) {
 		this.type = type;
 	}
 
-	public final ContractStatus getStatus() {
+	public ContractStatus getStatus() {
 		return status;
 	}
 
-	public final void setStatus(ContractStatus status) {
+	public void setStatus(ContractStatus status) {
 		this.status = status;
 	}
 
-	public final String getTitle() {
+	public String getTitle() {
 		return title;
 	}
 
-	public final void setTitle(String title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	public final boolean isForCorp() {
+	public boolean isForCorp() {
 		return forCorp;
 	}
 
-	public final void setForCorp(boolean forCorp) {
+	public void setForCorp(boolean forCorp) {
 		this.forCorp = forCorp;
 	}
 
-	public final ContractAvailability getAvailability() {
+	public ContractAvailability getAvailability() {
 		return availability;
 	}
 
-	public final void setAvailability(ContractAvailability availability) {
+	public void setAvailability(ContractAvailability availability) {
 		this.availability = availability;
 	}
 
-	public final Date getDateIssued() {
+	public Date getDateIssued() {
 		return dateIssued;
 	}
 
-	public final void setDateIssued(Date dateIssued) {
+	public void setDateIssued(Date dateIssued) {
 		this.dateIssued = dateIssued;
 	}
 
-	public final Date getDateExpired() {
+	public Date getDateExpired() {
 		return dateExpired;
 	}
 
-	public final void setDateExpired(Date dateExpired) {
+	public void setDateExpired(Date dateExpired) {
 		this.dateExpired = dateExpired;
 	}
 
-	public final Date getDateAccepted() {
+	public Date getDateAccepted() {
 		return dateAccepted;
 	}
 
-	public final void setDateAccepted(Date dateAccepted) {
+	public void setDateAccepted(Date dateAccepted) {
 		this.dateAccepted = dateAccepted;
 	}
 
-	public final Date getDateCompleted() {
+	public Date getDateCompleted() {
 		return dateCompleted;
 	}
 
-	public final void setDateCompleted(Date dateCompleted) {
+	public void setDateCompleted(Date dateCompleted) {
 		this.dateCompleted = dateCompleted;
 	}
 
-	public final int getNumDays() {
+	public int getNumDays() {
 		return numDays;
 	}
 
-	public final void setNumDays(int numDays) {
+	public void setNumDays(int numDays) {
 		this.numDays = numDays;
 	}
 
-	public final double getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public final void setPrice(double price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
-	public final double getReward() {
+	public double getReward() {
 		return reward;
 	}
 
-	public final void setReward(double reward) {
+	public void setReward(double reward) {
 		this.reward = reward;
 	}
 
-	public final double getCollateral() {
+	public double getCollateral() {
 		return collateral;
 	}
 
-	public final void setCollateral(double collateral) {
+	public void setCollateral(double collateral) {
 		this.collateral = collateral;
 	}
 
-	public final double getBuyout() {
+	public double getBuyout() {
 		return buyout;
 	}
 
-	public final void setBuyout(double buyout) {
+	public void setBuyout(double buyout) {
 		this.buyout = buyout;
 	}
 
-	public final double getVolume() {
+	public double getVolume() {
 		return volume;
 	}
 
-	public final void setVolume(double volume) {
+	public void setVolume(double volume) {
 		this.volume = volume;
 	}
 }

@@ -13,11 +13,11 @@ public class ApiNotificationText {
 		this.notificationID = notificationID;
 	}
 
-	public final String getText() {
+	public String getText() {
 		return text;
 	}
 
-	public final void setText(String text) {
+	public void setText(String text) {
 		this.text = text;
 	}
 }

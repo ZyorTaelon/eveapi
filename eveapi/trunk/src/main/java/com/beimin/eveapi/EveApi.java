@@ -38,13 +38,13 @@ public class EveApi {
 		this.auth = auth;
 	}
 
-	public final ApiAuth<?> getAuth() {
+	public ApiAuth<?> getAuth() {
 		if (auth == null)
 			throw new NoAuthException();
 		return auth;
 	}
 
-	public final void setAuth(ApiAuth<?> auth) {
+	public void setAuth(ApiAuth<?> auth) {
 		this.auth = auth;
 	}
 

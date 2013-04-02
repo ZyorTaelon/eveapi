@@ -7,43 +7,43 @@ public class ApiLocation {
 	private long y;
 	private long z;
 
-	public final long getItemID() {
+	public long getItemID() {
 		return itemID;
 	}
 
-	public final void setItemID(long itemID) {
+	public void setItemID(long itemID) {
 		this.itemID = itemID;
 	}
 
-	public final String getItemName() {
+	public String getItemName() {
 		return itemName;
 	}
 
-	public final void setItemName(String itemName) {
+	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
 
-	public final long getX() {
+	public long getX() {
 		return x;
 	}
 
-	public final void setX(long x) {
+	public void setX(long x) {
 		this.x = x;
 	}
 
-	public final long getY() {
+	public long getY() {
 		return y;
 	}
 
-	public final void setY(long y) {
+	public void setY(long y) {
 		this.y = y;
 	}
 
-	public final long getZ() {
+	public long getZ() {
 		return z;
 	}
 
-	public final void setZ(long z) {
+	public void setZ(long z) {
 		this.z = z;
 	}
 }

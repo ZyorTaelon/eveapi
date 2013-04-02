@@ -8,43 +8,43 @@ public class EveContractItem {
 	private boolean singleton;
 	private boolean included;
 
-	public final long getRecordID() {
+	public long getRecordID() {
 		return recordID;
 	}
 
-	public final void setRecordID(long recordID) {
+	public void setRecordID(long recordID) {
 		this.recordID = recordID;
 	}
 
-	public final int getTypeID() {
+	public int getTypeID() {
 		return typeID;
 	}
 
-	public final void setTypeID(int typeID) {
+	public void setTypeID(int typeID) {
 		this.typeID = typeID;
 	}
 
-	public final long getQuantity() {
+	public long getQuantity() {
 		return quantity;
 	}
 
-	public final void setQuantity(long quantity) {
+	public void setQuantity(long quantity) {
 		this.quantity = quantity;
 	}
 
-	public final boolean isSingleton() {
+	public boolean isSingleton() {
 		return singleton;
 	}
 
-	public final void setSingleton(boolean singleton) {
+	public void setSingleton(boolean singleton) {
 		this.singleton = singleton;
 	}
 
-	public final boolean isIncluded() {
+	public boolean isIncluded() {
 		return included;
 	}
 
-	public final void setIncluded(boolean included) {
+	public void setIncluded(boolean included) {
 		this.included = included;
 	}
 }
