@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+    <currentTime>2008-02-09 02:42:17</currentTime>
+    <error code="115">Assets already downloaded: retry after 2008-02-10 01:29:34.</error>
+    <cachedUntil>2008-02-09 02:47:16</cachedUntil>
+</eveapi>

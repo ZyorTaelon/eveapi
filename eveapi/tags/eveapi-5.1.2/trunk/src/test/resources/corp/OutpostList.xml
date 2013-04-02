@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+	<currentTime>2011-04-07 19:46:15</currentTime>
+	<result>
+		<rowset name="corporationStarbases" key="stationID" columns="stationID,ownerID,stationName,solarSystemID,dockingCostPerShipVolume,officeRentalCost,stationTypeID,reprocessingEfficiency,reprocessingStationTake,standingOwnerID">
+			<row stationID="61000230" ownerID="773499566" stationName="F-G7BO VIII - FG Graduate Hall" solarSystemID="30000897" dockingCostPerShipVolume="0" officeRentalCost="1" stationTypeID="21644" reprocessingEfficiency="0.5" reprocessingStationTake="0.025" standingOwnerID="773499566" />
+			<row stationID="61000244" ownerID="773499566" stationName="QFF-O6 V - QFF eonuk Memorial" solarSystemID="30000899" dockingCostPerShipVolume="0" officeRentalCost="1" stationTypeID="21646" reprocessingEfficiency="0.4" reprocessingStationTake="0.05" standingOwnerID="628991027" />
+			<row stationID="61000463" ownerID="773499566" stationName="2CG-5V VI - 2CGraduate Research" solarSystemID="30000898" dockingCostPerShipVolume="0" officeRentalCost="1" stationTypeID="21642" reprocessingEfficiency="0.5" reprocessingStationTake="0.025" standingOwnerID="628991027" />
+		</rowset>
+	</result>
+	<cachedUntil>2011-04-07 20:43:12</cachedUntil>
+</eveapi>
