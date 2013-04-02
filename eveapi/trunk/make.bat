@@ -33,11 +33,11 @@ echo no goal specified doing fast
 		call mvn site
 		goto :done
 :release
-	call mvn -Plocal install
-	call mvn -Plocal release:prepare
+	call mvn -Pproduction install
+	call mvn -Pproduction release:prepare
 	call svn up -r head
-	call mvn -Plocal jar:test-jar javadoc:jar javadoc:test-jar source:jar source:test-jar deploy assembly:single
-	call mvn -Plocal release:prepare -Dresume
+	call mvn -Pproduction jar:test-jar javadoc:jar javadoc:test-jar source:jar source:test-jar deploy assembly:single
+	call mvn -Pproduction release:prepare -Dresume
 	call mvn release:clean
 	goto :done
 :done
