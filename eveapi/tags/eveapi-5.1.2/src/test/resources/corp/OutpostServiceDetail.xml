@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+	<currentTime>2011-04-07 19:50:25</currentTime>
+	<result>
+		<rowset name="outpostServiceDetails" key="stationID, serviceName" columns="stationID,ownerID,serviceName,minStanding,surchargePerBadStanding,discountPerGoodStanding">
+			<row stationID="61000244" ownerID="773499566" serviceName="Reprocessing Plant" minStanding="2" surchargePerBadStanding="10" discountPerGoodStanding="0" />
+			<row stationID="61000244" ownerID="773499566" serviceName="Repair Facilities" minStanding="2" surchargePerBadStanding="10" discountPerGoodStanding="10" />
+			<row stationID="61000244" ownerID="773499566" serviceName="Docking" minStanding="2" surchargePerBadStanding="10" discountPerGoodStanding="0" />
+			<row stationID="61000244" ownerID="773499566" serviceName="Office Rental" minStanding="10" surchargePerBadStanding="10" discountPerGoodStanding="0" />
+		</rowset>
+	</result>
+	<cachedUntil>2011-04-07 20:47:21</cachedUntil>
+</eveapi>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eveapi version="2">
+  <currentTime>2011-08-28 12:33:47</currentTime>
+  <result>
+    <key accessMask="4227" type="Account" expires="">
+      <rowset name="characters" key="characterID" columns="characterID,characterName,corporationID,corporationName">
+        <row characterID="987623974" characterName="Golden Gnu" corporationID="1020386980" corporationName="The Golden Gnu Corp"/>
+        <row characterID="1652509239" characterName="GoldenGnu" corporationID="1020386980" corporationName="The Golden Gnu Corp"/>
+        <row characterID="1683690353" characterName="Silver Gnu" corporationID="1020386980" corporationName="The Golden Gnu Corp"/>
+      </rowset>
+    </key>
+  </result>
+  <cachedUntil>2011-08-28 12:38:47</cachedUntil>
+</eveapi>
