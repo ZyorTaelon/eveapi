@@ -11,4 +11,4 @@ config:
 site:
 		mvn -Plocal site-deploy
 release:
-		mvn release:prepare release:perform
+		mvn --batch-mode release:prepare release:perform

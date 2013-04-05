@@ -33,6 +33,6 @@ echo no goal specified doing fast
 		call mvn site
 		goto :done
 :release
-	call mvn release:prepare release:perform
+	call mvn --batch-mode release:prepare release:perform
 	goto :done
 :done
