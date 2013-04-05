@@ -23,7 +23,7 @@ And add the following repository so maven can find the pom.
 <repositories>
     <repository>
         <id>eveapi</id>
-        <url>https://eveapi.googlecode.com/svn/artifacts/maven</url>
+        <url>https://eveapi.googlecode.com/svn/m2/releases</url>
     </repository>
 </repositories>
 }}}
