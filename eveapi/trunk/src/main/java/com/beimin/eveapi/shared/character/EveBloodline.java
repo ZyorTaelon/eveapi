@@ -5,7 +5,7 @@ public enum EveBloodline {
 	DETEIS(EveRace.CALDARI, EveAncestry.TUBE_CHILD, EveAncestry.SCIENTISTS, EveAncestry.MERCHANDISERS), //
 	ACHURA(EveRace.CALDARI, EveAncestry.INVENTORS, EveAncestry.MONKS, EveAncestry.STARGAZERS), //
 	GALLENTE(EveRace.GALLENTE, EveAncestry.ACTIVISTS, EveAncestry.IMMIGRANTS, EveAncestry.MINERS), //
-	INTAKI(EveRace.GALLENTE, EveAncestry.ARTIST, EveAncestry.DIPLOMATS, EveAncestry.REBORN), //
+	INTAKI(EveRace.GALLENTE, EveAncestry.ARTISTS, EveAncestry.DIPLOMATS, EveAncestry.REBORN), //
 	JIN_MEI(EveRace.GALLENTE, EveAncestry.SANG_DO_CASTE, EveAncestry.SAAN_GO_CASTE, EveAncestry.JING_KO_CASTE), //
 	AMARR(EveRace.AMARR, EveAncestry.LIBERAL_HOLDERS, EveAncestry.WEALTHY_COMMONERS, EveAncestry.RELIGIOUS_RECLAIMERS), //
 	KHANID(EveRace.AMARR, EveAncestry.CYBER_KNIGHTS, EveAncestry.UNIONISTS, EveAncestry.ZEALOTS), //
