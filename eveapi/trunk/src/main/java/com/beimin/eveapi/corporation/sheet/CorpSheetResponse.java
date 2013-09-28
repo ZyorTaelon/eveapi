@@ -11,6 +11,7 @@ public class CorpSheetResponse extends ApiResponse {
 	private String corporationName;
 	private long allianceID;
 	private String allianceName;
+	private long factionID;
 	private String ticker;
 	private long ceoID;
 	private String ceoName;
@@ -112,6 +113,14 @@ public class CorpSheetResponse extends ApiResponse {
 
 	public void setAllianceName(String allianceName) {
 		this.allianceName = allianceName;
+	}
+	
+	public Long getFactionID() {
+		return factionID;
+	}
+
+	public void setFactionID(Long factionID) {
+		this.factionID = factionID;
 	}
 
 	public double getTaxRate() {

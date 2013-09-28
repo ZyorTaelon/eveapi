@@ -35,6 +35,7 @@ public class CorpSheetParserTest extends FullAuthParserTest {
 		assertEquals("some url", response.getUrl());
 		assertEquals(150430947L, response.getAllianceID().longValue());
 		assertEquals("The Dead Rabbits", response.getAllianceName());
+        assertEquals(500004, response.getFactionID().longValue());
 		assertEquals(93.7, response.getTaxRate(), 0.0001);
 		assertEquals(3, response.getMemberCount());
 		assertEquals(6300, response.getMemberLimit());

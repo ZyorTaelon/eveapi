@@ -61,6 +61,8 @@ public class CorpSheetHandler extends AbstractContentHandler {
 			response.setAllianceID(getLong());
 		} else if (qName.equals("allianceName")) {
 			response.setAllianceName(getString());
+        } else if (qName.equals("factionID")) {
+            response.setFactionID(getLong());
 		} else if (qName.equals("taxRate")) {
 			response.setTaxRate(getDouble());
 		} else if (qName.equals("memberCount")) {
