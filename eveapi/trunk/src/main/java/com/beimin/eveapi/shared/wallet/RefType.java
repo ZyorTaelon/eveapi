@@ -92,7 +92,7 @@ public enum RefType {
 	MEDAL_ISSUED(88, "Medal Issued", "", ""), //
 	BETTING(89, "Betting", "", ""), //
 	DNA_MODIFICATION_FEE(90, "DNA Modification Fee", "", ""), //
-	SOVEREIGNITY_BILL(91, "Sovereignity bill", "", ""), //
+	SOVEREIGNITY_BILL(91, "Sovereignty bill", "", ""), //
 	BOUNTY_PRIZE_CORPORATION_TAX(92, "Bounty Prize Corporation Tax", "", ""), //
 	AGENT_MISSION_REWARD_CORPORATION_TAX(93, "Agent Mission Reward Corporation Tax", "", ""), //
 	AGENT_MISSION_TIME_BONUS_REWARD_CORPORATION_TAX(94, "Agent Mission Time Bonus Reward Corporation Tax", "", ""), //
@@ -103,10 +103,51 @@ public enum RefType {
 	CORPORATE_REWARD_PAYOUT(99, "Corporate Reward Payout", "", ""), //
 	MINIGAME_BETTING(100, "Minigame Betting", "", ""), //
 	BOUNTY_SURCHARGE(101, "Bounty Surcharge", "", ""), //
+	CONTRACT_REVERSAL(102, "Contract Reversal", "", ""), //
+	CORPORATE_REWARD_TAX(103, "Corporate Reward Tax", "", ""), //
+
+	STORE_PURCHASE(106, "Store Purchase", "", ""), //
+	STORE_PURCHASE_REFUND(107, "Store Purchase Refund", "", ""), //
+	PLEX_SOLD_FOR_AURUM(108, "PLEX sold for Aurum", "", ""), //
+	LOTTERY_GIVE_AWAY(109, "Lottery Give Away", "", ""), //
+
+	AURUM_TOKEN_EXCHANGED_FOR_AUR(111, "Aurum Token exchanged for Aur", "", ""), //
+	DATACORE_FEE(112, "Datacore Fee", "", ""), //
+	WAR_SURRENDER_FEE(113, "War Surrender Fee", "", ""), //
+	WAR_ALLY_CONTRACT(114, "War Ally Contract", "", ""), //
+	BOUNTY_REIMBURSEMENT(115, "Bounty Reimbursement", "", ""), //
+	KILL_RIGHT(116, "Kill Right", "", ""), //
+	FEE_FOR_PROCESSING_ONE_OR_MORE_SECURITY_TAGS(117, "Fee for processing one or more security tags", "", ""), //
+	
 	MODIFY_ISK(10001, "Modify ISK", "", ""), //
 	PRIMARY_MARKETPLACE_PURCHASE(10002, "Primary Marketplace Purchase", "", ""), //
 	BATTLE_REWARD(10003, "Battle Reward", "", ""), //
-	MODIFY_UPLEX(11001, "Modify uPLEX", "", "");
+	NEW_CHARACTER_STARTING_FUNDS(10004, "New Character Starting Funds", "", ""), //
+	CORPORATION_ACCOUNT_WITHDRAWAL_2(10005, "Corporation Account Withdrawal", "", ""), //
+	CORPORATION_ACCOUNT_DEPOSIT(10006, "Corporation Account Deposit", "", ""), //
+	BATTLE_WP_WIN_REWARD(10007, "Battle WP Win Reward", "", ""), //
+	BATTLE_WP_LOSS_REWARD(10008, "Battle WP Loss Reward", "", ""), //
+	BATTLE_WIN_REWARD(10009, "Battle Win Reward", "", ""), //
+	BATTLE_LOSS_REWARD(10010, "Battle Loss Reward", "", ""), //
+	UNKNOWN(10011, "Unknown", "", ""), //
+	DISTRICT_CONTRACT_DEPOSIT(10012, "District Contract Deposit", "", ""), //
+	DISTRICT_CONTRACT_DEPOSIT_REFUND(10013, "District Contract Deposit Refund", "", ""), //
+	DISTRICT_CONTRACT_COLLATERAL(10014, "District Contract Collateral", "", ""), //
+	DISTRICT_CONTRACT_COLLATERAL_REFUND(10015, "District Contract Collateral Refund", "", ""), //
+	DISTRICT_CONTRACT_REWARD(10016, "District Contract Reward", "", ""), //
+	DISTRICT_CLONE_TRANSPORTATION(10017, "District Clone Transportation", "", ""), //
+	DISTRICT_CLONE_TRANSPORTATION_REFUND(10018, "District Clone Transportation Refund", "", ""), //
+	DISTRICT_INFRASTRUCTURE(10019, "District Infrastructure", "", ""), //
+	DISTRICT_CLONE_SALES(10020, "District Clone Sales", "", ""), //
+	DISTRICT_CLONE_PURCHASE(10021, "District Clone Purchase", "", ""), //
+	BIOMASS_REWARD(10022, "Biomass Reward", "", ""), //
+
+	MODIFY_UPLEX(11001, "Modify AUR", "", ""),
+	RESPEC_PAYMENT(11002, "Respec payment", "", ""), //
+	UNKNOWN_1(11003, "Unknown", "", ""), //
+	UNKNOWN_2(11004, "Unknown", "", ""), //
+	UNKNOWN_3(11005, "Unknown", "", ""), //
+	;
 	private int id;
 	private String name;
 	private String argName;

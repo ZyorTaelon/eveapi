@@ -7,6 +7,7 @@ import com.beimin.eveapi.shared.wallet.RefType;
 public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	private Date date;
 	private long refID;
+	private int refTypeID;
 	private RefType refType;
 	private String ownerName1;
 	private long ownerID1;
@@ -37,7 +38,12 @@ public class ApiJournalEntry implements Comparable<ApiJournalEntry> {
 	}
 
 	public void setRefTypeID(int refTypeID) {
+		this.refTypeID = refTypeID;
 		refType = RefType.forID(refTypeID);
+	}
+
+	public int getRefTypeID() {
+		return refTypeID;
 	}
 
 	public RefType getRefType() {

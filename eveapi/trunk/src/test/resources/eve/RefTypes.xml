@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <eveapi version="2">
-  <currentTime>2008-02-11 22:39:25</currentTime>
+  <currentTime>2013-08-27 10:32:13</currentTime>
   <result>
     <rowset name="refTypes" key="refTypeID" columns="refTypeID,refTypeName">
       <row refTypeID="0" refTypeName="Undefined" />
@@ -29,7 +29,7 @@
       <row refTypeID="23" refTypeName="Courier Mission Escrow" />
       <row refTypeID="24" refTypeName="Mission Cost" />
       <row refTypeID="25" refTypeName="Agent Miscellaneous" />
-      <row refTypeID="26" refTypeName="Miscellaneous Payment To Agent" />
+      <row refTypeID="26" refTypeName="LP Store" />
       <row refTypeID="27" refTypeName="Agent Location Services" />
       <row refTypeID="28" refTypeName="Agent Donation" />
       <row refTypeID="29" refTypeName="Agent Security Services" />
@@ -49,12 +49,12 @@
       <row refTypeID="43" refTypeName="Agent Services Rendered" />
       <row refTypeID="44" refTypeName="Market Fine Paid" />
       <row refTypeID="45" refTypeName="Corporation Liquidation" />
-      <row refTypeID="46" refTypeName="Broker fee" />
+      <row refTypeID="46" refTypeName="Brokers Fee" />
       <row refTypeID="47" refTypeName="Corporation Bulk Payment" />
       <row refTypeID="48" refTypeName="Alliance Registration Fee" />
       <row refTypeID="49" refTypeName="War Fee" />
       <row refTypeID="50" refTypeName="Alliance Maintainance Fee" />
-      <row refTypeID="51" refTypeName="Contraband Fine " />
+      <row refTypeID="51" refTypeName="Contraband Fine" />
       <row refTypeID="52" refTypeName="Clone Transfer" />
       <row refTypeID="53" refTypeName="Acceleration Gate Fee" />
       <row refTypeID="54" refTypeName="Transaction Tax" />
@@ -90,7 +90,61 @@
       <row refTypeID="84" refTypeName="Contract Reward Deposited (corp)" />
       <row refTypeID="85" refTypeName="Bounty Prizes" />
       <row refTypeID="86" refTypeName="Advertisement Listing Fee" />
+      <row refTypeID="87" refTypeName="Medal Creation" />
+      <row refTypeID="88" refTypeName="Medal Issued" />
+      <row refTypeID="89" refTypeName="Betting" />
+      <row refTypeID="90" refTypeName="DNA Modification Fee" />
+      <row refTypeID="91" refTypeName="Sovereignty bill" />
+      <row refTypeID="92" refTypeName="Bounty Prize Corporation Tax" />
+      <row refTypeID="93" refTypeName="Agent Mission Reward Corporation Tax" />
+      <row refTypeID="94" refTypeName="Agent Mission Time Bonus Reward Corporation Tax" />
+      <row refTypeID="95" refTypeName="Upkeep adjustment fee" />
+      <row refTypeID="96" refTypeName="Planetary Import Tax" />
+      <row refTypeID="97" refTypeName="Planetary Export Tax" />
+      <row refTypeID="98" refTypeName="Planetary Construction" />
+      <row refTypeID="99" refTypeName="Corporate Reward Payout" />
+      <row refTypeID="101" refTypeName="Bounty Surcharge" />
+      <row refTypeID="102" refTypeName="Contract Reversal" />
+      <row refTypeID="103" refTypeName="Corporate Reward Tax" />
+      <row refTypeID="106" refTypeName="Store Purchase" />
+      <row refTypeID="107" refTypeName="Store Purchase Refund" />
+      <row refTypeID="108" refTypeName="PLEX sold for Aurum" />
+      <row refTypeID="109" refTypeName="Lottery Give Away" />
+      <row refTypeID="111" refTypeName="Aurum Token exchanged for Aur" />
+      <row refTypeID="112" refTypeName="Datacore Fee" />
+      <row refTypeID="113" refTypeName="War Surrender Fee" />
+      <row refTypeID="114" refTypeName="War Ally Contract" />
+      <row refTypeID="115" refTypeName="Bounty Reimbursement" />
+      <row refTypeID="116" refTypeName="Kill Right" />
+      <row refTypeID="117" refTypeName="Fee for processing one or more security tags" />
+      <row refTypeID="10001" refTypeName="Modify ISK" />
+      <row refTypeID="10002" refTypeName="Primary Marketplace Purchase" />
+      <row refTypeID="10003" refTypeName="Battle Reward" />
+      <row refTypeID="10004" refTypeName="New Character Starting Funds" />
+      <row refTypeID="10005" refTypeName="Corporation Account Withdrawal" />
+      <row refTypeID="10006" refTypeName="Corporation Account Deposit" />
+      <row refTypeID="10007" refTypeName="Battle WP Win Reward" />
+      <row refTypeID="10008" refTypeName="Battle WP Loss Reward" />
+      <row refTypeID="10009" refTypeName="Battle Win Reward" />
+      <row refTypeID="10010" refTypeName="Battle Loss Reward" />
+      <row refTypeID="10011" refTypeName="Unknown" />
+      <row refTypeID="10012" refTypeName="District Contract Deposit" />
+      <row refTypeID="10013" refTypeName="District Contract Deposit Refund" />
+      <row refTypeID="10014" refTypeName="District Contract Collateral" />
+      <row refTypeID="10015" refTypeName="District Contract Collateral Refund" />
+      <row refTypeID="10016" refTypeName="District Contract Reward" />
+      <row refTypeID="10017" refTypeName="District Clone Transportation" />
+      <row refTypeID="10018" refTypeName="District Clone Transportation Refund" />
+      <row refTypeID="10019" refTypeName="District Infrastructure" />
+      <row refTypeID="10020" refTypeName="District Clone Sales" />
+      <row refTypeID="10021" refTypeName="District Clone Purchase" />
+      <row refTypeID="10022" refTypeName="Biomass Reward" />
+      <row refTypeID="11001" refTypeName="Modify AUR" />
+      <row refTypeID="11002" refTypeName="Respec payment" />
+      <row refTypeID="11003" refTypeName="Unknown" />
+      <row refTypeID="11004" refTypeName="Unknown" />
+      <row refTypeID="11005" refTypeName="Unknown" />
     </rowset>
   </result>
-  <cachedUntil>2008-02-12 22:39:25</cachedUntil>
+  <cachedUntil>2013-08-28 10:32:13</cachedUntil>
 </eveapi>
