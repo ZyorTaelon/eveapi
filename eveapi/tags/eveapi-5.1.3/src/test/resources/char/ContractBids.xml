@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<eveapi version="2">
+  <currentTime>2012-12-14 22:34:24</currentTime>
+  <result>
+    <rowset name="bidList" key="bidID" columns="bidID,contractID,bidderID,dateBid,amount">
+      <row bidID="4091381" contractID="62276260" bidderID="1652509239" dateBid="2012-12-14 22:30:54" amount="1000000.00" />
+      <row bidID="4091380" contractID="62276441" bidderID="1652509239" dateBid="2012-12-14 22:30:43" amount="1000000.00" />
+    </rowset>
+  </result>
+  <cachedUntil>2012-12-14 22:48:24</cachedUntil>
+</eveapi>
