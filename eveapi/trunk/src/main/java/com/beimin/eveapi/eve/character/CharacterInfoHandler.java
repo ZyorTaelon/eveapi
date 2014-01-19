@@ -1,11 +1,12 @@
 package com.beimin.eveapi.eve.character;
 
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+
 import com.beimin.eveapi.core.AbstractContentHandler;
 import com.beimin.eveapi.core.ApiResponse;
 import com.beimin.eveapi.shared.character.EveBloodline;
 import com.beimin.eveapi.shared.character.EveRace;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 
 public class CharacterInfoHandler extends AbstractContentHandler {
 	private CharacterInfoResponse response;
@@ -63,6 +64,7 @@ public class CharacterInfoHandler extends AbstractContentHandler {
 			response.setLastKnownLocation(getString());
 		else if (qName.equals("securityStatus"))
 			response.setSecurityStatus(getDouble());
+		super.endElement(uri, localName, qName);
 	}
 
 	private EveBloodline getBloodline() {
