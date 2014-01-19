@@ -7,11 +7,11 @@ import java.util.Map.Entry;
 
 public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 	private static final long serialVersionUID = 1L;
-	private ApiPath path;
-	private ApiPage page;
-	private int version;
-	private ApiAuth<?> auth;
-	private Map<String, String> params;
+	private final ApiPath path;
+	private final ApiPage page;
+	private final int version;
+	private final ApiAuth<?> auth;
+	private final Map<String, String> params;
 
 	public ApiRequest(ApiPath path, ApiPage page, int version, ApiAuth<?> auth, Map<String, String> params) {
 		this.path = path;
@@ -56,8 +56,9 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 	@Override
 	public int hashCode() {
 		StringBuilder temp = new StringBuilder(path.getPath());
-		temp.append(page).append(version).append(auth.getKeyID()).append(auth.getCharacterID())
-				.append(auth.getVCode());
+		temp.append(page).append(version);
+		if (auth != null)
+			temp.append(auth.getKeyID()).append(auth.getCharacterID()).append(auth.getVCode());
 		for (Entry<String, String> entry : params.entrySet()) {
 			temp.append(entry.getKey()).append(entry.getValue());
 		}
