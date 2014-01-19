@@ -38,6 +38,8 @@ public class SheetParserTest extends FullAuthParserTest {
 		assertEquals("corpexport Corp", response.getCorporationName());
 		assertNull(response.getAllianceName());
 		assertEquals(150337746L, response.getCorporationID());
+		assertEquals("Clone Grade Pi", response.getCloneName());
+		assertEquals(54600000L, response.getCloneSkillPoints());
 		assertEquals(190210393.87, response.getBalance(), 0.00001);
 
 		Set<ApiAttributeEnhancer> attributeEnhancers = response.getAttributeEnhancers();

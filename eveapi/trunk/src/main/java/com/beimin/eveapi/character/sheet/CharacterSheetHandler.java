@@ -103,7 +103,11 @@ public class CharacterSheetHandler extends AbstractContentHandler {
 		else if (qName.equals("allianceName")) {
 			if (getString() != null && !getString().equals(""))
 				response.setAllianceName(getString());
-		} else if (qName.equals("balance"))
+		} else if (qName.equals("cloneName"))
+			response.setCloneName(getString());
+		else if (qName.equals("cloneSkillPoints"))
+			response.setCloneSkillPoints(getLong());
+		else if (qName.equals("balance"))
 			response.setBalance(getDouble());
 		else if (qName.equals("augmentatorName"))
 			attributeEnhancer.setAugmentatorName(getString());

@@ -22,6 +22,8 @@ public class CharacterSheetResponse extends ApiResponse {
 	private long corporationID;
 	private Long allianceID;
 	private String allianceName;
+	private String cloneName;
+	private long cloneSkillPoints;
 	private double balance;
 	private final Set<ApiAttributeEnhancer> attributeEnhancers = new HashSet<ApiAttributeEnhancer>();
 	private int intelligence;
@@ -123,6 +125,22 @@ public class CharacterSheetResponse extends ApiResponse {
 
 	public void setAllianceID(Long allianceID) {
 		this.allianceID = allianceID;
+	}
+
+	public String getCloneName() {
+		return cloneName;
+	}
+
+	public void setCloneName(String cloneName) {
+		this.cloneName = cloneName;
+	}
+
+	public long getCloneSkillPoints() {
+		return cloneSkillPoints;
+	}
+
+	public void setCloneSkillPoints(long cloneSkillPoints) {
+		this.cloneSkillPoints = cloneSkillPoints;
 	}
 
 	public double getBalance() {
