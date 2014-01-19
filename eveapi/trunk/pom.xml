@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.beimin</groupId>
 	<artifactId>eveapi</artifactId>
-	<version>5.1.3</version>
+	<version>5.1.4-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>EveAPI</name>
 	<description>Parsers for the eve online api</description>
@@ -28,8 +28,8 @@
         </license>
     </licenses>
 	<scm>
-		<connection>scm:svn:https://eveapi.googlecode.com/svn/eveapi/tags/eveapi-5.1.3</connection>
-		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/eveapi/tags/eveapi-5.1.3</developerConnection>
+		<connection>scm:svn:https://eveapi.googlecode.com/svn/eveapi/trunk</connection>
+		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/eveapi/trunk</developerConnection>
 	</scm>
 	<developers>
 		<developer>
