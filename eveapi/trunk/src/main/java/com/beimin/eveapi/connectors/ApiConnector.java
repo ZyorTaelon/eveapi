@@ -3,6 +3,7 @@ package com.beimin.eveapi.connectors;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -18,8 +19,8 @@ import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.AbstractContentHandler;
+import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiRequest;
 import com.beimin.eveapi.core.ApiResponse;
 import com.beimin.eveapi.exception.ApiException;
@@ -63,7 +64,7 @@ public class ApiConnector {
 	protected InputStream getInputStream(URL requestUrl, Map<String, String> params) throws ApiException {
 		OutputStreamWriter wr = null;
 		try {
-			URLConnection conn = openConnection(requestUrl);
+			HttpURLConnection conn = (HttpURLConnection) requestUrl.openConnection();
 			conn.setDoOutput(true);
 			wr = new OutputStreamWriter(conn.getOutputStream());
 			StringBuilder data = new StringBuilder();
@@ -77,7 +78,10 @@ public class ApiConnector {
 			}
 			wr.write(data.toString());
 			wr.flush();
-			return conn.getInputStream();
+			if (conn.getResponseCode() == 200)
+				return conn.getInputStream();
+			else
+				return conn.getErrorStream();
 		} catch (Exception e) {
 			throw new ApiException(e);
 		} finally {
