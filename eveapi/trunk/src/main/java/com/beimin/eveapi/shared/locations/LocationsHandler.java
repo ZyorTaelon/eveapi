@@ -15,9 +15,9 @@ public class LocationsHandler extends AbstractContentListHandler<LocationsRespon
 		ApiLocation location = new ApiLocation();
 		location.setItemID(getLong(attrs, "itemID"));
 		location.setItemName(getString(attrs, "itemName"));
-		location.setX(getLong(attrs, "x"));
-		location.setY(getLong(attrs, "y"));
-		location.setZ(getLong(attrs, "z"));
+		location.setX(getDouble(attrs, "x"));
+		location.setY(getDouble(attrs, "y"));
+		location.setZ(getDouble(attrs, "z"));
 		return location;
 	}
 

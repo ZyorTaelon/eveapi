@@ -1,7 +1,8 @@
 package com.beimin.eveapi.character.locations;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -31,8 +32,8 @@ public class LocationsParserTest extends FullAuthParserTest {
 		ApiLocation location = locations.iterator().next();
 		assertEquals(1002861698719L, location.getItemID());
 		assertEquals("Caldari Control Tower Medium", location.getItemName());
-		assertEquals(-896690626560L, location.getX());
-		assertEquals(-163314032640L, location.getY());
-		assertEquals(-1323431485440L, location.getZ());
+		assertEquals(-896690626560.1, location.getX(), 0.0001);
+		assertEquals(-163314032640.2, location.getY(), 0.0001);
+		assertEquals(-1323431485440.3, location.getZ(), 0.0001);
 	}
 }
