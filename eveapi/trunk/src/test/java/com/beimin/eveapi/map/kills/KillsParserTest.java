@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
@@ -20,7 +19,7 @@ public class KillsParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		KillsParser parser = KillsParser.getInstance();
+		KillsParser parser = new KillsParser();
 		KillsResponse response = parser.getResponse();
 		assertNotNull(response);
 		Map<Integer, Integer> shipKills = response.getShipKills();

@@ -12,10 +12,6 @@ public class UpcomingCalendarEventsParser extends AbstractListParser<UpcomingCal
 		super(UpcomingCalendarEventsResponse.class, 2, ApiPath.CHARACTER, ApiPage.UPCOMING_CALENDAR_EVENTS, UpcomingCalendarEventsHandler.class);
 	}
 
-	public static UpcomingCalendarEventsParser getInstance() {
-		return new UpcomingCalendarEventsParser();
-	}
-
 	@Override
 	public UpcomingCalendarEventsResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

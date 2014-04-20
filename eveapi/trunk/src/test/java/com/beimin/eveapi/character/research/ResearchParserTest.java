@@ -21,7 +21,7 @@ public class ResearchParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		ResearchParser parser = ResearchParser.getInstance();
+		ResearchParser parser = new ResearchParser();
 		ResearchResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiResearchAgent> researchAgents = response.getAll();

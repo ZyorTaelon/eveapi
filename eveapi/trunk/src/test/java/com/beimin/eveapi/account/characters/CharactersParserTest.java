@@ -20,7 +20,7 @@ public class CharactersParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CharactersParser parser = CharactersParser.getInstance();
+		CharactersParser parser = new CharactersParser();
 		CharactersResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<EveCharacter> eveCharacters = response.getAll();

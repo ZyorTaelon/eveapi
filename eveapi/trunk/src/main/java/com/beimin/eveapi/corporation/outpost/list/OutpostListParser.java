@@ -11,10 +11,6 @@ public class OutpostListParser extends AbstractListParser<OutpostListHandler, Ou
 		super(OutpostListResponse.class, 2, ApiPath.CORPORATION, ApiPage.OUTPOST_LIST, OutpostListHandler.class);
 	}
 
-	public static OutpostListParser getInstance() {
-		return new OutpostListParser();
-	}
-
 	@Override
 	public OutpostListResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

@@ -19,7 +19,7 @@ public class ConquerableStationListParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		ConquerableStationListParser parser = ConquerableStationListParser.getInstance();
+		ConquerableStationListParser parser = new ConquerableStationListParser();
 		StationListResponse response = parser.getResponse();
 		assertNotNull(response);
 		Map<Integer, ApiStation> stations = response.getStations();

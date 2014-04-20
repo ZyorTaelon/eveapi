@@ -25,7 +25,7 @@ public class TransactionsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractWalletTransactionsParser parser = WalletTransactionsParser.getInstance();
+		AbstractWalletTransactionsParser parser = new CharacterWalletTransactionsParser();
 		WalletTransactionsResponse response = parser.getResponse(auth, 1000);
 		assertNotNull(response);
 		Set<ApiWalletTransaction> walletTransactions = response.getAll();

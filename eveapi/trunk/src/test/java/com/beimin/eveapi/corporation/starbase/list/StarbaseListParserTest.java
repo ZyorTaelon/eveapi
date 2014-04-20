@@ -21,7 +21,7 @@ public class StarbaseListParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		StarbaseListParser parser = StarbaseListParser.getInstance();
+		StarbaseListParser parser = new StarbaseListParser();
 		StarbaseListResponse response = parser.getResponse(auth);
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 1, 5, 55, response.getCurrentTime());

@@ -7,12 +7,8 @@ import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
 
 public class FacWarSystemsParser extends AbstractListParser<FacWarSystemsHandler, FacWarSystemsResponse, ApiFacWarSystem> {
-	private FacWarSystemsParser() {
+	public FacWarSystemsParser() {
 		super(FacWarSystemsResponse.class, 2, ApiPath.MAP, ApiPage.FACTION_WAR_SYSTEMS, FacWarSystemsHandler.class);
-	}
-	
-	public static FacWarSystemsParser getInstance() {
-		return new FacWarSystemsParser();
 	}
 
 	@Override

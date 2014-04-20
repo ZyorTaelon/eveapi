@@ -17,10 +17,6 @@ public class ConquerableStationListParser extends AbstractApiParser<StationListR
 		return new ConquerableStationListHandler();
 	}
 
-	public static ConquerableStationListParser getInstance() {
-		return new ConquerableStationListParser();
-	}
-
 	@Override
 	public StationListResponse getResponse() throws ApiException {
 		return super.getResponse();

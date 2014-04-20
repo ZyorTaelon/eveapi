@@ -30,7 +30,7 @@ public class ProxyConnector extends ApiConnector {
 	}
 
 	@Override
-	public ApiConnector getInstance() {
+	public ApiConnector getNewInstance() {
 		return new ProxyConnector(proxy, baseConnector);
 	}
 }

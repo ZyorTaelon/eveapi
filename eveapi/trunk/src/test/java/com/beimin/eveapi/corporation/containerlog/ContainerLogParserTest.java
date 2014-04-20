@@ -19,7 +19,7 @@ public class ContainerLogParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		ContainerLogParser parser = ContainerLogParser.getInstance();
+		ContainerLogParser parser = new ContainerLogParser();
 		ContainerLogResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiContainerLog> containerLogs = response.getAll();

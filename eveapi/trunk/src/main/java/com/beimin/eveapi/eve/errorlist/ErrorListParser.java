@@ -10,10 +10,6 @@ public class ErrorListParser extends AbstractListParser<ErrorListHandler, ErrorL
 		super(ErrorListResponse.class, 2, ApiPath.EVE, ApiPage.ERROR_LIST, ErrorListHandler.class);
 	}
 
-	public static ErrorListParser getInstance() {
-		return new ErrorListParser();
-	}
-
 	@Override
 	public ErrorListResponse getResponse() throws ApiException {
 		return super.getResponse();

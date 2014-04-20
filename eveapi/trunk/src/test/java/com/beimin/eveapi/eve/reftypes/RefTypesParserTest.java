@@ -21,7 +21,7 @@ public class RefTypesParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		RefTypesParser parser = RefTypesParser.getInstance();
+		RefTypesParser parser = new RefTypesParser();
 		RefTypesResponse response = parser.getResponse();
 		assertNotNull(response);
 		Collection<ApiRefType> refTypes = response.getAll();
@@ -38,7 +38,7 @@ public class RefTypesParserTest extends NoAuthParserTest {
 
 	@Test
 	public void testEnum() throws ApiException {
-		RefTypesParser parser = RefTypesParser.getInstance();
+		RefTypesParser parser = new RefTypesParser();
 		RefTypesResponse response = parser.getResponse();
 		assertNotNull(response);
 		Collection<ApiRefType> refTypes = response.getAll();

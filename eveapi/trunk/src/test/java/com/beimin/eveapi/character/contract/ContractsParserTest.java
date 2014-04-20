@@ -1,7 +1,10 @@
 package com.beimin.eveapi.character.contract;
 
 import static com.beimin.eveapi.utils.Assert.assertDate;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
@@ -24,7 +27,7 @@ public class ContractsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		ContractsParser parser = ContractsParser.getInstance();
+		CharacterContractsParser parser = new CharacterContractsParser();
 		ContractsResponse response = parser.getResponse(auth); 
 		assertNotNull(response);
 		Collection<EveContract> contracts = response.getAll();

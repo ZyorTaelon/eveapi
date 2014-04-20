@@ -24,7 +24,7 @@ public class MarketOrdersParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractMarketOrdersParser parser = MarketOrdersParser.getInstance();
+		AbstractMarketOrdersParser parser = new CharacterMarketOrdersParser();
 		MarketOrdersResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<ApiMarketOrder> orders = response.getAll();

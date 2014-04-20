@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
-import com.beimin.eveapi.corporation.contract.ContractItemsParser;
+import com.beimin.eveapi.corporation.contract.CorporationContractItemsParser;
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.shared.contract.items.ContractItemsResponse;
 import com.beimin.eveapi.shared.contract.items.EveContractItem;
@@ -24,7 +24,7 @@ public class ContractItemsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		ContractItemsParser parser = ContractItemsParser.getInstance();
+		CorporationContractItemsParser parser = new CorporationContractItemsParser();
 		long contractID = 1234L;
 		ContractItemsResponse response = parser.getResponse(auth, contractID); 
 		assertNotNull(response);

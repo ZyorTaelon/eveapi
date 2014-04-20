@@ -24,7 +24,7 @@ public class MailBodiesParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		MailBodiesParser parser = MailBodiesParser.getInstance();
+		MailBodiesParser parser = new MailBodiesParser();
 		MailBodiesResponse response = parser.getResponse(auth, 299279683L, 299280303L);
 		assertNotNull(response);
 		Set<ApiMailBody> mailBodies = response.getAll();

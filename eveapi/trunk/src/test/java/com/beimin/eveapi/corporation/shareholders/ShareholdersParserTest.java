@@ -7,7 +7,6 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
@@ -20,7 +19,7 @@ public class ShareholdersParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		ShareholdersParser parser = ShareholdersParser.getInstance();
+		ShareholdersParser parser = new ShareholdersParser();
 		ShareholdersResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<ApiShareholder> characters = response.getCharacters();

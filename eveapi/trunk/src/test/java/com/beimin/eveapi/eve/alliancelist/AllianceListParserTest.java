@@ -21,7 +21,7 @@ public class AllianceListParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AllianceListParser parser = AllianceListParser.getInstance();
+		AllianceListParser parser = new AllianceListParser();
 		AllianceListResponse response = parser.getResponse();
 		assertNotNull(response);
 		Collection<ApiAlliance> alliances = response.getAll();

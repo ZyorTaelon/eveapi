@@ -18,7 +18,7 @@ public class FacWarTopStatsParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		FacWarTopStatsParser parser = FacWarTopStatsParser.getInstance();
+		FacWarTopStatsParser parser = new FacWarTopStatsParser();
 		FacWarTopStatsResponse facWarStats = parser.getResponse();
 		assertKillerChar(1394672077, "Adolf Ehrnrooth", 17, facWarStats.getCharacterKillsYesterday());
 		assertKillerChar(1780475402, "Loren Gallen", 46, facWarStats.getCharacterKillsLastWeek());

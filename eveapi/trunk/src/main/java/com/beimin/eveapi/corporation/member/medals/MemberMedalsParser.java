@@ -11,10 +11,6 @@ public class MemberMedalsParser extends AbstractListParser<MemberMedalsHandler, 
 		super(MemberMedalsResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_MEDALS, MemberMedalsHandler.class);
 	}
 
-	public static MemberMedalsParser getInstance() {
-		return new MemberMedalsParser();
-	}
-
 	@Override
 	public MemberMedalsResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

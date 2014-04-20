@@ -13,8 +13,8 @@ import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.shared.assetlist.AbstractAssetListParser;
-import com.beimin.eveapi.shared.assetlist.EveAsset;
 import com.beimin.eveapi.shared.assetlist.AssetListResponse;
+import com.beimin.eveapi.shared.assetlist.EveAsset;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 @SuppressWarnings("rawtypes")
@@ -26,7 +26,7 @@ public class AssetListParserTest extends FullAuthParserTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractAssetListParser parser = AssetListParser.getInstance();
+		AbstractAssetListParser parser = new CorporationAssetListParser();
 		AssetListResponse response = parser.getResponse(auth);
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 4, 43, 55, response.getCurrentTime());

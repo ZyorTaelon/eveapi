@@ -7,12 +7,8 @@ import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
 
 public class MailingListsParser extends AbstractListParser<MailingListsHandler, MailingListsResponse, ApiMailingList> {
-	private MailingListsParser() {
+	public MailingListsParser() {
 		super(MailingListsResponse.class, 2, ApiPath.CHARACTER, ApiPage.MAILING_LISTS, MailingListsHandler.class);
-	}
-
-	public static MailingListsParser getInstance() {
-		return new MailingListsParser();
 	}
 
 	@Override

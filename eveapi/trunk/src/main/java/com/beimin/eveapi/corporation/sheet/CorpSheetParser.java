@@ -2,8 +2,8 @@ package com.beimin.eveapi.corporation.sheet;
 
 
 import com.beimin.eveapi.core.AbstractApiParser;
-import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.AbstractContentHandler;
+import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
@@ -16,10 +16,6 @@ public class CorpSheetParser extends AbstractApiParser<CorpSheetResponse> {
 	@Override
 	protected AbstractContentHandler getContentHandler() {
 		return new CorpSheetHandler();
-	}
-
-	public static CorpSheetParser getInstance() {
-		return new CorpSheetParser();
 	}
 
 	@Override

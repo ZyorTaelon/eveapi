@@ -1,8 +1,8 @@
 package com.beimin.eveapi.character.sheet;
 
 import com.beimin.eveapi.core.AbstractApiParser;
-import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.AbstractContentHandler;
+import com.beimin.eveapi.core.ApiAuth;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
@@ -15,10 +15,6 @@ public class CharacterSheetParser extends AbstractApiParser<CharacterSheetRespon
 	@Override
 	protected AbstractContentHandler getContentHandler() {
 		return new CharacterSheetHandler();
-	}
-
-	public static CharacterSheetParser getInstance() {
-		return new CharacterSheetParser();
 	}
 
 	@Override

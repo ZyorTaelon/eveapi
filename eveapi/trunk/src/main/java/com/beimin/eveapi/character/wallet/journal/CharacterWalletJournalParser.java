@@ -6,15 +6,11 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.shared.wallet.journal.AbstractWalletJournalParser;
 import com.beimin.eveapi.shared.wallet.journal.WalletJournalResponse;
 
-public class WalletJournalParser extends AbstractWalletJournalParser {
+public class CharacterWalletJournalParser extends AbstractWalletJournalParser {
 	private static final int DEFAULT_ROW_COUNT = 1000;
 
-	private WalletJournalParser() {
+	public CharacterWalletJournalParser() {
 		super(ApiPath.CHARACTER);
-	}
-
-	public static WalletJournalParser getInstance() {
-		return new WalletJournalParser();
 	}
 
 	public WalletJournalResponse getWalletJournalResponse(ApiAuth<?> auth) throws ApiException {

@@ -8,17 +8,13 @@ import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
 
 public class FacWarTopStatsParser extends AbstractApiParser<FacWarTopStatsResponse> {
-	private FacWarTopStatsParser() {
+	public FacWarTopStatsParser() {
 		super(FacWarTopStatsResponse.class, 2, ApiPath.EVE, ApiPage.FACT_WAR_TOP_STATS);
 	}
 
 	@Override
 	protected AbstractContentHandler getContentHandler() {
 		return new FacWarTopStatsHandler();
-	}
-
-	public static FacWarTopStatsParser getInstance() {
-		return new FacWarTopStatsParser();
 	}
 
 	@Override

@@ -24,7 +24,7 @@ public class ContractItemsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		ContractItemsParser parser = ContractItemsParser.getInstance();
+		CharacterContractItemsParser parser = new CharacterContractItemsParser();
 		long contractID = 1234L;
 		ContractItemsResponse response = parser.getResponse(auth, contractID); 
 		assertNotNull(response);

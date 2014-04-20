@@ -12,10 +12,6 @@ public class OutpostServiceDetailParser extends AbstractListParser<OutpostServic
 		super(OutpostServiceDetailResponse.class, 2, ApiPath.CORPORATION, ApiPage.OUTPOST_SERVICE_DETAIL, OutpostServiceDetailHandler.class);
 	}
 
-	public static OutpostServiceDetailParser getInstance() {
-		return new OutpostServiceDetailParser();
-	}
-
 	@Override
 	public OutpostServiceDetailResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

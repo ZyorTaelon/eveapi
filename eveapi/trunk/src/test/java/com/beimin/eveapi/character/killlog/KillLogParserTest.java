@@ -28,7 +28,7 @@ public class KillLogParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractKillLogParser parser = KillLogParser.getInstance();
+		AbstractKillLogParser parser = new CharacterKillLogParser();
 		KillLogResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<ApiKill> entries = response.getAll();

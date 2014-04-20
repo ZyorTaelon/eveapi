@@ -19,7 +19,7 @@ public class TypeNameParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		TypeNameParser parser = TypeNameParser.getInstance();
+		TypeNameParser parser = new TypeNameParser();
 		TypeNameResponse response = parser.getResponse(12345);
 		Collection<EveTypeName> chars = response.getAll();
 		assertEquals(1, chars.size());

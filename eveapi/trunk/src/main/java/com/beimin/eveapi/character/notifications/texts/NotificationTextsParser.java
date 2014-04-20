@@ -9,12 +9,8 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.utils.StringUtils;
 
 public class NotificationTextsParser extends AbstractListParser<NotificationTextsHandler, NotificationTextsResponse, ApiNotificationText> {
-	private NotificationTextsParser() {
+	public NotificationTextsParser() {
 		super(NotificationTextsResponse.class, 2, ApiPath.CHARACTER, ApiPage.NOTIFICATION_TEXTS, NotificationTextsHandler.class);
-	}
-
-	public static NotificationTextsParser getInstance() {
-		return new NotificationTextsParser();
 	}
 
 	public NotificationTextsResponse getResponse(ApiAuth<?> auth, long... notificationIDs) throws ApiException {

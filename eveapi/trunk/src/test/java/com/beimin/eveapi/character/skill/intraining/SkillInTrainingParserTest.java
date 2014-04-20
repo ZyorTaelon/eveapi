@@ -4,9 +4,7 @@ import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -20,7 +18,7 @@ public class SkillInTrainingParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		SkillInTrainingParser parser = SkillInTrainingParser.getInstance();
+		SkillInTrainingParser parser = new SkillInTrainingParser();
 		SkillInTrainingResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		assertDate(2008, 8, 17, 6, 43, 0, response.getCurrentTQTime());

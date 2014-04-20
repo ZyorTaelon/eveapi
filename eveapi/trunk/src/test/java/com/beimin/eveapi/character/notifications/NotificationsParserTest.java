@@ -22,7 +22,7 @@ public class NotificationsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		NotificationsParser parser = NotificationsParser.getInstance();
+		NotificationsParser parser = new NotificationsParser();
 		NotificationsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiNotification> notifications = response.getAll();

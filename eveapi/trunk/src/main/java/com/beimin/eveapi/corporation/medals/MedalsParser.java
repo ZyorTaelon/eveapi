@@ -7,12 +7,8 @@ import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
 
 public class MedalsParser extends AbstractListParser<MedalsHandler, CorpMedalsResponse, CorpMedal> {
-	private MedalsParser() {
+	public MedalsParser() {
 		super(CorpMedalsResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEDALS, MedalsHandler.class);
-	}
-
-	public static MedalsParser getInstance() {
-		return new MedalsParser();
 	}
 
 	@Override

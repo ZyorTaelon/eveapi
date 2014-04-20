@@ -7,12 +7,8 @@ import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
 
 public class ResearchParser extends AbstractListParser<ResearchHandler, ResearchResponse, ApiResearchAgent> {
-	private ResearchParser() {
+	public ResearchParser() {
 		super(ResearchResponse.class, 1, ApiPath.CHARACTER, ApiPage.RESEARCH, ResearchHandler.class);
-	}
-
-	public static ResearchParser getInstance() {
-		return new ResearchParser();
 	}
 
 	@Override

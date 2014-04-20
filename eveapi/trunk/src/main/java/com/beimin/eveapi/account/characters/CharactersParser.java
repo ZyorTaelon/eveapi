@@ -11,10 +11,6 @@ public class CharactersParser extends AbstractListParser<CharactersHandler, Char
 		super(CharactersResponse.class, 1, ApiPath.ACCOUNT, ApiPage.CHARACTERS, CharactersHandler.class);
 	}
 
-	public static CharactersParser getInstance() {
-		return new CharactersParser();
-	}
-
 	@Override
 	public CharactersResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

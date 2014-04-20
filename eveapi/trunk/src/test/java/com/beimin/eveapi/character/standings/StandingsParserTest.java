@@ -3,9 +3,7 @@ package com.beimin.eveapi.character.standings;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -22,7 +20,7 @@ public class StandingsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		StandingsParser parser = StandingsParser.getInstance();
+		CharacterStandingsParser parser = new CharacterStandingsParser();
 		StandingsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 

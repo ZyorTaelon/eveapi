@@ -25,7 +25,7 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractIndustryJobsParser parser = IndustryJobsParser.getInstance();
+		AbstractIndustryJobsParser parser = new CorporationIndustryJobsParser();
 		IndustryJobsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<ApiIndustryJob> industryJobs = response.getAll();

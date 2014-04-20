@@ -23,7 +23,7 @@ public abstract class AbstractListParser<H extends AbstractContentListHandler<E,
 	}
 	
 	@Override
-	protected E getResponse(ApiAuth<?> auth) throws ApiException {
+	public E getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 

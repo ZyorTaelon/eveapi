@@ -26,7 +26,7 @@ public class JournalParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractWalletJournalParser parser = WalletJournalParser.getInstance();
+		AbstractWalletJournalParser parser = new CharacterWalletJournalParser();
 		WalletJournalResponse response = parser.getResponse(auth, 1000);
 		assertNotNull(response);
 		Collection<ApiJournalEntry> entries = response.getAll();

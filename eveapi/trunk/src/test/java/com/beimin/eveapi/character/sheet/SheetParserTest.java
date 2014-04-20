@@ -25,7 +25,7 @@ public class SheetParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CharacterSheetParser parser = CharacterSheetParser.getInstance();
+		CharacterSheetParser parser = new CharacterSheetParser();
 		CharacterSheetResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		assertEquals(150337897L, response.getCharacterID());

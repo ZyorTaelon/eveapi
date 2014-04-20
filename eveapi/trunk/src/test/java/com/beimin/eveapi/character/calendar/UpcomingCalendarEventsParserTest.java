@@ -22,7 +22,7 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		UpcomingCalendarEventsParser parser = UpcomingCalendarEventsParser.getInstance();
+		UpcomingCalendarEventsParser parser = new UpcomingCalendarEventsParser();
 		UpcomingCalendarEventsResponse response = parser.getResponse(auth);
 		Set<EveUpcomingCalendarEvent> events = response.getAll();
 		assertEquals(1, events.size());

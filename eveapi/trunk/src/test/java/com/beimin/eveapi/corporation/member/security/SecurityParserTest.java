@@ -7,7 +7,6 @@ import java.util.Set;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
@@ -20,7 +19,7 @@ public class SecurityParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		MemberSecurityParser parser = MemberSecurityParser.getInstance();
+		MemberSecurityParser parser = new MemberSecurityParser();
 		MemberSecurityResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiSecurityMember> members = response.getMembers();

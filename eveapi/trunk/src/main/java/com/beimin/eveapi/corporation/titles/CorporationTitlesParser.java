@@ -12,10 +12,6 @@ public class CorporationTitlesParser extends AbstractListParser<CorporationTitle
 		super(CorporationTitlesResponse.class, 2, ApiPath.CORPORATION, ApiPage.TITLES, CorporationTitlesHandler.class);
 	}
 
-	public static CorporationTitlesParser getInstance() {
-		return new CorporationTitlesParser();
-	}
-
 	@Override
 	public CorporationTitlesResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

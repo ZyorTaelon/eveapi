@@ -11,10 +11,6 @@ public class SkillQueueParser extends AbstractListParser<SkillQueueHandler, Skil
 		super(SkillQueueResponse.class, 2, ApiPath.CHARACTER, ApiPage.SKILL_QUEUE, SkillQueueHandler.class);
 	}
 
-	public static SkillQueueParser getInstance() {
-		return new SkillQueueParser();
-	}
-
 	@Override
 	public SkillQueueResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

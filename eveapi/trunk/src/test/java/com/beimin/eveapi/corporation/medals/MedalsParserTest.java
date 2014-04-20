@@ -20,7 +20,7 @@ public class MedalsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		MedalsParser parser = MedalsParser.getInstance();
+		MedalsParser parser = new MedalsParser();
 		CorpMedalsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<CorpMedal> medals = response.getAll();

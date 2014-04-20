@@ -12,10 +12,6 @@ public class MemberSecurityLogParser extends AbstractListParser<MemberSecurityLo
 		super(MemberSecurityLogResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_SECURITY_LOG, MemberSecurityLogHandler.class);
 	}
 
-	public static MemberSecurityLogParser getInstance() {
-		return new MemberSecurityLogParser();
-	}
-
 	@Override
 	public MemberSecurityLogResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

@@ -10,10 +10,6 @@ public class KillsParser extends AbstractListParser<KillsHandler, KillsResponse,
 		super(KillsResponse.class, 2, ApiPath.MAP, ApiPage.KILLS, KillsHandler.class);
 	}
 
-	public static KillsParser getInstance() {
-		return new KillsParser();
-	}
-
 	@Override
 	public KillsResponse getResponse() throws ApiException {
 		return super.getResponse();

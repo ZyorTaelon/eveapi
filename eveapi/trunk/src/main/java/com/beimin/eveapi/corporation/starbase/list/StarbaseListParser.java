@@ -11,10 +11,6 @@ public class StarbaseListParser extends AbstractListParser<StarbaseListHandler, 
 		super(StarbaseListResponse.class, 2, ApiPath.CORPORATION, ApiPage.STARBASE_LIST, StarbaseListHandler.class);
 	}
 
-	public static StarbaseListParser getInstance() {
-		return new StarbaseListParser();
-	}
-
 	@Override
 	public StarbaseListResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

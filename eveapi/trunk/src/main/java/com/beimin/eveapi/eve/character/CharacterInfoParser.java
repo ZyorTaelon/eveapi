@@ -17,10 +17,6 @@ public class CharacterInfoParser extends AbstractApiParser<CharacterInfoResponse
 		return new CharacterInfoHandler();
 	}
 
-	public static CharacterInfoParser getInstance() {
-		return new CharacterInfoParser();
-	}
-
 	public CharacterInfoResponse getResponse(long characterID) throws ApiException {
 		return super.getResponse("characterID", Long.toString(characterID));
 	}

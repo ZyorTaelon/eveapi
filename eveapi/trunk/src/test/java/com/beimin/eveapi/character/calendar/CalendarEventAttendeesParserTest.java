@@ -7,9 +7,9 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.character.calendar.attendees.EveCalendarEventAttendee;
 import com.beimin.eveapi.character.calendar.attendees.CalendarEventAttendeesParser;
 import com.beimin.eveapi.character.calendar.attendees.CalendarEventAttendeesResponse;
+import com.beimin.eveapi.character.calendar.attendees.EveCalendarEventAttendee;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
@@ -22,7 +22,7 @@ public class CalendarEventAttendeesParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CalendarEventAttendeesParser parser = CalendarEventAttendeesParser.getInstance();
+		CalendarEventAttendeesParser parser = new CalendarEventAttendeesParser();
 		CalendarEventAttendeesResponse response = parser.getResponse(auth, 133918L);
 		Set<EveCalendarEventAttendee> attendees = response.getAll();
 		assertEquals(1, attendees.size());

@@ -14,7 +14,7 @@ import freemarker.template.TemplateException;
 public class RefTypeEnumGenerator {
 
 	public static void main(String[] args) throws IOException, TemplateException, ApiException {
-		RefTypesParser parser = RefTypesParser.getInstance();
+		RefTypesParser parser = new RefTypesParser();
 		RefTypesResponse response = parser.getResponse();
 		Collection<ApiRefType> refTypes = response.getAll();
 		Configuration cfg = new Configuration();

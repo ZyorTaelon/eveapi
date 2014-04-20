@@ -4,17 +4,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
-
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
-import com.beimin.eveapi.corporation.contact.list.ContactListParser;
-import com.beimin.eveapi.corporation.contact.list.ContactListResponse;
+import com.beimin.eveapi.corporation.contact.list.CorporationContactListParser;
+import com.beimin.eveapi.corporation.contact.list.CorporationContactListResponse;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.contacts.EveContact;
 import com.beimin.eveapi.shared.contacts.ContactList;
+import com.beimin.eveapi.shared.contacts.EveContact;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ContactListParserTest extends FullAuthParserTest {
@@ -24,8 +22,8 @@ public class ContactListParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		ContactListParser parser = ContactListParser.getInstance();
-		ContactListResponse response = parser.getResponse(auth);
+		CorporationContactListParser parser = new CorporationContactListParser();
+		CorporationContactListResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 
 		ContactList corporateContactList = response.getCorporateContactList();

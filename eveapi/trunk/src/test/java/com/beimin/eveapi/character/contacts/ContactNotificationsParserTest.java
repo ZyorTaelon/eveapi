@@ -8,9 +8,9 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.character.contact.notifications.EveContactNotification;
 import com.beimin.eveapi.character.contact.notifications.ContactNotificationsParser;
 import com.beimin.eveapi.character.contact.notifications.ContactNotificationsResponse;
+import com.beimin.eveapi.character.contact.notifications.EveContactNotification;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
@@ -23,7 +23,7 @@ public class ContactNotificationsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		ContactNotificationsParser parser = ContactNotificationsParser.getInstance();
+		ContactNotificationsParser parser = new ContactNotificationsParser();
 		ContactNotificationsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<EveContactNotification> contactNotifications = response.getAll();

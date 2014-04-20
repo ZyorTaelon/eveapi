@@ -21,7 +21,7 @@ public class FacWarSystemsParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		FacWarSystemsParser parser = FacWarSystemsParser.getInstance();
+		FacWarSystemsParser parser = new FacWarSystemsParser();
 		FacWarSystemsResponse response = parser.getResponse();
 		Set<ApiFacWarSystem> systems = response.getAll();
 		assertEquals(171, systems.size());

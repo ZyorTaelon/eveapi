@@ -10,17 +10,22 @@ import com.beimin.eveapi.account.characters.CharactersParser;
 import com.beimin.eveapi.account.characters.EveCharacter;
 import com.beimin.eveapi.api.calllist.CallList;
 import com.beimin.eveapi.api.calllist.CallListParser;
+import com.beimin.eveapi.character.accountbalance.CharacterAccountBalanceParser;
+import com.beimin.eveapi.character.assetlist.CharacterAssetListParser;
 import com.beimin.eveapi.character.calendar.attendees.CalendarEventAttendeesParser;
 import com.beimin.eveapi.character.calendar.attendees.EveCalendarEventAttendee;
 import com.beimin.eveapi.character.calendar.upcomingevents.EveUpcomingCalendarEvent;
 import com.beimin.eveapi.character.calendar.upcomingevents.UpcomingCalendarEventsParser;
+import com.beimin.eveapi.character.contact.list.CharacterContactListParser;
 import com.beimin.eveapi.character.contact.notifications.ContactNotificationsParser;
 import com.beimin.eveapi.character.contact.notifications.EveContactNotification;
 import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.core.ApiAuth;
+import com.beimin.eveapi.corporation.accountbalance.CorporationAccountBalanceParser;
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.exception.NoAuthException;
 import com.beimin.eveapi.shared.KeyType;
+import com.beimin.eveapi.shared.accountbalance.AbstractAccountBalanceParser;
 import com.beimin.eveapi.shared.accountbalance.AccountBalanceResponse;
 import com.beimin.eveapi.shared.accountbalance.EveAccountBalance;
 import com.beimin.eveapi.shared.assetlist.EveAsset;
@@ -49,7 +54,7 @@ public class EveApi {
 	}
 
 	public static ApiConnector getConnector() {
-		return connector.getInstance();
+		return connector.getNewInstance();
 	}
 
 	public static void setConnector(ApiConnector connector) {
@@ -57,16 +62,16 @@ public class EveApi {
 	}
 
 	public ApiKeyInfoResponse getAPIKeyInfo() throws ApiException {
-		ApiKeyInfoParser apiKeyInfoParser = ApiKeyInfoParser.getInstance();
+		ApiKeyInfoParser apiKeyInfoParser = new ApiKeyInfoParser();
 		return apiKeyInfoParser.getResponse(auth);
 	}
 
 	public EveAccountStatus getAccountStatus() throws ApiException {
-		return AccountStatusParser.getInstance().getResponse(getAuth()).get();
+		return new AccountStatusParser().getResponse(getAuth()).get();
 	}
 
 	public Set<EveCharacter> getCharacters() throws ApiException {
-		return CharactersParser.getInstance().getResponse(getAuth()).getAll();
+		return new CharactersParser().getResponse(getAuth()).getAll();
 	}
 
 	public void selectCharacter(EveCharacter eveCharacter) {
@@ -82,42 +87,40 @@ public class EveApi {
 	}
 
 	public Set<EveAccountBalance> getAccountBalance(KeyType type) throws ApiException {
-		AccountBalanceResponse response;
-		if (type == KeyType.Character) {
-			response = com.beimin.eveapi.character.accountbalance.AccountBalanceParser.getInstance().getResponse(
-					getAuth());
-		} else if (type == KeyType.Corporation)
-			response = com.beimin.eveapi.corporation.accountbalance.AccountBalanceParser.getInstance().getResponse(
-					getAuth());
+		AbstractAccountBalanceParser accountBalanceParser;
+		if (type == KeyType.Character)
+			accountBalanceParser = new CharacterAccountBalanceParser();
+		else if (type == KeyType.Corporation)
+			accountBalanceParser = new CorporationAccountBalanceParser();
 		else
 			return null;
+		AccountBalanceResponse response = accountBalanceParser.getResponse(getAuth());
 		if (response.hasError())
 			throw new ApiException(response.getError().getError());
 		return response.getAll();
 	}
 
 	public Set<EveAsset<EveAsset<?>>> getCharacterAssets() throws ApiException {
-		return com.beimin.eveapi.character.assetlist.AssetListParser.getInstance().getResponse(getAuth()).getAll();
+		return new CharacterAssetListParser().getResponse(getAuth()).getAll();
 	}
 
 	public Set<EveUpcomingCalendarEvent> getUpcomingCalendarEvents() throws ApiException {
-		return UpcomingCalendarEventsParser.getInstance().getResponse(getAuth()).getAll();
+		return new UpcomingCalendarEventsParser().getResponse(getAuth()).getAll();
 	}
 
 	public Set<EveCalendarEventAttendee> getCalendarEventAttendees(long... eventIds) throws ApiException {
-		return CalendarEventAttendeesParser.getInstance().getResponse(getAuth(), eventIds).getAll();
+		return new CalendarEventAttendeesParser().getResponse(getAuth(), eventIds).getAll();
 	}
 
 	public ContactList getContactList() throws ApiException {
-		return com.beimin.eveapi.character.contact.list.ContactListParser.getInstance().getResponse(getAuth())
-				.getContactList();
+		return new CharacterContactListParser().getResponse(getAuth()).getContactList();
 	}
 
 	public Set<EveContactNotification> getContactNotifications() throws ApiException {
-		return ContactNotificationsParser.getInstance().getResponse(getAuth()).getAll();
+		return new ContactNotificationsParser().getResponse(getAuth()).getAll();
 	}
 
 	public CallList getCallList() throws ApiException {
-		return CallListParser.getInstance().getResponse().get();
+		return new CallListParser().getResponse().get();
 	}
 }

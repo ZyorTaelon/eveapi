@@ -39,7 +39,7 @@ public class LoggingConnectorTest extends FullAuthParserTest {
 		PrintStream printStream = new PrintStream(temp);
 		System.setOut(printStream);
 
-		SkillQueueParser parser = SkillQueueParser.getInstance();
+		SkillQueueParser parser = new SkillQueueParser();
 		SkillQueueResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		printStream.flush();

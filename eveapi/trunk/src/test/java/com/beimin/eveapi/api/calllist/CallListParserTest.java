@@ -28,7 +28,7 @@ public class CallListParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CallListParser parser = CallListParser.getInstance();
+		CallListParser parser = new CallListParser();
 		CallListResponse response = parser.getResponse();
 		assertNotNull(response);
 		

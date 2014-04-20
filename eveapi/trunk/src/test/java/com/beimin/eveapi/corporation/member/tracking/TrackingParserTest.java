@@ -27,7 +27,7 @@ public class TrackingParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		MemberTrackingParser parser = MemberTrackingParser.getInstance();
+		MemberTrackingParser parser = new MemberTrackingParser();
 		MemberTrackingResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiMember> members = response.getAll();
@@ -47,7 +47,7 @@ public class TrackingParserTest extends FullAuthParserTest {
 		CamelContext context = new DefaultCamelContext();
 		context.addRoutes(extended);
 		context.start();
-		MemberTrackingParser parser = MemberTrackingParser.getInstance();
+		MemberTrackingParser parser = new MemberTrackingParser();
 		MemberTrackingResponse response = parser.getExtendedResponse(auth);
 		assertNotNull(response);
 		Set<ApiMember> members = response.getAll();
@@ -62,7 +62,7 @@ public class TrackingParserTest extends FullAuthParserTest {
 		assertTrue("Test character not found: ", found);
 	}
 	
-	private RouteBuilder extended = new RouteBuilder() {
+	private final RouteBuilder extended = new RouteBuilder() {
 		@Override
 		public void configure() {
 			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx")

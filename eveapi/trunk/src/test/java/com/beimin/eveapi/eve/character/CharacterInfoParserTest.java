@@ -25,8 +25,8 @@ import com.beimin.eveapi.utils.MockApi;
 public class CharacterInfoParserTest {
 	private final ApiPath path = ApiPath.EVE;
 	private final ApiPage page = ApiPage.CHARACTER_INFO;
-	private ApiAuthorization limitedAPI = new ApiAuthorization(123, 1380128241, "abc");
-	private ApiAuthorization fullAPI = new ApiAuthorization(123, 1380128241, "abcdef");
+	private final ApiAuthorization limitedAPI = new ApiAuthorization(123, 1380128241, "abc");
+	private final ApiAuthorization fullAPI = new ApiAuthorization(123, 1380128241, "abcdef");
 
 	@Test
 	public void parserTestWithoutAuth() throws Exception {
@@ -35,7 +35,7 @@ public class CharacterInfoParserTest {
 		context.addRoutes(noAPI);
 		context.start();
 		EveApi.setConnector(new ApiConnector(MockApi.URL));
-		CharacterInfoParser parser = CharacterInfoParser.getInstance();
+		CharacterInfoParser parser = new CharacterInfoParser();
 		CharacterInfoResponse response = parser.getResponse(1380128241);
 		assertNotNull(response);
 		assertEquals(1380128241L, response.getCharacterID());
@@ -67,7 +67,7 @@ public class CharacterInfoParserTest {
 		context.addRoutes(limitedApiRoute);
 		context.start();
 		EveApi.setConnector(new ApiConnector(MockApi.URL));
-		CharacterInfoParser parser = CharacterInfoParser.getInstance();
+		CharacterInfoParser parser = new CharacterInfoParser();
 		CharacterInfoResponse response = parser.getResponse(limitedAPI);
 		assertNotNull(response);
 		assertEquals(1380128241L, response.getCharacterID());
@@ -98,7 +98,7 @@ public class CharacterInfoParserTest {
 		context.addRoutes(fullApiRoute);
 		context.start();
 		EveApi.setConnector(new ApiConnector(MockApi.URL));
-		CharacterInfoParser parser = CharacterInfoParser.getInstance();
+		CharacterInfoParser parser = new CharacterInfoParser();
 		CharacterInfoResponse response = parser.getResponse(fullAPI);
 		assertNotNull(response);
 		assertEquals(1380128241L, response.getCharacterID());
@@ -123,7 +123,7 @@ public class CharacterInfoParserTest {
 		context.stop();
 	}
 
-	private RouteBuilder limitedApiRoute = new RouteBuilder() {
+	private final RouteBuilder limitedApiRoute = new RouteBuilder() {
 		@Override
 		public void configure() {
 			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(
@@ -138,7 +138,7 @@ public class CharacterInfoParserTest {
 		}
 	};
 
-	private RouteBuilder noAPI = new RouteBuilder() {
+	private final RouteBuilder noAPI = new RouteBuilder() {
 		@Override
 		public void configure() {
 			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(
@@ -151,7 +151,7 @@ public class CharacterInfoParserTest {
 		}
 	};
 
-	private RouteBuilder fullApiRoute = new RouteBuilder() {
+	private final RouteBuilder fullApiRoute = new RouteBuilder() {
 		@Override
 		public void configure() {
 			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(

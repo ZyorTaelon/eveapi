@@ -3,11 +3,9 @@ package com.beimin.eveapi.character.factwar.stats;
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 
-
 import org.junit.Test;
 
-
-import com.beimin.eveapi.character.facwar.stats.FacWarStatsParser;
+import com.beimin.eveapi.character.facwar.stats.CharacterFacWarStatsParser;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
@@ -21,7 +19,7 @@ public class FacWarStatsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		FacWarStatsParser parser = FacWarStatsParser.getInstance();
+		CharacterFacWarStatsParser parser = new CharacterFacWarStatsParser();
 		FacWarStatsResponse facWarStats = parser.getResponse(auth);
 		assertEquals(500001, facWarStats.getFactionID());
 		assertEquals("Caldari State", facWarStats.getFactionName());

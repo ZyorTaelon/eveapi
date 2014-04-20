@@ -23,7 +23,7 @@ public class MailingListsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		MailingListsParser parser = MailingListsParser.getInstance();
+		MailingListsParser parser = new MailingListsParser();
 		MailingListsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiMailingList> mailinglists = response.getAll();

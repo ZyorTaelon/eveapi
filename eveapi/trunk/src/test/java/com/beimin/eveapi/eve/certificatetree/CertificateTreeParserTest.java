@@ -21,7 +21,7 @@ public class CertificateTreeParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CertificateTreeParser parser = CertificateTreeParser.getInstance();
+		CertificateTreeParser parser = new CertificateTreeParser();
 		CertificateTreeResponse response = parser.getResponse();
 		assertNotNull("Should have returned a response.", response);
 		assertEquals("version 2 expected.", 2, response.getVersion());

@@ -26,7 +26,7 @@ public class AssetListParserTest extends FullAuthParserTest {
 	@Test
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void getResponse() throws ApiException {
-		AbstractAssetListParser parser = AssetListParser.getInstance();
+		AbstractAssetListParser parser = new CharacterAssetListParser();
 		AssetListResponse response = parser.getResponse(auth);
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 4, 43, 55, response.getCurrentTime());

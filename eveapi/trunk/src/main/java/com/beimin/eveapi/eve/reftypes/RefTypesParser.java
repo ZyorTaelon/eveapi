@@ -10,10 +10,6 @@ public class RefTypesParser extends AbstractListParser<RefTypesHandler, RefTypes
 		super(RefTypesResponse.class, 1, ApiPath.EVE, ApiPage.REF_TYPES, RefTypesHandler.class);
 	}
 
-	public static RefTypesParser getInstance() {
-		return new RefTypesParser();
-	}
-
 	@Override
 	public RefTypesResponse getResponse() throws ApiException {
 		return super.getResponse();

@@ -23,7 +23,7 @@ public class LocationsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractLocationsParser parser = LocationsParser.getInstance();
+		AbstractLocationsParser parser = new CorporationLocationsParser();
 		LocationsResponse response = parser.getResponse(auth, Arrays.asList(1002861698719L));
 		assertNotNull(response);
 		Collection<ApiLocation> locations = response.getAll();

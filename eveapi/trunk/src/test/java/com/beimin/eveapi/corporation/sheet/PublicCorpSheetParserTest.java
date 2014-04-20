@@ -3,16 +3,14 @@ package com.beimin.eveapi.corporation.sheet;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-
+import java.util.Map;
 
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.utils.NoAuthParserTest;
-import java.util.Map;
 
 public class PublicCorpSheetParserTest extends NoAuthParserTest {
 	public PublicCorpSheetParserTest() {
@@ -21,7 +19,7 @@ public class PublicCorpSheetParserTest extends NoAuthParserTest {
 
 	@Test
 	public void corporationSheetParser() throws ApiException {
-		CorpSheetParser parser = CorpSheetParser.getInstance();
+		CorpSheetParser parser = new CorpSheetParser();
 		CorpSheetResponse response = parser.getResponse(150333466L);
 		assertNotNull(response);
 		assertEquals(150333466, response.getCorporationID());

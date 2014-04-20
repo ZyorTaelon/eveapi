@@ -21,7 +21,7 @@ public class AccountBalanceParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AccountBalanceParser parser = AccountBalanceParser.getInstance();
+		CharacterAccountBalanceParser parser = new CharacterAccountBalanceParser();
 		AccountBalanceResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<EveAccountBalance> accountBalances = response.getAll();

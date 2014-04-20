@@ -21,7 +21,7 @@ public class SecurityLogParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		MemberSecurityLogParser parser = MemberSecurityLogParser.getInstance();
+		MemberSecurityLogParser parser = new MemberSecurityLogParser();
 		MemberSecurityLogResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiRoleHistory> roleHistories = response.getAll();

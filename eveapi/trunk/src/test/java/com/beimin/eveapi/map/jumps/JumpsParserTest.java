@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
@@ -20,7 +19,7 @@ public class JumpsParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		JumpsParser parser = JumpsParser.getInstance();
+		JumpsParser parser = new JumpsParser();
 		JumpsResponse response = parser.getResponse();
 		assertNotNull(response);
 		Map<Integer, Integer> systemJumps = response.getSystemJumps();

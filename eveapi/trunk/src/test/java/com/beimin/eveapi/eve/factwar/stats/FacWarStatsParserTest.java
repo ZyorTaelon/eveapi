@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
@@ -19,7 +18,7 @@ public class FacWarStatsParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		FacWarStatsParser parser = FacWarStatsParser.getInstance();
+		FacWarStatsParser parser = new FacWarStatsParser();
 		FacWarStatsResponse facWarStats = parser.getResponse();
 		assertEquals(677, facWarStats.getKillsYesterday());
 		assertEquals(3246, facWarStats.getKillsLastWeek());

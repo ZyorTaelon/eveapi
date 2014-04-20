@@ -20,7 +20,7 @@ public class ErrorListParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		ErrorListParser parser = ErrorListParser.getInstance();
+		ErrorListParser parser = new ErrorListParser();
 		ErrorListResponse response = parser.getResponse();
 		assertNotNull(response);
 		Collection<ApiErrorListItem> errorListItems = response.getAll();

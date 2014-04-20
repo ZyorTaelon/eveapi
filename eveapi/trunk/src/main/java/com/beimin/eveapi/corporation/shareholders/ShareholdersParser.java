@@ -11,10 +11,6 @@ public class ShareholdersParser extends AbstractListParser<ShareholdersHandler, 
 		super(ShareholdersResponse.class, 2, ApiPath.CORPORATION, ApiPage.SHAREHOLDERS, ShareholdersHandler.class);
 	}
 
-	public static ShareholdersParser getInstance() {
-		return new ShareholdersParser();
-	}
-
 	@Override
 	public ShareholdersResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

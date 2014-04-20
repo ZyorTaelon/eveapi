@@ -25,7 +25,7 @@ public class MailMessagesParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		MailMessagesParser parser = MailMessagesParser.getInstance();
+		MailMessagesParser parser = new MailMessagesParser();
 		MailMessagesResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiMailMessage> mails = response.getAll();

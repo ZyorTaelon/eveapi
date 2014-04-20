@@ -6,15 +6,11 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.shared.wallet.transactions.AbstractWalletTransactionsParser;
 import com.beimin.eveapi.shared.wallet.transactions.WalletTransactionsResponse;
 
-public class WalletTransactionsParser extends AbstractWalletTransactionsParser {
+public class CharacterWalletTransactionsParser extends AbstractWalletTransactionsParser {
 	private static final int DEFAULT_ROW_COUNT = 1000;
 
-	private WalletTransactionsParser() {
+	public CharacterWalletTransactionsParser() {
 		super(ApiPath.CHARACTER);
-	}
-
-	public static WalletTransactionsParser getInstance() {
-		return new WalletTransactionsParser();
 	}
 
 	public WalletTransactionsResponse getTransactionsResponse(ApiAuth<?> auth) throws ApiException {

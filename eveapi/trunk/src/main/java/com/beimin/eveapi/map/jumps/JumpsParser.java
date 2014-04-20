@@ -11,10 +11,6 @@ public class JumpsParser extends AbstractListParser<JumpsHandler, JumpsResponse,
 		super(JumpsResponse.class, 2, ApiPath.MAP, ApiPage.JUMPS, JumpsHandler.class);
 	}
 
-	public static JumpsParser getInstance() {
-		return new JumpsParser();
-	}
-
 	@Override
 	public JumpsResponse getResponse() throws ApiException {
 		return super.getResponse();

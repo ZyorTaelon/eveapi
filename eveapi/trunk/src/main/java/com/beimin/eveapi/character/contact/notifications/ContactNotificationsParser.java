@@ -7,12 +7,8 @@ import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
 
 public class ContactNotificationsParser extends AbstractListParser<ContactNotificationsHandler, ContactNotificationsResponse, EveContactNotification> {
-	protected ContactNotificationsParser() {
+	public ContactNotificationsParser() {
 		super(ContactNotificationsResponse.class, 2, ApiPath.CHARACTER, ApiPage.CONTACT_NOTIFICATIONS, ContactNotificationsHandler.class);
-	}
-
-	public static ContactNotificationsParser getInstance() {
-		return new ContactNotificationsParser();
 	}
 
 	@Override

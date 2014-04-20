@@ -3,12 +3,8 @@ package com.beimin.eveapi.corporation.industryjobs;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.industryjobs.AbstractIndustryJobsParser;
 
-public class IndustryJobsParser extends AbstractIndustryJobsParser {
-	private IndustryJobsParser() {
+public class CorporationIndustryJobsParser extends AbstractIndustryJobsParser {
+	public CorporationIndustryJobsParser() {
 		super(ApiPath.CORPORATION);
-	}
-
-	public static IndustryJobsParser getInstance() {
-		return new IndustryJobsParser();
 	}
 }

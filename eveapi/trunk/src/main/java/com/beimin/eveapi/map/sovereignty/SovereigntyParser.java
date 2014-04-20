@@ -11,10 +11,6 @@ public class SovereigntyParser extends AbstractListParser<SovereigntyHandler, So
 		super(SovereigntyResponse.class, 1, ApiPath.MAP, ApiPage.SOVEREIGNTY, SovereigntyHandler.class);
 	}
 
-	public static SovereigntyParser getInstance() {
-		return new SovereigntyParser();
-	}
-
 	@Override
 	public SovereigntyResponse getResponse() throws ApiException {
 		return super.getResponse();

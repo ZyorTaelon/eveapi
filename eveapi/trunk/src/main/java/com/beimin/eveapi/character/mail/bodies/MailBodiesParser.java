@@ -8,12 +8,8 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.utils.StringUtils;
 
 public class MailBodiesParser extends AbstractListParser<MailBodiesHandler, MailBodiesResponse, ApiMailBody> {
-	private MailBodiesParser() {
+	public MailBodiesParser() {
 		super(MailBodiesResponse.class, 2, ApiPath.CHARACTER, ApiPage.MAIL_BODIES, MailBodiesHandler.class);
-	}
-
-	public static MailBodiesParser getInstance() {
-		return new MailBodiesParser();
 	}
 
 	public MailBodiesResponse getResponse(ApiAuth<?> auth, long... ids) throws ApiException {

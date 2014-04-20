@@ -20,7 +20,7 @@ public class SkillQueueParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		SkillQueueParser parser = SkillQueueParser.getInstance();
+		SkillQueueParser parser = new SkillQueueParser();
 		SkillQueueResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<ApiSkillQueueItem> skillQueueItems = response.getAll();

@@ -10,10 +10,6 @@ public class AllianceListParser extends AbstractListParser<AllianceListHandler, 
 		super(AllianceListResponse.class, 2, ApiPath.EVE, ApiPage.ALLIANCE_LIST, AllianceListHandler.class);
 	}
 
-	public static AllianceListParser getInstance() {
-		return new AllianceListParser();
-	}
-
 	@Override
 	public AllianceListResponse getResponse() throws ApiException {
 		return super.getResponse();

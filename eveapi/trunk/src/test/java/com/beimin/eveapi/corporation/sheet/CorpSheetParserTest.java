@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.junit.Test;
 
-
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
@@ -20,7 +19,7 @@ public class CorpSheetParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CorpSheetParser parser = CorpSheetParser.getInstance();
+		CorpSheetParser parser = new CorpSheetParser();
 		CorpSheetResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		assertEquals(150212025, response.getCorporationID());

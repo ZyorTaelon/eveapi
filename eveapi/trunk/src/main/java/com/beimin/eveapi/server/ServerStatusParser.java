@@ -17,10 +17,6 @@ public class ServerStatusParser extends AbstractApiParser<ServerStatusResponse> 
 		return new ServerStatusHandler();
 	}
 
-	public static ServerStatusParser getInstance() {
-		return new ServerStatusParser();
-	}
-
 	public ServerStatusResponse getServerStatus() throws ApiException {
 		return getResponse();
 	}

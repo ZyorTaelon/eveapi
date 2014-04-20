@@ -22,7 +22,7 @@ public class SkillTreeParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		SkillTreeParser parser = SkillTreeParser.getInstance();
+		SkillTreeParser parser = new SkillTreeParser();
 		SkillTreeResponse response = parser.getResponse();
 		assertNotNull("Should have returned a response.", response);
 		assertEquals("version 2 expected.", 2, response.getVersion());

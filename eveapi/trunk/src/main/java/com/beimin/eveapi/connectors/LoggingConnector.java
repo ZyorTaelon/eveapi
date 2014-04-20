@@ -64,13 +64,13 @@ public class LoggingConnector extends ApiConnector {
 	}
 
 	@Override
-	public ApiConnector getInstance() {
+	public ApiConnector getNewInstance() {
 		return new LoggingConnector(baseConnector);
 	}
 
 	private ApiConnector getConnector() {
 		if (baseConnector != null)
-			return baseConnector.getInstance();
-		return super.getInstance();
+			return baseConnector.getNewInstance();
+		return super.getNewInstance();
 	}
 }

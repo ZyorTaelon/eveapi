@@ -3,7 +3,7 @@ package com.beimin.eveapi.corporation.wallet.transactions;
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
 import java.util.Set;
@@ -25,7 +25,7 @@ public class TransactionsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractWalletTransactionsParser parser = WalletTransactionsParser.getInstance();
+		AbstractWalletTransactionsParser parser = new CorporationWalletTransactionsParser();
 		WalletTransactionsResponse response = parser.getResponse(auth, 1000);
 		assertNotNull(response);
 		Set<ApiWalletTransaction> walletTransactions = response.getAll();

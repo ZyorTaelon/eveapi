@@ -8,12 +8,8 @@ import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
 
 public class NotificationsParser extends AbstractListParser<NotificationsHandler, NotificationsResponse, ApiNotification> {
-	private NotificationsParser() {
+	public NotificationsParser() {
 		super(NotificationsResponse.class, 2, ApiPath.CHARACTER, ApiPage.NOTIFICATIONS, NotificationsHandler.class);
-	}
-
-	public static NotificationsParser getInstance() {
-		return new NotificationsParser();
 	}
 
 	@Override

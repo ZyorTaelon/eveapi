@@ -8,9 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
 
-
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -24,7 +22,7 @@ public class StarbaseDetailParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		StarbaseDetailParser parser = StarbaseDetailParser.getInstance();
+		StarbaseDetailParser parser = new StarbaseDetailParser();
 		StarbaseDetailResponse response = parser.getResponse(auth, 123456789);
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 1, 54, 2, response.getCurrentTime());

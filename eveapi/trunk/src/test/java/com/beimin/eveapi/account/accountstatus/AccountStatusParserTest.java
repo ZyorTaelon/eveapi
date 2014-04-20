@@ -17,7 +17,7 @@ public class AccountStatusParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws Exception {
-		AccountStatusParser accountStatusParser = AccountStatusParser.getInstance();
+		AccountStatusParser accountStatusParser = new AccountStatusParser();
 		AccountStatusResponse response = accountStatusParser.getResponse(auth);
 		assertNotNull(response);
 		EveAccountStatus accountStatus = response.get();

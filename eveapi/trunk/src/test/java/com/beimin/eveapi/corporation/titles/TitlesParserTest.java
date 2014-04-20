@@ -20,7 +20,7 @@ public class TitlesParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CorporationTitlesParser parser = CorporationTitlesParser.getInstance();
+		CorporationTitlesParser parser = new CorporationTitlesParser();
 		CorporationTitlesResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<ApiTitle> titles = response.getAll();

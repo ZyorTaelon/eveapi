@@ -3,12 +3,8 @@ package com.beimin.eveapi.corporation.assetlist;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.assetlist.AbstractAssetListParser;
 
-public class AssetListParser extends AbstractAssetListParser {
-	private AssetListParser() {
+public class CorporationAssetListParser extends AbstractAssetListParser {
+	public CorporationAssetListParser() {
 		super(ApiPath.CORPORATION);
-	}
-
-	public static AssetListParser getInstance() {
-		return new AssetListParser();
 	}
 }

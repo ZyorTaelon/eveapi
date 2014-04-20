@@ -12,10 +12,6 @@ public class MemberTrackingParser extends AbstractListParser<MemberTrackingHandl
 				MemberTrackingHandler.class);
 	}
 
-	public static MemberTrackingParser getInstance() {
-		return new MemberTrackingParser();
-	}
-
 	@Override
 	public MemberTrackingResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

@@ -3,12 +3,8 @@ package com.beimin.eveapi.corporation.locations;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.locations.AbstractLocationsParser;
 
-public class LocationsParser extends AbstractLocationsParser {
-	private LocationsParser() {
+public class CorporationLocationsParser extends AbstractLocationsParser {
+	public CorporationLocationsParser() {
 		super(ApiPath.CORPORATION);
-	}
-
-	public static LocationsParser getInstance() {
-		return new LocationsParser();
 	}
 }

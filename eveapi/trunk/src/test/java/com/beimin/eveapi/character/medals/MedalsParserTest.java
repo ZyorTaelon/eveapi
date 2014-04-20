@@ -2,10 +2,10 @@ package com.beimin.eveapi.character.medals;
 
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
 
 import java.util.Set;
 
@@ -23,7 +23,7 @@ public class MedalsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		MedalsParser parser = MedalsParser.getInstance();
+		MedalsParser parser = new MedalsParser();
 		CharacterMedalsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<CharacterMedal> medals = response.getAll();
@@ -41,7 +41,7 @@ public class MedalsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void responseHasMedalsFromCurrentCorp() throws ApiException {
-		MedalsParser parser = MedalsParser.getInstance();
+		MedalsParser parser = new MedalsParser();
 		CharacterMedalsResponse response = parser.getResponse(auth);
 		Set<CharacterMedal> medals = response.getAll();
 		CharacterMedal medal = medals.iterator().next();

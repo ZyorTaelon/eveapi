@@ -20,7 +20,7 @@ public class OutpostListParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		OutpostServiceDetailParser parser = OutpostServiceDetailParser.getInstance();
+		OutpostServiceDetailParser parser = new OutpostServiceDetailParser();
 		OutpostServiceDetailResponse response = parser.getResponse(auth);
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2011, 4, 7, 19, 50, 25, response.getCurrentTime());

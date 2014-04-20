@@ -3,12 +3,8 @@ package com.beimin.eveapi.corporation.contract;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.shared.contract.AbstractContractsParser;
 
-public class ContractsParser extends AbstractContractsParser {
-	protected ContractsParser() {
+public class CorporationContractsParser extends AbstractContractsParser {
+	public CorporationContractsParser() {
 		super(ApiPath.CORPORATION);
-	}
-	
-	public static ContractsParser getInstance() {
-		return new ContractsParser();
 	}
 }

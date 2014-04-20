@@ -3,9 +3,7 @@ package com.beimin.eveapi.server;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-
 import org.junit.Test;
-
 
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
@@ -19,7 +17,7 @@ public class ServerStatusParserTest extends NoAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		ServerStatusParser parser = ServerStatusParser.getInstance();
+		ServerStatusParser parser = new ServerStatusParser();
 		ServerStatusResponse response = parser.getServerStatus();
 		assertNotNull(response);
 		assertEquals(38669, response.getOnlinePlayers());

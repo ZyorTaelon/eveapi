@@ -13,10 +13,6 @@ public class CalendarEventAttendeesParser extends AbstractListParser<CalendarEve
 		super(CalendarEventAttendeesResponse.class, 2, ApiPath.CHARACTER, ApiPage.CALENDAR_EVENT_ATTENDEES, CalendarEventAttendeesHandler.class);
 	}
 
-	public static CalendarEventAttendeesParser getInstance() {
-		return new CalendarEventAttendeesParser();
-	}
-
 	public CalendarEventAttendeesResponse getResponse(ApiAuth<?> auth, long... eventIDs) throws ApiException {
 		if (eventIDs.length == 0)
 			throw new ApiException("no eventIds provided");

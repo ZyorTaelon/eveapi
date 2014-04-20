@@ -11,10 +11,6 @@ public class ContainerLogParser extends AbstractListParser<ContainerLogHandler, 
 		super(ContainerLogResponse.class, 2, ApiPath.CORPORATION, ApiPage.CONTAINER_LOG, ContainerLogHandler.class);
 	}
 
-	public static ContainerLogParser getInstance() {
-		return new ContainerLogParser();
-	}
-
 	@Override
 	public ContainerLogResponse getResponse(ApiAuth<?> auth) throws ApiException {
 		return super.getResponse(auth);

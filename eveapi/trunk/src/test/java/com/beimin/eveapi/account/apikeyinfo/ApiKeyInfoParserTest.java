@@ -1,17 +1,18 @@
 package com.beimin.eveapi.account.apikeyinfo;
 
-import com.beimin.eveapi.account.characters.EveCharacter;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
+import com.beimin.eveapi.account.characters.EveCharacter;
 import com.beimin.eveapi.core.ApiPage;
 import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class ApiKeyInfoParserTest extends FullAuthParserTest {
@@ -21,7 +22,7 @@ public class ApiKeyInfoParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws Exception {
-		ApiKeyInfoParser apiKeyInfoParser = ApiKeyInfoParser.getInstance();
+		ApiKeyInfoParser apiKeyInfoParser = new ApiKeyInfoParser();
 		ApiKeyInfoResponse response = apiKeyInfoParser.getResponse(auth);
 		assertNotNull(response);
 
