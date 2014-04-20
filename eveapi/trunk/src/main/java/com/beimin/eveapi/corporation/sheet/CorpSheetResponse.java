@@ -9,9 +9,9 @@ public class CorpSheetResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
 	private long corporationID;
 	private String corporationName;
-	private long allianceID;
+	private Long allianceID;
 	private String allianceName;
-	private long factionID;
+	private Long factionID;
 	private String ticker;
 	private long ceoID;
 	private String ceoName;

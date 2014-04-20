@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+	<currentTime>2014-01-14 16:58:52</currentTime>
+	<result>
+		<rowset name="characters" key="characterID" columns="characterName,characterID,corporationName,corporationID,allianceName,allianceID,factionName,factionID">
+			<row characterName="Regner" characterID="1234567890" corporationName="Federal Navy Academy" corporationID="1000168" allianceName="CCP Devs" allianceID="1337" factionName="None" factionID="1" />
+		</rowset>
+	</result>
+	<cachedUntil>2014-01-14 17:58:52</cachedUntil>
+</eveapi>

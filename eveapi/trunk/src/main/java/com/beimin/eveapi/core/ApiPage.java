@@ -56,6 +56,7 @@ public enum ApiPage {
 	SOVEREIGNTY("Sovereignty"), //
 	SERVER_STATUS("ServerStatus"), //
 	CHARACTER_INFO("CharacterInfo"), //
+	CHARACTER_AFFILIATION("CharacterAffiliation"), //
 	OUTPOST_LIST("OutpostList"), //
 	OUTPOST_SERVICE_DETAIL("OutpostServiceDetail"),
 	CALL_LIST("CallList"),
