@@ -8,9 +8,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.Medal;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.MedalsParser;
+import com.beimin.eveapi.response.corporation.MedalsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class MedalsParserTest extends FullAuthParserTest {
@@ -21,11 +24,11 @@ public class MedalsParserTest extends FullAuthParserTest {
 	@Test
 	public void getResponse() throws ApiException {
 		MedalsParser parser = new MedalsParser();
-		CorpMedalsResponse response = parser.getResponse(auth);
+		MedalsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<CorpMedal> medals = response.getAll();
+		Set<Medal> medals = response.getAll();
 		assertEquals("Incorrect amount of members found.", 18, medals.size());
-		CorpMedal medal = medals.iterator().next();
+		Medal medal = medals.iterator().next();
 		assertEquals("Wrong medal characterID", 1745, medal.getMedalID());
 		assertEquals("Wrong medal name", "Capital Red Eyed Award", medal.getTitle());
 		assertEquals(

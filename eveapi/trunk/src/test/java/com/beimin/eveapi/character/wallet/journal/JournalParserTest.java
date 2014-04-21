@@ -10,13 +10,14 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.wallet.RefType;
-import com.beimin.eveapi.shared.wallet.journal.AbstractWalletJournalParser;
-import com.beimin.eveapi.shared.wallet.journal.ApiJournalEntry;
-import com.beimin.eveapi.shared.wallet.journal.WalletJournalResponse;
+import com.beimin.eveapi.model.shared.JournalEntry;
+import com.beimin.eveapi.model.shared.RefType;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.WalletJournalParser;
+import com.beimin.eveapi.parser.shared.AbstractWalletJournalParser;
+import com.beimin.eveapi.response.shared.WalletJournalResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class JournalParserTest extends FullAuthParserTest {
@@ -26,13 +27,13 @@ public class JournalParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractWalletJournalParser parser = new CharacterWalletJournalParser();
+		AbstractWalletJournalParser parser = new WalletJournalParser();
 		WalletJournalResponse response = parser.getResponse(auth, 1000);
 		assertNotNull(response);
-		Collection<ApiJournalEntry> entries = response.getAll();
+		Collection<JournalEntry> entries = response.getAll();
 		assertEquals(10, entries.size());
 		boolean found = false;
-		for (ApiJournalEntry journalEntry : entries) {
+		for (JournalEntry journalEntry : entries) {
 			if (journalEntry.getRefID() == 1575178032L) {
 				found = true;
 				assertDate(2008, 8, 20, 13, 10, 0, journalEntry.getDate());

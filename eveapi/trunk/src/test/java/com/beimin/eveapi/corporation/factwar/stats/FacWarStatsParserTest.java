@@ -5,11 +5,11 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
-import com.beimin.eveapi.corporation.facwar.stats.CorporationFacWarStatsParser;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.facwar.stats.FacWarStatsResponse;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.FacWarStatsParser;
+import com.beimin.eveapi.response.shared.FacWarStatsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class FacWarStatsParserTest extends FullAuthParserTest {
@@ -19,7 +19,7 @@ public class FacWarStatsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CorporationFacWarStatsParser parser = new CorporationFacWarStatsParser();
+		FacWarStatsParser parser = new FacWarStatsParser();
 		FacWarStatsResponse facWarStats = parser.getResponse(auth);
 		assertEquals(500001, facWarStats.getFactionID());
 		assertEquals("Caldari State", facWarStats.getFactionName());

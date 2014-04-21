@@ -14,11 +14,13 @@ import org.junit.Test;
 
 import com.beimin.eveapi.EveApi;
 import com.beimin.eveapi.connectors.ApiConnector;
-import com.beimin.eveapi.core.ApiAuthorization;
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
-import com.beimin.eveapi.shared.character.EveBloodline;
-import com.beimin.eveapi.shared.character.EveRace;
+import com.beimin.eveapi.model.shared.Bloodline;
+import com.beimin.eveapi.model.shared.Race;
+import com.beimin.eveapi.parser.ApiAuthorization;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.eve.CharacterInfoParser;
+import com.beimin.eveapi.response.eve.CharacterInfoResponse;
 import com.beimin.eveapi.utils.ExchangeProcessor;
 import com.beimin.eveapi.utils.MockApi;
 
@@ -40,8 +42,8 @@ public class CharacterInfoParserTest {
 		assertNotNull(response);
 		assertEquals(1380128241L, response.getCharacterID());
 		assertEquals("Zy'or Tealon", response.getCharacterName());
-		assertEquals(EveRace.CALDARI, response.getRace());
-		assertEquals(EveBloodline.DETEIS, response.getBloodline());
+		assertEquals(Race.CALDARI, response.getRace());
+		assertEquals(Bloodline.DETEIS, response.getBloodline());
 		assertEquals(217940508L, response.getCorporationID());
 		assertEquals("Black  Mesa", response.getCorporation());
 		assertDate(2010, 8, 23, 20, 29, 0, response.getCorporationDate());
@@ -72,8 +74,8 @@ public class CharacterInfoParserTest {
 		assertNotNull(response);
 		assertEquals(1380128241L, response.getCharacterID());
 		assertEquals("Zy'or Tealon", response.getCharacterName());
-		assertEquals(EveRace.CALDARI, response.getRace());
-		assertEquals(EveBloodline.DETEIS, response.getBloodline());
+		assertEquals(Race.CALDARI, response.getRace());
+		assertEquals(Bloodline.DETEIS, response.getBloodline());
 		assertEquals(217940508L, response.getCorporationID());
 		assertEquals("Black  Mesa", response.getCorporation());
 		assertDate(2010, 8, 23, 20, 29, 0, response.getCorporationDate());
@@ -103,8 +105,8 @@ public class CharacterInfoParserTest {
 		assertNotNull(response);
 		assertEquals(1380128241L, response.getCharacterID());
 		assertEquals("Zy'or Tealon", response.getCharacterName());
-		assertEquals(EveRace.AMARR, response.getRace());
-		assertEquals(EveBloodline.NI_KUNNI, response.getBloodline());
+		assertEquals(Race.AMARR, response.getRace());
+		assertEquals(Bloodline.NI_KUNNI, response.getBloodline());
 		assertEquals(217940508L, response.getCorporationID());
 		assertEquals("Black  Mesa", response.getCorporation());
 		assertDate(2010, 8, 23, 20, 29, 0, response.getCorporationDate());

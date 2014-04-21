@@ -7,9 +7,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.ContainerLog;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.ContainerLogParser;
+import com.beimin.eveapi.response.corporation.ContainerLogResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ContainerLogParserTest extends FullAuthParserTest {
@@ -22,7 +25,7 @@ public class ContainerLogParserTest extends FullAuthParserTest {
 		ContainerLogParser parser = new ContainerLogParser();
 		ContainerLogResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiContainerLog> containerLogs = response.getAll();
+		Set<ContainerLog> containerLogs = response.getAll();
 		assertNotNull(containerLogs);
 		assertEquals(23, containerLogs.size());
 	}

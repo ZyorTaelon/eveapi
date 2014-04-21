@@ -10,14 +10,15 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.contract.ContractAvailability;
-import com.beimin.eveapi.shared.contract.ContractStatus;
-import com.beimin.eveapi.shared.contract.ContractType;
-import com.beimin.eveapi.shared.contract.ContractsResponse;
-import com.beimin.eveapi.shared.contract.EveContract;
+import com.beimin.eveapi.model.shared.Contract;
+import com.beimin.eveapi.model.shared.ContractAvailability;
+import com.beimin.eveapi.model.shared.ContractStatus;
+import com.beimin.eveapi.model.shared.ContractType;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.ContractsParser;
+import com.beimin.eveapi.response.shared.ContractsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ContractsParserTest extends FullAuthParserTest {
@@ -27,14 +28,14 @@ public class ContractsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CharacterContractsParser parser = new CharacterContractsParser();
+		ContractsParser parser = new ContractsParser();
 		ContractsResponse response = parser.getResponse(auth); 
 		assertNotNull(response);
-		Collection<EveContract> contracts = response.getAll();
+		Collection<Contract> contracts = response.getAll();
 		assertNotNull(contracts);
 		assertEquals(3, contracts.size());
 		boolean found = false;
-		for (EveContract contract : contracts) {
+		for (Contract contract : contracts) {
 			if(contract.getContractID()==62158129L) {
 				found = true;
 				assertEquals(987623974L, contract.getIssuerID());

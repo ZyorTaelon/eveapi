@@ -13,9 +13,12 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.Member;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.MemberTrackingParser;
+import com.beimin.eveapi.response.corporation.MemberTrackingResponse;
 import com.beimin.eveapi.utils.ExchangeProcessor;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 import com.beimin.eveapi.utils.MockApi;
@@ -30,9 +33,9 @@ public class TrackingParserTest extends FullAuthParserTest {
 		MemberTrackingParser parser = new MemberTrackingParser();
 		MemberTrackingResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiMember> members = response.getAll();
+		Set<Member> members = response.getAll();
 		boolean found = false;
-		for (ApiMember member : members) {
+		for (Member member : members) {
 			if(member.getCharacterID()==150336922L) {
 				found = true;
 				assertEquals("corpexport", member.getName());
@@ -50,9 +53,9 @@ public class TrackingParserTest extends FullAuthParserTest {
 		MemberTrackingParser parser = new MemberTrackingParser();
 		MemberTrackingResponse response = parser.getExtendedResponse(auth);
 		assertNotNull(response);
-		Set<ApiMember> members = response.getAll();
+		Set<Member> members = response.getAll();
 		boolean found = false;
-		for (ApiMember member : members) {
+		for (Member member : members) {
 			if(member.getCharacterID()==150336922L) {
 				found = true;
 				assertEquals("corpexport", member.getName());

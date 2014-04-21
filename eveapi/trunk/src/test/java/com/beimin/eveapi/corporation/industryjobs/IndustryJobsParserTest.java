@@ -10,12 +10,13 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.industryjobs.AbstractIndustryJobsParser;
-import com.beimin.eveapi.shared.industryjobs.ApiIndustryJob;
-import com.beimin.eveapi.shared.industryjobs.IndustryJobsResponse;
+import com.beimin.eveapi.model.shared.IndustryJob;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.IndustryJobsParser;
+import com.beimin.eveapi.parser.shared.AbstractIndustryJobsParser;
+import com.beimin.eveapi.response.shared.IndustryJobsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class IndustryJobsParserTest extends FullAuthParserTest {
@@ -25,10 +26,10 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractIndustryJobsParser parser = new CorporationIndustryJobsParser();
+		AbstractIndustryJobsParser parser = new IndustryJobsParser();
 		IndustryJobsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<ApiIndustryJob> industryJobs = response.getAll();
+		Collection<IndustryJob> industryJobs = response.getAll();
 		assertNotNull(industryJobs);
 		assertEquals(4, industryJobs.size());
 		boolean found = false;
@@ -41,7 +42,7 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 //				completed="0" completedSuccessfully="0" installedItemFlag="118" outputFlag="0" activityID="3" completedStatus="0"
 //				installTime="2008-05-21 00:26:00" beginProductionTime="2008-05-21 00:26:00" endProductionTime="2008-06-18 03:26:00"
 //				pauseProductionTime="2008-05-25 10:04:00" />
-		for (ApiIndustryJob job : industryJobs) {
+		for (IndustryJob job : industryJobs) {
 			if (job.getJobID() == 23174942) {
 				found = true;
 				assertEquals(100185892, job.getAssemblyLineID());

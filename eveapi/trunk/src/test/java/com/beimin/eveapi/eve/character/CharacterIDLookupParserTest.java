@@ -7,9 +7,12 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.eve.CharacterLookup;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.eve.CharacterLookupParser;
+import com.beimin.eveapi.response.eve.CharacterLookupResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class CharacterIDLookupParserTest extends NoAuthParserTest {
@@ -21,9 +24,9 @@ public class CharacterIDLookupParserTest extends NoAuthParserTest {
 	public void getResponse() throws ApiException {
 		CharacterLookupParser parser = CharacterLookupParser.getName2IdInstance();
 		CharacterLookupResponse response = parser.getResponse("CCP Garthagk");
-		Collection<ApiCharacterLookup> chars = response.getAll();
+		Collection<CharacterLookup> chars = response.getAll();
 		assertEquals(1, chars.size());
-		ApiCharacterLookup garthagk = chars.iterator().next();
+		CharacterLookup garthagk = chars.iterator().next();
 		assertEquals("CCP Garthagk", garthagk.getName());
 		assertEquals(797400947, garthagk.getCharacterID());
 	}

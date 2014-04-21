@@ -7,12 +7,13 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.character.calendar.attendees.CalendarEventAttendeesParser;
-import com.beimin.eveapi.character.calendar.attendees.CalendarEventAttendeesResponse;
-import com.beimin.eveapi.character.calendar.attendees.EveCalendarEventAttendee;
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.pilot.CalendarEventAttendee;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.CalendarEventAttendeesParser;
+import com.beimin.eveapi.response.pilot.CalendarEventAttendeesResponse;
+import com.beimin.eveapi.response.pilot.CalendarEventResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class CalendarEventAttendeesParserTest extends FullAuthParserTest {
@@ -24,9 +25,9 @@ public class CalendarEventAttendeesParserTest extends FullAuthParserTest {
 	public void getResponse() throws ApiException {
 		CalendarEventAttendeesParser parser = new CalendarEventAttendeesParser();
 		CalendarEventAttendeesResponse response = parser.getResponse(auth, 133918L);
-		Set<EveCalendarEventAttendee> attendees = response.getAll();
+		Set<CalendarEventAttendee> attendees = response.getAll();
 		assertEquals(1, attendees.size());
-		EveCalendarEventAttendee event = attendees.iterator().next();
+		CalendarEventAttendee event = attendees.iterator().next();
 		assertEquals(133918L, event.getEventID());
 		assertEquals(1380128241L, event.getCharacterID());
 		assertEquals("Zy'or Tealon", event.getCharacterName());

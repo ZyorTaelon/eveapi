@@ -11,10 +11,14 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.KeyType;
+import com.beimin.eveapi.model.calllist.Call;
+import com.beimin.eveapi.model.calllist.CallGroup;
+import com.beimin.eveapi.model.shared.KeyType;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.calllist.CallListParser;
+import com.beimin.eveapi.response.calllist.CallListResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 /**

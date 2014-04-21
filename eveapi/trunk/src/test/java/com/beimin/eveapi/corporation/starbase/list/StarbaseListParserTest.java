@@ -9,9 +9,12 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.Starbase;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.StarbaseListParser;
+import com.beimin.eveapi.response.corporation.StarbaseListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class StarbaseListParserTest extends FullAuthParserTest {
@@ -26,10 +29,10 @@ public class StarbaseListParserTest extends FullAuthParserTest {
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 1, 5, 55, response.getCurrentTime());
 		assertDate(2008, 2, 3, 7, 5, 55, response.getCachedUntil());
-		Collection<ApiStarbase> starbases = response.getAll();
+		Collection<Starbase> starbases = response.getAll();
 		assertNotNull("Should have returned a collection with starbases.", starbases);
 		assertEquals("Should have returned 2 starbases.", 2, starbases.size());
-		ApiStarbase starbase1 = starbases.iterator().next();
+		Starbase starbase1 = starbases.iterator().next();
 		assertNotNull("Should have returned a starbase.", starbase1);
 		assertTrue("Starbase id should be set.", starbase1.getItemID() > 0);
 		assertTrue("Starbase type id should be set.", starbase1.getTypeID() > 0);

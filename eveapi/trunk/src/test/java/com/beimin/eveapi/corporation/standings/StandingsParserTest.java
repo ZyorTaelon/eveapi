@@ -5,12 +5,13 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.standings.ApiStanding;
-import com.beimin.eveapi.shared.standings.StandingsList;
-import com.beimin.eveapi.shared.standings.StandingsResponse;
+import com.beimin.eveapi.model.shared.Standing;
+import com.beimin.eveapi.model.shared.StandingsList;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.StandingsParser;
+import com.beimin.eveapi.response.shared.StandingsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class StandingsParserTest extends FullAuthParserTest {
@@ -20,14 +21,14 @@ public class StandingsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CorporationStandingsParser parser = new CorporationStandingsParser();
+		StandingsParser parser = new StandingsParser();
 		StandingsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 
 		StandingsList agentStandings = response.getAgentStandings();
 		assertEquals("agents", agentStandings.getName());
 		assertEquals(1871, agentStandings.size());
-		ApiStanding apiStanding = agentStandings.iterator().next();
+		Standing apiStanding = agentStandings.iterator().next();
 		assertEquals(3008420, apiStanding.getFromID());
 		assertEquals("Appi Intaa", apiStanding.getFromName());
 		assertEquals(-0.33, apiStanding.getStanding(), 1E-15);

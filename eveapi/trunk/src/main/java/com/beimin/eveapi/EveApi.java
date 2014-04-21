@@ -2,34 +2,34 @@ package com.beimin.eveapi;
 
 import java.util.Set;
 
-import com.beimin.eveapi.account.accountstatus.AccountStatusParser;
-import com.beimin.eveapi.account.accountstatus.EveAccountStatus;
-import com.beimin.eveapi.account.apikeyinfo.ApiKeyInfoParser;
-import com.beimin.eveapi.account.apikeyinfo.ApiKeyInfoResponse;
-import com.beimin.eveapi.account.characters.CharactersParser;
-import com.beimin.eveapi.account.characters.EveCharacter;
-import com.beimin.eveapi.api.calllist.CallList;
-import com.beimin.eveapi.api.calllist.CallListParser;
-import com.beimin.eveapi.character.accountbalance.CharacterAccountBalanceParser;
-import com.beimin.eveapi.character.assetlist.CharacterAssetListParser;
-import com.beimin.eveapi.character.calendar.attendees.CalendarEventAttendeesParser;
-import com.beimin.eveapi.character.calendar.attendees.EveCalendarEventAttendee;
-import com.beimin.eveapi.character.calendar.upcomingevents.EveUpcomingCalendarEvent;
-import com.beimin.eveapi.character.calendar.upcomingevents.UpcomingCalendarEventsParser;
-import com.beimin.eveapi.character.contact.list.CharacterContactListParser;
-import com.beimin.eveapi.character.contact.notifications.ContactNotificationsParser;
-import com.beimin.eveapi.character.contact.notifications.EveContactNotification;
 import com.beimin.eveapi.connectors.ApiConnector;
-import com.beimin.eveapi.core.ApiAuth;
-import com.beimin.eveapi.corporation.accountbalance.CorporationAccountBalanceParser;
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.exception.NoAuthException;
-import com.beimin.eveapi.shared.KeyType;
-import com.beimin.eveapi.shared.accountbalance.AbstractAccountBalanceParser;
-import com.beimin.eveapi.shared.accountbalance.AccountBalanceResponse;
-import com.beimin.eveapi.shared.accountbalance.EveAccountBalance;
-import com.beimin.eveapi.shared.assetlist.EveAsset;
-import com.beimin.eveapi.shared.contacts.ContactList;
+import com.beimin.eveapi.model.account.AccountStatus;
+import com.beimin.eveapi.model.account.Character;
+import com.beimin.eveapi.model.calllist.CallList;
+import com.beimin.eveapi.model.pilot.CalendarEventAttendee;
+import com.beimin.eveapi.model.pilot.ContactNotification;
+import com.beimin.eveapi.model.pilot.UpcomingCalendarEvent;
+import com.beimin.eveapi.model.shared.Asset;
+import com.beimin.eveapi.model.shared.ContactList;
+import com.beimin.eveapi.model.shared.EveAccountBalance;
+import com.beimin.eveapi.model.shared.KeyType;
+import com.beimin.eveapi.parser.ApiAuth;
+import com.beimin.eveapi.parser.account.AccountStatusParser;
+import com.beimin.eveapi.parser.account.ApiKeyInfoParser;
+import com.beimin.eveapi.parser.account.CharactersParser;
+import com.beimin.eveapi.parser.calllist.CallListParser;
+import com.beimin.eveapi.parser.corporation.AccountBalanceParser;
+import com.beimin.eveapi.parser.pilot.CalendarEventAttendeesParser;
+import com.beimin.eveapi.parser.pilot.ContactListParser;
+import com.beimin.eveapi.parser.pilot.ContactNotificationsParser;
+import com.beimin.eveapi.parser.pilot.PilotAssetListParser;
+import com.beimin.eveapi.parser.pilot.PilotAccountBalanceParser;
+import com.beimin.eveapi.parser.pilot.UpcomingCalendarEventsParser;
+import com.beimin.eveapi.parser.shared.AbstractAccountBalanceParser;
+import com.beimin.eveapi.response.account.ApiKeyInfoResponse;
+import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 
 public class EveApi {
 	private static ApiConnector connector = new ApiConnector();
@@ -66,15 +66,15 @@ public class EveApi {
 		return apiKeyInfoParser.getResponse(auth);
 	}
 
-	public EveAccountStatus getAccountStatus() throws ApiException {
+	public AccountStatus getAccountStatus() throws ApiException {
 		return new AccountStatusParser().getResponse(getAuth()).get();
 	}
 
-	public Set<EveCharacter> getCharacters() throws ApiException {
+	public Set<Character> getCharacters() throws ApiException {
 		return new CharactersParser().getResponse(getAuth()).getAll();
 	}
 
-	public void selectCharacter(EveCharacter eveCharacter) {
+	public void selectCharacter(Character eveCharacter) {
 		if (auth == null)
 			throw new NoAuthException();
 		auth.setCharacterID(eveCharacter.getCharacterID());
@@ -89,9 +89,9 @@ public class EveApi {
 	public Set<EveAccountBalance> getAccountBalance(KeyType type) throws ApiException {
 		AbstractAccountBalanceParser accountBalanceParser;
 		if (type == KeyType.Character)
-			accountBalanceParser = new CharacterAccountBalanceParser();
+			accountBalanceParser = new PilotAccountBalanceParser();
 		else if (type == KeyType.Corporation)
-			accountBalanceParser = new CorporationAccountBalanceParser();
+			accountBalanceParser = new AccountBalanceParser();
 		else
 			return null;
 		AccountBalanceResponse response = accountBalanceParser.getResponse(getAuth());
@@ -100,23 +100,23 @@ public class EveApi {
 		return response.getAll();
 	}
 
-	public Set<EveAsset<EveAsset<?>>> getCharacterAssets() throws ApiException {
-		return new CharacterAssetListParser().getResponse(getAuth()).getAll();
+	public Set<Asset<Asset<?>>> getCharacterAssets() throws ApiException {
+		return new PilotAssetListParser().getResponse(getAuth()).getAll();
 	}
 
-	public Set<EveUpcomingCalendarEvent> getUpcomingCalendarEvents() throws ApiException {
+	public Set<UpcomingCalendarEvent> getUpcomingCalendarEvents() throws ApiException {
 		return new UpcomingCalendarEventsParser().getResponse(getAuth()).getAll();
 	}
 
-	public Set<EveCalendarEventAttendee> getCalendarEventAttendees(long... eventIds) throws ApiException {
+	public Set<CalendarEventAttendee> getCalendarEventAttendees(long... eventIds) throws ApiException {
 		return new CalendarEventAttendeesParser().getResponse(getAuth(), eventIds).getAll();
 	}
 
 	public ContactList getContactList() throws ApiException {
-		return new CharacterContactListParser().getResponse(getAuth()).getContactList();
+		return new ContactListParser().getResponse(getAuth()).getContactList();
 	}
 
-	public Set<EveContactNotification> getContactNotifications() throws ApiException {
+	public Set<ContactNotification> getContactNotifications() throws ApiException {
 		return new ContactNotificationsParser().getResponse(getAuth()).getAll();
 	}
 

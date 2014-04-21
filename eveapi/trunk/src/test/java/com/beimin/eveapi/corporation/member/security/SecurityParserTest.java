@@ -7,9 +7,14 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.SecurityMember;
+import com.beimin.eveapi.model.corporation.SecurityRole;
+import com.beimin.eveapi.model.corporation.SecurityTitle;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.MemberSecurityParser;
+import com.beimin.eveapi.response.corporation.MemberSecurityResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class SecurityParserTest extends FullAuthParserTest {
@@ -22,19 +27,19 @@ public class SecurityParserTest extends FullAuthParserTest {
 		MemberSecurityParser parser = new MemberSecurityParser();
 		MemberSecurityResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiSecurityMember> members = response.getMembers();
+		Set<SecurityMember> members = response.getMembers();
 		assertEquals("Incorrect amount of members found.", 1, members.size());
-		ApiSecurityMember member = members.iterator().next();
+		SecurityMember member = members.iterator().next();
 		assertEquals("Wrong member characterID", 123456789, member.getCharacterID());
 		assertEquals("Wrong member name", "Tester", member.getName());
-		Set<ApiSecurityRole> roles = member.getRoles();
+		Set<SecurityRole> roles = member.getRoles();
 		assertNotNull(roles);
 		assertEquals("Incorrect amount of roles found.", 1, roles.size());
-		Set<ApiSecurityTitle> titles = member.getTitles();
+		Set<SecurityTitle> titles = member.getTitles();
 		assertNotNull(titles);
 		assertEquals("Incorrect amount of titles found.", 3, titles.size());
 		int temp = 0;
-		for (ApiSecurityTitle securityTitle : titles) {
+		for (SecurityTitle securityTitle : titles) {
 			long titleID = securityTitle.getTitleID();
 			String titleName = securityTitle.getTitleName();
 			if (titleID == 1L) {

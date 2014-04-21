@@ -13,10 +13,10 @@ import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-import com.beimin.eveapi.core.AbstractContentHandler;
-import com.beimin.eveapi.core.ApiRequest;
-import com.beimin.eveapi.core.ApiResponse;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.handler.AbstractContentHandler;
+import com.beimin.eveapi.parser.ApiRequest;
+import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.InputStreamSplitter;
 
 public class LoggingConnector extends ApiConnector {

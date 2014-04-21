@@ -8,9 +8,12 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.ErrorListItem;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.eve.ErrorListParser;
+import com.beimin.eveapi.response.eve.ErrorListResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class ErrorListParserTest extends NoAuthParserTest {
@@ -23,10 +26,10 @@ public class ErrorListParserTest extends NoAuthParserTest {
 		ErrorListParser parser = new ErrorListParser();
 		ErrorListResponse response = parser.getResponse();
 		assertNotNull(response);
-		Collection<ApiErrorListItem> errorListItems = response.getAll();
+		Collection<ErrorListItem> errorListItems = response.getAll();
 		assertEquals(61, errorListItems.size());
 		boolean found = false;
-		for (ApiErrorListItem apiErrorListItem : errorListItems) {
+		for (ErrorListItem apiErrorListItem : errorListItems) {
 			if (apiErrorListItem.getErrorCode() == 110) {
 				found = true;
 				assertEquals("Invalid beforeTransID provided.", apiErrorListItem.getErrorText());

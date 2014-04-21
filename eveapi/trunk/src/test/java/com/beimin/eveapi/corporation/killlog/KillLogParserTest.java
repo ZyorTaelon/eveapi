@@ -10,15 +10,16 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.killlog.AbstractKillLogParser;
-import com.beimin.eveapi.shared.killlog.ApiKill;
-import com.beimin.eveapi.shared.killlog.ApiKillAttacker;
-import com.beimin.eveapi.shared.killlog.ApiKillItem;
-import com.beimin.eveapi.shared.killlog.ApiKillVictim;
-import com.beimin.eveapi.shared.killlog.KillLogResponse;
+import com.beimin.eveapi.model.shared.Kill;
+import com.beimin.eveapi.model.shared.KillAttacker;
+import com.beimin.eveapi.model.shared.KillItem;
+import com.beimin.eveapi.model.shared.KillVictim;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.KillLogParser;
+import com.beimin.eveapi.parser.shared.AbstractKillLogParser;
+import com.beimin.eveapi.response.shared.KillLogResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class KillLogParserTest extends FullAuthParserTest {
@@ -28,17 +29,17 @@ public class KillLogParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractKillLogParser parser = new CorporationKillLogParser();
+		AbstractKillLogParser parser = new KillLogParser();
 		KillLogResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<ApiKill> entries = response.getAll();
+		Collection<Kill> entries = response.getAll();
 		assertEquals(18, entries.size());
 		boolean found = false;
-		for (ApiKill kill : entries) {
+		for (Kill kill : entries) {
 			if (kill.getKillID() == 4879947) {
 				found = true;
 				assertDate(2008, 12, 18, 23, 57, 0, kill.getKillTime());
-				ApiKillVictim victim = kill.getVictim();
+				KillVictim victim = kill.getVictim();
 				assertNotNull(victim);
 
 				assertEquals(victim.getCharacterID(), 411109620);
@@ -52,10 +53,10 @@ public class KillLogParserTest extends FullAuthParserTest {
 				assertEquals(victim.getDamageTaken(), 1415);
 				assertEquals(victim.getShipTypeID(), 587);
 
-				List<ApiKillAttacker> attackers = kill.getAttackers();
+				List<KillAttacker> attackers = kill.getAttackers();
 				assertNotNull(attackers);
 				assertEquals(1, attackers.size());
-				ApiKillAttacker attacker = attackers.iterator().next();
+				KillAttacker attacker = attackers.iterator().next();
 				assertEquals(attacker.getCharacterID(), 1134301496);
 				assertEquals(attacker.getCharacterName(), "Blackfiredaemon");
 				assertEquals(attacker.getCorporationID(), 1885670269);
@@ -70,7 +71,7 @@ public class KillLogParserTest extends FullAuthParserTest {
 				assertEquals(attacker.getWeaponTypeID(), 2897);
 				assertEquals(attacker.getShipTypeID(), 11999);
 
-				List<ApiKillItem> items = kill.getItems();
+				List<KillItem> items = kill.getItems();
 				assertNotNull(items);
 				assertEquals(12, items.size());
 			}

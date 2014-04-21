@@ -6,6 +6,9 @@ import java.util.Collection;
 import java.util.HashMap;
 
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.eve.RefType;
+import com.beimin.eveapi.parser.eve.RefTypesParser;
+import com.beimin.eveapi.response.eve.RefTypesResponse;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -16,7 +19,7 @@ public class RefTypeEnumGenerator {
 	public static void main(String[] args) throws IOException, TemplateException, ApiException {
 		RefTypesParser parser = new RefTypesParser();
 		RefTypesResponse response = parser.getResponse();
-		Collection<ApiRefType> refTypes = response.getAll();
+		Collection<RefType> refTypes = response.getAll();
 		Configuration cfg = new Configuration();
 		Template tpl = cfg.getTemplate("src/test/resources/refType.ftl");
 		FileWriter output = new FileWriter("src/test/java/com/beimin/eveapi/shared/wallet/RefType.java");

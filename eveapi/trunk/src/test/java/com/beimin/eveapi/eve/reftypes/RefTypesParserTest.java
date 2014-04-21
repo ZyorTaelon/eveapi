@@ -8,10 +8,12 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.wallet.RefType;
+import com.beimin.eveapi.model.eve.RefType;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.eve.RefTypesParser;
+import com.beimin.eveapi.response.eve.RefTypesResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class RefTypesParserTest extends NoAuthParserTest {
@@ -24,10 +26,10 @@ public class RefTypesParserTest extends NoAuthParserTest {
 		RefTypesParser parser = new RefTypesParser();
 		RefTypesResponse response = parser.getResponse();
 		assertNotNull(response);
-		Collection<ApiRefType> refTypes = response.getAll();
+		Collection<RefType> refTypes = response.getAll();
 		assertEquals(141, refTypes.size());
 		boolean found = false;
-		for (ApiRefType refType : refTypes) {
+		for (RefType refType : refTypes) {
 			if (refType.getRefTypeID() == 10) {
 				found = true;
 				assertEquals("Player Donation", refType.getRefTypeName());
@@ -41,9 +43,9 @@ public class RefTypesParserTest extends NoAuthParserTest {
 		RefTypesParser parser = new RefTypesParser();
 		RefTypesResponse response = parser.getResponse();
 		assertNotNull(response);
-		Collection<ApiRefType> refTypes = response.getAll();
-		for (ApiRefType apiRefType : refTypes) {
-			RefType refType = RefType.forID(apiRefType.getRefTypeID());
+		Collection<RefType> refTypes = response.getAll();
+		for (RefType apiRefType : refTypes) {
+			com.beimin.eveapi.model.shared.RefType refType = com.beimin.eveapi.model.shared.RefType.forID(apiRefType.getRefTypeID());
 			assertNotNull("RefType missing - ID: " + apiRefType.getRefTypeID() + " (" + apiRefType.getRefTypeName() + ")", refType);
 			assertEquals("RefType ID: " + refType.getId() + " wrong name", apiRefType.getRefTypeName(), refType.getName());
 		}

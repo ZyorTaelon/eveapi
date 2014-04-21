@@ -9,9 +9,12 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.account.characters.EveCharacter;
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.model.account.ApiKeyInfo;
+import com.beimin.eveapi.model.account.Character;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.account.ApiKeyInfoParser;
+import com.beimin.eveapi.response.account.ApiKeyInfoResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 
@@ -25,13 +28,15 @@ public class ApiKeyInfoParserTest extends FullAuthParserTest {
 		ApiKeyInfoParser apiKeyInfoParser = new ApiKeyInfoParser();
 		ApiKeyInfoResponse response = apiKeyInfoParser.getResponse(auth);
 		assertNotNull(response);
+		ApiKeyInfo apiKeyInfo = response.getApiKeyInfo();
+		assertNotNull(apiKeyInfo);
 
-		assertEquals(4227, response.getAccessMask());
-		assertNull(response.getExpires());
+		assertEquals(4227, apiKeyInfo.getAccessMask());
+		assertNull(apiKeyInfo.getExpires());
 
-		assertEquals(3, response.getEveCharacters().size());
+		assertEquals(3, apiKeyInfo.getEveCharacters().size());
 
-		List<EveCharacter> characters = new ArrayList<EveCharacter>(response.getEveCharacters());
+		List<Character> characters = new ArrayList<Character>(apiKeyInfo.getEveCharacters());
 
 		assertEquals(987623974, characters.get(0).getCharacterID());
 		assertEquals("Golden Gnu", characters.get(0).getName());

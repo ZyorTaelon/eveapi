@@ -7,9 +7,12 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.eve.CharacterAffiliation;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.eve.CharacterAffiliationParser;
+import com.beimin.eveapi.response.eve.CharacterAffiliationResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class CharacterAffiliationParserTest extends NoAuthParserTest {

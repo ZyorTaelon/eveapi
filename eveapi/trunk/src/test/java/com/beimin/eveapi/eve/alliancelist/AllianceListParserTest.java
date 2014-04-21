@@ -9,9 +9,13 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.eve.Alliance;
+import com.beimin.eveapi.model.eve.MemberCorporation;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.eve.AllianceListParser;
+import com.beimin.eveapi.response.eve.AllianceListResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class AllianceListParserTest extends NoAuthParserTest {
@@ -24,10 +28,10 @@ public class AllianceListParserTest extends NoAuthParserTest {
 		AllianceListParser parser = new AllianceListParser();
 		AllianceListResponse response = parser.getResponse();
 		assertNotNull(response);
-		Collection<ApiAlliance> alliances = response.getAll();
+		Collection<Alliance> alliances = response.getAll();
 		assertEquals(605, alliances.size());
 		boolean found = false;
-		for (ApiAlliance alliance : alliances) {
+		for (Alliance alliance : alliances) {
 			if (alliance.getAllianceID() == 824518128) {
 				found = true;
 				assertEquals("GoonSwarm", alliance.getName());
@@ -36,10 +40,10 @@ public class AllianceListParserTest extends NoAuthParserTest {
 				assertEquals(5925, alliance.getMemberCount());
 				assertDate(2006, 6, 3, 0, 50, 0, alliance.getStartDate());
 
-				Collection<ApiMemberCorporation> memberCorporations = alliance.getMemberCorporations();
+				Collection<MemberCorporation> memberCorporations = alliance.getMemberCorporations();
 				assertEquals(69, memberCorporations.size());
 				boolean corpFound = false;
-				for (ApiMemberCorporation memberCorporation : memberCorporations) {
+				for (MemberCorporation memberCorporation : memberCorporations) {
 					if (memberCorporation.getCorporationID() == 109788662) {
 						corpFound = true;
 						assertDate(2007, 9, 9, 19, 12, 0, memberCorporation.getStartDate());

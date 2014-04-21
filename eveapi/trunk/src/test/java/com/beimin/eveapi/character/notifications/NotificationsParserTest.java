@@ -9,10 +9,13 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.character.notifications.ApiNotification.NotificationType;
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.pilot.Notification;
+import com.beimin.eveapi.model.pilot.Notification.NotificationType;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.NotificationsParser;
+import com.beimin.eveapi.response.pilot.NotificationsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class NotificationsParserTest extends FullAuthParserTest {
@@ -25,11 +28,11 @@ public class NotificationsParserTest extends FullAuthParserTest {
 		NotificationsParser parser = new NotificationsParser();
 		NotificationsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiNotification> notifications = response.getAll();
+		Set<Notification> notifications = response.getAll();
 		assertNotNull(notifications);
 		assertEquals(3, notifications.size());
 		boolean found = false;
-		for (ApiNotification notification : notifications) {
+		for (Notification notification : notifications) {
 			if (notification.getNotificationID() == 295043380L) {
 				found = true;
 				assertEquals(5, notification.getTypeID());

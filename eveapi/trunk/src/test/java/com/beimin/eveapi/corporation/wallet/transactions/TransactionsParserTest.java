@@ -10,12 +10,13 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.wallet.transactions.AbstractWalletTransactionsParser;
-import com.beimin.eveapi.shared.wallet.transactions.ApiWalletTransaction;
-import com.beimin.eveapi.shared.wallet.transactions.WalletTransactionsResponse;
+import com.beimin.eveapi.model.shared.WalletTransaction;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.WalletTransactionsParser;
+import com.beimin.eveapi.parser.shared.AbstractWalletTransactionsParser;
+import com.beimin.eveapi.response.shared.WalletTransactionsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class TransactionsParserTest extends FullAuthParserTest {
@@ -25,13 +26,13 @@ public class TransactionsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractWalletTransactionsParser parser = new CorporationWalletTransactionsParser();
+		AbstractWalletTransactionsParser parser = new WalletTransactionsParser();
 		WalletTransactionsResponse response = parser.getResponse(auth, 1000);
 		assertNotNull(response);
-		Set<ApiWalletTransaction> walletTransactions = response.getAll();
+		Set<WalletTransaction> walletTransactions = response.getAll();
 		assertEquals(4, walletTransactions.size());
 		boolean found = false;
-		for (ApiWalletTransaction walletTransaction : walletTransactions) {
+		for (WalletTransaction walletTransaction : walletTransactions) {
 			if (walletTransaction.getTransactionID() == 705664738) {
 				found = true;
 				assertDate(2008, 8, 4, 22, 1, 0, walletTransaction.getTransactionDateTime());

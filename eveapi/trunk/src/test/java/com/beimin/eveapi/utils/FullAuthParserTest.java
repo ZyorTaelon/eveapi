@@ -12,9 +12,9 @@ import org.junit.Before;
 
 import com.beimin.eveapi.EveApi;
 import com.beimin.eveapi.connectors.ApiConnector;
-import com.beimin.eveapi.core.ApiAuthorization;
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.parser.ApiAuthorization;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
 
 public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsserts {
 	private final CamelContext context = new DefaultCamelContext();

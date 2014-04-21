@@ -7,9 +7,12 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.eve.Station;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.eve.ConquerableStationListParser;
+import com.beimin.eveapi.response.eve.StationListResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class ConquerableStationListParserTest extends NoAuthParserTest {
@@ -22,9 +25,9 @@ public class ConquerableStationListParserTest extends NoAuthParserTest {
 		ConquerableStationListParser parser = new ConquerableStationListParser();
 		StationListResponse response = parser.getResponse();
 		assertNotNull(response);
-		Map<Integer, ApiStation> stations = response.getStations();
+		Map<Integer, Station> stations = response.getStations();
 		assertEquals(242, stations.size());
-		ApiStation hzfStation = stations.get(61000118);
+		Station hzfStation = stations.get(61000118);
 		assertNotNull(hzfStation);
 		assertEquals("HZF RAPTURE", hzfStation.getStationName());
 		assertEquals(21646, hzfStation.getStationTypeID());

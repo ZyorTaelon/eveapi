@@ -11,9 +11,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.pilot.Medal;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.MedalsParser;
+import com.beimin.eveapi.response.pilot.MedalsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class MedalsParserTest extends FullAuthParserTest {
@@ -24,11 +27,11 @@ public class MedalsParserTest extends FullAuthParserTest {
 	@Test
 	public void getResponse() throws ApiException {
 		MedalsParser parser = new MedalsParser();
-		CharacterMedalsResponse response = parser.getResponse(auth);
+		MedalsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<CharacterMedal> medals = response.getAll();
+		Set<Medal> medals = response.getAll();
 		assertEquals("Incorrect amount of medals found.", 2, medals.size());
-		CharacterMedal medal = medals.toArray(new CharacterMedal[0])[1];
+		Medal medal = medals.toArray(new Medal[0])[1];
 		assertEquals("Wrong medalID", 40125, medal.getMedalID());
 		assertEquals("Wrong medal title", "Christian Fundamentalist Award", medal.getTitle());
 		assertEquals("Wrong medal description", "For relentlessly trying to spread the Good Message. Even within an internet spaceship game.", medal.getDescription());
@@ -42,9 +45,9 @@ public class MedalsParserTest extends FullAuthParserTest {
 	@Test
 	public void responseHasMedalsFromCurrentCorp() throws ApiException {
 		MedalsParser parser = new MedalsParser();
-		CharacterMedalsResponse response = parser.getResponse(auth);
-		Set<CharacterMedal> medals = response.getAll();
-		CharacterMedal medal = medals.iterator().next();
+		MedalsResponse response = parser.getResponse(auth);
+		Set<Medal> medals = response.getAll();
+		Medal medal = medals.iterator().next();
 		assertEquals("Wrong medalID", 38208, medal.getMedalID());
 		assertNull("Wrong medal title", medal.getTitle());
 		assertNull("Wrong medal description", medal.getDescription());

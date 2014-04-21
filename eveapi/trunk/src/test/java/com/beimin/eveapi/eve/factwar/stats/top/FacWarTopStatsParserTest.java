@@ -6,9 +6,17 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.eve.CharacterKills;
+import com.beimin.eveapi.model.eve.CharacterVictoryPoints;
+import com.beimin.eveapi.model.eve.CorporationKills;
+import com.beimin.eveapi.model.eve.CorporationVictoryPoints;
+import com.beimin.eveapi.model.eve.FactionKills;
+import com.beimin.eveapi.model.eve.FactionVictoryPoints;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.eve.FacWarTopStatsParser;
+import com.beimin.eveapi.response.eve.FacWarTopStatsResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class FacWarTopStatsParserTest extends NoAuthParserTest {

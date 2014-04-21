@@ -3,10 +3,10 @@ package com.beimin.eveapi.connectors;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.beimin.eveapi.core.AbstractContentHandler;
-import com.beimin.eveapi.core.ApiRequest;
-import com.beimin.eveapi.core.ApiResponse;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.handler.AbstractContentHandler;
+import com.beimin.eveapi.parser.ApiRequest;
+import com.beimin.eveapi.response.ApiResponse;
 
 public class CachingConnector extends ApiConnector {
 	private final Map<ApiRequest, ApiResponse> cache = new HashMap<ApiRequest, ApiResponse>();

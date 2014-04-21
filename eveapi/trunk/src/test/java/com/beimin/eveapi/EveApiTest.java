@@ -12,20 +12,20 @@ import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.beimin.eveapi.account.accountstatus.EveAccountStatus;
-import com.beimin.eveapi.account.characters.EveCharacter;
 import com.beimin.eveapi.connectors.ApiConnector;
-import com.beimin.eveapi.core.ApiAuthorization;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.KeyType;
-import com.beimin.eveapi.shared.accountbalance.EveAccountBalance;
+import com.beimin.eveapi.model.account.AccountStatus;
+import com.beimin.eveapi.model.account.Character;
+import com.beimin.eveapi.model.shared.EveAccountBalance;
+import com.beimin.eveapi.model.shared.KeyType;
+import com.beimin.eveapi.parser.ApiAuthorization;
 import com.beimin.eveapi.utils.EveApiRouteBuilder;
 import com.beimin.eveapi.utils.MockApi;
 
 public class EveApiTest {
 	private static EveApi eveApi;
 	private static final CamelContext context = new DefaultCamelContext();
-	private static EveCharacter testCharacter;
+	private static Character testCharacter;
 
 	@BeforeClass
 	public static void setup() throws Exception {
@@ -34,7 +34,7 @@ public class EveApiTest {
 		context.addRoutes(new EveApiRouteBuilder());
 		context.start();
 		EveApi.setConnector(new ApiConnector(MockApi.URL));
-		testCharacter = new EveCharacter();
+		testCharacter = new Character();
 		testCharacter.setCharacterID(46135126);
 		testCharacter.setName("Test Character 1");
 		testCharacter.setCorporationID(71643215);
@@ -43,7 +43,7 @@ public class EveApiTest {
 
 	@Test
 	public void getAccountStatus() throws ApiException {
-		EveAccountStatus accountStatus = eveApi.getAccountStatus();
+		AccountStatus accountStatus = eveApi.getAccountStatus();
 		assertNotNull(accountStatus);
 		assertEquals(541354, accountStatus.getUserID());
 		assertDate(2011, 03, 13, 18, 40, 0, accountStatus.getPaidUntil());
@@ -54,10 +54,10 @@ public class EveApiTest {
 
 	@Test
 	public void getCharacters() throws ApiException {
-		Set<EveCharacter> eveCharacters = eveApi.getCharacters();
+		Set<Character> eveCharacters = eveApi.getCharacters();
 		assertNotNull(eveCharacters);
 		assertEquals(2, eveCharacters.size());
-		for (EveCharacter eveCharacter : eveCharacters) {
+		for (Character eveCharacter : eveCharacters) {
 			long characterID = eveCharacter.getCharacterID();
 			if (characterID == 46135126) {
 				assertEquals("Test Character 1", eveCharacter.getName());

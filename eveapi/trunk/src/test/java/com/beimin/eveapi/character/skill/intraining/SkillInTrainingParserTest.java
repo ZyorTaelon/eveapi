@@ -6,9 +6,11 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.SkillInTrainingParser;
+import com.beimin.eveapi.response.pilot.SkillInTrainingResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class SkillInTrainingParserTest extends FullAuthParserTest {

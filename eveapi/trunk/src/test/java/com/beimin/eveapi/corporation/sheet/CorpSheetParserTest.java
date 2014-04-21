@@ -7,9 +7,12 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.CorpLogo;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.CorpSheetParser;
+import com.beimin.eveapi.response.corporation.CorpSheetResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class CorpSheetParserTest extends FullAuthParserTest {
@@ -39,7 +42,7 @@ public class CorpSheetParserTest extends FullAuthParserTest {
 		assertEquals(3, response.getMemberCount());
 		assertEquals(6300, response.getMemberLimit());
 		assertEquals(1, response.getShares());
-		ApiCorpLogo logo = response.getLogo();
+		CorpLogo logo = response.getLogo();
 		assertNotNull(logo);
 		assertEquals(0, logo.getGraphicID());
 		assertEquals(448, logo.getShape1());

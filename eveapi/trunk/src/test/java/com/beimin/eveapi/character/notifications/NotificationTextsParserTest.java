@@ -8,12 +8,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.character.notifications.texts.ApiNotificationText;
-import com.beimin.eveapi.character.notifications.texts.NotificationTextsParser;
-import com.beimin.eveapi.character.notifications.texts.NotificationTextsResponse;
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.pilot.NotificationText;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.NotificationTextsParser;
+import com.beimin.eveapi.response.pilot.NotificationTextsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class NotificationTextsParserTest extends FullAuthParserTest {
@@ -26,11 +26,11 @@ public class NotificationTextsParserTest extends FullAuthParserTest {
 		NotificationTextsParser parser = new NotificationTextsParser();
 		NotificationTextsResponse response = parser.getResponse(auth, 374106507L);
 		assertNotNull(response);
-		Set<ApiNotificationText> notifications = response.getAll();
+		Set<NotificationText> notifications = response.getAll();
 		assertNotNull(notifications);
 		assertEquals(5, notifications.size());
 		boolean found = false;
-		for (ApiNotificationText notification : notifications) {
+		for (NotificationText notification : notifications) {
 			if (notification.getNotificationID() == 374106507L) {
 				found = true;
 				assertEquals("againstID: 673381830\n"+

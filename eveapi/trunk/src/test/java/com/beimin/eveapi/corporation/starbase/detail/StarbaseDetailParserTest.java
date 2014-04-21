@@ -10,9 +10,12 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.CombatSetting;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.StarbaseDetailParser;
+import com.beimin.eveapi.response.corporation.StarbaseDetailResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class StarbaseDetailParserTest extends FullAuthParserTest {
@@ -32,18 +35,18 @@ public class StarbaseDetailParserTest extends FullAuthParserTest {
 		assertTrue(response.isAllowCorporationMembers());
 		assertFalse(response.isAllowAllianceMembers());
 		assertTrue(response.isClaimSovereignty());
-		ApiCombatSetting onStandingDrop = response.getOnStandingDrop();
+		CombatSetting onStandingDrop = response.getOnStandingDrop();
 		assertNotNull("Should have a CombatSetting for standing drop.", onStandingDrop);
 		assertFalse(onStandingDrop.isEnabled());
 		assertEquals(10, onStandingDrop.getStanding());
-		ApiCombatSetting onStatusDrop = response.getOnStatusDrop();
+		CombatSetting onStatusDrop = response.getOnStatusDrop();
 		assertNotNull("Should have a CombatSetting for status drop.", onStatusDrop);
 		assertFalse(onStatusDrop.isEnabled());
 		assertEquals(0, onStatusDrop.getStanding());
-		ApiCombatSetting onAggression = response.getOnAggression();
+		CombatSetting onAggression = response.getOnAggression();
 		assertNotNull("Should have a CombatSetting for aggression.", onAggression);
 		assertFalse(onAggression.isEnabled());
-		ApiCombatSetting onCorporationWar = response.getOnCorporationWar();
+		CombatSetting onCorporationWar = response.getOnCorporationWar();
 		assertNotNull("Should have a CombatSetting for war.", onCorporationWar);
 		assertTrue(onCorporationWar.isEnabled());
 		Map<Integer, Integer> fuelMap = response.getFuelMap();

@@ -7,11 +7,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.accountbalance.AccountBalanceResponse;
-import com.beimin.eveapi.shared.accountbalance.EveAccountBalance;
+import com.beimin.eveapi.model.shared.EveAccountBalance;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.PilotAccountBalanceParser;
+import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class AccountBalanceParserTest extends FullAuthParserTest {
@@ -21,7 +22,7 @@ public class AccountBalanceParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CharacterAccountBalanceParser parser = new CharacterAccountBalanceParser();
+		PilotAccountBalanceParser parser = new PilotAccountBalanceParser();
 		AccountBalanceResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Set<EveAccountBalance> accountBalances = response.getAll();

@@ -8,9 +8,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.pilot.SkillQueueItem;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.SkillQueueParser;
+import com.beimin.eveapi.response.pilot.SkillQueueResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class SkillQueueParserTest extends FullAuthParserTest {
@@ -23,9 +26,9 @@ public class SkillQueueParserTest extends FullAuthParserTest {
 		SkillQueueParser parser = new SkillQueueParser();
 		SkillQueueResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiSkillQueueItem> skillQueueItems = response.getAll();
+		Set<SkillQueueItem> skillQueueItems = response.getAll();
 		assertEquals(2, skillQueueItems.size());
-		ApiSkillQueueItem skillQueueItem = skillQueueItems.iterator().next();
+		SkillQueueItem skillQueueItem = skillQueueItems.iterator().next();
 		assertEquals(0, skillQueueItem.getQueuePosition());
 		assertEquals(25739, skillQueueItem.getTypeID());
 		assertEquals(5, skillQueueItem.getLevel());

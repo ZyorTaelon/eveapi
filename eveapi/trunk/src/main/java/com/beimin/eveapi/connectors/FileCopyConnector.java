@@ -12,10 +12,10 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.beimin.eveapi.core.AbstractContentHandler;
-import com.beimin.eveapi.core.ApiRequest;
-import com.beimin.eveapi.core.ApiResponse;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.handler.AbstractContentHandler;
+import com.beimin.eveapi.parser.ApiRequest;
+import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.InputStreamSplitter;
 
 public class FileCopyConnector extends ApiConnector {

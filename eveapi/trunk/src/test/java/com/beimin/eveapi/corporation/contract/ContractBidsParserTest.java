@@ -9,11 +9,12 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.contract.bids.ContractBidsResponse;
-import com.beimin.eveapi.shared.contract.bids.EveContractBid;
+import com.beimin.eveapi.model.shared.ContractBid;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.ContractBidsParser;
+import com.beimin.eveapi.response.shared.ContractBidsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ContractBidsParserTest extends FullAuthParserTest {
@@ -23,14 +24,14 @@ public class ContractBidsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CorporationContractBidsParser parser = new CorporationContractBidsParser();
+		ContractBidsParser parser = new ContractBidsParser();
 		ContractBidsResponse response = parser.getResponse(auth); 
 		assertNotNull(response);
-		Collection<EveContractBid> contracts = response.getAll();
+		Collection<ContractBid> contracts = response.getAll();
 		assertNotNull(contracts);
 		assertEquals(2, contracts.size());
 		boolean found = false;
-		for (EveContractBid contract : contracts) {
+		for (ContractBid contract : contracts) {
 			if(contract.getBidID()==4091381L) {
 				found = true;
 				assertEquals(62276261L, contract.getContractID());

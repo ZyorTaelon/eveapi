@@ -9,9 +9,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.MemberMedal;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.MemberMedalsParser;
+import com.beimin.eveapi.response.corporation.MemberMedalsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class MedalsParserTest extends FullAuthParserTest {

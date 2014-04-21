@@ -10,12 +10,16 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.character.EveAncestry;
-import com.beimin.eveapi.shared.character.EveBloodline;
-import com.beimin.eveapi.shared.character.EveRace;
+import com.beimin.eveapi.model.pilot.AttributeEnhancer;
+import com.beimin.eveapi.model.pilot.Skill;
+import com.beimin.eveapi.model.shared.Ancestry;
+import com.beimin.eveapi.model.shared.Bloodline;
+import com.beimin.eveapi.model.shared.Race;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.CharacterSheetParser;
+import com.beimin.eveapi.response.pilot.CharacterSheetResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class SheetParserTest extends FullAuthParserTest {
@@ -30,10 +34,10 @@ public class SheetParserTest extends FullAuthParserTest {
 		assertNotNull(response);
 		assertEquals(150337897L, response.getCharacterID());
 		assertEquals("corpslave", response.getName());
-		assertEquals(EveRace.MINMATAR, response.getRace());
-		assertEquals(EveAncestry.SLAVE_CHILD, response.getAncestry());
+		assertEquals(Race.MINMATAR, response.getRace());
+		assertEquals(Ancestry.SLAVE_CHILD, response.getAncestry());
 		assertDate(2006, 1, 1, 0, 0, 0, response.getDateOfBirth());
-		assertEquals(EveBloodline.BRUTOR, response.getBloodLine());
+		assertEquals(Bloodline.BRUTOR, response.getBloodLine());
 		assertEquals("Female", response.getGender());
 		assertEquals("corpexport Corp", response.getCorporationName());
 		assertNull(response.getAllianceName());
@@ -42,9 +46,9 @@ public class SheetParserTest extends FullAuthParserTest {
 		assertEquals(54600000L, response.getCloneSkillPoints());
 		assertEquals(190210393.87, response.getBalance(), 0.00001);
 
-		Set<ApiAttributeEnhancer> attributeEnhancers = response.getAttributeEnhancers();
+		Set<AttributeEnhancer> attributeEnhancers = response.getAttributeEnhancers();
 		assertEquals(2, attributeEnhancers.size());
-		for (ApiAttributeEnhancer enhancer : attributeEnhancers) {
+		for (AttributeEnhancer enhancer : attributeEnhancers) {
 			if (enhancer.getAttribute().equals("intelligence")) {
 				assertEquals("Snake Delta", enhancer.getAugmentatorName());
 				assertEquals(3, enhancer.getAugmentatorValue());
@@ -62,9 +66,9 @@ public class SheetParserTest extends FullAuthParserTest {
 		assertEquals(12, response.getPerception());
 		assertEquals(10, response.getWillpower());
 
-		Set<ApiSkill> skills = response.getSkills();
+		Set<Skill> skills = response.getSkills();
 		assertEquals(5, skills.size());
-		for (ApiSkill skill : skills) {
+		for (Skill skill : skills) {
 			if (skill.getTypeID() == 3431) {
 				assertEquals(3, skill.getLevel());
 				assertEquals(8000, skill.getSkillpoints());

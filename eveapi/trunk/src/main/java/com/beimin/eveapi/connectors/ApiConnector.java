@@ -19,11 +19,11 @@ import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
-import com.beimin.eveapi.core.AbstractContentHandler;
-import com.beimin.eveapi.core.ApiAuth;
-import com.beimin.eveapi.core.ApiRequest;
-import com.beimin.eveapi.core.ApiResponse;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.handler.AbstractContentHandler;
+import com.beimin.eveapi.parser.ApiAuth;
+import com.beimin.eveapi.parser.ApiRequest;
+import com.beimin.eveapi.response.ApiResponse;
 
 public class ApiConnector {
 	public static final String EVE_API_URL = "https://api.eveonline.com";

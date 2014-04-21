@@ -7,9 +7,12 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.Shareholder;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.ShareholdersParser;
+import com.beimin.eveapi.response.corporation.ShareholdersResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ShareholdersParserTest extends FullAuthParserTest {
@@ -22,18 +25,18 @@ public class ShareholdersParserTest extends FullAuthParserTest {
 		ShareholdersParser parser = new ShareholdersParser();
 		ShareholdersResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<ApiShareholder> characters = response.getCharacters();
+		Collection<Shareholder> characters = response.getCharacters();
 		assertEquals(1, characters.size());
-		ApiShareholder characterShareholder = characters.iterator().next();
+		Shareholder characterShareholder = characters.iterator().next();
 		assertEquals(126891489L, characterShareholder.getShareholderID());
 		assertEquals("Dragonaire", characterShareholder.getShareholderName());
 		assertEquals(632257314L, characterShareholder.getShareholderCorporationID().longValue());
 		assertEquals("Corax.", characterShareholder.getShareholderCorporationName());
 		assertEquals(1, characterShareholder.getShares());
 
-		Collection<ApiShareholder> corporations = response.getCorporations();
+		Collection<Shareholder> corporations = response.getCorporations();
 		assertEquals(1, corporations.size());
-		ApiShareholder corporationShareholder = corporations.iterator().next();
+		Shareholder corporationShareholder = corporations.iterator().next();
 		assertEquals(632257314L, corporationShareholder.getShareholderID());
 		assertEquals("Corax.", corporationShareholder.getShareholderName());
 		assertEquals(1, corporationShareholder.getShares());

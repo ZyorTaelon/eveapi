@@ -8,9 +8,13 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.Role;
+import com.beimin.eveapi.model.corporation.Title;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.TitlesParser;
+import com.beimin.eveapi.response.corporation.TitlesResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class TitlesParserTest extends FullAuthParserTest {
@@ -20,19 +24,19 @@ public class TitlesParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CorporationTitlesParser parser = new CorporationTitlesParser();
-		CorporationTitlesResponse response = parser.getResponse(auth);
+		TitlesParser parser = new TitlesParser();
+		TitlesResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<ApiTitle> titles = response.getAll();
+		Collection<Title> titles = response.getAll();
 		assertEquals(2, titles.size());
 		boolean found = false;
-		for (ApiTitle title : titles) {
+		for (Title title : titles) {
 			if (title.getTitleID() == 1) {
 				found = true;
 				assertEquals("Member", title.getTitleName());
-				Collection<ApiRole> rolesAtHQ = title.getRolesAtHQ();
+				Collection<Role> rolesAtHQ = title.getRolesAtHQ();
 				assertEquals(1, rolesAtHQ.size());
-				ApiRole role = rolesAtHQ.iterator().next();
+				Role role = rolesAtHQ.iterator().next();
 				assertNotNull(role);
 				assertEquals(8192, role.getRoleID());
 				assertEquals("roleHangarCanTake1", role.getRoleName());

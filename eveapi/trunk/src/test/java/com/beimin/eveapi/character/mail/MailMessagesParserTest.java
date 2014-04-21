@@ -10,12 +10,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.character.mail.messages.ApiMailMessage;
-import com.beimin.eveapi.character.mail.messages.MailMessagesParser;
-import com.beimin.eveapi.character.mail.messages.MailMessagesResponse;
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.pilot.MailMessage;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.MailMessagesParser;
+import com.beimin.eveapi.response.pilot.MailMessagesResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class MailMessagesParserTest extends FullAuthParserTest {
@@ -28,12 +28,12 @@ public class MailMessagesParserTest extends FullAuthParserTest {
 		MailMessagesParser parser = new MailMessagesParser();
 		MailMessagesResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiMailMessage> mails = response.getAll();
+		Set<MailMessage> mails = response.getAll();
 		assertNotNull(mails);
 		assertEquals(2, mails.size());
 		boolean found1 = false;
 		boolean found2 = false;
-		for (ApiMailMessage mail : mails) {
+		for (MailMessage mail : mails) {
 			if (mail.getMessageID() == 291362193L) {
 				found1 = true;
 				assertEquals(267936250L, mail.getSenderID());

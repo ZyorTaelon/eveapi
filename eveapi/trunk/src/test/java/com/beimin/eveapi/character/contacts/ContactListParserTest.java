@@ -7,13 +7,13 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.character.contact.list.CharacterContactListParser;
-import com.beimin.eveapi.character.contact.list.CharacterContactListResponse;
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.contacts.ContactList;
-import com.beimin.eveapi.shared.contacts.EveContact;
+import com.beimin.eveapi.model.shared.Contact;
+import com.beimin.eveapi.model.shared.ContactList;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.ContactListParser;
+import com.beimin.eveapi.response.pilot.ContactListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ContactListParserTest extends FullAuthParserTest {
@@ -23,14 +23,14 @@ public class ContactListParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CharacterContactListParser parser = new CharacterContactListParser();
-		CharacterContactListResponse response = parser.getResponse(auth);
+		ContactListParser parser = new ContactListParser();
+		ContactListResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 
 		ContactList contactList = response.getContactList();
 		assertEquals("contactList", contactList.getName());
 		assertEquals(106, contactList.size());
-		EveContact apiContact = contactList.iterator().next();
+		Contact apiContact = contactList.iterator().next();
 		assertEquals(3008667, apiContact.getContactID());
 		assertEquals("Falian Khivad", apiContact.getContactName());
 		assertEquals(5.0, apiContact.getStanding(), 1E-15);

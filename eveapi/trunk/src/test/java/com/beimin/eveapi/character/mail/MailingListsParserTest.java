@@ -8,12 +8,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.character.mail.lists.ApiMailingList;
-import com.beimin.eveapi.character.mail.lists.MailingListsParser;
-import com.beimin.eveapi.character.mail.lists.MailingListsResponse;
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.pilot.MailingList;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.MailingListsParser;
+import com.beimin.eveapi.response.pilot.MailingListsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class MailingListsParserTest extends FullAuthParserTest {
@@ -26,11 +26,11 @@ public class MailingListsParserTest extends FullAuthParserTest {
 		MailingListsParser parser = new MailingListsParser();
 		MailingListsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiMailingList> mailinglists = response.getAll();
+		Set<MailingList> mailinglists = response.getAll();
 		assertNotNull(mailinglists);
 		assertEquals(3, mailinglists.size());
 		boolean found = false;
-		for (ApiMailingList mailinglist : mailinglists) {
+		for (MailingList mailinglist : mailinglists) {
 			if (mailinglist.getListID() == 128250439L) {
 				found = true;
 				assertEquals("EVETycoonMail", mailinglist.getDisplayName());

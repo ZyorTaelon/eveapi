@@ -8,9 +8,12 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.account.Character;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.account.CharactersParser;
+import com.beimin.eveapi.response.account.CharactersResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class CharactersParserTest extends FullAuthParserTest {
@@ -23,9 +26,9 @@ public class CharactersParserTest extends FullAuthParserTest {
 		CharactersParser parser = new CharactersParser();
 		CharactersResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<EveCharacter> eveCharacters = response.getAll();
+		Collection<Character> eveCharacters = response.getAll();
 		assertEquals(2, eveCharacters.size());
-		for (EveCharacter eveCharacter : eveCharacters) {
+		for (Character eveCharacter : eveCharacters) {
 			long characterID = eveCharacter.getCharacterID();
 			if (characterID == 46135126) {
 				assertEquals("Test Character 1", eveCharacter.getName());

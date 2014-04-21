@@ -7,9 +7,12 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.map.SystemSovereignty;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.map.SovereigntyParser;
+import com.beimin.eveapi.response.map.SovereigntyResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class SovereigntyParserTest extends NoAuthParserTest {
@@ -22,11 +25,11 @@ public class SovereigntyParserTest extends NoAuthParserTest {
 		SovereigntyParser parser = new SovereigntyParser();
 		SovereigntyResponse response = parser.getResponse();
 		assertNotNull(response);
-		Map<Integer, ApiSystemSovereignty> systemSovereignties = response.getSystemSovereignties();
+		Map<Integer, SystemSovereignty> systemSovereignties = response.getSystemSovereignties();
 		assertNotNull(systemSovereignties);
 		assertEquals(5382, systemSovereignties.size());
 
-		ApiSystemSovereignty systemSovereignty = systemSovereignties.get(30000796);
+		SystemSovereignty systemSovereignty = systemSovereignties.get(30000796);
 		assertNotNull(systemSovereignty);
 		assertEquals(1028876240, systemSovereignty.getAllianceID());
 		assertEquals(0, systemSovereignty.getFactionID().intValue());

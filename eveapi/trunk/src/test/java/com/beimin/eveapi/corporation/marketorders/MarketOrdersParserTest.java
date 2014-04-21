@@ -9,12 +9,13 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.marketorders.AbstractMarketOrdersParser;
-import com.beimin.eveapi.shared.marketorders.ApiMarketOrder;
-import com.beimin.eveapi.shared.marketorders.MarketOrdersResponse;
+import com.beimin.eveapi.model.shared.MarketOrder;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.MarketOrdersParser;
+import com.beimin.eveapi.parser.shared.AbstractMarketOrdersParser;
+import com.beimin.eveapi.response.shared.MarketOrdersResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class MarketOrdersParserTest extends FullAuthParserTest {
@@ -24,13 +25,13 @@ public class MarketOrdersParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractMarketOrdersParser parser = new CorporationMarketOrdersParser();
+		AbstractMarketOrdersParser parser = new MarketOrdersParser();
 		MarketOrdersResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Collection<ApiMarketOrder> orders = response.getAll();
+		Collection<MarketOrder> orders = response.getAll();
 		assertEquals(9, orders.size());
 		boolean found = false;
-		for (ApiMarketOrder order : orders) {
+		for (MarketOrder order : orders) {
 			if (order.getOrderID() == 5630641) {
 				found = true;
 				assertEquals(150208955, order.getCharID());

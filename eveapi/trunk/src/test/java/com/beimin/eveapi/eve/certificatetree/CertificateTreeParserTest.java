@@ -9,9 +9,16 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.eve.Certificate;
+import com.beimin.eveapi.model.eve.CertificateCategory;
+import com.beimin.eveapi.model.eve.CertificateClass;
+import com.beimin.eveapi.model.eve.RequiredCertificate;
+import com.beimin.eveapi.model.eve.RequiredSkill;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.eve.CertificateTreeParser;
+import com.beimin.eveapi.response.eve.CertificateTreeResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class CertificateTreeParserTest extends NoAuthParserTest {
@@ -27,21 +34,21 @@ public class CertificateTreeParserTest extends NoAuthParserTest {
 		assertEquals("version 2 expected.", 2, response.getVersion());
 		assertNotNull("Response should contain the current time.", response.getCurrentTime());
 		assertNotNull("Response should contain the time untill this response data is cached.", response.getCachedUntil());
-		Set<ApiCertificateCategory> certificateCategories = response.getAll();
+		Set<CertificateCategory> certificateCategories = response.getAll();
 		assertEquals("Wrong number of Certificate Categories", 11, certificateCategories.size());
-		ApiCertificateCategory certificateCategory = certificateCategories.iterator().next();
+		CertificateCategory certificateCategory = certificateCategories.iterator().next();
 		assertEquals(3, certificateCategory.getCategoryID());
 		assertEquals("Core", certificateCategory.getCategoryName());
-		List<ApiCertificateClass> certificateClasses = certificateCategory.getCertificateClasses();
+		List<CertificateClass> certificateClasses = certificateCategory.getCertificateClasses();
 		assertEquals("Wrong number of Certificate Classes", 6, certificateClasses.size());
-		ApiCertificateClass certificateClass = certificateClasses.iterator().next();
+		CertificateClass certificateClass = certificateClasses.iterator().next();
 		assertEquals(2, certificateClass.getClassID());
 		assertEquals("Core Fitting", certificateClass.getClassName());
-		List<ApiCertificate> certificates = certificateClass.getCertificates();
+		List<Certificate> certificates = certificateClass.getCertificates();
 		assertEquals("Wrong number of Certificates", 4, certificates.size());
-		Iterator<ApiCertificate> iterator = certificates.iterator();
+		Iterator<Certificate> iterator = certificates.iterator();
 		iterator.next();
-		ApiCertificate certificate = iterator.next();
+		Certificate certificate = iterator.next();
 		assertEquals(6, certificate.getCertificateID());
 		assertEquals(2, certificate.getGrade());
 		assertEquals(1000125, certificate.getCorporationID());

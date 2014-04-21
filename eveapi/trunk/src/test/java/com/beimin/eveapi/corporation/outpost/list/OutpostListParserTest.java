@@ -8,9 +8,12 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.Outpost;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.corporation.OutpostListParser;
+import com.beimin.eveapi.response.corporation.OutpostListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class OutpostListParserTest extends FullAuthParserTest {
@@ -25,10 +28,10 @@ public class OutpostListParserTest extends FullAuthParserTest {
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2011, 4, 7, 19, 46, 15, response.getCurrentTime());
 		assertDate(2011, 4, 7, 20, 43, 12, response.getCachedUntil());
-		Collection<ApiOutpost> outposts = response.getAll();
+		Collection<Outpost> outposts = response.getAll();
 		assertNotNull("Should have returned a collection with outpos.", outposts);
 		assertEquals("Should have returned 3 outposs.", 3, outposts.size());
-		ApiOutpost outpost = outposts.iterator().next();
+		Outpost outpost = outposts.iterator().next();
 		assertNotNull("Should have returned an outpost.", outpost);
 		assertEquals(61000230, outpost.getStationID());
 		assertEquals(773499566L, outpost.getOwnerID());

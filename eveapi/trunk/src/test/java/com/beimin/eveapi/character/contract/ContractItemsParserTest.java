@@ -10,11 +10,12 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.shared.contract.items.ContractItemsResponse;
-import com.beimin.eveapi.shared.contract.items.EveContractItem;
+import com.beimin.eveapi.model.shared.ContractItem;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.ContractItemsParser;
+import com.beimin.eveapi.response.shared.ContractItemsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ContractItemsParserTest extends FullAuthParserTest {
@@ -24,16 +25,16 @@ public class ContractItemsParserTest extends FullAuthParserTest {
 
 	@Test
 	public void getResponse() throws ApiException {
-		CharacterContractItemsParser parser = new CharacterContractItemsParser();
+		ContractItemsParser parser = new ContractItemsParser();
 		long contractID = 1234L;
 		ContractItemsResponse response = parser.getResponse(auth, contractID); 
 		assertNotNull(response);
-		Collection<EveContractItem> contracts = response.getAll();
+		Collection<ContractItem> contracts = response.getAll();
 		assertNotNull(contracts);
 		assertEquals(2, contracts.size());
 		boolean foundOne = false;
 		boolean foundTwo = false;
-		for (EveContractItem contract : contracts) {
+		for (ContractItem contract : contracts) {
 			if(contract.getRecordID()==854257304L) {
 				foundOne = true;
 				assertEquals(3683, contract.getTypeID());

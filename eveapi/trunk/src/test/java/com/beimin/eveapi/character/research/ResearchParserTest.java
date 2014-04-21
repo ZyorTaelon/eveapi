@@ -9,9 +9,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.pilot.ResearchAgent;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.pilot.ResearchParser;
+import com.beimin.eveapi.response.pilot.ResearchResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ResearchParserTest extends FullAuthParserTest {
@@ -24,11 +27,11 @@ public class ResearchParserTest extends FullAuthParserTest {
 		ResearchParser parser = new ResearchParser();
 		ResearchResponse response = parser.getResponse(auth);
 		assertNotNull(response);
-		Set<ApiResearchAgent> researchAgents = response.getAll();
+		Set<ResearchAgent> researchAgents = response.getAll();
 		assertNotNull(researchAgents);
 		assertEquals(5, researchAgents.size());
 		boolean found = false;
-		for (ApiResearchAgent researchAgent : researchAgents) {
+		for (ResearchAgent researchAgent : researchAgents) {
 			if (researchAgent.getAgentID() == 3012659) {
 				found = true;
 				assertEquals(11452, researchAgent.getSkillTypeID());

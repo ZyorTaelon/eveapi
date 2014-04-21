@@ -7,9 +7,12 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.eve.EveTypeName;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.eve.TypeNameParser;
+import com.beimin.eveapi.response.eve.TypeNameResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class TypeNameParserTest extends NoAuthParserTest {

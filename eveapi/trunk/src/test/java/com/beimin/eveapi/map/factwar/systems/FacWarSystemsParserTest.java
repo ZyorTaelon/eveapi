@@ -9,9 +9,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.map.FacWarSystem;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.map.FacWarSystemsParser;
+import com.beimin.eveapi.response.map.FacWarSystemsResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class FacWarSystemsParserTest extends NoAuthParserTest {
@@ -23,10 +26,10 @@ public class FacWarSystemsParserTest extends NoAuthParserTest {
 	public void getResponse() throws ApiException {
 		FacWarSystemsParser parser = new FacWarSystemsParser();
 		FacWarSystemsResponse response = parser.getResponse();
-		Set<ApiFacWarSystem> systems = response.getAll();
+		Set<FacWarSystem> systems = response.getAll();
 		assertEquals(171, systems.size());
-		Iterator<ApiFacWarSystem> iterator = systems.iterator();
-		ApiFacWarSystem facWarSystem = iterator.next();
+		Iterator<FacWarSystem> iterator = systems.iterator();
+		FacWarSystem facWarSystem = iterator.next();
 		assertEquals(30002057, facWarSystem.getSolarSystemID());
 		assertEquals("Hadozeko", facWarSystem.getSolarSystemName());
 		assertEquals(0, facWarSystem.getOccupyingFactionID());

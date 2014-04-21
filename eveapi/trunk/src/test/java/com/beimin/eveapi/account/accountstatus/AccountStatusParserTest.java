@@ -6,8 +6,11 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
+import com.beimin.eveapi.model.account.AccountStatus;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.account.AccountStatusParser;
+import com.beimin.eveapi.response.account.AccountStatusResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class AccountStatusParserTest extends FullAuthParserTest {
@@ -20,7 +23,7 @@ public class AccountStatusParserTest extends FullAuthParserTest {
 		AccountStatusParser accountStatusParser = new AccountStatusParser();
 		AccountStatusResponse response = accountStatusParser.getResponse(auth);
 		assertNotNull(response);
-		EveAccountStatus accountStatus = response.get();
+		AccountStatus accountStatus = response.get();
 		assertEquals(541354, accountStatus.getUserID());
 		assertDate(2011, 03, 13, 18, 40, 0, accountStatus.getPaidUntil());
 		assertDate(2004, 07, 22, 23, 54, 0, accountStatus.getCreateDate());

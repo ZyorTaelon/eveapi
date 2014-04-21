@@ -6,9 +6,13 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.core.ApiPage;
-import com.beimin.eveapi.core.ApiPath;
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.eve.FactionStats;
+import com.beimin.eveapi.model.eve.FactionWar;
+import com.beimin.eveapi.parser.ApiPage;
+import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.eve.FacWarStatsParser;
+import com.beimin.eveapi.response.eve.FacWarStatsResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class FacWarStatsParserTest extends NoAuthParserTest {
@@ -26,9 +30,9 @@ public class FacWarStatsParserTest extends NoAuthParserTest {
 		assertEquals(55087, facWarStats.getVictoryPointsYesterday());
 		assertEquals(414049, facWarStats.getVictoryPointsLastWeek());
 		assertEquals(44045189, facWarStats.getVictoryPointsTotal());
-		List<ApiFactionStats> factions = facWarStats.getFactions();
+		List<FactionStats> factions = facWarStats.getFactions();
 		assertEquals(4, factions.size());
-		ApiFactionStats factionStats = factions.iterator().next();
+		FactionStats factionStats = factions.iterator().next();
 		assertEquals(500001, factionStats.getFactionID());
 		assertEquals("Caldari State", factionStats.getFactionName());
 		assertEquals(5324, factionStats.getPilots());
@@ -39,9 +43,9 @@ public class FacWarStatsParserTest extends NoAuthParserTest {
 		assertEquals(9934, factionStats.getVictoryPointsYesterday());
 		assertEquals(64548, factionStats.getVictoryPointsLastWeek());
 		assertEquals(4506493, factionStats.getVictoryPointsTotal());
-		List<ApiFactionWar> wars = facWarStats.getWars();
+		List<FactionWar> wars = facWarStats.getWars();
 		assertEquals(8, wars.size());
-		ApiFactionWar factionWar = wars.iterator().next();
+		FactionWar factionWar = wars.iterator().next();
 		assertEquals(500001, factionWar.getFactionID());
 		assertEquals("Caldari State", factionWar.getFactionName());
 		assertEquals(500002, factionWar.getAgainstID());
