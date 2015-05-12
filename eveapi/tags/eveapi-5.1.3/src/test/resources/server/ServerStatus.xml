@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<eveapi version="2">
-  <currentTime>2010-12-04 14:36:29</currentTime>
-  <result>
-    <serverOpen>True</serverOpen>
-    <onlinePlayers>38669</onlinePlayers>
-  </result>
-  <cachedUntil>2010-12-04 14:39:05</cachedUntil>
-</eveapi>
