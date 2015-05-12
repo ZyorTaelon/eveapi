@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<name>EveAPI</name>
 	<description>Parsers for the eve online api</description>
-	<url>http://eveapi.googlecode.com/</url>
+	<url>https://github.com/ZyorTaelon/eveapi</url>
 	<distributionManagement>
 		<repository>
 			<id>eveapi.googlecode.com</id>
@@ -28,21 +28,21 @@
         </license>
     </licenses>
 	<scm>
-		<connection>scm:svn:https://eveapi.googlecode.com/svn/eveapi/trunk</connection>
-		<developerConnection>scm:svn:https://eveapi.googlecode.com/svn/eveapi/trunk</developerConnection>
+		<connection>scm:git:https://github.com/ZyorTaelon/eveapi.git</connection>
+		<developerConnection>scm:git:https://github.com/ZyorTaelon/eveapi.git</developerConnection>
 	</scm>
 	<developers>
 		<developer>
-			<id>sbeimin</id>
-			<name>Syte Beimin</name>
+			<id>zyor.taelon</id>
+			<name>Zy'or Taelon</name>
 			<email>zyor.taelon@gmail.com</email>
 			<timezone>+1</timezone>
 		</developer>
 	</developers>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<slf4j.version>1.7.2</slf4j.version>
-		<logback.version>1.0.9</logback.version>
+		<slf4j.version>1.7.7</slf4j.version>
+		<logback.version>1.1.2</logback.version>
 		<camel.version>2.5.0</camel.version>
 	</properties>
 	<dependencies>
