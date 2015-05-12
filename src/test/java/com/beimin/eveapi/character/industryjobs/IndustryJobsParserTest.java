@@ -2,7 +2,6 @@ package com.beimin.eveapi.character.industryjobs;
 
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -31,43 +30,37 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 		assertNotNull(response);
 		Collection<IndustryJob> industryJobs = response.getAll();
 		assertNotNull(industryJobs);
-		assertEquals(5, industryJobs.size());
+		assertEquals(4, industryJobs.size());
 		boolean found = false;
 		for (IndustryJob job : industryJobs) {
-			if (job.getJobID() == 23264063) {
+			if (job.getJobID() == 231459965) {
 				found = true;
-				assertEquals(100518790L, job.getAssemblyLineID());
-				assertEquals(1386493620, job.getContainerID());
-				assertEquals(1002502594, job.getInstalledItemID());
-				assertEquals(199583646, job.getInstalledItemLocationID());
-				assertEquals(1, job.getInstalledItemQuantity());
-				assertEquals(12, job.getInstalledItemProductivityLevel());
-				assertEquals(40, job.getInstalledItemMaterialLevel());
-				assertEquals(-1, job.getInstalledItemLicensedProductionRunsRemaining());
-				assertEquals(1386493620, job.getOutputLocationID());
-				assertEquals(674831735, job.getInstallerID());
-				assertEquals(6, job.getRuns());
-				assertEquals(15, job.getLicensedProductionRuns());
-				assertEquals(30005005, job.getInstalledInSolarSystemID());
-				assertEquals(30005005, job.getContainerLocationID());
-				assertEquals(1.2, job.getMaterialMultiplier(), 0.5);
-				assertEquals(1.5, job.getCharMaterialMultiplier(), 0.5);
-				assertEquals(0.65, job.getTimeMultiplier(), 0.5);
-				assertEquals(1.5, job.getCharTimeMultiplier(), 0.5);
-				assertEquals(971, job.getInstalledItemTypeID());
-				assertEquals(971, job.getOutputTypeID());
-				assertEquals(28351, job.getContainerTypeID());
-				assertEquals(0, job.getInstalledItemCopy());
-				assertFalse(job.isCompleted());
-				assertFalse(job.isCompletedSuccessfully());
-				assertEquals(121, job.getInstalledItemFlag());
-				assertEquals(120, job.getOutputFlag());
-				assertEquals(5, job.getActivityID());
-				assertEquals(0, job.getCompletedStatus());
-				assertDate(2008, 5, 23, 00, 38, 0, job.getInstallTime());
-				assertDate(2008, 5, 23, 00, 38, 0, job.getBeginProductionTime());
-				assertDate(2008, 6, 8, 16, 47, 0, job.getEndProductionTime());
-				assertDate(1, 1, 1, 0, 0, 0, job.getPauseProductionTime());
+				assertEquals(1111111111, job.getInstallerID());
+				assertEquals("Paul", job.getInstallerName());
+				assertEquals(1015487453710l, job.getFacilityID());
+				assertEquals(30066314l, job.getSolarSystemID());
+				assertEquals("Jita", job.getSolarSystemName());
+				assertEquals(1231455343453l, job.getStationID());
+				assertEquals(1, job.getActivityID());
+				assertEquals(1009259615294l, job.getBlueprintID());
+				assertEquals(12220, job.getBlueprintTypeID());
+				assertEquals("Capital Remote Capacitor Transmitter I Blueprint", job.getBlueprintTypeName());
+				assertEquals(1015487453710l, job.getBlueprintLocationID());
+				assertEquals(1015487453710l, job.getOutputLocationID());
+				assertEquals(18, job.getRuns());
+				assertEquals(132213.00d, job.getCost(), 0.01);
+				assertEquals(0, job.getTeamID());
+				assertEquals(5, job.getLicensedRuns());
+				assertEquals(0, job.getProbability());
+				assertEquals(0, job.getProductTypeID());
+				assertEquals("", job.getProductTypeName());
+				assertEquals(1, job.getStatus());
+				assertEquals(15790, job.getTimeInSeconds());
+				assertDate(2014, 7, 31, 18, 31, 31, job.getStartDate());
+				assertDate(2014, 7, 31, 22, 54, 41, job.getEndDate());
+				assertDate(0001, 1, 1, 0, 0, 0, job.getPauseDate());
+				assertDate(0001, 1, 1, 0, 0, 0, job.getCompletedDate());
+				assertEquals(0, job.getCompletedCharacterID());
 			}
 		}
 		assertTrue("test job wasn't found.", found);
