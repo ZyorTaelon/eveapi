@@ -55,25 +55,36 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 
 	@Override
 	public int hashCode() {
-		StringBuilder temp = new StringBuilder(path.getPath());
-		temp.append(page).append(version);
-		if (auth != null)
-			temp.append(auth.getKeyID()).append(auth.getCharacterID()).append(auth.getVCode());
-		for (Entry<String, String> entry : params.entrySet()) {
-			temp.append(entry.getKey()).append(entry.getValue());
-		}
-		return temp.toString().hashCode();
+		int result = path != null ? path.hashCode() : 0;
+		result = 31 * result + (page != null ? page.hashCode() : 0);
+		result = 31 * result + version;
+		result = 31 * result + (auth != null ? auth.hashCode() : 0);
+		result = 31 * result + (params != null ? params.hashCode() : 0);
+		return result;
 	}
 
 	public int compareTo(ApiRequest o) {
-		return o.hashCode() - hashCode();
+		return equals(o) ? 0 : 1;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof ApiRequest)
-			return compareTo((ApiRequest) obj) == 0;
-		return false;
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (!(o instanceof ApiRequest))
+			return false;
+		ApiRequest that = (ApiRequest) o;
+		if (version != that.version)
+			return false;
+		if (auth != null ? !auth.equals(that.auth) : that.auth != null)
+			return false;
+		if (page != that.page)
+			return false;
+		if (params != null ? !params.equals(that.params) : that.params != null)
+			return false;
+		if (path != that.path)
+			return false;
+		return true;
 	}
 
 	@Override

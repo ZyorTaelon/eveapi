@@ -31,31 +31,14 @@ public class ApiAuthorization extends ApiAuth<ApiAuthorization> {
 	public void setCharacterID(long characterID) {
 		this.characterID = characterID;
 	}
+	
 	@Override
 	public String getVCode() {
 		return vCode;
 	}
 
 	@Override
-	public int hashCode() {
-		return new StringBuilder(keyID).append(characterID).append(vCode).toString().hashCode();
-	}
-
-	public int compareTo(ApiAuthorization o) {
-		return o.hashCode() - hashCode();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof ApiAuthorization)
-			return compareTo((ApiAuthorization) obj) == 0;
-		return false;
-	}
-
-	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder();
-		result.append("keyID: ").append(keyID).append(", characterID: ").append(characterID);
-		return result.toString();
+		return new StringBuilder().append("keyID: ").append(keyID).append(", characterID: ").append(characterID).toString();
 	}
 }

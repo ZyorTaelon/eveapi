@@ -22,4 +22,42 @@ public abstract class ApiAuth<A extends ApiAuth<?>> implements Comparable<A> {
 		return result;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((getCharacterID() == null) ? 0 : getCharacterID().hashCode());
+		result = prime * result + getKeyID();
+		result = prime * result + ((getVCode() == null) ? 0 : getVCode().hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ApiAuthorization other = (ApiAuthorization) obj;
+		if (getCharacterID() == null) {
+			if (other.getCharacterID() != null)
+				return false;
+		} else if (!getCharacterID().equals(other.getCharacterID()))
+			return false;
+		if (getKeyID() != other.getKeyID())
+			return false;
+		if (getVCode() == null) {
+			if (other.getVCode() != null)
+				return false;
+		} else if (!getVCode().equals(other.getVCode()))
+			return false;
+		return true;
+	}
+
+    public int compareTo(A o) {
+        return equals(o) ? 0 : 1;
+    }
+
 }
