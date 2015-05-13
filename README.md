@@ -1,3 +1,7 @@
+[![Build Status](http://didge.my-wan.de/jenkins/job/GitHub%20eve-crest/badge/icon)](http://didge.my-wan.de/jenkins/job/GitHub%20eveapi/)
+[![SonarQube Coverage](https://img.shields.io/sonar/http/sonar.qatools.ru/ru.yandex.qatools.allure:allure-core/coverage.svg)](http://didge.my-wan.de/sonar/api/resources?resource=188&depth=0&metrics=coverage&includetrends=true)
+
+
 This library provides Java parsers that retrieve xml data from the eve-online API and serves that data in easy to handle Java objects.
 
 If you're happy with this lib feel free to make an isk donation to the character "[Perduim Oneraria](https://gate.eveonline.com/Profile/Perduim%20Oneraria)" ingame.
