@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -32,7 +33,7 @@ public class AssetListParserTest extends FullAuthParserTest {
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 4, 43, 55, response.getCurrentTime());
 		assertDate(2008, 2, 4, 3, 43, 55, response.getCachedUntil());
-		Collection<Asset<Asset<?>>> assets = response.getAll();
+		List<Asset> assets = response.getAll();
 		assertNotNull("Should have returned assets.", assets);
 		assertEquals("There should have been 4 assets.", 4, assets.size());
 		boolean assetFound = false;
@@ -61,14 +62,14 @@ public class AssetListParserTest extends FullAuthParserTest {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private void testSingleton(Collection<Asset<Asset<?>>> assets){
+	private void testSingleton(List<Asset> assets){
 		for (Asset asset : assets) {
 			testSingleton(asset);
 			testSingleton(asset.getAssets());
 		}
 	}
 
-	private void testSingleton(Asset<Asset<?>> asset){
+	private void testSingleton(Asset asset){
 		if (asset.getSingleton() && asset.getRawQuantity() != -1 && asset.getRawQuantity() != -2){
 			fail("When Singleton is true: RawQuantity should be -1 or -2 was: "+asset.getRawQuantity()+" itemID: "+asset.getItemID());
 		}

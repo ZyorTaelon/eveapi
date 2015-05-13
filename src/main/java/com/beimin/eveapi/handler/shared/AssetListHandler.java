@@ -11,8 +11,8 @@ import com.beimin.eveapi.response.shared.AssetListResponse;
 
 public class AssetListHandler extends AbstractContentHandler {
 	private AssetListResponse response;
-	private Asset<Asset<?>> currentAsset;
-	private Stack<Asset<Asset<?>>> stack = new Stack<Asset<Asset<?>>>();
+	private Asset currentAsset;
+	private Stack<Asset> stack = new Stack<Asset>();
 
 	@Override
 	public void startDocument() throws SAXException {
@@ -28,7 +28,7 @@ public class AssetListHandler extends AbstractContentHandler {
 			}
 		}
 		if (qName.equals("row")) {
-			currentAsset = new Asset<Asset<?>>();
+			currentAsset = new Asset();
 			currentAsset.setItemID(getLong(attrs, "itemID"));
 			currentAsset.setLocationID(getLong(attrs, "locationID"));
 			currentAsset.setTypeID(getInt(attrs, "typeID"));
@@ -37,7 +37,7 @@ public class AssetListHandler extends AbstractContentHandler {
 			currentAsset.setSingleton(getBoolean(attrs, "singleton"));
 			currentAsset.setRawQuantity(getInt(attrs, "rawQuantity"));
 			if (!stack.isEmpty()) {
-				Asset<Asset<?>> peek = stack.peek();
+				Asset peek = stack.peek();
 				peek.addAsset(currentAsset);
 			}
 		}
@@ -48,7 +48,7 @@ public class AssetListHandler extends AbstractContentHandler {
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if (qName.equals("rowset") && !stack.isEmpty()) {
-			Asset<Asset<?>> asset = stack.pop();
+			Asset asset = stack.pop();
 			if (stack.isEmpty()) {
 				response.add(asset);
 				currentAsset = null;

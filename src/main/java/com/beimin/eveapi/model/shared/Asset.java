@@ -1,10 +1,10 @@
 package com.beimin.eveapi.model.shared;
 
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Asset<A extends Asset<?>> {
-	private final Collection<A> assets = new HashSet<A>();
+public class Asset {
+	private final List<Asset> assets = new ArrayList<Asset>();
 	private long itemID;
 	private Long locationID;
 	private int typeID;
@@ -13,15 +13,15 @@ public class Asset<A extends Asset<?>> {
 	private int flag;
 	private boolean singleton;
 
-	public Collection<A> getAssets() {
+	public List<Asset> getAssets() {
 		return assets;
 	}
 
-	public void add(A asset) {
+	public void add(Asset asset) {
 		assets.add(asset);
 	}
 
-	public void addAsset(A asset) {
+	public void addAsset(Asset asset) {
 		assets.add(asset);
 	}
 
