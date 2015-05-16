@@ -47,7 +47,7 @@ And you'll need some slf4j implementation like
 You can find where to download those jars [here](http://google.com).
 
 # Usage #
-Generally you can look at the automated unit tests that are available in the subversion and in the google code web interface. For instance http://code.google.com/p/eveapi/source/browse/eveapi/trunk/src/test/java/com/beimin/eveapi/account/characters/CharactersParserTest.java which tests and shows how to retrieve the list of Characters connected to an API key.
+Generally you can look at the automated unit tests that are available in the source code and can be viewed on GitHub. For instance https://github.com/ZyorTaelon/eveapi/blob/master/src/test/java/com/beimin/eveapi/account/characters/CharactersParserTest.java which tests and shows how to retrieve the list of Characters connected to an API key.
 
 Really all you need is to determine which information you want to retrieve and ergo which Parser you need to use.
 ```java
