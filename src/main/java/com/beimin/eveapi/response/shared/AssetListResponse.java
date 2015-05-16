@@ -1,20 +1,20 @@
 package com.beimin.eveapi.response.shared;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.beimin.eveapi.model.shared.Asset;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class AssetListResponse extends ApiResponse {
 	private static final long serialVersionUID = 1L;
-	private final Set<Asset<Asset<?>>> assets = new LinkedHashSet<Asset<Asset<?>>>();
+	private final List<Asset> assets = new ArrayList<Asset>();
 
-	public void add(Asset<Asset<?>> asset) {
+	public void add(Asset asset) {
 		assets.add(asset);
 	}
 
-	public Set<Asset<Asset<?>>> getAll() {
+	public List<Asset> getAll() {
 		return assets;
 	}
 }

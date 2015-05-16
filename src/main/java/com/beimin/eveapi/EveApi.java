@@ -1,5 +1,6 @@
 package com.beimin.eveapi;
 
+import java.util.List;
 import java.util.Set;
 
 import com.beimin.eveapi.connectors.ApiConnector;
@@ -100,7 +101,7 @@ public class EveApi {
 		return response.getAll();
 	}
 
-	public Set<Asset<Asset<?>>> getCharacterAssets() throws ApiException {
+	public List<Asset> getCharacterAssets() throws ApiException {
 		return new PilotAssetListParser().getResponse(getAuth()).getAll();
 	}
 

@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -32,7 +33,7 @@ public class AssetListParserTest extends FullAuthParserTest {
 		assertNotNull("Should have returned a result.", response);
 		assertDate(2008, 2, 3, 4, 43, 55, response.getCurrentTime());
 		assertDate(2008, 2, 4, 3, 43, 55, response.getCachedUntil());
-		Collection<Asset<Asset<?>>> assets = response.getAll();
+		List<Asset> assets = response.getAll();
 		assertNotNull("Should have returned assets.", assets);
 		assertEquals("There should have been 4 assets.", 4, assets.size());
 		boolean assetFound = false;
