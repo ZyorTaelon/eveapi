@@ -133,4 +133,91 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
 	public int compareTo(WalletTransaction o) {
 		return Math.round(this.getTransactionID() - o.getTransactionID());
 	}
+
+	@Override
+	public int hashCode() {
+	    final int prime = 31;
+	    int result = 1;
+	    result = prime * result + ((characterID == null) ? 0 : characterID.hashCode());
+	    result = prime * result + ((characterName == null) ? 0 : characterName.hashCode());
+	    result = prime * result + (int) (clientID ^ (clientID >>> 32));
+	    result = prime * result + ((clientName == null) ? 0 : clientName.hashCode());
+	    long temp;
+	    temp = Double.doubleToLongBits(price);
+	    result = prime * result + (int) (temp ^ (temp >>> 32));
+	    result = prime * result + quantity;
+	    result = prime * result + stationID;
+	    result = prime * result + ((stationName == null) ? 0 : stationName.hashCode());
+	    result = prime * result + ((transactionDateTime == null) ? 0 : transactionDateTime.hashCode());
+	    result = prime * result + ((transactionFor == null) ? 0 : transactionFor.hashCode());
+	    result = prime * result + (int) (transactionID ^ (transactionID >>> 32));
+	    result = prime * result + ((transactionType == null) ? 0 : transactionType.hashCode());
+	    result = prime * result + typeID;
+	    result = prime * result + ((typeName == null) ? 0 : typeName.hashCode());
+	    return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+	    if (this == obj)
+		return true;
+	    if (obj == null)
+		return false;
+	    if (getClass() != obj.getClass())
+		return false;
+	    WalletTransaction other = (WalletTransaction) obj;
+	    if (characterID == null) {
+		if (other.characterID != null)
+		    return false;
+	    } else if (!characterID.equals(other.characterID))
+		return false;
+	    if (characterName == null) {
+		if (other.characterName != null)
+		    return false;
+	    } else if (!characterName.equals(other.characterName))
+		return false;
+	    if (clientID != other.clientID)
+		return false;
+	    if (clientName == null) {
+		if (other.clientName != null)
+		    return false;
+	    } else if (!clientName.equals(other.clientName))
+		return false;
+	    if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+		return false;
+	    if (quantity != other.quantity)
+		return false;
+	    if (stationID != other.stationID)
+		return false;
+	    if (stationName == null) {
+		if (other.stationName != null)
+		    return false;
+	    } else if (!stationName.equals(other.stationName))
+		return false;
+	    if (transactionDateTime == null) {
+		if (other.transactionDateTime != null)
+		    return false;
+	    } else if (!transactionDateTime.equals(other.transactionDateTime))
+		return false;
+	    if (transactionFor == null) {
+		if (other.transactionFor != null)
+		    return false;
+	    } else if (!transactionFor.equals(other.transactionFor))
+		return false;
+	    if (transactionID != other.transactionID)
+		return false;
+	    if (transactionType == null) {
+		if (other.transactionType != null)
+		    return false;
+	    } else if (!transactionType.equals(other.transactionType))
+		return false;
+	    if (typeID != other.typeID)
+		return false;
+	    if (typeName == null) {
+		if (other.typeName != null)
+		    return false;
+	    } else if (!typeName.equals(other.typeName))
+		return false;
+	    return true;
+	}
 }

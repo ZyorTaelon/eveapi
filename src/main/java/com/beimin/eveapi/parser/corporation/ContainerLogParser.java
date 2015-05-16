@@ -15,7 +15,7 @@ public class ContainerLogParser extends AbstractListParser<ContainerLogHandler, 
 	}
 
 	@Override
-	public ContainerLogResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public ContainerLogResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

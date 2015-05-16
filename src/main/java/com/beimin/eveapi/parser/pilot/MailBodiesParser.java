@@ -15,7 +15,7 @@ public class MailBodiesParser extends AbstractListParser<MailBodiesHandler, Mail
 		super(MailBodiesResponse.class, 2, ApiPath.CHARACTER, ApiPage.MAIL_BODIES, MailBodiesHandler.class);
 	}
 
-	public MailBodiesResponse getResponse(ApiAuth<?> auth, long... ids) throws ApiException {
+	public MailBodiesResponse getResponse(ApiAuth auth, long... ids) throws ApiException {
 		return getResponse(auth, "ids", StringUtils.join(",", ids));
 	}
 }

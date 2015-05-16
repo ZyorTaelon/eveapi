@@ -21,7 +21,7 @@ public class ApiKeyInfoParser extends AbstractApiParser<ApiKeyInfoResponse> {
 	}
 
 	@Override
-	public ApiKeyInfoResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public ApiKeyInfoResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

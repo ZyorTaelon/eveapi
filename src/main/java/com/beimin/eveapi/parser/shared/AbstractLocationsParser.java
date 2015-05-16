@@ -16,7 +16,7 @@ public abstract class AbstractLocationsParser extends AbstractListParser<Locatio
 		super(LocationsResponse.class, 2, path, ApiPage.LOCATIONS, LocationsHandler.class);
 	}
 
-	public LocationsResponse getResponse(ApiAuth<?> auth, List<Long> itemIDs) throws ApiException {
+	public LocationsResponse getResponse(ApiAuth auth, List<Long> itemIDs) throws ApiException {
 		StringBuilder idList = new StringBuilder();
 		for (Iterator<Long> iterator = itemIDs.iterator(); iterator.hasNext();) {
 			idList.append((Long) iterator.next());

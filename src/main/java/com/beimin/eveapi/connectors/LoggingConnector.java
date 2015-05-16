@@ -1,10 +1,13 @@
 package com.beimin.eveapi.connectors;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.Map;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
@@ -20,10 +23,11 @@ import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.InputStreamSplitter;
 
 public class LoggingConnector extends ApiConnector {
-	private final Logger logger = LoggerFactory.getLogger(ApiConnector.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ApiConnector.class);
 	private final ApiConnector baseConnector;
 
 	public LoggingConnector() {
+	    	super();
 		this.baseConnector = null;
 	}
 
@@ -33,8 +37,8 @@ public class LoggingConnector extends ApiConnector {
 
 	@Override
 	public <E extends ApiResponse> E execute(ApiRequest request, AbstractContentHandler contentHandler, Class<E> clazz) throws ApiException {
-		if (logger.isInfoEnabled())
-			logger.info("\nRequest:\n" + request.toString());
+		if (LOGGER.isInfoEnabled())
+			LOGGER.info("\nRequest:\n" + request.toString());
 		ApiConnector connector = getConnector();
 		URL url = connector.getURL(request);
 		Map<String, String> params = connector.getParams(request);
@@ -46,20 +50,35 @@ public class LoggingConnector extends ApiConnector {
 	@SuppressWarnings("unchecked")
 	protected <E> E getApiResponse(AbstractContentHandler contentHandler, InputStream inputStream, Class<E> clazz) throws ApiException {
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		if (logger.isInfoEnabled()) {
-			inputStream = new InputStreamSplitter(inputStream, outputStream);
-		}
+		InputStream workInputStream = inputStream;
 		try {
-			SAXParserFactory spf = SAXParserFactory.newInstance(); 
+		    if (LOGGER.isInfoEnabled()) {
+			workInputStream = new InputStreamSplitter(inputStream, outputStream);
+		    }
+		    SAXParserFactory spf = SAXParserFactory.newInstance(); 
 		    SAXParser sp = spf.newSAXParser(); 
 		    XMLReader xr = sp.getXMLReader(); 
-		    xr.setContentHandler(contentHandler); 
-		    xr.parse(new InputSource(inputStream)); 
+		    xr.setContentHandler(contentHandler);
+		    xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+		    xr.parse(new InputSource(workInputStream)); 
 			return (E) contentHandler.getResponse();
 		} catch (Exception e) {
 			throw new ApiException(e);
 		} finally {
-			logger.info("\nResponse:\n" + outputStream.toString());
+		    	if (LOGGER.isInfoEnabled()) {
+		    	    	try {
+		    	    	    	LOGGER.info("\nResponse:\n" + outputStream.toString("UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+				    	LOGGER.error("Could not write response as utf-8", e);
+				}
+		    	}
+		    	try {
+		    	    	if(workInputStream != null) {
+		    	    	    	workInputStream.close();
+		    	    	}
+			} catch (IOException e) {
+			    	LOGGER.error("Could not close input stream", e);
+			}
 		}
 	}
 

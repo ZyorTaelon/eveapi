@@ -33,23 +33,23 @@ import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 
 public class EveApi {
 	private static ApiConnector connector = new ApiConnector();
-	private ApiAuth<?> auth;
+	private ApiAuth auth;
 
 	public EveApi() {
 		// default constructor
 	}
 
-	public EveApi(ApiAuth<?> auth) {
+	public EveApi(ApiAuth auth) {
 		this.auth = auth;
 	}
 
-	public ApiAuth<?> getAuth() {
+	public ApiAuth getAuth() {
 		if (auth == null)
 			throw new NoAuthException();
 		return auth;
 	}
 
-	public void setAuth(ApiAuth<?> auth) {
+	public void setAuth(ApiAuth auth) {
 		this.auth = auth;
 	}
 

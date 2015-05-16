@@ -17,11 +17,11 @@ public abstract class AbstractWalletJournalParser extends
 		super(WalletJournalResponse.class, 2, path, ApiPage.WALLET_JOURNAL, WalletJournalHandler.class);
 	}
 
-	public WalletJournalResponse getResponse(ApiAuth<?> auth, int accountKey) throws ApiException {
+	public WalletJournalResponse getResponse(ApiAuth auth, int accountKey) throws ApiException {
 		return getResponse(auth, "accountKey", Integer.toString(accountKey));
 	}
 
-	public WalletJournalResponse getResponse(ApiAuth<?> auth, int accountKey, long beforeRefID, int rowCount)
+	public WalletJournalResponse getResponse(ApiAuth auth, int accountKey, long beforeRefID, int rowCount)
 			throws ApiException {
 		Map<String, String> extraParams = new HashMap<String, String>();
 		extraParams.put("accountKey", Integer.toString(accountKey));

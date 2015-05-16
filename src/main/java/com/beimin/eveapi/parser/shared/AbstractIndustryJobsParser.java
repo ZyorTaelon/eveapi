@@ -14,7 +14,7 @@ public abstract class AbstractIndustryJobsParser extends AbstractListParser<Indu
 	}
 
 	@Override
-	public IndustryJobsResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public IndustryJobsResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

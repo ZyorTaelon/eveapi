@@ -18,17 +18,8 @@ public abstract class AbstractAssetListParser extends AbstractApiParser<AssetLis
 		return new AssetListHandler();
 	}
 
-//	@Override
-//	protected Digester getDigester() {
-//		Digester digester = super.getDigester();
-//		digester.addObjectCreate("*/rowset/row", EveAsset.class);
-//		digester.addSetProperties("*/rowset/row");
-//		digester.addSetNext("*/rowset/row", "add");
-//		return digester;
-//	}
-
 	@Override
-	public AssetListResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public AssetListResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

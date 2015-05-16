@@ -1,11 +1,14 @@
 package com.beimin.eveapi.handler;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.beimin.eveapi.utils.DateUtils;
 
-public class ApiError {
-	private int code;
+public class ApiError implements Serializable {
+    	private static final long serialVersionUID = 137057814306371822L;
+
+    	private int code;
 	private String error;
 	private Date retryAfterDate = null;
 

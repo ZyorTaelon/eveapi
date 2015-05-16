@@ -14,7 +14,7 @@ public abstract class AbstractContractsParser extends AbstractListParser<Contrac
 	}
 	
 	@Override
-	public ContractsResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public ContractsResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

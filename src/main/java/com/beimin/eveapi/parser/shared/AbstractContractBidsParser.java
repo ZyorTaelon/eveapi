@@ -14,7 +14,7 @@ public abstract class AbstractContractBidsParser extends AbstractListParser<Cont
 	}
 
 	@Override
-	public ContractBidsResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public ContractBidsResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

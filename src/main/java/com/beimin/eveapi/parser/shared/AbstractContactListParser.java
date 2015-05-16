@@ -19,7 +19,7 @@ public abstract class AbstractContactListParser<CLR extends AbstractContactListR
 	}
 
 	@Override
-	public CLR getResponse(ApiAuth<?> auth) throws ApiException {
+	public CLR getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

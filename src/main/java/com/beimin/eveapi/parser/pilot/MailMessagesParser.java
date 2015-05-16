@@ -15,7 +15,7 @@ public class MailMessagesParser extends AbstractListParser<MailMessagesHandler, 
 	}
 
 	@Override
-	public MailMessagesResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public MailMessagesResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

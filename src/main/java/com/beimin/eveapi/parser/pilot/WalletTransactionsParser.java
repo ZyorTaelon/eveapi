@@ -13,15 +13,15 @@ public class WalletTransactionsParser extends AbstractWalletTransactionsParser {
 		super(ApiPath.CHARACTER);
 	}
 
-	public WalletTransactionsResponse getTransactionsResponse(ApiAuth<?> auth) throws ApiException {
+	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth) throws ApiException {
 		return getResponse(auth, 1000);
 	}
 
-	public WalletTransactionsResponse getTransactionsResponse(ApiAuth<?> auth, long beforeTransID) throws ApiException {
+	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth, long beforeTransID) throws ApiException {
 		return getResponse(auth, 1000, beforeTransID, DEFAULT_ROW_COUNT);
 	}
 
-	public WalletTransactionsResponse getTransactionsResponse(ApiAuth<?> auth, long beforeTransID, int rowCount)
+	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth, long beforeTransID, int rowCount)
 			throws ApiException {
 		return getResponse(auth, 1000, beforeTransID, rowCount);
 	}
