@@ -10,10 +10,10 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 	private final ApiPath path;
 	private final ApiPage page;
 	private final int version;
-	private final ApiAuth<?> auth;
+	private final ApiAuth auth;
 	private final Map<String, String> params;
 
-	public ApiRequest(ApiPath path, ApiPage page, int version, ApiAuth<?> auth, Map<String, String> params) {
+	public ApiRequest(ApiPath path, ApiPage page, int version, ApiAuth auth, Map<String, String> params) {
 		this.path = path;
 		this.page = page;
 		this.version = version;
@@ -25,7 +25,7 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 		this(path, page, version, null, params);
 	}
 
-	public ApiRequest(ApiPath path, ApiPage page, int version, ApiAuth<?> auth) {
+	public ApiRequest(ApiPath path, ApiPage page, int version, ApiAuth auth) {
 		this(path, page, version, auth, new HashMap<String, String>());
 	}
 
@@ -45,7 +45,7 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 		return version;
 	}
 
-	public ApiAuth<?> getAuth() {
+	public ApiAuth getAuth() {
 		return auth;
 	}
 

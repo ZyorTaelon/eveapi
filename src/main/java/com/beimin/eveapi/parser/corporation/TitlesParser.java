@@ -16,7 +16,7 @@ public class TitlesParser extends AbstractListParser<TitlesHandler, TitlesRespon
 	}
 
 	@Override
-	public TitlesResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public TitlesResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

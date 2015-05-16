@@ -1,7 +1,9 @@
 package com.beimin.eveapi.parser;
 
-public class ApiAuthorization extends ApiAuth<ApiAuthorization> {
-	private final int keyID;
+public class ApiAuthorization extends ApiAuth {
+    	private static final long serialVersionUID = 1369641401371970736L;
+	
+    	private final int keyID;
 	private Long characterID;
 	private final String vCode;
 

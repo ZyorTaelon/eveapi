@@ -15,7 +15,7 @@ public class ShareholdersParser extends AbstractListParser<ShareholdersHandler, 
 	}
 
 	@Override
-	public ShareholdersResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public ShareholdersResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

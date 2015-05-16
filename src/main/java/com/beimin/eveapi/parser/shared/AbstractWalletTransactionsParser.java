@@ -16,11 +16,11 @@ public abstract class AbstractWalletTransactionsParser extends AbstractListParse
 		super(WalletTransactionsResponse.class, 2, path, ApiPage.WALLET_TRANSACTIONS, WalletTransactionsHandler.class);
 	}
 
-	public WalletTransactionsResponse getResponse(ApiAuth<?> auth, int accountKey) throws ApiException {
+	public WalletTransactionsResponse getResponse(ApiAuth auth, int accountKey) throws ApiException {
 		return getResponse(auth, "accountKey", Integer.toString(accountKey));
 	}
 
-	public WalletTransactionsResponse getResponse(ApiAuth<?> auth, int accountKey, long beforeTransID, int rowCount) throws ApiException {
+	public WalletTransactionsResponse getResponse(ApiAuth auth, int accountKey, long beforeTransID, int rowCount) throws ApiException {
 		Map<String, String> extraParams = new HashMap<String, String>();
 		extraParams.put("accountKey", Integer.toString(accountKey));
 		extraParams.put("rowCount", Integer.toString(rowCount));

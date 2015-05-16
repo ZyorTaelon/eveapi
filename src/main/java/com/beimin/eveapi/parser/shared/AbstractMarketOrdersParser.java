@@ -14,7 +14,7 @@ public abstract class AbstractMarketOrdersParser extends AbstractListParser<Mark
 	}
 
 	@Override
-	public MarketOrdersResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public MarketOrdersResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

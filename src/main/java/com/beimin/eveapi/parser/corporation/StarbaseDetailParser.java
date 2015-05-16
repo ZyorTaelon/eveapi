@@ -20,7 +20,7 @@ public class StarbaseDetailParser extends AbstractApiParser<StarbaseDetailRespon
 		return new StarbaseDetailHandler();
 	}
 
-	public StarbaseDetailResponse getResponse(ApiAuth<?> auth, long itemID) throws ApiException {
+	public StarbaseDetailResponse getResponse(ApiAuth auth, long itemID) throws ApiException {
 		return super.getResponse(auth, "itemID", Long.toString(itemID));
 	}
 }

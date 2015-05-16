@@ -5,9 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
@@ -16,7 +14,6 @@ import javax.xml.XMLConstants;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.apache.commons.httpclient.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
@@ -81,7 +78,7 @@ public class ApiConnector {
 			}
 			wr.write(data.toString());
 			wr.flush();
-			if (conn.getResponseCode() == HttpStatus.SC_OK)
+			if (conn.getResponseCode() == HttpURLConnection.HTTP_OK)
 				return conn.getInputStream();
 			else
 				return conn.getErrorStream();
@@ -110,7 +107,7 @@ public class ApiConnector {
 	protected Map<String, String> getParams(ApiRequest request) {
 		Map<String, String> result = new ConcurrentHashMap<String, String>();
 		result.put("version", Integer.toString(request.getVersion()));
-		ApiAuth<?> auth = request.getAuth();
+		ApiAuth auth = request.getAuth();
 		if (auth != null)
 			result.putAll(auth.getParams());
 		Map<String, String> params = request.getParams();

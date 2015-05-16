@@ -16,7 +16,7 @@ public class MemberSecurityLogParser extends AbstractListParser<MemberSecurityLo
 	}
 
 	@Override
-	public MemberSecurityLogResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public MemberSecurityLogResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

@@ -11,17 +11,17 @@ import com.beimin.eveapi.response.shared.StandingsResponse;
 
 public abstract class AbstractStandingsParser extends AbstractApiParser<StandingsResponse> {
 
-	protected AbstractStandingsParser(ApiPath path) {
-		super(StandingsResponse.class, 2, path, ApiPage.STANDINGS);
-	}
+    protected AbstractStandingsParser(final ApiPath path) {
+	super(StandingsResponse.class, 2, path, ApiPage.STANDINGS);
+    }
 
-	@Override
-	protected AbstractContentHandler getContentHandler() {
-		return new StandingsHandler();
-	}
-	
-	@Override
-	public StandingsResponse getResponse(ApiAuth<?> auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    protected AbstractContentHandler getContentHandler() {
+	return new StandingsHandler();
+    }
+
+    @Override
+    public StandingsResponse getResponse(final ApiAuth auth) throws ApiException {
+	return super.getResponse(auth);
+    }
 }

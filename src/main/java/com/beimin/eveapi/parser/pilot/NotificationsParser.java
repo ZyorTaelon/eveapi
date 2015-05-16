@@ -16,7 +16,7 @@ public class NotificationsParser extends AbstractListParser<NotificationsHandler
 	}
 
 	@Override
-	public NotificationsResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public NotificationsResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

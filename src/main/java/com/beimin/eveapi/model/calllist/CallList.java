@@ -1,5 +1,6 @@
 package com.beimin.eveapi.model.calllist;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -8,8 +9,10 @@ import java.util.List;
  *
  * @author andrew
  */
-public class CallList {
-	private List<CallGroup> callGroups = new ArrayList<CallGroup>();
+public class CallList implements Serializable {
+    	private static final long serialVersionUID = -9163484073387498893L;
+
+    	private List<CallGroup> callGroups = new ArrayList<CallGroup>();
 	private List<Call> calls = new ArrayList<Call>();
 
 	public List<CallGroup> getCallGroups() {

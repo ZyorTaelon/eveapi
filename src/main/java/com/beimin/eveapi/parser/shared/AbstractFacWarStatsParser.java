@@ -19,7 +19,7 @@ public class AbstractFacWarStatsParser extends AbstractApiParser<FacWarStatsResp
 	}
 
 	@Override
-	public FacWarStatsResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public FacWarStatsResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }

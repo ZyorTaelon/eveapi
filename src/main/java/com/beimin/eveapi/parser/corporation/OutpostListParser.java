@@ -15,7 +15,7 @@ public class OutpostListParser extends AbstractListParser<OutpostListHandler, Ou
 	}
 
 	@Override
-	public OutpostListResponse getResponse(ApiAuth<?> auth) throws ApiException {
+	public OutpostListResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
 }
