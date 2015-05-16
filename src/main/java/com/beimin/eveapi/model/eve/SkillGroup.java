@@ -34,14 +34,49 @@ public class SkillGroup implements Comparable<SkillGroup> {
 
 	@Override
 	public String toString() {
-		String result = groupName + " (" + skills.size() + " skills)\n";
+	    	StringBuilder result = new StringBuilder();
+	    	result.append(groupName).append(" (").append(skills.size()).append(" skills)\n");
 		for (Skill skill : skills) {
-			result += "\t" + skill + "\n";
+			result.append("\t").append(skill).append("\n");
 		}
-		return result;
+		return result.toString();
 	}
 
 	public int compareTo(SkillGroup o) {
 		return groupName.compareTo(o.groupName);
+	}
+
+	@Override
+	public int hashCode() {
+	    final int prime = 31;
+	    int result = 1;
+	    result = prime * result + groupID;
+	    result = prime * result + ((groupName == null) ? 0 : groupName.hashCode());
+	    result = prime * result + ((skills == null) ? 0 : skills.hashCode());
+	    return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+	    if (this == obj)
+		return true;
+	    if (obj == null)
+		return false;
+	    if (getClass() != obj.getClass())
+		return false;
+	    SkillGroup other = (SkillGroup) obj;
+	    if (groupID != other.groupID)
+		return false;
+	    if (groupName == null) {
+		if (other.groupName != null)
+		    return false;
+	    } else if (!groupName.equals(other.groupName))
+		return false;
+	    if (skills == null) {
+		if (other.skills != null)
+		    return false;
+	    } else if (!skills.equals(other.skills))
+		return false;
+	    return true;
 	}
 }

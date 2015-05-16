@@ -10,10 +10,13 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import org.apache.commons.httpclient.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
@@ -27,7 +30,7 @@ import com.beimin.eveapi.response.ApiResponse;
 
 public class ApiConnector {
 	public static final String EVE_API_URL = "https://api.eveonline.com";
-	private static final Logger logger = LoggerFactory.getLogger(ApiConnector.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ApiConnector.class);
 	private final String baseUrl;
 
 	public ApiConnector() {
@@ -52,7 +55,8 @@ public class ApiConnector {
 			SAXParserFactory spf = SAXParserFactory.newInstance(); 
 		    SAXParser sp = spf.newSAXParser(); 
 		    XMLReader xr = sp.getXMLReader(); 
-		    xr.setContentHandler(contentHandler); 
+		    xr.setContentHandler(contentHandler);
+		    xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
 		    xr.parse(new InputSource(inputStream)); 
 			return (E) contentHandler.getResponse();
 		} catch (Exception e) {
@@ -65,7 +69,7 @@ public class ApiConnector {
 		try {
 			HttpURLConnection conn = (HttpURLConnection) requestUrl.openConnection();
 			conn.setDoOutput(true);
-			wr = new OutputStreamWriter(conn.getOutputStream());
+			wr = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
 			StringBuilder data = new StringBuilder();
 			for (Entry<String, String> entry : params.entrySet()) {
 				if (data.length() > 0) data.append("&"); // to ensure that we don't append an '&' to the end.
@@ -77,7 +81,7 @@ public class ApiConnector {
 			}
 			wr.write(data.toString());
 			wr.flush();
-			if (conn.getResponseCode() == 200)
+			if (conn.getResponseCode() == HttpStatus.SC_OK)
 				return conn.getInputStream();
 			else
 				return conn.getErrorStream();
@@ -88,25 +92,15 @@ public class ApiConnector {
 				try {
 					wr.close();
 				} catch (IOException e) {
-					logger.warn("Error closing the stream", e);
+					LOGGER.warn("Error closing the stream", e);
 				}
-		}
-	}
-
-	protected URLConnection openConnection(URL requestUrl) throws ApiException {
-		try {
-			return requestUrl.openConnection();
-		} catch (Exception e) {
-			throw new ApiException(e);
 		}
 	}
 
 	protected URL getURL(ApiRequest request) throws ApiException {
 		try {
 			StringBuilder result = new StringBuilder(getBaseUrl());
-			result.append(request.getPath().getPath());
-			result.append("/").append(request.getPage().getPage());
-			result.append(".xml.aspx");
+			result.append(request.getPath().getPath()).append("/").append(request.getPage().getPage()).append(".xml.aspx");
 			return new URL(result.toString());
 		} catch (Exception e) {
 			throw new ApiException(e);
@@ -114,7 +108,7 @@ public class ApiConnector {
 	}
 
 	protected Map<String, String> getParams(ApiRequest request) {
-		Map<String, String> result = new HashMap<String, String>();
+		Map<String, String> result = new ConcurrentHashMap<String, String>();
 		result.put("version", Integer.toString(request.getVersion()));
 		ApiAuth<?> auth = request.getAuth();
 		if (auth != null)
