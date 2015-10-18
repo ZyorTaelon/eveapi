@@ -6,9 +6,7 @@ This library provides Java parsers that retrieve xml data from the eve-online AP
 
 If you're happy with this lib feel free to make an isk donation to the character "[Perduim Oneraria](https://gate.eveonline.com/Profile/Perduim%20Oneraria)" ingame.
 
-If you have any questions / suggestions feel free to convo / evemail me.
-
-How to use the EveApi library.
+If you have any questions / suggestions feel free to create an issue on GitHub.
 
 # Introduction #
 
@@ -38,11 +36,11 @@ I used to (ab-)use the google code subversion as a maven repository, but since i
 ```
 ## Non-maven ##
 EveApi depends on the following library:
-  * slf4j-api-1.7.2.jar
+  * slf4j-api-1.7.12.jar
 The previous dependency on commons-digester has been removed in order to make EveAPI compatible with Android.
 
 And you'll need some slf4j implementation like
-  * logback-classic-1.0.9.jar + logback-core-1.0.9.jar
+  * logback-classic-1.1.3.jar + logback-core-1.1.3.jar
 
 You can find where to download those jars [here](http://google.com).
 
