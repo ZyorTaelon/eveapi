@@ -5,6 +5,8 @@ public class Contact {
 	private String contactName;
 	private double standing;
 	private boolean inWatchlist;
+	private int contactTypeID;
+	private int labelMask;
 
 	public void setContactID(int fromID) {
 		this.contactID = fromID;
@@ -37,4 +39,22 @@ public class Contact {
 	public void setInWatchlist(boolean inWatchlist) {
 		this.inWatchlist = inWatchlist;
 	}
+
+	public int getContactTypeID() {
+		return contactTypeID;
+	}
+
+	public void setContactTypeID(int contactTypeID) {
+		this.contactTypeID = contactTypeID;
+	}
+
+	public int getLabelMask() {
+		return labelMask;
+	}
+
+	public void setLabelMask(int labelMask) {
+		this.labelMask = labelMask;
+	}
+
+
 }

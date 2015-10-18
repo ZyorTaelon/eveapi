@@ -34,6 +34,8 @@ public class ContactListParserTest extends FullAuthParserTest {
 		assertEquals("Alpha Guardians", apiContact.getContactName());
 		assertEquals(10.0, apiContact.getStanding(), 1E-15);
 		assertFalse(apiContact.isInWatchlist());
+		assertEquals(2, apiContact.getContactTypeID());
+		assertEquals(3, apiContact.getLabelMask());
 
 		ContactList allianceContactList = response.getAllianceContactList();
 		assertEquals("allianceContactList", allianceContactList.getName());
@@ -43,5 +45,7 @@ public class ContactListParserTest extends FullAuthParserTest {
 		assertEquals("X-COM", apiContact.getContactName());
 		assertEquals(5.0, apiContact.getStanding(), 1E-15);
 		assertFalse(apiContact.isInWatchlist());
+		assertEquals(16159, apiContact.getContactTypeID());
+		assertEquals(1, apiContact.getLabelMask());
 	}
 }

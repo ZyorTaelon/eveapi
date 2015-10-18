@@ -1,5 +1,7 @@
 package com.beimin.eveapi.handler.shared;
 
+import com.beimin.eveapi.model.shared.ContactLabel;
+import com.beimin.eveapi.model.shared.ContactLabelList;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -12,6 +14,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
 	private final Class<CLR> clazz;
 	private CLR response;
 	private ContactList contactList;
+	private ContactLabelList labelList;
 
 	public ContactListHandler(Class<CLR> clazz) {
 		this.clazz = clazz;
@@ -31,16 +34,35 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
 		if (qName.equals("rowset")) {
-			contactList = new ContactList();
-			contactList.setName(getString(attrs, "name"));
+			//contacts or labels, separate by key
+			if (getString(attrs, "key").equals("contactID")) {
+				contactList = new ContactList();
+				contactList.setName(getString(attrs, "name"));
+			}
+			else {
+				labelList = new ContactLabelList();
+				labelList.setName(getString(attrs, "name"));
+			}
 		}
+
 		if (qName.equals("row")) {
-			Contact contact = new Contact();
-			contact.setContactID(getInt(attrs, "contactID"));
-			contact.setContactName(getString(attrs, "contactName"));
-			contact.setInWatchlist(getBoolean(attrs, "inWatchlist"));
-			contact.setStanding(getDouble(attrs, "standing"));
-			contactList.add(contact);
+			//contacts or labels, separate by index
+			if (attrs.getIndex("contactID") > -1) {
+				Contact contact = new Contact();
+				contact.setContactID(getInt(attrs, "contactID"));
+				contact.setContactName(getString(attrs, "contactName"));
+				contact.setInWatchlist(getBoolean(attrs, "inWatchlist"));
+				contact.setStanding(getDouble(attrs, "standing"));
+				contact.setContactTypeID(getInt(attrs, "contactTypeID"));
+				contact.setLabelMask(getInt(attrs, "labelMask"));
+				contactList.add(contact);
+			}
+			else {
+				ContactLabel label = new ContactLabel();
+				label.setLabelID(getInt(attrs, "labelID"));
+				label.setName(getString(attrs, "name"));
+				labelList.add(label);
+			}
 		}
 		super.startElement(uri, localName, qName, attrs);
 		accumulator.setLength(0);
@@ -49,8 +71,14 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if (qName.equals("rowset")) {
-			response.add(contactList);
-			contactList = null;
+			if (contactList != null) {
+				response.add(contactList);
+				contactList = null;
+			}
+			else {
+				response.add(labelList);
+				labelList = null;
+			}
 		}
 		super.endElement(uri, localName, qName);
 	}
