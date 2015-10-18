@@ -13,7 +13,6 @@ import com.beimin.eveapi.model.eve.FactionVictoryPoints;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class FacWarTopStatsResponse extends ApiResponse {
-	private static final long serialVersionUID = 1L;
 	private final List<CharacterKills> characterKillsYesterday = new ArrayList<CharacterKills>();
 	private final List<CharacterKills> characterKillsLastWeek = new ArrayList<CharacterKills>();
 	private final List<CharacterKills> characterKillsTotal = new ArrayList<CharacterKills>();

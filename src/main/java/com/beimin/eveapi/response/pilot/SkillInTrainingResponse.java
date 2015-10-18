@@ -5,7 +5,6 @@ import java.util.Date;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class SkillInTrainingResponse extends ApiResponse {
-	private static final long serialVersionUID = 1L;
 	private Date currentTQTime;
 	private Date trainingEndTime;
 	private Date trainingStartTime;

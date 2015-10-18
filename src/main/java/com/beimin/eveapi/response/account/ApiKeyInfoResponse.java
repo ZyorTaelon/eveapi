@@ -4,7 +4,6 @@ import com.beimin.eveapi.model.account.ApiKeyInfo;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class ApiKeyInfoResponse extends ApiResponse {
-	private static final long serialVersionUID = 1L;
 	private ApiKeyInfo apiKeyInfo;
 
 	public ApiKeyInfo getApiKeyInfo() {

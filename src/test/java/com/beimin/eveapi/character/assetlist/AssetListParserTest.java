@@ -26,7 +26,6 @@ public class AssetListParserTest extends FullAuthParserTest {
 	}
 
 	@Test
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void getResponse() throws ApiException {
 		AbstractAssetListParser parser = new PilotAssetListParser();
 		AssetListResponse response = parser.getResponse(auth);
@@ -61,7 +60,6 @@ public class AssetListParserTest extends FullAuthParserTest {
 		testSingleton(assets);
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void testSingleton(List<Asset> assets){
 		for (Asset asset : assets) {
 			testSingleton(asset);

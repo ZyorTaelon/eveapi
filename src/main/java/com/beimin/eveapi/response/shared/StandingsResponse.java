@@ -4,7 +4,6 @@ import com.beimin.eveapi.model.shared.StandingsList;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class StandingsResponse extends ApiResponse {
-	private static final long serialVersionUID = 2L;
 	private StandingsList agentStandings;
 	private StandingsList npcCorporationStandings;
 	private StandingsList factionStandings;

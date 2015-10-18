@@ -2,7 +2,6 @@ package com.beimin.eveapi.response;
 
 
 public class ServerStatusResponse extends ApiResponse {
-	private static final long serialVersionUID = 1L;
 	private boolean serverOpen;
 	private int onlinePlayers;
 

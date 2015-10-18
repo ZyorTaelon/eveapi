@@ -7,7 +7,6 @@ import com.beimin.eveapi.model.corporation.SecurityMember;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class MemberSecurityResponse extends ApiResponse {
-	private static final long serialVersionUID = 1L;
 	private final Set<SecurityMember> members = new HashSet<SecurityMember>();
 
 	public void addMember(SecurityMember member) {

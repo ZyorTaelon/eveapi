@@ -8,7 +8,6 @@ import com.beimin.eveapi.model.shared.ContactList;
 import com.beimin.eveapi.response.ApiResponse;
 
 public abstract class AbstractContactListResponse extends ApiResponse {
-	private static final long serialVersionUID = 2L;
 	protected Map<String, ContactList> contactLists = new HashMap<String, ContactList>();
 	protected Map<String, ContactLabelList> labelLists = new HashMap<String, ContactLabelList>();
 

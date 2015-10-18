@@ -1,12 +1,10 @@
 package com.beimin.eveapi.response;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import com.beimin.eveapi.handler.ApiError;
 
-public class ApiResponse implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class ApiResponse {
 	private int version;
 	private Date currentTime;
 	private Date cachedUntil;

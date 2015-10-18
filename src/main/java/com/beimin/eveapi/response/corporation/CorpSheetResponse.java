@@ -8,7 +8,6 @@ import com.beimin.eveapi.model.corporation.Division;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class CorpSheetResponse extends ApiResponse {
-	private static final long serialVersionUID = 1L;
 	private long corporationID;
 	private String corporationName;
 	private Long allianceID;

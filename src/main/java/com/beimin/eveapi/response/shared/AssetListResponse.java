@@ -7,7 +7,6 @@ import com.beimin.eveapi.model.shared.Asset;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class AssetListResponse extends ApiResponse {
-	private static final long serialVersionUID = 1L;
 	private final List<Asset> assets = new ArrayList<Asset>();
 
 	public void add(Asset asset) {

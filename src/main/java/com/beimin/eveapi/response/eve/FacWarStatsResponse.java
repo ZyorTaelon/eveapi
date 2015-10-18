@@ -8,7 +8,6 @@ import com.beimin.eveapi.model.eve.FactionWar;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class FacWarStatsResponse extends ApiResponse {
-	private static final long serialVersionUID = 1L;
 	private final List<FactionStats> factions = new ArrayList<FactionStats>();
 	private final List<FactionWar> wars = new ArrayList<FactionWar>();
 	private int killsYesterday;

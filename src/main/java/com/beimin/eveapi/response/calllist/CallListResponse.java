@@ -4,7 +4,6 @@ import com.beimin.eveapi.model.calllist.CallList;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class CallListResponse extends ApiResponse {
-	private static final long serialVersionUID = 1L;
 	private CallList callList;
 
 	public CallList get() {

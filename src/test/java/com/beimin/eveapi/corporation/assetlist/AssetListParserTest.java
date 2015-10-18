@@ -19,13 +19,11 @@ import com.beimin.eveapi.parser.shared.AbstractAssetListParser;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
-@SuppressWarnings("rawtypes")
 public class AssetListParserTest extends FullAuthParserTest {
 	public AssetListParserTest() {
 		super(ApiPath.CORPORATION, ApiPage.ASSET_LIST);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Test
 	public void getResponse() throws ApiException {
 		AbstractAssetListParser parser = new AssetListParser();

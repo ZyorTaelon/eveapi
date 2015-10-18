@@ -15,7 +15,6 @@ import com.beimin.eveapi.model.shared.Race;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class CharacterSheetResponse extends ApiResponse {
-	private static final long serialVersionUID = 1L;
 	private long characterID;
 	private String name;
 	private Race race;

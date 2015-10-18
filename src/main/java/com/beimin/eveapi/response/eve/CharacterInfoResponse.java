@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.List;
 
 public class CharacterInfoResponse extends ApiResponse {
-	private static final long serialVersionUID = 1L;
 	private long characterID;
 	private String characterName;
 	private Race race;

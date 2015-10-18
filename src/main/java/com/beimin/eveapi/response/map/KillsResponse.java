@@ -7,7 +7,6 @@ import com.beimin.eveapi.model.map.SystemKills;
 import com.beimin.eveapi.response.ApiListResponse;
 
 public class KillsResponse extends ApiListResponse<SystemKills> {
-	private static final long serialVersionUID = 1L;
 	private final Map<Integer, Integer> shipKills = new HashMap<Integer, Integer>();
 	private final Map<Integer, Integer> factionKills = new HashMap<Integer, Integer>();
 	private final Map<Integer, Integer> podKills = new HashMap<Integer, Integer>();
