@@ -6,9 +6,9 @@ import com.beimin.eveapi.response.ApiListResponse;
 public class CertificateTreeResponse extends ApiListResponse<CertificateCategory> {
 	@Override
 	public String toString() {
-		String result = "";
+		StringBuilder result = new StringBuilder();
 		for (CertificateCategory certificateCategory : getAll())
-			result += certificateCategory + "\n";
-		return result;
+			result.append(certificateCategory).append("\n");
+		return result.toString();
 	}
 }

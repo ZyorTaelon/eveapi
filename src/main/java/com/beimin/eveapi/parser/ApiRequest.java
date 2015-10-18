@@ -51,36 +51,46 @@ public class ApiRequest implements Comparable<ApiRequest> {
 		return params;
 	}
 
-	@Override
-	public int hashCode() {
-		int result = path != null ? path.hashCode() : 0;
-		result = 31 * result + (page != null ? page.hashCode() : 0);
-		result = 31 * result + version;
-		result = 31 * result + (auth != null ? auth.hashCode() : 0);
-		result = 31 * result + (params != null ? params.hashCode() : 0);
-		return result;
-	}
-
 	public int compareTo(ApiRequest o) {
 		return equals(o) ? 0 : 1;
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		if (this == o)
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((auth == null) ? 0 : auth.hashCode());
+		result = prime * result + ((page == null) ? 0 : page.hashCode());
+		result = prime * result + ((params == null) ? 0 : params.hashCode());
+		result = prime * result + ((path == null) ? 0 : path.hashCode());
+		result = prime * result + version;
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		if (this.getClass() != o.getClass())
+		if (obj == null)
 			return false;
-		ApiRequest that = (ApiRequest) o;
-		if (version != that.version)
+		if (getClass() != obj.getClass())
 			return false;
-		if (auth != null ? !auth.equals(that.auth) : that.auth != null)
+		ApiRequest other = (ApiRequest) obj;
+		if (auth == null) {
+			if (other.auth != null)
+				return false;
+		} else if (!auth.equals(other.auth))
 			return false;
-		if (page != that.page)
+		if (page != other.page)
 			return false;
-		if (params != null ? !params.equals(that.params) : that.params != null)
+		if (params == null) {
+			if (other.params != null)
+				return false;
+		} else if (!params.equals(other.params))
 			return false;
-		if (path != that.path)
+		if (path != other.path)
+			return false;
+		if (version != other.version)
 			return false;
 		return true;
 	}

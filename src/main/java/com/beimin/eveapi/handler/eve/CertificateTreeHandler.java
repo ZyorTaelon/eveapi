@@ -83,7 +83,7 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
 			}
 		} else if (qName.equals("row")) {
 			if (requiredSkills || requiredCertificates) {
-				// skip.
+				return;
 			} else if (certificates) {
 				certificateClass.add(certificate);
 				certificate = null;

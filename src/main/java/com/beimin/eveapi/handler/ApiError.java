@@ -3,12 +3,16 @@ package com.beimin.eveapi.handler;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.beimin.eveapi.utils.DateUtils;
 
 public class ApiError implements Serializable {
-    	private static final long serialVersionUID = 137057814306371822L;
+	private static final Logger LOGGER = LoggerFactory.getLogger(ApiError.class);
+	private static final long serialVersionUID = 137057814306371822L;
 
-    	private int code;
+	private int code;
 	private String error;
 	private Date retryAfterDate = null;
 
@@ -34,7 +38,9 @@ public class ApiError implements Serializable {
 				retryAfterDate = DateUtils.getGMTConverter().convert(Date.class, substring);
 			}
 		} catch (Exception e) {
-			// ignore.
+			if(LOGGER.isDebugEnabled()) {
+				LOGGER.debug("Could not parse error properly", e);
+			}
 		}
 	}
 
