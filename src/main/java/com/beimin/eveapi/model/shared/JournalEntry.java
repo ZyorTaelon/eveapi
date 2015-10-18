@@ -136,60 +136,95 @@ public class JournalEntry implements Comparable<JournalEntry> {
 		this.taxAmount = taxAmount;
 	}
 
-	// public static Map<Integer, Map<String, String>> getRefTypes() {
-	// Map<Integer, Map<String, String>> refTypes = new HashMap<Integer,
-	// Map<String, String>>();
-	// Map<String, String> meaning = new HashMap<String, String>();
-	// meaning.put("RefTypeName", "Player Trading");
-	// meaning.put("argName1", "Station name");
-	// meaning.put("argID1", "Station ID");
-	// refTypes.put(1, meaning);
-	// // 1 Player Trading Station name Station ID arg describes where the
-	// // direct player trade took place. See staStations table.
-	// meaning = new HashMap<String, String>();
-	// meaning.put("RefTypeName", "Market Transaction");
-	// meaning.put("argName1", "transactionID");
-	// meaning.put("argID1", "0");
-	// refTypes.put(2, meaning);
-	// // 2 Market Transaction transactionID 0 See MarketTransactions API
-	// meaning = new HashMap<String, String>();
-	// meaning.put("RefTypeName", "Player Donation");
-	// meaning.put("argName1", "");
-	// meaning.put("argID1", "0");
-	// refTypes.put(10, meaning);
-	// // 10 Player Donation 0 user-entered text The donating player is free to
-	// // enter text with the transfer, which shows up in the reason column
-	// // here.
-	// meaning = new HashMap<String, String>();
-	// meaning.put("RefTypeName", "Bounty Prize");
-	// meaning.put("argName1", "NPC Name");
-	// meaning.put("argID1", "NPC ID");
-	// refTypes.put(17, meaning);
-	// // 17 Bounty Prize NPC Name NPC ID This was replaced with refTypeID 85
-	// // when Trinity was released.
-	// meaning = new HashMap<String, String>();
-	// meaning.put("RefTypeName", "Insurance");
-	// meaning.put("argName1", "Destroyed ship's typeID");
-	// meaning.put("argID1", "0");
-	// refTypes.put(17, meaning);
-	// // 19 Insurance Destroyed ship's typeID 0 See invTypes table.
-	// meaning = new HashMap<String, String>();
-	// meaning.put("RefTypeName", "Player name");
-	// meaning.put("argName1", "Player characterID");
-	// meaning.put("argID1", "0");
-	// refTypes.put(35, meaning);
-	// // 35 CSPA Player name Player characterID Player is the person whom
-	// // you're trying to contact.
-	// meaning = new HashMap<String, String>();
-	// meaning.put("RefTypeName", "Manufacturing");
-	// meaning.put("argName1", "Job ID");
-	// meaning.put("argID1", "0");
-	// refTypes.put(56, meaning);
-	// // 56 Manufacturing Job ID 0 See Industry Jobs API.
-	// return refTypes;
-	// }
-
 	public int compareTo(JournalEntry o) {
-		return Math.round(this.getRefID() - o.getRefID());
+		return Long.compare(this.getRefID(), o.getRefID());
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(amount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + (int) (argID1 ^ (argID1 >>> 32));
+		result = prime * result + ((argName1 == null) ? 0 : argName1.hashCode());
+		temp = Double.doubleToLongBits(balance);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + (int) (ownerID1 ^ (ownerID1 >>> 32));
+		result = prime * result + (int) (ownerID2 ^ (ownerID2 >>> 32));
+		result = prime * result + ((ownerName1 == null) ? 0 : ownerName1.hashCode());
+		result = prime * result + ((ownerName2 == null) ? 0 : ownerName2.hashCode());
+		result = prime * result + ((reason == null) ? 0 : reason.hashCode());
+		result = prime * result + (int) (refID ^ (refID >>> 32));
+		result = prime * result + ((refType == null) ? 0 : refType.hashCode());
+		result = prime * result + refTypeID;
+		result = prime * result + ((taxAmount == null) ? 0 : taxAmount.hashCode());
+		result = prime * result + ((taxReceiverID == null) ? 0 : taxReceiverID.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		JournalEntry other = (JournalEntry) obj;
+		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
+			return false;
+		if (argID1 != other.argID1)
+			return false;
+		if (argName1 == null) {
+			if (other.argName1 != null)
+				return false;
+		} else if (!argName1.equals(other.argName1))
+			return false;
+		if (Double.doubleToLongBits(balance) != Double.doubleToLongBits(other.balance))
+			return false;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (ownerID1 != other.ownerID1)
+			return false;
+		if (ownerID2 != other.ownerID2)
+			return false;
+		if (ownerName1 == null) {
+			if (other.ownerName1 != null)
+				return false;
+		} else if (!ownerName1.equals(other.ownerName1))
+			return false;
+		if (ownerName2 == null) {
+			if (other.ownerName2 != null)
+				return false;
+		} else if (!ownerName2.equals(other.ownerName2))
+			return false;
+		if (reason == null) {
+			if (other.reason != null)
+				return false;
+		} else if (!reason.equals(other.reason))
+			return false;
+		if (refID != other.refID)
+			return false;
+		if (refType != other.refType)
+			return false;
+		if (refTypeID != other.refTypeID)
+			return false;
+		if (taxAmount == null) {
+			if (other.taxAmount != null)
+				return false;
+		} else if (!taxAmount.equals(other.taxAmount))
+			return false;
+		if (taxReceiverID == null) {
+			if (other.taxReceiverID != null)
+				return false;
+		} else if (!taxReceiverID.equals(other.taxReceiverID))
+			return false;
+		return true;
 	}
 }

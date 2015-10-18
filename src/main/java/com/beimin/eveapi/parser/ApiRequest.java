@@ -1,12 +1,10 @@
 package com.beimin.eveapi.parser;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ApiRequest implements Comparable<ApiRequest>, Serializable {
-	private static final long serialVersionUID = 1L;
+public class ApiRequest implements Comparable<ApiRequest> {
 	private final ApiPath path;
 	private final ApiPage page;
 	private final int version;
@@ -71,7 +69,7 @@ public class ApiRequest implements Comparable<ApiRequest>, Serializable {
 	public boolean equals(Object o) {
 		if (this == o)
 			return true;
-		if (!(o instanceof ApiRequest))
+		if (this.getClass() != o.getClass())
 			return false;
 		ApiRequest that = (ApiRequest) o;
 		if (version != that.version)

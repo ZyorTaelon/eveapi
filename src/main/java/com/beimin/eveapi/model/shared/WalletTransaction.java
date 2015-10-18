@@ -131,7 +131,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
 	}
 
 	public int compareTo(WalletTransaction o) {
-		return Math.round(this.getTransactionID() - o.getTransactionID());
+		return Long.compare(this.getTransactionID(), o.getTransactionID());
 	}
 
 	@Override
