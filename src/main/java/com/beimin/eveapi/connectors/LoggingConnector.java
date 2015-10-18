@@ -23,7 +23,7 @@ import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.InputStreamSplitter;
 
 public class LoggingConnector extends ApiConnector {
-	private static final Logger LOGGER = LoggerFactory.getLogger(ApiConnector.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(LoggingConnector.class);
 	private final ApiConnector baseConnector;
 
 	public LoggingConnector() {
@@ -58,8 +58,8 @@ public class LoggingConnector extends ApiConnector {
 		    SAXParserFactory spf = SAXParserFactory.newInstance(); 
 		    SAXParser sp = spf.newSAXParser(); 
 		    XMLReader xr = sp.getXMLReader(); 
-		    xr.setContentHandler(contentHandler);
 		    xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+		    xr.setContentHandler(contentHandler);
 		    xr.parse(new InputSource(workInputStream)); 
 			return (E) contentHandler.getResponse();
 		} catch (Exception e) {

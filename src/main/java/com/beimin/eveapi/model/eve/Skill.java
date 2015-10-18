@@ -97,20 +97,82 @@ public class Skill implements Comparable<Skill> {
 
 	@Override
 	public String toString() {
-		String result = "\t" + typeName + " (" + rank + ")\n";
-		result += "\t\tRequires:\n";
+		StringBuilder result = new StringBuilder();
+		result.append("\t").append(typeName).append(" (").append(rank).append(")\n");
+		result.append("\t\tRequires:\n");
 		for (Requirement skillRequirement : requiredSkills) {
-			result += "\t\t\t" + skillRequirement + "\n";
+			result.append("\t\t\t").append(skillRequirement).append("\n");
 		}
-		result += "\t\tBonuses:\n";
+		result.append("\t\tBonuses:\n");
 		for (Bonus skillBonus : boneses) {
-			result += "\t\t\t" + skillBonus + "\n";
+			result.append("\t\t\t").append(skillBonus).append("\n");
 		}
 
-		return result;
+		return result.toString();
 	}
 
 	public int compareTo(Skill o) {
 		return typeName.compareTo(o.typeName);
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((boneses == null) ? 0 : boneses.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + groupID;
+		result = prime * result + ((primaryAttribute == null) ? 0 : primaryAttribute.hashCode());
+		result = prime * result + (published ? 1231 : 1237);
+		result = prime * result + rank;
+		result = prime * result + ((requiredSkills == null) ? 0 : requiredSkills.hashCode());
+		result = prime * result + ((secondaryAttribute == null) ? 0 : secondaryAttribute.hashCode());
+		result = prime * result + typeID;
+		result = prime * result + ((typeName == null) ? 0 : typeName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Skill other = (Skill) obj;
+		if (boneses == null) {
+			if (other.boneses != null)
+				return false;
+		} else if (!boneses.equals(other.boneses))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (groupID != other.groupID)
+			return false;
+		if (primaryAttribute != other.primaryAttribute)
+			return false;
+		if (published != other.published)
+			return false;
+		if (rank != other.rank)
+			return false;
+		if (requiredSkills == null) {
+			if (other.requiredSkills != null)
+				return false;
+		} else if (!requiredSkills.equals(other.requiredSkills))
+			return false;
+		if (secondaryAttribute != other.secondaryAttribute)
+			return false;
+		if (typeID != other.typeID)
+			return false;
+		if (typeName == null) {
+			if (other.typeName != null)
+				return false;
+		} else if (!typeName.equals(other.typeName))
+			return false;
+		return true;
 	}
 }

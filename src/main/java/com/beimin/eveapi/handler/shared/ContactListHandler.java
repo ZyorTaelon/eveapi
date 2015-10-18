@@ -2,6 +2,9 @@ package com.beimin.eveapi.handler.shared;
 
 import com.beimin.eveapi.model.shared.ContactLabel;
 import com.beimin.eveapi.model.shared.ContactLabelList;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -11,6 +14,8 @@ import com.beimin.eveapi.model.shared.ContactList;
 import com.beimin.eveapi.response.shared.AbstractContactListResponse;
 
 public class ContactListHandler<CLR extends AbstractContactListResponse> extends AbstractContentHandler {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ContactListHandler.class);
+
 	private final Class<CLR> clazz;
 	private CLR response;
 	private ContactList contactList;
@@ -25,9 +30,9 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
 		try {
 			response = clazz.newInstance();
 		} catch (InstantiationException e) {
-			e.printStackTrace();
+			LOGGER.error("Couldn't start document", e);
 		} catch (IllegalAccessException e) {
-			e.printStackTrace();
+			LOGGER.error("Couldn't start document", e);
 		}
 	}
 

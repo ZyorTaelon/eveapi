@@ -52,8 +52,8 @@ public class ApiConnector {
 			SAXParserFactory spf = SAXParserFactory.newInstance(); 
 		    SAXParser sp = spf.newSAXParser(); 
 		    XMLReader xr = sp.getXMLReader(); 
-		    xr.setContentHandler(contentHandler);
 		    xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+		    xr.setContentHandler(contentHandler);
 		    xr.parse(new InputSource(inputStream)); 
 			return (E) contentHandler.getResponse();
 		} catch (Exception e) {

@@ -2,6 +2,8 @@ package com.beimin.eveapi.handler;
 
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -10,6 +12,8 @@ import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.DateUtils;
 
 public abstract class AbstractContentHandler extends DefaultHandler {
+	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractContentHandler.class);
+
 	protected StringBuffer accumulator = new StringBuffer(); // Accumulate parsed text
 	private ApiError error;
 
@@ -64,8 +68,10 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 		try {
 			return Integer.parseInt(getString());
 		} catch (NumberFormatException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		} catch (NullPointerException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		}
 	}
@@ -74,8 +80,10 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 		try {
 			return Integer.parseInt(getString(attrs, qName));
 		} catch (NumberFormatException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		} catch (NullPointerException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		}
 	}
@@ -84,8 +92,10 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 		try {
 			return Long.parseLong(getString());
 		} catch (NumberFormatException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		} catch (NullPointerException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		}
 	}
@@ -94,8 +104,10 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 		try {
 			return Long.parseLong(getString(attrs, qName));
 		} catch (NumberFormatException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		} catch (NullPointerException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		}
 	}
@@ -104,8 +116,10 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 		try {
 			return Double.parseDouble(getString());
 		} catch (NumberFormatException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		} catch (NullPointerException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		}
 	}
@@ -114,8 +128,10 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 		try {
 			return Double.parseDouble(getString(attrs, qName));
 		} catch (NumberFormatException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		} catch (NullPointerException e) {
+			LOGGER.error("Couldn't parse number", e);
 			return null;
 		}
 	}

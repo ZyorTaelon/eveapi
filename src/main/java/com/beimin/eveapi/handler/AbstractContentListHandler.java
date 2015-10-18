@@ -1,5 +1,7 @@
 package com.beimin.eveapi.handler;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -7,6 +9,8 @@ import com.beimin.eveapi.response.ApiListResponse;
 import com.beimin.eveapi.response.ApiResponse;
 
 public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B> extends AbstractContentHandler {
+	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractContentListHandler.class);
+
 	private final Class<E> clazz;
 	protected E response;
 
@@ -19,9 +23,9 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
 		try {
 			response = clazz.newInstance();
 		} catch (InstantiationException e) {
-			e.printStackTrace();
+			LOGGER.error("Could't start document", e);
 		} catch (IllegalAccessException e) {
-			e.printStackTrace();
+			LOGGER.error("Could't start document", e);
 		}
 	}
 	
