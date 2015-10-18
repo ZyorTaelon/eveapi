@@ -65,79 +65,73 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 	}
 
 	protected Integer getInt() {
-		try {
-			return Integer.parseInt(getString());
-		} catch (NumberFormatException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
-		} catch (NullPointerException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
-		}
+		return parseInteger(getString());
 	}
 
 	protected Integer getInt(Attributes attrs, String qName) {
-		try {
-			return Integer.parseInt(getString(attrs, qName));
-		} catch (NumberFormatException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
-		} catch (NullPointerException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
-		}
+		return parseInteger(getString(attrs, qName));
 	}
 
-	protected Long getLong() {
-		try {
-			return Long.parseLong(getString());
-		} catch (NumberFormatException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
-		} catch (NullPointerException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
+	protected Integer parseInteger(String value) {
+		Integer result = null;
+		if(value != null && !value.trim().isEmpty()) {
+			try {
+				result = Integer.parseInt(value);
+			} catch (NumberFormatException e) {
+				LOGGER.error("Couldn't parse number", e);
+			} catch (NullPointerException e) {
+				LOGGER.error("Couldn't parse number", e);
+			}
 		}
+		return result;
+	}
+	
+	protected Long getLong() {
+		return parseLong(getString());
 	}
 
 	protected Long getLong(Attributes attrs, String qName) {
-		try {
-			return Long.parseLong(getString(attrs, qName));
-		} catch (NumberFormatException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
-		} catch (NullPointerException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
-		}
+		return parseLong(getString(attrs, qName));
 	}
 
-	protected Double getDouble() {
-		try {
-			return Double.parseDouble(getString());
-		} catch (NumberFormatException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
-		} catch (NullPointerException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
+	protected Long parseLong(String value) {
+		Long result = null;
+		if(value != null && !value.trim().isEmpty()) {
+			try {
+				result = Long.parseLong(value);
+			} catch (NumberFormatException e) {
+				LOGGER.error("Couldn't parse number", e);
+			} catch (NullPointerException e) {
+				LOGGER.error("Couldn't parse number", e);
+			}
 		}
+		return result;
+	}
+	
+	protected Double getDouble() {
+		return parseDouble(getString());
 	}
 
 	protected Double getDouble(Attributes attrs, String qName) {
-		try {
-			return Double.parseDouble(getString(attrs, qName));
-		} catch (NumberFormatException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
-		} catch (NullPointerException e) {
-			LOGGER.error("Couldn't parse number", e);
-			return null;
-		}
+		return parseDouble(getString(attrs, qName));
 	}
 
+	protected Double parseDouble(String value) {
+		Double result = null;
+		if(value != null && !value.trim().isEmpty()) {
+			try {
+				result = Double.parseDouble(value);
+			} catch (NumberFormatException e) {
+				LOGGER.error("Couldn't parse number", e);
+			} catch (NullPointerException e) {
+				LOGGER.error("Couldn't parse number", e);
+			}
+		}
+		return result;
+	}
+	
 	protected boolean getBoolean() {
-		return getString().equals("1") || "true".equalsIgnoreCase(getString());
+		return "1".equals(getString()) || "true".equalsIgnoreCase(getString());
 	}
 
 	protected boolean getBoolean(Attributes attrs, String qName) {
