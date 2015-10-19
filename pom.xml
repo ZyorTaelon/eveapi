@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.beimin</groupId>
     <artifactId>eveapi</artifactId>
-    <version>6.0.0</version>
+    <version>6.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>EveAPI</name>
     <description>Parsers for the eve online api</description>
@@ -20,7 +20,7 @@
         <connection>scm:git:https://github.com/ZyorTaelon/eveapi.git</connection>
         <developerConnection>scm:git:git@github.com:ZyorTaelon/eveapi.git</developerConnection>
         <url>https://github.com/ZyorTaelon/eveapi</url>
-      <tag>eveapi-6.0.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <developers>
