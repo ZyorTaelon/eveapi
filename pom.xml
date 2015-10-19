@@ -18,7 +18,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/ZyorTaelon/eveapi.git</connection>
-        <developerConnection>scm:git:https://github.com/ZyorTaelon/eveapi.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:ZyorTaelon/eveapi.git</developerConnection>
         <url>https://github.com/ZyorTaelon/eveapi</url>
     </scm>
 
