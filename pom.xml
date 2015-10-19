@@ -152,7 +152,7 @@
                 <configuration>
                     <releaseProfiles>production</releaseProfiles>
                     <goals>jar:test-jar javadoc:jar javadoc:test-jar source:jar
-                        source:test-jar deploy assembly:single</goals>
+                        source:test-jar deploy</goals>
                 </configuration>
             </plugin>
             <plugin>
