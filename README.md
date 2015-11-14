@@ -22,18 +22,10 @@ Then include this dependency in your own pom.xml
 <dependency>
     <groupId>com.beimin</groupId>
     <artifactId>eveapi</artifactId>
-    <version>5.1.3</version>
+    <version>6.0.0</version>
 </dependency>
 ```
-I used to (ab-)use the google code subversion as a maven repository, but since it's shutting down I shall try to get the eveapi releases into a general (maven central) repository. 
-```
-<repositories>
-    <repository>
-        <id>eveapi</id>
-        <url>https://eveapi.googlecode.com/svn/m2/releases</url>
-    </repository>
-</repositories>
-```
+Since version 6.0.0 eveapi is available in Maven central (http://mvnrepository.com/artifact/com.beimin/eveapi). 
 ## Non-maven ##
 EveApi depends on the following library:
   * slf4j-api-1.7.12.jar
