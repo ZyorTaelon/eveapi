@@ -51,7 +51,7 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 				assertEquals(132213.00d, job.getCost(), 0.01);
 				assertEquals(0, job.getTeamID());
 				assertEquals(5, job.getLicensedRuns());
-				assertEquals(0, job.getProbability());
+				assertEquals(0, job.getProbability(), 0.01);
 				assertEquals(0, job.getProductTypeID());
 				assertEquals("", job.getProductTypeName());
 				assertEquals(1, job.getStatus());
