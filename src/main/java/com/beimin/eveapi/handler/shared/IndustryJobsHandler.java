@@ -32,7 +32,7 @@ public class IndustryJobsHandler extends AbstractContentListHandler<IndustryJobs
 		job.setCost(getDouble(attrs, "cost"));
 		job.setTeamID(getLong(attrs, "teamID"));
 		job.setLicensedRuns(getInt(attrs, "licensedRuns"));
-		job.setProbability(getInt(attrs, "probability"));
+		job.setProbability(getDouble(attrs, "probability"));
 		job.setProductTypeID(getInt(attrs, "productTypeID"));
 		job.setProductTypeName(getString(attrs, "productTypeName"));
 		job.setStatus(getInt(attrs, "status"));

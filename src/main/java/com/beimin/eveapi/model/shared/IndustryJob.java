@@ -20,7 +20,7 @@ public class IndustryJob {
 	private double cost;
 	private long teamID;
 	private int licensedRuns;
-	private int probability;
+	private double probability;
 	private int productTypeID;
 	private String productTypeName;
 	private int status;
@@ -183,11 +183,11 @@ public class IndustryJob {
 		this.licensedRuns = licensedRuns;
 	}
 
-	public int getProbability() {
+	public double getProbability() {
 		return probability;
 	}
 
-	public void setProbability(int probability) {
+	public void setProbability(double probability) {
 		this.probability = probability;
 	}
 
