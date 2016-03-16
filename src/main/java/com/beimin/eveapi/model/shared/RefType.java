@@ -92,7 +92,7 @@ public enum RefType {
 	MEDAL_ISSUED(88, "Medal Issued", "", ""), //
 	BETTING(89, "Betting", "", ""), //
 	DNA_MODIFICATION_FEE(90, "DNA Modification Fee", "", ""), //
-	SOVEREIGNITY_BILL(91, "Sovereignty bill", "", ""), //
+	SOVEREIGNITY_BILL(91, "Sovereignity bill", "", ""), //
 	BOUNTY_PRIZE_CORPORATION_TAX(92, "Bounty Prize Corporation Tax", "", ""), //
 	AGENT_MISSION_REWARD_CORPORATION_TAX(93, "Agent Mission Reward Corporation Tax", "", ""), //
 	AGENT_MISSION_TIME_BONUS_REWARD_CORPORATION_TAX(94, "Agent Mission Time Bonus Reward Corporation Tax", "", ""), //
@@ -101,7 +101,7 @@ public enum RefType {
 	PLANETARY_EXPORT_TAX(97, "Planetary Export Tax", "", ""), //
 	PLANETARY_CONSTRUCTION(98, "Planetary Construction", "", ""), //
 	CORPORATE_REWARD_PAYOUT(99, "Corporate Reward Payout", "", ""), //
-	MINIGAME_BETTING(100, "Minigame Betting", "", ""), //
+	//MINIGAME_BETTING(100, "Minigame Betting", "", ""), //
 	BOUNTY_SURCHARGE(101, "Bounty Surcharge", "", ""), //
 	CONTRACT_REVERSAL(102, "Contract Reversal", "", ""), //
 	CORPORATE_REWARD_TAX(103, "Corporate Reward Tax", "", ""), //
@@ -113,11 +113,20 @@ public enum RefType {
 
 	AURUM_TOKEN_EXCHANGED_FOR_AUR(111, "Aurum Token exchanged for Aur", "", ""), //
 	DATACORE_FEE(112, "Datacore Fee", "", ""), //
-	WAR_SURRENDER_FEE(113, "War Surrender Fee", "", ""), //
-	WAR_ALLY_CONTRACT(114, "War Ally Contract", "", ""), //
+	WAR_FEE_SURRENDER(113, "War fee surrender", "", ""), //
+	WAR_ALLY_CONTRACT(114, "War ally contract", "", ""), //
 	BOUNTY_REIMBURSEMENT(115, "Bounty Reimbursement", "", ""), //
-	KILL_RIGHT(116, "Kill Right", "", ""), //
-	FEE_FOR_PROCESSING_ONE_OR_MORE_SECURITY_TAGS(117, "Fee for processing one or more security tags", "", ""), //
+	KILL_RIGHT(116, "Kill Right Fee", "", ""), //
+	SECURITY_PROCESSING_FEE(117, "Security Processing Fee", "", ""), //
+	ESCROW_FOR_INDUSTRY_TEAM_AUCTION(118, "Escrow for Industry Team Auction", "", ""), //
+	REIMBURSEMENT_OF_ESCROW(119, "Reimbursement of escrow", "", ""), //
+	INDUSTRY_JOB_TAX(120, "Industry Job Tax", "", ""), //
+
+	INFRASTRUCTURE_HUB_MAINTENANCE(122, "Infrastructure Hub maintenance", "", ""), //
+	ASSET_SAFETY_RECOVERY_TAX(123, "Asset Safety recovery Tax", "", ""), //
+	OPPORTUNITY_REWARD(124, "Opportunity reward", "", ""), //
+	PROJECT_DISCOVERY_REWARD(125, "Project Discovery reward", "", ""), //
+	PROJECT_DISCOVERY_TAX(126, "Project Discovery Tax", "", ""), //
 	
 	MODIFY_ISK(10001, "Modify ISK", "", ""), //
 	PRIMARY_MARKETPLACE_PURCHASE(10002, "Primary Marketplace Purchase", "", ""), //
@@ -129,7 +138,7 @@ public enum RefType {
 	BATTLE_WP_LOSS_REWARD(10008, "Battle WP Loss Reward", "", ""), //
 	BATTLE_WIN_REWARD(10009, "Battle Win Reward", "", ""), //
 	BATTLE_LOSS_REWARD(10010, "Battle Loss Reward", "", ""), //
-	UNKNOWN(10011, "Unknown", "", ""), //
+	RESET_ISK_FOR_CHARACTER_RESET(10011, "Reset ISK for Character Reset", "", ""), //
 	DISTRICT_CONTRACT_DEPOSIT(10012, "District Contract Deposit", "", ""), //
 	DISTRICT_CONTRACT_DEPOSIT_REFUND(10013, "District Contract Deposit Refund", "", ""), //
 	DISTRICT_CONTRACT_COLLATERAL(10014, "District Contract Collateral", "", ""), //
@@ -141,12 +150,26 @@ public enum RefType {
 	DISTRICT_CLONE_SALES(10020, "District Clone Sales", "", ""), //
 	DISTRICT_CLONE_PURCHASE(10021, "District Clone Purchase", "", ""), //
 	BIOMASS_REWARD(10022, "Biomass Reward", "", ""), //
+	ISK_SWAP_REWARD(10023, "ISK Swap Reward", "", ""), //
 
 	MODIFY_UPLEX(11001, "Modify AUR", "", ""),
 	RESPEC_PAYMENT(11002, "Respec payment", "", ""), //
-	UNKNOWN_1(11003, "Unknown", "", ""), //
-	UNKNOWN_2(11004, "Unknown", "", ""), //
-	UNKNOWN_3(11005, "Unknown", "", ""), //
+	Entitlement(11003, "Entitlement", "", ""), //
+	RESET_REIMBURSEMENT(11004, "Reset Reimbursement", "", ""), //
+	RESET_AUR_FOR_CHARACTER_RESET(11005, "Reset AUR for Character Reset", "", ""), //
+	DAILY_MISSION_CP(12001, "Daily mission CP", "", ""), //
+	WARBARGE_CP(12002, "Warbarge CP", "", ""), //
+	DONATE_CP(12003, "Donate CP", "", ""), //
+	USE_CP_FOR_CLONE_PACKS(12004, "Use CP for clone packs", "", ""), //
+	USE_CP_FOR_MOVING_CLONES(12005, "Use CP for moving clones", "", ""), //
+	USE_CP_FOR_SELLING_CLONES(12006, "Use CP for selling clones", "", ""), //
+	USE_CP_FOR_CHANGING_REINFORCEMENT(12007, "Use CP for changing reinforcement", "", ""), //
+	USE_CP_FOR_CHANGING_SURFACE_INFRASTRUCTURE(12008, "Use CP for changing surface infrastructure", "", ""), //
+	DAILY_MISSION_DK(13001, "Daily mission DK", "", ""), //
+	PLANETARY_CONQUEST_DK(13002, "Planetary conquest DK", "", ""), //
+	USE_DK_FOR_PURCHASING_ITEMS(13003, "Use DK for purchasing items", "", ""), //
+	USE_DK_FOR_REROLLING_MARKET(13004, "Use DK for rerolling market", "", ""), //
+	SELLING_CLONES_DK(13005, "Selling Clones DK", "", ""), //
 	;
 	private int id;
 	private String name;

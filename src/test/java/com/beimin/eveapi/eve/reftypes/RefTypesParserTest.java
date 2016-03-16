@@ -27,7 +27,7 @@ public class RefTypesParserTest extends NoAuthParserTest {
 		RefTypesResponse response = parser.getResponse();
 		assertNotNull(response);
 		Collection<RefType> refTypes = response.getAll();
-		assertEquals(141, refTypes.size());
+		assertEquals(163, refTypes.size());
 		boolean found = false;
 		for (RefType refType : refTypes) {
 			if (refType.getRefTypeID() == 10) {
