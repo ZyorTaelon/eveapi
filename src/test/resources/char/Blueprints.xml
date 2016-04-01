@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<eveapi version="2">
+  <currentTime>2014-12-30 18:08:01</currentTime>
+  <result>
+    <rowset name="blueprints" key="itemID" columns="itemID,locationID,typeID,typeName,flagID,quantity,timeEfficiency,materialEfficiency,runs">
+      <row itemID="231144695" locationID="60014818" typeID="1146" typeName="Iron Charge L Blueprint" flagID="4" quantity="-1" timeEfficiency="0" materialEfficiency="10" runs="-1" />
+      <row itemID="315435294" locationID="60014818" typeID="1146" typeName="Iron Charge L Blueprint" flagID="4" quantity="-2" timeEfficiency="0" materialEfficiency="0" runs="1" />
+      <row itemID="1665101352" locationID="60014818" typeID="1153" typeName="Antimatter Charge L Blueprint" flagID="4" quantity="-1" timeEfficiency="0" materialEfficiency="10" runs="-1" />
+      <row itemID="1727437868" locationID="60014818" typeID="1153" typeName="Antimatter Charge L Blueprint" flagID="4" quantity="-2" timeEfficiency="0" materialEfficiency="10" runs="1" />
+      <row itemID="1727437878" locationID="1004329156651" typeID="1153" typeName="Antimatter Charge L Blueprint" flagID="64" quantity="-2" timeEfficiency="0" materialEfficiency="10" runs="1" />
+      <row itemID="1879748415" locationID="1004329156651" typeID="11133" typeName="Minmatar Shuttle Blueprint" flagID="64" quantity="-2" timeEfficiency="20" materialEfficiency="9" runs="1" />
+      <row itemID="1879748419" locationID="1004329156651" typeID="11133" typeName="Minmatar Shuttle Blueprint" flagID="64" quantity="-2" timeEfficiency="20" materialEfficiency="9" runs="1" />
+      <row itemID="1879748444" locationID="1004329156651" typeID="11133" typeName="Minmatar Shuttle Blueprint" flagID="64" quantity="-2" timeEfficiency="20" materialEfficiency="9" runs="1" />
+      <row itemID="1879748468" locationID="1004329156651" typeID="11133" typeName="Minmatar Shuttle Blueprint" flagID="64" quantity="-2" timeEfficiency="20" materialEfficiency="9" runs="1" />
+      <row itemID="1879748480" locationID="1004329156651" typeID="11133" typeName="Minmatar Shuttle Blueprint" flagID="64" quantity="-2" timeEfficiency="20" materialEfficiency="9" runs="1" />
+      <row itemID="1879748526" locationID="1004329156651" typeID="11133" typeName="Minmatar Shuttle Blueprint" flagID="64" quantity="-2" timeEfficiency="20" materialEfficiency="9" runs="1" />
+      <row itemID="1879748527" locationID="1004329156651" typeID="11133" typeName="Minmatar Shuttle Blueprint" flagID="64" quantity="-2" timeEfficiency="20" materialEfficiency="9" runs="1" />
+      <row itemID="1879748549" locationID="1004329156651" typeID="11133" typeName="Minmatar Shuttle Blueprint" flagID="64" quantity="-2" timeEfficiency="20" materialEfficiency="9" runs="1" />
+      <row itemID="1013389712460" locationID="60014818" typeID="814" typeName="Nova Light Missile Blueprint" flagID="4" quantity="1" timeEfficiency="0" materialEfficiency="0" runs="-1" />
+      <row itemID="1014429497687" locationID="60014818" typeID="813" typeName="Mjolnir Light Missile Blueprint" flagID="4" quantity="1" timeEfficiency="0" materialEfficiency="0" runs="-1" />
+    </rowset>
+  </result>
+  <cachedUntil>2014-12-31 05:38:02</cachedUntil>
+</eveapi>
