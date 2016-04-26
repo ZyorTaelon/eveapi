@@ -34,10 +34,18 @@ public class CharactersParserTest extends FullAuthParserTest {
 				assertEquals("Test Character 1", eveCharacter.getName());
 				assertEquals(71643215, eveCharacter.getCorporationID());
 				assertEquals("Emipre Alt corp", eveCharacter.getCorporationName());
+				assertEquals(123456789, eveCharacter.getAllianceID());
+				assertEquals("Generic Test Alliance", eveCharacter.getAllianceName());
+				assertEquals(987654321, eveCharacter.getFactionID());
+				assertEquals("Generic Test Faction", eveCharacter.getFactionName());
 			} else if (characterID == 416541356) {
 				assertEquals("Test Character 2", eveCharacter.getName());
 				assertEquals(416513245, eveCharacter.getCorporationID());
 				assertEquals("Deepspace Explorations", eveCharacter.getCorporationName());
+				assertEquals(123456789, eveCharacter.getAllianceID());
+				assertEquals("Generic Test Alliance", eveCharacter.getAllianceName());
+				assertEquals(987654321, eveCharacter.getFactionID());
+				assertEquals("Generic Test Faction", eveCharacter.getFactionName());
 			} else {
 				fail();
 			}
