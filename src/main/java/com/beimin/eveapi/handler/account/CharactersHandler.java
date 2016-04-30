@@ -18,6 +18,10 @@ public class CharactersHandler extends AbstractContentListHandler<CharactersResp
 		character.setName(getString(attrs, "name"));
 		character.setCorporationID(getLong(attrs, "corporationID"));
 		character.setCorporationName(getString(attrs, "corporationName"));
+		character.setAllianceID(getLong(attrs, "allianceID"));
+		character.setAllianceName(getString(attrs, "allianceName"));
+		character.setFactionID(getLong(attrs, "factionID"));
+		character.setFactionName(getString(attrs, "factionName"));
 		return character;
 	}
 }

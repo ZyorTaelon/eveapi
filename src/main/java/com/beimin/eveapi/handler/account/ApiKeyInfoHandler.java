@@ -35,6 +35,10 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
 			character.setName(getString(attrs, "characterName"));
 			character.setCorporationID(getLong(attrs, "corporationID"));
 			character.setCorporationName(getString(attrs, "corporationName"));
+			character.setAllianceID(getLong(attrs, "allianceID"));
+			character.setAllianceName(getString(attrs, "allianceName"));
+			character.setFactionID(getLong(attrs, "factionID"));
+			character.setFactionName(getString(attrs, "factionName"));
 			apiKeyInfo.addEveCharacter(character);
 		} else if (qName.equals("result"))
 			response.set(apiKeyInfo);
