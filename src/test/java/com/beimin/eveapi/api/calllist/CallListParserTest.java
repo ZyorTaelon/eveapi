@@ -61,5 +61,6 @@ public class CallListParserTest extends NoAuthParserTest {
 		assertEquals("AccountBalance", calls.get(0).getName());
 		assertEquals(KeyType.Character, calls.get(0).getType());
 		assertEquals(1, calls.get(0).getGroupID());
+		assertEquals("Current balance of characters wallet.", calls.get(0).getDescription());
 	}
 }
