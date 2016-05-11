@@ -52,3 +52,7 @@ Collection<EveCharacter> eveCharacters = response.getAll();
 Which gives you the characters connected to a certain account.
 
 I hope this gets you started with using EveApi.
+
+# Documentation of the API #
+
+* http://eveonline-third-party-documentation.readthedocs.io/en/latest/xmlapi/index.html
