@@ -1,18 +1,18 @@
 package com.beimin.eveapi.model.eve;
 
 public class Station {
-	private int stationID;
+	private long stationID;
 	private String stationName;
 	private int stationTypeID;
 	private int solarSystemID;
 	private int corporationID;
 	private String corporationName;
 
-	public int getStationID() {
+	public long getStationID() {
 		return stationID;
 	}
 
-	public void setStationID(int stationID) {
+	public void setStationID(long stationID) {
 		this.stationID = stationID;
 	}
 

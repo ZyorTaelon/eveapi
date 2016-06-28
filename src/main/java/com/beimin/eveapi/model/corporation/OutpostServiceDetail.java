@@ -2,18 +2,18 @@ package com.beimin.eveapi.model.corporation;
 
 
 public class OutpostServiceDetail {
-	private int stationID; 
+	private long stationID;
 	private long ownerID; 
 	private String serviceName; 
 	private double minStanding; 
 	private double surchargePerBadStanding; 
 	private double discountPerGoodStanding;
 
-	public int getStationID() {
+	public long getStationID() {
 		return stationID;
 	}
 
-	public void setStationID(int stationID) {
+	public void setStationID(long stationID) {
 		this.stationID = stationID;
 	}
 
