@@ -26,7 +26,7 @@ public class WalletTransactionsHandler extends
 		item.setClientName(getString(attrs, "clientName"));
 		item.setCharacterID(getLong(attrs, "characterID"));
 		item.setCharacterName(getString(attrs, "characterName"));
-		item.setStationID(getInt(attrs, "stationID"));
+		item.setStationID(getLong(attrs, "stationID"));
 		item.setStationName(getString(attrs, "stationName"));
 		item.setTransactionType(getString(attrs, "transactionType"));
 		item.setTransactionFor(getString(attrs, "transactionFor"));

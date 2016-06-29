@@ -13,10 +13,12 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
 	private String clientName;
 	private Long characterID;
 	private String characterName;
-	private int stationID;
+	private long stationID;
 	private String stationName;
 	private String transactionType;
 	private String transactionFor;
+	private long journalTransactionID;
+	private long clientTypeID;
 
 	public Date getTransactionDateTime() {
 		return transactionDateTime;
@@ -98,11 +100,11 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
 		this.characterName = characterName;
 	}
 
-	public int getStationID() {
+	public long getStationID() {
 		return stationID;
 	}
 
-	public void setStationID(int stationID) {
+	public void setStationID(long stationID) {
 		this.stationID = stationID;
 	}
 
@@ -134,90 +136,71 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
 		return Long.compare(this.getTransactionID(), o.getTransactionID());
 	}
 
-	@Override
-	public int hashCode() {
-	    final int prime = 31;
-	    int result = 1;
-	    result = prime * result + ((characterID == null) ? 0 : characterID.hashCode());
-	    result = prime * result + ((characterName == null) ? 0 : characterName.hashCode());
-	    result = prime * result + (int) (clientID ^ (clientID >>> 32));
-	    result = prime * result + ((clientName == null) ? 0 : clientName.hashCode());
-	    long temp;
-	    temp = Double.doubleToLongBits(price);
-	    result = prime * result + (int) (temp ^ (temp >>> 32));
-	    result = prime * result + quantity;
-	    result = prime * result + stationID;
-	    result = prime * result + ((stationName == null) ? 0 : stationName.hashCode());
-	    result = prime * result + ((transactionDateTime == null) ? 0 : transactionDateTime.hashCode());
-	    result = prime * result + ((transactionFor == null) ? 0 : transactionFor.hashCode());
-	    result = prime * result + (int) (transactionID ^ (transactionID >>> 32));
-	    result = prime * result + ((transactionType == null) ? 0 : transactionType.hashCode());
-	    result = prime * result + typeID;
-	    result = prime * result + ((typeName == null) ? 0 : typeName.hashCode());
-	    return result;
+	public long getJournalTransactionID() {
+		return journalTransactionID;
+	}
+
+	public void setJournalTransactionID(long journalTransactionID) {
+		this.journalTransactionID = journalTransactionID;
+	}
+
+	public long getClientTypeID() {
+		return clientTypeID;
+	}
+
+	public void setClientTypeID(long clientTypeID) {
+		this.clientTypeID = clientTypeID;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-	    if (this == obj)
-		return true;
-	    if (obj == null)
-		return false;
-	    if (getClass() != obj.getClass())
-		return false;
-	    WalletTransaction other = (WalletTransaction) obj;
-	    if (characterID == null) {
-		if (other.characterID != null)
-		    return false;
-	    } else if (!characterID.equals(other.characterID))
-		return false;
-	    if (characterName == null) {
-		if (other.characterName != null)
-		    return false;
-	    } else if (!characterName.equals(other.characterName))
-		return false;
-	    if (clientID != other.clientID)
-		return false;
-	    if (clientName == null) {
-		if (other.clientName != null)
-		    return false;
-	    } else if (!clientName.equals(other.clientName))
-		return false;
-	    if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
-		return false;
-	    if (quantity != other.quantity)
-		return false;
-	    if (stationID != other.stationID)
-		return false;
-	    if (stationName == null) {
-		if (other.stationName != null)
-		    return false;
-	    } else if (!stationName.equals(other.stationName))
-		return false;
-	    if (transactionDateTime == null) {
-		if (other.transactionDateTime != null)
-		    return false;
-	    } else if (!transactionDateTime.equals(other.transactionDateTime))
-		return false;
-	    if (transactionFor == null) {
-		if (other.transactionFor != null)
-		    return false;
-	    } else if (!transactionFor.equals(other.transactionFor))
-		return false;
-	    if (transactionID != other.transactionID)
-		return false;
-	    if (transactionType == null) {
-		if (other.transactionType != null)
-		    return false;
-	    } else if (!transactionType.equals(other.transactionType))
-		return false;
-	    if (typeID != other.typeID)
-		return false;
-	    if (typeName == null) {
-		if (other.typeName != null)
-		    return false;
-	    } else if (!typeName.equals(other.typeName))
-		return false;
-	    return true;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		WalletTransaction that = (WalletTransaction) o;
+
+		if (transactionID != that.transactionID) return false;
+		if (quantity != that.quantity) return false;
+		if (typeID != that.typeID) return false;
+		if (Double.compare(that.price, price) != 0) return false;
+		if (clientID != that.clientID) return false;
+		if (stationID != that.stationID) return false;
+		if (journalTransactionID != that.journalTransactionID) return false;
+		if (clientTypeID != that.clientTypeID) return false;
+		if (transactionDateTime != null ? !transactionDateTime.equals(that.transactionDateTime) : that.transactionDateTime != null)
+			return false;
+		if (typeName != null ? !typeName.equals(that.typeName) : that.typeName != null) return false;
+		if (clientName != null ? !clientName.equals(that.clientName) : that.clientName != null) return false;
+		if (characterID != null ? !characterID.equals(that.characterID) : that.characterID != null) return false;
+		if (characterName != null ? !characterName.equals(that.characterName) : that.characterName != null)
+			return false;
+		if (stationName != null ? !stationName.equals(that.stationName) : that.stationName != null) return false;
+		if (transactionType != null ? !transactionType.equals(that.transactionType) : that.transactionType != null)
+			return false;
+		return transactionFor != null ? transactionFor.equals(that.transactionFor) : that.transactionFor == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result;
+		long temp;
+		result = transactionDateTime != null ? transactionDateTime.hashCode() : 0;
+		result = 31 * result + (int) (transactionID ^ (transactionID >>> 32));
+		result = 31 * result + quantity;
+		result = 31 * result + (typeName != null ? typeName.hashCode() : 0);
+		result = 31 * result + typeID;
+		temp = Double.doubleToLongBits(price);
+		result = 31 * result + (int) (temp ^ (temp >>> 32));
+		result = 31 * result + (int) (clientID ^ (clientID >>> 32));
+		result = 31 * result + (clientName != null ? clientName.hashCode() : 0);
+		result = 31 * result + (characterID != null ? characterID.hashCode() : 0);
+		result = 31 * result + (characterName != null ? characterName.hashCode() : 0);
+		result = 31 * result + (int) (stationID ^ (stationID >>> 32));
+		result = 31 * result + (stationName != null ? stationName.hashCode() : 0);
+		result = 31 * result + (transactionType != null ? transactionType.hashCode() : 0);
+		result = 31 * result + (transactionFor != null ? transactionFor.hashCode() : 0);
+		result = 31 * result + (int) (journalTransactionID ^ (journalTransactionID >>> 32));
+		result = 31 * result + (int) (clientTypeID ^ (clientTypeID >>> 32));
+		return result;
 	}
 }

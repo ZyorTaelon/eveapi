@@ -2,7 +2,7 @@ package com.beimin.eveapi.model.corporation;
 
 
 public class Outpost {
-	private int stationID;
+	private long stationID;
 	private long ownerID;
 	private long standingOwnerID;
 	private String stationName;
@@ -13,11 +13,11 @@ public class Outpost {
 	private double reprocessingEfficiency;
 	private double reprocessingStationTake;
 
-	public int getStationID() {
+	public long getStationID() {
 		return stationID;
 	}
 
-	public void setStationID(int stationID) {
+	public void setStationID(long stationID) {
 		this.stationID = stationID;
 	}
 
