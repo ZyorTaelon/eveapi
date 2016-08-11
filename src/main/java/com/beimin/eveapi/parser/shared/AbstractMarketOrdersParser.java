@@ -17,4 +17,8 @@ public abstract class AbstractMarketOrdersParser extends AbstractListParser<Mark
 	public MarketOrdersResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
+
+	public MarketOrdersResponse getResponse(ApiAuth auth, long orderID) throws ApiException {
+	    return super.getResponse(auth, "orderID", Long.toString(orderID));
+	}
 }
