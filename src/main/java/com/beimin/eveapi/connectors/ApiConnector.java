@@ -28,7 +28,9 @@ import com.beimin.eveapi.response.ApiResponse;
 public class ApiConnector {
 	public static final String EVE_API_URL = "https://api.eveonline.com";
 	private static final Logger LOGGER = LoggerFactory.getLogger(ApiConnector.class);
+
 	private final String baseUrl;
+	private static boolean secureXmlProcessing = true;
 
 	public ApiConnector() {
 		baseUrl = EVE_API_URL;
@@ -51,8 +53,10 @@ public class ApiConnector {
 		try {
 			SAXParserFactory spf = SAXParserFactory.newInstance(); 
 		    SAXParser sp = spf.newSAXParser(); 
-		    XMLReader xr = sp.getXMLReader(); 
-		    xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+		    XMLReader xr = sp.getXMLReader();
+		    if(secureXmlProcessing) {
+		        xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+		    }
 		    xr.setContentHandler(contentHandler);
 		    xr.parse(new InputSource(inputStream)); 
 			return (E) contentHandler.getResponse();
@@ -119,6 +123,14 @@ public class ApiConnector {
 
 	protected String getBaseUrl() {
 		return baseUrl;
+	}
+
+	public static boolean isSecureXmlProcessing() {
+		return secureXmlProcessing;
+	}
+
+	public static void setSecureXmlProcessing(boolean secureXmlProcessing) {
+		ApiConnector.secureXmlProcessing = secureXmlProcessing;
 	}
 
 	public ApiConnector getNewInstance() {

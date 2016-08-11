@@ -53,6 +53,11 @@ Which gives you the characters connected to a certain account.
 
 I hope this gets you started with using EveApi.
 
+# SAXNotRecognizedException on Android #
+There seams to be a problem with some XML parser implementation on Android that cause a SAXNotRecognizedException. This can be prevented by disabling secure XML processing with the method _ApiConnector.setSecureXmlProcessing(false)_.
+
+__Warning: Disabling this feature makes the XML parser vulnerable to denial-of-service attacks!__ 
+
 # Documentation of the API #
 
 * http://eveonline-third-party-documentation.readthedocs.io/en/latest/xmlapi/index.html

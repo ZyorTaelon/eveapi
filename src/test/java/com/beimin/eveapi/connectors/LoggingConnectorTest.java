@@ -1,4 +1,4 @@
-package com.beimin.eveapi.connector;
+package com.beimin.eveapi.connectors;
 
 import com.beimin.eveapi.EveApi;
 import com.beimin.eveapi.connectors.ApiConnector;
