@@ -1,5 +1,5 @@
 [![Build Status](http://didge.my-wan.de/jenkins/job/GitHub%20eve-crest/badge/icon)](http://didge.my-wan.de/jenkins/job/GitHub%20eveapi/)
-[![SonarQube Coverage](https://img.shields.io/sonar/http/sonar.qatools.ru/ru.yandex.qatools.allure:allure-core/coverage.svg)](http://didge.my-wan.de/sonar/api/resources?resource=188&depth=0&metrics=coverage&includetrends=true)
+[![SonarQube Coverage](https://img.shields.io/sonar/http/sonar.qatools.ru/ru.yandex.qatools.allure:allure-core/coverage.svg)](http://didge-sonar.my-wan.de/api/resources?resource=188&depth=0&metrics=coverage&includetrends=true)
 
 
 This library provides Java parsers that retrieve xml data from the eve-online API and serves that data in easy to handle Java objects.
@@ -52,3 +52,12 @@ Collection<EveCharacter> eveCharacters = response.getAll();
 Which gives you the characters connected to a certain account.
 
 I hope this gets you started with using EveApi.
+
+# SAXNotRecognizedException on Android #
+There seams to be a problem with some XML parser implementation on Android that cause a SAXNotRecognizedException. This can be prevented by disabling secure XML processing with the method _ApiConnector.setSecureXmlProcessing(false)_.
+
+__Warning: Disabling this feature makes the XML parser vulnerable to denial-of-service attacks!__ 
+
+# Documentation of the API #
+
+* http://eveonline-third-party-documentation.readthedocs.io/en/latest/xmlapi/index.html

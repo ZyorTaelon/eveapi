@@ -47,6 +47,7 @@ public class CallListHandler extends AbstractContentHandler {
 				call.setType(KeyType.valueOf(getString(attrs, "type")));
 				call.setName(getString(attrs, "name"));
 				call.setGroupID(getInt(attrs, "groupID"));
+				call.setDescription(getString(attrs, "description"));
 				callList.add(call);
 			}
 		}

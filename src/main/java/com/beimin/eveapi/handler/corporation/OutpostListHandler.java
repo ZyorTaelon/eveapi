@@ -15,7 +15,7 @@ public class OutpostListHandler extends AbstractContentListHandler<OutpostListRe
 	@Override
 	protected Outpost getItem(Attributes attrs) {
 		Outpost item = new Outpost();
-		item.setStationID(getInt(attrs, "stationID"));
+		item.setStationID(getLong(attrs, "stationID"));
 		item.setOwnerID(getLong(attrs, "ownerID"));
 		item.setStandingOwnerID(getLong(attrs, "standingOwnerID"));
 		item.setStationName(getString(attrs, "stationName"));

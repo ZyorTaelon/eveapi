@@ -21,12 +21,16 @@ public abstract class AbstractWalletJournalParser extends
 		return getResponse(auth, "accountKey", Integer.toString(accountKey));
 	}
 
-	public WalletJournalResponse getResponse(ApiAuth auth, int accountKey, long beforeRefID, int rowCount)
+	public WalletJournalResponse getResponse(ApiAuth auth, Integer accountKey, Long beforeRefID, int rowCount)
 			throws ApiException {
 		Map<String, String> extraParams = new HashMap<String, String>();
-		extraParams.put("accountKey", Integer.toString(accountKey));
+		if(accountKey != null) {
+		    extraParams.put("accountKey", Integer.toString(accountKey));
+		}
 		extraParams.put("rowCount", Integer.toString(rowCount));
-		extraParams.put("beforeRefID", Long.toString(beforeRefID));
+		if(beforeRefID != null) {
+		    extraParams.put("beforeRefID", Long.toString(beforeRefID));
+		}
 		return getResponse(auth, extraParams);
 	}
 }
