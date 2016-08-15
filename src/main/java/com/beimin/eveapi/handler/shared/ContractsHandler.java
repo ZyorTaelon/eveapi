@@ -22,8 +22,8 @@ public class ContractsHandler extends AbstractContentListHandler<ContractsRespon
 		contract.setIssuerCorpID(getLong(attrs, "issuerCorpID"));
 		contract.setAssigneeID(getLong(attrs, "assigneeID"));
 		contract.setAcceptorID(getLong(attrs, "acceptorID"));
-		contract.setStartStationID(getInt(attrs, "startStationID"));
-		contract.setEndStationID(getInt(attrs, "endStationID"));
+		contract.setStartStationID(getLong(attrs, "startStationID"));
+		contract.setEndStationID(getLong(attrs, "endStationID"));
 		contract.setType(ContractType.valueOf(getString(attrs, "type").toUpperCase()));
 		contract.setStatus(ContractStatus.valueOf(getString(attrs, "status").toUpperCase()));
 		contract.setTitle(getString(attrs, "title"));
