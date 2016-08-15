@@ -8,8 +8,8 @@ public class Contract {
 	private long issuerCorpID;
 	private long assigneeID;
 	private long acceptorID;
-	private int startStationID;
-	private int endStationID;
+	private long startStationID;
+	private long endStationID;
 	private ContractType type;
 	private ContractStatus status;
 	private String title;
@@ -66,19 +66,19 @@ public class Contract {
 		this.acceptorID = acceptorID;
 	}
 
-	public int getStartStationID() {
+	public long getStartStationID() {
 		return startStationID;
 	}
 
-	public void setStartStationID(int startStationID) {
+	public void setStartStationID(long startStationID) {
 		this.startStationID = startStationID;
 	}
 
-	public int getEndStationID() {
+	public long getEndStationID() {
 		return endStationID;
 	}
 
-	public void setEndStationID(int endStationID) {
+	public void setEndStationID(long endStationID) {
 		this.endStationID = endStationID;
 	}
 
