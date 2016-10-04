@@ -8,15 +8,15 @@ import com.beimin.eveapi.model.shared.Kill;
 import com.beimin.eveapi.model.shared.KillAttacker;
 import com.beimin.eveapi.model.shared.KillItem;
 import com.beimin.eveapi.model.shared.KillVictim;
-import com.beimin.eveapi.response.shared.KillLogResponse;
+import com.beimin.eveapi.response.shared.KillMailResponse;
 
-public class KillLogHandler extends AbstractContentListHandler<KillLogResponse, Kill> {
+public class KillMailHandler extends AbstractContentListHandler<KillMailResponse, Kill> {
 	private Kill apiKill;
 	private boolean inAttackers;
 	private boolean inItems;
 
-	public KillLogHandler() {
-		super(KillLogResponse.class);
+	public KillMailHandler() {
+		super(KillMailResponse.class);
 	}
 
 	@Override
@@ -46,10 +46,11 @@ public class KillLogHandler extends AbstractContentListHandler<KillLogResponse, 
 				apiKill.add(attacker);
 			} else if (inItems) {
 				KillItem item = new KillItem();
-				item.setTypeID(getInt(attrs, "typeID"));
+				item.setTypeID(getLong(attrs, "typeID"));
 				item.setFlag(getInt(attrs, "flag"));
 				item.setQtyDestroyed(getInt(attrs, "qtyDestroyed"));
 				item.setQtyDropped(getInt(attrs, "qtyDropped"));
+				item.setSingleton(getInt(attrs, "singleton"));
 				apiKill.add(item);
 			} else {
 				apiKill = getItem(attrs);
@@ -65,7 +66,10 @@ public class KillLogHandler extends AbstractContentListHandler<KillLogResponse, 
 			victim.setFactionID(getInt(attrs, "factionID"));
 			victim.setFactionName(getString(attrs, "factionName"));
 			victim.setDamageTaken(getLong(attrs, "damageTaken"));
-			victim.setShipTypeID(getInt(attrs, "shipTypeID"));
+			victim.setShipTypeID(getLong(attrs, "shipTypeID"));
+			victim.setPositionX(getLong(attrs, "x"));
+			victim.setPositionY(getLong(attrs, "y"));
+			victim.setPositionZ(getLong(attrs, "z"));
 			apiKill.setVictim(victim);
 		} else
 			super.startElement(uri, localName, qName, attrs);

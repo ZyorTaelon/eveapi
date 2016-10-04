@@ -17,20 +17,20 @@ import com.beimin.eveapi.model.shared.KillItem;
 import com.beimin.eveapi.model.shared.KillVictim;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.corporation.KillLogParser;
-import com.beimin.eveapi.parser.shared.AbstractKillLogParser;
-import com.beimin.eveapi.response.shared.KillLogResponse;
+import com.beimin.eveapi.parser.corporation.KillMailParser;
+import com.beimin.eveapi.parser.shared.AbstractKillMailParser;
+import com.beimin.eveapi.response.shared.KillMailResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class KillLogParserTest extends FullAuthParserTest {
 	public KillLogParserTest() {
-		super(ApiPath.CORPORATION, ApiPage.KILL_LOG);
+		super(ApiPath.CORPORATION, ApiPage.KILL_MAIL);
 	}
 
 	@Test
 	public void getResponse() throws ApiException {
-		AbstractKillLogParser parser = new KillLogParser();
-		KillLogResponse response = parser.getResponse(auth);
+		AbstractKillMailParser parser = new KillMailParser();
+		KillMailResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<Kill> entries = response.getAll();
 		assertEquals(18, entries.size());

@@ -10,7 +10,10 @@ public class KillVictim {
 	private int factionID; // ="0"
 	private String factionName; // =""
 	private long damageTaken; // ="1415"
-	private int shipTypeID; // ="587"
+	private long shipTypeID; // ="587"
+	private double positionX;
+	private double positionY;
+	private double positionZ;
 
 	public long getCharacterID() {
 		return characterID;
@@ -84,11 +87,35 @@ public class KillVictim {
 		this.damageTaken = damageTaken;
 	}
 
-	public int getShipTypeID() {
+	public long getShipTypeID() {
 		return shipTypeID;
 	}
 
-	public void setShipTypeID(int shipTypeID) {
+	public void setShipTypeID(long shipTypeID) {
 		this.shipTypeID = shipTypeID;
+	}
+
+	public double getPositionX() {
+		return positionX;
+	}
+
+	public void setPositionX(double positionX) {
+		this.positionX = positionX;
+	}
+
+	public double getPositionY() {
+		return positionY;
+	}
+
+	public void setPositionY(double positionY) {
+		this.positionY = positionY;
+	}
+
+	public double getPositionZ() {
+		return positionZ;
+	}
+
+	public void setPositionZ(double positionZ) {
+		this.positionZ = positionZ;
 	}
 }

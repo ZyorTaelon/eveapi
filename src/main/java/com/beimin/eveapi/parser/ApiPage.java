@@ -14,7 +14,7 @@ public enum ApiPage {
 	CONTRACT_ITEMS("ContractItems"), //
 	FACT_WAR_STATS("FacWarStats"), //
 	INDUSTRY_JOBS("IndustryJobs"), //
-	KILL_LOG("KillLog"), //
+	KILL_MAIL("KillMail"), //
 	LOCATIONS("Locations"), //
 	MAIL_BODIES("MailBodies"), //
 	MAILING_LISTS("MailingLists"), //
@@ -58,10 +58,10 @@ public enum ApiPage {
 	CHARACTER_INFO("CharacterInfo"), //
 	CHARACTER_AFFILIATION("CharacterAffiliation"), //
 	OUTPOST_LIST("OutpostList"), //
-	OUTPOST_SERVICE_DETAIL("OutpostServiceDetail"),
-	CALL_LIST("CallList"),
-	API_KEY_INFO("APIKeyInfo"),
-	BLUEPRINTS("Blueprints"),
+	OUTPOST_SERVICE_DETAIL("OutpostServiceDetail"), //
+	CALL_LIST("CallList"), //
+	API_KEY_INFO("APIKeyInfo"), //
+	BLUEPRINTS("Blueprints"), //
 	;
 
 	private final String url;
