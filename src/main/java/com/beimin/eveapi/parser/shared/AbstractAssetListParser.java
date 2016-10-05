@@ -22,4 +22,8 @@ public abstract class AbstractAssetListParser extends AbstractApiParser<AssetLis
 	public AssetListResponse getResponse(ApiAuth auth) throws ApiException {
 		return super.getResponse(auth);
 	}
+
+	public AssetListResponse getResponse(ApiAuth auth, boolean flat) throws ApiException {
+		return super.getResponse(auth, "flat", flat ? "1" : "0");
+	}
 }
