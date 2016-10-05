@@ -1,4 +1,4 @@
-package com.beimin.eveapi.corporation.killlog;
+package com.beimin.eveapi.corporation.killmail;
 
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
@@ -22,9 +22,9 @@ import com.beimin.eveapi.parser.shared.AbstractKillMailParser;
 import com.beimin.eveapi.response.shared.KillMailResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
-public class KillLogParserTest extends FullAuthParserTest {
-	public KillLogParserTest() {
-		super(ApiPath.CORPORATION, ApiPage.KILL_MAIL);
+public class KillMailParserTest extends FullAuthParserTest {
+	public KillMailParserTest() {
+		super(ApiPath.CORPORATION, ApiPage.KILL_MAILS);
 	}
 
 	@Test
@@ -76,6 +76,6 @@ public class KillLogParserTest extends FullAuthParserTest {
 				assertEquals(12, items.size());
 			}
 		}
-		assertTrue("test KillLog entry wasn't found.", found);
+		assertTrue("test KillMail entry wasn't found.", found);
 	}
 }

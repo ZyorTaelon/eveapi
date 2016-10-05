@@ -43,6 +43,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 				attacker.setFinalBlow(getBoolean(attrs, "finalBlow"));
 				attacker.setWeaponTypeID(getInt(attrs, "weaponTypeID"));
 				attacker.setShipTypeID(getInt(attrs, "shipTypeID"));
+				checkForNewFields(attrs, 13);
 				apiKill.add(attacker);
 			} else if (inItems) {
 				KillItem item = new KillItem();
@@ -51,6 +52,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 				item.setQtyDestroyed(getInt(attrs, "qtyDestroyed"));
 				item.setQtyDropped(getInt(attrs, "qtyDropped"));
 				item.setSingleton(getInt(attrs, "singleton"));
+				checkForNewFields(attrs, 5);
 				apiKill.add(item);
 			} else {
 				apiKill = getItem(attrs);
@@ -67,9 +69,10 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 			victim.setFactionName(getString(attrs, "factionName"));
 			victim.setDamageTaken(getLong(attrs, "damageTaken"));
 			victim.setShipTypeID(getLong(attrs, "shipTypeID"));
-			victim.setPositionX(getLong(attrs, "x"));
-			victim.setPositionY(getLong(attrs, "y"));
-			victim.setPositionZ(getLong(attrs, "z"));
+			victim.setPositionX(getDouble(attrs, "x"));
+			victim.setPositionY(getDouble(attrs, "y"));
+			victim.setPositionZ(getDouble(attrs, "z"));
+			checkForNewFields(attrs, 13);
 			apiKill.setVictim(victim);
 		} else
 			super.startElement(uri, localName, qName, attrs);
@@ -80,12 +83,13 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 		if (qName.equals("rowset")) {
 			inAttackers = false;
 			inItems = false;
-		}
-		if (qName.equals("row")) {
+		} else if (qName.equals("row")) {
 			if (!inAttackers && !inItems) {
 				response.add(apiKill);
 				apiKill = null;
 			}
+		} else {
+			super.endElement(uri, localName, qName);
 		}
 	}
 
@@ -96,6 +100,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 		item.setKillTime(getDate(attrs, "killTime"));
 		item.setMoonID(getInt(attrs, "moonID"));
 		item.setSolarSystemID(getLong(attrs, "solarSystemID"));
+		checkForNewFields(attrs, 4);
 		return item;
 	}
 }

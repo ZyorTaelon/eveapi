@@ -13,7 +13,7 @@ import com.beimin.eveapi.response.shared.KillMailResponse;
 
 public abstract class AbstractKillMailParser extends AbstractListParser<KillMailHandler, KillMailResponse, Kill> {
 	protected AbstractKillMailParser(ApiPath path) {
-		super(KillMailResponse.class, 2, path, ApiPage.KILL_MAIL, KillMailHandler.class);
+		super(KillMailResponse.class, 2, path, ApiPage.KILL_MAILS, KillMailHandler.class);
 	}
 
 	@Override
@@ -22,11 +22,8 @@ public abstract class AbstractKillMailParser extends AbstractListParser<KillMail
 	}
 
 	/**
-	 * @param auth
 	 * @param fromID Optional kill ID to show data after
 	 * @param rowCount Optional number to control the number of returned items (default 25, max 2560)
-	 * @return
-	 * @throws ApiException
 	 */
 	public KillMailResponse getResponse(final ApiAuth auth, Long fromID, Integer rowCount) throws ApiException {
 		Map<String, String> extraParams = new HashMap<String, String>();

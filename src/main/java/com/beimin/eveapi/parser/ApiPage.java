@@ -14,7 +14,7 @@ public enum ApiPage {
 	CONTRACT_ITEMS("ContractItems"), //
 	FACT_WAR_STATS("FacWarStats"), //
 	INDUSTRY_JOBS("IndustryJobs"), //
-	KILL_MAIL("KillMail"), //
+	KILL_MAILS("KillMails"), //
 	LOCATIONS("Locations"), //
 	MAIL_BODIES("MailBodies"), //
 	MAILING_LISTS("MailingLists"), //

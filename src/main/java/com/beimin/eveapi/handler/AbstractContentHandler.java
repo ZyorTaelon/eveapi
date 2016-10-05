@@ -138,5 +138,11 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 		return "1".equals(getString(attrs, qName)) || "true".equalsIgnoreCase(getString(attrs, qName));
 	}
 
+	protected void checkForNewFields(Attributes attrs, int number) {
+		if (attrs.getLength() != number) {
+			throw new IllegalArgumentException("Looks like new fields where added, only " + number + " expected!");
+		}
+	}
+
 	public abstract ApiResponse getResponse();
 }
