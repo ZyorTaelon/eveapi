@@ -17,7 +17,7 @@ public class NotificationTextsHandler extends AbstractContentListHandler<Notific
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("row")) {
+        if (ELEMENT_ROW.equals(qName)) {
             notificationText = getItem(attrs);
         } else
             super.startElement(uri, localName, qName, attrs);
@@ -25,7 +25,7 @@ public class NotificationTextsHandler extends AbstractContentListHandler<Notific
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("row")) {
+        if (ELEMENT_ROW.equals(qName)) {
             notificationText.setText(getString());
             response.add(notificationText);
             notificationText = null;

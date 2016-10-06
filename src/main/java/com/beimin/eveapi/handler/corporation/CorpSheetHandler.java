@@ -23,11 +23,11 @@ public class CorpSheetHandler extends AbstractContentHandler {
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
         if (qName.equals("logo")) {
             logo = new CorpLogo();
-        } else if (qName.equals("rowset")) {
+        } else if (ELEMENT_ROWSET.equals(qName)) {
             String name = getString(attrs, "name");
             divisions = name.equals("divisions");
             walletDivisions = name.equals("walletDivisions");
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             Division division = new Division();
             division.setAccountKey(getInt(attrs, "accountKey"));
             division.setDescription(getString(attrs, "description"));
@@ -90,7 +90,7 @@ public class CorpSheetHandler extends AbstractContentHandler {
             logo.setColor3(getInt());
         } else if (qName.equals("logo")) {
             response.setLogo(logo);
-        } else if (qName.equals("rowset")) {
+        } else if (ELEMENT_ROWSET.equals(qName)) {
             if (divisions || walletDivisions) {
                 divisions = false;
                 walletDivisions = false;

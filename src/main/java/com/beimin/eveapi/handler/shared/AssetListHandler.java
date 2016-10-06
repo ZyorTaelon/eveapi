@@ -21,11 +21,11 @@ public class AssetListHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (currentAsset != null && qName.equals("rowset")) {
+        if (currentAsset != null && ELEMENT_ROWSET.equals(qName)) {
             stack.add(currentAsset);
             currentAsset = null;
         }
-        if (qName.equals("row")) {
+        if (ELEMENT_ROW.equals(qName)) {
             currentAsset = new Asset();
             currentAsset.setItemID(getLong(attrs, "itemID"));
             currentAsset.setLocationID(getLong(attrs, "locationID"));
@@ -45,14 +45,14 @@ public class AssetListHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("rowset") && !stack.isEmpty()) {
+        if (ELEMENT_ROWSET.equals(qName) && !stack.isEmpty()) {
             Asset asset = stack.pop();
             if (stack.isEmpty()) {
                 response.add(asset);
                 currentAsset = null;
             }
         }
-        if (currentAsset != null && stack.isEmpty() && qName.equals("row")) {
+        if (currentAsset != null && stack.isEmpty() && ELEMENT_ROW.equals(qName)) {
             response.add(currentAsset);
             currentAsset = null;
         }

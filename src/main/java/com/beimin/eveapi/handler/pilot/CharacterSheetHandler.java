@@ -43,9 +43,9 @@ public class CharacterSheetHandler extends AbstractContentHandler {
             attributeEnhancer = new PerceptionBonus();
         else if (qName.equals("willpowerBonus"))
             attributeEnhancer = new WillpowerBonus();
-        else if (qName.equals("rowset"))
+        else if (ELEMENT_ROWSET.equals(qName))
             rowsetName = getString(attrs, "name");
-        else if (qName.equals("row")) {
+        else if (ELEMENT_ROW.equals(qName)) {
             if ("skills".equals(rowsetName)) {
                 Skill skill = new Skill();
                 skill.setTypeID(getInt(attrs, "typeID"));
@@ -139,7 +139,7 @@ public class CharacterSheetHandler extends AbstractContentHandler {
             response.setPerception(getInt());
         else if (qName.equals("willpower"))
             response.setWillpower(getInt());
-        else if (qName.equals("rowset"))
+        else if (ELEMENT_ROWSET.equals(qName))
             rowsetName = null;
         super.endElement(uri, localName, qName);
     }

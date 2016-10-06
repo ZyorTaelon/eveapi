@@ -16,7 +16,7 @@ public class MailBodiesHandler extends AbstractContentListHandler<MailBodiesResp
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("row")) {
+        if (ELEMENT_ROW.equals(qName)) {
             mailBody = getItem(attrs);
         } else
             super.startElement(uri, localName, qName, attrs);
@@ -24,7 +24,7 @@ public class MailBodiesHandler extends AbstractContentListHandler<MailBodiesResp
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("row")) {
+        if (ELEMENT_ROW.equals(qName)) {
             mailBody.setBody(getString());
             response.add(mailBody);
             mailBody = null;

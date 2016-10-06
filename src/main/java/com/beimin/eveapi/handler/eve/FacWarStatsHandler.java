@@ -20,11 +20,11 @@ public class FacWarStatsHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             String name = getString(attrs, "name");
             factions = name.equals("factions");
             factionWars = name.equals("factionWars");
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (factions) {
                 FactionStats item = new FactionStats();
                 item.setFactionID(getInt(attrs, "factionID"));
@@ -64,7 +64,7 @@ public class FacWarStatsHandler extends AbstractContentHandler {
             response.setVictoryPointsLastWeek(getInt());
         else if (qName.equals("victoryPointsTotal"))
             response.setVictoryPointsTotal(getInt());
-        else if (qName.equals("rowset")) {
+        else if (ELEMENT_ROWSET.equals(qName)) {
             factions = false;
             factionWars = false;
         }

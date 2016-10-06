@@ -26,7 +26,7 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             String name = getString(attrs, "name");
             if (name.equals("skills"))
                 skills = true;
@@ -34,7 +34,7 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
                 requiredSkills = true;
             else if (name.equals("skillBonusCollection"))
                 skillBonusCollection = true;
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (skillBonusCollection) {
                 Bonus bonus = new Bonus();
                 bonus.setBonusType(getString(attrs, "bonusType"));
@@ -61,7 +61,7 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             if (requiredSkills) {
                 requiredSkills = false;
             } else if (skillBonusCollection) {

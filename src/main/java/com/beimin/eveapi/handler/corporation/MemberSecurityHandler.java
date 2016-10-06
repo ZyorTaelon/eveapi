@@ -30,7 +30,7 @@ public class MemberSecurityHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             String name = getString(attrs, "name");
             roles = name.equals("roles");
             grantableRoles = name.equals("grantableRoles");
@@ -41,7 +41,7 @@ public class MemberSecurityHandler extends AbstractContentHandler {
             rolesAtOther = name.equals("rolesAtOther");
             grantableRolesAtOther = name.equals("grantableRolesAtOther");
             titles = name.equals("titles");
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (roles) {
                 member.addRole(getRole(attrs));
             } else if (grantableRoles) {
@@ -86,7 +86,7 @@ public class MemberSecurityHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             if (roles) {
                 roles = false;
             } else if (grantableRoles) {

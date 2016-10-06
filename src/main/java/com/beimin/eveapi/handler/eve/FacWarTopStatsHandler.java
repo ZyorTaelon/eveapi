@@ -43,7 +43,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
             corporations = true;
         else if (qName.equals("factions"))
             factions = true;
-        else if (qName.equals("rowset")) {
+        else if (ELEMENT_ROWSET.equals(qName)) {
             String name = getString(attrs, "name");
             killsYesterday = name.equals("KillsYesterday");
             killsLastWeek = name.equals("KillsLastWeek");
@@ -51,7 +51,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
             victoryPointsYesterday = name.equals("VictoryPointsYesterday");
             victoryPointsLastWeek = name.equals("VictoryPointsLastWeek");
             victoryPointsTotal = name.equals("VictoryPointsTotal");
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (characters) {
                 if (killsYesterday)
                     response.addYesterday(getCharKill(attrs));

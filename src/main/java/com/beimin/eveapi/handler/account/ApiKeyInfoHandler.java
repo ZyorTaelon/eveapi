@@ -28,7 +28,7 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
             String expires = attrs.getValue("expires").trim();
             if (expires.length() > 0)
                 apiKeyInfo.setExpires(getDate(expires));
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             Character character = new Character();
             character.setCharacterID(getLong(attrs, "characterID"));
             character.setName(getString(attrs, "characterName"));

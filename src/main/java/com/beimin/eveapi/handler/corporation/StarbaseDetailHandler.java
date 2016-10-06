@@ -25,7 +25,7 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
             response.setOnAggression(getCombatSetting(attrs));
         } else if (qName.equals("onCorporationWar")) {
             response.setOnCorporationWar(getCombatSetting(attrs));
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             response.addFuelLevel(getInt(attrs, "typeID"), getInt(attrs, "quantity"));
         } else
             super.startElement(uri, localName, qName, attrs);
