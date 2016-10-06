@@ -16,29 +16,29 @@ import com.beimin.eveapi.response.corporation.ShareholdersResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ShareholdersParserTest extends FullAuthParserTest {
-	public ShareholdersParserTest() {
-		super(ApiPath.CORPORATION, ApiPage.SHAREHOLDERS);
-	}
+    public ShareholdersParserTest() {
+        super(ApiPath.CORPORATION, ApiPage.SHAREHOLDERS);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		ShareholdersParser parser = new ShareholdersParser();
-		ShareholdersResponse response = parser.getResponse(auth);
-		assertNotNull(response);
-		Collection<Shareholder> characters = response.getCharacters();
-		assertEquals(1, characters.size());
-		Shareholder characterShareholder = characters.iterator().next();
-		assertEquals(126891489L, characterShareholder.getShareholderID());
-		assertEquals("Dragonaire", characterShareholder.getShareholderName());
-		assertEquals(632257314L, characterShareholder.getShareholderCorporationID().longValue());
-		assertEquals("Corax.", characterShareholder.getShareholderCorporationName());
-		assertEquals(1, characterShareholder.getShares());
+    @Test
+    public void getResponse() throws ApiException {
+        ShareholdersParser parser = new ShareholdersParser();
+        ShareholdersResponse response = parser.getResponse(auth);
+        assertNotNull(response);
+        Collection<Shareholder> characters = response.getCharacters();
+        assertEquals(1, characters.size());
+        Shareholder characterShareholder = characters.iterator().next();
+        assertEquals(126891489L, characterShareholder.getShareholderID());
+        assertEquals("Dragonaire", characterShareholder.getShareholderName());
+        assertEquals(632257314L, characterShareholder.getShareholderCorporationID().longValue());
+        assertEquals("Corax.", characterShareholder.getShareholderCorporationName());
+        assertEquals(1, characterShareholder.getShares());
 
-		Collection<Shareholder> corporations = response.getCorporations();
-		assertEquals(1, corporations.size());
-		Shareholder corporationShareholder = corporations.iterator().next();
-		assertEquals(632257314L, corporationShareholder.getShareholderID());
-		assertEquals("Corax.", corporationShareholder.getShareholderName());
-		assertEquals(1, corporationShareholder.getShares());
-	}
+        Collection<Shareholder> corporations = response.getCorporations();
+        assertEquals(1, corporations.size());
+        Shareholder corporationShareholder = corporations.iterator().next();
+        assertEquals(632257314L, corporationShareholder.getShareholderID());
+        assertEquals("Corax.", corporationShareholder.getShareholderName());
+        assertEquals(1, corporationShareholder.getShares());
+    }
 }

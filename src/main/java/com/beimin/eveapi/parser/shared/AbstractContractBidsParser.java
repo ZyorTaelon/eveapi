@@ -9,12 +9,12 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.response.shared.ContractBidsResponse;
 
 public abstract class AbstractContractBidsParser extends AbstractListParser<ContractIBidsHandler, ContractBidsResponse, ContractBid> {
-	protected AbstractContractBidsParser(ApiPath path) {
-		super(ContractBidsResponse.class, 2, path, ApiPage.CONTRACT_BIDS, ContractIBidsHandler.class);
-	}
+    protected AbstractContractBidsParser(ApiPath path) {
+        super(ContractBidsResponse.class, 2, path, ApiPage.CONTRACT_BIDS, ContractIBidsHandler.class);
+    }
 
-	@Override
-	public ContractBidsResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public ContractBidsResponse getResponse(ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

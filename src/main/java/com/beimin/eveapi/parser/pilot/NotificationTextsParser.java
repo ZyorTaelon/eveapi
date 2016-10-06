@@ -11,11 +11,11 @@ import com.beimin.eveapi.response.pilot.NotificationTextsResponse;
 import com.beimin.eveapi.utils.StringUtils;
 
 public class NotificationTextsParser extends AbstractListParser<NotificationTextsHandler, NotificationTextsResponse, NotificationText> {
-	public NotificationTextsParser() {
-		super(NotificationTextsResponse.class, 2, ApiPath.CHARACTER, ApiPage.NOTIFICATION_TEXTS, NotificationTextsHandler.class);
-	}
+    public NotificationTextsParser() {
+        super(NotificationTextsResponse.class, 2, ApiPath.CHARACTER, ApiPage.NOTIFICATION_TEXTS, NotificationTextsHandler.class);
+    }
 
-	public NotificationTextsResponse getResponse(ApiAuth auth, long... notificationIDs) throws ApiException {
-		return super.getResponse(auth, "ids", StringUtils.join(",", notificationIDs));
-	}
+    public NotificationTextsResponse getResponse(ApiAuth auth, long... notificationIDs) throws ApiException {
+        return super.getResponse(auth, "ids", StringUtils.join(",", notificationIDs));
+    }
 }

@@ -17,24 +17,24 @@ import com.beimin.eveapi.response.eve.ErrorListResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class ErrorListParserTest extends NoAuthParserTest {
-	public ErrorListParserTest() {
-		super(ApiPath.EVE, ApiPage.ERROR_LIST);
-	}
+    public ErrorListParserTest() {
+        super(ApiPath.EVE, ApiPage.ERROR_LIST);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		ErrorListParser parser = new ErrorListParser();
-		ErrorListResponse response = parser.getResponse();
-		assertNotNull(response);
-		Collection<ErrorListItem> errorListItems = response.getAll();
-		assertEquals(61, errorListItems.size());
-		boolean found = false;
-		for (ErrorListItem apiErrorListItem : errorListItems) {
-			if (apiErrorListItem.getErrorCode() == 110) {
-				found = true;
-				assertEquals("Invalid beforeTransID provided.", apiErrorListItem.getErrorText());
-			}
-		}
-		assertTrue("test apiErrorListItem wasn't found.", found);
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        ErrorListParser parser = new ErrorListParser();
+        ErrorListResponse response = parser.getResponse();
+        assertNotNull(response);
+        Collection<ErrorListItem> errorListItems = response.getAll();
+        assertEquals(61, errorListItems.size());
+        boolean found = false;
+        for (ErrorListItem apiErrorListItem : errorListItems) {
+            if (apiErrorListItem.getErrorCode() == 110) {
+                found = true;
+                assertEquals("Invalid beforeTransID provided.", apiErrorListItem.getErrorText());
+            }
+        }
+        assertTrue("test apiErrorListItem wasn't found.", found);
+    }
 }

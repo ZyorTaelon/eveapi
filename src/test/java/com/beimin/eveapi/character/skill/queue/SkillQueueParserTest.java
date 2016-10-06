@@ -17,24 +17,24 @@ import com.beimin.eveapi.response.pilot.SkillQueueResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class SkillQueueParserTest extends FullAuthParserTest {
-	public SkillQueueParserTest() {
-		super(ApiPath.CHARACTER, ApiPage.SKILL_QUEUE);
-	}
+    public SkillQueueParserTest() {
+        super(ApiPath.CHARACTER, ApiPage.SKILL_QUEUE);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		SkillQueueParser parser = new SkillQueueParser();
-		SkillQueueResponse response = parser.getResponse(auth);
-		assertNotNull(response);
-		Set<SkillQueueItem> skillQueueItems = response.getAll();
-		assertEquals(2, skillQueueItems.size());
-		SkillQueueItem skillQueueItem = skillQueueItems.iterator().next();
-		assertEquals(0, skillQueueItem.getQueuePosition());
-		assertEquals(25739, skillQueueItem.getTypeID());
-		assertEquals(5, skillQueueItem.getLevel());
-		assertEquals(362039, skillQueueItem.getStartSP());
-		assertEquals(2048000, skillQueueItem.getEndSP());
-		assertDate(2010, 03, 28, 11, 00, 01, skillQueueItem.getStartTime());
-		assertDate(2010, 04, 30, 4, 59, 46, skillQueueItem.getEndTime());
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        SkillQueueParser parser = new SkillQueueParser();
+        SkillQueueResponse response = parser.getResponse(auth);
+        assertNotNull(response);
+        Set<SkillQueueItem> skillQueueItems = response.getAll();
+        assertEquals(2, skillQueueItems.size());
+        SkillQueueItem skillQueueItem = skillQueueItems.iterator().next();
+        assertEquals(0, skillQueueItem.getQueuePosition());
+        assertEquals(25739, skillQueueItem.getTypeID());
+        assertEquals(5, skillQueueItem.getLevel());
+        assertEquals(362039, skillQueueItem.getStartSP());
+        assertEquals(2048000, skillQueueItem.getEndSP());
+        assertDate(2010, 03, 28, 11, 00, 01, skillQueueItem.getStartTime());
+        assertDate(2010, 04, 30, 4, 59, 46, skillQueueItem.getEndTime());
+    }
 }

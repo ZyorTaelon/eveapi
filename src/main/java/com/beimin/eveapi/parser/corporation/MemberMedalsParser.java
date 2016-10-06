@@ -10,12 +10,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.corporation.MemberMedalsResponse;
 
 public class MemberMedalsParser extends AbstractListParser<MemberMedalsHandler, MemberMedalsResponse, MemberMedal> {
-	public MemberMedalsParser() {
-		super(MemberMedalsResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_MEDALS, MemberMedalsHandler.class);
-	}
+    public MemberMedalsParser() {
+        super(MemberMedalsResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_MEDALS, MemberMedalsHandler.class);
+    }
 
-	@Override
-	public MemberMedalsResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public MemberMedalsResponse getResponse(ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

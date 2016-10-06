@@ -10,12 +10,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.corporation.TitlesResponse;
 
 public class TitlesParser extends AbstractListParser<TitlesHandler, TitlesResponse, Title> {
-	public TitlesParser() {
-		super(TitlesResponse.class, 2, ApiPath.CORPORATION, ApiPage.TITLES, TitlesHandler.class);
-	}
+    public TitlesParser() {
+        super(TitlesResponse.class, 2, ApiPath.CORPORATION, ApiPage.TITLES, TitlesHandler.class);
+    }
 
-	@Override
-	public TitlesResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public TitlesResponse getResponse(ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

@@ -4,13 +4,13 @@ import com.beimin.eveapi.model.calllist.CallList;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class CallListResponse extends ApiResponse {
-	private CallList callList;
+    private CallList callList;
 
-	public CallList get() {
-		return callList;
-	}
+    public CallList get() {
+        return callList;
+    }
 
-	public void set(CallList callList) {
-		this.callList = callList;
-	}
+    public void set(CallList callList) {
+        this.callList = callList;
+    }
 }

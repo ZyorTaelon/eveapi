@@ -18,28 +18,28 @@ import com.beimin.eveapi.response.corporation.StarbaseListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class StarbaseListParserTest extends FullAuthParserTest {
-	public StarbaseListParserTest() {
-		super(ApiPath.CORPORATION, ApiPage.STARBASE_LIST);
-	}
+    public StarbaseListParserTest() {
+        super(ApiPath.CORPORATION, ApiPage.STARBASE_LIST);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		StarbaseListParser parser = new StarbaseListParser();
-		StarbaseListResponse response = parser.getResponse(auth);
-		assertNotNull("Should have returned a result.", response);
-		assertDate(2008, 2, 3, 1, 5, 55, response.getCurrentTime());
-		assertDate(2008, 2, 3, 7, 5, 55, response.getCachedUntil());
-		Collection<Starbase> starbases = response.getAll();
-		assertNotNull("Should have returned a collection with starbases.", starbases);
-		assertEquals("Should have returned 2 starbases.", 2, starbases.size());
-		Starbase starbase1 = starbases.iterator().next();
-		assertNotNull("Should have returned a starbase.", starbase1);
-		assertTrue("Starbase id should be set.", starbase1.getItemID() > 0);
-		assertTrue("Starbase type id should be set.", starbase1.getTypeID() > 0);
-		assertTrue("Starbase moon id should be set.", starbase1.getMoonID() > 0);
-		assertTrue("Starbase location id should be set.", starbase1.getLocationID() > 0);
-		assertNotNull("Starbase should have a state.", starbase1.getStarbaseState());
-		assertNotNull("Starbase should have an online date.", starbase1.getOnlineTimestamp());
-		assertNotNull("Starbase should have an state date.", starbase1.getStateTimestamp());
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        StarbaseListParser parser = new StarbaseListParser();
+        StarbaseListResponse response = parser.getResponse(auth);
+        assertNotNull("Should have returned a result.", response);
+        assertDate(2008, 2, 3, 1, 5, 55, response.getCurrentTime());
+        assertDate(2008, 2, 3, 7, 5, 55, response.getCachedUntil());
+        Collection<Starbase> starbases = response.getAll();
+        assertNotNull("Should have returned a collection with starbases.", starbases);
+        assertEquals("Should have returned 2 starbases.", 2, starbases.size());
+        Starbase starbase1 = starbases.iterator().next();
+        assertNotNull("Should have returned a starbase.", starbase1);
+        assertTrue("Starbase id should be set.", starbase1.getItemID() > 0);
+        assertTrue("Starbase type id should be set.", starbase1.getTypeID() > 0);
+        assertTrue("Starbase moon id should be set.", starbase1.getMoonID() > 0);
+        assertTrue("Starbase location id should be set.", starbase1.getLocationID() > 0);
+        assertNotNull("Starbase should have a state.", starbase1.getStarbaseState());
+        assertNotNull("Starbase should have an online date.", starbase1.getOnlineTimestamp());
+        assertNotNull("Starbase should have an state date.", starbase1.getStateTimestamp());
+    }
 }

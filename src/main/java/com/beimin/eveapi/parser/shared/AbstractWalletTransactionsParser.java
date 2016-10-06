@@ -12,19 +12,19 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.response.shared.WalletTransactionsResponse;
 
 public abstract class AbstractWalletTransactionsParser extends AbstractListParser<WalletTransactionsHandler, WalletTransactionsResponse, WalletTransaction> {
-	public AbstractWalletTransactionsParser(ApiPath path) {
-		super(WalletTransactionsResponse.class, 2, path, ApiPage.WALLET_TRANSACTIONS, WalletTransactionsHandler.class);
-	}
+    public AbstractWalletTransactionsParser(ApiPath path) {
+        super(WalletTransactionsResponse.class, 2, path, ApiPage.WALLET_TRANSACTIONS, WalletTransactionsHandler.class);
+    }
 
-	public WalletTransactionsResponse getResponse(ApiAuth auth, int accountKey) throws ApiException {
-		return getResponse(auth, "accountKey", Integer.toString(accountKey));
-	}
+    public WalletTransactionsResponse getResponse(ApiAuth auth, int accountKey) throws ApiException {
+        return getResponse(auth, "accountKey", Integer.toString(accountKey));
+    }
 
-	public WalletTransactionsResponse getResponse(ApiAuth auth, int accountKey, long beforeTransID, int rowCount) throws ApiException {
-		Map<String, String> extraParams = new HashMap<String, String>();
-		extraParams.put("accountKey", Integer.toString(accountKey));
-		extraParams.put("rowCount", Integer.toString(rowCount));
-		extraParams.put("beforeTransID", Long.toString(beforeTransID));
-		return getResponse(auth, extraParams);
-	}
+    public WalletTransactionsResponse getResponse(ApiAuth auth, int accountKey, long beforeTransID, int rowCount) throws ApiException {
+        Map<String, String> extraParams = new HashMap<String, String>();
+        extraParams.put("accountKey", Integer.toString(accountKey));
+        extraParams.put("rowCount", Integer.toString(rowCount));
+        extraParams.put("beforeTransID", Long.toString(beforeTransID));
+        return getResponse(auth, extraParams);
+    }
 }

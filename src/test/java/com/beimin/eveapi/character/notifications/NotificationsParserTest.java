@@ -19,30 +19,30 @@ import com.beimin.eveapi.response.pilot.NotificationsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class NotificationsParserTest extends FullAuthParserTest {
-	public NotificationsParserTest() {
-		super(ApiPath.CHARACTER, ApiPage.NOTIFICATIONS);
-	}
+    public NotificationsParserTest() {
+        super(ApiPath.CHARACTER, ApiPage.NOTIFICATIONS);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		NotificationsParser parser = new NotificationsParser();
-		NotificationsResponse response = parser.getResponse(auth);
-		assertNotNull(response);
-		Set<Notification> notifications = response.getAll();
-		assertNotNull(notifications);
-		assertEquals(3, notifications.size());
-		boolean found = false;
-		for (Notification notification : notifications) {
-			if (notification.getNotificationID() == 295043380L) {
-				found = true;
-				assertEquals(5, notification.getTypeID());
-				assertEquals(NotificationType.ALLIANCE_WAR_DECLARED, notification.getType());
-				assertEquals(1000125L, notification.getSenderID());
-				assertDate(2010, 1, 14, 20, 45, 0, notification.getSentDate());
-				assertEquals(false, notification.isRead());
-				break;
-			}
-		}
-		assertTrue("Test mail wasn't found.", found);
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        NotificationsParser parser = new NotificationsParser();
+        NotificationsResponse response = parser.getResponse(auth);
+        assertNotNull(response);
+        Set<Notification> notifications = response.getAll();
+        assertNotNull(notifications);
+        assertEquals(3, notifications.size());
+        boolean found = false;
+        for (Notification notification : notifications) {
+            if (notification.getNotificationID() == 295043380L) {
+                found = true;
+                assertEquals(5, notification.getTypeID());
+                assertEquals(NotificationType.ALLIANCE_WAR_DECLARED, notification.getType());
+                assertEquals(1000125L, notification.getSenderID());
+                assertDate(2010, 1, 14, 20, 45, 0, notification.getSentDate());
+                assertEquals(false, notification.isRead());
+                break;
+            }
+        }
+        assertTrue("Test mail wasn't found.", found);
+    }
 }

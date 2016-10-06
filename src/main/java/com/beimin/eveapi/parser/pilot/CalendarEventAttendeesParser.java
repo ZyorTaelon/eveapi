@@ -11,13 +11,13 @@ import com.beimin.eveapi.response.pilot.CalendarEventAttendeesResponse;
 import com.beimin.eveapi.utils.StringUtils;
 
 public class CalendarEventAttendeesParser extends AbstractListParser<CalendarEventAttendeesHandler, CalendarEventAttendeesResponse, CalendarEventAttendee> {
-	public CalendarEventAttendeesParser() {
-		super(CalendarEventAttendeesResponse.class, 2, ApiPath.CHARACTER, ApiPage.CALENDAR_EVENT_ATTENDEES, CalendarEventAttendeesHandler.class);
-	}
+    public CalendarEventAttendeesParser() {
+        super(CalendarEventAttendeesResponse.class, 2, ApiPath.CHARACTER, ApiPage.CALENDAR_EVENT_ATTENDEES, CalendarEventAttendeesHandler.class);
+    }
 
-	public CalendarEventAttendeesResponse getResponse(ApiAuth auth, long... eventIDs) throws ApiException {
-		if (eventIDs.length == 0)
-			throw new ApiException("no eventIds provided");
-		return super.getResponse(auth, "eventIDs", StringUtils.join(",", eventIDs));
-	}
+    public CalendarEventAttendeesResponse getResponse(ApiAuth auth, long... eventIDs) throws ApiException {
+        if (eventIDs.length == 0)
+            throw new ApiException("no eventIds provided");
+        return super.getResponse(auth, "eventIDs", StringUtils.join(",", eventIDs));
+    }
 }

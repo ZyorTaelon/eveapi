@@ -9,12 +9,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.eve.SkillTreeResponse;
 
 public class SkillTreeParser extends AbstractListParser<SkillTreeHandler, SkillTreeResponse, SkillGroup> {
-	public SkillTreeParser() {
-		super(SkillTreeResponse.class, 2, ApiPath.EVE, ApiPage.SKILL_TREE, SkillTreeHandler.class);
-	}
+    public SkillTreeParser() {
+        super(SkillTreeResponse.class, 2, ApiPath.EVE, ApiPage.SKILL_TREE, SkillTreeHandler.class);
+    }
 
-	@Override
-	public SkillTreeResponse getResponse() throws ApiException {
-		return super.getResponse();
-	}
+    @Override
+    public SkillTreeResponse getResponse() throws ApiException {
+        return super.getResponse();
+    }
 }

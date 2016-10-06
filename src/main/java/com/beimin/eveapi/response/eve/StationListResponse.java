@@ -7,13 +7,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StationListResponse extends ApiResponse {
-	private final Map<Long, Station> stations = new HashMap<Long, Station>();
+    private final Map<Long, Station> stations = new HashMap<Long, Station>();
 
-	public void add(Station station) {
-		stations.put(station.getStationID(), station);
-	}
+    public void add(Station station) {
+        stations.put(station.getStationID(), station);
+    }
 
-	public Map<Long, Station> getStations() {
-		return stations;
-	}
+    public Map<Long, Station> getStations() {
+        return stations;
+    }
 }

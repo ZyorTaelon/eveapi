@@ -1,94 +1,94 @@
 package com.beimin.eveapi.model.corporation;
 
 public class Outpost {
-	private long stationID;
-	private long ownerID;
-	private long standingOwnerID;
-	private String stationName;
-	private int solarSystemID;
-	private int stationTypeID;
-	private double dockingCostPerShipVolume;
-	private double officeRentalCost;
-	private double reprocessingEfficiency;
-	private double reprocessingStationTake;
+    private long stationID;
+    private long ownerID;
+    private long standingOwnerID;
+    private String stationName;
+    private int solarSystemID;
+    private int stationTypeID;
+    private double dockingCostPerShipVolume;
+    private double officeRentalCost;
+    private double reprocessingEfficiency;
+    private double reprocessingStationTake;
 
-	public long getStationID() {
-		return stationID;
-	}
+    public long getStationID() {
+        return stationID;
+    }
 
-	public void setStationID(long stationID) {
-		this.stationID = stationID;
-	}
+    public void setStationID(long stationID) {
+        this.stationID = stationID;
+    }
 
-	public long getOwnerID() {
-		return ownerID;
-	}
+    public long getOwnerID() {
+        return ownerID;
+    }
 
-	public void setOwnerID(long ownerID) {
-		this.ownerID = ownerID;
-	}
+    public void setOwnerID(long ownerID) {
+        this.ownerID = ownerID;
+    }
 
-	public long getStandingOwnerID() {
-		return standingOwnerID;
-	}
+    public long getStandingOwnerID() {
+        return standingOwnerID;
+    }
 
-	public void setStandingOwnerID(long standingOwnerID) {
-		this.standingOwnerID = standingOwnerID;
-	}
+    public void setStandingOwnerID(long standingOwnerID) {
+        this.standingOwnerID = standingOwnerID;
+    }
 
-	public String getStationName() {
-		return stationName;
-	}
+    public String getStationName() {
+        return stationName;
+    }
 
-	public void setStationName(String stationName) {
-		this.stationName = stationName;
-	}
+    public void setStationName(String stationName) {
+        this.stationName = stationName;
+    }
 
-	public int getSolarSystemID() {
-		return solarSystemID;
-	}
+    public int getSolarSystemID() {
+        return solarSystemID;
+    }
 
-	public void setSolarSystemID(int solarSystemID) {
-		this.solarSystemID = solarSystemID;
-	}
+    public void setSolarSystemID(int solarSystemID) {
+        this.solarSystemID = solarSystemID;
+    }
 
-	public int getStationTypeID() {
-		return stationTypeID;
-	}
+    public int getStationTypeID() {
+        return stationTypeID;
+    }
 
-	public void setStationTypeID(int stationTypeID) {
-		this.stationTypeID = stationTypeID;
-	}
+    public void setStationTypeID(int stationTypeID) {
+        this.stationTypeID = stationTypeID;
+    }
 
-	public double getDockingCostPerShipVolume() {
-		return dockingCostPerShipVolume;
-	}
+    public double getDockingCostPerShipVolume() {
+        return dockingCostPerShipVolume;
+    }
 
-	public void setDockingCostPerShipVolume(double dockingCostPerShipVolume) {
-		this.dockingCostPerShipVolume = dockingCostPerShipVolume;
-	}
+    public void setDockingCostPerShipVolume(double dockingCostPerShipVolume) {
+        this.dockingCostPerShipVolume = dockingCostPerShipVolume;
+    }
 
-	public double getOfficeRentalCost() {
-		return officeRentalCost;
-	}
+    public double getOfficeRentalCost() {
+        return officeRentalCost;
+    }
 
-	public void setOfficeRentalCost(double officeRentalCost) {
-		this.officeRentalCost = officeRentalCost;
-	}
+    public void setOfficeRentalCost(double officeRentalCost) {
+        this.officeRentalCost = officeRentalCost;
+    }
 
-	public double getReprocessingEfficiency() {
-		return reprocessingEfficiency;
-	}
+    public double getReprocessingEfficiency() {
+        return reprocessingEfficiency;
+    }
 
-	public void setReprocessingEfficiency(double reprocessingEfficiency) {
-		this.reprocessingEfficiency = reprocessingEfficiency;
-	}
+    public void setReprocessingEfficiency(double reprocessingEfficiency) {
+        this.reprocessingEfficiency = reprocessingEfficiency;
+    }
 
-	public double getReprocessingStationTake() {
-		return reprocessingStationTake;
-	}
+    public double getReprocessingStationTake() {
+        return reprocessingStationTake;
+    }
 
-	public void setReprocessingStationTake(double reprocessingStationTake) {
-		this.reprocessingStationTake = reprocessingStationTake;
-	}
+    public void setReprocessingStationTake(double reprocessingStationTake) {
+        this.reprocessingStationTake = reprocessingStationTake;
+    }
 }

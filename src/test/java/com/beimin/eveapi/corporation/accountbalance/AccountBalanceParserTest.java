@@ -17,26 +17,26 @@ import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class AccountBalanceParserTest extends FullAuthParserTest {
-	public AccountBalanceParserTest() {
-		super(ApiPath.CORPORATION, ApiPage.ACCOUNT_BALANCE);
-	}
+    public AccountBalanceParserTest() {
+        super(ApiPath.CORPORATION, ApiPage.ACCOUNT_BALANCE);
+    }
 
-	@Test
-	public void accountBalanceParser() throws ApiException {
-		AccountBalanceParser parser = new AccountBalanceParser();
-		AccountBalanceResponse response = parser.getResponse(auth);
-		assertNotNull(response);
-		Set<EveAccountBalance> accountBalances = response.getAll();
-		assertNotNull(accountBalances);
-		assertEquals(7, accountBalances.size());
-		boolean found = false;
-		for (EveAccountBalance accountBalance : accountBalances) {
-			if (accountBalance.getAccountID() == 5689) {
-				found = true;
-				assertEquals(1003, accountBalance.getAccountKey());
-				assertEquals(17349111.00, accountBalance.getBalance(), 0.00001);
-			}
-		}
-		assertTrue("test accountBalance wasn't found.", found);
-	}
+    @Test
+    public void accountBalanceParser() throws ApiException {
+        AccountBalanceParser parser = new AccountBalanceParser();
+        AccountBalanceResponse response = parser.getResponse(auth);
+        assertNotNull(response);
+        Set<EveAccountBalance> accountBalances = response.getAll();
+        assertNotNull(accountBalances);
+        assertEquals(7, accountBalances.size());
+        boolean found = false;
+        for (EveAccountBalance accountBalance : accountBalances) {
+            if (accountBalance.getAccountID() == 5689) {
+                found = true;
+                assertEquals(1003, accountBalance.getAccountKey());
+                assertEquals(17349111.00, accountBalance.getBalance(), 0.00001);
+            }
+        }
+        assertTrue("test accountBalance wasn't found.", found);
+    }
 }

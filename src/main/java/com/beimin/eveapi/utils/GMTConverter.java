@@ -6,22 +6,22 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public class GMTConverter { // implements Converter {
-	private final String dateFormat;
+    private final String dateFormat;
 
-	public GMTConverter(String dateFormat) {
-		this.dateFormat = dateFormat;
-	}
+    public GMTConverter(String dateFormat) {
+        this.dateFormat = dateFormat;
+    }
 
-	@SuppressWarnings("rawtypes")
-	public Date convert(Class type, Object value) {
-		if (!(value instanceof String))
-			throw new RuntimeException("wrong input value");
-		try {
-			SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
-			sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-			return sdf.parse((String) value);
-		} catch (ParseException e) {
-			return null;
-		}
-	}
+    @SuppressWarnings("rawtypes")
+    public Date convert(Class type, Object value) {
+        if (!(value instanceof String))
+            throw new RuntimeException("wrong input value");
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+            sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+            return sdf.parse((String) value);
+        } catch (ParseException e) {
+            return null;
+        }
+    }
 }

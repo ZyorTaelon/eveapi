@@ -7,7 +7,7 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.response.shared.BlueprintsResponse;
 
 public abstract class AbstractBlueprintsParser extends AbstractListParser<BlueprintsHandler, BlueprintsResponse, Blueprint> {
-	protected AbstractBlueprintsParser(ApiPath path) {
-		super(BlueprintsResponse.class, 2, path, ApiPage.BLUEPRINTS, BlueprintsHandler.class);
-	}
+    protected AbstractBlueprintsParser(ApiPath path) {
+        super(BlueprintsResponse.class, 2, path, ApiPage.BLUEPRINTS, BlueprintsHandler.class);
+    }
 }

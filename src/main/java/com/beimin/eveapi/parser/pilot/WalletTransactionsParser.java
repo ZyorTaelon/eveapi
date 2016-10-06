@@ -7,22 +7,22 @@ import com.beimin.eveapi.parser.shared.AbstractWalletTransactionsParser;
 import com.beimin.eveapi.response.shared.WalletTransactionsResponse;
 
 public class WalletTransactionsParser extends AbstractWalletTransactionsParser {
-	private static final int DEFAULT_ROW_COUNT = 1000;
+    private static final int DEFAULT_ROW_COUNT = 1000;
 
-	public WalletTransactionsParser() {
-		super(ApiPath.CHARACTER);
-	}
+    public WalletTransactionsParser() {
+        super(ApiPath.CHARACTER);
+    }
 
-	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth) throws ApiException {
-		return getResponse(auth, 1000);
-	}
+    public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth) throws ApiException {
+        return getResponse(auth, 1000);
+    }
 
-	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth, long beforeTransID) throws ApiException {
-		return getResponse(auth, 1000, beforeTransID, DEFAULT_ROW_COUNT);
-	}
+    public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth, long beforeTransID) throws ApiException {
+        return getResponse(auth, 1000, beforeTransID, DEFAULT_ROW_COUNT);
+    }
 
-	public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth, long beforeTransID, int rowCount) throws ApiException {
-		return getResponse(auth, 1000, beforeTransID, rowCount);
-	}
+    public WalletTransactionsResponse getTransactionsResponse(ApiAuth auth, long beforeTransID, int rowCount) throws ApiException {
+        return getResponse(auth, 1000, beforeTransID, rowCount);
+    }
 
 }

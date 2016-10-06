@@ -13,16 +13,16 @@ import com.beimin.eveapi.response.ServerStatusResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class ServerStatusParserTest extends NoAuthParserTest {
-	public ServerStatusParserTest() {
-		super(ApiPath.SERVER, ApiPage.SERVER_STATUS);
-	}
+    public ServerStatusParserTest() {
+        super(ApiPath.SERVER, ApiPage.SERVER_STATUS);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		ServerStatusParser parser = new ServerStatusParser();
-		ServerStatusResponse response = parser.getServerStatus();
-		assertNotNull(response);
-		assertEquals(38669, response.getOnlinePlayers());
-		assertEquals(true, response.isServerOpen());
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        ServerStatusParser parser = new ServerStatusParser();
+        ServerStatusResponse response = parser.getServerStatus();
+        assertNotNull(response);
+        assertEquals(38669, response.getOnlinePlayers());
+        assertEquals(true, response.isServerOpen());
+    }
 }

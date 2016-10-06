@@ -10,12 +10,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.pilot.MailMessagesResponse;
 
 public class MailMessagesParser extends AbstractListParser<MailMessagesHandler, MailMessagesResponse, MailMessage> {
-	public MailMessagesParser() {
-		super(MailMessagesResponse.class, 2, ApiPath.CHARACTER, ApiPage.MAIL_MESSAGES, MailMessagesHandler.class);
-	}
+    public MailMessagesParser() {
+        super(MailMessagesResponse.class, 2, ApiPath.CHARACTER, ApiPage.MAIL_MESSAGES, MailMessagesHandler.class);
+    }
 
-	@Override
-	public MailMessagesResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public MailMessagesResponse getResponse(ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

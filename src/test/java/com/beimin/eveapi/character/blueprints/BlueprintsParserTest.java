@@ -14,32 +14,32 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class BlueprintsParserTest extends FullAuthParserTest {
-	public BlueprintsParserTest() {
-		super(ApiPath.CHARACTER, ApiPage.BLUEPRINTS);
-	}
+    public BlueprintsParserTest() {
+        super(ApiPath.CHARACTER, ApiPage.BLUEPRINTS);
+    }
 
-	@Test
-	public void blueprintsParser() throws ApiException {
-		BlueprintsParser parser = new BlueprintsParser();
-		BlueprintsResponse response = parser.getResponse(auth);
-		assertNotNull(response);
-		Set<Blueprint> blueprints = response.getAll();
-		assertNotNull(blueprints);
-		assertEquals(15, blueprints.size());
-		boolean found = false;
-		for (Blueprint blueprint : blueprints) {
-			if (blueprint.getItemID() == 231144695) {
-				found = true;
-				assertEquals(60014818L, blueprint.getLocationID());
-				assertEquals(4, blueprint.getFlagID());
-				assertEquals(10, blueprint.getMaterialEfficiency());
-				assertEquals(-1, blueprint.getQuantity());
-				assertEquals(-1, blueprint.getRuns());
-				assertEquals(0, blueprint.getTimeEfficiency());
-				assertEquals(1146, blueprint.getTypeID());
-				assertEquals("Iron Charge L Blueprint", blueprint.getTypeName());
-			}
-		}
-		assertTrue("test Blueprints wasn't found.", found);
-	}
+    @Test
+    public void blueprintsParser() throws ApiException {
+        BlueprintsParser parser = new BlueprintsParser();
+        BlueprintsResponse response = parser.getResponse(auth);
+        assertNotNull(response);
+        Set<Blueprint> blueprints = response.getAll();
+        assertNotNull(blueprints);
+        assertEquals(15, blueprints.size());
+        boolean found = false;
+        for (Blueprint blueprint : blueprints) {
+            if (blueprint.getItemID() == 231144695) {
+                found = true;
+                assertEquals(60014818L, blueprint.getLocationID());
+                assertEquals(4, blueprint.getFlagID());
+                assertEquals(10, blueprint.getMaterialEfficiency());
+                assertEquals(-1, blueprint.getQuantity());
+                assertEquals(-1, blueprint.getRuns());
+                assertEquals(0, blueprint.getTimeEfficiency());
+                assertEquals(1146, blueprint.getTypeID());
+                assertEquals("Iron Charge L Blueprint", blueprint.getTypeName());
+            }
+        }
+        assertTrue("test Blueprints wasn't found.", found);
+    }
 }

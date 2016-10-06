@@ -10,17 +10,17 @@ import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.corporation.MemberSecurityResponse;
 
 public class MemberSecurityParser extends AbstractApiParser<MemberSecurityResponse> {
-	public MemberSecurityParser() {
-		super(MemberSecurityResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_SECURITY);
-	}
+    public MemberSecurityParser() {
+        super(MemberSecurityResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_SECURITY);
+    }
 
-	@Override
-	protected AbstractContentHandler getContentHandler() {
-		return new MemberSecurityHandler();
-	}
+    @Override
+    protected AbstractContentHandler getContentHandler() {
+        return new MemberSecurityHandler();
+    }
 
-	@Override
-	public MemberSecurityResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public MemberSecurityResponse getResponse(ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

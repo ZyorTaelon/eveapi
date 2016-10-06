@@ -11,11 +11,11 @@ import com.beimin.eveapi.response.pilot.MailBodiesResponse;
 import com.beimin.eveapi.utils.StringUtils;
 
 public class MailBodiesParser extends AbstractListParser<MailBodiesHandler, MailBodiesResponse, MailBody> {
-	public MailBodiesParser() {
-		super(MailBodiesResponse.class, 2, ApiPath.CHARACTER, ApiPage.MAIL_BODIES, MailBodiesHandler.class);
-	}
+    public MailBodiesParser() {
+        super(MailBodiesResponse.class, 2, ApiPath.CHARACTER, ApiPage.MAIL_BODIES, MailBodiesHandler.class);
+    }
 
-	public MailBodiesResponse getResponse(ApiAuth auth, long... ids) throws ApiException {
-		return getResponse(auth, "ids", StringUtils.join(",", ids));
-	}
+    public MailBodiesResponse getResponse(ApiAuth auth, long... ids) throws ApiException {
+        return getResponse(auth, "ids", StringUtils.join(",", ids));
+    }
 }

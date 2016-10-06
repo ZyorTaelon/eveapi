@@ -10,11 +10,11 @@ import com.beimin.eveapi.response.eve.TypeNameResponse;
 import com.beimin.eveapi.utils.StringUtils;
 
 public class TypeNameParser extends AbstractListParser<TypeNameHandler, TypeNameResponse, EveTypeName> {
-	public TypeNameParser() {
-		super(TypeNameResponse.class, 2, ApiPath.EVE, ApiPage.TYPE_NAME, TypeNameHandler.class);
-	}
+    public TypeNameParser() {
+        super(TypeNameResponse.class, 2, ApiPath.EVE, ApiPage.TYPE_NAME, TypeNameHandler.class);
+    }
 
-	public TypeNameResponse getResponse(int... arguments) throws ApiException {
-		return super.getResponse("ids", StringUtils.join(",", arguments));
-	}
+    public TypeNameResponse getResponse(int... arguments) throws ApiException {
+        return super.getResponse("ids", StringUtils.join(",", arguments));
+    }
 }

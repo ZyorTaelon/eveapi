@@ -4,13 +4,13 @@ import com.beimin.eveapi.model.account.AccountStatus;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class AccountStatusResponse extends ApiResponse {
-	private AccountStatus accountStatus;
+    private AccountStatus accountStatus;
 
-	public AccountStatus get() {
-		return accountStatus;
-	}
+    public AccountStatus get() {
+        return accountStatus;
+    }
 
-	public void set(AccountStatus accountStatus) {
-		this.accountStatus = accountStatus;
-	}
+    public void set(AccountStatus accountStatus) {
+        this.accountStatus = accountStatus;
+    }
 }

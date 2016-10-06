@@ -7,22 +7,22 @@ import org.xml.sax.Attributes;
 
 public class BlueprintsHandler extends AbstractContentListHandler<BlueprintsResponse, Blueprint> {
 
-	public BlueprintsHandler() {
-		super(BlueprintsResponse.class);
-	}
+    public BlueprintsHandler() {
+        super(BlueprintsResponse.class);
+    }
 
-	@Override
-	protected Blueprint getItem(Attributes attrs) {
-		Blueprint blueprint = new Blueprint();
-		blueprint.setItemID(getLong(attrs, "itemID"));
-		blueprint.setLocationID(getLong(attrs, "locationID"));
-		blueprint.setTypeID(getInt(attrs, "typeID"));
-		blueprint.setTypeName(getString(attrs, "typeName"));
-		blueprint.setFlagID(getInt(attrs, "flagID"));
-		blueprint.setQuantity(getInt(attrs, "quantity"));
-		blueprint.setTimeEfficiency(getInt(attrs, "timeEfficiency"));
-		blueprint.setMaterialEfficiency(getInt(attrs, "materialEfficiency"));
-		blueprint.setRuns(getInt(attrs, "runs"));
-		return blueprint;
-	}
+    @Override
+    protected Blueprint getItem(Attributes attrs) {
+        Blueprint blueprint = new Blueprint();
+        blueprint.setItemID(getLong(attrs, "itemID"));
+        blueprint.setLocationID(getLong(attrs, "locationID"));
+        blueprint.setTypeID(getInt(attrs, "typeID"));
+        blueprint.setTypeName(getString(attrs, "typeName"));
+        blueprint.setFlagID(getInt(attrs, "flagID"));
+        blueprint.setQuantity(getInt(attrs, "quantity"));
+        blueprint.setTimeEfficiency(getInt(attrs, "timeEfficiency"));
+        blueprint.setMaterialEfficiency(getInt(attrs, "materialEfficiency"));
+        blueprint.setRuns(getInt(attrs, "runs"));
+        return blueprint;
+    }
 }

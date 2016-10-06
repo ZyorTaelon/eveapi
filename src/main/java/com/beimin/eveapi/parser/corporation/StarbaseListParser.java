@@ -10,12 +10,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.corporation.StarbaseListResponse;
 
 public class StarbaseListParser extends AbstractListParser<StarbaseListHandler, StarbaseListResponse, Starbase> {
-	public StarbaseListParser() {
-		super(StarbaseListResponse.class, 2, ApiPath.CORPORATION, ApiPage.STARBASE_LIST, StarbaseListHandler.class);
-	}
+    public StarbaseListParser() {
+        super(StarbaseListResponse.class, 2, ApiPath.CORPORATION, ApiPage.STARBASE_LIST, StarbaseListHandler.class);
+    }
 
-	@Override
-	public StarbaseListResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public StarbaseListResponse getResponse(ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

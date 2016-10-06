@@ -4,58 +4,58 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Certificate {
-	private int certificateID;
-	private int grade;
-	private long corporationID;
-	private String description;
-	private final List<RequiredSkill> requiredSkills = new ArrayList<RequiredSkill>();
-	private final List<RequiredCertificate> requiredCertificates = new ArrayList<RequiredCertificate>();
+    private int certificateID;
+    private int grade;
+    private long corporationID;
+    private String description;
+    private final List<RequiredSkill> requiredSkills = new ArrayList<RequiredSkill>();
+    private final List<RequiredCertificate> requiredCertificates = new ArrayList<RequiredCertificate>();
 
-	public int getCertificateID() {
-		return certificateID;
-	}
+    public int getCertificateID() {
+        return certificateID;
+    }
 
-	public void setCertificateID(int certificateID) {
-		this.certificateID = certificateID;
-	}
+    public void setCertificateID(int certificateID) {
+        this.certificateID = certificateID;
+    }
 
-	public int getGrade() {
-		return grade;
-	}
+    public int getGrade() {
+        return grade;
+    }
 
-	public void setGrade(int grade) {
-		this.grade = grade;
-	}
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
 
-	public long getCorporationID() {
-		return corporationID;
-	}
+    public long getCorporationID() {
+        return corporationID;
+    }
 
-	public void setCorporationID(long corporationID) {
-		this.corporationID = corporationID;
-	}
+    public void setCorporationID(long corporationID) {
+        this.corporationID = corporationID;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void add(RequiredSkill requirement) {
-		requiredSkills.add(requirement);
-	}
+    public void add(RequiredSkill requirement) {
+        requiredSkills.add(requirement);
+    }
 
-	public void add(RequiredCertificate requirement) {
-		requiredCertificates.add(requirement);
-	}
+    public void add(RequiredCertificate requirement) {
+        requiredCertificates.add(requirement);
+    }
 
-	public List<RequiredSkill> getRequiredSkills() {
-		return requiredSkills;
-	}
+    public List<RequiredSkill> getRequiredSkills() {
+        return requiredSkills;
+    }
 
-	public List<RequiredCertificate> getRequiredCertificates() {
-		return requiredCertificates;
-	}
+    public List<RequiredCertificate> getRequiredCertificates() {
+        return requiredCertificates;
+    }
 }

@@ -10,12 +10,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.corporation.MemberSecurityLogResponse;
 
 public class MemberSecurityLogParser extends AbstractListParser<MemberSecurityLogHandler, MemberSecurityLogResponse, RoleHistory> {
-	public MemberSecurityLogParser() {
-		super(MemberSecurityLogResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_SECURITY_LOG, MemberSecurityLogHandler.class);
-	}
+    public MemberSecurityLogParser() {
+        super(MemberSecurityLogResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_SECURITY_LOG, MemberSecurityLogHandler.class);
+    }
 
-	@Override
-	public MemberSecurityLogResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public MemberSecurityLogResponse getResponse(ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

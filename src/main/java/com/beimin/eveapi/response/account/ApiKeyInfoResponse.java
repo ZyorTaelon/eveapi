@@ -4,13 +4,13 @@ import com.beimin.eveapi.model.account.ApiKeyInfo;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class ApiKeyInfoResponse extends ApiResponse {
-	private ApiKeyInfo apiKeyInfo;
+    private ApiKeyInfo apiKeyInfo;
 
-	public ApiKeyInfo getApiKeyInfo() {
-		return apiKeyInfo;
-	}
+    public ApiKeyInfo getApiKeyInfo() {
+        return apiKeyInfo;
+    }
 
-	public void set(ApiKeyInfo apiKeyInfo) {
-		this.apiKeyInfo = apiKeyInfo;
-	}
+    public void set(ApiKeyInfo apiKeyInfo) {
+        this.apiKeyInfo = apiKeyInfo;
+    }
 }

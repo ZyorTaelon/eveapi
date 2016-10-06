@@ -9,17 +9,17 @@ import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.eve.StationListResponse;
 
 public class ConquerableStationListParser extends AbstractApiParser<StationListResponse> {
-	public ConquerableStationListParser() {
-		super(StationListResponse.class, 2, ApiPath.EVE, ApiPage.CONQUERABLE_STATION_LIST);
-	}
+    public ConquerableStationListParser() {
+        super(StationListResponse.class, 2, ApiPath.EVE, ApiPage.CONQUERABLE_STATION_LIST);
+    }
 
-	@Override
-	protected AbstractContentHandler getContentHandler() {
-		return new ConquerableStationListHandler();
-	}
+    @Override
+    protected AbstractContentHandler getContentHandler() {
+        return new ConquerableStationListHandler();
+    }
 
-	@Override
-	public StationListResponse getResponse() throws ApiException {
-		return super.getResponse();
-	}
+    @Override
+    public StationListResponse getResponse() throws ApiException {
+        return super.getResponse();
+    }
 }

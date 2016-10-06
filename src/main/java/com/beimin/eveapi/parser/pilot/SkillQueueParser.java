@@ -10,12 +10,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.pilot.SkillQueueResponse;
 
 public class SkillQueueParser extends AbstractListParser<SkillQueueHandler, SkillQueueResponse, SkillQueueItem> {
-	public SkillQueueParser() {
-		super(SkillQueueResponse.class, 2, ApiPath.CHARACTER, ApiPage.SKILL_QUEUE, SkillQueueHandler.class);
-	}
+    public SkillQueueParser() {
+        super(SkillQueueResponse.class, 2, ApiPath.CHARACTER, ApiPage.SKILL_QUEUE, SkillQueueHandler.class);
+    }
 
-	@Override
-	public SkillQueueResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public SkillQueueResponse getResponse(ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

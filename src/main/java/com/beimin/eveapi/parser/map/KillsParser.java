@@ -9,12 +9,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.map.KillsResponse;
 
 public class KillsParser extends AbstractListParser<KillsHandler, KillsResponse, SystemKills> {
-	public KillsParser() {
-		super(KillsResponse.class, 2, ApiPath.MAP, ApiPage.KILLS, KillsHandler.class);
-	}
+    public KillsParser() {
+        super(KillsResponse.class, 2, ApiPath.MAP, ApiPage.KILLS, KillsHandler.class);
+    }
 
-	@Override
-	public KillsResponse getResponse() throws ApiException {
-		return super.getResponse();
-	}
+    @Override
+    public KillsResponse getResponse() throws ApiException {
+        return super.getResponse();
+    }
 }

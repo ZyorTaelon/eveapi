@@ -7,12 +7,12 @@ import com.beimin.eveapi.parser.shared.AbstractAccountBalanceParser;
 import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 
 public class PilotAccountBalanceParser extends AbstractAccountBalanceParser {
-	public PilotAccountBalanceParser() {
-		super(ApiPath.CHARACTER);
-	}
+    public PilotAccountBalanceParser() {
+        super(ApiPath.CHARACTER);
+    }
 
-	@Override
-	public AccountBalanceResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public AccountBalanceResponse getResponse(ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

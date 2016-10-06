@@ -7,13 +7,13 @@ import com.beimin.eveapi.model.corporation.SecurityMember;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class MemberSecurityResponse extends ApiResponse {
-	private final Set<SecurityMember> members = new HashSet<SecurityMember>();
+    private final Set<SecurityMember> members = new HashSet<SecurityMember>();
 
-	public void addMember(SecurityMember member) {
-		members.add(member);
-	}
+    public void addMember(SecurityMember member) {
+        members.add(member);
+    }
 
-	public Set<SecurityMember> getMembers() {
-		return members;
-	}
+    public Set<SecurityMember> getMembers() {
+        return members;
+    }
 }

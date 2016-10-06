@@ -5,12 +5,12 @@ import com.beimin.eveapi.model.shared.ContactList;
 import com.beimin.eveapi.response.shared.AbstractContactListResponse;
 
 public class ContactListResponse extends AbstractContactListResponse {
-	public ContactList getContactList() {
-		return contactLists.get("contactList");
-	}
+    public ContactList getContactList() {
+        return contactLists.get("contactList");
+    }
 
-	public ContactLabelList getContactLabelList() {
-		return labelLists.get("contactLabels");
-	}
+    public ContactLabelList getContactLabelList() {
+        return labelLists.get("contactLabels");
+    }
 
 }

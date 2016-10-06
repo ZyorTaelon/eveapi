@@ -10,16 +10,16 @@ import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.corporation.StarbaseDetailResponse;
 
 public class StarbaseDetailParser extends AbstractApiParser<StarbaseDetailResponse> {
-	public StarbaseDetailParser() {
-		super(StarbaseDetailResponse.class, 2, ApiPath.CORPORATION, ApiPage.STARBASE_DETAIL);
-	}
+    public StarbaseDetailParser() {
+        super(StarbaseDetailResponse.class, 2, ApiPath.CORPORATION, ApiPage.STARBASE_DETAIL);
+    }
 
-	@Override
-	protected AbstractContentHandler getContentHandler() {
-		return new StarbaseDetailHandler();
-	}
+    @Override
+    protected AbstractContentHandler getContentHandler() {
+        return new StarbaseDetailHandler();
+    }
 
-	public StarbaseDetailResponse getResponse(ApiAuth auth, long itemID) throws ApiException {
-		return super.getResponse(auth, "itemID", Long.toString(itemID));
-	}
+    public StarbaseDetailResponse getResponse(ApiAuth auth, long itemID) throws ApiException {
+        return super.getResponse(auth, "itemID", Long.toString(itemID));
+    }
 }

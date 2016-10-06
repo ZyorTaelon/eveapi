@@ -9,12 +9,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.map.FacWarSystemsResponse;
 
 public class FacWarSystemsParser extends AbstractListParser<FacWarSystemsHandler, FacWarSystemsResponse, FacWarSystem> {
-	public FacWarSystemsParser() {
-		super(FacWarSystemsResponse.class, 2, ApiPath.MAP, ApiPage.FACTION_WAR_SYSTEMS, FacWarSystemsHandler.class);
-	}
+    public FacWarSystemsParser() {
+        super(FacWarSystemsResponse.class, 2, ApiPath.MAP, ApiPage.FACTION_WAR_SYSTEMS, FacWarSystemsHandler.class);
+    }
 
-	@Override
-	public FacWarSystemsResponse getResponse() throws ApiException {
-		return super.getResponse();
-	}
+    @Override
+    public FacWarSystemsResponse getResponse() throws ApiException {
+        return super.getResponse();
+    }
 }
