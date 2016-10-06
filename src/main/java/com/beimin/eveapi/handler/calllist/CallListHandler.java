@@ -23,7 +23,7 @@ public class CallListHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("result"))
+        if ("result".equals(qName))
             callList = new CallList();
         if (ELEMENT_ROWSET.equals(qName)) {
             String name = attrs.getValue("name");
@@ -56,7 +56,7 @@ public class CallListHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("result"))
+        if ("result".equals(qName))
             response.set(callList);
         if (ELEMENT_ROWSET.equals(qName)) {
             callGroups = false;

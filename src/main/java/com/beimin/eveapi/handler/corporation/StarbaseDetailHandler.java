@@ -17,13 +17,13 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("onStandingDrop")) {
+        if ("onStandingDrop".equals(qName)) {
             response.setOnStandingDrop(getCombatSetting(attrs));
-        } else if (qName.equals("onStatusDrop")) {
+        } else if ("onStatusDrop".equals(qName)) {
             response.setOnStatusDrop(getCombatSetting(attrs));
-        } else if (qName.equals("onAggression")) {
+        } else if ("onAggression".equals(qName)) {
             response.setOnAggression(getCombatSetting(attrs));
-        } else if (qName.equals("onCorporationWar")) {
+        } else if ("onCorporationWar".equals(qName)) {
             response.setOnCorporationWar(getCombatSetting(attrs));
         } else if (ELEMENT_ROW.equals(qName)) {
             response.addFuelLevel(getInt(attrs, "typeID"), getInt(attrs, "quantity"));
@@ -42,15 +42,15 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("usageFlags")) {
+        if ("usageFlags".equals(qName)) {
             response.setUsageFlags(getInt());
-        } else if (qName.equals("deployFlags")) {
+        } else if ("deployFlags".equals(qName)) {
             response.setDeployFlags(getInt());
-        } else if (qName.equals("allowCorporationMembers")) {
+        } else if ("allowCorporationMembers".equals(qName)) {
             response.setAllowCorporationMembers(getBoolean());
-        } else if (qName.equals("allowAllianceMembers")) {
+        } else if ("allowAllianceMembers".equals(qName)) {
             response.setAllowAllianceMembers(getBoolean());
-        } else if (qName.equals("claimSovereignty")) {
+        } else if ("claimSovereignty".equals(qName)) {
             response.setClaimSovereignty(getBoolean());
         }
 

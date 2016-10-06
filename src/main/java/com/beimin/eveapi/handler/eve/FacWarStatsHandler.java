@@ -52,17 +52,17 @@ public class FacWarStatsHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("killsYesterday"))
+        if ("killsYesterday".equals(qName))
             response.setKillsYesterday(getInt());
-        else if (qName.equals("killsLastWeek"))
+        else if ("killsLastWeek".equals(qName))
             response.setKillsLastWeek(getInt());
-        else if (qName.equals("killsTotal"))
+        else if ("killsTotal".equals(qName))
             response.setKillsTotal(getInt());
-        else if (qName.equals("victoryPointsYesterday"))
+        else if ("victoryPointsYesterday".equals(qName))
             response.setVictoryPointsYesterday(getInt());
-        else if (qName.equals("victoryPointsLastWeek"))
+        else if ("victoryPointsLastWeek".equals(qName))
             response.setVictoryPointsLastWeek(getInt());
-        else if (qName.equals("victoryPointsTotal"))
+        else if ("victoryPointsTotal".equals(qName))
             response.setVictoryPointsTotal(getInt());
         else if (ELEMENT_ROWSET.equals(qName)) {
             factions = false;

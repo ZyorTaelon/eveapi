@@ -20,9 +20,9 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("result"))
+        if ("result".equals(qName))
             apiKeyInfo = new ApiKeyInfo();
-        if (qName.equals("key")) {
+        if ("key".equals(qName)) {
             apiKeyInfo.setAccessMask(getLong(attrs, "accessMask"));
             apiKeyInfo.setType(KeyType.valueOf(getString(attrs, "type")));
             String expires = attrs.getValue("expires").trim();
@@ -39,7 +39,7 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
             character.setFactionID(getLong(attrs, "factionID"));
             character.setFactionName(getString(attrs, "factionName"));
             apiKeyInfo.addEveCharacter(character);
-        } else if (qName.equals("result"))
+        } else if ("result".equals(qName))
             response.set(apiKeyInfo);
         super.startElement(uri, localName, qName, attrs);
         accumulator.setLength(0);

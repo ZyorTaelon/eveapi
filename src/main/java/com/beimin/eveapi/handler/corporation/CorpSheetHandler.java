@@ -21,7 +21,7 @@ public class CorpSheetHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("logo")) {
+        if ("logo".equals(qName)) {
             logo = new CorpLogo();
         } else if (ELEMENT_ROWSET.equals(qName)) {
             String name = getString(attrs, "name");
@@ -42,53 +42,53 @@ public class CorpSheetHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("corporationID")) {
+        if ("corporationID".equals(qName)) {
             response.setCorporationID(getLong());
-        } else if (qName.equals("corporationName")) {
+        } else if ("corporationName".equals(qName)) {
             response.setCorporationName(getString());
-        } else if (qName.equals("ticker")) {
+        } else if ("ticker".equals(qName)) {
             response.setTicker(getString());
-        } else if (qName.equals("ceoID")) {
+        } else if ("ceoID".equals(qName)) {
             response.setCeoID(getLong());
-        } else if (qName.equals("ceoName")) {
+        } else if ("ceoName".equals(qName)) {
             response.setCeoName(getString());
-        } else if (qName.equals("stationID")) {
+        } else if ("stationID".equals(qName)) {
             response.setStationID(getLong());
-        } else if (qName.equals("stationName")) {
+        } else if ("stationName".equals(qName)) {
             response.setStationName(getString());
-        } else if (qName.equals("description")) {
+        } else if ("description".equals(qName)) {
             response.setDescription(getString());
-        } else if (qName.equals("url")) {
+        } else if ("url".equals(qName)) {
             response.setUrl(getString());
-        } else if (qName.equals("allianceID")) {
+        } else if ("allianceID".equals(qName)) {
             response.setAllianceID(getLong());
-        } else if (qName.equals("allianceName")) {
+        } else if ("allianceName".equals(qName)) {
             response.setAllianceName(getString());
-        } else if (qName.equals("factionID")) {
+        } else if ("factionID".equals(qName)) {
             response.setFactionID(getLong());
-        } else if (qName.equals("taxRate")) {
+        } else if ("taxRate".equals(qName)) {
             response.setTaxRate(getDouble());
-        } else if (qName.equals("memberCount")) {
+        } else if ("memberCount".equals(qName)) {
             response.setMemberCount(getInt());
-        } else if (qName.equals("memberLimit")) {
+        } else if ("memberLimit".equals(qName)) {
             response.setMemberLimit(getInt());
-        } else if (qName.equals("shares")) {
+        } else if ("shares".equals(qName)) {
             response.setShares(getLong());
-        } else if (qName.equals("graphicsID")) {
+        } else if ("graphicsID".equals(qName)) {
             logo.setGraphicID(getInt());
-        } else if (qName.equals("shape1")) {
+        } else if ("shape1".equals(qName)) {
             logo.setShape1(getInt());
-        } else if (qName.equals("shape2")) {
+        } else if ("shape2".equals(qName)) {
             logo.setShape2(getInt());
-        } else if (qName.equals("shape3")) {
+        } else if ("shape3".equals(qName)) {
             logo.setShape3(getInt());
-        } else if (qName.equals("color1")) {
+        } else if ("color1".equals(qName)) {
             logo.setColor1(getInt());
-        } else if (qName.equals("color2")) {
+        } else if ("color2".equals(qName)) {
             logo.setColor2(getInt());
-        } else if (qName.equals("color3")) {
+        } else if ("color3".equals(qName)) {
             logo.setColor3(getInt());
-        } else if (qName.equals("logo")) {
+        } else if ("logo".equals(qName)) {
             response.setLogo(logo);
         } else if (ELEMENT_ROWSET.equals(qName)) {
             if (divisions || walletDivisions) {

@@ -15,21 +15,21 @@ public class SkillInTrainingHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("currentTQTime"))
+        if ("currentTQTime".equals(qName))
             response.setCurrentTQTime(getDate());
-        else if (qName.equals("trainingEndTime"))
+        else if ("trainingEndTime".equals(qName))
             response.setTrainingEndTime(getDate());
-        else if (qName.equals("trainingStartTime"))
+        else if ("trainingStartTime".equals(qName))
             response.setTrainingStartTime(getDate());
-        else if (qName.equals("trainingTypeID"))
+        else if ("trainingTypeID".equals(qName))
             response.setTrainingTypeID(getInt());
-        else if (qName.equals("trainingStartSP"))
+        else if ("trainingStartSP".equals(qName))
             response.setTrainingStartSP(getInt());
-        else if (qName.equals("trainingDestinationSP"))
+        else if ("trainingDestinationSP".equals(qName))
             response.setTrainingDestinationSP(getInt());
-        else if (qName.equals("trainingToLevel"))
+        else if ("trainingToLevel".equals(qName))
             response.setTrainingToLevel(getInt());
-        else if (qName.equals("skillInTraining"))
+        else if ("skillInTraining".equals(qName))
             response.setSkillInTraining(getBoolean());
         super.endElement(uri, localName, qName);
     }

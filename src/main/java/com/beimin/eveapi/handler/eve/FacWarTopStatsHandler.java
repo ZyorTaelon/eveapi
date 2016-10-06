@@ -37,11 +37,11 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("characters"))
+        if ("characters".equals(qName))
             characters = true;
-        else if (qName.equals("corporations"))
+        else if ("corporations".equals(qName))
             corporations = true;
-        else if (qName.equals("factions"))
+        else if ("factions".equals(qName))
             factions = true;
         else if (ELEMENT_ROWSET.equals(qName)) {
             String name = getString(attrs, "name");
@@ -163,11 +163,11 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("characters"))
+        if ("characters".equals(qName))
             characters = false;
-        else if (qName.equals("corporations"))
+        else if ("corporations".equals(qName))
             corporations = false;
-        else if (qName.equals("factions"))
+        else if ("factions".equals(qName))
             corporations = false;
         else
             super.endElement(uri, localName, qName);

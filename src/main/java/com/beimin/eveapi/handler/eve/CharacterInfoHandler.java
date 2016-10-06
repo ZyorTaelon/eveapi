@@ -34,39 +34,39 @@ public class CharacterInfoHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("characterID"))
+        if ("characterID".equals(qName))
             response.setCharacterID(getLong());
-        else if (qName.equals("characterName"))
+        else if ("characterName".equals(qName))
             response.setCharacterName(getString());
-        else if (qName.equals("race"))
+        else if ("race".equals(qName))
             response.setRace(getRace());
-        else if (qName.equals("bloodline"))
+        else if ("bloodline".equals(qName))
             response.setBloodline(getBloodline());
-        else if (qName.equals("accountBalance"))
+        else if ("accountBalance".equals(qName))
             response.setAccountBalance(getDouble());
-        else if (qName.equals("skillPoints"))
+        else if ("skillPoints".equals(qName))
             response.setSkillPoints(getInt());
-        else if (qName.equals("shipName"))
+        else if ("shipName".equals(qName))
             response.setShipName(getString());
-        else if (qName.equals("shipTypeID"))
+        else if ("shipTypeID".equals(qName))
             response.setShipTypeID(getInt());
-        else if (qName.equals("shipTypeName"))
+        else if ("shipTypeName".equals(qName))
             response.setShipTypeName(getString());
-        else if (qName.equals("corporationID"))
+        else if ("corporationID".equals(qName))
             response.setCorporationID(getLong());
-        else if (qName.equals("corporation"))
+        else if ("corporation".equals(qName))
             response.setCorporation(getString());
-        else if (qName.equals("corporationDate"))
+        else if ("corporationDate".equals(qName))
             response.setCorporationDate(getDate());
-        else if (qName.equals("allianceID"))
+        else if ("allianceID".equals(qName))
             response.setAllianceID(getLong());
-        else if (qName.equals("alliance"))
+        else if ("alliance".equals(qName))
             response.setAlliance(getString());
-        else if (qName.equals("allianceDate"))
+        else if ("allianceDate".equals(qName))
             response.setAllianceDate(getDate());
-        else if (qName.equals("lastKnownLocation"))
+        else if ("lastKnownLocation".equals(qName))
             response.setLastKnownLocation(getString());
-        else if (qName.equals("securityStatus"))
+        else if ("securityStatus".equals(qName))
             response.setSecurityStatus(getDouble());
         super.endElement(uri, localName, qName);
     }

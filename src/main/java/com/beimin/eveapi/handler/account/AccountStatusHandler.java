@@ -18,7 +18,7 @@ public class AccountStatusHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        if (qName.equals("result"))
+        if ("result".equals(qName))
             accountStatus = new AccountStatus();
         super.startElement(uri, localName, qName, attributes);
         accumulator.setLength(0);
@@ -26,17 +26,17 @@ public class AccountStatusHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("userID"))
+        if ("userID".equals(qName))
             accountStatus.setUserID(getInt());
-        else if (qName.equals("paidUntil"))
+        else if ("paidUntil".equals(qName))
             accountStatus.setPaidUntil(getDate());
-        else if (qName.equals("createDate"))
+        else if ("createDate".equals(qName))
             accountStatus.setCreateDate(getDate());
-        else if (qName.equals("logonCount"))
+        else if ("logonCount".equals(qName))
             accountStatus.setLogonCount(getInt());
-        else if (qName.equals("logonMinutes"))
+        else if ("logonMinutes".equals(qName))
             accountStatus.setLogonMinutes(getInt());
-        else if (qName.equals("result"))
+        else if ("result".equals(qName))
             response.set(accountStatus);
         super.endElement(uri, localName, qName);
     }

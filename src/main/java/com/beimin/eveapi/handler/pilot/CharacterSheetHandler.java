@@ -33,15 +33,15 @@ public class CharacterSheetHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("intelligenceBonus"))
+        if ("intelligenceBonus".equals(qName))
             attributeEnhancer = new IntelligenceBonus();
-        else if (qName.equals("memoryBonus"))
+        else if ("memoryBonus".equals(qName))
             attributeEnhancer = new MemoryBonus();
-        else if (qName.equals("charismaBonus"))
+        else if ("charismaBonus".equals(qName))
             attributeEnhancer = new CharismaBonus();
-        else if (qName.equals("perceptionBonus"))
+        else if ("perceptionBonus".equals(qName))
             attributeEnhancer = new PerceptionBonus();
-        else if (qName.equals("willpowerBonus"))
+        else if ("willpowerBonus".equals(qName))
             attributeEnhancer = new WillpowerBonus();
         else if (ELEMENT_ROWSET.equals(qName))
             rowsetName = getString(attrs, "name");
@@ -93,51 +93,51 @@ public class CharacterSheetHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("characterID"))
+        if ("characterID".equals(qName))
             response.setCharacterID(getLong());
-        else if (qName.equals("name"))
+        else if ("name".equals(qName))
             response.setName(getString());
-        else if (qName.equals("race"))
+        else if ("race".equals(qName))
             response.setRace(getRace());
-        else if (qName.equals("DoB"))
+        else if ("DoB".equals(qName))
             response.setDateOfBirth(getDate());
-        else if (qName.equals("bloodLine"))
+        else if ("bloodLine".equals(qName))
             response.setBloodLine(getBloodline());
-        else if (qName.equals("ancestry"))
+        else if ("ancestry".equals(qName))
             response.setAncestry(getAncestry());
-        else if (qName.equals("gender"))
+        else if ("gender".equals(qName))
             response.setGender(getString());
-        else if (qName.equals("corporationID"))
+        else if ("corporationID".equals(qName))
             response.setCorporationID(getLong());
-        else if (qName.equals("corporationName"))
+        else if ("corporationName".equals(qName))
             response.setCorporationName(getString());
-        else if (qName.equals("allianceID"))
+        else if ("allianceID".equals(qName))
             response.setAllianceID(getLong());
-        else if (qName.equals("allianceName")) {
+        else if ("allianceName".equals(qName)) {
             if (getString() != null && !getString().equals(""))
                 response.setAllianceName(getString());
-        } else if (qName.equals("cloneName"))
+        } else if ("cloneName".equals(qName))
             response.setCloneName(getString());
-        else if (qName.equals("cloneSkillPoints"))
+        else if ("cloneSkillPoints".equals(qName))
             response.setCloneSkillPoints(getLong());
-        else if (qName.equals("balance"))
+        else if ("balance".equals(qName))
             response.setBalance(getDouble());
-        else if (qName.equals("augmentatorName"))
+        else if ("augmentatorName".equals(qName))
             attributeEnhancer.setAugmentatorName(getString());
-        else if (qName.equals("augmentatorValue"))
+        else if ("augmentatorValue".equals(qName))
             attributeEnhancer.setAugmentatorValue(getInt());
         else if (qName.endsWith("Bonus")) {
             response.addAttributeEnhancer(attributeEnhancer);
             attributeEnhancer = null;
-        } else if (qName.equals("intelligence"))
+        } else if ("intelligence".equals(qName))
             response.setIntelligence(getInt());
-        else if (qName.equals("memory"))
+        else if ("memory".equals(qName))
             response.setMemory(getInt());
-        else if (qName.equals("charisma"))
+        else if ("charisma".equals(qName))
             response.setCharisma(getInt());
-        else if (qName.equals("perception"))
+        else if ("perception".equals(qName))
             response.setPerception(getInt());
-        else if (qName.equals("willpower"))
+        else if ("willpower".equals(qName))
             response.setWillpower(getInt());
         else if (ELEMENT_ROWSET.equals(qName))
             rowsetName = null;
