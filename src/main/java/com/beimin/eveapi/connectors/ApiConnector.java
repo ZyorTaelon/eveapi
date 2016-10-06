@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -103,7 +104,7 @@ public class ApiConnector {
             StringBuilder result = new StringBuilder(getBaseUrl());
             result.append(request.getPath().getPath()).append('/').append(request.getPage().getPage()).append(".xml.aspx");
             return new URL(result.toString());
-        } catch (Exception e) {
+        } catch (MalformedURLException e) {
             throw new ApiException(e);
         }
     }
