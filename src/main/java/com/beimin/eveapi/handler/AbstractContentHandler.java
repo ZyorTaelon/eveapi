@@ -13,6 +13,16 @@ import com.beimin.eveapi.utils.DateUtils;
 
 public abstract class AbstractContentHandler extends DefaultHandler {
 	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractContentHandler.class);
+	protected static final String ELEMENT_EVEAPI = "eveapi";
+	protected static final String ELEMENT_CACHED_UNTIL = "cachedUntil";
+	protected static final String ELEMENT_CURRENT_TIME = "currentTime";
+	protected static final String ELEMENT_ROW = "row";
+	protected static final String ELEMENT_ROWSET = "rowset";
+	protected static final String ATTRIBUTE_VERSION = "version";
+	protected static final String ATTRIBUTE_CODE = "code";
+	protected static final String ATTRIBUTE_ERROR = "error";
+	protected static final String ATTRIBUTE_NAME = "name";
+	protected static final String VALUE_TRUE = "true";
 
 	protected StringBuffer accumulator = new StringBuffer(); // Accumulate parsed text
 	private ApiError error;
@@ -24,11 +34,11 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-		if (qName.equals("eveapi")) {
-			getResponse().setVersion(getInt(attrs, "version"));
-		} else if (qName.equals("error")) {
+		if (ELEMENT_EVEAPI.equals(qName)) {
+			getResponse().setVersion(getInt(attrs, ATTRIBUTE_VERSION));
+		} else if (ATTRIBUTE_ERROR.equals(qName)) {
 			error = new ApiError();
-			error.setCode(getInt(attrs, "code"));
+			error.setCode(getInt(attrs, ATTRIBUTE_CODE));
 			getResponse().setError(error);
 		}
 		accumulator.setLength(0);
@@ -36,11 +46,11 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
-		if (qName.equals("currentTime"))
+		if (ELEMENT_CURRENT_TIME.equals(qName))
 			getResponse().setCurrentTime(getDate());
-		else if (qName.equals("cachedUntil"))
+		else if (ELEMENT_CACHED_UNTIL.equals(qName))
 			getResponse().setCachedUntil(getDate());
-		else if (qName.equals("error"))
+		else if (ATTRIBUTE_ERROR.equals(qName))
 			error.setError(getString());
 	}
 
@@ -131,11 +141,11 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 	}
 	
 	protected boolean getBoolean() {
-		return "1".equals(getString()) || "true".equalsIgnoreCase(getString());
+		return "1".equals(getString()) || VALUE_TRUE.equalsIgnoreCase(getString());
 	}
 
 	protected boolean getBoolean(Attributes attrs, String qName) {
-		return "1".equals(getString(attrs, qName)) || "true".equalsIgnoreCase(getString(attrs, qName));
+		return "1".equals(getString(attrs, qName)) || VALUE_TRUE.equalsIgnoreCase(getString(attrs, qName));
 	}
 
 	protected void checkForNewFields(Attributes attrs, int number) {

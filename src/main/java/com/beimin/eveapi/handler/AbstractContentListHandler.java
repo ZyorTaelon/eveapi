@@ -31,7 +31,7 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
 	
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-		if (qName.equals("row")) {
+		if (ELEMENT_ROW.equals(qName)) {
 			response.add(getItem(attrs));
 		}
 		super.startElement(uri, localName, qName, attrs);

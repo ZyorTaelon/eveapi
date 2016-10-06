@@ -31,4 +31,41 @@ public class ContactLabelList extends ArrayList<ContactLabel> {
     public void setColumns(String columns) {
         this.columns = columns;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((columns == null) ? 0 : columns.hashCode());
+		result = prime * result + ((key == null) ? 0 : key.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ContactLabelList other = (ContactLabelList) obj;
+		if (columns == null) {
+			if (other.columns != null)
+				return false;
+		} else if (!columns.equals(other.columns))
+			return false;
+		if (key == null) {
+			if (other.key != null)
+				return false;
+		} else if (!key.equals(other.key))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
 }
