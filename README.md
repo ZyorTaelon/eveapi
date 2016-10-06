@@ -36,6 +36,13 @@ And you'll need some slf4j implementation like
 
 You can find where to download those jars [here](http://google.com).
 
+## Online tests ##
+The default unit tests are offline against some data downloaded from the API. The online tests are disabled by default and can be executed with:
+
+```shell
+mvn clean test -Ponline
+```
+
 # Usage #
 Generally you can look at the automated unit tests that are available in the source code and can be viewed on GitHub. For instance https://github.com/ZyorTaelon/eveapi/blob/master/src/test/java/com/beimin/eveapi/account/characters/CharactersParserTest.java which tests and shows how to retrieve the list of Characters connected to an API key.
 

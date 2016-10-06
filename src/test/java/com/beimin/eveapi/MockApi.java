@@ -11,6 +11,7 @@ public class MockApi extends Thread {
 		MockApi mockApi = new MockApi();
 		mockApi.start();
 	}
+
 	@Override
 	public void run() {
 		try {
@@ -24,7 +25,4 @@ public class MockApi extends Thread {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
 }

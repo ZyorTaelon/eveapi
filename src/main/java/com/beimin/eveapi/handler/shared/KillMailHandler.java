@@ -8,15 +8,15 @@ import com.beimin.eveapi.model.shared.Kill;
 import com.beimin.eveapi.model.shared.KillAttacker;
 import com.beimin.eveapi.model.shared.KillItem;
 import com.beimin.eveapi.model.shared.KillVictim;
-import com.beimin.eveapi.response.shared.KillLogResponse;
+import com.beimin.eveapi.response.shared.KillMailResponse;
 
-public class KillLogHandler extends AbstractContentListHandler<KillLogResponse, Kill> {
+public class KillMailHandler extends AbstractContentListHandler<KillMailResponse, Kill> {
 	private Kill apiKill;
 	private boolean inAttackers;
 	private boolean inItems;
 
-	public KillLogHandler() {
-		super(KillLogResponse.class);
+	public KillMailHandler() {
+		super(KillMailResponse.class);
 	}
 
 	@Override
@@ -43,13 +43,16 @@ public class KillLogHandler extends AbstractContentListHandler<KillLogResponse, 
 				attacker.setFinalBlow(getBoolean(attrs, "finalBlow"));
 				attacker.setWeaponTypeID(getInt(attrs, "weaponTypeID"));
 				attacker.setShipTypeID(getInt(attrs, "shipTypeID"));
+				checkForNewFields(attrs, 13);
 				apiKill.add(attacker);
 			} else if (inItems) {
 				KillItem item = new KillItem();
-				item.setTypeID(getInt(attrs, "typeID"));
+				item.setTypeID(getLong(attrs, "typeID"));
 				item.setFlag(getInt(attrs, "flag"));
 				item.setQtyDestroyed(getInt(attrs, "qtyDestroyed"));
 				item.setQtyDropped(getInt(attrs, "qtyDropped"));
+				item.setSingleton(getInt(attrs, "singleton"));
+				checkForNewFields(attrs, 5);
 				apiKill.add(item);
 			} else {
 				apiKill = getItem(attrs);
@@ -65,7 +68,11 @@ public class KillLogHandler extends AbstractContentListHandler<KillLogResponse, 
 			victim.setFactionID(getInt(attrs, "factionID"));
 			victim.setFactionName(getString(attrs, "factionName"));
 			victim.setDamageTaken(getLong(attrs, "damageTaken"));
-			victim.setShipTypeID(getInt(attrs, "shipTypeID"));
+			victim.setShipTypeID(getLong(attrs, "shipTypeID"));
+			victim.setPositionX(getDouble(attrs, "x"));
+			victim.setPositionY(getDouble(attrs, "y"));
+			victim.setPositionZ(getDouble(attrs, "z"));
+			checkForNewFields(attrs, 13);
 			apiKill.setVictim(victim);
 		} else
 			super.startElement(uri, localName, qName, attrs);
@@ -76,12 +83,13 @@ public class KillLogHandler extends AbstractContentListHandler<KillLogResponse, 
 		if (qName.equals("rowset")) {
 			inAttackers = false;
 			inItems = false;
-		}
-		if (qName.equals("row")) {
+		} else if (qName.equals("row")) {
 			if (!inAttackers && !inItems) {
 				response.add(apiKill);
 				apiKill = null;
 			}
+		} else {
+			super.endElement(uri, localName, qName);
 		}
 	}
 
@@ -92,6 +100,7 @@ public class KillLogHandler extends AbstractContentListHandler<KillLogResponse, 
 		item.setKillTime(getDate(attrs, "killTime"));
 		item.setMoonID(getInt(attrs, "moonID"));
 		item.setSolarSystemID(getLong(attrs, "solarSystemID"));
+		checkForNewFields(attrs, 4);
 		return item;
 	}
 }
