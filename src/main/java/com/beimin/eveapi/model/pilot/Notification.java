@@ -68,14 +68,10 @@ public class Notification {
 		CORPORATION_JOINING_FACTIONAL_WARFARE(58, "Corporation joining factional warfare"), //
 		JUMP_CLONE_DESTROYED1(57, "Jump clone destroyed"), //
 		JUMP_CLONE_DESTROYED2(56, "Jump clone destroyed"), //
-		CHARACTER_FACTIONAL_WARFARE_LOW_STANDINGS_WARNING(63,
-				"Character in factional warfare warned on startup because of too low standing to the faction"), //
-		CORPORATION_FACTIONAL_WARFARE_LOW_STANDINGS_WARNING(62,
-				"Corporation in factional warfare warned on startup because of too low standing to the faction"), //
-		CHARACTER_FROM_FACTIONAL_KICKED(61,
-				"Character kicked from factional warfare on startup because of too low standing to the faction"), //
-		CORPORATION_FROM_FACTIONAL_KICKED(60,
-				"Corporation kicked from factional warfare on startup because of too low standing to the faction"), //
+		CHARACTER_FACTIONAL_WARFARE_LOW_STANDINGS_WARNING(63, "Character in factional warfare warned on startup because of too low standing to the faction"), //
+		CORPORATION_FACTIONAL_WARFARE_LOW_STANDINGS_WARNING(62, "Corporation in factional warfare warned on startup because of too low standing to the faction"), //
+		CHARACTER_FROM_FACTIONAL_KICKED(61, "Character kicked from factional warfare on startup because of too low standing to the faction"), //
+		CORPORATION_FROM_FACTIONAL_KICKED(60, "Corporation kicked from factional warfare on startup because of too low standing to the faction"), //
 		REIMBURSEMENT_MESSAGE(68, "Reimbursement message"), //
 		CHARACTER_LOCATED(69, "Agent locates a character"), //
 		RESEARCH_MISSION_AVAILABLE(70, "Research mission becomes available from an agent"), //

@@ -10,7 +10,7 @@ public class StringUtils {
 		}
 		return result.toString();
 	}
-	
+
 	public static String join(String glue, int... arguments) {
 		StringBuilder result = new StringBuilder();
 		for (int i = 0; i < arguments.length; i++) {

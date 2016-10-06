@@ -6,7 +6,7 @@ import org.apache.camel.impl.DefaultCamelContext;
 import com.beimin.eveapi.utils.EveApiRouteBuilder;
 
 public class MockApi extends Thread {
-	
+
 	public static void main(String[] args) {
 		MockApi mockApi = new MockApi();
 		mockApi.start();
@@ -18,7 +18,7 @@ public class MockApi extends Thread {
 			CamelContext context = new DefaultCamelContext();
 			context.addRoutes(new EveApiRouteBuilder());
 			context.start();
-			while(isAlive()) {
+			while (isAlive()) {
 				Thread.sleep(1000);
 			}
 		} catch (Exception e) {

@@ -115,7 +115,7 @@ public class CorpSheetResponse extends ApiResponse {
 	public void setAllianceName(String allianceName) {
 		this.allianceName = allianceName;
 	}
-	
+
 	public Long getFactionID() {
 		return factionID;
 	}

@@ -35,7 +35,7 @@ public class CallListParserTest extends NoAuthParserTest {
 		CallListParser parser = new CallListParser();
 		CallListResponse response = parser.getResponse();
 		assertNotNull(response);
-		
+
 		List<CallGroup> callGroups = new ArrayList<CallGroup>(response.get().getCallGroups());
 		assertFalse("There were no call groups", callGroups.isEmpty());
 		Collections.sort(callGroups, new Comparator<CallGroup>() {
@@ -45,14 +45,14 @@ public class CallListParserTest extends NoAuthParserTest {
 		});
 		assertEquals(1, callGroups.get(0).getGroupID());
 		assertEquals("Account and Market", callGroups.get(0).getName());
-		
+
 		List<Call> calls = new ArrayList<Call>(response.get().getCalls());
 		assertFalse("There were no calls", calls.isEmpty());
 		Collections.sort(calls, new Comparator<Call>() {
 			public int compare(Call o1, Call o2) {
 				int ret = o1.getType().compareTo(o2.getType());
 				if (ret == 0) {
-					ret = (int)(o1.getAccessMask() - o2.getAccessMask());
+					ret = (int) (o1.getAccessMask() - o2.getAccessMask());
 				}
 				return ret;
 			}

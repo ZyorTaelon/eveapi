@@ -42,7 +42,7 @@ public class Certificate {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public void add(RequiredSkill requirement) {
 		requiredSkills.add(requirement);
 	}

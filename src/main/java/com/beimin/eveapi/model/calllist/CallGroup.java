@@ -36,7 +36,7 @@ public class CallGroup {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public void addCall(Call call) {
 		calls.add(call);
 	}

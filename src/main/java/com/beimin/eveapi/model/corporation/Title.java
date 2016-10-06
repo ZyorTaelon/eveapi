@@ -66,31 +66,31 @@ public class Title {
 	public void addRole(Role role) {
 		roles.add(role);
 	}
-	
+
 	public void addGrantableRole(Role role) {
 		grantableRoles.add(role);
 	}
-	
+
 	public void addRoleAtHQ(Role role) {
 		rolesAtHQ.add(role);
 	}
-	
+
 	public void addGrantableRoleAtHQ(Role role) {
 		grantableRolesAtHQ.add(role);
 	}
-	
+
 	public void addRoleAtBase(Role role) {
 		rolesAtBase.add(role);
 	}
-	
+
 	public void addGrantableRoleAtBase(Role role) {
 		grantableRolesAtBase.add(role);
 	}
-	
+
 	public void addRoleAtOther(Role role) {
 		rolesAtOther.add(role);
 	}
-	
+
 	public void addGrantableRoleAtOther(Role role) {
 		grantableRolesAtOther.add(role);
 	}

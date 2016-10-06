@@ -84,7 +84,7 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 
 	protected Integer parseInteger(String value) {
 		Integer result = null;
-		if(value != null && !value.trim().isEmpty()) {
+		if (value != null && !value.trim().isEmpty()) {
 			try {
 				result = Integer.parseInt(value);
 			} catch (NumberFormatException e) {
@@ -95,7 +95,7 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 		}
 		return result;
 	}
-	
+
 	protected Long getLong() {
 		return parseLong(getString());
 	}
@@ -106,7 +106,7 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 
 	protected Long parseLong(String value) {
 		Long result = null;
-		if(value != null && !value.trim().isEmpty()) {
+		if (value != null && !value.trim().isEmpty()) {
 			try {
 				result = Long.parseLong(value);
 			} catch (NumberFormatException e) {
@@ -117,7 +117,7 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 		}
 		return result;
 	}
-	
+
 	protected Double getDouble() {
 		return parseDouble(getString());
 	}
@@ -128,7 +128,7 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 
 	protected Double parseDouble(String value) {
 		Double result = null;
-		if(value != null && !value.trim().isEmpty()) {
+		if (value != null && !value.trim().isEmpty()) {
 			try {
 				result = Double.parseDouble(value);
 			} catch (NumberFormatException e) {
@@ -139,7 +139,7 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 		}
 		return result;
 	}
-	
+
 	protected boolean getBoolean() {
 		return "1".equals(getString()) || VALUE_TRUE.equalsIgnoreCase(getString());
 	}

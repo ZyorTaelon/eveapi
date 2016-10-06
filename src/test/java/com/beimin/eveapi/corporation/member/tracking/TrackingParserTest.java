@@ -36,7 +36,7 @@ public class TrackingParserTest extends FullAuthParserTest {
 		Set<Member> members = response.getAll();
 		boolean found = false;
 		for (Member member : members) {
-			if(member.getCharacterID()==150336922L) {
+			if (member.getCharacterID() == 150336922L) {
 				found = true;
 				assertEquals("corpexport", member.getName());
 				assertNull(member.getLocation());
@@ -56,7 +56,7 @@ public class TrackingParserTest extends FullAuthParserTest {
 		Set<Member> members = response.getAll();
 		boolean found = false;
 		for (Member member : members) {
-			if(member.getCharacterID()==150336922L) {
+			if (member.getCharacterID() == 150336922L) {
 				found = true;
 				assertEquals("corpexport", member.getName());
 				assertEquals("Bourynes VII - Moon 2 - University of Caille School", member.getLocation());
@@ -64,21 +64,16 @@ public class TrackingParserTest extends FullAuthParserTest {
 		}
 		assertTrue("Test character not found: ", found);
 	}
-	
+
 	private final RouteBuilder extended = new RouteBuilder() {
 		@Override
 		public void configure() {
-			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx")
-					.process(new ExchangeProcessor(
-						new ExchangeProcessor.ExtraAsserts() {
-							public void extraAsserts(Map<String, String> params) {
-								assertNotNull(params);
-								assertEquals("1", params.get("extended"));
-							}
-						},
-						path.getPath() + "/" + page.getPage() + "Extended.xml"
-					))
-					.end();
+			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
+				public void extraAsserts(Map<String, String> params) {
+					assertNotNull(params);
+					assertEquals("1", params.get("extended"));
+				}
+			}, path.getPath() + "/" + page.getPage() + "Extended.xml")).end();
 		}
 	};
 }

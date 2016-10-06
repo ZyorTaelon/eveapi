@@ -2,7 +2,6 @@ package com.beimin.eveapi.model.pilot;
 
 import com.beimin.eveapi.response.pilot.CalendarEventResponse;
 
-
 public class CalendarEventAttendee {
 	private long eventID;
 	private long characterID;
@@ -32,9 +31,11 @@ public class CalendarEventAttendee {
 	public void setCharacterName(String characterName) {
 		this.characterName = characterName;
 	}
+
 	public CalendarEventResponse getResponse() {
 		return response;
 	}
+
 	public void setResponse(CalendarEventResponse response) {
 		this.response = response;
 	}

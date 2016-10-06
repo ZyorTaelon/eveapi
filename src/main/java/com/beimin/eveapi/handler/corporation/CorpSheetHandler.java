@@ -31,7 +31,7 @@ public class CorpSheetHandler extends AbstractContentHandler {
 			Division division = new Division();
 			division.setAccountKey(getInt(attrs, "accountKey"));
 			division.setDescription(getString(attrs, "description"));
-			if(divisions)
+			if (divisions)
 				response.addDivision(division);
 			else if (walletDivisions)
 				response.addWalletDivision(division);
@@ -64,8 +64,8 @@ public class CorpSheetHandler extends AbstractContentHandler {
 			response.setAllianceID(getLong());
 		} else if (qName.equals("allianceName")) {
 			response.setAllianceName(getString());
-        } else if (qName.equals("factionID")) {
-            response.setFactionID(getLong());
+		} else if (qName.equals("factionID")) {
+			response.setFactionID(getLong());
 		} else if (qName.equals("taxRate")) {
 			response.setTaxRate(getDouble());
 		} else if (qName.equals("memberCount")) {
@@ -91,7 +91,7 @@ public class CorpSheetHandler extends AbstractContentHandler {
 		} else if (qName.equals("logo")) {
 			response.setLogo(logo);
 		} else if (qName.equals("rowset")) {
-			if(divisions || walletDivisions) {
+			if (divisions || walletDivisions) {
 				divisions = false;
 				walletDivisions = false;
 			}

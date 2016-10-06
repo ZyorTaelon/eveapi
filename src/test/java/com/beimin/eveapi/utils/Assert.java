@@ -8,8 +8,7 @@ import java.util.TimeZone;
 
 public class Assert {
 
-	public static void assertDate(int year, int month, int day,
-			int hour, int minute, int second, Date date) {
+	public static void assertDate(int year, int month, int day, int hour, int minute, int second, Date date) {
 		Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
 		calendar.set(Calendar.YEAR, year);
 		calendar.set(Calendar.MONTH, month - 1);

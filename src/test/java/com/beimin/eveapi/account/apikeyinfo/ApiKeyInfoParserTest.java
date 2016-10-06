@@ -17,7 +17,6 @@ import com.beimin.eveapi.parser.account.ApiKeyInfoParser;
 import com.beimin.eveapi.response.account.ApiKeyInfoResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
-
 public class ApiKeyInfoParserTest extends FullAuthParserTest {
 	public ApiKeyInfoParserTest() {
 		super(ApiPath.ACCOUNT, ApiPage.API_KEY_INFO);
@@ -64,7 +63,7 @@ public class ApiKeyInfoParserTest extends FullAuthParserTest {
 		assertEquals("Generic Test Alliance", characters.get(2).getAllianceName());
 		assertEquals(987654321, characters.get(2).getFactionID());
 		assertEquals("Generic Test Faction", characters.get(2).getFactionName());
-		//assertEquals(5603, response.getCharacterID());
-		//assertEquals(504903, response.getLogonMinutes());
+		// assertEquals(5603, response.getCharacterID());
+		// assertEquals(504903, response.getLogonMinutes());
 	}
 }

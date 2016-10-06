@@ -36,7 +36,7 @@ public class PublicCorpSheetParserTest extends NoAuthParserTest {
 		assertEquals("", response.getUrl());
 		assertEquals(150382481L, response.getAllianceID().longValue());
 		assertEquals("Starbase Anchoring Alliance", response.getAllianceName());
-        assertEquals(500004, response.getFactionID().longValue());
+		assertEquals(500004, response.getFactionID().longValue());
 		assertEquals(2.0, response.getTaxRate(), 0.0001);
 		assertEquals(1, response.getMemberCount());
 		assertEquals(18948735103L, response.getShares());
@@ -50,7 +50,7 @@ public class PublicCorpSheetParserTest extends NoAuthParserTest {
 		assertEquals(0, logo.getColor2());
 		assertEquals(0, logo.getColor3());
 	}
-	
+
 	@Override
 	protected String getResourcePath() {
 		return getPath().getPath() + "/" + getPage().getPage() + "Public" + ".xml";

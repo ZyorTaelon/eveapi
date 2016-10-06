@@ -14,9 +14,7 @@ import org.junit.BeforeClass;
 import com.beimin.eveapi.connectors.ApiConnector;
 
 public abstract class AbstractOnlineTest {
-	private List<Class<?>> nullCheckClasses = Arrays.asList(new Class<?>[] {
-			Date.class, Integer.class, Long.class, Double.class, int.class,
-			long.class, double.class });
+	private List<Class<?>> nullCheckClasses = Arrays.asList(new Class<?>[] { Date.class, Integer.class, Long.class, Double.class, int.class, long.class, double.class });
 
 	@BeforeClass
 	public static void setUp() {

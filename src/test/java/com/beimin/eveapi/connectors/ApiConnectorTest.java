@@ -29,49 +29,49 @@ import com.beimin.eveapi.response.account.ApiKeyInfoResponse;
 
 @RunWith(PowerMockRunner.class)
 public class ApiConnectorTest {
-    private ApiConnector classToTest;
-    @Mock
-    private SAXParserFactory saxParserFactory;
-    @Mock
-    private SAXParser saxParser;
-    @Mock
-    private XMLReader xmlReader;
+	private ApiConnector classToTest;
+	@Mock
+	private SAXParserFactory saxParserFactory;
+	@Mock
+	private SAXParser saxParser;
+	@Mock
+	private XMLReader xmlReader;
 
-    @Before
-    public void setUp() throws ParserConfigurationException, SAXException {
-        classToTest = new ApiConnector();
+	@Before
+	public void setUp() throws ParserConfigurationException, SAXException {
+		classToTest = new ApiConnector();
 
-        PowerMockito.mockStatic(SAXParserFactory.class);
-        PowerMockito.when(SAXParserFactory.newInstance()).thenReturn(saxParserFactory);
-        when(saxParserFactory.newSAXParser()).thenReturn(saxParser);
-        when(saxParser.getXMLReader()).thenReturn(xmlReader);
-    }
+		PowerMockito.mockStatic(SAXParserFactory.class);
+		PowerMockito.when(SAXParserFactory.newInstance()).thenReturn(saxParserFactory);
+		when(saxParserFactory.newSAXParser()).thenReturn(saxParser);
+		when(saxParser.getXMLReader()).thenReturn(xmlReader);
+	}
 
-    @PrepareForTest(SAXParserFactory.class)
-    @Test
-    public void withSecureXmlProcessing() throws ApiException, ParserConfigurationException, SAXException {
-        final ApiRequest request = getRequest();
-        ApiConnector.setSecureXmlProcessing(true);
+	@PrepareForTest(SAXParserFactory.class)
+	@Test
+	public void withSecureXmlProcessing() throws ApiException, ParserConfigurationException, SAXException {
+		final ApiRequest request = getRequest();
+		ApiConnector.setSecureXmlProcessing(true);
 
-        classToTest.execute(request, new ApiKeyInfoHandler(), ApiKeyInfoResponse.class);
+		classToTest.execute(request, new ApiKeyInfoHandler(), ApiKeyInfoResponse.class);
 
-        verify(xmlReader).setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-    }
+		verify(xmlReader).setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+	}
 
-    @PrepareForTest(SAXParserFactory.class)
-    @Test
-    public void withoutSecureXmlProcessing() throws ApiException, ParserConfigurationException, SAXException {
-        final ApiRequest request = getRequest();
-        ApiConnector.setSecureXmlProcessing(false);
+	@PrepareForTest(SAXParserFactory.class)
+	@Test
+	public void withoutSecureXmlProcessing() throws ApiException, ParserConfigurationException, SAXException {
+		final ApiRequest request = getRequest();
+		ApiConnector.setSecureXmlProcessing(false);
 
-        classToTest.execute(request, new ApiKeyInfoHandler(), ApiKeyInfoResponse.class);
+		classToTest.execute(request, new ApiKeyInfoHandler(), ApiKeyInfoResponse.class);
 
-        verify(xmlReader, never()).setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-    }
+		verify(xmlReader, never()).setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+	}
 
-    private ApiRequest getRequest() {
-        final ApiAuthorization authorization = new ApiAuthorization(12345, "");
-        final ApiRequest request = new ApiRequest(ApiPath.ACCOUNT, ApiPage.API_KEY_INFO, 2, authorization);
-        return request;
-    }
+	private ApiRequest getRequest() {
+		final ApiAuthorization authorization = new ApiAuthorization(12345, "");
+		final ApiRequest request = new ApiRequest(ApiPath.ACCOUNT, ApiPage.API_KEY_INFO, 2, authorization);
+		return request;
+	}
 }

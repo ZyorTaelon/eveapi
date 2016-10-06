@@ -21,8 +21,7 @@ public class WalletJournalParser extends AbstractWalletJournalParser {
 		return getResponse(auth, 1000, beforeRefID, DEFAULT_ROW_COUNT);
 	}
 
-	public WalletJournalResponse getWalletJournalResponse(ApiAuth auth, long beforeRefID, int rowCount)
-			throws ApiException {
+	public WalletJournalResponse getWalletJournalResponse(ApiAuth auth, long beforeRefID, int rowCount) throws ApiException {
 		return getResponse(auth, 1000, beforeRefID, rowCount);
 	}
 }

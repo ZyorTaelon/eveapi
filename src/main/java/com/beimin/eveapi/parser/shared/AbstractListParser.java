@@ -11,14 +11,12 @@ import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.response.ApiListResponse;
 
-public abstract class AbstractListParser<H extends AbstractContentListHandler<E, B>, E extends ApiListResponse<B>, B>
-		extends AbstractApiParser<E> {
+public abstract class AbstractListParser<H extends AbstractContentListHandler<E, B>, E extends ApiListResponse<B>, B> extends AbstractApiParser<E> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractListParser.class);
-	
+
 	private final Class<H> handlerClazz;
 
-	public AbstractListParser(final Class<E> clazz, final int version, final ApiPath path, final ApiPage page,
-			final Class<H> handlerClazz) {
+	public AbstractListParser(final Class<E> clazz, final int version, final ApiPath path, final ApiPage page, final Class<H> handlerClazz) {
 		super(clazz, version, path, page);
 		this.handlerClazz = handlerClazz;
 	}

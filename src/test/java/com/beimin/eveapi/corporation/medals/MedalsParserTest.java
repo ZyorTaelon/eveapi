@@ -31,10 +31,7 @@ public class MedalsParserTest extends FullAuthParserTest {
 		Medal medal = medals.iterator().next();
 		assertEquals("Wrong medal characterID", 1745, medal.getMedalID());
 		assertEquals("Wrong medal name", "Capital Red Eyed Award", medal.getTitle());
-		assertEquals(
-				"Wrong medal description",
-				"This award is given to captial pilots that not only fought on the front lines but stayed up way to late and past their 9pm bedtimes to kill the scum that think they are better than us.",
-				medal.getDescription());
+		assertEquals("Wrong medal description", "This award is given to captial pilots that not only fought on the front lines but stayed up way to late and past their 9pm bedtimes to kill the scum that think they are better than us.", medal.getDescription());
 		assertEquals("Wrong member name", 817217271L, medal.getCreatorID());
 		assertDate(2008, 11, 12, 7, 37, 0, medal.getCreated());
 	}

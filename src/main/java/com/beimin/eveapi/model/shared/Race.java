@@ -7,16 +7,16 @@ public enum Race {
 		Bloodline[] result = null;
 		switch (this) {
 		case CALDARI:
-			result = new Bloodline[] {Bloodline.CIVIRE, Bloodline.DETEIS, Bloodline.ACHURA};
+			result = new Bloodline[] { Bloodline.CIVIRE, Bloodline.DETEIS, Bloodline.ACHURA };
 			break;
 		case GALLENTE:
-			result = new Bloodline[] {Bloodline.GALLENTE, Bloodline.INTAKI, Bloodline.JIN_MEI};
+			result = new Bloodline[] { Bloodline.GALLENTE, Bloodline.INTAKI, Bloodline.JIN_MEI };
 			break;
 		case AMARR:
-			result = new Bloodline[] {Bloodline.AMARR, Bloodline.KHANID, Bloodline.NI_KUNNI};
+			result = new Bloodline[] { Bloodline.AMARR, Bloodline.KHANID, Bloodline.NI_KUNNI };
 			break;
 		case MINMATAR:
-			result = new Bloodline[] {Bloodline.BRUTOR, Bloodline.SEBIESTOR, Bloodline.VHEROKIOR};
+			result = new Bloodline[] { Bloodline.BRUTOR, Bloodline.SEBIESTOR, Bloodline.VHEROKIOR };
 			break;
 		default:
 			break;

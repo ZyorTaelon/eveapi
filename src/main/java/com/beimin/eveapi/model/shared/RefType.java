@@ -101,7 +101,7 @@ public enum RefType {
 	PLANETARY_EXPORT_TAX(97, "Planetary Export Tax", "", ""), //
 	PLANETARY_CONSTRUCTION(98, "Planetary Construction", "", ""), //
 	CORPORATE_REWARD_PAYOUT(99, "Corporate Reward Payout", "", ""), //
-	//MINIGAME_BETTING(100, "Minigame Betting", "", ""), //
+	// MINIGAME_BETTING(100, "Minigame Betting", "", ""), //
 	BOUNTY_SURCHARGE(101, "Bounty Surcharge", "", ""), //
 	CONTRACT_REVERSAL(102, "Contract Reversal", "", ""), //
 	CORPORATE_REWARD_TAX(103, "Corporate Reward Tax", "", ""), //
@@ -129,7 +129,7 @@ public enum RefType {
 	PROJECT_DISCOVERY_TAX(126, "Project Discovery Tax", "", ""), //
 	REPROCESSING_TAX(127, "Reprocessing Tax", "", ""), //
 	JUMP_CLONE_ACTIVATION_FEE(128, "Jump Clone Activation Fee", "", ""), //
-	
+
 	MODIFY_ISK(10001, "Modify ISK", "", ""), //
 	PRIMARY_MARKETPLACE_PURCHASE(10002, "Primary Marketplace Purchase", "", ""), //
 	BATTLE_REWARD(10003, "Battle Reward", "", ""), //
@@ -154,8 +154,7 @@ public enum RefType {
 	BIOMASS_REWARD(10022, "Biomass Reward", "", ""), //
 	ISK_SWAP_REWARD(10023, "ISK Swap Reward", "", ""), //
 
-	MODIFY_UPLEX(11001, "Modify AUR", "", ""),
-	RESPEC_PAYMENT(11002, "Respec payment", "", ""), //
+	MODIFY_UPLEX(11001, "Modify AUR", "", ""), RESPEC_PAYMENT(11002, "Respec payment", "", ""), //
 	Entitlement(11003, "Entitlement", "", ""), //
 	RESET_REIMBURSEMENT(11004, "Reset Reimbursement", "", ""), //
 	RESET_AUR_FOR_CHARACTER_RESET(11005, "Reset AUR for Character Reset", "", ""), //

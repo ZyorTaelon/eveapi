@@ -27,7 +27,7 @@ public class LoggingConnector extends ApiConnector {
 	private final ApiConnector baseConnector;
 
 	public LoggingConnector() {
-	    	super();
+		super();
 		this.baseConnector = null;
 	}
 
@@ -52,32 +52,32 @@ public class LoggingConnector extends ApiConnector {
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		InputStream workInputStream = inputStream;
 		try {
-		    if (LOGGER.isInfoEnabled()) {
-			workInputStream = new InputStreamSplitter(inputStream, outputStream);
-		    }
-		    SAXParserFactory spf = SAXParserFactory.newInstance(); 
-		    SAXParser sp = spf.newSAXParser(); 
-		    XMLReader xr = sp.getXMLReader(); 
-		    xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-		    xr.setContentHandler(contentHandler);
-		    xr.parse(new InputSource(workInputStream)); 
+			if (LOGGER.isInfoEnabled()) {
+				workInputStream = new InputStreamSplitter(inputStream, outputStream);
+			}
+			SAXParserFactory spf = SAXParserFactory.newInstance();
+			SAXParser sp = spf.newSAXParser();
+			XMLReader xr = sp.getXMLReader();
+			xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+			xr.setContentHandler(contentHandler);
+			xr.parse(new InputSource(workInputStream));
 			return (E) contentHandler.getResponse();
 		} catch (Exception e) {
 			throw new ApiException(e);
 		} finally {
-		    	if (LOGGER.isInfoEnabled()) {
-		    	    	try {
-		    	    	    	LOGGER.info("\nResponse:\n" + outputStream.toString("UTF-8"));
+			if (LOGGER.isInfoEnabled()) {
+				try {
+					LOGGER.info("\nResponse:\n" + outputStream.toString("UTF-8"));
 				} catch (UnsupportedEncodingException e) {
-				    	LOGGER.error("Could not write response as utf-8", e);
+					LOGGER.error("Could not write response as utf-8", e);
 				}
-		    	}
-		    	try {
-		    	    	if(workInputStream != null) {
-		    	    	    	workInputStream.close();
-		    	    	}
+			}
+			try {
+				if (workInputStream != null) {
+					workInputStream.close();
+				}
 			} catch (IOException e) {
-			    	LOGGER.error("Could not close input stream", e);
+				LOGGER.error("Could not close input stream", e);
 			}
 		}
 	}

@@ -1,6 +1,5 @@
 package com.beimin.eveapi.parser.corporation;
 
-
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.handler.corporation.StarbaseDetailHandler;

@@ -22,26 +22,25 @@ public class CallListHandler extends AbstractContentHandler {
 	}
 
 	@Override
-	public void startElement(String uri, String localName, String qName, Attributes attrs)
-			throws SAXException {
+	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
 		if (qName.equals("result"))
 			callList = new CallList();
 		if (qName.equals("rowset")) {
 			String name = attrs.getValue("name");
 			if (name.equals("callGroups")) {
 				callGroups = true;
-			} else if(name.equals("calls")) {
+			} else if (name.equals("calls")) {
 				calls = true;
 			}
 		}
 		if (qName.equals("row")) {
-			if(callGroups) {
+			if (callGroups) {
 				CallGroup callGroup = new CallGroup();
 				callGroup.setGroupID(getInt(attrs, "groupID"));
 				callGroup.setName(getString(attrs, "name"));
 				callGroup.setDescription(getString(attrs, "description"));
 				callList.add(callGroup);
-			} else if(calls) {
+			} else if (calls) {
 				Call call = new Call();
 				call.setAccessMask(getLong(attrs, "accessMask"));
 				call.setType(KeyType.valueOf(getString(attrs, "type")));

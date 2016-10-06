@@ -16,7 +16,7 @@ public class CharacterLookupParser extends AbstractListParser<CharacterLookupHan
 		super(CharacterLookupResponse.class, 2, ApiPath.EVE, page, CharacterLookupHandler.class);
 		this.paramName = paramName;
 	}
-	
+
 	public static CharacterLookupParser getName2IdInstance() {
 		return new CharacterLookupParser(ApiPage.CHARACTER_ID, "names");
 	}

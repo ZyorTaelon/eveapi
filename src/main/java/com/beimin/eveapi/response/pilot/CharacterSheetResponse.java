@@ -42,7 +42,7 @@ public class CharacterSheetResponse extends ApiResponse {
 	private final Set<CorporationRole> corporationRolesAtBase = new HashSet<CorporationRole>();
 	private final Set<CorporationRole> corporationRolesAtOther = new HashSet<CorporationRole>();
 	private final Set<CorporationTitle> corporationTitles = new HashSet<CorporationTitle>();
-	
+
 	public long getCharacterID() {
 		return characterID;
 	}
@@ -222,7 +222,7 @@ public class CharacterSheetResponse extends ApiResponse {
 	public void addCorporationRole(CorporationRole corporationRole) {
 		corporationRoles.add(corporationRole);
 	}
-	
+
 	public Set<CorporationRole> getCorporationRoles() {
 		return corporationRoles;
 	}
@@ -246,7 +246,7 @@ public class CharacterSheetResponse extends ApiResponse {
 	public void addCorporationRoleAtOther(CorporationRole corporationRole) {
 		corporationRolesAtOther.add(corporationRole);
 	}
-	
+
 	public Set<CorporationRole> getCorporationRolesAtOther() {
 		return corporationRolesAtOther;
 	}

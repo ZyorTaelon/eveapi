@@ -7,7 +7,7 @@ public class CertificateClass {
 	private final List<Certificate> certificates = new ArrayList<Certificate>();
 	private int classID;
 	private String className;
-	
+
 	public void add(Certificate certificate) {
 		certificates.add(certificate);
 	}

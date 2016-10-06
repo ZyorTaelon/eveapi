@@ -54,22 +54,16 @@ public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsser
 				} else if (path == null && page == null && resourcePath != null) {
 					resPath = resourcePath;
 				} else {
-					throw new RuntimeException("One of the construction options has been missed: path: " + path
-							+ " page: " + " resourcePath: " + resourcePath);
+					throw new RuntimeException("One of the construction options has been missed: path: " + path + " page: " + " resourcePath: " + resourcePath);
 				}
 
-				from("jetty:" + MockApi.URL + resPath)
-						.process(
-							new ExchangeProcessor(
-								FullAuthParserTest.this,
-								path.getPath() + "/" + page.getPage() + ".xml"))
-						.end();
+				from("jetty:" + MockApi.URL + resPath).process(new ExchangeProcessor(FullAuthParserTest.this, path.getPath() + "/" + page.getPage() + ".xml")).end();
 			}
 		});
 		context.start();
 		EveApi.setConnector(new ApiConnector(MockApi.URL));
 	}
-  
+
 	public void extraAsserts(Map<String, String> req) {
 		assertEquals("123", req.get("keyID"));
 		assertEquals("456", req.get("characterID"));

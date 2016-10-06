@@ -101,12 +101,8 @@ public class StarbaseDetailResponse extends ApiResponse {
 	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder();
-		result.append("usageFlags: ").append(usageFlags).append('\n')
-		.append("deployFlags: ").append(deployFlags).append('\n')
-		.append("allowCorporationMembers: ").append(allowCorporationMembers).append('\n')
-		.append("allowAllianceMembers: ").append(allowAllianceMembers).append('\n')
-		.append("claimSovereignty: ").append(claimSovereignty).append("\n\n")
-		.append("Fuel Levels:\n");
+		result.append("usageFlags: ").append(usageFlags).append('\n').append("deployFlags: ").append(deployFlags).append('\n').append("allowCorporationMembers: ").append(allowCorporationMembers).append('\n').append("allowAllianceMembers: ").append(allowAllianceMembers)
+				.append('\n').append("claimSovereignty: ").append(claimSovereignty).append("\n\n").append("Fuel Levels:\n");
 		for (Entry<Integer, Integer> entry : fuelMap.entrySet()) {
 			result.append('\t').append(entry.getKey()).append(": ").append(entry.getValue()).append('\n');
 		}

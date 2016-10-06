@@ -1,6 +1,5 @@
 package com.beimin.eveapi.response;
 
-
 public class ServerStatusResponse extends ApiResponse {
 	private boolean serverOpen;
 	private int onlinePlayers;

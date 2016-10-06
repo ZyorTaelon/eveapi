@@ -1,6 +1,5 @@
 package com.beimin.eveapi.character.blueprints;
 
-
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.Blueprint;
 import com.beimin.eveapi.parser.ApiPage;

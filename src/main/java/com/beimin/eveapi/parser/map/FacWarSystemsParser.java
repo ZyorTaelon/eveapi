@@ -1,6 +1,5 @@
 package com.beimin.eveapi.parser.map;
 
-
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.handler.map.FacWarSystemsHandler;
 import com.beimin.eveapi.model.map.FacWarSystem;

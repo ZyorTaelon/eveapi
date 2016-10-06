@@ -51,14 +51,14 @@ public class ApiConnector {
 	@SuppressWarnings("unchecked")
 	protected <E> E getApiResponse(AbstractContentHandler contentHandler, InputStream inputStream, Class<E> clazz) throws ApiException {
 		try {
-			SAXParserFactory spf = SAXParserFactory.newInstance(); 
-		    SAXParser sp = spf.newSAXParser(); 
-		    XMLReader xr = sp.getXMLReader();
-		    if(secureXmlProcessing) {
-		        xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-		    }
-		    xr.setContentHandler(contentHandler);
-		    xr.parse(new InputSource(inputStream)); 
+			SAXParserFactory spf = SAXParserFactory.newInstance();
+			SAXParser sp = spf.newSAXParser();
+			XMLReader xr = sp.getXMLReader();
+			if (secureXmlProcessing) {
+				xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+			}
+			xr.setContentHandler(contentHandler);
+			xr.parse(new InputSource(inputStream));
 			return (E) contentHandler.getResponse();
 		} catch (Exception e) {
 			throw new ApiException(e);
@@ -73,7 +73,8 @@ public class ApiConnector {
 			wr = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
 			StringBuilder data = new StringBuilder();
 			for (Entry<String, String> entry : params.entrySet()) {
-				if (data.length() > 0) data.append("&"); // to ensure that we don't append an '&' to the end.
+				if (data.length() > 0)
+					data.append("&"); // to ensure that we don't append an '&' to the end.
 				String key = entry.getKey();
 				String value = entry.getValue();
 				data.append(URLEncoder.encode(key, "UTF8"));

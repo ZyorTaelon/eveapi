@@ -22,8 +22,10 @@ public abstract class AbstractKillMailParser extends AbstractListParser<KillMail
 	}
 
 	/**
-	 * @param fromID Optional kill ID to show data after
-	 * @param rowCount Optional number to control the number of returned items (default 25, max 2560)
+	 * @param fromID
+	 *            Optional kill ID to show data after
+	 * @param rowCount
+	 *            Optional number to control the number of returned items (default 25, max 2560)
 	 */
 	public KillMailResponse getResponse(final ApiAuth auth, Long fromID, Integer rowCount) throws ApiException {
 		Map<String, String> extraParams = new HashMap<String, String>();

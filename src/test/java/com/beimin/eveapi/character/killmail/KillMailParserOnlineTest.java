@@ -47,4 +47,3 @@ public class KillMailParserOnlineTest extends AbstractCharacterOnlineTest {
 		return methods;
 	}
 }
-

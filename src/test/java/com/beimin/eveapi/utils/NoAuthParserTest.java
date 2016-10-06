@@ -1,7 +1,5 @@
 package com.beimin.eveapi.utils;
 
-
-
 import java.util.Map;
 
 import org.apache.camel.CamelContext;
@@ -34,20 +32,14 @@ public abstract class NoAuthParserTest implements ExchangeProcessor.ExtraAsserts
 		context.addRoutes(new RouteBuilder() {
 			@Override
 			public void configure() {
-				
-				from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx")
-						.process(
-							new ExchangeProcessor(
-								NoAuthParserTest.this,
-								getResourcePath()
-							))
-						.end();
+
+				from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new ExchangeProcessor(NoAuthParserTest.this, getResourcePath())).end();
 			}
 		});
 		context.start();
 		EveApi.setConnector(new ApiConnector(MockApi.URL));
 	}
-	
+
 	protected String getResourcePath() {
 		return path.getPath() + "/" + page.getPage() + ".xml";
 	}

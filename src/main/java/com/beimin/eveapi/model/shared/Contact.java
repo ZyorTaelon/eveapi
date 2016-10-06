@@ -56,5 +56,4 @@ public class Contact {
 		this.labelMask = labelMask;
 	}
 
-
 }

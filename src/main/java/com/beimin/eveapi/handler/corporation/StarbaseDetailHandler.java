@@ -17,7 +17,7 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
 
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-		 if (qName.equals("onStandingDrop")) {
+		if (qName.equals("onStandingDrop")) {
 			response.setOnStandingDrop(getCombatSetting(attrs));
 		} else if (qName.equals("onStatusDrop")) {
 			response.setOnStatusDrop(getCombatSetting(attrs));
@@ -34,7 +34,7 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
 	private CombatSetting getCombatSetting(Attributes attrs) {
 		CombatSetting onStandingDrop = new CombatSetting();
 		Integer standing = getInt(attrs, "standing");
-		if(standing != null)
+		if (standing != null)
 			onStandingDrop.setStanding(standing);
 		onStandingDrop.setEnabled(getBoolean(attrs, "enabled"));
 		return onStandingDrop;
@@ -52,8 +52,8 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
 			response.setAllowAllianceMembers(getBoolean());
 		} else if (qName.equals("claimSovereignty")) {
 			response.setClaimSovereignty(getBoolean());
-		} 
-		
+		}
+
 		super.endElement(uri, localName, qName);
 	}
 

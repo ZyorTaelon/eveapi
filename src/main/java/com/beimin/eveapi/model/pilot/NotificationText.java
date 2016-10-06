@@ -1,6 +1,5 @@
 package com.beimin.eveapi.model.pilot;
 
-
 public class NotificationText {
 	private long notificationID;
 	private String text;

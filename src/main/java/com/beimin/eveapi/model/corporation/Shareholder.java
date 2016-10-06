@@ -1,6 +1,5 @@
 package com.beimin.eveapi.model.corporation;
 
-
 public class Shareholder {
 	private long shareholderID;
 	private String shareholderName;

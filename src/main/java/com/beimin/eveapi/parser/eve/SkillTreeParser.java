@@ -1,6 +1,5 @@
 package com.beimin.eveapi.parser.eve;
 
-
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.handler.eve.SkillTreeHandler;
 import com.beimin.eveapi.model.eve.SkillGroup;

@@ -1,6 +1,6 @@
 package com.beimin.eveapi.model.eve;
 
-public abstract class FactionStat implements FacWarStat{
+public abstract class FactionStat implements FacWarStat {
 	private int factionID;
 	private String factionName;
 

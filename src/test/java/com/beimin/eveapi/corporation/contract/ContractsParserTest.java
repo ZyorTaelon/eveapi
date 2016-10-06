@@ -29,14 +29,14 @@ public class ContractsParserTest extends FullAuthParserTest {
 	@Test
 	public void getResponse() throws ApiException {
 		ContractsParser parser = new ContractsParser();
-		ContractsResponse response = parser.getResponse(auth); 
+		ContractsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<Contract> contracts = response.getAll();
 		assertNotNull(contracts);
 		assertEquals(6, contracts.size());
 		boolean found = false;
 		for (Contract contract : contracts) {
-			if(contract.getContractID()==62276415L) {
+			if (contract.getContractID() == 62276415L) {
 				found = true;
 				assertEquals(1683690353L, contract.getIssuerID());
 				assertEquals(1020386980L, contract.getIssuerCorpID());
@@ -57,8 +57,8 @@ public class ContractsParserTest extends FullAuthParserTest {
 				assertEquals(1000000.00, contract.getPrice(), 0.01);
 				assertEquals(0.0, contract.getReward(), 0.01);
 				assertEquals(0.0, contract.getCollateral(), 0.01);
-				assertEquals(0.0, contract.getBuyout(),0.01);
-				assertEquals(0.1, contract.getVolume(),0.01);
+				assertEquals(0.0, contract.getBuyout(), 0.01);
+				assertEquals(0.1, contract.getVolume(), 0.01);
 			}
 		}
 		assertTrue("test contract wasn't found.", found);

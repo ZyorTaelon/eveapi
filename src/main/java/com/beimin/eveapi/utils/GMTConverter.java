@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class GMTConverter { //implements Converter {
+public class GMTConverter { // implements Converter {
 	private final String dateFormat;
 
 	public GMTConverter(String dateFormat) {

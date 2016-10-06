@@ -1,6 +1,5 @@
 package com.beimin.eveapi.model.pilot;
 
-
 public class MailBody {
 	private long messageID;
 	private String body;

@@ -28,7 +28,7 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
 			LOGGER.error("Could't start document", e);
 		}
 	}
-	
+
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
 		if (ELEMENT_ROW.equals(qName)) {
@@ -36,7 +36,7 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
 		}
 		super.startElement(uri, localName, qName, attrs);
 	}
-	
+
 	protected abstract B getItem(Attributes attrs);
 
 	@Override

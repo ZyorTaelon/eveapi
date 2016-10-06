@@ -1,6 +1,5 @@
 package com.beimin.eveapi.parser;
 
-
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.handler.ServerStatusHandler;

@@ -7,11 +7,11 @@ public class CertificateCategory {
 	private final List<CertificateClass> certificateClasses = new ArrayList<CertificateClass>();
 	private int categoryID;
 	private String categoryName;
-	
+
 	public void add(CertificateClass certificateClass) {
 		certificateClasses.add(certificateClass);
 	}
-	
+
 	public List<CertificateClass> getCertificateClasses() {
 		return certificateClasses;
 	}

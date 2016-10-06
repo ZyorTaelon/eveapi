@@ -60,19 +60,19 @@ public class AssetListParserTest extends FullAuthParserTest {
 		testSingleton(assets);
 	}
 
-	private void testSingleton(List<Asset> assets){
+	private void testSingleton(List<Asset> assets) {
 		for (Asset asset : assets) {
 			testSingleton(asset);
 			testSingleton(asset.getAssets());
 		}
 	}
 
-	private void testSingleton(Asset asset){
-		if (asset.getSingleton() && asset.getRawQuantity() != -1 && asset.getRawQuantity() != -2){
-			fail("When Singleton is true: RawQuantity should be -1 or -2 was: "+asset.getRawQuantity()+" itemID: "+asset.getItemID());
+	private void testSingleton(Asset asset) {
+		if (asset.getSingleton() && asset.getRawQuantity() != -1 && asset.getRawQuantity() != -2) {
+			fail("When Singleton is true: RawQuantity should be -1 or -2 was: " + asset.getRawQuantity() + " itemID: " + asset.getItemID());
 		}
-		if (!asset.getSingleton() && asset.getRawQuantity() != 0 && asset.getRawQuantity() != -2){
-			fail("When Singleton is false: RawQuantity should be 0 or -2 was: "+asset.getRawQuantity()+" itemID: "+asset.getItemID());
+		if (!asset.getSingleton() && asset.getRawQuantity() != 0 && asset.getRawQuantity() != -2) {
+			fail("When Singleton is false: RawQuantity should be 0 or -2 was: " + asset.getRawQuantity() + " itemID: " + asset.getItemID());
 		}
 
 	}

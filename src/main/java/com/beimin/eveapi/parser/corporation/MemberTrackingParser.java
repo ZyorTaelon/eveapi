@@ -11,8 +11,7 @@ import com.beimin.eveapi.response.corporation.MemberTrackingResponse;
 
 public class MemberTrackingParser extends AbstractListParser<MemberTrackingHandler, MemberTrackingResponse, Member> {
 	public MemberTrackingParser() {
-		super(MemberTrackingResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_TRACKING,
-				MemberTrackingHandler.class);
+		super(MemberTrackingResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_TRACKING, MemberTrackingHandler.class);
 	}
 
 	@Override

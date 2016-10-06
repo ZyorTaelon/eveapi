@@ -38,7 +38,7 @@ public class ApiError implements Serializable {
 				retryAfterDate = DateUtils.getGMTConverter().convert(Date.class, substring);
 			}
 		} catch (Exception e) {
-			if(LOGGER.isDebugEnabled()) {
+			if (LOGGER.isDebugEnabled()) {
 				LOGGER.debug("Could not parse error properly", e);
 			}
 		}

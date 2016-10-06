@@ -27,15 +27,15 @@ public class CallList {
 	public void setCalls(List<Call> calls) {
 		this.calls = calls;
 	}
-	
+
 	public void add(CallGroup callGroup) {
 		callGroups.add(callGroup);
 	}
-	
+
 	public void add(Call call) {
 		calls.add(call);
 		for (CallGroup callGroup : callGroups) {
-			if(call.getGroupID() == callGroup.getGroupID()) {
+			if (call.getGroupID() == callGroup.getGroupID()) {
 				callGroup.addCall(call);
 				return;
 			}

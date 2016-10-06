@@ -1,6 +1,5 @@
 package com.beimin.eveapi.parser.corporation;
 
-
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.handler.corporation.TitlesHandler;
 import com.beimin.eveapi.model.corporation.Title;

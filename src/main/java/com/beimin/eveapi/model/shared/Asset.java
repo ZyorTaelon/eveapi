@@ -71,7 +71,7 @@ public class Asset {
 
 	public void setRawQuantity(Integer rawQuantity) {
 		this.rawQuantity = rawQuantity;
-		if(this.rawQuantity == null)
+		if (this.rawQuantity == null)
 			this.rawQuantity = 0;
 	}
 

@@ -6,8 +6,7 @@ import com.beimin.eveapi.handler.AbstractContentListHandler;
 import com.beimin.eveapi.model.shared.WalletTransaction;
 import com.beimin.eveapi.response.shared.WalletTransactionsResponse;
 
-public class WalletTransactionsHandler extends
-		AbstractContentListHandler<WalletTransactionsResponse, WalletTransaction> {
+public class WalletTransactionsHandler extends AbstractContentListHandler<WalletTransactionsResponse, WalletTransaction> {
 
 	public WalletTransactionsHandler() {
 		super(WalletTransactionsResponse.class);

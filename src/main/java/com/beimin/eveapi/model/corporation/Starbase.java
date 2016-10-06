@@ -73,8 +73,7 @@ public class Starbase {
 
 	@Override
 	public String toString() {
-		String result = "Location: " + locationID + " Moon: " + moonID
-				+ " TypeID: " + typeID + " State: " + getStarbaseState();
+		String result = "Location: " + locationID + " Moon: " + moonID + " TypeID: " + typeID + " State: " + getStarbaseState();
 		return result;
 	}
 }

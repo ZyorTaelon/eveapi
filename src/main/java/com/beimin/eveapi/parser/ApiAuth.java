@@ -5,11 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class ApiAuth implements Serializable {
-    	private static final long serialVersionUID = 7360740132434924989L;
+	private static final long serialVersionUID = 7360740132434924989L;
 
 	public abstract int getKeyID();
+
 	public abstract Long getCharacterID();
+
 	public abstract void setCharacterID(long characterID);
+
 	public abstract String getVCode();
 
 	public Map<String, String> getParams() {

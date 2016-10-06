@@ -27,7 +27,7 @@ public class ContractItemsParserTest extends FullAuthParserTest {
 	public void getResponse() throws ApiException {
 		ContractItemsParser parser = new ContractItemsParser();
 		long contractID = 1234L;
-		ContractItemsResponse response = parser.getResponse(auth, contractID); 
+		ContractItemsResponse response = parser.getResponse(auth, contractID);
 		assertNotNull(response);
 		Collection<ContractItem> contracts = response.getAll();
 		assertNotNull(contracts);
@@ -35,14 +35,14 @@ public class ContractItemsParserTest extends FullAuthParserTest {
 		boolean foundOne = false;
 		boolean foundTwo = false;
 		for (ContractItem contract : contracts) {
-			if(contract.getRecordID()==854257304L) {
+			if (contract.getRecordID() == 854257304L) {
 				foundOne = true;
 				assertEquals(3683, contract.getTypeID());
 				assertEquals(10L, contract.getQuantity());
 				assertNull(contract.getRawQuantity());
 				assertFalse(contract.isSingleton());
 				assertTrue(contract.isIncluded());
-			} else if(contract.getRecordID()==854257305L) {
+			} else if (contract.getRecordID() == 854257305L) {
 				foundTwo = true;
 				assertEquals(3683, contract.getTypeID());
 				assertEquals(10L, contract.getQuantity());

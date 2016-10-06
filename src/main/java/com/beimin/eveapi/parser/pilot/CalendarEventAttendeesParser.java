@@ -1,6 +1,5 @@
 package com.beimin.eveapi.parser.pilot;
 
-
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.handler.pilot.CalendarEventAttendeesHandler;
 import com.beimin.eveapi.model.pilot.CalendarEventAttendee;

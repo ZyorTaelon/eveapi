@@ -1,6 +1,5 @@
 package com.beimin.eveapi.model.corporation;
 
-
 public class Outpost {
 	private long stationID;
 	private long ownerID;

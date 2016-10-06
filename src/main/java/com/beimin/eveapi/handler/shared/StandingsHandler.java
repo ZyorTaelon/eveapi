@@ -39,6 +39,7 @@ public class StandingsHandler extends AbstractContentHandler {
 			response.addStandingsList(list);
 		super.endElement(uri, localName, qName);
 	}
+
 	@Override
 	public StandingsResponse getResponse() {
 		return response;

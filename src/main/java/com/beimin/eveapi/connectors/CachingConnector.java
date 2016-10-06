@@ -32,7 +32,7 @@ public class CachingConnector extends ApiConnector {
 	public ApiConnector getNewInstance() {
 		return new CachingConnector(baseConnector);
 	}
-	
+
 	private ApiConnector getConnector() {
 		if (baseConnector != null)
 			return baseConnector.getNewInstance();

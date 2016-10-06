@@ -20,7 +20,7 @@ public abstract class AbstractLocationsParser extends AbstractListParser<Locatio
 		StringBuilder idList = new StringBuilder();
 		for (Iterator<Long> iterator = itemIDs.iterator(); iterator.hasNext();) {
 			idList.append((Long) iterator.next());
-			if(iterator.hasNext())
+			if (iterator.hasNext())
 				idList.append(",");
 		}
 		return super.getResponse(auth, "IDs", idList.toString());

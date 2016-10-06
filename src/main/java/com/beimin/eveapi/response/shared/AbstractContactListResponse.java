@@ -14,6 +14,7 @@ public abstract class AbstractContactListResponse extends ApiResponse {
 	public void add(ContactList list) {
 		this.contactLists.put(list.getName(), list);
 	}
+
 	public void add(ContactLabelList list) {
 		this.labelLists.put(list.getName(), list);
 	}
@@ -21,6 +22,7 @@ public abstract class AbstractContactListResponse extends ApiResponse {
 	public ContactList get(String name) {
 		return this.contactLists.get(name);
 	}
+
 	public ContactLabelList getLabels(String name) {
 		return this.labelLists.get(name);
 	}

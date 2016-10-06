@@ -21,7 +21,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-		
+
 		if (ELEMENT_ROWSET.equals(qName)) {
 			String name = getString(attrs, ATTRIBUTE_NAME);
 			inAttackers = "attackers".equals(name);

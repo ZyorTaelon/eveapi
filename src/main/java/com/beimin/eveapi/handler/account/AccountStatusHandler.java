@@ -17,8 +17,7 @@ public class AccountStatusHandler extends AbstractContentHandler {
 	}
 
 	@Override
-	public void startElement(String uri, String localName, String qName, Attributes attributes)
-			throws SAXException {
+	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		if (qName.equals("result"))
 			accountStatus = new AccountStatus();
 		super.startElement(uri, localName, qName, attributes);

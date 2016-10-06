@@ -33,11 +33,7 @@ public class NotificationTextsParserTest extends FullAuthParserTest {
 		for (NotificationText notification : notifications) {
 			if (notification.getNotificationID() == 374106507L) {
 				found = true;
-				assertEquals("againstID: 673381830\n"+
-					         "cost: null\n"+
-					         "declaredByID: 98105019\n"+
-					         "delayHours: null\n"+
-					         "hostileState: null", notification.getText());
+				assertEquals("againstID: 673381830\n" + "cost: null\n" + "declaredByID: 98105019\n" + "delayHours: null\n" + "hostileState: null", notification.getText());
 				break;
 			}
 		}

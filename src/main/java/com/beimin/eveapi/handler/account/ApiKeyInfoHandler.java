@@ -19,15 +19,14 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
 	}
 
 	@Override
-	public void startElement(String uri, String localName, String qName, Attributes attrs)
-			throws SAXException {
+	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
 		if (qName.equals("result"))
 			apiKeyInfo = new ApiKeyInfo();
 		if (qName.equals("key")) {
 			apiKeyInfo.setAccessMask(getLong(attrs, "accessMask"));
 			apiKeyInfo.setType(KeyType.valueOf(getString(attrs, "type")));
 			String expires = attrs.getValue("expires").trim();
-			if(expires.length() > 0)
+			if (expires.length() > 0)
 				apiKeyInfo.setExpires(getDate(expires));
 		} else if (qName.equals("row")) {
 			Character character = new Character();

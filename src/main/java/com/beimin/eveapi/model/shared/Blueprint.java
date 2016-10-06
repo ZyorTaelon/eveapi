@@ -102,6 +102,4 @@ public class Blueprint {
 		this.runs = runs;
 	}
 
-	
-	
 }

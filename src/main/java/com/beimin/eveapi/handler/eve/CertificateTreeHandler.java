@@ -40,7 +40,7 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
 			else if (name.equals("requiredCertificates"))
 				requiredCertificates = true;
 		} else if (qName.equals("row")) {
-			 if (requiredSkills) {
+			if (requiredSkills) {
 				RequiredSkill skill = new RequiredSkill();
 				skill.setTypeID(getInt(attrs, "typeID"));
 				skill.setLevel(getInt(attrs, "level"));
@@ -66,7 +66,7 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
 		} else
 			super.startElement(uri, localName, qName, attrs);
 	}
-	
+
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if (qName.equals("rowset")) {
@@ -93,11 +93,11 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
 			} else if (categories) {
 				response.add(category);
 				category = null;
-			} 
-		} else 
+			}
+		} else
 			super.endElement(uri, localName, qName);
 	}
-	
+
 	@Override
 	protected CertificateCategory getItem(Attributes attrs) {
 		CertificateCategory item = new CertificateCategory();

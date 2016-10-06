@@ -1,6 +1,5 @@
 package com.beimin.eveapi.model.shared;
 
-
 public class ContractItem {
 	private long recordID;
 	private int typeID;

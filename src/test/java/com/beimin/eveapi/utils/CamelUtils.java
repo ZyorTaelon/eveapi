@@ -7,8 +7,7 @@ import java.util.Map;
 
 public class CamelUtils {
 	/**
-	 * Work-around for bug described in: 
-	 * http://mail-archives.apache.org/mod_mbox/camel-users/201010.mbox/%3c4CC94149.8000800@catify.com
+	 * Work-around for bug described in: http://mail-archives.apache.org/mod_mbox/camel-users/201010.mbox/%3c4CC94149.8000800@catify.com
 	 * 
 	 * Note that the issue is not resolved in camel 2.6.0, so the version has not been changed from 2.5.0.
 	 * 

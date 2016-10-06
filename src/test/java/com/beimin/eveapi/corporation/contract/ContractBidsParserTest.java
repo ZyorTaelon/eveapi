@@ -25,14 +25,14 @@ public class ContractBidsParserTest extends FullAuthParserTest {
 	@Test
 	public void getResponse() throws ApiException {
 		ContractBidsParser parser = new ContractBidsParser();
-		ContractBidsResponse response = parser.getResponse(auth); 
+		ContractBidsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<ContractBid> contracts = response.getAll();
 		assertNotNull(contracts);
 		assertEquals(2, contracts.size());
 		boolean found = false;
 		for (ContractBid contract : contracts) {
-			if(contract.getBidID()==4091381L) {
+			if (contract.getBidID() == 4091381L) {
 				found = true;
 				assertEquals(62276261L, contract.getContractID());
 				assertEquals(1652509239L, contract.getBidderID());

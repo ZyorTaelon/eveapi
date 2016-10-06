@@ -12,7 +12,7 @@ public class ServerStatusHandler extends AbstractContentHandler {
 	public void startDocument() throws SAXException {
 		response = new ServerStatusResponse();
 	}
-	
+
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if (qName.equals("serverOpen"))

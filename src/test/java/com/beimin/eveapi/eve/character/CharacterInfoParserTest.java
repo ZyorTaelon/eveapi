@@ -128,43 +128,40 @@ public class CharacterInfoParserTest {
 	private final RouteBuilder limitedApiRoute = new RouteBuilder() {
 		@Override
 		public void configure() {
-			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(
-					new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
-						public void extraAsserts(Map<String, String> params) {
-							assertNotNull(params);
-							assertEquals("123", params.get("keyID"));
-							assertEquals("1380128241", params.get("characterID"));
-							assertEquals("abc", params.get("vCode"));
-						}
-					}, path.getPath() + "/" + page.getPage() + "_LimitedAPI.xml")).end();
+			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
+				public void extraAsserts(Map<String, String> params) {
+					assertNotNull(params);
+					assertEquals("123", params.get("keyID"));
+					assertEquals("1380128241", params.get("characterID"));
+					assertEquals("abc", params.get("vCode"));
+				}
+			}, path.getPath() + "/" + page.getPage() + "_LimitedAPI.xml")).end();
 		}
 	};
 
 	private final RouteBuilder noAPI = new RouteBuilder() {
 		@Override
 		public void configure() {
-			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(
-					new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
-						public void extraAsserts(Map<String, String> params) {
-							assertNotNull(params);
-							assertEquals("1380128241", params.get("characterID"));
-						}
-					}, path.getPath() + "/" + page.getPage() + "_NoAPI.xml")).end();
+			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
+				public void extraAsserts(Map<String, String> params) {
+					assertNotNull(params);
+					assertEquals("1380128241", params.get("characterID"));
+				}
+			}, path.getPath() + "/" + page.getPage() + "_NoAPI.xml")).end();
 		}
 	};
 
 	private final RouteBuilder fullApiRoute = new RouteBuilder() {
 		@Override
 		public void configure() {
-			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(
-					new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
-						public void extraAsserts(Map<String, String> params) {
-							assertNotNull(params);
-							assertEquals("123", params.get("keyID"));
-							assertEquals("1380128241", params.get("characterID"));
-							assertEquals("abcdef", params.get("vCode"));
-						}
-					}, path.getPath() + "/" + page.getPage() + "_FullAPI.xml")).end();
+			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
+				public void extraAsserts(Map<String, String> params) {
+					assertNotNull(params);
+					assertEquals("123", params.get("keyID"));
+					assertEquals("1380128241", params.get("characterID"));
+					assertEquals("abcdef", params.get("vCode"));
+				}
+			}, path.getPath() + "/" + page.getPage() + "_FullAPI.xml")).end();
 		}
 	};
 }

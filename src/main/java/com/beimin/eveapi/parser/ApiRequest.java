@@ -66,7 +66,7 @@ public class ApiRequest implements Comparable<ApiRequest> {
 		result = prime * result + version;
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

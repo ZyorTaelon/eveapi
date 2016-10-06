@@ -154,27 +154,41 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 
 		WalletTransaction that = (WalletTransaction) o;
 
-		if (transactionID != that.transactionID) return false;
-		if (quantity != that.quantity) return false;
-		if (typeID != that.typeID) return false;
-		if (Double.compare(that.price, price) != 0) return false;
-		if (clientID != that.clientID) return false;
-		if (stationID != that.stationID) return false;
-		if (journalTransactionID != that.journalTransactionID) return false;
-		if (clientTypeID != that.clientTypeID) return false;
+		if (transactionID != that.transactionID)
+			return false;
+		if (quantity != that.quantity)
+			return false;
+		if (typeID != that.typeID)
+			return false;
+		if (Double.compare(that.price, price) != 0)
+			return false;
+		if (clientID != that.clientID)
+			return false;
+		if (stationID != that.stationID)
+			return false;
+		if (journalTransactionID != that.journalTransactionID)
+			return false;
+		if (clientTypeID != that.clientTypeID)
+			return false;
 		if (transactionDateTime != null ? !transactionDateTime.equals(that.transactionDateTime) : that.transactionDateTime != null)
 			return false;
-		if (typeName != null ? !typeName.equals(that.typeName) : that.typeName != null) return false;
-		if (clientName != null ? !clientName.equals(that.clientName) : that.clientName != null) return false;
-		if (characterID != null ? !characterID.equals(that.characterID) : that.characterID != null) return false;
+		if (typeName != null ? !typeName.equals(that.typeName) : that.typeName != null)
+			return false;
+		if (clientName != null ? !clientName.equals(that.clientName) : that.clientName != null)
+			return false;
+		if (characterID != null ? !characterID.equals(that.characterID) : that.characterID != null)
+			return false;
 		if (characterName != null ? !characterName.equals(that.characterName) : that.characterName != null)
 			return false;
-		if (stationName != null ? !stationName.equals(that.stationName) : that.stationName != null) return false;
+		if (stationName != null ? !stationName.equals(that.stationName) : that.stationName != null)
+			return false;
 		if (transactionType != null ? !transactionType.equals(that.transactionType) : that.transactionType != null)
 			return false;
 		return transactionFor != null ? transactionFor.equals(that.transactionFor) : that.transactionFor == null;

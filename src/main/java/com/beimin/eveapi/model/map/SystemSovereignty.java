@@ -1,13 +1,12 @@
 package com.beimin.eveapi.model.map;
 
-
 public class SystemSovereignty {
 	private int solarSystemID;
 	private int allianceID;
 	private Long corporationID;
 	private Integer factionID;
 	private String solarSystemName;
-	
+
 	public int getSolarSystemID() {
 		return solarSystemID;
 	}

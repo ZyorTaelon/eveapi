@@ -31,7 +31,7 @@ public class EveAccountBalance {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder();

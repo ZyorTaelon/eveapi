@@ -29,14 +29,14 @@ public class ContractsParserTest extends FullAuthParserTest {
 	@Test
 	public void getResponse() throws ApiException {
 		ContractsParser parser = new ContractsParser();
-		ContractsResponse response = parser.getResponse(auth); 
+		ContractsResponse response = parser.getResponse(auth);
 		assertNotNull(response);
 		Collection<Contract> contracts = response.getAll();
 		assertNotNull(contracts);
 		assertEquals(3, contracts.size());
 		boolean found = false;
 		for (Contract contract : contracts) {
-			if(contract.getContractID()==62158129L) {
+			if (contract.getContractID() == 62158129L) {
 				found = true;
 				assertEquals(987623974L, contract.getIssuerID());
 				assertEquals(917701062L, contract.getIssuerCorpID());
@@ -50,17 +50,17 @@ public class ContractsParserTest extends FullAuthParserTest {
 				assertEquals("Courier", contract.getTitle());
 				assertEquals(false, contract.isForCorp());
 				assertEquals(ContractAvailability.PRIVATE, contract.getAvailability());
-				assertDate(2012,12,11,10,48,15, contract.getDateIssued());
-				assertDate(2012,12,11,10,48,15, contract.getDateIssued());
-				assertDate(2012,12,25,10,48,15, contract.getDateExpired());
+				assertDate(2012, 12, 11, 10, 48, 15, contract.getDateIssued());
+				assertDate(2012, 12, 11, 10, 48, 15, contract.getDateIssued());
+				assertDate(2012, 12, 25, 10, 48, 15, contract.getDateExpired());
 				assertNull(contract.getDateAccepted());
 				assertNull(contract.getDateCompleted());
 				assertEquals(2, contract.getNumDays());
 				assertEquals(0.0, contract.getPrice(), 0.01);
 				assertEquals(10.0, contract.getReward(), 0.01);
 				assertEquals(1000000.0, contract.getCollateral(), 0.01);
-				assertEquals(0.0, contract.getBuyout(),0.01);
-				assertEquals(3.8, contract.getVolume(),0.01);
+				assertEquals(0.0, contract.getBuyout(), 0.01);
+				assertEquals(3.8, contract.getVolume(), 0.01);
 			}
 		}
 		assertTrue("test contract wasn't found.", found);
