@@ -9,12 +9,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import javax.xml.XMLConstants;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import com.beimin.eveapi.exception.ApiException;
@@ -63,12 +65,12 @@ public class LoggingConnector extends ApiConnector {
             xr.setContentHandler(contentHandler);
             xr.parse(new InputSource(workInputStream));
             return (E) contentHandler.getResponse();
-        } catch (Exception e) {
+        } catch (IOException | ParserConfigurationException | SAXException e) {
             throw new ApiException(e);
         } finally {
             if (LOGGER.isInfoEnabled()) {
                 try {
-                    LOGGER.info("\nResponse:\n" + outputStream.toString(StandardCharsets.UTF_8.name()));
+                    LOGGER.info("\nResponse:\n{}", outputStream.toString(StandardCharsets.UTF_8.name()));
                 } catch (UnsupportedEncodingException e) {
                     LOGGER.error("Could not write response as utf-8", e);
                 }

@@ -3,10 +3,6 @@ package com.beimin.eveapi.model.calllist;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author andrew
- */
 public class CallGroup {
     private List<Call> calls = new ArrayList<Call>();
     private int groupID;

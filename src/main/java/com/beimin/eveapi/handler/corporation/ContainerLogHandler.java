@@ -1,5 +1,7 @@
 package com.beimin.eveapi.handler.corporation;
 
+import java.util.Locale;
+
 import org.xml.sax.Attributes;
 
 import com.beimin.eveapi.handler.AbstractContentListHandler;
@@ -35,6 +37,6 @@ public class ContainerLogHandler extends AbstractContentListHandler<ContainerLog
         String string = getString(attrs, "passwordType");
         if (string.equals(""))
             return null;
-        return PasswordType.valueOf(string.toUpperCase());
+        return PasswordType.valueOf(string.toUpperCase(Locale.ENGLISH));
     }
 }

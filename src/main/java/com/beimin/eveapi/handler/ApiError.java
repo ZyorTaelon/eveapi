@@ -30,17 +30,11 @@ public class ApiError implements Serializable {
 
     public void setError(String error) {
         this.error = error;
-        try {
-            int retryIndex = error.indexOf("retry after ");
-            if (retryIndex > 0) {
-                int beginIndex = retryIndex + 12;
-                String substring = error.substring(beginIndex, beginIndex + 19);
-                retryAfterDate = DateUtils.getGMTConverter().convert(Date.class, substring);
-            }
-        } catch (Exception e) {
-            if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Could not parse error properly", e);
-            }
+        int retryIndex = error.indexOf("retry after ");
+        if (retryIndex > 0) {
+            int beginIndex = retryIndex + 12;
+            String substring = error.substring(beginIndex, beginIndex + 19);
+            retryAfterDate = DateUtils.getGMTConverter().convert(Date.class, substring);
         }
     }
 

@@ -43,19 +43,21 @@ public class FileCopyConnector extends ApiConnector {
         String outputFileName = request.getPage().getPage() + "-" + new Date().getTime() + ".xml";
         File outputFile = new File(destinationDirectory, outputFileName);
         FileOutputStream outputStream = null;
+        E response = null;
         try {
             outputStream = new FileOutputStream(outputFile);
             inputStream = new InputStreamSplitter(inputStream, outputStream);
+            response = getApiResponse(contentHandler, inputStream, clazz);
         } catch (FileNotFoundException e) {
             logger.error("Could not write response xml to file: ", e);
-        }
-        E response = getApiResponse(contentHandler, inputStream, clazz);
-        if (outputStream != null) {
-            try {
-                outputStream.flush();
-                outputStream.close();
-            } catch (IOException e) {
-                logger.error("Could not flush/close response xml file: ", e);
+        } finally {
+            if (outputStream != null) {
+                try {
+                    outputStream.flush();
+                    outputStream.close();
+                } catch (IOException e) {
+                    logger.error("Could not flush/close response xml file: ", e);
+                }
             }
         }
         return response;

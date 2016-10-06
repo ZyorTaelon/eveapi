@@ -18,9 +18,9 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("rowset"))
-            memberCorporations = getString(attrs, "name").equals("memberCorporations");
-        else if (qName.equals("row")) {
+        if (ELEMENT_ROWSET.equals(qName))
+            memberCorporations = getString(attrs, ATTRIBUTE_NAME).equals("memberCorporations");
+        else if (ELEMENT_ROW.equals(qName)) {
             if (memberCorporations) {
                 MemberCorporation memberCorporation = new MemberCorporation();
                 memberCorporation.setCorporationID(getLong(attrs, "corporationID"));
@@ -36,7 +36,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (qName.equals("rowset") && memberCorporations)
+        if (memberCorporations && ELEMENT_ROWSET.equals(qName))
             memberCorporations = false;
         super.endElement(uri, localName, qName);
     }
@@ -45,7 +45,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
     protected Alliance getItem(Attributes attrs) {
         Alliance alliance = new Alliance();
         alliance.setAllianceID(getLong(attrs, "allianceID"));
-        alliance.setName(getString(attrs, "name"));
+        alliance.setName(getString(attrs, ATTRIBUTE_NAME));
         alliance.setShortName(getString(attrs, "shortName"));
         alliance.setExecutorCorpID(getLong(attrs, "executorCorpID"));
         alliance.setMemberCount(getInt(attrs, "memberCount"));

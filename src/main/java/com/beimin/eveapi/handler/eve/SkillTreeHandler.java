@@ -1,5 +1,7 @@
 package com.beimin.eveapi.handler.eve;
 
+import java.util.Locale;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -74,9 +76,9 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
         } else if (qName.equals("rank")) {
             skill.setRank(getInt());
         } else if (qName.equals("primaryAttribute")) {
-            skill.setPrimaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase()));
+            skill.setPrimaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
         } else if (qName.equals("secondaryAttribute")) {
-            skill.setSecondaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase()));
+            skill.setSecondaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
         } else
             super.endElement(uri, localName, qName);
     }

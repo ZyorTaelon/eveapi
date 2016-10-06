@@ -21,11 +21,9 @@ public class AssetListHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("rowset")) {
-            if (currentAsset != null) {
-                stack.add(currentAsset);
-                currentAsset = null;
-            }
+        if (currentAsset != null && qName.equals("rowset")) {
+            stack.add(currentAsset);
+            currentAsset = null;
         }
         if (qName.equals("row")) {
             currentAsset = new Asset();
@@ -54,7 +52,7 @@ public class AssetListHandler extends AbstractContentHandler {
                 currentAsset = null;
             }
         }
-        if (qName.equals("row") && stack.isEmpty() && currentAsset != null) {
+        if (currentAsset != null && stack.isEmpty() && qName.equals("row")) {
             response.add(currentAsset);
             currentAsset = null;
         }

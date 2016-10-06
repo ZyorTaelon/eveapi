@@ -1,5 +1,7 @@
 package com.beimin.eveapi.handler.pilot;
 
+import java.util.Locale;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -143,15 +145,15 @@ public class CharacterSheetHandler extends AbstractContentHandler {
     }
 
     private Ancestry getAncestry() {
-        return Ancestry.valueOf(getString().toUpperCase().replaceAll("[-\\s]", "_"));
+        return Ancestry.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
     }
 
     private Bloodline getBloodline() {
-        return Bloodline.valueOf(getString().toUpperCase().replaceAll("[-\\s]", "_"));
+        return Bloodline.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
     }
 
     private Race getRace() {
-        return Race.valueOf(getString().toUpperCase().replaceAll("[-\\s]", "_"));
+        return Race.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
     }
 
     @Override

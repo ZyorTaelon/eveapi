@@ -1,5 +1,7 @@
 package com.beimin.eveapi.handler.eve;
 
+import java.util.Locale;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -21,7 +23,7 @@ public class CharacterInfoHandler extends AbstractContentHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (qName.equals("row")) {
+        if (ELEMENT_ROW.equals(qName)) {
             CharacterEmployment employ = new CharacterEmployment();
             employ.setCorporationID(getLong(attrs, "corporationID"));
             employ.setStartDate(getDate(attrs, "startDate"));
@@ -70,11 +72,11 @@ public class CharacterInfoHandler extends AbstractContentHandler {
     }
 
     private Bloodline getBloodline() {
-        return Bloodline.valueOf(getString().toUpperCase().replaceAll("[-\\s]", "_"));
+        return Bloodline.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
     }
 
     private Race getRace() {
-        return Race.valueOf(getString().toUpperCase().replaceAll("[-\\s]", "_"));
+        return Race.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
     }
 
     @Override

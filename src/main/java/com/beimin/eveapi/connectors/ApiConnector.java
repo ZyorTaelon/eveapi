@@ -12,12 +12,14 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.xml.XMLConstants;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import com.beimin.eveapi.exception.ApiException;
@@ -42,11 +44,7 @@ public class ApiConnector {
     }
 
     public <E extends ApiResponse> E execute(ApiRequest request, AbstractContentHandler contentHandler, Class<E> clazz) throws ApiException {
-        try {
-            return getApiResponse(contentHandler, getInputStream(getURL(request), getParams(request)), clazz);
-        } catch (Exception e) {
-            throw new ApiException(e);
-        }
+        return getApiResponse(contentHandler, getInputStream(getURL(request), getParams(request)), clazz);
     }
 
     @SuppressWarnings("unchecked")
@@ -61,7 +59,7 @@ public class ApiConnector {
             xr.setContentHandler(contentHandler);
             xr.parse(new InputSource(inputStream));
             return (E) contentHandler.getResponse();
-        } catch (Exception e) {
+        } catch (SAXException | ParserConfigurationException | IOException e) {
             throw new ApiException(e);
         }
     }
@@ -88,7 +86,7 @@ public class ApiConnector {
                 return conn.getInputStream();
             else
                 return conn.getErrorStream();
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw new ApiException(e);
         } finally {
             if (wr != null)
