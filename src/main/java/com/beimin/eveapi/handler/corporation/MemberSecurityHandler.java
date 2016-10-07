@@ -6,7 +6,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.corporation.SecurityMember;
 import com.beimin.eveapi.model.corporation.SecurityRole;
-import com.beimin.eveapi.model.corporation.SecurityTitle;
+import com.beimin.eveapi.model.corporation.Title;
 import com.beimin.eveapi.response.corporation.MemberSecurityResponse;
 
 public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurityResponse> {
@@ -69,8 +69,8 @@ public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurity
         }
     }
 
-    private SecurityTitle getTitle(final Attributes attrs) {
-        final SecurityTitle title = new SecurityTitle();
+    private Title getTitle(final Attributes attrs) {
+        final Title title = new Title();
         title.setTitleID(getLong(attrs, "titleID"));
         title.setTitleName(getString(attrs, "titleName"));
         return title;

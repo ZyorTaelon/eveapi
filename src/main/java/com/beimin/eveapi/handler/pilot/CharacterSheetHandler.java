@@ -6,11 +6,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
+import com.beimin.eveapi.model.corporation.Title;
 import com.beimin.eveapi.model.pilot.AttributeEnhancer;
 import com.beimin.eveapi.model.pilot.Certificate;
 import com.beimin.eveapi.model.pilot.CharismaBonus;
 import com.beimin.eveapi.model.pilot.CorporationRole;
-import com.beimin.eveapi.model.pilot.CorporationTitle;
 import com.beimin.eveapi.model.pilot.IntelligenceBonus;
 import com.beimin.eveapi.model.pilot.MemoryBonus;
 import com.beimin.eveapi.model.pilot.PerceptionBonus;
@@ -81,7 +81,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
                 corporationRole.setRoleName(getString(attrs, "roleName"));
                 response.addCorporationRoleAtOther(corporationRole);
             } else if ("corporationTitles".equals(rowsetName)) {
-                final CorporationTitle corporationTitle = new CorporationTitle();
+                final Title corporationTitle = new Title();
                 corporationTitle.setTitleID(getLong(attrs, "titleID"));
                 corporationTitle.setTitleName(getString(attrs, "titleName"));
                 response.addCorporationTitle(corporationTitle);

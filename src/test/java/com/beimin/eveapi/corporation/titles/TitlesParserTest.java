@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.corporation.Role;
-import com.beimin.eveapi.model.corporation.Title;
+import com.beimin.eveapi.model.corporation.TitleWithRoles;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.TitlesParser;
@@ -27,10 +27,10 @@ public class TitlesParserTest extends FullAuthParserTest {
         final TitlesParser parser = new TitlesParser();
         final TitlesResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Collection<Title> titles = response.getAll();
+        final Collection<TitleWithRoles> titles = response.getAll();
         assertEquals(2, titles.size());
         boolean found = false;
-        for (final Title title : titles) {
+        for (final TitleWithRoles title : titles) {
             if (title.getTitleID() == 1) {
                 found = true;
                 assertEquals("Member", title.getTitleName());

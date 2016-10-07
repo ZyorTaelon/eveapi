@@ -14,7 +14,7 @@ public class SecurityMember {
     private final Set<SecurityRole> grantableRolesAtBase = new HashSet<SecurityRole>();
     private final Set<SecurityRole> rolesAtOther = new HashSet<SecurityRole>();
     private final Set<SecurityRole> grantableRolesAtOther = new HashSet<SecurityRole>();
-    private final Set<SecurityTitle> titles = new HashSet<SecurityTitle>();
+    private final Set<Title> titles = new HashSet<Title>();
 
     public long getCharacterID() {
         return characterID;
@@ -64,7 +64,7 @@ public class SecurityMember {
         return grantableRolesAtOther;
     }
 
-    public Set<SecurityTitle> getTitles() {
+    public Set<Title> getTitles() {
         return titles;
     }
 
@@ -100,7 +100,7 @@ public class SecurityMember {
         grantableRolesAtOther.add(role);
     }
 
-    public void addTitle(final SecurityTitle title) {
+    public void addTitle(final Title title) {
         titles.add(title);
     }
 }

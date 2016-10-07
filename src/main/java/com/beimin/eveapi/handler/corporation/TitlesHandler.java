@@ -5,10 +5,10 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentListHandler;
 import com.beimin.eveapi.model.corporation.Role;
-import com.beimin.eveapi.model.corporation.Title;
+import com.beimin.eveapi.model.corporation.TitleWithRoles;
 import com.beimin.eveapi.response.corporation.TitlesResponse;
 
-public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Title> {
+public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, TitleWithRoles> {
     private boolean roles;
     private boolean grantableRoles;
     private boolean rolesAtHQ;
@@ -17,7 +17,7 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
     private boolean grantableRolesAtBase;
     private boolean rolesAtOther;
     private boolean grantableRolesAtOther;
-    private Title title;
+    private TitleWithRoles title;
 
     public TitlesHandler() {
         super(TitlesResponse.class);
@@ -70,8 +70,8 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
     }
 
     @Override
-    protected Title getItem(final Attributes attrs) {
-        final Title item = new Title();
+    protected TitleWithRoles getItem(final Attributes attrs) {
+        final TitleWithRoles item = new TitleWithRoles();
         item.setTitleID(getLong(attrs, "titleID"));
         item.setTitleName(getString(attrs, "titleName"));
         return item;

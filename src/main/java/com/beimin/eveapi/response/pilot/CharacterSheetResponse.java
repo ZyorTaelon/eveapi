@@ -4,10 +4,10 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.beimin.eveapi.model.corporation.Title;
 import com.beimin.eveapi.model.pilot.AttributeEnhancer;
 import com.beimin.eveapi.model.pilot.Certificate;
 import com.beimin.eveapi.model.pilot.CorporationRole;
-import com.beimin.eveapi.model.pilot.CorporationTitle;
 import com.beimin.eveapi.model.pilot.Skill;
 import com.beimin.eveapi.model.shared.Ancestry;
 import com.beimin.eveapi.model.shared.Bloodline;
@@ -29,7 +29,7 @@ public class CharacterSheetResponse extends ApiResponse {
     private String cloneName;
     private long cloneSkillPoints;
     private double balance;
-    private final Set<AttributeEnhancer> attributeEnhancers = new HashSet<AttributeEnhancer>();
+    private final Set<AttributeEnhancer> attributeEnhancers = new HashSet<>();
     private int intelligence;
     private int memory;
     private int charisma;
@@ -37,11 +37,11 @@ public class CharacterSheetResponse extends ApiResponse {
     private int willpower;
     private final Set<Skill> skills = new HashSet<Skill>();
     private final Set<Certificate> certificates = new HashSet<Certificate>();
-    private final Set<CorporationRole> corporationRoles = new HashSet<CorporationRole>();
-    private final Set<CorporationRole> corporationRolesAtHQ = new HashSet<CorporationRole>();
-    private final Set<CorporationRole> corporationRolesAtBase = new HashSet<CorporationRole>();
-    private final Set<CorporationRole> corporationRolesAtOther = new HashSet<CorporationRole>();
-    private final Set<CorporationTitle> corporationTitles = new HashSet<CorporationTitle>();
+    private final Set<CorporationRole> corporationRoles = new HashSet<>();
+    private final Set<CorporationRole> corporationRolesAtHQ = new HashSet<>();
+    private final Set<CorporationRole> corporationRolesAtBase = new HashSet<>();
+    private final Set<CorporationRole> corporationRolesAtOther = new HashSet<>();
+    private final Set<Title> corporationTitles = new HashSet<>();
 
     public long getCharacterID() {
         return characterID;
@@ -251,11 +251,11 @@ public class CharacterSheetResponse extends ApiResponse {
         return corporationRolesAtOther;
     }
 
-    public void addCorporationTitle(final CorporationTitle title) {
+    public void addCorporationTitle(final Title title) {
         corporationTitles.add(title);
     }
 
-    public Set<CorporationTitle> getCorporationTitles() {
+    public Set<Title> getCorporationTitles() {
         return corporationTitles;
     }
 }
