@@ -18,28 +18,28 @@ import com.beimin.eveapi.response.shared.ContractBidsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ContractBidsParserTest extends FullAuthParserTest {
-	public ContractBidsParserTest() {
-		super(ApiPath.CHARACTER, ApiPage.CONTRACT_BIDS);
-	}
+    public ContractBidsParserTest() {
+        super(ApiPath.CHARACTER, ApiPage.CONTRACT_BIDS);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		ContractBidsParser parser = new ContractBidsParser();
-		ContractBidsResponse response = parser.getResponse(auth); 
-		assertNotNull(response);
-		Collection<ContractBid> contracts = response.getAll();
-		assertNotNull(contracts);
-		assertEquals(2, contracts.size());
-		boolean found = false;
-		for (ContractBid contract : contracts) {
-			if(contract.getBidID()==4091381L) {
-				found = true;
-				assertEquals(62276260L, contract.getContractID());
-				assertEquals(1652509239L, contract.getBidderID());
-				assertDate("2012-12-14 22:30:54", contract.getDateBid());
-				assertEquals(1000000.0, contract.getAmount(), 0.01);
-			}
-		}
-		assertTrue("test contract item wasn't found.", found);
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        final ContractBidsParser parser = new ContractBidsParser();
+        final ContractBidsResponse response = parser.getResponse(auth);
+        assertNotNull(response);
+        final Collection<ContractBid> contracts = response.getAll();
+        assertNotNull(contracts);
+        assertEquals(2, contracts.size());
+        boolean found = false;
+        for (final ContractBid contract : contracts) {
+            if (contract.getBidID() == 4091381L) {
+                found = true;
+                assertEquals(62276260L, contract.getContractID());
+                assertEquals(1652509239L, contract.getBidderID());
+                assertDate("2012-12-14 22:30:54", contract.getDateBid());
+                assertEquals(1000000.0, contract.getAmount(), 0.01);
+            }
+        }
+        assertTrue("test contract item wasn't found.", found);
+    }
 }

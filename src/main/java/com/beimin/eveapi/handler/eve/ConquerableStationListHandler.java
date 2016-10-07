@@ -8,32 +8,32 @@ import com.beimin.eveapi.model.eve.Station;
 import com.beimin.eveapi.response.eve.StationListResponse;
 
 public class ConquerableStationListHandler extends AbstractContentHandler {
-	private StationListResponse response;
+    private StationListResponse response;
 
-	@Override
-	public void startDocument() throws SAXException {
-		response = new StationListResponse();
-	}
+    @Override
+    public void startDocument() throws SAXException {
+        response = new StationListResponse();
+    }
 
-	@Override
-	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-		if (qName.equals("row")) {
-			Station item = new Station();
-			saveFieldsCount(Station.class, attrs);
-			item.setStationID(getLong(attrs, "stationID"));
-			item.setStationName(getString(attrs, "stationName"));
-			item.setStationTypeID(getInt(attrs, "stationTypeID"));
-			item.setSolarSystemID(getInt(attrs, "solarSystemID"));
-			item.setCorporationID(getInt(attrs, "corporationID"));
-			item.setCorporationName(getString(attrs, "corporationName"));
-			response.add(item);
-		}
-		super.startElement(uri, localName, qName, attrs);
-		accumulator.setLength(0);
-	}
+    @Override
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        if (qName.equals("row")) {
+            final Station item = new Station();
+            saveFieldsCount(Station.class, attrs);
+            item.setStationID(getLong(attrs, "stationID"));
+            item.setStationName(getString(attrs, "stationName"));
+            item.setStationTypeID(getInt(attrs, "stationTypeID"));
+            item.setSolarSystemID(getInt(attrs, "solarSystemID"));
+            item.setCorporationID(getInt(attrs, "corporationID"));
+            item.setCorporationName(getString(attrs, "corporationName"));
+            response.add(item);
+        }
+        super.startElement(uri, localName, qName, attrs);
+        accumulator.setLength(0);
+    }
 
-	@Override
-	public StationListResponse getResponse() {
-		return response;
-	}
+    @Override
+    public StationListResponse getResponse() {
+        return response;
+    }
 }

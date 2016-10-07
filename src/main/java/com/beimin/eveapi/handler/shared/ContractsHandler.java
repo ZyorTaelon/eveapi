@@ -10,36 +10,36 @@ import com.beimin.eveapi.model.shared.ContractType;
 import com.beimin.eveapi.response.shared.ContractsResponse;
 
 public class ContractsHandler extends AbstractContentListHandler<ContractsResponse, Contract> {
-	public ContractsHandler() {
-		super(ContractsResponse.class);
-	}
+    public ContractsHandler() {
+        super(ContractsResponse.class);
+    }
 
-	@Override
-	protected Contract getItem(Attributes attrs) {
-		Contract contract = new Contract();
-		saveFieldsCount(Contract.class, attrs);
-		contract.setContractID(getLong(attrs, "contractID"));
-		contract.setIssuerID(getLong(attrs, "issuerID"));
-		contract.setIssuerCorpID(getLong(attrs, "issuerCorpID"));
-		contract.setAssigneeID(getLong(attrs, "assigneeID"));
-		contract.setAcceptorID(getLong(attrs, "acceptorID"));
-		contract.setStartStationID(getLong(attrs, "startStationID"));
-		contract.setEndStationID(getLong(attrs, "endStationID"));
-		contract.setType(ContractType.valueOf(getString(attrs, "type").toUpperCase()));
-		contract.setStatus(ContractStatus.valueOf(getString(attrs, "status").toUpperCase()));
-		contract.setTitle(getString(attrs, "title"));
-		contract.setForCorp(getBoolean(attrs, "forCorp"));
-		contract.setAvailability(ContractAvailability.valueOf(getString(attrs, "availability").toUpperCase()));
-		contract.setDateIssued(getDate(attrs, "dateIssued"));
-		contract.setDateExpired(getDate(attrs, "dateExpired"));
-		contract.setDateAccepted(getDate(attrs, "dateAccepted"));
-		contract.setDateCompleted(getDate(attrs, "dateCompleted"));
-		contract.setNumDays(getInt(attrs, "numDays"));
-		contract.setPrice(getDouble(attrs, "price"));
-		contract.setReward(getDouble(attrs, "reward"));
-		contract.setCollateral(getDouble(attrs, "collateral"));
-		contract.setBuyout(getDouble(attrs, "buyout"));
-		contract.setVolume(getDouble(attrs, "volume"));
-		return contract;
-	}
+    @Override
+    protected Contract getItem(final Attributes attrs) {
+        final Contract contract = new Contract();
+        saveFieldsCount(Contract.class, attrs);
+        contract.setContractID(getLong(attrs, "contractID"));
+        contract.setIssuerID(getLong(attrs, "issuerID"));
+        contract.setIssuerCorpID(getLong(attrs, "issuerCorpID"));
+        contract.setAssigneeID(getLong(attrs, "assigneeID"));
+        contract.setAcceptorID(getLong(attrs, "acceptorID"));
+        contract.setStartStationID(getLong(attrs, "startStationID"));
+        contract.setEndStationID(getLong(attrs, "endStationID"));
+        contract.setType(ContractType.valueOf(getString(attrs, "type").toUpperCase()));
+        contract.setStatus(ContractStatus.valueOf(getString(attrs, "status").toUpperCase()));
+        contract.setTitle(getString(attrs, "title"));
+        contract.setForCorp(getBoolean(attrs, "forCorp"));
+        contract.setAvailability(ContractAvailability.valueOf(getString(attrs, "availability").toUpperCase()));
+        contract.setDateIssued(getDate(attrs, "dateIssued"));
+        contract.setDateExpired(getDate(attrs, "dateExpired"));
+        contract.setDateAccepted(getDate(attrs, "dateAccepted"));
+        contract.setDateCompleted(getDate(attrs, "dateCompleted"));
+        contract.setNumDays(getInt(attrs, "numDays"));
+        contract.setPrice(getDouble(attrs, "price"));
+        contract.setReward(getDouble(attrs, "reward"));
+        contract.setCollateral(getDouble(attrs, "collateral"));
+        contract.setBuyout(getDouble(attrs, "buyout"));
+        contract.setVolume(getDouble(attrs, "volume"));
+        return contract;
+    }
 }

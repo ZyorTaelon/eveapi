@@ -13,23 +13,23 @@ import com.beimin.eveapi.response.shared.FacWarStatsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class FacWarStatsParserTest extends FullAuthParserTest {
-	public FacWarStatsParserTest() {
-		super(ApiPath.CORPORATION, ApiPage.FACT_WAR_STATS);
-	}
+    public FacWarStatsParserTest() {
+        super(ApiPath.CORPORATION, ApiPage.FACT_WAR_STATS);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		FacWarStatsParser parser = new FacWarStatsParser();
-		FacWarStatsResponse facWarStats = parser.getResponse(auth);
-		assertEquals(500001, facWarStats.getFactionID());
-		assertEquals("Caldari State", facWarStats.getFactionName());
-		assertDate(2008, 6, 10, 22, 10, 0, facWarStats.getEnlisted());
-		assertEquals(0, facWarStats.getKillsYesterday());
-		assertEquals(0, facWarStats.getKillsLastWeek());
-		assertEquals(0, facWarStats.getKillsTotal());
-		assertEquals(0, facWarStats.getVictoryPointsYesterday());
-		assertEquals(1144, facWarStats.getVictoryPointsLastWeek());
-		assertEquals(0, facWarStats.getVictoryPointsTotal());
-		assertEquals(6, facWarStats.getPilots());
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        final FacWarStatsParser parser = new FacWarStatsParser();
+        final FacWarStatsResponse facWarStats = parser.getResponse(auth);
+        assertEquals(500001, facWarStats.getFactionID());
+        assertEquals("Caldari State", facWarStats.getFactionName());
+        assertDate(2008, 6, 10, 22, 10, 0, facWarStats.getEnlisted());
+        assertEquals(0, facWarStats.getKillsYesterday());
+        assertEquals(0, facWarStats.getKillsLastWeek());
+        assertEquals(0, facWarStats.getKillsTotal());
+        assertEquals(0, facWarStats.getVictoryPointsYesterday());
+        assertEquals(1144, facWarStats.getVictoryPointsLastWeek());
+        assertEquals(0, facWarStats.getVictoryPointsTotal());
+        assertEquals(6, facWarStats.getPilots());
+    }
 }

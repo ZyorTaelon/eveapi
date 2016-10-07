@@ -7,16 +7,16 @@ import com.beimin.eveapi.model.map.SystemJumps;
 import com.beimin.eveapi.response.map.JumpsResponse;
 
 public class JumpsHandler extends AbstractContentListHandler<JumpsResponse, SystemJumps> {
-	public JumpsHandler() {
-		super(JumpsResponse.class);
-	}
+    public JumpsHandler() {
+        super(JumpsResponse.class);
+    }
 
-	@Override
-	protected SystemJumps getItem(Attributes attrs) {
-		SystemJumps item = new SystemJumps();
-		saveFieldsCount(SystemJumps.class, attrs);
-		item.setSolarSystemID(getInt(attrs, "solarSystemID"));
-		item.setShipJumps(getInt(attrs, "shipJumps"));
-		return item;
-	}
+    @Override
+    protected SystemJumps getItem(final Attributes attrs) {
+        final SystemJumps item = new SystemJumps();
+        saveFieldsCount(SystemJumps.class, attrs);
+        item.setSolarSystemID(getInt(attrs, "solarSystemID"));
+        item.setShipJumps(getInt(attrs, "shipJumps"));
+        return item;
+    }
 }

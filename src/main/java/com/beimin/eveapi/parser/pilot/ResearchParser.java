@@ -10,12 +10,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.pilot.ResearchResponse;
 
 public class ResearchParser extends AbstractListParser<ResearchHandler, ResearchResponse, ResearchAgent> {
-	public ResearchParser() {
-		super(ResearchResponse.class, 1, ApiPath.CHARACTER, ApiPage.RESEARCH, ResearchHandler.class);
-	}
+    public ResearchParser() {
+        super(ResearchResponse.class, 1, ApiPath.CHARACTER, ApiPage.RESEARCH, ResearchHandler.class);
+    }
 
-	@Override
-	public ResearchResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public ResearchResponse getResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

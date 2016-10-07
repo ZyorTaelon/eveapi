@@ -1,40 +1,40 @@
 package com.beimin.eveapi.model.pilot;
 
 public class Skill {
-	private int typeID;
-	private int level = 0;
-	private int skillpoints = 0;
-	private boolean unpublished = false;
+    private int typeID;
+    private int level = 0;
+    private int skillpoints = 0;
+    private boolean unpublished = false;
 
-	public int getTypeID() {
-		return typeID;
-	}
+    public int getTypeID() {
+        return typeID;
+    }
 
-	public void setTypeID(int typeID) {
-		this.typeID = typeID;
-	}
+    public void setTypeID(final int typeID) {
+        this.typeID = typeID;
+    }
 
-	public int getLevel() {
-		return level;
-	}
+    public int getLevel() {
+        return level;
+    }
 
-	public void setLevel(int level) {
-		this.level = level;
-	}
+    public void setLevel(final int level) {
+        this.level = level;
+    }
 
-	public int getSkillpoints() {
-		return skillpoints;
-	}
+    public int getSkillpoints() {
+        return skillpoints;
+    }
 
-	public void setSkillpoints(int skillpoints) {
-		this.skillpoints = skillpoints;
-	}
+    public void setSkillpoints(final int skillpoints) {
+        this.skillpoints = skillpoints;
+    }
 
-	public boolean isUnpublished() {
-		return unpublished;
-	}
+    public boolean isUnpublished() {
+        return unpublished;
+    }
 
-	public void setUnpublished(boolean unpublished) {
-		this.unpublished = unpublished;
-	}
+    public void setUnpublished(final boolean unpublished) {
+        this.unpublished = unpublished;
+    }
 }

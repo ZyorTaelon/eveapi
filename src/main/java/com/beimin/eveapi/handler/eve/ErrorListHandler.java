@@ -7,16 +7,16 @@ import com.beimin.eveapi.model.corporation.ErrorListItem;
 import com.beimin.eveapi.response.eve.ErrorListResponse;
 
 public class ErrorListHandler extends AbstractContentListHandler<ErrorListResponse, ErrorListItem> {
-	public ErrorListHandler() {
-		super(ErrorListResponse.class);
-	}
+    public ErrorListHandler() {
+        super(ErrorListResponse.class);
+    }
 
-	@Override
-	protected ErrorListItem getItem(Attributes attrs) {
-		ErrorListItem item = new ErrorListItem();
-		saveFieldsCount(ErrorListItem.class, attrs);
-		item.setErrorText(getString(attrs, "errorText"));
-		item.setErrorCode(getInt(attrs, "errorCode"));
-		return item;
-	}
+    @Override
+    protected ErrorListItem getItem(final Attributes attrs) {
+        final ErrorListItem item = new ErrorListItem();
+        saveFieldsCount(ErrorListItem.class, attrs);
+        item.setErrorText(getString(attrs, "errorText"));
+        item.setErrorCode(getInt(attrs, "errorCode"));
+        return item;
+    }
 }

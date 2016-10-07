@@ -10,12 +10,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.account.CharactersResponse;
 
 public class CharactersParser extends AbstractListParser<CharactersHandler, CharactersResponse, Character> {
-	public CharactersParser() {
-		super(CharactersResponse.class, 1, ApiPath.ACCOUNT, ApiPage.CHARACTERS, CharactersHandler.class);
-	}
+    public CharactersParser() {
+        super(CharactersResponse.class, 1, ApiPath.ACCOUNT, ApiPage.CHARACTERS, CharactersHandler.class);
+    }
 
-	@Override
-	public CharactersResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public CharactersResponse getResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

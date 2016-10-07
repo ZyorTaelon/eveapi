@@ -4,7 +4,7 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.shared.AbstractKillMailParser;
 
 public class KillMailParser extends AbstractKillMailParser {
-	public KillMailParser() {
-		super(ApiPath.CHARACTER);
-	}
+    public KillMailParser() {
+        super(ApiPath.CHARACTER);
+    }
 }

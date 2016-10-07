@@ -1,6 +1,5 @@
 package com.beimin.eveapi.parser.corporation;
 
-
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.handler.corporation.OutpostServiceDetailHandler;
 import com.beimin.eveapi.model.corporation.OutpostServiceDetail;
@@ -11,12 +10,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.corporation.OutpostServiceDetailResponse;
 
 public class OutpostServiceDetailParser extends AbstractListParser<OutpostServiceDetailHandler, OutpostServiceDetailResponse, OutpostServiceDetail> {
-	public OutpostServiceDetailParser() {
-		super(OutpostServiceDetailResponse.class, 2, ApiPath.CORPORATION, ApiPage.OUTPOST_SERVICE_DETAIL, OutpostServiceDetailHandler.class);
-	}
+    public OutpostServiceDetailParser() {
+        super(OutpostServiceDetailResponse.class, 2, ApiPath.CORPORATION, ApiPage.OUTPOST_SERVICE_DETAIL, OutpostServiceDetailHandler.class);
+    }
 
-	@Override
-	public OutpostServiceDetailResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public OutpostServiceDetailResponse getResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

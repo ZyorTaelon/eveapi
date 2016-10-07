@@ -3,139 +3,139 @@ package com.beimin.eveapi.model.shared;
 import java.util.Date;
 
 public class MarketOrder {
-	private long orderID; // ItemID : long
-	private long charID; // OwnerID : int
-	private long stationID; // LocationID : long
-	private int volEntered;
-	private int volRemaining;
-	private int minVolume;
-	private int orderState;
-	private int typeID; // TypeID : int
-	private int range;
-	private int accountKey;
-	private int duration;
-	private double escrow;
-	private double price;
-	private int bid;
-	private Date issued;
+    private long orderID; // ItemID : long
+    private long charID; // OwnerID : int
+    private long stationID; // LocationID : long
+    private int volEntered;
+    private int volRemaining;
+    private int minVolume;
+    private int orderState;
+    private int typeID; // TypeID : int
+    private int range;
+    private int accountKey;
+    private int duration;
+    private double escrow;
+    private double price;
+    private int bid;
+    private Date issued;
 
-	public long getOrderID() {
-		return orderID;
-	}
+    public long getOrderID() {
+        return orderID;
+    }
 
-	public void setOrderID(long orderID) {
-		this.orderID = orderID;
-	}
+    public void setOrderID(final long orderID) {
+        this.orderID = orderID;
+    }
 
-	public long getCharID() {
-		return charID;
-	}
+    public long getCharID() {
+        return charID;
+    }
 
-	public void setCharID(long charID) {
-		this.charID = charID;
-	}
+    public void setCharID(final long charID) {
+        this.charID = charID;
+    }
 
-	public long getStationID() {
-		return stationID;
-	}
+    public long getStationID() {
+        return stationID;
+    }
 
-	public void setStationID(long stationID) {
-		this.stationID = stationID;
-	}
+    public void setStationID(final long stationID) {
+        this.stationID = stationID;
+    }
 
-	public int getVolEntered() {
-		return volEntered;
-	}
+    public int getVolEntered() {
+        return volEntered;
+    }
 
-	public void setVolEntered(int volEntered) {
-		this.volEntered = volEntered;
-	}
+    public void setVolEntered(final int volEntered) {
+        this.volEntered = volEntered;
+    }
 
-	public int getVolRemaining() {
-		return volRemaining;
-	}
+    public int getVolRemaining() {
+        return volRemaining;
+    }
 
-	public void setVolRemaining(int volRemaining) {
-		this.volRemaining = volRemaining;
-	}
+    public void setVolRemaining(final int volRemaining) {
+        this.volRemaining = volRemaining;
+    }
 
-	public int getMinVolume() {
-		return minVolume;
-	}
+    public int getMinVolume() {
+        return minVolume;
+    }
 
-	public void setMinVolume(int minVolume) {
-		this.minVolume = minVolume;
-	}
+    public void setMinVolume(final int minVolume) {
+        this.minVolume = minVolume;
+    }
 
-	public int getOrderState() {
-		return orderState;
-	}
+    public int getOrderState() {
+        return orderState;
+    }
 
-	public void setOrderState(int orderState) {
-		this.orderState = orderState;
-	}
+    public void setOrderState(final int orderState) {
+        this.orderState = orderState;
+    }
 
-	public int getTypeID() {
-		return typeID;
-	}
+    public int getTypeID() {
+        return typeID;
+    }
 
-	public void setTypeID(int typeID) {
-		this.typeID = typeID;
-	}
+    public void setTypeID(final int typeID) {
+        this.typeID = typeID;
+    }
 
-	public int getRange() {
-		return range;
-	}
+    public int getRange() {
+        return range;
+    }
 
-	public void setRange(int range) {
-		this.range = range;
-	}
+    public void setRange(final int range) {
+        this.range = range;
+    }
 
-	public int getAccountKey() {
-		return accountKey;
-	}
+    public int getAccountKey() {
+        return accountKey;
+    }
 
-	public void setAccountKey(int accountKey) {
-		this.accountKey = accountKey;
-	}
+    public void setAccountKey(final int accountKey) {
+        this.accountKey = accountKey;
+    }
 
-	public int getDuration() {
-		return duration;
-	}
+    public int getDuration() {
+        return duration;
+    }
 
-	public void setDuration(int duration) {
-		this.duration = duration;
-	}
+    public void setDuration(final int duration) {
+        this.duration = duration;
+    }
 
-	public double getEscrow() {
-		return escrow;
-	}
+    public double getEscrow() {
+        return escrow;
+    }
 
-	public void setEscrow(double escrow) {
-		this.escrow = escrow;
-	}
+    public void setEscrow(final double escrow) {
+        this.escrow = escrow;
+    }
 
-	public double getPrice() {
-		return price;
-	}
+    public double getPrice() {
+        return price;
+    }
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
+    public void setPrice(final double price) {
+        this.price = price;
+    }
 
-	public int getBid() {
-		return bid;
-	}
+    public int getBid() {
+        return bid;
+    }
 
-	public void setBid(int bid) {
-		this.bid = bid;
-	}
+    public void setBid(final int bid) {
+        this.bid = bid;
+    }
 
-	public Date getIssued() {
-		return issued;
-	}
+    public Date getIssued() {
+        return issued;
+    }
 
-	public void setIssued(Date issued) {
-		this.issued = issued;
-	}
+    public void setIssued(final Date issued) {
+        this.issued = issued;
+    }
 }

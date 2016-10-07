@@ -4,31 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CertificateCategory {
-	private final List<CertificateClass> certificateClasses = new ArrayList<CertificateClass>();
-	private int categoryID;
-	private String categoryName;
-	
-	public void add(CertificateClass certificateClass) {
-		certificateClasses.add(certificateClass);
-	}
-	
-	public List<CertificateClass> getCertificateClasses() {
-		return certificateClasses;
-	}
+    private final List<CertificateClass> certificateClasses = new ArrayList<CertificateClass>();
+    private int categoryID;
+    private String categoryName;
 
-	public int getCategoryID() {
-		return categoryID;
-	}
+    public void add(final CertificateClass certificateClass) {
+        certificateClasses.add(certificateClass);
+    }
 
-	public void setCategoryID(int categoryID) {
-		this.categoryID = categoryID;
-	}
+    public List<CertificateClass> getCertificateClasses() {
+        return certificateClasses;
+    }
 
-	public String getCategoryName() {
-		return categoryName;
-	}
+    public int getCategoryID() {
+        return categoryID;
+    }
 
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
-	}
+    public void setCategoryID(final int categoryID) {
+        this.categoryID = categoryID;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(final String categoryName) {
+        this.categoryName = categoryName;
+    }
 }

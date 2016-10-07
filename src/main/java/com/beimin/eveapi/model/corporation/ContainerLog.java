@@ -3,122 +3,123 @@ package com.beimin.eveapi.model.corporation;
 import java.util.Date;
 
 public class ContainerLog {
-	private Date logTime;
-	private long itemID;
-	private int itemTypeID;
-	private long actorID;
-	private String actorName;
-	private int flag;
-	private int locationID;
-	private String action;
-	private PasswordType passwordType;
-	private Integer typeID;
-	private Integer quantity;
-	private Integer oldConfiguration;
-	private Integer newConfiguration;
-//	passwordType="" typeID="" quantity="" oldConfiguration="" newConfiguration=""
-			
-	public Date getLogTime() {
-		return logTime;
-	}
+    private Date logTime;
+    private long itemID;
+    private int itemTypeID;
+    private long actorID;
+    private String actorName;
+    private int flag;
+    private int locationID;
+    private String action;
+    private PasswordType passwordType;
+    private Integer typeID;
+    private Integer quantity;
+    private Integer oldConfiguration;
+    private Integer newConfiguration;
 
-	public void setLogTime(Date logTime) {
-		this.logTime = logTime;
-	}
+    // passwordType="" typeID="" quantity="" oldConfiguration="" newConfiguration=""
 
-	public long getItemID() {
-		return itemID;
-	}
+    public Date getLogTime() {
+        return logTime;
+    }
 
-	public void setItemID(long itemID) {
-		this.itemID = itemID;
-	}
+    public void setLogTime(final Date logTime) {
+        this.logTime = logTime;
+    }
 
-	public int getItemTypeID() {
-		return itemTypeID;
-	}
+    public long getItemID() {
+        return itemID;
+    }
 
-	public void setItemTypeID(int itemTypeID) {
-		this.itemTypeID = itemTypeID;
-	}
+    public void setItemID(final long itemID) {
+        this.itemID = itemID;
+    }
 
-	public long getActorID() {
-		return actorID;
-	}
+    public int getItemTypeID() {
+        return itemTypeID;
+    }
 
-	public void setActorID(long actorID) {
-		this.actorID = actorID;
-	}
+    public void setItemTypeID(final int itemTypeID) {
+        this.itemTypeID = itemTypeID;
+    }
 
-	public String getActorName() {
-		return actorName;
-	}
+    public long getActorID() {
+        return actorID;
+    }
 
-	public void setActorName(String actorName) {
-		this.actorName = actorName;
-	}
+    public void setActorID(final long actorID) {
+        this.actorID = actorID;
+    }
 
-	public int getFlag() {
-		return flag;
-	}
+    public String getActorName() {
+        return actorName;
+    }
 
-	public void setFlag(int flag) {
-		this.flag = flag;
-	}
+    public void setActorName(final String actorName) {
+        this.actorName = actorName;
+    }
 
-	public int getLocationID() {
-		return locationID;
-	}
+    public int getFlag() {
+        return flag;
+    }
 
-	public void setLocationID(int locationID) {
-		this.locationID = locationID;
-	}
+    public void setFlag(final int flag) {
+        this.flag = flag;
+    }
 
-	public String getAction() {
-		return action;
-	}
+    public int getLocationID() {
+        return locationID;
+    }
 
-	public void setAction(String action) {
-		this.action = action;
-	}
+    public void setLocationID(final int locationID) {
+        this.locationID = locationID;
+    }
 
-	public PasswordType getPasswordType() {
-		return passwordType;
-	}
+    public String getAction() {
+        return action;
+    }
 
-	public void setPasswordType(PasswordType passwordType) {
-		this.passwordType = passwordType;
-	}
+    public void setAction(final String action) {
+        this.action = action;
+    }
 
-	public Integer getTypeID() {
-		return typeID;
-	}
+    public PasswordType getPasswordType() {
+        return passwordType;
+    }
 
-	public void setTypeID(Integer typeID) {
-		this.typeID = typeID;
-	}
+    public void setPasswordType(final PasswordType passwordType) {
+        this.passwordType = passwordType;
+    }
 
-	public Integer getQuantity() {
-		return quantity;
-	}
+    public Integer getTypeID() {
+        return typeID;
+    }
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
+    public void setTypeID(final Integer typeID) {
+        this.typeID = typeID;
+    }
 
-	public Integer getOldConfiguration() {
-		return oldConfiguration;
-	}
+    public Integer getQuantity() {
+        return quantity;
+    }
 
-	public void setOldConfiguration(Integer oldConfiguration) {
-		this.oldConfiguration = oldConfiguration;
-	}
+    public void setQuantity(final Integer quantity) {
+        this.quantity = quantity;
+    }
 
-	public Integer getNewConfiguration() {
-		return newConfiguration;
-	}
+    public Integer getOldConfiguration() {
+        return oldConfiguration;
+    }
 
-	public void setNewConfiguration(Integer newConfiguration) {
-		this.newConfiguration = newConfiguration;
-	}
+    public void setOldConfiguration(final Integer oldConfiguration) {
+        this.oldConfiguration = oldConfiguration;
+    }
+
+    public Integer getNewConfiguration() {
+        return newConfiguration;
+    }
+
+    public void setNewConfiguration(final Integer newConfiguration) {
+        this.newConfiguration = newConfiguration;
+    }
 }

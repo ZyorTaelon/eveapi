@@ -7,12 +7,12 @@ import com.beimin.eveapi.parser.shared.AbstractBlueprintsParser;
 import com.beimin.eveapi.response.shared.BlueprintsResponse;
 
 public class BlueprintsParser extends AbstractBlueprintsParser {
-	public BlueprintsParser() {
-		super(ApiPath.CORPORATION);
-	}
+    public BlueprintsParser() {
+        super(ApiPath.CORPORATION);
+    }
 
-	@Override
-	public BlueprintsResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public BlueprintsResponse getResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

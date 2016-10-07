@@ -9,17 +9,17 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.response.shared.FacWarStatsResponse;
 
 public class AbstractFacWarStatsParser extends AbstractApiParser<FacWarStatsResponse> {
-	protected AbstractFacWarStatsParser(ApiPath path) {
-		super(FacWarStatsResponse.class, 2, path, ApiPage.FACT_WAR_STATS);
-	}
+    protected AbstractFacWarStatsParser(final ApiPath path) {
+        super(FacWarStatsResponse.class, 2, path, ApiPage.FACT_WAR_STATS);
+    }
 
-	@Override
-	protected AbstractContentHandler getContentHandler() {
-		return new FacWarStatsHandler();
-	}
+    @Override
+    protected AbstractContentHandler getContentHandler() {
+        return new FacWarStatsHandler();
+    }
 
-	@Override
-	public FacWarStatsResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public FacWarStatsResponse getResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

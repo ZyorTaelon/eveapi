@@ -15,20 +15,20 @@ import com.beimin.eveapi.response.map.JumpsResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class JumpsParserTest extends NoAuthParserTest {
-	public JumpsParserTest() {
-		super(ApiPath.MAP, ApiPage.JUMPS);
-	}
+    public JumpsParserTest() {
+        super(ApiPath.MAP, ApiPage.JUMPS);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		JumpsParser parser = new JumpsParser();
-		JumpsResponse response = parser.getResponse();
-		assertNotNull(response);
-		Map<Integer, Integer> systemJumps = response.getSystemJumps();
-		assertNotNull(systemJumps);
-		assertEquals(4294L, systemJumps.size());
-		assertEquals(1040L, systemJumps.get(30003504).longValue());
-		assertEquals(13L, systemJumps.get(30003089).longValue());
-		assertEquals(209L, systemJumps.get(30004978).longValue());
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        final JumpsParser parser = new JumpsParser();
+        final JumpsResponse response = parser.getResponse();
+        assertNotNull(response);
+        final Map<Integer, Integer> systemJumps = response.getSystemJumps();
+        assertNotNull(systemJumps);
+        assertEquals(4294L, systemJumps.size());
+        assertEquals(1040L, systemJumps.get(30003504).longValue());
+        assertEquals(13L, systemJumps.get(30003089).longValue());
+        assertEquals(209L, systemJumps.get(30004978).longValue());
+    }
 }

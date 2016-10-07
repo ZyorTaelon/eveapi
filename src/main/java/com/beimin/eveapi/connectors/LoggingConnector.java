@@ -23,73 +23,75 @@ import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.InputStreamSplitter;
 
 public class LoggingConnector extends ApiConnector {
-	private static final Logger LOGGER = LoggerFactory.getLogger(LoggingConnector.class);
-	private final ApiConnector baseConnector;
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoggingConnector.class);
+    private final ApiConnector baseConnector;
 
-	public LoggingConnector() {
-	    	super();
-		this.baseConnector = null;
-	}
+    public LoggingConnector() {
+        super();
+        baseConnector = null;
+    }
 
-	public LoggingConnector(ApiConnector baseConnector) {
-		this.baseConnector = baseConnector;
-	}
+    public LoggingConnector(final ApiConnector baseConnector) {
+        this.baseConnector = baseConnector;
+    }
 
-	@Override
-	public <E extends ApiResponse> E execute(ApiRequest request, AbstractContentHandler contentHandler, Class<E> clazz) throws ApiException {
-		if (LOGGER.isInfoEnabled())
-			LOGGER.info("\nRequest:\n" + request.toString());
-		ApiConnector connector = getConnector();
-		URL url = connector.getURL(request);
-		Map<String, String> params = connector.getParams(request);
-		InputStream is = connector.getInputStream(url, params);
-		return getApiResponse(contentHandler, is, clazz);
-	}
+    @Override
+    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler contentHandler, final Class<E> clazz) throws ApiException {
+        if (LOGGER.isInfoEnabled()) {
+            LOGGER.info("\nRequest:\n" + request.toString());
+        }
+        final ApiConnector connector = getConnector();
+        final URL url = connector.getURL(request);
+        final Map<String, String> params = connector.getParams(request);
+        final InputStream is = connector.getInputStream(url, params);
+        return getApiResponse(contentHandler, is, clazz);
+    }
 
-	@Override
-	@SuppressWarnings("unchecked")
-	protected <E> E getApiResponse(AbstractContentHandler contentHandler, InputStream inputStream, Class<E> clazz) throws ApiException {
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		InputStream workInputStream = inputStream;
-		try {
-		    if (LOGGER.isInfoEnabled()) {
-			workInputStream = new InputStreamSplitter(inputStream, outputStream);
-		    }
-		    SAXParserFactory spf = SAXParserFactory.newInstance(); 
-		    SAXParser sp = spf.newSAXParser(); 
-		    XMLReader xr = sp.getXMLReader(); 
-		    xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-		    xr.setContentHandler(contentHandler);
-		    xr.parse(new InputSource(workInputStream)); 
-			return (E) contentHandler.getResponse();
-		} catch (Exception e) {
-			throw new ApiException(e);
-		} finally {
-		    	if (LOGGER.isInfoEnabled()) {
-		    	    	try {
-		    	    	    	LOGGER.info("\nResponse:\n" + outputStream.toString("UTF-8"));
-				} catch (UnsupportedEncodingException e) {
-				    	LOGGER.error("Could not write response as utf-8", e);
-				}
-		    	}
-		    	try {
-		    	    	if(workInputStream != null) {
-		    	    	    	workInputStream.close();
-		    	    	}
-			} catch (IOException e) {
-			    	LOGGER.error("Could not close input stream", e);
-			}
-		}
-	}
+    @Override
+    @SuppressWarnings("unchecked")
+    protected <E> E getApiResponse(final AbstractContentHandler contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
+        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        InputStream workInputStream = inputStream;
+        try {
+            if (LOGGER.isInfoEnabled()) {
+                workInputStream = new InputStreamSplitter(inputStream, outputStream);
+            }
+            final SAXParserFactory spf = SAXParserFactory.newInstance();
+            final SAXParser sp = spf.newSAXParser();
+            final XMLReader xr = sp.getXMLReader();
+            xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            xr.setContentHandler(contentHandler);
+            xr.parse(new InputSource(workInputStream));
+            return (E) contentHandler.getResponse();
+        } catch (final Exception e) {
+            throw new ApiException(e);
+        } finally {
+            if (LOGGER.isInfoEnabled()) {
+                try {
+                    LOGGER.info("\nResponse:\n" + outputStream.toString("UTF-8"));
+                } catch (final UnsupportedEncodingException e) {
+                    LOGGER.error("Could not write response as utf-8", e);
+                }
+            }
+            try {
+                if (workInputStream != null) {
+                    workInputStream.close();
+                }
+            } catch (final IOException e) {
+                LOGGER.error("Could not close input stream", e);
+            }
+        }
+    }
 
-	@Override
-	public ApiConnector getNewInstance() {
-		return new LoggingConnector(baseConnector);
-	}
+    @Override
+    public ApiConnector getNewInstance() {
+        return new LoggingConnector(baseConnector);
+    }
 
-	private ApiConnector getConnector() {
-		if (baseConnector != null)
-			return baseConnector.getNewInstance();
-		return super.getNewInstance();
-	}
+    private ApiConnector getConnector() {
+        if (baseConnector != null) {
+            return baseConnector.getNewInstance();
+        }
+        return super.getNewInstance();
+    }
 }

@@ -1,46 +1,46 @@
 package com.beimin.eveapi.parser;
 
 public class ApiAuthorization extends ApiAuth {
-    	private static final long serialVersionUID = 1369641401371970736L;
-	
-    	private final int keyID;
-	private Long characterID;
-	private final String vCode;
+    private static final long serialVersionUID = 1369641401371970736L;
 
-	public ApiAuthorization(int keyID, long characterID, String vCode) {
-		this.keyID = keyID;
-		this.vCode = vCode;
-		this.characterID = characterID;
-	}
+    private final int keyID;
+    private Long characterID;
+    private final String vCode;
 
-	public ApiAuthorization(int keyID, String vCode) {
-		this.keyID = keyID;
-		this.vCode = vCode;
-		this.characterID = null;
-	}
+    public ApiAuthorization(final int keyID, final long characterID, final String vCode) {
+        this.keyID = keyID;
+        this.vCode = vCode;
+        this.characterID = characterID;
+    }
 
-	@Override
-	public int getKeyID() {
-		return keyID;
-	}
+    public ApiAuthorization(final int keyID, final String vCode) {
+        this.keyID = keyID;
+        this.vCode = vCode;
+        characterID = null;
+    }
 
-	@Override
-	public Long getCharacterID() {
-		return characterID;
-	}
+    @Override
+    public int getKeyID() {
+        return keyID;
+    }
 
-	@Override
-	public void setCharacterID(long characterID) {
-		this.characterID = characterID;
-	}
-	
-	@Override
-	public String getVCode() {
-		return vCode;
-	}
+    @Override
+    public Long getCharacterID() {
+        return characterID;
+    }
 
-	@Override
-	public String toString() {
-		return new StringBuilder().append("keyID: ").append(keyID).append(", characterID: ").append(characterID).toString();
-	}
+    @Override
+    public void setCharacterID(final long characterID) {
+        this.characterID = characterID;
+    }
+
+    @Override
+    public String getVCode() {
+        return vCode;
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuilder().append("keyID: ").append(keyID).append(", characterID: ").append(characterID).toString();
+    }
 }

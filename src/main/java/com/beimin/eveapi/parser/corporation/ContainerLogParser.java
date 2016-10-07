@@ -10,12 +10,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.corporation.ContainerLogResponse;
 
 public class ContainerLogParser extends AbstractListParser<ContainerLogHandler, ContainerLogResponse, ContainerLog> {
-	public ContainerLogParser() {
-		super(ContainerLogResponse.class, 2, ApiPath.CORPORATION, ApiPage.CONTAINER_LOG, ContainerLogHandler.class);
-	}
+    public ContainerLogParser() {
+        super(ContainerLogResponse.class, 2, ApiPath.CORPORATION, ApiPage.CONTAINER_LOG, ContainerLogHandler.class);
+    }
 
-	@Override
-	public ContainerLogResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public ContainerLogResponse getResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

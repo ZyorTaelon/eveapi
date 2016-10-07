@@ -12,7 +12,7 @@ public class ContactLabelList extends ArrayList<ContactLabel> {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -20,7 +20,7 @@ public class ContactLabelList extends ArrayList<ContactLabel> {
         return key;
     }
 
-    public void setKey(String key) {
+    public void setKey(final String key) {
         this.key = key;
     }
 
@@ -28,7 +28,7 @@ public class ContactLabelList extends ArrayList<ContactLabel> {
         return columns;
     }
 
-    public void setColumns(String columns) {
+    public void setColumns(final String columns) {
         this.columns = columns;
     }
 }

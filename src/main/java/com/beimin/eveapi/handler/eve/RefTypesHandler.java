@@ -8,16 +8,16 @@ import com.beimin.eveapi.response.eve.RefTypesResponse;
 
 public class RefTypesHandler extends AbstractContentListHandler<RefTypesResponse, RefType> {
 
-	public RefTypesHandler() {
-		super(RefTypesResponse.class);
-	}
+    public RefTypesHandler() {
+        super(RefTypesResponse.class);
+    }
 
-	@Override
-	protected RefType getItem(Attributes attrs) {
-		RefType item = new RefType();
-		saveFieldsCount(RefType.class, attrs);
-		item.setRefTypeID(getInt(attrs, "refTypeID"));
-		item.setRefTypeName(getString(attrs, "refTypeName"));
-		return item;
-	}
+    @Override
+    protected RefType getItem(final Attributes attrs) {
+        final RefType item = new RefType();
+        saveFieldsCount(RefType.class, attrs);
+        item.setRefTypeID(getInt(attrs, "refTypeID"));
+        item.setRefTypeName(getString(attrs, "refTypeName"));
+        return item;
+    }
 }

@@ -8,17 +8,17 @@ import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 
 public class AccountBalanceHandler extends AbstractContentListHandler<AccountBalanceResponse, EveAccountBalance> {
 
-	public AccountBalanceHandler() {
-		super(AccountBalanceResponse.class);
-	}
+    public AccountBalanceHandler() {
+        super(AccountBalanceResponse.class);
+    }
 
-	@Override
-	protected EveAccountBalance getItem(Attributes attrs) {
-		EveAccountBalance eveAccountBalance = new EveAccountBalance();
-		saveFieldsCount(EveAccountBalance.class, attrs);
-		eveAccountBalance.setAccountID(getInt(attrs, "accountID"));
-		eveAccountBalance.setAccountKey(getInt(attrs, "accountKey"));
-		eveAccountBalance.setBalance(getDouble(attrs, "balance"));
-		return eveAccountBalance;
-	}
+    @Override
+    protected EveAccountBalance getItem(final Attributes attrs) {
+        final EveAccountBalance eveAccountBalance = new EveAccountBalance();
+        saveFieldsCount(EveAccountBalance.class, attrs);
+        eveAccountBalance.setAccountID(getInt(attrs, "accountID"));
+        eveAccountBalance.setAccountKey(getInt(attrs, "accountKey"));
+        eveAccountBalance.setBalance(getDouble(attrs, "balance"));
+        return eveAccountBalance;
+    }
 }

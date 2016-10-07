@@ -1,22 +1,22 @@
 package com.beimin.eveapi.model.eve;
 
 public class EveTypeName {
-	private int typeID;
-	private String typeName;
+    private int typeID;
+    private String typeName;
 
-	public int getTypeID() {
-		return typeID;
-	}
+    public int getTypeID() {
+        return typeID;
+    }
 
-	public void setTypeID(int typeID) {
-		this.typeID = typeID;
-	}
+    public void setTypeID(final int typeID) {
+        this.typeID = typeID;
+    }
 
-	public String getTypeName() {
-		return typeName;
-	}
+    public String getTypeName() {
+        return typeName;
+    }
 
-	public void setTypeName(String typeName) {
-		this.typeName = typeName;
-	}
+    public void setTypeName(final String typeName) {
+        this.typeName = typeName;
+    }
 }

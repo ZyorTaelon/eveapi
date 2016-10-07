@@ -16,42 +16,42 @@ import com.beimin.eveapi.parser.ApiRequest;
 import com.beimin.eveapi.response.ApiResponse;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
-	protected final Logger logger = LoggerFactory.getLogger(getClass());
-	protected final ApiPath path;
-	protected final ApiPage page;
-	protected final int version;
-	protected final Class<E> clazz;
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
+    protected final ApiPath path;
+    protected final ApiPage page;
+    protected final int version;
+    protected final Class<E> clazz;
 
-	public AbstractApiParser(Class<E> clazz, int version, ApiPath path, ApiPage page) {
-		this.clazz = clazz;
-		this.version = version;
-		this.path = path;
-		this.page = page;
-	}
+    public AbstractApiParser(final Class<E> clazz, final int version, final ApiPath path, final ApiPage page) {
+        this.clazz = clazz;
+        this.version = version;
+        this.path = path;
+        this.page = page;
+    }
 
-	protected abstract AbstractContentHandler getContentHandler();
+    protected abstract AbstractContentHandler getContentHandler();
 
-	protected E getResponse() throws ApiException {
-		return getResponse(new ApiRequest(path, page, version));
-	}
+    protected E getResponse() throws ApiException {
+        return getResponse(new ApiRequest(path, page, version));
+    }
 
-	protected E getResponse(ApiAuth auth) throws ApiException {
-		return getResponse(new ApiRequest(path, page, version, auth));
-	}
+    protected E getResponse(final ApiAuth auth) throws ApiException {
+        return getResponse(new ApiRequest(path, page, version, auth));
+    }
 
-	protected E getResponse(ApiAuth auth, String paramName, String paramValue) throws ApiException {
-		return getResponse(new ApiRequest(path, page, version, auth, Collections.singletonMap(paramName, paramValue)));
-	}
+    protected E getResponse(final ApiAuth auth, final String paramName, final String paramValue) throws ApiException {
+        return getResponse(new ApiRequest(path, page, version, auth, Collections.singletonMap(paramName, paramValue)));
+    }
 
-	protected E getResponse(ApiAuth auth, Map<String, String> extraParams) throws ApiException {
-		return getResponse(new ApiRequest(path, page, version, auth, extraParams));
-	}
+    protected E getResponse(final ApiAuth auth, final Map<String, String> extraParams) throws ApiException {
+        return getResponse(new ApiRequest(path, page, version, auth, extraParams));
+    }
 
-	protected E getResponse(String paramName, String paramValue) throws ApiException {
-		return getResponse(new ApiRequest(path, page, version, Collections.singletonMap(paramName, paramValue)));
-	}
+    protected E getResponse(final String paramName, final String paramValue) throws ApiException {
+        return getResponse(new ApiRequest(path, page, version, Collections.singletonMap(paramName, paramValue)));
+    }
 
-	private E getResponse(ApiRequest request) throws ApiException {
-		return EveApi.getConnector().execute(request, getContentHandler(), clazz);
-	}
+    private E getResponse(final ApiRequest request) throws ApiException {
+        return EveApi.getConnector().execute(request, getContentHandler(), clazz);
+    }
 }

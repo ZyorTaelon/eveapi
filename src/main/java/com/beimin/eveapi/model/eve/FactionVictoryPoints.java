@@ -1,13 +1,15 @@
 package com.beimin.eveapi.model.eve;
 
 public class FactionVictoryPoints extends FactionStat implements VictoryPointsStat {
-	private int victoryPoints;
+    private int victoryPoints;
 
-	public int getVictoryPoints() {
-		return victoryPoints;
-	}
+    @Override
+    public int getVictoryPoints() {
+        return victoryPoints;
+    }
 
-	public void setVictoryPoints(int victoryPoints) {
-		this.victoryPoints = victoryPoints;
-	}
+    @Override
+    public void setVictoryPoints(final int victoryPoints) {
+        this.victoryPoints = victoryPoints;
+    }
 }

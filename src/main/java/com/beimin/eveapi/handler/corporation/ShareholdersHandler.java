@@ -7,19 +7,19 @@ import com.beimin.eveapi.model.corporation.Shareholder;
 import com.beimin.eveapi.response.corporation.ShareholdersResponse;
 
 public class ShareholdersHandler extends AbstractContentListHandler<ShareholdersResponse, Shareholder> {
-	public ShareholdersHandler() {
-		super(ShareholdersResponse.class);
-	}
+    public ShareholdersHandler() {
+        super(ShareholdersResponse.class);
+    }
 
-	@Override
-	protected Shareholder getItem(Attributes attrs) {
-		Shareholder item = new Shareholder();
-		saveFieldsCount(Shareholder.class, attrs);
-		item.setShareholderCorporationID(getLong(attrs, "shareholderCorporationID"));
-		item.setShareholderCorporationName(getString(attrs, "shareholderCorporationName"));
-		item.setShareholderID(getLong(attrs, "shareholderID"));
-		item.setShareholderName(getString(attrs, "shareholderName"));
-		item.setShares(getInt(attrs, "shares"));
-		return item;
-	}
+    @Override
+    protected Shareholder getItem(final Attributes attrs) {
+        final Shareholder item = new Shareholder();
+        saveFieldsCount(Shareholder.class, attrs);
+        item.setShareholderCorporationID(getLong(attrs, "shareholderCorporationID"));
+        item.setShareholderCorporationName(getString(attrs, "shareholderCorporationName"));
+        item.setShareholderID(getLong(attrs, "shareholderID"));
+        item.setShareholderName(getString(attrs, "shareholderName"));
+        item.setShares(getInt(attrs, "shares"));
+        return item;
+    }
 }

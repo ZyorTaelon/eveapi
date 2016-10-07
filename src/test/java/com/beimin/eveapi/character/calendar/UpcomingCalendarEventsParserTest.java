@@ -17,26 +17,26 @@ import com.beimin.eveapi.response.pilot.UpcomingCalendarEventsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
-	public UpcomingCalendarEventsParserTest() {
-		super(ApiPath.CHARACTER, ApiPage.UPCOMING_CALENDAR_EVENTS);
-	}
+    public UpcomingCalendarEventsParserTest() {
+        super(ApiPath.CHARACTER, ApiPage.UPCOMING_CALENDAR_EVENTS);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		UpcomingCalendarEventsParser parser = new UpcomingCalendarEventsParser();
-		UpcomingCalendarEventsResponse response = parser.getResponse(auth);
-		Set<UpcomingCalendarEvent> events = response.getAll();
-		assertEquals(1, events.size());
-		UpcomingCalendarEvent event = events.iterator().next();
-		assertEquals(90864L, event.getEventID());
-		assertEquals(786344537L, event.getOwnerID());
-		assertEquals("Some Alliance", event.getOwnerName());
-		assertDate(2010, 11, 28, 17, 00, 00, event.getEventDate());
-		assertEquals("Some Mining OP @ 17:00", event.getEventTitle());
-		assertEquals(120, event.getDuration());
-		assertEquals(true, event.isImportant());
-		assertEquals(CalendarEventResponse.UNDECIDED, event.getResponse());
-		String expectedEventText = "Alliance Mining OP Part II<br><br>This will be in home system the sunday after the patch..<br>We would really like to see as many mining barges out there as possible. PVPers are also needed for security.. See you there!!!";
-		assertEquals(expectedEventText, event.getEventText());
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        final UpcomingCalendarEventsParser parser = new UpcomingCalendarEventsParser();
+        final UpcomingCalendarEventsResponse response = parser.getResponse(auth);
+        final Set<UpcomingCalendarEvent> events = response.getAll();
+        assertEquals(1, events.size());
+        final UpcomingCalendarEvent event = events.iterator().next();
+        assertEquals(90864L, event.getEventID());
+        assertEquals(786344537L, event.getOwnerID());
+        assertEquals("Some Alliance", event.getOwnerName());
+        assertDate(2010, 11, 28, 17, 00, 00, event.getEventDate());
+        assertEquals("Some Mining OP @ 17:00", event.getEventTitle());
+        assertEquals(120, event.getDuration());
+        assertEquals(true, event.isImportant());
+        assertEquals(CalendarEventResponse.UNDECIDED, event.getResponse());
+        final String expectedEventText = "Alliance Mining OP Part II<br><br>This will be in home system the sunday after the patch..<br>We would really like to see as many mining barges out there as possible. PVPers are also needed for security.. See you there!!!";
+        assertEquals(expectedEventText, event.getEventText());
+    }
 }

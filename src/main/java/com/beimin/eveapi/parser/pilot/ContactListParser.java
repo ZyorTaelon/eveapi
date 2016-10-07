@@ -5,7 +5,7 @@ import com.beimin.eveapi.parser.shared.AbstractContactListParser;
 import com.beimin.eveapi.response.pilot.ContactListResponse;
 
 public class ContactListParser extends AbstractContactListParser<ContactListResponse> {
-	public ContactListParser() {
-		super(ContactListResponse.class, ApiPath.CHARACTER);
-	}
+    public ContactListParser() {
+        super(ContactListResponse.class, ApiPath.CHARACTER);
+    }
 }

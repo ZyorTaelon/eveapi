@@ -15,247 +15,247 @@ import com.beimin.eveapi.model.shared.Race;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class CharacterSheetResponse extends ApiResponse {
-	private long characterID;
-	private String name;
-	private Race race;
-	private Date dateOfBirth;
-	private Bloodline bloodLine;
-	private Ancestry ancestry;
-	private String gender;
-	private String corporationName;
-	private long corporationID;
-	private Long allianceID;
-	private String allianceName;
-	private String cloneName;
-	private long cloneSkillPoints;
-	private double balance;
-	private final Set<AttributeEnhancer> attributeEnhancers = new HashSet<AttributeEnhancer>();
-	private int intelligence;
-	private int memory;
-	private int charisma;
-	private int perception;
-	private int willpower;
-	private final Set<Skill> skills = new HashSet<Skill>();
-	private final Set<Certificate> certificates = new HashSet<Certificate>();
-	private final Set<CorporationRole> corporationRoles = new HashSet<CorporationRole>();
-	private final Set<CorporationRole> corporationRolesAtHQ = new HashSet<CorporationRole>();
-	private final Set<CorporationRole> corporationRolesAtBase = new HashSet<CorporationRole>();
-	private final Set<CorporationRole> corporationRolesAtOther = new HashSet<CorporationRole>();
-	private final Set<CorporationTitle> corporationTitles = new HashSet<CorporationTitle>();
-	
-	public long getCharacterID() {
-		return characterID;
-	}
+    private long characterID;
+    private String name;
+    private Race race;
+    private Date dateOfBirth;
+    private Bloodline bloodLine;
+    private Ancestry ancestry;
+    private String gender;
+    private String corporationName;
+    private long corporationID;
+    private Long allianceID;
+    private String allianceName;
+    private String cloneName;
+    private long cloneSkillPoints;
+    private double balance;
+    private final Set<AttributeEnhancer> attributeEnhancers = new HashSet<AttributeEnhancer>();
+    private int intelligence;
+    private int memory;
+    private int charisma;
+    private int perception;
+    private int willpower;
+    private final Set<Skill> skills = new HashSet<Skill>();
+    private final Set<Certificate> certificates = new HashSet<Certificate>();
+    private final Set<CorporationRole> corporationRoles = new HashSet<CorporationRole>();
+    private final Set<CorporationRole> corporationRolesAtHQ = new HashSet<CorporationRole>();
+    private final Set<CorporationRole> corporationRolesAtBase = new HashSet<CorporationRole>();
+    private final Set<CorporationRole> corporationRolesAtOther = new HashSet<CorporationRole>();
+    private final Set<CorporationTitle> corporationTitles = new HashSet<CorporationTitle>();
 
-	public void setCharacterID(long characterID) {
-		this.characterID = characterID;
-	}
+    public long getCharacterID() {
+        return characterID;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setCharacterID(final long characterID) {
+        this.characterID = characterID;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Race getRace() {
-		return race;
-	}
+    public void setName(final String name) {
+        this.name = name;
+    }
 
-	public void setRace(Race race) {
-		this.race = race;
-	}
+    public Race getRace() {
+        return race;
+    }
 
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
+    public void setRace(final Race race) {
+        this.race = race;
+    }
 
-	public void setDateOfBirth(Date doB) {
-		dateOfBirth = doB;
-	}
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
 
-	public Bloodline getBloodLine() {
-		return bloodLine;
-	}
+    public void setDateOfBirth(final Date doB) {
+        dateOfBirth = doB;
+    }
 
-	public void setBloodLine(Bloodline bloodLine) {
-		this.bloodLine = bloodLine;
-	}
+    public Bloodline getBloodLine() {
+        return bloodLine;
+    }
 
-	public Ancestry getAncestry() {
-		return ancestry;
-	}
+    public void setBloodLine(final Bloodline bloodLine) {
+        this.bloodLine = bloodLine;
+    }
 
-	public void setAncestry(Ancestry ancestry) {
-		this.ancestry = ancestry;
-	}
+    public Ancestry getAncestry() {
+        return ancestry;
+    }
 
-	public String getGender() {
-		return gender;
-	}
+    public void setAncestry(final Ancestry ancestry) {
+        this.ancestry = ancestry;
+    }
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+    public String getGender() {
+        return gender;
+    }
 
-	public String getCorporationName() {
-		return corporationName;
-	}
+    public void setGender(final String gender) {
+        this.gender = gender;
+    }
 
-	public void setCorporationName(String corporationName) {
-		this.corporationName = corporationName;
-	}
+    public String getCorporationName() {
+        return corporationName;
+    }
 
-	public long getCorporationID() {
-		return corporationID;
-	}
+    public void setCorporationName(final String corporationName) {
+        this.corporationName = corporationName;
+    }
 
-	public void setCorporationID(long corporationID) {
-		this.corporationID = corporationID;
-	}
+    public long getCorporationID() {
+        return corporationID;
+    }
 
-	public String getAllianceName() {
-		return allianceName;
-	}
+    public void setCorporationID(final long corporationID) {
+        this.corporationID = corporationID;
+    }
 
-	public void setAllianceName(String allianceName) {
-		this.allianceName = allianceName;
-	}
+    public String getAllianceName() {
+        return allianceName;
+    }
 
-	public Long getAllianceID() {
-		return allianceID;
-	}
+    public void setAllianceName(final String allianceName) {
+        this.allianceName = allianceName;
+    }
 
-	public void setAllianceID(Long allianceID) {
-		this.allianceID = allianceID;
-	}
+    public Long getAllianceID() {
+        return allianceID;
+    }
 
-	public String getCloneName() {
-		return cloneName;
-	}
+    public void setAllianceID(final Long allianceID) {
+        this.allianceID = allianceID;
+    }
 
-	public void setCloneName(String cloneName) {
-		this.cloneName = cloneName;
-	}
+    public String getCloneName() {
+        return cloneName;
+    }
 
-	public long getCloneSkillPoints() {
-		return cloneSkillPoints;
-	}
+    public void setCloneName(final String cloneName) {
+        this.cloneName = cloneName;
+    }
 
-	public void setCloneSkillPoints(long cloneSkillPoints) {
-		this.cloneSkillPoints = cloneSkillPoints;
-	}
+    public long getCloneSkillPoints() {
+        return cloneSkillPoints;
+    }
 
-	public double getBalance() {
-		return balance;
-	}
+    public void setCloneSkillPoints(final long cloneSkillPoints) {
+        this.cloneSkillPoints = cloneSkillPoints;
+    }
 
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
+    public double getBalance() {
+        return balance;
+    }
 
-	public void addAttributeEnhancer(AttributeEnhancer attributeEnhancer) {
-		attributeEnhancers.add(attributeEnhancer);
-	}
+    public void setBalance(final double balance) {
+        this.balance = balance;
+    }
 
-	public Set<AttributeEnhancer> getAttributeEnhancers() {
-		return attributeEnhancers;
-	}
+    public void addAttributeEnhancer(final AttributeEnhancer attributeEnhancer) {
+        attributeEnhancers.add(attributeEnhancer);
+    }
 
-	public int getIntelligence() {
-		return intelligence;
-	}
+    public Set<AttributeEnhancer> getAttributeEnhancers() {
+        return attributeEnhancers;
+    }
 
-	public void setIntelligence(int intelligence) {
-		this.intelligence = intelligence;
-	}
+    public int getIntelligence() {
+        return intelligence;
+    }
 
-	public int getMemory() {
-		return memory;
-	}
+    public void setIntelligence(final int intelligence) {
+        this.intelligence = intelligence;
+    }
 
-	public void setMemory(int memory) {
-		this.memory = memory;
-	}
+    public int getMemory() {
+        return memory;
+    }
 
-	public int getCharisma() {
-		return charisma;
-	}
+    public void setMemory(final int memory) {
+        this.memory = memory;
+    }
 
-	public void setCharisma(int charisma) {
-		this.charisma = charisma;
-	}
+    public int getCharisma() {
+        return charisma;
+    }
 
-	public int getPerception() {
-		return perception;
-	}
+    public void setCharisma(final int charisma) {
+        this.charisma = charisma;
+    }
 
-	public void setPerception(int perception) {
-		this.perception = perception;
-	}
+    public int getPerception() {
+        return perception;
+    }
 
-	public int getWillpower() {
-		return willpower;
-	}
+    public void setPerception(final int perception) {
+        this.perception = perception;
+    }
 
-	public void setWillpower(int willpower) {
-		this.willpower = willpower;
-	}
+    public int getWillpower() {
+        return willpower;
+    }
 
-	public void addSkill(Skill skill) {
-		skills.add(skill);
-	}
+    public void setWillpower(final int willpower) {
+        this.willpower = willpower;
+    }
 
-	public Set<Skill> getSkills() {
-		return skills;
-	}
+    public void addSkill(final Skill skill) {
+        skills.add(skill);
+    }
 
-	public void addCertificate(Certificate certificate) {
-		certificates.add(certificate);
-	}
+    public Set<Skill> getSkills() {
+        return skills;
+    }
 
-	public Set<Certificate> getCertificates() {
-		return certificates;
-	}
+    public void addCertificate(final Certificate certificate) {
+        certificates.add(certificate);
+    }
 
-	public void addCorporationRole(CorporationRole corporationRole) {
-		corporationRoles.add(corporationRole);
-	}
-	
-	public Set<CorporationRole> getCorporationRoles() {
-		return corporationRoles;
-	}
+    public Set<Certificate> getCertificates() {
+        return certificates;
+    }
 
-	public void addCorporationRoleAtHQ(CorporationRole corporationRole) {
-		corporationRolesAtHQ.add(corporationRole);
-	}
+    public void addCorporationRole(final CorporationRole corporationRole) {
+        corporationRoles.add(corporationRole);
+    }
 
-	public Set<CorporationRole> getCorporationRolesAtHQ() {
-		return corporationRolesAtHQ;
-	}
+    public Set<CorporationRole> getCorporationRoles() {
+        return corporationRoles;
+    }
 
-	public void addCorporationRoleAtBase(CorporationRole corporationRole) {
-		corporationRolesAtBase.add(corporationRole);
-	}
+    public void addCorporationRoleAtHQ(final CorporationRole corporationRole) {
+        corporationRolesAtHQ.add(corporationRole);
+    }
 
-	public Set<CorporationRole> getCorporationRolesAtBase() {
-		return corporationRolesAtBase;
-	}
+    public Set<CorporationRole> getCorporationRolesAtHQ() {
+        return corporationRolesAtHQ;
+    }
 
-	public void addCorporationRoleAtOther(CorporationRole corporationRole) {
-		corporationRolesAtOther.add(corporationRole);
-	}
-	
-	public Set<CorporationRole> getCorporationRolesAtOther() {
-		return corporationRolesAtOther;
-	}
+    public void addCorporationRoleAtBase(final CorporationRole corporationRole) {
+        corporationRolesAtBase.add(corporationRole);
+    }
 
-	public void addCorporationTitle(CorporationTitle title) {
-		corporationTitles.add(title);
-	}
+    public Set<CorporationRole> getCorporationRolesAtBase() {
+        return corporationRolesAtBase;
+    }
 
-	public Set<CorporationTitle> getCorporationTitles() {
-		return corporationTitles;
-	}
+    public void addCorporationRoleAtOther(final CorporationRole corporationRole) {
+        corporationRolesAtOther.add(corporationRole);
+    }
+
+    public Set<CorporationRole> getCorporationRolesAtOther() {
+        return corporationRolesAtOther;
+    }
+
+    public void addCorporationTitle(final CorporationTitle title) {
+        corporationTitles.add(title);
+    }
+
+    public Set<CorporationTitle> getCorporationTitles() {
+        return corporationTitles;
+    }
 }
