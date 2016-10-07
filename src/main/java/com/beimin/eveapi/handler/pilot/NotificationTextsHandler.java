@@ -28,7 +28,7 @@ public class NotificationTextsHandler extends AbstractContentListHandler<Notific
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
             notificationText.setText(getString());
-            response.add(notificationText);
+            getResponse().add(notificationText);
             notificationText = null;
             accumulator.setLength(0);
         }

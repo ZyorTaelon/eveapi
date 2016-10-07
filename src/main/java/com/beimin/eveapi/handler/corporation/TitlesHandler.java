@@ -54,7 +54,7 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
                 title.addGrantableRoleAtOther(getRole(attrs));
             } else {
                 title = getItem(attrs);
-                response.add(title);
+                getResponse().add(title);
             }
         } else {
             super.startElement(uri, localName, qName, attrs);

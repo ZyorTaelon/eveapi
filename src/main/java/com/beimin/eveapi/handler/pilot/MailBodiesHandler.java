@@ -27,7 +27,7 @@ public class MailBodiesHandler extends AbstractContentListHandler<MailBodiesResp
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
             mailBody.setBody(getString());
-            response.add(mailBody);
+            getResponse().add(mailBody);
             mailBody = null;
             accumulator.setLength(0);
         }

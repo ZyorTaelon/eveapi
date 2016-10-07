@@ -93,7 +93,7 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
                 category.add(certificateClass);
                 certificateClass = null;
             } else if (categories) {
-                response.add(category);
+                getResponse().add(category);
                 category = null;
             }
         } else {

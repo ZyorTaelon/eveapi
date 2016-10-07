@@ -86,7 +86,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
             inItems = false;
         } else if (ELEMENT_ROW.equals(qName)) {
             if (!inAttackers && !inItems) {
-                response.add(apiKill);
+                getResponse().add(apiKill);
                 apiKill = null;
             }
         } else {

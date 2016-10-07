@@ -30,7 +30,7 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
                 roleHistory.addNewRole(getRole(attrs));
             } else {
                 roleHistory = getItem(attrs);
-                response.add(roleHistory);
+                getResponse().add(roleHistory);
             }
         } else {
             super.startElement(uri, localName, qName, attrs);

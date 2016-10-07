@@ -11,7 +11,6 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractContentListHandler.class);
 
     private final Class<E> clazz;
-    protected E response;
 
     public AbstractContentListHandler(final Class<E> clazz) {
         super();
@@ -21,7 +20,7 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
     @Override
     public void startDocument() throws SAXException {
         try {
-            response = clazz.newInstance();
+            setResponse(clazz.newInstance());
         } catch (final InstantiationException | IllegalAccessException e) {
             LOGGER.error("Could't start document", e);
         }
@@ -30,7 +29,7 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
-            response.add(getItem(attrs));
+            getResponse().add(getItem(attrs));
         }
         super.startElement(uri, localName, qName, attrs);
     }

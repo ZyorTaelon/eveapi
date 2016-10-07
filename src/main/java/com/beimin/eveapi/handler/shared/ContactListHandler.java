@@ -15,7 +15,6 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
     private static final Logger LOGGER = LoggerFactory.getLogger(ContactListHandler.class);
 
     private final Class<CLR> clazz;
-    private CLR response;
     private NamedList<Contact> contactList;
     private NamedList<ContactLabel> labelList;
 
@@ -26,7 +25,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
     @Override
     public void startDocument() throws SAXException {
         try {
-            response = clazz.newInstance();
+            setResponse(clazz.newInstance());
         } catch (final InstantiationException e) {
             LOGGER.error("Couldn't start document", e);
         } catch (final IllegalAccessException e) {
@@ -71,6 +70,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        CLR response = getResponse();
         if (ELEMENT_ROWSET.equals(qName)) {
             if (contactList != null) {
                 response.add(contactList);

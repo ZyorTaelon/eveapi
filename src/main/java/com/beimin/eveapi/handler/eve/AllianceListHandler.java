@@ -28,7 +28,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
                 alliance.add(memberCorporation);
             } else {
                 alliance = getItem(attrs);
-                response.add(alliance);
+                getResponse().add(alliance);
             }
         } else {
             super.startElement(uri, localName, qName, attrs);

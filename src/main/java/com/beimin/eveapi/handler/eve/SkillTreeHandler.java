@@ -70,7 +70,7 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
                 skillBonusCollection = false;
             } else if (skills) {
                 skills = false;
-                response.add(skillGroup);
+                getResponse().add(skillGroup);
                 skillGroup = null;
             }
         } else if ("description".equals(qName)) {
