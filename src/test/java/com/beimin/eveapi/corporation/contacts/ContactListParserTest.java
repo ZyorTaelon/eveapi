@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.Contact;
-import com.beimin.eveapi.model.shared.ContactList;
+import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.ContactListParser;
@@ -26,7 +26,7 @@ public class ContactListParserTest extends FullAuthParserTest {
         final ContactListResponse response = parser.getResponse(auth);
         assertNotNull(response);
 
-        final ContactList corporateContactList = response.getCorporateContactList();
+        final NamedList<Contact> corporateContactList = response.getCorporateContactList();
         assertEquals("corporateContactList", corporateContactList.getName());
         assertEquals(19, corporateContactList.size());
         Contact apiContact = corporateContactList.iterator().next();
@@ -37,7 +37,7 @@ public class ContactListParserTest extends FullAuthParserTest {
         assertEquals(2, apiContact.getContactTypeID());
         assertEquals(3, apiContact.getLabelMask());
 
-        final ContactList allianceContactList = response.getAllianceContactList();
+        final NamedList<Contact> allianceContactList = response.getAllianceContactList();
         assertEquals("allianceContactList", allianceContactList.getName());
         assertEquals(210, allianceContactList.size());
         apiContact = allianceContactList.iterator().next();

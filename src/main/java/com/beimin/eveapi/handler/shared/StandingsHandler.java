@@ -4,13 +4,13 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
+import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.model.shared.Standing;
-import com.beimin.eveapi.model.shared.StandingsList;
 import com.beimin.eveapi.response.shared.StandingsResponse;
 
 public class StandingsHandler extends AbstractContentHandler {
     private StandingsResponse response;
-    private StandingsList list;
+    private NamedList<Standing> list;
 
     @Override
     public void startDocument() throws SAXException {
@@ -21,7 +21,7 @@ public class StandingsHandler extends AbstractContentHandler {
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         super.startElement(uri, localName, qName, attrs);
         if (ELEMENT_ROWSET.equals(qName)) {
-            list = new StandingsList();
+            list = new NamedList<>();
             list.setName(getString(attrs, "name"));
         } else if (ELEMENT_ROW.equals(qName)) {
             final Standing standing = new Standing();

@@ -6,8 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.model.shared.Standing;
-import com.beimin.eveapi.model.shared.StandingsList;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.StandingsParser;
@@ -25,7 +25,7 @@ public class StandingsParserTest extends FullAuthParserTest {
         final StandingsResponse response = parser.getResponse(auth);
         assertNotNull(response);
 
-        final StandingsList agentStandings = response.getAgentStandings();
+        final NamedList<Standing> agentStandings = response.getAgentStandings();
         assertEquals("agents", agentStandings.getName());
         assertEquals(1871, agentStandings.size());
         Standing apiStanding = agentStandings.iterator().next();
@@ -33,7 +33,7 @@ public class StandingsParserTest extends FullAuthParserTest {
         assertEquals("Appi Intaa", apiStanding.getFromName());
         assertEquals(-0.33, apiStanding.getStanding(), 1E-15);
 
-        final StandingsList npcCorporations = response.getNpcCorporationStandings();
+        final NamedList<Standing> npcCorporations = response.getNpcCorporationStandings();
         assertEquals("NPCCorporations", npcCorporations.getName());
         assertEquals(154, npcCorporations.size());
         apiStanding = npcCorporations.iterator().next();
@@ -41,7 +41,7 @@ public class StandingsParserTest extends FullAuthParserTest {
         assertEquals("CBD Corporation", apiStanding.getFromName());
         assertEquals(0.52, apiStanding.getStanding(), 1E-15);
 
-        final StandingsList factionStandings = response.getFactionStandings();
+        final NamedList<Standing> factionStandings = response.getFactionStandings();
         assertEquals("factions", factionStandings.getName());
         assertEquals(20, factionStandings.size());
         apiStanding = factionStandings.iterator().next();

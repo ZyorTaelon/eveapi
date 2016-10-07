@@ -8,8 +8,7 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.shared.Contact;
 import com.beimin.eveapi.model.shared.ContactLabel;
-import com.beimin.eveapi.model.shared.ContactLabelList;
-import com.beimin.eveapi.model.shared.ContactList;
+import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.response.shared.AbstractContactListResponse;
 
 public class ContactListHandler<CLR extends AbstractContactListResponse> extends AbstractContentHandler {
@@ -17,8 +16,8 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
 
     private final Class<CLR> clazz;
     private CLR response;
-    private ContactList contactList;
-    private ContactLabelList labelList;
+    private NamedList<Contact> contactList;
+    private NamedList<ContactLabel> labelList;
 
     public ContactListHandler(final Class<CLR> clazz) {
         this.clazz = clazz;
@@ -40,10 +39,10 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
         if (ELEMENT_ROWSET.equals(qName)) {
             // contacts or labels, separate by key
             if (getString(attrs, "key").equals("contactID")) {
-                contactList = new ContactList();
+                contactList = new NamedList<>();
                 contactList.setName(getString(attrs, "name"));
             } else {
-                labelList = new ContactLabelList();
+                labelList = new NamedList<>();
                 labelList.setName(getString(attrs, "name"));
             }
         }
@@ -77,7 +76,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
                 response.add(contactList);
                 contactList = null;
             } else {
-                response.add(labelList);
+                response.addLabels(labelList);
                 labelList = null;
             }
         }

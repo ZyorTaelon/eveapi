@@ -1,14 +1,15 @@
 package com.beimin.eveapi.response.shared;
 
-import com.beimin.eveapi.model.shared.StandingsList;
+import com.beimin.eveapi.model.shared.NamedList;
+import com.beimin.eveapi.model.shared.Standing;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class StandingsResponse extends ApiResponse {
-    private StandingsList agentStandings;
-    private StandingsList npcCorporationStandings;
-    private StandingsList factionStandings;
+    private NamedList<Standing> agentStandings;
+    private NamedList<Standing> npcCorporationStandings;
+    private NamedList<Standing> factionStandings;
 
-    public void addStandingsList(final StandingsList standingsList) {
+    public void addStandingsList(final NamedList<Standing> standingsList) {
         if (standingsList.getName().equals("agents")) {
             agentStandings = standingsList;
         } else if (standingsList.getName().equals("NPCCorporations")) {
@@ -20,15 +21,15 @@ public class StandingsResponse extends ApiResponse {
         }
     }
 
-    public StandingsList getAgentStandings() {
+    public NamedList<Standing> getAgentStandings() {
         return agentStandings;
     }
 
-    public StandingsList getNpcCorporationStandings() {
+    public NamedList<Standing> getNpcCorporationStandings() {
         return npcCorporationStandings;
     }
 
-    public StandingsList getFactionStandings() {
+    public NamedList<Standing> getFactionStandings() {
         return factionStandings;
     }
 }
