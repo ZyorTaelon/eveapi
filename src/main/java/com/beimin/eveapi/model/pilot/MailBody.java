@@ -8,7 +8,7 @@ public class MailBody {
         return messageID;
     }
 
-    public void setMessageID(long messageID) {
+    public void setMessageID(final long messageID) {
         this.messageID = messageID;
     }
 
@@ -16,7 +16,7 @@ public class MailBody {
         return body;
     }
 
-    public void setBody(String title) {
-        this.body = title;
+    public void setBody(final String title) {
+        body = title;
     }
 }

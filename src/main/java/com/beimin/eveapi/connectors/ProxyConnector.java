@@ -6,12 +6,12 @@ public class ProxyConnector extends ApiConnector {
     private final Proxy proxy;
     private final ApiConnector baseConnector;
 
-    public ProxyConnector(Proxy proxy) {
+    public ProxyConnector(final Proxy proxy) {
         this.proxy = proxy;
-        this.baseConnector = null;
+        baseConnector = null;
     }
 
-    public ProxyConnector(Proxy proxy, ApiConnector baseConnector) {
+    public ProxyConnector(final Proxy proxy, final ApiConnector baseConnector) {
         this.proxy = proxy;
         this.baseConnector = baseConnector;
     }

@@ -11,27 +11,27 @@ public abstract class FacWarTopStats<K extends KillStat, VP extends VictoryPoint
     private final List<VP> victoryPointsLastWeek = new ArrayList<VP>();
     private final List<VP> victoryPointsTotal = new ArrayList<VP>();
 
-    public void addYesterday(K stat) {
+    public void addYesterday(final K stat) {
         killsYesterday.add(stat);
     }
 
-    public void addLastWeek(K stat) {
+    public void addLastWeek(final K stat) {
         killsLastWeek.add(stat);
     }
 
-    public void addTotal(K stat) {
+    public void addTotal(final K stat) {
         killsTotal.add(stat);
     }
 
-    public void addYesterday(VP stat) {
+    public void addYesterday(final VP stat) {
         victoryPointsYesterday.add(stat);
     }
 
-    public void addLastWeek(VP stat) {
+    public void addLastWeek(final VP stat) {
         victoryPointsLastWeek.add(stat);
     }
 
-    public void addTotal(VP stat) {
+    public void addTotal(final VP stat) {
         victoryPointsTotal.add(stat);
     }
 

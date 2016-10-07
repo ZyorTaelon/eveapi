@@ -15,16 +15,16 @@ import com.beimin.eveapi.response.shared.ContractItemsResponse;
  * There are two methods, one for API keys with only a single character and one for multi-character API keys.
  */
 public abstract class AbstractContractItemsParser extends AbstractListParser<ContractItemsHandler, ContractItemsResponse, ContractItem> {
-    protected AbstractContractItemsParser(ApiPath path) {
+    protected AbstractContractItemsParser(final ApiPath path) {
         super(ContractItemsResponse.class, 2, path, ApiPage.CONTRACT_ITEMS, ContractItemsHandler.class);
     }
 
-    public ContractItemsResponse getResponse(ApiAuthorization auth, long contractID) throws ApiException {
+    public ContractItemsResponse getResponse(final ApiAuthorization auth, final long contractID) throws ApiException {
         return super.getResponse(auth, "contractID", Long.toString(contractID));
     }
 
-    public ContractItemsResponse getResponse(ApiAuthorization auth, long characterID, long contractID) throws ApiException {
-        Map<String, String> extraParams = new HashMap<String, String>();
+    public ContractItemsResponse getResponse(final ApiAuthorization auth, final long characterID, final long contractID) throws ApiException {
+        final Map<String, String> extraParams = new HashMap<String, String>();
         extraParams.put("characterID", Long.toString(characterID));
         extraParams.put("contractID", Long.toString(contractID));
         return super.getResponse(auth, extraParams);

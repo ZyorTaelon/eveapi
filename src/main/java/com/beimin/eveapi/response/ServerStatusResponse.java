@@ -8,7 +8,7 @@ public class ServerStatusResponse extends ApiResponse {
         return serverOpen;
     }
 
-    public void setServerOpen(boolean serverOpen) {
+    public void setServerOpen(final boolean serverOpen) {
         this.serverOpen = serverOpen;
     }
 
@@ -16,7 +16,7 @@ public class ServerStatusResponse extends ApiResponse {
         return onlinePlayers;
     }
 
-    public void setOnlinePlayers(int onlinePlayers) {
+    public void setOnlinePlayers(final int onlinePlayers) {
         this.onlinePlayers = onlinePlayers;
     }
 }

@@ -19,7 +19,7 @@ public class KillAttacker {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -27,7 +27,7 @@ public class KillAttacker {
         return characterName;
     }
 
-    public void setCharacterName(String characterName) {
+    public void setCharacterName(final String characterName) {
         this.characterName = characterName;
     }
 
@@ -35,7 +35,7 @@ public class KillAttacker {
         return corporationID;
     }
 
-    public void setCorporationID(long corporationID) {
+    public void setCorporationID(final long corporationID) {
         this.corporationID = corporationID;
     }
 
@@ -43,7 +43,7 @@ public class KillAttacker {
         return corporationName;
     }
 
-    public void setCorporationName(String corporationName) {
+    public void setCorporationName(final String corporationName) {
         this.corporationName = corporationName;
     }
 
@@ -51,7 +51,7 @@ public class KillAttacker {
         return allianceID;
     }
 
-    public void setAllianceID(Long allianceID) {
+    public void setAllianceID(final Long allianceID) {
         this.allianceID = allianceID;
     }
 
@@ -59,7 +59,7 @@ public class KillAttacker {
         return allianceName;
     }
 
-    public void setAllianceName(String allianceName) {
+    public void setAllianceName(final String allianceName) {
         this.allianceName = allianceName;
     }
 
@@ -67,7 +67,7 @@ public class KillAttacker {
         return factionID;
     }
 
-    public void setFactionID(int factionID) {
+    public void setFactionID(final int factionID) {
         this.factionID = factionID;
     }
 
@@ -75,7 +75,7 @@ public class KillAttacker {
         return factionName;
     }
 
-    public void setFactionName(String factionName) {
+    public void setFactionName(final String factionName) {
         this.factionName = factionName;
     }
 
@@ -83,7 +83,7 @@ public class KillAttacker {
         return securityStatus;
     }
 
-    public void setSecurityStatus(double securityStatus) {
+    public void setSecurityStatus(final double securityStatus) {
         this.securityStatus = securityStatus;
     }
 
@@ -91,7 +91,7 @@ public class KillAttacker {
         return damageDone;
     }
 
-    public void setDamageDone(int damageDone) {
+    public void setDamageDone(final int damageDone) {
         this.damageDone = damageDone;
     }
 
@@ -99,7 +99,7 @@ public class KillAttacker {
         return finalBlow;
     }
 
-    public void setFinalBlow(boolean finalBlow) {
+    public void setFinalBlow(final boolean finalBlow) {
         this.finalBlow = finalBlow;
     }
 
@@ -107,7 +107,7 @@ public class KillAttacker {
         return weaponTypeID;
     }
 
-    public void setWeaponTypeID(int weaponTypeID) {
+    public void setWeaponTypeID(final int weaponTypeID) {
         this.weaponTypeID = weaponTypeID;
     }
 
@@ -115,7 +115,7 @@ public class KillAttacker {
         return shipTypeID;
     }
 
-    public void setShipTypeID(int shipTypeID) {
+    public void setShipTypeID(final int shipTypeID) {
         this.shipTypeID = shipTypeID;
     }
 }

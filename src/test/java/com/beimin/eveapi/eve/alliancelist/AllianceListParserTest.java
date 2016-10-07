@@ -25,13 +25,13 @@ public class AllianceListParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        AllianceListParser parser = new AllianceListParser();
-        AllianceListResponse response = parser.getResponse();
+        final AllianceListParser parser = new AllianceListParser();
+        final AllianceListResponse response = parser.getResponse();
         assertNotNull(response);
-        Collection<Alliance> alliances = response.getAll();
+        final Collection<Alliance> alliances = response.getAll();
         assertEquals(605, alliances.size());
         boolean found = false;
-        for (Alliance alliance : alliances) {
+        for (final Alliance alliance : alliances) {
             if (alliance.getAllianceID() == 824518128) {
                 found = true;
                 assertEquals("GoonSwarm", alliance.getName());
@@ -40,10 +40,10 @@ public class AllianceListParserTest extends NoAuthParserTest {
                 assertEquals(5925, alliance.getMemberCount());
                 assertDate(2006, 6, 3, 0, 50, 0, alliance.getStartDate());
 
-                Collection<MemberCorporation> memberCorporations = alliance.getMemberCorporations();
+                final Collection<MemberCorporation> memberCorporations = alliance.getMemberCorporations();
                 assertEquals(69, memberCorporations.size());
                 boolean corpFound = false;
-                for (MemberCorporation memberCorporation : memberCorporations) {
+                for (final MemberCorporation memberCorporation : memberCorporations) {
                     if (memberCorporation.getCorporationID() == 109788662) {
                         corpFound = true;
                         assertDate(2007, 9, 9, 19, 12, 0, memberCorporation.getStartDate());

@@ -13,8 +13,8 @@ public class NotificationsHandler extends AbstractContentListHandler<Notificatio
     }
 
     @Override
-    protected Notification getItem(Attributes attrs) {
-        Notification notification = new Notification();
+    protected Notification getItem(final Attributes attrs) {
+        final Notification notification = new Notification();
         notification.setNotificationID(getLong(attrs, "notificationID"));
         notification.setSenderID(getLong(attrs, "senderID"));
         notification.setSentDate(getDate(attrs, "sentDate"));

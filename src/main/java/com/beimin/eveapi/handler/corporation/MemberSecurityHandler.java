@@ -29,9 +29,9 @@ public class MemberSecurityHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            String name = getString(attrs, "name");
+            final String name = getString(attrs, "name");
             roles = name.equals("roles");
             grantableRoles = name.equals("grantableRoles");
             rolesAtHQ = name.equals("rolesAtHQ");
@@ -66,26 +66,27 @@ public class MemberSecurityHandler extends AbstractContentHandler {
                 member.setName(getString(attrs, "name"));
                 response.addMember(member);
             }
-        } else
+        } else {
             super.startElement(uri, localName, qName, attrs);
+        }
     }
 
-    private SecurityTitle getTitle(Attributes attrs) {
-        SecurityTitle title = new SecurityTitle();
+    private SecurityTitle getTitle(final Attributes attrs) {
+        final SecurityTitle title = new SecurityTitle();
         title.setTitleID(getLong(attrs, "titleID"));
         title.setTitleName(getString(attrs, "titleName"));
         return title;
     }
 
-    private SecurityRole getRole(Attributes attrs) {
-        SecurityRole role = new SecurityRole();
+    private SecurityRole getRole(final Attributes attrs) {
+        final SecurityRole role = new SecurityRole();
         role.setRoleID(getLong(attrs, "roleID"));
         role.setRoleName(getString(attrs, "roleName"));
         return role;
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             if (roles) {
                 roles = false;

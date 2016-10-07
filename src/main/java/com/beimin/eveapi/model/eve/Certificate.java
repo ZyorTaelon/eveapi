@@ -15,7 +15,7 @@ public class Certificate {
         return certificateID;
     }
 
-    public void setCertificateID(int certificateID) {
+    public void setCertificateID(final int certificateID) {
         this.certificateID = certificateID;
     }
 
@@ -23,7 +23,7 @@ public class Certificate {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(final int grade) {
         this.grade = grade;
     }
 
@@ -31,7 +31,7 @@ public class Certificate {
         return corporationID;
     }
 
-    public void setCorporationID(long corporationID) {
+    public void setCorporationID(final long corporationID) {
         this.corporationID = corporationID;
     }
 
@@ -39,15 +39,15 @@ public class Certificate {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
-    public void add(RequiredSkill requirement) {
+    public void add(final RequiredSkill requirement) {
         requiredSkills.add(requirement);
     }
 
-    public void add(RequiredCertificate requirement) {
+    public void add(final RequiredCertificate requirement) {
         requiredCertificates.add(requirement);
     }
 

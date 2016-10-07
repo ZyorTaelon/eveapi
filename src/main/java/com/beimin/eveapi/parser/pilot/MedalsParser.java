@@ -15,7 +15,7 @@ public class MedalsParser extends AbstractListParser<MedalsHandler, MedalsRespon
     }
 
     @Override
-    public MedalsResponse getResponse(ApiAuth auth) throws ApiException {
+    public MedalsResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

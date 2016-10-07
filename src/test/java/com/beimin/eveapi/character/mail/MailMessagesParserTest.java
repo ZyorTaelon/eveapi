@@ -25,15 +25,15 @@ public class MailMessagesParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        MailMessagesParser parser = new MailMessagesParser();
-        MailMessagesResponse response = parser.getResponse(auth);
+        final MailMessagesParser parser = new MailMessagesParser();
+        final MailMessagesResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<MailMessage> mails = response.getAll();
+        final Set<MailMessage> mails = response.getAll();
         assertNotNull(mails);
         assertEquals(2, mails.size());
         boolean found1 = false;
         boolean found2 = false;
-        for (MailMessage mail : mails) {
+        for (final MailMessage mail : mails) {
             if (mail.getMessageID() == 291362193L) {
                 found1 = true;
                 assertEquals(267936250L, mail.getSenderID());
@@ -50,10 +50,10 @@ public class MailMessagesParserTest extends FullAuthParserTest {
                 assertDate(2010, 1, 12, 2, 42, 0, mail.getSentDate());
                 assertEquals("FW: Congratulations for your achievement", mail.getTitle());
                 assertNull(mail.getToCorpOrAllianceID());
-                Set<Long> toCharacterIDs = mail.getCharacterIDs();
+                final Set<Long> toCharacterIDs = mail.getCharacterIDs();
                 assertTrue(toCharacterIDs.contains(new Long(1449814438)));
                 assertTrue(toCharacterIDs.contains(new Long(1449814439)));
-                Set<Long> toListIDs = mail.getListIDs();
+                final Set<Long> toListIDs = mail.getListIDs();
                 assertTrue(toListIDs.contains(new Long(1449814440)));
                 assertTrue(toListIDs.contains(new Long(1449814444)));
                 assertEquals(false, mail.isRead());

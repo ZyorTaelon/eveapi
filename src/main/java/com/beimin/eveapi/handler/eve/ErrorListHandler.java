@@ -12,8 +12,8 @@ public class ErrorListHandler extends AbstractContentListHandler<ErrorListRespon
     }
 
     @Override
-    protected ErrorListItem getItem(Attributes attrs) {
-        ErrorListItem item = new ErrorListItem();
+    protected ErrorListItem getItem(final Attributes attrs) {
+        final ErrorListItem item = new ErrorListItem();
         item.setErrorText(getString(attrs, "errorText"));
         item.setErrorCode(getInt(attrs, "errorCode"));
         return item;

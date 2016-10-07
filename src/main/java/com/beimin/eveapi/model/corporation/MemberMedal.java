@@ -14,7 +14,7 @@ public class MemberMedal {
         return medalID;
     }
 
-    public void setMedalID(int medalID) {
+    public void setMedalID(final int medalID) {
         this.medalID = medalID;
     }
 
@@ -22,7 +22,7 @@ public class MemberMedal {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -30,7 +30,7 @@ public class MemberMedal {
         return reason;
     }
 
-    public void setReason(String reason) {
+    public void setReason(final String reason) {
         this.reason = reason;
     }
 
@@ -38,7 +38,7 @@ public class MemberMedal {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(final String status) {
         this.status = status;
     }
 
@@ -50,7 +50,7 @@ public class MemberMedal {
         return issuerID;
     }
 
-    public void setIssuerID(long issuerID) {
+    public void setIssuerID(final long issuerID) {
         this.issuerID = issuerID;
     }
 
@@ -58,7 +58,7 @@ public class MemberMedal {
         return issued;
     }
 
-    public void setIssued(Date issued) {
+    public void setIssued(final Date issued) {
         this.issued = issued;
     }
 }

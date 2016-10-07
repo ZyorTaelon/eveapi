@@ -22,11 +22,11 @@ public class CharacterAffiliationParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        CharacterAffiliationParser parser = new CharacterAffiliationParser();
-        CharacterAffiliationResponse response = parser.getResponse(1234567890L);
-        Collection<CharacterAffiliation> chars = response.getAll();
+        final CharacterAffiliationParser parser = new CharacterAffiliationParser();
+        final CharacterAffiliationResponse response = parser.getResponse(1234567890L);
+        final Collection<CharacterAffiliation> chars = response.getAll();
         assertEquals(1, chars.size());
-        CharacterAffiliation regner = chars.iterator().next();
+        final CharacterAffiliation regner = chars.iterator().next();
         assertEquals("Regner", regner.getCharacterName());
         assertEquals(1234567890L, regner.getCharacterID());
         assertEquals("Federal Navy Academy", regner.getCorporationName());
@@ -38,7 +38,7 @@ public class CharacterAffiliationParserTest extends NoAuthParserTest {
     }
 
     @Override
-    public void extraAsserts(Map<String, String> req) {
+    public void extraAsserts(final Map<String, String> req) {
         super.extraAsserts(req);
         assertEquals("1234567890", req.get("ids"));
     }

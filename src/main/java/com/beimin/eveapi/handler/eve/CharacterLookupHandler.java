@@ -13,8 +13,8 @@ public class CharacterLookupHandler extends AbstractContentListHandler<Character
     }
 
     @Override
-    protected CharacterLookup getItem(Attributes attrs) {
-        CharacterLookup lookup = new CharacterLookup();
+    protected CharacterLookup getItem(final Attributes attrs) {
+        final CharacterLookup lookup = new CharacterLookup();
         lookup.setCharacterID(getLong(attrs, "characterID"));
         lookup.setName(getString(attrs, "name"));
         return lookup;

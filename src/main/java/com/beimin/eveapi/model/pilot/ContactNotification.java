@@ -13,7 +13,7 @@ public class ContactNotification {
         return notificationID;
     }
 
-    public void setNotificationID(long notificationID) {
+    public void setNotificationID(final long notificationID) {
         this.notificationID = notificationID;
     }
 
@@ -21,7 +21,7 @@ public class ContactNotification {
         return senderID;
     }
 
-    public void setSenderID(long senderID) {
+    public void setSenderID(final long senderID) {
         this.senderID = senderID;
     }
 
@@ -29,15 +29,15 @@ public class ContactNotification {
         return senderName;
     }
 
-    public void setSenderName(String sentName) {
-        this.senderName = sentName;
+    public void setSenderName(final String sentName) {
+        senderName = sentName;
     }
 
     public Date getSentDate() {
         return sentDate;
     }
 
-    public void setSentDate(Date sentDate) {
+    public void setSentDate(final Date sentDate) {
         this.sentDate = sentDate;
     }
 
@@ -45,7 +45,7 @@ public class ContactNotification {
         return messageData;
     }
 
-    public void setMessageData(String messageData) {
+    public void setMessageData(final String messageData) {
         this.messageData = messageData;
     }
 }

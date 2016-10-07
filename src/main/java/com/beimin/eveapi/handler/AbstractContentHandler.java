@@ -28,12 +28,12 @@ public abstract class AbstractContentHandler extends DefaultHandler {
     private ApiError error;
 
     @Override
-    public void characters(char[] buffer, int start, int length) {
+    public void characters(final char[] buffer, final int start, final int length) {
         accumulator.append(buffer, start, length);
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_EVEAPI.equals(qName)) {
             getResponse().setVersion(getInt(attrs, ATTRIBUTE_VERSION));
         } else if (ATTRIBUTE_ERROR.equals(qName)) {
@@ -45,20 +45,21 @@ public abstract class AbstractContentHandler extends DefaultHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (ELEMENT_CURRENT_TIME.equals(qName))
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if (ELEMENT_CURRENT_TIME.equals(qName)) {
             getResponse().setCurrentTime(getDate());
-        else if (ELEMENT_CACHED_UNTIL.equals(qName))
+        } else if (ELEMENT_CACHED_UNTIL.equals(qName)) {
             getResponse().setCachedUntil(getDate());
-        else if (ATTRIBUTE_ERROR.equals(qName))
+        } else if (ATTRIBUTE_ERROR.equals(qName)) {
             error.setError(getString());
+        }
     }
 
     protected String getString() {
         return accumulator.toString().trim();
     }
 
-    protected String getString(Attributes attrs, String qName) {
+    protected String getString(final Attributes attrs, final String qName) {
         return attrs.getValue(qName);
     }
 
@@ -66,11 +67,11 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         return getDate(getString());
     }
 
-    protected Date getDate(String string) {
+    protected Date getDate(final String string) {
         return DateUtils.getGMTConverter().convert(Date.class, string);
     }
 
-    protected Date getDate(Attributes attrs, String qName) {
+    protected Date getDate(final Attributes attrs, final String qName) {
         return getDate(getString(attrs, qName));
     }
 
@@ -78,18 +79,18 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         return parseInteger(getString());
     }
 
-    protected Integer getInt(Attributes attrs, String qName) {
+    protected Integer getInt(final Attributes attrs, final String qName) {
         return parseInteger(getString(attrs, qName));
     }
 
-    protected Integer parseInteger(String value) {
+    protected Integer parseInteger(final String value) {
         Integer result = null;
-        if (value != null && !value.trim().isEmpty()) {
+        if ((value != null) && !value.trim().isEmpty()) {
             try {
                 result = Integer.parseInt(value);
-            } catch (NumberFormatException e) {
+            } catch (final NumberFormatException e) {
                 LOGGER.error("Couldn't parse number", e);
-            } catch (NullPointerException e) {
+            } catch (final NullPointerException e) {
                 LOGGER.error("Couldn't parse number", e);
             }
         }
@@ -100,18 +101,18 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         return parseLong(getString());
     }
 
-    protected Long getLong(Attributes attrs, String qName) {
+    protected Long getLong(final Attributes attrs, final String qName) {
         return parseLong(getString(attrs, qName));
     }
 
-    protected Long parseLong(String value) {
+    protected Long parseLong(final String value) {
         Long result = null;
-        if (value != null && !value.trim().isEmpty()) {
+        if ((value != null) && !value.trim().isEmpty()) {
             try {
                 result = Long.parseLong(value);
-            } catch (NumberFormatException e) {
+            } catch (final NumberFormatException e) {
                 LOGGER.error("Couldn't parse number", e);
-            } catch (NullPointerException e) {
+            } catch (final NullPointerException e) {
                 LOGGER.error("Couldn't parse number", e);
             }
         }
@@ -122,18 +123,18 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         return parseDouble(getString());
     }
 
-    protected Double getDouble(Attributes attrs, String qName) {
+    protected Double getDouble(final Attributes attrs, final String qName) {
         return parseDouble(getString(attrs, qName));
     }
 
-    protected Double parseDouble(String value) {
+    protected Double parseDouble(final String value) {
         Double result = null;
-        if (value != null && !value.trim().isEmpty()) {
+        if ((value != null) && !value.trim().isEmpty()) {
             try {
                 result = Double.parseDouble(value);
-            } catch (NumberFormatException e) {
+            } catch (final NumberFormatException e) {
                 LOGGER.error("Couldn't parse number", e);
-            } catch (NullPointerException e) {
+            } catch (final NullPointerException e) {
                 LOGGER.error("Couldn't parse number", e);
             }
         }
@@ -144,11 +145,11 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         return "1".equals(getString()) || VALUE_TRUE.equalsIgnoreCase(getString());
     }
 
-    protected boolean getBoolean(Attributes attrs, String qName) {
+    protected boolean getBoolean(final Attributes attrs, final String qName) {
         return "1".equals(getString(attrs, qName)) || VALUE_TRUE.equalsIgnoreCase(getString(attrs, qName));
     }
 
-    protected void checkForNewFields(Attributes attrs, int number) {
+    protected void checkForNewFields(final Attributes attrs, final int number) {
         if (attrs.getLength() != number) {
             throw new IllegalArgumentException("Looks like new fields where added, only " + number + " expected!");
         }

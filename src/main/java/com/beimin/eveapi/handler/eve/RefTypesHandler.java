@@ -13,8 +13,8 @@ public class RefTypesHandler extends AbstractContentListHandler<RefTypesResponse
     }
 
     @Override
-    protected RefType getItem(Attributes attrs) {
-        RefType item = new RefType();
+    protected RefType getItem(final Attributes attrs) {
+        final RefType item = new RefType();
         item.setRefTypeID(getInt(attrs, "refTypeID"));
         item.setRefTypeName(getString(attrs, "refTypeName"));
         return item;

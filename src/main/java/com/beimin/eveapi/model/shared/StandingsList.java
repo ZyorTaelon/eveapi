@@ -12,7 +12,7 @@ public class StandingsList extends ArrayList<Standing> {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -20,7 +20,7 @@ public class StandingsList extends ArrayList<Standing> {
         return key;
     }
 
-    public void setKey(String key) {
+    public void setKey(final String key) {
         this.key = key;
     }
 
@@ -28,7 +28,7 @@ public class StandingsList extends ArrayList<Standing> {
         return columns;
     }
 
-    public void setColumns(String columns) {
+    public void setColumns(final String columns) {
         this.columns = columns;
     }
 
@@ -36,36 +36,45 @@ public class StandingsList extends ArrayList<Standing> {
     public int hashCode() {
         final int prime = 31;
         int result = super.hashCode();
-        result = prime * result + ((columns == null) ? 0 : columns.hashCode());
-        result = prime * result + ((key == null) ? 0 : key.hashCode());
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = (prime * result) + ((columns == null) ? 0 : columns.hashCode());
+        result = (prime * result) + ((key == null) ? 0 : key.hashCode());
+        result = (prime * result) + ((name == null) ? 0 : name.hashCode());
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
+    public boolean equals(final Object obj) {
+        if (this == obj) {
             return true;
-        if (!super.equals(obj))
+        }
+        if (!super.equals(obj)) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
-        StandingsList other = (StandingsList) obj;
+        }
+        final StandingsList other = (StandingsList) obj;
         if (columns == null) {
-            if (other.columns != null)
+            if (other.columns != null) {
                 return false;
-        } else if (!columns.equals(other.columns))
+            }
+        } else if (!columns.equals(other.columns)) {
             return false;
+        }
         if (key == null) {
-            if (other.key != null)
+            if (other.key != null) {
                 return false;
-        } else if (!key.equals(other.key))
+            }
+        } else if (!key.equals(other.key)) {
             return false;
+        }
         if (name == null) {
-            if (other.name != null)
+            if (other.name != null) {
                 return false;
-        } else if (!name.equals(other.name))
+            }
+        } else if (!name.equals(other.name)) {
             return false;
+        }
         return true;
     }
 }

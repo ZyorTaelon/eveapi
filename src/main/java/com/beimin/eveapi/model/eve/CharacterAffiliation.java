@@ -14,7 +14,7 @@ public class CharacterAffiliation {
         return characterName;
     }
 
-    public void setCharacterName(String characterName) {
+    public void setCharacterName(final String characterName) {
         this.characterName = characterName;
     }
 
@@ -22,7 +22,7 @@ public class CharacterAffiliation {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -30,7 +30,7 @@ public class CharacterAffiliation {
         return corporationName;
     }
 
-    public void setCorporationName(String corporationName) {
+    public void setCorporationName(final String corporationName) {
         this.corporationName = corporationName;
     }
 
@@ -38,7 +38,7 @@ public class CharacterAffiliation {
         return corporationID;
     }
 
-    public void setCorporationID(long corporationID) {
+    public void setCorporationID(final long corporationID) {
         this.corporationID = corporationID;
     }
 
@@ -46,7 +46,7 @@ public class CharacterAffiliation {
         return allianceName;
     }
 
-    public void setAllianceName(String allianceName) {
+    public void setAllianceName(final String allianceName) {
         this.allianceName = allianceName;
     }
 
@@ -54,7 +54,7 @@ public class CharacterAffiliation {
         return allianceID;
     }
 
-    public void setAllianceID(Long allianceID) {
+    public void setAllianceID(final Long allianceID) {
         this.allianceID = allianceID;
     }
 
@@ -62,7 +62,7 @@ public class CharacterAffiliation {
         return factionName;
     }
 
-    public void setFactionName(String factionName) {
+    public void setFactionName(final String factionName) {
         this.factionName = factionName;
     }
 
@@ -70,7 +70,7 @@ public class CharacterAffiliation {
         return factionID;
     }
 
-    public void setFactionID(Long factionID) {
+    public void setFactionID(final Long factionID) {
         this.factionID = factionID;
     }
 }

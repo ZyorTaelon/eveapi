@@ -16,7 +16,7 @@ public class FactionStats {
         return factionID;
     }
 
-    public void setFactionID(int factionID) {
+    public void setFactionID(final int factionID) {
         this.factionID = factionID;
     }
 
@@ -24,7 +24,7 @@ public class FactionStats {
         return factionName;
     }
 
-    public void setFactionName(String factionName) {
+    public void setFactionName(final String factionName) {
         this.factionName = factionName;
     }
 
@@ -32,7 +32,7 @@ public class FactionStats {
         return pilots;
     }
 
-    public void setPilots(int pilots) {
+    public void setPilots(final int pilots) {
         this.pilots = pilots;
     }
 
@@ -40,7 +40,7 @@ public class FactionStats {
         return systemsControlled;
     }
 
-    public void setSystemsControlled(int systemsControlled) {
+    public void setSystemsControlled(final int systemsControlled) {
         this.systemsControlled = systemsControlled;
     }
 
@@ -48,7 +48,7 @@ public class FactionStats {
         return killsYesterday;
     }
 
-    public void setKillsYesterday(int killsYesterday) {
+    public void setKillsYesterday(final int killsYesterday) {
         this.killsYesterday = killsYesterday;
     }
 
@@ -56,7 +56,7 @@ public class FactionStats {
         return killsLastWeek;
     }
 
-    public void setKillsLastWeek(int killsLastWeek) {
+    public void setKillsLastWeek(final int killsLastWeek) {
         this.killsLastWeek = killsLastWeek;
     }
 
@@ -64,7 +64,7 @@ public class FactionStats {
         return killsTotal;
     }
 
-    public void setKillsTotal(int killsTotal) {
+    public void setKillsTotal(final int killsTotal) {
         this.killsTotal = killsTotal;
     }
 
@@ -72,7 +72,7 @@ public class FactionStats {
         return victoryPointsYesterday;
     }
 
-    public void setVictoryPointsYesterday(int victoryPointsYesterday) {
+    public void setVictoryPointsYesterday(final int victoryPointsYesterday) {
         this.victoryPointsYesterday = victoryPointsYesterday;
     }
 
@@ -80,7 +80,7 @@ public class FactionStats {
         return victoryPointsLastWeek;
     }
 
-    public void setVictoryPointsLastWeek(int victoryPointsLastWeek) {
+    public void setVictoryPointsLastWeek(final int victoryPointsLastWeek) {
         this.victoryPointsLastWeek = victoryPointsLastWeek;
     }
 
@@ -88,7 +88,7 @@ public class FactionStats {
         return victoryPointsTotal;
     }
 
-    public void setVictoryPointsTotal(int victoryPointsTotal) {
+    public void setVictoryPointsTotal(final int victoryPointsTotal) {
         this.victoryPointsTotal = victoryPointsTotal;
     }
 }

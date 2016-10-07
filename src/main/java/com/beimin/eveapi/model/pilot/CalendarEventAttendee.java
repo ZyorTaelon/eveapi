@@ -12,7 +12,7 @@ public class CalendarEventAttendee {
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(final long eventID) {
         this.eventID = eventID;
     }
 
@@ -20,7 +20,7 @@ public class CalendarEventAttendee {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -28,7 +28,7 @@ public class CalendarEventAttendee {
         return characterName;
     }
 
-    public void setCharacterName(String characterName) {
+    public void setCharacterName(final String characterName) {
         this.characterName = characterName;
     }
 
@@ -36,7 +36,7 @@ public class CalendarEventAttendee {
         return response;
     }
 
-    public void setResponse(CalendarEventResponse response) {
+    public void setResponse(final CalendarEventResponse response) {
         this.response = response;
     }
 }

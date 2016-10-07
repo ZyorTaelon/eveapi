@@ -4,7 +4,7 @@ public enum StarbaseState {
     UNKNOWN("Unknown"), ANCHORED("Anchored"), ONLINING("Onlining"), REINFORCED("Reinforced"), ONLINE("Online");
     private final String name;
 
-    private StarbaseState(String name) {
+    private StarbaseState(final String name) {
         this.name = name;
     }
 

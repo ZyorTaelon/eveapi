@@ -15,11 +15,11 @@ public class MemberTrackingParser extends AbstractListParser<MemberTrackingHandl
     }
 
     @Override
-    public MemberTrackingResponse getResponse(ApiAuth auth) throws ApiException {
+    public MemberTrackingResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 
-    public MemberTrackingResponse getExtendedResponse(ApiAuth auth) throws ApiException {
+    public MemberTrackingResponse getExtendedResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth, "extended", "1");
     }
 }

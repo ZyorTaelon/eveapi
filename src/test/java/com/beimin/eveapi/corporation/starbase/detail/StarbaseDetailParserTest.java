@@ -25,8 +25,8 @@ public class StarbaseDetailParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        StarbaseDetailParser parser = new StarbaseDetailParser();
-        StarbaseDetailResponse response = parser.getResponse(auth, 123456789);
+        final StarbaseDetailParser parser = new StarbaseDetailParser();
+        final StarbaseDetailResponse response = parser.getResponse(auth, 123456789);
         assertNotNull("Should have returned a result.", response);
         assertDate(2008, 2, 3, 1, 54, 2, response.getCurrentTime());
         assertDate(2008, 2, 3, 7, 54, 2, response.getCachedUntil());
@@ -35,21 +35,21 @@ public class StarbaseDetailParserTest extends FullAuthParserTest {
         assertTrue(response.isAllowCorporationMembers());
         assertFalse(response.isAllowAllianceMembers());
         assertTrue(response.isClaimSovereignty());
-        CombatSetting onStandingDrop = response.getOnStandingDrop();
+        final CombatSetting onStandingDrop = response.getOnStandingDrop();
         assertNotNull("Should have a CombatSetting for standing drop.", onStandingDrop);
         assertFalse(onStandingDrop.isEnabled());
         assertEquals(10, onStandingDrop.getStanding());
-        CombatSetting onStatusDrop = response.getOnStatusDrop();
+        final CombatSetting onStatusDrop = response.getOnStatusDrop();
         assertNotNull("Should have a CombatSetting for status drop.", onStatusDrop);
         assertFalse(onStatusDrop.isEnabled());
         assertEquals(0, onStatusDrop.getStanding());
-        CombatSetting onAggression = response.getOnAggression();
+        final CombatSetting onAggression = response.getOnAggression();
         assertNotNull("Should have a CombatSetting for aggression.", onAggression);
         assertFalse(onAggression.isEnabled());
-        CombatSetting onCorporationWar = response.getOnCorporationWar();
+        final CombatSetting onCorporationWar = response.getOnCorporationWar();
         assertNotNull("Should have a CombatSetting for war.", onCorporationWar);
         assertTrue(onCorporationWar.isEnabled());
-        Map<Integer, Integer> fuelMap = response.getFuelMap();
+        final Map<Integer, Integer> fuelMap = response.getFuelMap();
         assertNotNull("Should have a fuelMap.", fuelMap);
         assertEquals(423L, fuelMap.get(44).longValue());
         assertEquals(2542L, fuelMap.get(3683).longValue());
@@ -63,7 +63,7 @@ public class StarbaseDetailParserTest extends FullAuthParserTest {
     }
 
     @Override
-    public void extraAsserts(Map<String, String> req) {
+    public void extraAsserts(final Map<String, String> req) {
         super.extraAsserts(req);
         assertEquals("123456789", req.get("itemID"));
     }

@@ -22,7 +22,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return factionID;
     }
 
-    public void setFactionID(int factionID) {
+    public void setFactionID(final int factionID) {
         this.factionID = factionID;
     }
 
@@ -30,7 +30,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return factionName;
     }
 
-    public void setFactionName(String factionName) {
+    public void setFactionName(final String factionName) {
         this.factionName = factionName;
     }
 
@@ -38,7 +38,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return enlisted;
     }
 
-    public void setEnlisted(Date enlisted) {
+    public void setEnlisted(final Date enlisted) {
         this.enlisted = enlisted;
     }
 
@@ -46,7 +46,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return currentRank;
     }
 
-    public void setCurrentRank(int currentRank) {
+    public void setCurrentRank(final int currentRank) {
         this.currentRank = currentRank;
     }
 
@@ -54,7 +54,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return highestRank;
     }
 
-    public void setHighestRank(int highestRank) {
+    public void setHighestRank(final int highestRank) {
         this.highestRank = highestRank;
     }
 
@@ -62,7 +62,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return killsYesterday;
     }
 
-    public void setKillsYesterday(int killsYesterday) {
+    public void setKillsYesterday(final int killsYesterday) {
         this.killsYesterday = killsYesterday;
     }
 
@@ -70,7 +70,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return killsLastWeek;
     }
 
-    public void setKillsLastWeek(int killsLastWeek) {
+    public void setKillsLastWeek(final int killsLastWeek) {
         this.killsLastWeek = killsLastWeek;
     }
 
@@ -78,7 +78,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return killsTotal;
     }
 
-    public void setKillsTotal(int killsTotal) {
+    public void setKillsTotal(final int killsTotal) {
         this.killsTotal = killsTotal;
     }
 
@@ -86,7 +86,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return victoryPointsYesterday;
     }
 
-    public void setVictoryPointsYesterday(int victoryPointsYesterday) {
+    public void setVictoryPointsYesterday(final int victoryPointsYesterday) {
         this.victoryPointsYesterday = victoryPointsYesterday;
     }
 
@@ -94,7 +94,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return victoryPointsLastWeek;
     }
 
-    public void setVictoryPointsLastWeek(int victoryPointsLastWeek) {
+    public void setVictoryPointsLastWeek(final int victoryPointsLastWeek) {
         this.victoryPointsLastWeek = victoryPointsLastWeek;
     }
 
@@ -102,7 +102,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return victoryPointsTotal;
     }
 
-    public void setVictoryPointsTotal(int victoryPointsTotal) {
+    public void setVictoryPointsTotal(final int victoryPointsTotal) {
         this.victoryPointsTotal = victoryPointsTotal;
     }
 
@@ -110,7 +110,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return pilots;
     }
 
-    public void setPilots(int pilots) {
+    public void setPilots(final int pilots) {
         this.pilots = pilots;
     }
 }

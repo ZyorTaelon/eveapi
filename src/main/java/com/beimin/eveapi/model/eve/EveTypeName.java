@@ -8,7 +8,7 @@ public class EveTypeName {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -16,7 +16,7 @@ public class EveTypeName {
         return typeName;
     }
 
-    public void setTypeName(String typeName) {
+    public void setTypeName(final String typeName) {
         this.typeName = typeName;
     }
 }

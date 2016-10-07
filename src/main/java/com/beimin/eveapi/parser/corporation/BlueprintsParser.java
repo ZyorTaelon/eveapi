@@ -12,7 +12,7 @@ public class BlueprintsParser extends AbstractBlueprintsParser {
     }
 
     @Override
-    public BlueprintsResponse getResponse(ApiAuth auth) throws ApiException {
+    public BlueprintsResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

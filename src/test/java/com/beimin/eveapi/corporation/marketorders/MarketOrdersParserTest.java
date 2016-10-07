@@ -25,13 +25,13 @@ public class MarketOrdersParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        AbstractMarketOrdersParser parser = new MarketOrdersParser();
-        MarketOrdersResponse response = parser.getResponse(auth);
+        final AbstractMarketOrdersParser parser = new MarketOrdersParser();
+        final MarketOrdersResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Collection<MarketOrder> orders = response.getAll();
+        final Collection<MarketOrder> orders = response.getAll();
         assertEquals(9, orders.size());
         boolean found = false;
-        for (MarketOrder order : orders) {
+        for (final MarketOrder order : orders) {
             if (order.getOrderID() == 5630641) {
                 found = true;
                 assertEquals(150208955, order.getCharID());

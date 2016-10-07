@@ -23,12 +23,12 @@ public class SkillQueueParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        SkillQueueParser parser = new SkillQueueParser();
-        SkillQueueResponse response = parser.getResponse(auth);
+        final SkillQueueParser parser = new SkillQueueParser();
+        final SkillQueueResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<SkillQueueItem> skillQueueItems = response.getAll();
+        final Set<SkillQueueItem> skillQueueItems = response.getAll();
         assertEquals(2, skillQueueItems.size());
-        SkillQueueItem skillQueueItem = skillQueueItems.iterator().next();
+        final SkillQueueItem skillQueueItem = skillQueueItems.iterator().next();
         assertEquals(0, skillQueueItem.getQueuePosition());
         assertEquals(25739, skillQueueItem.getTypeID());
         assertEquals(5, skillQueueItem.getLevel());

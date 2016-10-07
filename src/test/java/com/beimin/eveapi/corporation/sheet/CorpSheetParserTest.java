@@ -22,8 +22,8 @@ public class CorpSheetParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        CorpSheetParser parser = new CorpSheetParser();
-        CorpSheetResponse response = parser.getResponse(auth);
+        final CorpSheetParser parser = new CorpSheetParser();
+        final CorpSheetResponse response = parser.getResponse(auth);
         assertNotNull(response);
         assertEquals(150212025, response.getCorporationID());
         assertEquals("Banana Republic", response.getCorporationName());
@@ -41,7 +41,7 @@ public class CorpSheetParserTest extends FullAuthParserTest {
         assertEquals(3, response.getMemberCount());
         assertEquals(6300, response.getMemberLimit());
         assertEquals(1, response.getShares());
-        CorpLogo logo = response.getLogo();
+        final CorpLogo logo = response.getLogo();
         assertNotNull(logo);
         assertEquals(0, logo.getGraphicID());
         assertEquals(448, logo.getShape1());
@@ -51,7 +51,7 @@ public class CorpSheetParserTest extends FullAuthParserTest {
         assertEquals(676, logo.getColor2());
         assertEquals(0, logo.getColor3());
 
-        Map<Integer, String> divisions = response.getDivisions();
+        final Map<Integer, String> divisions = response.getDivisions();
         assertEquals("1ST DIVISION", divisions.get(1000));
         assertEquals("2ND DIVISION", divisions.get(1001));
         assertEquals("HELLO", divisions.get(1002));
@@ -59,7 +59,7 @@ public class CorpSheetParserTest extends FullAuthParserTest {
         assertEquals("SWEET", divisions.get(1004));
         assertEquals("6TH DIVISION", divisions.get(1005));
         assertEquals("7TH DIVISION", divisions.get(1006));
-        Map<Integer, String> walletDivisions = response.getWalletDivisions();
+        final Map<Integer, String> walletDivisions = response.getWalletDivisions();
         assertEquals("Master Wallet", walletDivisions.get(1000));
         assertEquals("2nd Wallet Division", walletDivisions.get(1001));
         assertEquals("3rd Wallet Division", walletDivisions.get(1002));

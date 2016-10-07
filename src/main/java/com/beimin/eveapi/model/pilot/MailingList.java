@@ -8,7 +8,7 @@ public class MailingList {
         return listID;
     }
 
-    public void setListID(long listID) {
+    public void setListID(final long listID) {
         this.listID = listID;
     }
 
@@ -16,7 +16,7 @@ public class MailingList {
         return displayName;
     }
 
-    public void setDisplayName(String displayName) {
+    public void setDisplayName(final String displayName) {
         this.displayName = displayName;
     }
 }

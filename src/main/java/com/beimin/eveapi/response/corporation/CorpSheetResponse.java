@@ -32,7 +32,7 @@ public class CorpSheetResponse extends ApiResponse {
         return corporationID;
     }
 
-    public void setCorporationID(long corporationID) {
+    public void setCorporationID(final long corporationID) {
         this.corporationID = corporationID;
     }
 
@@ -40,7 +40,7 @@ public class CorpSheetResponse extends ApiResponse {
         return corporationName;
     }
 
-    public void setCorporationName(String corporationName) {
+    public void setCorporationName(final String corporationName) {
         this.corporationName = corporationName;
     }
 
@@ -48,7 +48,7 @@ public class CorpSheetResponse extends ApiResponse {
         return ticker;
     }
 
-    public void setTicker(String ticker) {
+    public void setTicker(final String ticker) {
         this.ticker = ticker;
     }
 
@@ -56,7 +56,7 @@ public class CorpSheetResponse extends ApiResponse {
         return ceoID;
     }
 
-    public void setCeoID(long ceoID) {
+    public void setCeoID(final long ceoID) {
         this.ceoID = ceoID;
     }
 
@@ -64,7 +64,7 @@ public class CorpSheetResponse extends ApiResponse {
         return ceoName;
     }
 
-    public void setCeoName(String ceoName) {
+    public void setCeoName(final String ceoName) {
         this.ceoName = ceoName;
     }
 
@@ -72,7 +72,7 @@ public class CorpSheetResponse extends ApiResponse {
         return stationID;
     }
 
-    public void setStationID(long stationID) {
+    public void setStationID(final long stationID) {
         this.stationID = stationID;
     }
 
@@ -80,7 +80,7 @@ public class CorpSheetResponse extends ApiResponse {
         return stationName;
     }
 
-    public void setStationName(String stationName) {
+    public void setStationName(final String stationName) {
         this.stationName = stationName;
     }
 
@@ -88,7 +88,7 @@ public class CorpSheetResponse extends ApiResponse {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -96,7 +96,7 @@ public class CorpSheetResponse extends ApiResponse {
         return url;
     }
 
-    public void setUrl(String url) {
+    public void setUrl(final String url) {
         this.url = url;
     }
 
@@ -104,7 +104,7 @@ public class CorpSheetResponse extends ApiResponse {
         return allianceID;
     }
 
-    public void setAllianceID(Long allianceID) {
+    public void setAllianceID(final Long allianceID) {
         this.allianceID = allianceID;
     }
 
@@ -112,7 +112,7 @@ public class CorpSheetResponse extends ApiResponse {
         return allianceName;
     }
 
-    public void setAllianceName(String allianceName) {
+    public void setAllianceName(final String allianceName) {
         this.allianceName = allianceName;
     }
 
@@ -120,7 +120,7 @@ public class CorpSheetResponse extends ApiResponse {
         return factionID;
     }
 
-    public void setFactionID(Long factionID) {
+    public void setFactionID(final Long factionID) {
         this.factionID = factionID;
     }
 
@@ -128,7 +128,7 @@ public class CorpSheetResponse extends ApiResponse {
         return taxRate;
     }
 
-    public void setTaxRate(double taxRate) {
+    public void setTaxRate(final double taxRate) {
         this.taxRate = taxRate;
     }
 
@@ -136,7 +136,7 @@ public class CorpSheetResponse extends ApiResponse {
         return memberCount;
     }
 
-    public void setMemberCount(int memberCount) {
+    public void setMemberCount(final int memberCount) {
         this.memberCount = memberCount;
     }
 
@@ -144,7 +144,7 @@ public class CorpSheetResponse extends ApiResponse {
         return memberLimit;
     }
 
-    public void setMemberLimit(int memberLimit) {
+    public void setMemberLimit(final int memberLimit) {
         this.memberLimit = memberLimit;
     }
 
@@ -152,7 +152,7 @@ public class CorpSheetResponse extends ApiResponse {
         return shares;
     }
 
-    public void setShares(long shares) {
+    public void setShares(final long shares) {
         this.shares = shares;
     }
 
@@ -160,16 +160,16 @@ public class CorpSheetResponse extends ApiResponse {
         return logo;
     }
 
-    public void setLogo(CorpLogo logo) {
+    public void setLogo(final CorpLogo logo) {
         this.logo = logo;
     }
 
-    public void addDivision(Division division) {
-        this.divisions.put(division.getAccountKey(), division.getDescription());
+    public void addDivision(final Division division) {
+        divisions.put(division.getAccountKey(), division.getDescription());
     }
 
-    public void addWalletDivision(Division division) {
-        this.walletDivisions.put(division.getAccountKey(), division.getDescription());
+    public void addWalletDivision(final Division division) {
+        walletDivisions.put(division.getAccountKey(), division.getDescription());
     }
 
     public Map<Integer, String> getDivisions() {

@@ -8,7 +8,7 @@ public class Bonus implements Detail {
         return bonusType;
     }
 
-    public void setBonusType(String bonusType) {
+    public void setBonusType(final String bonusType) {
         this.bonusType = bonusType;
     }
 
@@ -16,7 +16,7 @@ public class Bonus implements Detail {
         return bonusValue;
     }
 
-    public void setBonusValue(String bonusValue) {
+    public void setBonusValue(final String bonusValue) {
         this.bonusValue = bonusValue;
     }
 

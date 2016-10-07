@@ -19,12 +19,12 @@ public class CharacterInfoParser extends AbstractApiParser<CharacterInfoResponse
         return new CharacterInfoHandler();
     }
 
-    public CharacterInfoResponse getResponse(long characterID) throws ApiException {
+    public CharacterInfoResponse getResponse(final long characterID) throws ApiException {
         return super.getResponse("characterID", Long.toString(characterID));
     }
 
     @Override
-    public CharacterInfoResponse getResponse(ApiAuth auth) throws ApiException {
+    public CharacterInfoResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

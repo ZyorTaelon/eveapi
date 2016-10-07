@@ -8,7 +8,7 @@ public class Division {
         return accountKey;
     }
 
-    public void setAccountKey(int accountKey) {
+    public void setAccountKey(final int accountKey) {
         this.accountKey = accountKey;
     }
 
@@ -16,7 +16,7 @@ public class Division {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 }

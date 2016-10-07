@@ -19,7 +19,7 @@ public class Skill implements Comparable<Skill> {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -27,7 +27,7 @@ public class Skill implements Comparable<Skill> {
         return groupID;
     }
 
-    public void setGroupID(int groupID) {
+    public void setGroupID(final int groupID) {
         this.groupID = groupID;
     }
 
@@ -35,7 +35,7 @@ public class Skill implements Comparable<Skill> {
         return typeName;
     }
 
-    public void setTypeName(String typeName) {
+    public void setTypeName(final String typeName) {
         this.typeName = typeName;
     }
 
@@ -43,7 +43,7 @@ public class Skill implements Comparable<Skill> {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -51,7 +51,7 @@ public class Skill implements Comparable<Skill> {
         return rank;
     }
 
-    public void setRank(int rank) {
+    public void setRank(final int rank) {
         this.rank = rank;
     }
 
@@ -59,7 +59,7 @@ public class Skill implements Comparable<Skill> {
         return published;
     }
 
-    public void setPublished(boolean published) {
+    public void setPublished(final boolean published) {
         this.published = published;
     }
 
@@ -67,7 +67,7 @@ public class Skill implements Comparable<Skill> {
         return primaryAttribute;
     }
 
-    public void setPrimaryAttribute(CharacterAttribute primaryAttribute) {
+    public void setPrimaryAttribute(final CharacterAttribute primaryAttribute) {
         this.primaryAttribute = primaryAttribute;
     }
 
@@ -75,7 +75,7 @@ public class Skill implements Comparable<Skill> {
         return secondaryAttribute;
     }
 
-    public void setSecondaryAttribute(CharacterAttribute secondaryAttribute) {
+    public void setSecondaryAttribute(final CharacterAttribute secondaryAttribute) {
         this.secondaryAttribute = secondaryAttribute;
     }
 
@@ -87,31 +87,32 @@ public class Skill implements Comparable<Skill> {
         return boneses;
     }
 
-    public void add(Requirement requirement) {
+    public void add(final Requirement requirement) {
         requiredSkills.add(requirement);
     }
 
-    public void add(Bonus bonus) {
+    public void add(final Bonus bonus) {
         boneses.add(bonus);
     }
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
+        final StringBuilder result = new StringBuilder();
         result.append("\t").append(typeName).append(" (").append(rank).append(")\n");
         result.append("\t\tRequires:\n");
-        for (Requirement skillRequirement : requiredSkills) {
+        for (final Requirement skillRequirement : requiredSkills) {
             result.append("\t\t\t").append(skillRequirement).append("\n");
         }
         result.append("\t\tBonuses:\n");
-        for (Bonus skillBonus : boneses) {
+        for (final Bonus skillBonus : boneses) {
             result.append("\t\t\t").append(skillBonus).append("\n");
         }
 
         return result.toString();
     }
 
-    public int compareTo(Skill o) {
+    @Override
+    public int compareTo(final Skill o) {
         return typeName.compareTo(o.typeName);
     }
 
@@ -119,54 +120,69 @@ public class Skill implements Comparable<Skill> {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + boneses.hashCode();
-        result = prime * result + ((description == null) ? 0 : description.hashCode());
-        result = prime * result + groupID;
-        result = prime * result + ((primaryAttribute == null) ? 0 : primaryAttribute.hashCode());
-        result = prime * result + (published ? 1231 : 1237);
-        result = prime * result + rank;
-        result = prime * result + requiredSkills.hashCode();
-        result = prime * result + ((secondaryAttribute == null) ? 0 : secondaryAttribute.hashCode());
-        result = prime * result + typeID;
-        result = prime * result + ((typeName == null) ? 0 : typeName.hashCode());
+        result = (prime * result) + boneses.hashCode();
+        result = (prime * result) + ((description == null) ? 0 : description.hashCode());
+        result = (prime * result) + groupID;
+        result = (prime * result) + ((primaryAttribute == null) ? 0 : primaryAttribute.hashCode());
+        result = (prime * result) + (published ? 1231 : 1237);
+        result = (prime * result) + rank;
+        result = (prime * result) + requiredSkills.hashCode();
+        result = (prime * result) + ((secondaryAttribute == null) ? 0 : secondaryAttribute.hashCode());
+        result = (prime * result) + typeID;
+        result = (prime * result) + ((typeName == null) ? 0 : typeName.hashCode());
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
+    public boolean equals(final Object obj) {
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
-        Skill other = (Skill) obj;
-        if (!boneses.equals(other.boneses))
+        }
+        final Skill other = (Skill) obj;
+        if (!boneses.equals(other.boneses)) {
             return false;
+        }
         if (description == null) {
-            if (other.description != null)
+            if (other.description != null) {
                 return false;
-        } else if (!description.equals(other.description))
+            }
+        } else if (!description.equals(other.description)) {
             return false;
-        if (groupID != other.groupID)
+        }
+        if (groupID != other.groupID) {
             return false;
-        if (primaryAttribute != other.primaryAttribute)
+        }
+        if (primaryAttribute != other.primaryAttribute) {
             return false;
-        if (published != other.published)
+        }
+        if (published != other.published) {
             return false;
-        if (rank != other.rank)
+        }
+        if (rank != other.rank) {
             return false;
-        if (!requiredSkills.equals(other.requiredSkills))
+        }
+        if (!requiredSkills.equals(other.requiredSkills)) {
             return false;
-        if (secondaryAttribute != other.secondaryAttribute)
+        }
+        if (secondaryAttribute != other.secondaryAttribute) {
             return false;
-        if (typeID != other.typeID)
+        }
+        if (typeID != other.typeID) {
             return false;
+        }
         if (typeName == null) {
-            if (other.typeName != null)
+            if (other.typeName != null) {
                 return false;
-        } else if (!typeName.equals(other.typeName))
+            }
+        } else if (!typeName.equals(other.typeName)) {
             return false;
+        }
         return true;
     }
 }

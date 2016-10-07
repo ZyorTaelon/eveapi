@@ -8,7 +8,7 @@ public abstract class FactionStat implements FacWarStat {
         return factionID;
     }
 
-    public void setFactionID(int factionID) {
+    public void setFactionID(final int factionID) {
         this.factionID = factionID;
     }
 
@@ -16,7 +16,7 @@ public abstract class FactionStat implements FacWarStat {
         return factionName;
     }
 
-    public void setFactionName(String factionName) {
+    public void setFactionName(final String factionName) {
         this.factionName = factionName;
     }
 }

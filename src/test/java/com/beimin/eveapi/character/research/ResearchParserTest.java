@@ -24,14 +24,14 @@ public class ResearchParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        ResearchParser parser = new ResearchParser();
-        ResearchResponse response = parser.getResponse(auth);
+        final ResearchParser parser = new ResearchParser();
+        final ResearchResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<ResearchAgent> researchAgents = response.getAll();
+        final Set<ResearchAgent> researchAgents = response.getAll();
         assertNotNull(researchAgents);
         assertEquals(5, researchAgents.size());
         boolean found = false;
-        for (ResearchAgent researchAgent : researchAgents) {
+        for (final ResearchAgent researchAgent : researchAgents) {
             if (researchAgent.getAgentID() == 3012659) {
                 found = true;
                 assertEquals(11452, researchAgent.getSkillTypeID());

@@ -13,7 +13,7 @@ public class Call {
         return accessMask;
     }
 
-    public void setAccessMask(long accessMask) {
+    public void setAccessMask(final long accessMask) {
         this.accessMask = accessMask;
     }
 
@@ -21,7 +21,7 @@ public class Call {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -29,7 +29,7 @@ public class Call {
         return groupID;
     }
 
-    public void setGroupID(int groupID) {
+    public void setGroupID(final int groupID) {
         this.groupID = groupID;
     }
 
@@ -37,7 +37,7 @@ public class Call {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -45,7 +45,7 @@ public class Call {
         return type;
     }
 
-    public void setType(KeyType type) {
+    public void setType(final KeyType type) {
         this.type = type;
     }
 }

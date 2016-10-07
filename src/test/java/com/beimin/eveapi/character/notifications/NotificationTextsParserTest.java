@@ -23,14 +23,14 @@ public class NotificationTextsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        NotificationTextsParser parser = new NotificationTextsParser();
-        NotificationTextsResponse response = parser.getResponse(auth, 374106507L);
+        final NotificationTextsParser parser = new NotificationTextsParser();
+        final NotificationTextsResponse response = parser.getResponse(auth, 374106507L);
         assertNotNull(response);
-        Set<NotificationText> notifications = response.getAll();
+        final Set<NotificationText> notifications = response.getAll();
         assertNotNull(notifications);
         assertEquals(5, notifications.size());
         boolean found = false;
-        for (NotificationText notification : notifications) {
+        for (final NotificationText notification : notifications) {
             if (notification.getNotificationID() == 374106507L) {
                 found = true;
                 assertEquals("againstID: 673381830\n" + "cost: null\n" + "declaredByID: 98105019\n" + "delayHours: null\n" + "hostileState: null", notification.getText());

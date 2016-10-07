@@ -21,7 +21,7 @@ public class ContainerLog {
         return logTime;
     }
 
-    public void setLogTime(Date logTime) {
+    public void setLogTime(final Date logTime) {
         this.logTime = logTime;
     }
 
@@ -29,7 +29,7 @@ public class ContainerLog {
         return itemID;
     }
 
-    public void setItemID(long itemID) {
+    public void setItemID(final long itemID) {
         this.itemID = itemID;
     }
 
@@ -37,7 +37,7 @@ public class ContainerLog {
         return itemTypeID;
     }
 
-    public void setItemTypeID(int itemTypeID) {
+    public void setItemTypeID(final int itemTypeID) {
         this.itemTypeID = itemTypeID;
     }
 
@@ -45,7 +45,7 @@ public class ContainerLog {
         return actorID;
     }
 
-    public void setActorID(long actorID) {
+    public void setActorID(final long actorID) {
         this.actorID = actorID;
     }
 
@@ -53,7 +53,7 @@ public class ContainerLog {
         return actorName;
     }
 
-    public void setActorName(String actorName) {
+    public void setActorName(final String actorName) {
         this.actorName = actorName;
     }
 
@@ -61,7 +61,7 @@ public class ContainerLog {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(final int flag) {
         this.flag = flag;
     }
 
@@ -69,7 +69,7 @@ public class ContainerLog {
         return locationID;
     }
 
-    public void setLocationID(int locationID) {
+    public void setLocationID(final int locationID) {
         this.locationID = locationID;
     }
 
@@ -77,7 +77,7 @@ public class ContainerLog {
         return action;
     }
 
-    public void setAction(String action) {
+    public void setAction(final String action) {
         this.action = action;
     }
 
@@ -85,7 +85,7 @@ public class ContainerLog {
         return passwordType;
     }
 
-    public void setPasswordType(PasswordType passwordType) {
+    public void setPasswordType(final PasswordType passwordType) {
         this.passwordType = passwordType;
     }
 
@@ -93,7 +93,7 @@ public class ContainerLog {
         return typeID;
     }
 
-    public void setTypeID(Integer typeID) {
+    public void setTypeID(final Integer typeID) {
         this.typeID = typeID;
     }
 
@@ -101,7 +101,7 @@ public class ContainerLog {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(final Integer quantity) {
         this.quantity = quantity;
     }
 
@@ -109,7 +109,7 @@ public class ContainerLog {
         return oldConfiguration;
     }
 
-    public void setOldConfiguration(Integer oldConfiguration) {
+    public void setOldConfiguration(final Integer oldConfiguration) {
         this.oldConfiguration = oldConfiguration;
     }
 
@@ -117,7 +117,7 @@ public class ContainerLog {
         return newConfiguration;
     }
 
-    public void setNewConfiguration(Integer newConfiguration) {
+    public void setNewConfiguration(final Integer newConfiguration) {
         this.newConfiguration = newConfiguration;
     }
 }

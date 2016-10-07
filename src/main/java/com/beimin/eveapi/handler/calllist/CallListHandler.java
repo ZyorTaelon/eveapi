@@ -22,11 +22,12 @@ public class CallListHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if ("result".equals(qName))
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        if ("result".equals(qName)) {
             callList = new CallList();
+        }
         if (ELEMENT_ROWSET.equals(qName)) {
-            String name = attrs.getValue("name");
+            final String name = attrs.getValue("name");
             if (name.equals("callGroups")) {
                 callGroups = true;
             } else if (name.equals("calls")) {
@@ -35,13 +36,13 @@ public class CallListHandler extends AbstractContentHandler {
         }
         if (ELEMENT_ROW.equals(qName)) {
             if (callGroups) {
-                CallGroup callGroup = new CallGroup();
+                final CallGroup callGroup = new CallGroup();
                 callGroup.setGroupID(getInt(attrs, "groupID"));
                 callGroup.setName(getString(attrs, "name"));
                 callGroup.setDescription(getString(attrs, "description"));
                 callList.add(callGroup);
             } else if (calls) {
-                Call call = new Call();
+                final Call call = new Call();
                 call.setAccessMask(getLong(attrs, "accessMask"));
                 call.setType(KeyType.valueOf(getString(attrs, "type")));
                 call.setName(getString(attrs, "name"));
@@ -55,9 +56,10 @@ public class CallListHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if ("result".equals(qName))
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if ("result".equals(qName)) {
             response.set(callList);
+        }
         if (ELEMENT_ROWSET.equals(qName)) {
             callGroups = false;
             calls = false;

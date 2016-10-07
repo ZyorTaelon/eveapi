@@ -26,27 +26,28 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            String name = getString(attrs, "name");
-            if (name.equals("categories"))
+            final String name = getString(attrs, "name");
+            if (name.equals("categories")) {
                 categories = true;
-            else if (name.equals("classes"))
+            } else if (name.equals("classes")) {
                 classes = true;
-            else if (name.equals("certificates"))
+            } else if (name.equals("certificates")) {
                 certificates = true;
-            else if (name.equals("requiredSkills"))
+            } else if (name.equals("requiredSkills")) {
                 requiredSkills = true;
-            else if (name.equals("requiredCertificates"))
+            } else if (name.equals("requiredCertificates")) {
                 requiredCertificates = true;
+            }
         } else if (ELEMENT_ROW.equals(qName)) {
             if (requiredSkills) {
-                RequiredSkill skill = new RequiredSkill();
+                final RequiredSkill skill = new RequiredSkill();
                 skill.setTypeID(getInt(attrs, "typeID"));
                 skill.setLevel(getInt(attrs, "level"));
                 certificate.add(skill);
             } else if (requiredCertificates) {
-                RequiredCertificate cert = new RequiredCertificate();
+                final RequiredCertificate cert = new RequiredCertificate();
                 cert.setCertificateID(getInt(attrs, "certificateID"));
                 cert.setGrade(getInt(attrs, "grade"));
                 certificate.add(cert);
@@ -63,12 +64,13 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
             } else if (categories) {
                 category = getItem(attrs);
             }
-        } else
+        } else {
             super.startElement(uri, localName, qName, attrs);
+        }
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             if (requiredSkills) {
                 requiredSkills = false;
@@ -94,13 +96,14 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
                 response.add(category);
                 category = null;
             }
-        } else
+        } else {
             super.endElement(uri, localName, qName);
+        }
     }
 
     @Override
-    protected CertificateCategory getItem(Attributes attrs) {
-        CertificateCategory item = new CertificateCategory();
+    protected CertificateCategory getItem(final Attributes attrs) {
+        final CertificateCategory item = new CertificateCategory();
         item.setCategoryID(getInt(attrs, "categoryID"));
         item.setCategoryName(getString(attrs, "categoryName"));
         return item;

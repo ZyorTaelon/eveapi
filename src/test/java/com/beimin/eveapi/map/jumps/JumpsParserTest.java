@@ -21,10 +21,10 @@ public class JumpsParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        JumpsParser parser = new JumpsParser();
-        JumpsResponse response = parser.getResponse();
+        final JumpsParser parser = new JumpsParser();
+        final JumpsResponse response = parser.getResponse();
         assertNotNull(response);
-        Map<Integer, Integer> systemJumps = response.getSystemJumps();
+        final Map<Integer, Integer> systemJumps = response.getSystemJumps();
         assertNotNull(systemJumps);
         assertEquals(4294L, systemJumps.size());
         assertEquals(1040L, systemJumps.get(30003504).longValue());

@@ -17,7 +17,7 @@ public class Alliance {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -25,7 +25,7 @@ public class Alliance {
         return shortName;
     }
 
-    public void setShortName(String shortName) {
+    public void setShortName(final String shortName) {
         this.shortName = shortName;
     }
 
@@ -33,7 +33,7 @@ public class Alliance {
         return allianceID;
     }
 
-    public void setAllianceID(long allianceID) {
+    public void setAllianceID(final long allianceID) {
         this.allianceID = allianceID;
     }
 
@@ -41,7 +41,7 @@ public class Alliance {
         return executorCorpID;
     }
 
-    public void setExecutorCorpID(long executorCorpID) {
+    public void setExecutorCorpID(final long executorCorpID) {
         this.executorCorpID = executorCorpID;
     }
 
@@ -49,7 +49,7 @@ public class Alliance {
         return memberCount;
     }
 
-    public void setMemberCount(int memberCount) {
+    public void setMemberCount(final int memberCount) {
         this.memberCount = memberCount;
     }
 
@@ -57,11 +57,11 @@ public class Alliance {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(final Date startDate) {
         this.startDate = startDate;
     }
 
-    public void add(MemberCorporation memberCorporation) {
+    public void add(final MemberCorporation memberCorporation) {
         memberCorporations.add(memberCorporation);
     }
 

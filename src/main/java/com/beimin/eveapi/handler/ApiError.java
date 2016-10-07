@@ -20,7 +20,7 @@ public class ApiError implements Serializable {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(final int code) {
         this.code = code;
     }
 
@@ -28,12 +28,12 @@ public class ApiError implements Serializable {
         return error;
     }
 
-    public void setError(String error) {
+    public void setError(final String error) {
         this.error = error;
-        int retryIndex = error.indexOf("retry after ");
+        final int retryIndex = error.indexOf("retry after ");
         if (retryIndex > 0) {
-            int beginIndex = retryIndex + 12;
-            String substring = error.substring(beginIndex, beginIndex + 19);
+            final int beginIndex = retryIndex + 12;
+            final String substring = error.substring(beginIndex, beginIndex + 19);
             retryAfterDate = DateUtils.getGMTConverter().convert(Date.class, substring);
         }
     }

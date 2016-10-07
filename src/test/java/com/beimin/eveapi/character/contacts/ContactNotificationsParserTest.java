@@ -23,12 +23,12 @@ public class ContactNotificationsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        ContactNotificationsParser parser = new ContactNotificationsParser();
-        ContactNotificationsResponse response = parser.getResponse(auth);
+        final ContactNotificationsParser parser = new ContactNotificationsParser();
+        final ContactNotificationsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<ContactNotification> contactNotifications = response.getAll();
+        final Set<ContactNotification> contactNotifications = response.getAll();
         assertEquals(1, contactNotifications.size());
-        ContactNotification contactNotification = contactNotifications.iterator().next();
+        final ContactNotification contactNotification = contactNotifications.iterator().next();
         assertEquals(308734131, contactNotification.getNotificationID());
         assertEquals(797400947L, contactNotification.getSenderID());
         assertEquals("CCP Garthagk", contactNotification.getSenderName());

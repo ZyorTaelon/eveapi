@@ -12,7 +12,7 @@ public class PilotAccountBalanceParser extends AbstractAccountBalanceParser {
     }
 
     @Override
-    public AccountBalanceResponse getResponse(ApiAuth auth) throws ApiException {
+    public AccountBalanceResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

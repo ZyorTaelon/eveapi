@@ -24,24 +24,24 @@ public class SecurityParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        MemberSecurityParser parser = new MemberSecurityParser();
-        MemberSecurityResponse response = parser.getResponse(auth);
+        final MemberSecurityParser parser = new MemberSecurityParser();
+        final MemberSecurityResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<SecurityMember> members = response.getMembers();
+        final Set<SecurityMember> members = response.getMembers();
         assertEquals("Incorrect amount of members found.", 1, members.size());
-        SecurityMember member = members.iterator().next();
+        final SecurityMember member = members.iterator().next();
         assertEquals("Wrong member characterID", 123456789, member.getCharacterID());
         assertEquals("Wrong member name", "Tester", member.getName());
-        Set<SecurityRole> roles = member.getRoles();
+        final Set<SecurityRole> roles = member.getRoles();
         assertNotNull(roles);
         assertEquals("Incorrect amount of roles found.", 1, roles.size());
-        Set<SecurityTitle> titles = member.getTitles();
+        final Set<SecurityTitle> titles = member.getTitles();
         assertNotNull(titles);
         assertEquals("Incorrect amount of titles found.", 3, titles.size());
         int temp = 0;
-        for (SecurityTitle securityTitle : titles) {
-            long titleID = securityTitle.getTitleID();
-            String titleName = securityTitle.getTitleName();
+        for (final SecurityTitle securityTitle : titles) {
+            final long titleID = securityTitle.getTitleID();
+            final String titleName = securityTitle.getTitleName();
             if (titleID == 1L) {
                 assertEquals("Member", titleName);
                 temp++;

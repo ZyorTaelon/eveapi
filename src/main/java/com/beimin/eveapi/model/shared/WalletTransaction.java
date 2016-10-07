@@ -24,7 +24,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return transactionDateTime;
     }
 
-    public void setTransactionDateTime(Date transactionDateTime) {
+    public void setTransactionDateTime(final Date transactionDateTime) {
         this.transactionDateTime = transactionDateTime;
     }
 
@@ -32,7 +32,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return transactionID;
     }
 
-    public void setTransactionID(long transactionID) {
+    public void setTransactionID(final long transactionID) {
         this.transactionID = transactionID;
     }
 
@@ -40,7 +40,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(final int quantity) {
         this.quantity = quantity;
     }
 
@@ -48,7 +48,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return typeName;
     }
 
-    public void setTypeName(String typeName) {
+    public void setTypeName(final String typeName) {
         this.typeName = typeName;
     }
 
@@ -56,7 +56,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -64,7 +64,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(final double price) {
         this.price = price;
     }
 
@@ -72,7 +72,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return clientID;
     }
 
-    public void setClientID(long clientID) {
+    public void setClientID(final long clientID) {
         this.clientID = clientID;
     }
 
@@ -80,7 +80,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return clientName;
     }
 
-    public void setClientName(String clientName) {
+    public void setClientName(final String clientName) {
         this.clientName = clientName;
     }
 
@@ -88,7 +88,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return characterID;
     }
 
-    public void setCharacterID(Long characterID) {
+    public void setCharacterID(final Long characterID) {
         this.characterID = characterID;
     }
 
@@ -96,7 +96,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return characterName;
     }
 
-    public void setCharacterName(String characterName) {
+    public void setCharacterName(final String characterName) {
         this.characterName = characterName;
     }
 
@@ -104,7 +104,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return stationID;
     }
 
-    public void setStationID(long stationID) {
+    public void setStationID(final long stationID) {
         this.stationID = stationID;
     }
 
@@ -112,7 +112,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return stationName;
     }
 
-    public void setStationName(String stationName) {
+    public void setStationName(final String stationName) {
         this.stationName = stationName;
     }
 
@@ -120,7 +120,7 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return transactionType;
     }
 
-    public void setTransactionType(String transactionType) {
+    public void setTransactionType(final String transactionType) {
         this.transactionType = transactionType;
     }
 
@@ -128,19 +128,20 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return transactionFor;
     }
 
-    public void setTransactionFor(String transactionFor) {
+    public void setTransactionFor(final String transactionFor) {
         this.transactionFor = transactionFor;
     }
 
-    public int compareTo(WalletTransaction o) {
-        return Long.compare(this.getTransactionID(), o.getTransactionID());
+    @Override
+    public int compareTo(final WalletTransaction o) {
+        return Long.compare(getTransactionID(), o.getTransactionID());
     }
 
     public long getJournalTransactionID() {
         return journalTransactionID;
     }
 
-    public void setJournalTransactionID(long journalTransactionID) {
+    public void setJournalTransactionID(final long journalTransactionID) {
         this.journalTransactionID = journalTransactionID;
     }
 
@@ -148,49 +149,66 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         return clientTypeID;
     }
 
-    public void setClientTypeID(long clientTypeID) {
+    public void setClientTypeID(final long clientTypeID) {
         this.clientTypeID = clientTypeID;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o)
+    public boolean equals(final Object o) {
+        if (this == o) {
             return true;
-        if (o == null || getClass() != o.getClass())
+        }
+        if ((o == null) || (getClass() != o.getClass())) {
             return false;
+        }
 
-        WalletTransaction that = (WalletTransaction) o;
+        final WalletTransaction that = (WalletTransaction) o;
 
-        if (transactionID != that.transactionID)
+        if (transactionID != that.transactionID) {
             return false;
-        if (quantity != that.quantity)
+        }
+        if (quantity != that.quantity) {
             return false;
-        if (typeID != that.typeID)
+        }
+        if (typeID != that.typeID) {
             return false;
-        if (Double.compare(that.price, price) != 0)
+        }
+        if (Double.compare(that.price, price) != 0) {
             return false;
-        if (clientID != that.clientID)
+        }
+        if (clientID != that.clientID) {
             return false;
-        if (stationID != that.stationID)
+        }
+        if (stationID != that.stationID) {
             return false;
-        if (journalTransactionID != that.journalTransactionID)
+        }
+        if (journalTransactionID != that.journalTransactionID) {
             return false;
-        if (clientTypeID != that.clientTypeID)
+        }
+        if (clientTypeID != that.clientTypeID) {
             return false;
-        if (transactionDateTime != null ? !transactionDateTime.equals(that.transactionDateTime) : that.transactionDateTime != null)
+        }
+        if (transactionDateTime != null ? !transactionDateTime.equals(that.transactionDateTime) : that.transactionDateTime != null) {
             return false;
-        if (typeName != null ? !typeName.equals(that.typeName) : that.typeName != null)
+        }
+        if (typeName != null ? !typeName.equals(that.typeName) : that.typeName != null) {
             return false;
-        if (clientName != null ? !clientName.equals(that.clientName) : that.clientName != null)
+        }
+        if (clientName != null ? !clientName.equals(that.clientName) : that.clientName != null) {
             return false;
-        if (characterID != null ? !characterID.equals(that.characterID) : that.characterID != null)
+        }
+        if (characterID != null ? !characterID.equals(that.characterID) : that.characterID != null) {
             return false;
-        if (characterName != null ? !characterName.equals(that.characterName) : that.characterName != null)
+        }
+        if (characterName != null ? !characterName.equals(that.characterName) : that.characterName != null) {
             return false;
-        if (stationName != null ? !stationName.equals(that.stationName) : that.stationName != null)
+        }
+        if (stationName != null ? !stationName.equals(that.stationName) : that.stationName != null) {
             return false;
-        if (transactionType != null ? !transactionType.equals(that.transactionType) : that.transactionType != null)
+        }
+        if (transactionType != null ? !transactionType.equals(that.transactionType) : that.transactionType != null) {
             return false;
+        }
         return transactionFor != null ? transactionFor.equals(that.transactionFor) : that.transactionFor == null;
     }
 
@@ -199,22 +217,22 @@ public class WalletTransaction implements Comparable<WalletTransaction> {
         int result;
         long temp;
         result = transactionDateTime != null ? transactionDateTime.hashCode() : 0;
-        result = 31 * result + (int) (transactionID ^ (transactionID >>> 32));
-        result = 31 * result + quantity;
-        result = 31 * result + (typeName != null ? typeName.hashCode() : 0);
-        result = 31 * result + typeID;
+        result = (31 * result) + (int) (transactionID ^ (transactionID >>> 32));
+        result = (31 * result) + quantity;
+        result = (31 * result) + (typeName != null ? typeName.hashCode() : 0);
+        result = (31 * result) + typeID;
         temp = Double.doubleToLongBits(price);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (clientID ^ (clientID >>> 32));
-        result = 31 * result + (clientName != null ? clientName.hashCode() : 0);
-        result = 31 * result + (characterID != null ? characterID.hashCode() : 0);
-        result = 31 * result + (characterName != null ? characterName.hashCode() : 0);
-        result = 31 * result + (int) (stationID ^ (stationID >>> 32));
-        result = 31 * result + (stationName != null ? stationName.hashCode() : 0);
-        result = 31 * result + (transactionType != null ? transactionType.hashCode() : 0);
-        result = 31 * result + (transactionFor != null ? transactionFor.hashCode() : 0);
-        result = 31 * result + (int) (journalTransactionID ^ (journalTransactionID >>> 32));
-        result = 31 * result + (int) (clientTypeID ^ (clientTypeID >>> 32));
+        result = (31 * result) + (int) (temp ^ (temp >>> 32));
+        result = (31 * result) + (int) (clientID ^ (clientID >>> 32));
+        result = (31 * result) + (clientName != null ? clientName.hashCode() : 0);
+        result = (31 * result) + (characterID != null ? characterID.hashCode() : 0);
+        result = (31 * result) + (characterName != null ? characterName.hashCode() : 0);
+        result = (31 * result) + (int) (stationID ^ (stationID >>> 32));
+        result = (31 * result) + (stationName != null ? stationName.hashCode() : 0);
+        result = (31 * result) + (transactionType != null ? transactionType.hashCode() : 0);
+        result = (31 * result) + (transactionFor != null ? transactionFor.hashCode() : 0);
+        result = (31 * result) + (int) (journalTransactionID ^ (journalTransactionID >>> 32));
+        result = (31 * result) + (int) (clientTypeID ^ (clientTypeID >>> 32));
         return result;
     }
 }

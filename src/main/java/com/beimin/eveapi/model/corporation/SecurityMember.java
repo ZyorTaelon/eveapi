@@ -20,7 +20,7 @@ public class SecurityMember {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -28,7 +28,7 @@ public class SecurityMember {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -68,39 +68,39 @@ public class SecurityMember {
         return titles;
     }
 
-    public void addRole(SecurityRole role) {
+    public void addRole(final SecurityRole role) {
         roles.add(role);
     }
 
-    public void addGrantableRole(SecurityRole role) {
+    public void addGrantableRole(final SecurityRole role) {
         grantableRoles.add(role);
     }
 
-    public void addRoleAtHQ(SecurityRole role) {
+    public void addRoleAtHQ(final SecurityRole role) {
         rolesAtHQ.add(role);
     }
 
-    public void addGrantableRoleAtHQ(SecurityRole role) {
+    public void addGrantableRoleAtHQ(final SecurityRole role) {
         grantableRolesAtHQ.add(role);
     }
 
-    public void addRoleAtBase(SecurityRole role) {
+    public void addRoleAtBase(final SecurityRole role) {
         rolesAtBase.add(role);
     }
 
-    public void addGrantableRoleAtBase(SecurityRole role) {
+    public void addGrantableRoleAtBase(final SecurityRole role) {
         grantableRolesAtBase.add(role);
     }
 
-    public void addRoleAtOther(SecurityRole role) {
+    public void addRoleAtOther(final SecurityRole role) {
         rolesAtOther.add(role);
     }
 
-    public void addGrantableRoleAtOther(SecurityRole role) {
+    public void addGrantableRoleAtOther(final SecurityRole role) {
         grantableRolesAtOther.add(role);
     }
 
-    public void addTitle(SecurityTitle title) {
+    public void addTitle(final SecurityTitle title) {
         titles.add(title);
     }
 }

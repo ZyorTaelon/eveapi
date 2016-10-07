@@ -16,7 +16,7 @@ public class Outpost {
         return stationID;
     }
 
-    public void setStationID(long stationID) {
+    public void setStationID(final long stationID) {
         this.stationID = stationID;
     }
 
@@ -24,7 +24,7 @@ public class Outpost {
         return ownerID;
     }
 
-    public void setOwnerID(long ownerID) {
+    public void setOwnerID(final long ownerID) {
         this.ownerID = ownerID;
     }
 
@@ -32,7 +32,7 @@ public class Outpost {
         return standingOwnerID;
     }
 
-    public void setStandingOwnerID(long standingOwnerID) {
+    public void setStandingOwnerID(final long standingOwnerID) {
         this.standingOwnerID = standingOwnerID;
     }
 
@@ -40,7 +40,7 @@ public class Outpost {
         return stationName;
     }
 
-    public void setStationName(String stationName) {
+    public void setStationName(final String stationName) {
         this.stationName = stationName;
     }
 
@@ -48,7 +48,7 @@ public class Outpost {
         return solarSystemID;
     }
 
-    public void setSolarSystemID(int solarSystemID) {
+    public void setSolarSystemID(final int solarSystemID) {
         this.solarSystemID = solarSystemID;
     }
 
@@ -56,7 +56,7 @@ public class Outpost {
         return stationTypeID;
     }
 
-    public void setStationTypeID(int stationTypeID) {
+    public void setStationTypeID(final int stationTypeID) {
         this.stationTypeID = stationTypeID;
     }
 
@@ -64,7 +64,7 @@ public class Outpost {
         return dockingCostPerShipVolume;
     }
 
-    public void setDockingCostPerShipVolume(double dockingCostPerShipVolume) {
+    public void setDockingCostPerShipVolume(final double dockingCostPerShipVolume) {
         this.dockingCostPerShipVolume = dockingCostPerShipVolume;
     }
 
@@ -72,7 +72,7 @@ public class Outpost {
         return officeRentalCost;
     }
 
-    public void setOfficeRentalCost(double officeRentalCost) {
+    public void setOfficeRentalCost(final double officeRentalCost) {
         this.officeRentalCost = officeRentalCost;
     }
 
@@ -80,7 +80,7 @@ public class Outpost {
         return reprocessingEfficiency;
     }
 
-    public void setReprocessingEfficiency(double reprocessingEfficiency) {
+    public void setReprocessingEfficiency(final double reprocessingEfficiency) {
         this.reprocessingEfficiency = reprocessingEfficiency;
     }
 
@@ -88,7 +88,7 @@ public class Outpost {
         return reprocessingStationTake;
     }
 
-    public void setReprocessingStationTake(double reprocessingStationTake) {
+    public void setReprocessingStationTake(final double reprocessingStationTake) {
         this.reprocessingStationTake = reprocessingStationTake;
     }
 }

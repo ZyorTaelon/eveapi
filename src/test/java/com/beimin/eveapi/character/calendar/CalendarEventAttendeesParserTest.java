@@ -23,11 +23,11 @@ public class CalendarEventAttendeesParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        CalendarEventAttendeesParser parser = new CalendarEventAttendeesParser();
-        CalendarEventAttendeesResponse response = parser.getResponse(auth, 133918L);
-        Set<CalendarEventAttendee> attendees = response.getAll();
+        final CalendarEventAttendeesParser parser = new CalendarEventAttendeesParser();
+        final CalendarEventAttendeesResponse response = parser.getResponse(auth, 133918L);
+        final Set<CalendarEventAttendee> attendees = response.getAll();
         assertEquals(1, attendees.size());
-        CalendarEventAttendee event = attendees.iterator().next();
+        final CalendarEventAttendee event = attendees.iterator().next();
         assertEquals(133918L, event.getEventID());
         assertEquals(1380128241L, event.getCharacterID());
         assertEquals("Zy'or Tealon", event.getCharacterName());
@@ -35,7 +35,7 @@ public class CalendarEventAttendeesParserTest extends FullAuthParserTest {
     }
 
     @Override
-    public void extraAsserts(Map<String, String> req) {
+    public void extraAsserts(final Map<String, String> req) {
         super.extraAsserts(req);
         assertEquals("133918", req.get("eventIDs"));
     }

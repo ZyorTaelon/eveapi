@@ -8,7 +8,7 @@ public abstract class AttributeEnhancer {
         return augmentatorName;
     }
 
-    public void setAugmentatorName(String augmentatorName) {
+    public void setAugmentatorName(final String augmentatorName) {
         this.augmentatorName = augmentatorName;
     }
 
@@ -16,7 +16,7 @@ public abstract class AttributeEnhancer {
         return augmentatorValue;
     }
 
-    public void setAugmentatorValue(int augmentatorValue) {
+    public void setAugmentatorValue(final int augmentatorValue) {
         this.augmentatorValue = augmentatorValue;
     }
 

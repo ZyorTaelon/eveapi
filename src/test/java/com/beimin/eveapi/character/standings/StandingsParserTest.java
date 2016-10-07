@@ -21,11 +21,11 @@ public class StandingsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        StandingsParser parser = new StandingsParser();
-        StandingsResponse response = parser.getResponse(auth);
+        final StandingsParser parser = new StandingsParser();
+        final StandingsResponse response = parser.getResponse(auth);
         assertNotNull(response);
 
-        StandingsList agentStandings = response.getAgentStandings();
+        final StandingsList agentStandings = response.getAgentStandings();
         assertEquals("agents", agentStandings.getName());
         assertEquals(116, agentStandings.size());
         Standing apiStanding = agentStandings.iterator().next();
@@ -33,7 +33,7 @@ public class StandingsParserTest extends FullAuthParserTest {
         assertEquals("Namai Manir", apiStanding.getFromName());
         assertEquals(0.07, apiStanding.getStanding(), 1E-15);
 
-        StandingsList npcCorporations = response.getNpcCorporationStandings();
+        final StandingsList npcCorporations = response.getNpcCorporationStandings();
         assertEquals("NPCCorporations", npcCorporations.getName());
         assertEquals(51, npcCorporations.size());
         apiStanding = npcCorporations.iterator().next();
@@ -41,7 +41,7 @@ public class StandingsParserTest extends FullAuthParserTest {
         assertEquals("CBD Corporation", apiStanding.getFromName());
         assertEquals(1.08, apiStanding.getStanding(), 1E-15);
 
-        StandingsList factionStandings = response.getFactionStandings();
+        final StandingsList factionStandings = response.getFactionStandings();
         assertEquals("factions", factionStandings.getName());
         assertEquals(20, factionStandings.size());
         apiStanding = factionStandings.iterator().next();

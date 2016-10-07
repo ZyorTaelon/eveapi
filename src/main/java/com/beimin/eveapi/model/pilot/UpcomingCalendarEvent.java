@@ -19,7 +19,7 @@ public class UpcomingCalendarEvent {
         return eventID;
     }
 
-    public void setEventID(long eventID) {
+    public void setEventID(final long eventID) {
         this.eventID = eventID;
     }
 
@@ -27,7 +27,7 @@ public class UpcomingCalendarEvent {
         return ownerID;
     }
 
-    public void setOwnerID(long ownerID) {
+    public void setOwnerID(final long ownerID) {
         this.ownerID = ownerID;
     }
 
@@ -35,7 +35,7 @@ public class UpcomingCalendarEvent {
         return ownerName;
     }
 
-    public void setOwnerName(String ownerName) {
+    public void setOwnerName(final String ownerName) {
         this.ownerName = ownerName;
     }
 
@@ -43,7 +43,7 @@ public class UpcomingCalendarEvent {
         return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(final Date eventDate) {
         this.eventDate = eventDate;
     }
 
@@ -51,7 +51,7 @@ public class UpcomingCalendarEvent {
         return eventTitle;
     }
 
-    public void setEventTitle(String eventTitle) {
+    public void setEventTitle(final String eventTitle) {
         this.eventTitle = eventTitle;
     }
 
@@ -59,7 +59,7 @@ public class UpcomingCalendarEvent {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(final int duration) {
         this.duration = duration;
     }
 
@@ -67,15 +67,15 @@ public class UpcomingCalendarEvent {
         return important;
     }
 
-    public void setImportance(int importance) {
-        this.important = importance == 1;
+    public void setImportance(final int importance) {
+        important = importance == 1;
     }
 
     public CalendarEventResponse getResponse() {
         return response;
     }
 
-    public void setResponse(CalendarEventResponse response) {
+    public void setResponse(final CalendarEventResponse response) {
         this.response = response;
     }
 
@@ -83,7 +83,7 @@ public class UpcomingCalendarEvent {
         return eventText;
     }
 
-    public void setEventText(String eventText) {
+    public void setEventText(final String eventText) {
         this.eventText = eventText;
     }
 }

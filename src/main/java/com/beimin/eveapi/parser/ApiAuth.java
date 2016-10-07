@@ -16,10 +16,11 @@ public abstract class ApiAuth implements Serializable {
     public abstract String getVCode();
 
     public Map<String, String> getParams() {
-        Map<String, String> result = new HashMap<String, String>();
+        final Map<String, String> result = new HashMap<String, String>();
         result.put("keyID", Integer.toString(getKeyID()));
-        if (getCharacterID() != null)
+        if (getCharacterID() != null) {
             result.put("characterID", Long.toString(getCharacterID()));
+        }
         result.put("vCode", getVCode());
         return result;
     }
@@ -28,33 +29,41 @@ public abstract class ApiAuth implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getCharacterID() == null) ? 0 : getCharacterID().hashCode());
-        result = prime * result + getKeyID();
-        result = prime * result + ((getVCode() == null) ? 0 : getVCode().hashCode());
+        result = (prime * result) + ((getCharacterID() == null) ? 0 : getCharacterID().hashCode());
+        result = (prime * result) + getKeyID();
+        result = (prime * result) + ((getVCode() == null) ? 0 : getVCode().hashCode());
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
+    public boolean equals(final Object obj) {
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
-        ApiAuthorization other = (ApiAuthorization) obj;
+        }
+        final ApiAuthorization other = (ApiAuthorization) obj;
         if (getCharacterID() == null) {
-            if (other.getCharacterID() != null)
+            if (other.getCharacterID() != null) {
                 return false;
-        } else if (!getCharacterID().equals(other.getCharacterID()))
+            }
+        } else if (!getCharacterID().equals(other.getCharacterID())) {
             return false;
-        if (getKeyID() != other.getKeyID())
+        }
+        if (getKeyID() != other.getKeyID()) {
             return false;
+        }
         if (getVCode() == null) {
-            if (other.getVCode() != null)
+            if (other.getVCode() != null) {
                 return false;
-        } else if (!getVCode().equals(other.getVCode()))
+            }
+        } else if (!getVCode().equals(other.getVCode())) {
             return false;
+        }
         return true;
     }
 }

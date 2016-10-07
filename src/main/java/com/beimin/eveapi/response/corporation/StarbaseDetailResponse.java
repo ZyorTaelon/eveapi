@@ -20,13 +20,13 @@ public class StarbaseDetailResponse extends ApiResponse {
     private CombatSetting onStatusDrop;
     private CombatSetting onAggression;
     private CombatSetting onCorporationWar;
-    private Map<Integer, Integer> fuelMap = new HashMap<Integer, Integer>();
+    private final Map<Integer, Integer> fuelMap = new HashMap<Integer, Integer>();
 
     public int getUsageFlags() {
         return usageFlags;
     }
 
-    public void setUsageFlags(int usageFlags) {
+    public void setUsageFlags(final int usageFlags) {
         this.usageFlags = usageFlags;
     }
 
@@ -34,7 +34,7 @@ public class StarbaseDetailResponse extends ApiResponse {
         return deployFlags;
     }
 
-    public void setDeployFlags(int deployFlags) {
+    public void setDeployFlags(final int deployFlags) {
         this.deployFlags = deployFlags;
     }
 
@@ -42,7 +42,7 @@ public class StarbaseDetailResponse extends ApiResponse {
         return allowCorporationMembers;
     }
 
-    public void setAllowCorporationMembers(boolean allowCorporationMembers) {
+    public void setAllowCorporationMembers(final boolean allowCorporationMembers) {
         this.allowCorporationMembers = allowCorporationMembers;
     }
 
@@ -50,7 +50,7 @@ public class StarbaseDetailResponse extends ApiResponse {
         return allowAllianceMembers;
     }
 
-    public void setAllowAllianceMembers(boolean allowAllianceMembers) {
+    public void setAllowAllianceMembers(final boolean allowAllianceMembers) {
         this.allowAllianceMembers = allowAllianceMembers;
     }
 
@@ -58,7 +58,7 @@ public class StarbaseDetailResponse extends ApiResponse {
         return claimSovereignty;
     }
 
-    public void setClaimSovereignty(boolean claimSovereignty) {
+    public void setClaimSovereignty(final boolean claimSovereignty) {
         this.claimSovereignty = claimSovereignty;
     }
 
@@ -66,7 +66,7 @@ public class StarbaseDetailResponse extends ApiResponse {
         return onStandingDrop;
     }
 
-    public void setOnStandingDrop(CombatSetting onStandingDrop) {
+    public void setOnStandingDrop(final CombatSetting onStandingDrop) {
         this.onStandingDrop = onStandingDrop;
     }
 
@@ -74,7 +74,7 @@ public class StarbaseDetailResponse extends ApiResponse {
         return onStatusDrop;
     }
 
-    public void setOnStatusDrop(CombatSetting onStatusDrop) {
+    public void setOnStatusDrop(final CombatSetting onStatusDrop) {
         this.onStatusDrop = onStatusDrop;
     }
 
@@ -82,7 +82,7 @@ public class StarbaseDetailResponse extends ApiResponse {
         return onAggression;
     }
 
-    public void setOnAggression(CombatSetting onAggression) {
+    public void setOnAggression(final CombatSetting onAggression) {
         this.onAggression = onAggression;
     }
 
@@ -90,20 +90,20 @@ public class StarbaseDetailResponse extends ApiResponse {
         return onCorporationWar;
     }
 
-    public void setOnCorporationWar(CombatSetting onCorporationWar) {
+    public void setOnCorporationWar(final CombatSetting onCorporationWar) {
         this.onCorporationWar = onCorporationWar;
     }
 
-    public void addFuelLevel(int typeID, int quantity) {
+    public void addFuelLevel(final int typeID, final int quantity) {
         fuelMap.put(typeID, quantity);
     }
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
+        final StringBuilder result = new StringBuilder();
         result.append("usageFlags: ").append(usageFlags).append('\n').append("deployFlags: ").append(deployFlags).append('\n').append("allowCorporationMembers: ").append(allowCorporationMembers).append('\n').append("allowAllianceMembers: ").append(allowAllianceMembers)
-                .append('\n').append("claimSovereignty: ").append(claimSovereignty).append("\n\n").append("Fuel Levels:\n");
-        for (Entry<Integer, Integer> entry : fuelMap.entrySet()) {
+        .append('\n').append("claimSovereignty: ").append(claimSovereignty).append("\n\n").append("Fuel Levels:\n");
+        for (final Entry<Integer, Integer> entry : fuelMap.entrySet()) {
             result.append('\t').append(entry.getKey()).append(": ").append(entry.getValue()).append('\n');
         }
         return result.toString();

@@ -12,7 +12,7 @@ public class ContractItem {
         return recordID;
     }
 
-    public void setRecordID(long recordID) {
+    public void setRecordID(final long recordID) {
         this.recordID = recordID;
     }
 
@@ -20,7 +20,7 @@ public class ContractItem {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -28,7 +28,7 @@ public class ContractItem {
         return quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(final long quantity) {
         this.quantity = quantity;
     }
 
@@ -36,7 +36,7 @@ public class ContractItem {
         return rawQuantity;
     }
 
-    public void setRawQuantity(Long rawQuantity) {
+    public void setRawQuantity(final Long rawQuantity) {
         this.rawQuantity = rawQuantity;
     }
 
@@ -44,7 +44,7 @@ public class ContractItem {
         return singleton;
     }
 
-    public void setSingleton(boolean singleton) {
+    public void setSingleton(final boolean singleton) {
         this.singleton = singleton;
     }
 
@@ -52,7 +52,7 @@ public class ContractItem {
         return included;
     }
 
-    public void setIncluded(boolean included) {
+    public void setIncluded(final boolean included) {
         this.included = included;
     }
 }

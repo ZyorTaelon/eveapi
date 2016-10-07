@@ -8,7 +8,7 @@ public class CertificateCategory {
     private int categoryID;
     private String categoryName;
 
-    public void add(CertificateClass certificateClass) {
+    public void add(final CertificateClass certificateClass) {
         certificateClasses.add(certificateClass);
     }
 
@@ -20,7 +20,7 @@ public class CertificateCategory {
         return categoryID;
     }
 
-    public void setCategoryID(int categoryID) {
+    public void setCategoryID(final int categoryID) {
         this.categoryID = categoryID;
     }
 
@@ -28,7 +28,7 @@ public class CertificateCategory {
         return categoryName;
     }
 
-    public void setCategoryName(String categoryName) {
+    public void setCategoryName(final String categoryName) {
         this.categoryName = categoryName;
     }
 }

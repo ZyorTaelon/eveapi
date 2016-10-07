@@ -15,15 +15,16 @@ public class MailBodiesHandler extends AbstractContentListHandler<MailBodiesResp
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
             mailBody = getItem(attrs);
-        } else
+        } else {
             super.startElement(uri, localName, qName, attrs);
+        }
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
             mailBody.setBody(getString());
             response.add(mailBody);
@@ -34,8 +35,8 @@ public class MailBodiesHandler extends AbstractContentListHandler<MailBodiesResp
     }
 
     @Override
-    protected MailBody getItem(Attributes attrs) {
-        MailBody item = new MailBody();
+    protected MailBody getItem(final Attributes attrs) {
+        final MailBody item = new MailBody();
         item.setMessageID(getLong(attrs, "messageID"));
         return item;
     }

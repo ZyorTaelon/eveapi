@@ -12,7 +12,7 @@ public class Station {
         return stationID;
     }
 
-    public void setStationID(long stationID) {
+    public void setStationID(final long stationID) {
         this.stationID = stationID;
     }
 
@@ -20,7 +20,7 @@ public class Station {
         return stationName;
     }
 
-    public void setStationName(String stationName) {
+    public void setStationName(final String stationName) {
         this.stationName = stationName;
     }
 
@@ -28,7 +28,7 @@ public class Station {
         return stationTypeID;
     }
 
-    public void setStationTypeID(int stationTypeID) {
+    public void setStationTypeID(final int stationTypeID) {
         this.stationTypeID = stationTypeID;
     }
 
@@ -36,7 +36,7 @@ public class Station {
         return solarSystemID;
     }
 
-    public void setSolarSystemID(int solarSystemID) {
+    public void setSolarSystemID(final int solarSystemID) {
         this.solarSystemID = solarSystemID;
     }
 
@@ -44,7 +44,7 @@ public class Station {
         return corporationID;
     }
 
-    public void setCorporationID(int corporationID) {
+    public void setCorporationID(final int corporationID) {
         this.corporationID = corporationID;
     }
 
@@ -52,7 +52,7 @@ public class Station {
         return corporationName;
     }
 
-    public void setCorporationName(String corporationName) {
+    public void setCorporationName(final String corporationName) {
         this.corporationName = corporationName;
     }
 }

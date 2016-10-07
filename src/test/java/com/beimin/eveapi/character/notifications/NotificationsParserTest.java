@@ -25,14 +25,14 @@ public class NotificationsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        NotificationsParser parser = new NotificationsParser();
-        NotificationsResponse response = parser.getResponse(auth);
+        final NotificationsParser parser = new NotificationsParser();
+        final NotificationsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<Notification> notifications = response.getAll();
+        final Set<Notification> notifications = response.getAll();
         assertNotNull(notifications);
         assertEquals(3, notifications.size());
         boolean found = false;
-        for (Notification notification : notifications) {
+        for (final Notification notification : notifications) {
             if (notification.getNotificationID() == 295043380L) {
                 found = true;
                 assertEquals(5, notification.getTypeID());

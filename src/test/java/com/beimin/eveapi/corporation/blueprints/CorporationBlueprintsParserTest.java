@@ -1,5 +1,13 @@
 package com.beimin.eveapi.corporation.blueprints;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Set;
+
+import org.junit.Test;
+
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.Blueprint;
 import com.beimin.eveapi.parser.ApiPage;
@@ -7,11 +15,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.BlueprintsParser;
 import com.beimin.eveapi.response.shared.BlueprintsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import java.util.Set;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 public class CorporationBlueprintsParserTest extends FullAuthParserTest {
     public CorporationBlueprintsParserTest() {
@@ -20,14 +23,14 @@ public class CorporationBlueprintsParserTest extends FullAuthParserTest {
 
     @Test
     public void blueprintsParser() throws ApiException {
-        BlueprintsParser parser = new BlueprintsParser();
-        BlueprintsResponse response = parser.getResponse(auth);
+        final BlueprintsParser parser = new BlueprintsParser();
+        final BlueprintsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<Blueprint> blueprints = response.getAll();
+        final Set<Blueprint> blueprints = response.getAll();
         assertNotNull(blueprints);
         assertEquals(15, blueprints.size());
         boolean found = false;
-        for (Blueprint blueprint : blueprints) {
+        for (final Blueprint blueprint : blueprints) {
             if (blueprint.getItemID() == 231144695) {
                 found = true;
                 assertEquals(60014818L, blueprint.getLocationID());

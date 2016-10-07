@@ -23,11 +23,11 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        UpcomingCalendarEventsParser parser = new UpcomingCalendarEventsParser();
-        UpcomingCalendarEventsResponse response = parser.getResponse(auth);
-        Set<UpcomingCalendarEvent> events = response.getAll();
+        final UpcomingCalendarEventsParser parser = new UpcomingCalendarEventsParser();
+        final UpcomingCalendarEventsResponse response = parser.getResponse(auth);
+        final Set<UpcomingCalendarEvent> events = response.getAll();
         assertEquals(1, events.size());
-        UpcomingCalendarEvent event = events.iterator().next();
+        final UpcomingCalendarEvent event = events.iterator().next();
         assertEquals(90864L, event.getEventID());
         assertEquals(786344537L, event.getOwnerID());
         assertEquals("Some Alliance", event.getOwnerName());
@@ -36,7 +36,7 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
         assertEquals(120, event.getDuration());
         assertEquals(true, event.isImportant());
         assertEquals(CalendarEventResponse.UNDECIDED, event.getResponse());
-        String expectedEventText = "Alliance Mining OP Part II<br><br>This will be in home system the sunday after the patch..<br>We would really like to see as many mining barges out there as possible. PVPers are also needed for security.. See you there!!!";
+        final String expectedEventText = "Alliance Mining OP Part II<br><br>This will be in home system the sunday after the patch..<br>We would really like to see as many mining barges out there as possible. PVPers are also needed for security.. See you there!!!";
         assertEquals(expectedEventText, event.getEventText());
     }
 }

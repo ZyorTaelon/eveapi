@@ -30,12 +30,12 @@ public class TrackingParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        MemberTrackingParser parser = new MemberTrackingParser();
-        MemberTrackingResponse response = parser.getResponse(auth);
+        final MemberTrackingParser parser = new MemberTrackingParser();
+        final MemberTrackingResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<Member> members = response.getAll();
+        final Set<Member> members = response.getAll();
         boolean found = false;
-        for (Member member : members) {
+        for (final Member member : members) {
             if (member.getCharacterID() == 150336922L) {
                 found = true;
                 assertEquals("corpexport", member.getName());
@@ -47,15 +47,15 @@ public class TrackingParserTest extends FullAuthParserTest {
 
     @Test
     public void getExtendedResponse() throws Exception {
-        CamelContext context = new DefaultCamelContext();
+        final CamelContext context = new DefaultCamelContext();
         context.addRoutes(extended);
         context.start();
-        MemberTrackingParser parser = new MemberTrackingParser();
-        MemberTrackingResponse response = parser.getExtendedResponse(auth);
+        final MemberTrackingParser parser = new MemberTrackingParser();
+        final MemberTrackingResponse response = parser.getExtendedResponse(auth);
         assertNotNull(response);
-        Set<Member> members = response.getAll();
+        final Set<Member> members = response.getAll();
         boolean found = false;
-        for (Member member : members) {
+        for (final Member member : members) {
             if (member.getCharacterID() == 150336922L) {
                 found = true;
                 assertEquals("corpexport", member.getName());
@@ -69,7 +69,8 @@ public class TrackingParserTest extends FullAuthParserTest {
         @Override
         public void configure() {
             from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
-                public void extraAsserts(Map<String, String> params) {
+                @Override
+                public void extraAsserts(final Map<String, String> params) {
                     assertNotNull(params);
                     assertEquals("1", params.get("extended"));
                 }

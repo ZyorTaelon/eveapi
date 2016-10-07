@@ -26,8 +26,8 @@ public class FacWarTopStatsParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        FacWarTopStatsParser parser = new FacWarTopStatsParser();
-        FacWarTopStatsResponse facWarStats = parser.getResponse();
+        final FacWarTopStatsParser parser = new FacWarTopStatsParser();
+        final FacWarTopStatsResponse facWarStats = parser.getResponse();
         assertKillerChar(1394672077, "Adolf Ehrnrooth", 17, facWarStats.getCharacterKillsYesterday());
         assertKillerChar(1780475402, "Loren Gallen", 46, facWarStats.getCharacterKillsLastWeek());
         assertKillerChar(1780475402, "Loren Gallen", 2598, facWarStats.getCharacterKillsTotal());
@@ -50,49 +50,49 @@ public class FacWarTopStatsParserTest extends NoAuthParserTest {
         assertVictoryPointerFaction(500001, "Caldari State", 5730405, facWarStats.getFactionVictoryPointsTotal());
     }
 
-    private void assertKillerChar(int characterID, String characterName, int kills, List<CharacterKills> killersList) {
+    private void assertKillerChar(final int characterID, final String characterName, final int kills, final List<CharacterKills> killersList) {
         assertEquals(100, killersList.size());
-        CharacterKills killer = killersList.iterator().next();
+        final CharacterKills killer = killersList.iterator().next();
         assertEquals(characterID, killer.getCharacterID());
         assertEquals(characterName, killer.getCharacterName());
         assertEquals(kills, killer.getKills());
     }
 
-    private void assertVictoryPointerChar(int characterID, String characterName, int victoryPoints, List<CharacterVictoryPoints> victoryPointersList) {
+    private void assertVictoryPointerChar(final int characterID, final String characterName, final int victoryPoints, final List<CharacterVictoryPoints> victoryPointersList) {
         assertEquals(100, victoryPointersList.size());
-        CharacterVictoryPoints victoryPointer = victoryPointersList.iterator().next();
+        final CharacterVictoryPoints victoryPointer = victoryPointersList.iterator().next();
         assertEquals(characterID, victoryPointer.getCharacterID());
         assertEquals(characterName, victoryPointer.getCharacterName());
         assertEquals(victoryPoints, victoryPointer.getVictoryPoints());
     }
 
-    private void assertKillerCorp(long corporationID, String corporationName, int kills, List<CorporationKills> killerList) {
+    private void assertKillerCorp(final long corporationID, final String corporationName, final int kills, final List<CorporationKills> killerList) {
         assertEquals(10, killerList.size());
-        CorporationKills killer = killerList.iterator().next();
+        final CorporationKills killer = killerList.iterator().next();
         assertEquals(corporationID, killer.getCorporationID());
         assertEquals(corporationName, killer.getCorporationName());
         assertEquals(kills, killer.getKills());
     }
 
-    private void assertVictoryPointerCorp(long corporationID, String corporationName, int victoryPoints, List<CorporationVictoryPoints> victoryPointersList) {
+    private void assertVictoryPointerCorp(final long corporationID, final String corporationName, final int victoryPoints, final List<CorporationVictoryPoints> victoryPointersList) {
         assertEquals(10, victoryPointersList.size());
-        CorporationVictoryPoints victoryPointer = victoryPointersList.iterator().next();
+        final CorporationVictoryPoints victoryPointer = victoryPointersList.iterator().next();
         assertEquals(corporationID, victoryPointer.getCorporationID());
         assertEquals(corporationName, victoryPointer.getCorporationName());
         assertEquals(victoryPoints, victoryPointer.getVictoryPoints());
     }
 
-    private void assertKillerFaction(int factionID, String factionName, int kills, List<FactionKills> killerList) {
+    private void assertKillerFaction(final int factionID, final String factionName, final int kills, final List<FactionKills> killerList) {
         assertEquals(4, killerList.size());
-        FactionKills killer = killerList.iterator().next();
+        final FactionKills killer = killerList.iterator().next();
         assertEquals(factionID, killer.getFactionID());
         assertEquals(factionName, killer.getFactionName());
         assertEquals(kills, killer.getKills());
     }
 
-    private void assertVictoryPointerFaction(int factionID, String factionName, int victoryPoints, List<FactionVictoryPoints> victoryPointersList) {
+    private void assertVictoryPointerFaction(final int factionID, final String factionName, final int victoryPoints, final List<FactionVictoryPoints> victoryPointersList) {
         assertEquals(4, victoryPointersList.size());
-        FactionVictoryPoints victoryPointer = victoryPointersList.iterator().next();
+        final FactionVictoryPoints victoryPointer = victoryPointersList.iterator().next();
         assertEquals(factionID, victoryPointer.getFactionID());
         assertEquals(factionName, victoryPointer.getFactionName());
         assertEquals(victoryPoints, victoryPointer.getVictoryPoints());

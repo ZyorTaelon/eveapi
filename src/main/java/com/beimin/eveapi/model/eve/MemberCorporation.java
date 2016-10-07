@@ -10,7 +10,7 @@ public class MemberCorporation {
         return corporationID;
     }
 
-    public void setCorporationID(long corporationID) {
+    public void setCorporationID(final long corporationID) {
         this.corporationID = corporationID;
     }
 
@@ -18,7 +18,7 @@ public class MemberCorporation {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(final Date startDate) {
         this.startDate = startDate;
     }
 }

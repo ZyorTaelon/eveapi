@@ -12,7 +12,7 @@ public class ApiKeyInfo {
     private Date expires;
     private final Collection<Character> eveCharacters = new ArrayList<Character>();
 
-    public void addEveCharacter(Character eveCharacter) {
+    public void addEveCharacter(final Character eveCharacter) {
         eveCharacters.add(eveCharacter);
     }
 
@@ -24,7 +24,7 @@ public class ApiKeyInfo {
         return accessMask;
     }
 
-    public void setAccessMask(long accessMask) {
+    public void setAccessMask(final long accessMask) {
         this.accessMask = accessMask;
     }
 
@@ -32,7 +32,7 @@ public class ApiKeyInfo {
         return expires;
     }
 
-    public void setExpires(Date expires) {
+    public void setExpires(final Date expires) {
         this.expires = expires;
     }
 
@@ -40,7 +40,7 @@ public class ApiKeyInfo {
         return type;
     }
 
-    public void setType(KeyType type) {
+    public void setType(final KeyType type) {
         this.type = type;
     }
 

@@ -10,7 +10,7 @@ public class CallListResponse extends ApiResponse {
         return callList;
     }
 
-    public void set(CallList callList) {
+    public void set(final CallList callList) {
         this.callList = callList;
     }
 }

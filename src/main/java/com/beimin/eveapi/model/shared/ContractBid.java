@@ -13,7 +13,7 @@ public class ContractBid {
         return bidID;
     }
 
-    public void setBidID(long bidID) {
+    public void setBidID(final long bidID) {
         this.bidID = bidID;
     }
 
@@ -21,7 +21,7 @@ public class ContractBid {
         return contractID;
     }
 
-    public void setContractID(long contractID) {
+    public void setContractID(final long contractID) {
         this.contractID = contractID;
     }
 
@@ -29,7 +29,7 @@ public class ContractBid {
         return bidderID;
     }
 
-    public void setBidderID(long bidderID) {
+    public void setBidderID(final long bidderID) {
         this.bidderID = bidderID;
     }
 
@@ -37,7 +37,7 @@ public class ContractBid {
         return dateBid;
     }
 
-    public void setDateBid(Date dateBid) {
+    public void setDateBid(final Date dateBid) {
         this.dateBid = dateBid;
     }
 
@@ -45,7 +45,7 @@ public class ContractBid {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(final double amount) {
         this.amount = amount;
     }
 }

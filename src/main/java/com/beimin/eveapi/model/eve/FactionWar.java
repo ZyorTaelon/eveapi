@@ -10,7 +10,7 @@ public class FactionWar {
         return factionID;
     }
 
-    public void setFactionID(int factionID) {
+    public void setFactionID(final int factionID) {
         this.factionID = factionID;
     }
 
@@ -18,7 +18,7 @@ public class FactionWar {
         return factionName;
     }
 
-    public void setFactionName(String factionName) {
+    public void setFactionName(final String factionName) {
         this.factionName = factionName;
     }
 
@@ -26,7 +26,7 @@ public class FactionWar {
         return againstID;
     }
 
-    public void setAgainstID(int againstID) {
+    public void setAgainstID(final int againstID) {
         this.againstID = againstID;
     }
 
@@ -34,7 +34,7 @@ public class FactionWar {
         return againstName;
     }
 
-    public void setAgainstName(String againstName) {
+    public void setAgainstName(final String againstName) {
         this.againstName = againstName;
     }
 }

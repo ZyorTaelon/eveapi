@@ -98,7 +98,7 @@ public class Notification {
         private final int id;
         private final String description;
 
-        private NotificationType(int id, String description) {
+        private NotificationType(final int id, final String description) {
             this.id = id;
             this.description = description;
         }
@@ -111,10 +111,11 @@ public class Notification {
             return description;
         }
 
-        public static NotificationType get(int typeID) {
-            for (NotificationType notificationType : values()) {
-                if (notificationType.getId() == typeID)
+        public static NotificationType get(final int typeID) {
+            for (final NotificationType notificationType : values()) {
+                if (notificationType.getId() == typeID) {
                     return notificationType;
+                }
             }
             return UNKNOWN;
         }
@@ -124,7 +125,7 @@ public class Notification {
         return notificationID;
     }
 
-    public void setNotificationID(long notificationID) {
+    public void setNotificationID(final long notificationID) {
         this.notificationID = notificationID;
     }
 
@@ -132,7 +133,7 @@ public class Notification {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -144,7 +145,7 @@ public class Notification {
         return senderID;
     }
 
-    public void setSenderID(long senderID) {
+    public void setSenderID(final long senderID) {
         this.senderID = senderID;
     }
 
@@ -152,7 +153,7 @@ public class Notification {
         return sentDate;
     }
 
-    public void setSentDate(Date sentDate) {
+    public void setSentDate(final Date sentDate) {
         this.sentDate = sentDate;
     }
 
@@ -160,7 +161,7 @@ public class Notification {
         return read;
     }
 
-    public void setRead(boolean read) {
+    public void setRead(final boolean read) {
         this.read = read;
     }
 }

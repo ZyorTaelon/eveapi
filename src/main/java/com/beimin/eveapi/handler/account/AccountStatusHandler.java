@@ -17,27 +17,29 @@ public class AccountStatusHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        if ("result".equals(qName))
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attributes) throws SAXException {
+        if ("result".equals(qName)) {
             accountStatus = new AccountStatus();
+        }
         super.startElement(uri, localName, qName, attributes);
         accumulator.setLength(0);
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if ("userID".equals(qName))
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if ("userID".equals(qName)) {
             accountStatus.setUserID(getInt());
-        else if ("paidUntil".equals(qName))
+        } else if ("paidUntil".equals(qName)) {
             accountStatus.setPaidUntil(getDate());
-        else if ("createDate".equals(qName))
+        } else if ("createDate".equals(qName)) {
             accountStatus.setCreateDate(getDate());
-        else if ("logonCount".equals(qName))
+        } else if ("logonCount".equals(qName)) {
             accountStatus.setLogonCount(getInt());
-        else if ("logonMinutes".equals(qName))
+        } else if ("logonMinutes".equals(qName)) {
             accountStatus.setLogonMinutes(getInt());
-        else if ("result".equals(qName))
+        } else if ("result".equals(qName)) {
             response.set(accountStatus);
+        }
         super.endElement(uri, localName, qName);
     }
 

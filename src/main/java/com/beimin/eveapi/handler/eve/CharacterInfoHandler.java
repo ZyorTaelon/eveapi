@@ -22,9 +22,9 @@ public class CharacterInfoHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
-            CharacterEmployment employ = new CharacterEmployment();
+            final CharacterEmployment employ = new CharacterEmployment();
             employ.setCorporationID(getLong(attrs, "corporationID"));
             employ.setStartDate(getDate(attrs, "startDate"));
             response.addEmployment(employ);
@@ -33,41 +33,42 @@ public class CharacterInfoHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if ("characterID".equals(qName))
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if ("characterID".equals(qName)) {
             response.setCharacterID(getLong());
-        else if ("characterName".equals(qName))
+        } else if ("characterName".equals(qName)) {
             response.setCharacterName(getString());
-        else if ("race".equals(qName))
+        } else if ("race".equals(qName)) {
             response.setRace(getRace());
-        else if ("bloodline".equals(qName))
+        } else if ("bloodline".equals(qName)) {
             response.setBloodline(getBloodline());
-        else if ("accountBalance".equals(qName))
+        } else if ("accountBalance".equals(qName)) {
             response.setAccountBalance(getDouble());
-        else if ("skillPoints".equals(qName))
+        } else if ("skillPoints".equals(qName)) {
             response.setSkillPoints(getInt());
-        else if ("shipName".equals(qName))
+        } else if ("shipName".equals(qName)) {
             response.setShipName(getString());
-        else if ("shipTypeID".equals(qName))
+        } else if ("shipTypeID".equals(qName)) {
             response.setShipTypeID(getInt());
-        else if ("shipTypeName".equals(qName))
+        } else if ("shipTypeName".equals(qName)) {
             response.setShipTypeName(getString());
-        else if ("corporationID".equals(qName))
+        } else if ("corporationID".equals(qName)) {
             response.setCorporationID(getLong());
-        else if ("corporation".equals(qName))
+        } else if ("corporation".equals(qName)) {
             response.setCorporation(getString());
-        else if ("corporationDate".equals(qName))
+        } else if ("corporationDate".equals(qName)) {
             response.setCorporationDate(getDate());
-        else if ("allianceID".equals(qName))
+        } else if ("allianceID".equals(qName)) {
             response.setAllianceID(getLong());
-        else if ("alliance".equals(qName))
+        } else if ("alliance".equals(qName)) {
             response.setAlliance(getString());
-        else if ("allianceDate".equals(qName))
+        } else if ("allianceDate".equals(qName)) {
             response.setAllianceDate(getDate());
-        else if ("lastKnownLocation".equals(qName))
+        } else if ("lastKnownLocation".equals(qName)) {
             response.setLastKnownLocation(getString());
-        else if ("securityStatus".equals(qName))
+        } else if ("securityStatus".equals(qName)) {
             response.setSecurityStatus(getDouble());
+        }
         super.endElement(uri, localName, qName);
     }
 

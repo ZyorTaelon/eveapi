@@ -23,14 +23,14 @@ public class MailingListsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        MailingListsParser parser = new MailingListsParser();
-        MailingListsResponse response = parser.getResponse(auth);
+        final MailingListsParser parser = new MailingListsParser();
+        final MailingListsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<MailingList> mailinglists = response.getAll();
+        final Set<MailingList> mailinglists = response.getAll();
         assertNotNull(mailinglists);
         assertEquals(3, mailinglists.size());
         boolean found = false;
-        for (MailingList mailinglist : mailinglists) {
+        for (final MailingList mailinglist : mailinglists) {
             if (mailinglist.getListID() == 128250439L) {
                 found = true;
                 assertEquals("EVETycoonMail", mailinglist.getDisplayName());

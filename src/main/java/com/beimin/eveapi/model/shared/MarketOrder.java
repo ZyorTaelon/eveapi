@@ -23,7 +23,7 @@ public class MarketOrder {
         return orderID;
     }
 
-    public void setOrderID(long orderID) {
+    public void setOrderID(final long orderID) {
         this.orderID = orderID;
     }
 
@@ -31,7 +31,7 @@ public class MarketOrder {
         return charID;
     }
 
-    public void setCharID(long charID) {
+    public void setCharID(final long charID) {
         this.charID = charID;
     }
 
@@ -39,7 +39,7 @@ public class MarketOrder {
         return stationID;
     }
 
-    public void setStationID(long stationID) {
+    public void setStationID(final long stationID) {
         this.stationID = stationID;
     }
 
@@ -47,7 +47,7 @@ public class MarketOrder {
         return volEntered;
     }
 
-    public void setVolEntered(int volEntered) {
+    public void setVolEntered(final int volEntered) {
         this.volEntered = volEntered;
     }
 
@@ -55,7 +55,7 @@ public class MarketOrder {
         return volRemaining;
     }
 
-    public void setVolRemaining(int volRemaining) {
+    public void setVolRemaining(final int volRemaining) {
         this.volRemaining = volRemaining;
     }
 
@@ -63,7 +63,7 @@ public class MarketOrder {
         return minVolume;
     }
 
-    public void setMinVolume(int minVolume) {
+    public void setMinVolume(final int minVolume) {
         this.minVolume = minVolume;
     }
 
@@ -71,7 +71,7 @@ public class MarketOrder {
         return orderState;
     }
 
-    public void setOrderState(int orderState) {
+    public void setOrderState(final int orderState) {
         this.orderState = orderState;
     }
 
@@ -79,7 +79,7 @@ public class MarketOrder {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -87,7 +87,7 @@ public class MarketOrder {
         return range;
     }
 
-    public void setRange(int range) {
+    public void setRange(final int range) {
         this.range = range;
     }
 
@@ -95,7 +95,7 @@ public class MarketOrder {
         return accountKey;
     }
 
-    public void setAccountKey(int accountKey) {
+    public void setAccountKey(final int accountKey) {
         this.accountKey = accountKey;
     }
 
@@ -103,7 +103,7 @@ public class MarketOrder {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(final int duration) {
         this.duration = duration;
     }
 
@@ -111,7 +111,7 @@ public class MarketOrder {
         return escrow;
     }
 
-    public void setEscrow(double escrow) {
+    public void setEscrow(final double escrow) {
         this.escrow = escrow;
     }
 
@@ -119,7 +119,7 @@ public class MarketOrder {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(final double price) {
         this.price = price;
     }
 
@@ -127,7 +127,7 @@ public class MarketOrder {
         return bid;
     }
 
-    public void setBid(int bid) {
+    public void setBid(final int bid) {
         this.bid = bid;
     }
 
@@ -135,7 +135,7 @@ public class MarketOrder {
         return issued;
     }
 
-    public void setIssued(Date issued) {
+    public void setIssued(final Date issued) {
         this.issued = issued;
     }
 }

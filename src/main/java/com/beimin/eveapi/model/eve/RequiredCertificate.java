@@ -8,7 +8,7 @@ public class RequiredCertificate implements CertificateRequirement {
         return certificateID;
     }
 
-    public void setCertificateID(int certificateID) {
+    public void setCertificateID(final int certificateID) {
         this.certificateID = certificateID;
     }
 
@@ -16,7 +16,7 @@ public class RequiredCertificate implements CertificateRequirement {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(final int grade) {
         this.grade = grade;
     }
 }

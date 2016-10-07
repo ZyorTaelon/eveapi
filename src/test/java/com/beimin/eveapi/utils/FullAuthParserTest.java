@@ -25,21 +25,21 @@ public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsser
 
     /**
      * Creates the test framework for running tests that require parsing XML.
-     * 
+     *
      * @param path
      *            The API Path for the request - e.g. 'CHAR' or 'CORP'
      * @param page
      *            The individual requested page.
      */
-    public FullAuthParserTest(ApiPath path, ApiPage page) {
+    public FullAuthParserTest(final ApiPath path, final ApiPage page) {
         this.path = path;
         this.page = page;
-        this.resourcePath = null;
+        resourcePath = null;
     }
 
-    public FullAuthParserTest(String resourcePath) {
-        this.path = null;
-        this.page = null;
+    public FullAuthParserTest(final String resourcePath) {
+        path = null;
+        page = null;
         this.resourcePath = resourcePath;
     }
 
@@ -49,9 +49,9 @@ public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsser
             @Override
             public void configure() {
                 final String resPath;
-                if (path != null && page != null && resourcePath == null) {
+                if ((path != null) && (page != null) && (resourcePath == null)) {
                     resPath = path.getPath() + "/" + page.getPage() + ".xml.aspx";
-                } else if (path == null && page == null && resourcePath != null) {
+                } else if ((path == null) && (page == null) && (resourcePath != null)) {
                     resPath = resourcePath;
                 } else {
                     throw new RuntimeException("One of the construction options has been missed: path: " + path + " page: " + " resourcePath: " + resourcePath);
@@ -64,7 +64,8 @@ public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsser
         EveApi.setConnector(new ApiConnector(MockApi.URL));
     }
 
-    public void extraAsserts(Map<String, String> req) {
+    @Override
+    public void extraAsserts(final Map<String, String> req) {
         assertEquals("123", req.get("keyID"));
         assertEquals("456", req.get("characterID"));
         assertEquals("abc", req.get("vCode"));

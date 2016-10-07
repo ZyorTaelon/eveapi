@@ -16,7 +16,7 @@ public class CallList {
         return Collections.unmodifiableList(callGroups);
     }
 
-    public void setCallGroups(List<CallGroup> callGroups) {
+    public void setCallGroups(final List<CallGroup> callGroups) {
         this.callGroups = callGroups;
     }
 
@@ -24,17 +24,17 @@ public class CallList {
         return Collections.unmodifiableList(calls);
     }
 
-    public void setCalls(List<Call> calls) {
+    public void setCalls(final List<Call> calls) {
         this.calls = calls;
     }
 
-    public void add(CallGroup callGroup) {
+    public void add(final CallGroup callGroup) {
         callGroups.add(callGroup);
     }
 
-    public void add(Call call) {
+    public void add(final Call call) {
         calls.add(call);
-        for (CallGroup callGroup : callGroups) {
+        for (final CallGroup callGroup : callGroups) {
             if (call.getGroupID() == callGroup.getGroupID()) {
                 callGroup.addCall(call);
                 return;

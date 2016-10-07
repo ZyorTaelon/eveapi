@@ -20,28 +20,29 @@ public class CorpSheetHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if ("logo".equals(qName)) {
             logo = new CorpLogo();
         } else if (ELEMENT_ROWSET.equals(qName)) {
-            String name = getString(attrs, "name");
+            final String name = getString(attrs, "name");
             divisions = name.equals("divisions");
             walletDivisions = name.equals("walletDivisions");
         } else if (ELEMENT_ROW.equals(qName)) {
-            Division division = new Division();
+            final Division division = new Division();
             division.setAccountKey(getInt(attrs, "accountKey"));
             division.setDescription(getString(attrs, "description"));
-            if (divisions)
+            if (divisions) {
                 response.addDivision(division);
-            else if (walletDivisions)
+            } else if (walletDivisions) {
                 response.addWalletDivision(division);
+            }
         }
         super.startElement(uri, localName, qName, attrs);
         accumulator.setLength(0);
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if ("corporationID".equals(qName)) {
             response.setCorporationID(getLong());
         } else if ("corporationName".equals(qName)) {

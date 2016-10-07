@@ -30,7 +30,7 @@ public class Contract {
         return contractID;
     }
 
-    public void setContractID(long contractID) {
+    public void setContractID(final long contractID) {
         this.contractID = contractID;
     }
 
@@ -38,7 +38,7 @@ public class Contract {
         return issuerID;
     }
 
-    public void setIssuerID(long issuerID) {
+    public void setIssuerID(final long issuerID) {
         this.issuerID = issuerID;
     }
 
@@ -46,7 +46,7 @@ public class Contract {
         return issuerCorpID;
     }
 
-    public void setIssuerCorpID(long issuerCorpID) {
+    public void setIssuerCorpID(final long issuerCorpID) {
         this.issuerCorpID = issuerCorpID;
     }
 
@@ -54,7 +54,7 @@ public class Contract {
         return assigneeID;
     }
 
-    public void setAssigneeID(long assigneeID) {
+    public void setAssigneeID(final long assigneeID) {
         this.assigneeID = assigneeID;
     }
 
@@ -62,7 +62,7 @@ public class Contract {
         return acceptorID;
     }
 
-    public void setAcceptorID(long acceptorID) {
+    public void setAcceptorID(final long acceptorID) {
         this.acceptorID = acceptorID;
     }
 
@@ -70,7 +70,7 @@ public class Contract {
         return startStationID;
     }
 
-    public void setStartStationID(long startStationID) {
+    public void setStartStationID(final long startStationID) {
         this.startStationID = startStationID;
     }
 
@@ -78,7 +78,7 @@ public class Contract {
         return endStationID;
     }
 
-    public void setEndStationID(long endStationID) {
+    public void setEndStationID(final long endStationID) {
         this.endStationID = endStationID;
     }
 
@@ -86,7 +86,7 @@ public class Contract {
         return type;
     }
 
-    public void setType(ContractType type) {
+    public void setType(final ContractType type) {
         this.type = type;
     }
 
@@ -94,7 +94,7 @@ public class Contract {
         return status;
     }
 
-    public void setStatus(ContractStatus status) {
+    public void setStatus(final ContractStatus status) {
         this.status = status;
     }
 
@@ -102,7 +102,7 @@ public class Contract {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
@@ -110,7 +110,7 @@ public class Contract {
         return forCorp;
     }
 
-    public void setForCorp(boolean forCorp) {
+    public void setForCorp(final boolean forCorp) {
         this.forCorp = forCorp;
     }
 
@@ -118,7 +118,7 @@ public class Contract {
         return availability;
     }
 
-    public void setAvailability(ContractAvailability availability) {
+    public void setAvailability(final ContractAvailability availability) {
         this.availability = availability;
     }
 
@@ -126,7 +126,7 @@ public class Contract {
         return dateIssued;
     }
 
-    public void setDateIssued(Date dateIssued) {
+    public void setDateIssued(final Date dateIssued) {
         this.dateIssued = dateIssued;
     }
 
@@ -134,7 +134,7 @@ public class Contract {
         return dateExpired;
     }
 
-    public void setDateExpired(Date dateExpired) {
+    public void setDateExpired(final Date dateExpired) {
         this.dateExpired = dateExpired;
     }
 
@@ -142,7 +142,7 @@ public class Contract {
         return dateAccepted;
     }
 
-    public void setDateAccepted(Date dateAccepted) {
+    public void setDateAccepted(final Date dateAccepted) {
         this.dateAccepted = dateAccepted;
     }
 
@@ -150,7 +150,7 @@ public class Contract {
         return dateCompleted;
     }
 
-    public void setDateCompleted(Date dateCompleted) {
+    public void setDateCompleted(final Date dateCompleted) {
         this.dateCompleted = dateCompleted;
     }
 
@@ -158,7 +158,7 @@ public class Contract {
         return numDays;
     }
 
-    public void setNumDays(int numDays) {
+    public void setNumDays(final int numDays) {
         this.numDays = numDays;
     }
 
@@ -166,7 +166,7 @@ public class Contract {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(final double price) {
         this.price = price;
     }
 
@@ -174,7 +174,7 @@ public class Contract {
         return reward;
     }
 
-    public void setReward(double reward) {
+    public void setReward(final double reward) {
         this.reward = reward;
     }
 
@@ -182,7 +182,7 @@ public class Contract {
         return collateral;
     }
 
-    public void setCollateral(double collateral) {
+    public void setCollateral(final double collateral) {
         this.collateral = collateral;
     }
 
@@ -190,7 +190,7 @@ public class Contract {
         return buyout;
     }
 
-    public void setBuyout(double buyout) {
+    public void setBuyout(final double buyout) {
         this.buyout = buyout;
     }
 
@@ -198,7 +198,7 @@ public class Contract {
         return volume;
     }
 
-    public void setVolume(double volume) {
+    public void setVolume(final double volume) {
         this.volume = volume;
     }
 }

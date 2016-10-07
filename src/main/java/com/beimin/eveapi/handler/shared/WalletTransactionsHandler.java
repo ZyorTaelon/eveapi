@@ -13,8 +13,8 @@ public class WalletTransactionsHandler extends AbstractContentListHandler<Wallet
     }
 
     @Override
-    protected WalletTransaction getItem(Attributes attrs) {
-        WalletTransaction item = new WalletTransaction();
+    protected WalletTransaction getItem(final Attributes attrs) {
+        final WalletTransaction item = new WalletTransaction();
         item.setTransactionDateTime(getDate(attrs, "transactionDateTime"));
         item.setTransactionID(getLong(attrs, "transactionID"));
         item.setQuantity(getInt(attrs, "quantity"));

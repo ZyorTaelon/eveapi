@@ -36,15 +36,15 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if ("characters".equals(qName))
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        if ("characters".equals(qName)) {
             characters = true;
-        else if ("corporations".equals(qName))
+        } else if ("corporations".equals(qName)) {
             corporations = true;
-        else if ("factions".equals(qName))
+        } else if ("factions".equals(qName)) {
             factions = true;
-        else if (ELEMENT_ROWSET.equals(qName)) {
-            String name = getString(attrs, "name");
+        } else if (ELEMENT_ROWSET.equals(qName)) {
+            final String name = getString(attrs, "name");
             killsYesterday = name.equals("KillsYesterday");
             killsLastWeek = name.equals("KillsLastWeek");
             killsTotal = name.equals("KillsTotal");
@@ -53,124 +53,129 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
             victoryPointsTotal = name.equals("VictoryPointsTotal");
         } else if (ELEMENT_ROW.equals(qName)) {
             if (characters) {
-                if (killsYesterday)
+                if (killsYesterday) {
                     response.addYesterday(getCharKill(attrs));
-                else if (killsLastWeek)
+                } else if (killsLastWeek) {
                     response.addLastWeek(getCharKill(attrs));
-                else if (killsTotal)
+                } else if (killsTotal) {
                     response.addTotal(getCharKill(attrs));
-                else if (victoryPointsYesterday)
+                } else if (victoryPointsYesterday) {
                     response.addYesterday(getCharVP(attrs));
-                else if (victoryPointsLastWeek)
+                } else if (victoryPointsLastWeek) {
                     response.addLastWeek(getCharVP(attrs));
-                else if (victoryPointsTotal)
+                } else if (victoryPointsTotal) {
                     response.addTotal(getCharVP(attrs));
+                }
             } else if (corporations) {
-                if (killsYesterday)
+                if (killsYesterday) {
                     response.addYesterday(getCorpKill(attrs));
-                else if (killsLastWeek)
+                } else if (killsLastWeek) {
                     response.addLastWeek(getCorpKill(attrs));
-                else if (killsTotal)
+                } else if (killsTotal) {
                     response.addTotal(getCorpKill(attrs));
-                else if (victoryPointsYesterday)
+                } else if (victoryPointsYesterday) {
                     response.addYesterday(getCorpVP(attrs));
-                else if (victoryPointsLastWeek)
+                } else if (victoryPointsLastWeek) {
                     response.addLastWeek(getCorpVP(attrs));
-                else if (victoryPointsTotal)
+                } else if (victoryPointsTotal) {
                     response.addTotal(getCorpVP(attrs));
+                }
             } else if (factions) {
-                if (killsYesterday)
+                if (killsYesterday) {
                     response.addYesterday(getFactionKill(attrs));
-                else if (killsLastWeek)
+                } else if (killsLastWeek) {
                     response.addLastWeek(getFactionKill(attrs));
-                else if (killsTotal)
+                } else if (killsTotal) {
                     response.addTotal(getFactionKill(attrs));
-                else if (victoryPointsYesterday)
+                } else if (victoryPointsYesterday) {
                     response.addYesterday(getFactionVP(attrs));
-                else if (victoryPointsLastWeek)
+                } else if (victoryPointsLastWeek) {
                     response.addLastWeek(getFactionVP(attrs));
-                else if (victoryPointsTotal)
+                } else if (victoryPointsTotal) {
                     response.addTotal(getFactionVP(attrs));
+                }
             }
-        } else
+        } else {
             super.startElement(uri, localName, qName, attrs);
+        }
     }
 
-    private void setCharacterDetails(Attributes attrs, CharacterStat stat) {
+    private void setCharacterDetails(final Attributes attrs, final CharacterStat stat) {
         stat.setCharacterID(getLong(attrs, "characterID"));
         stat.setCharacterName(getString(attrs, "characterName"));
     }
 
-    private void setCorporationDetails(Attributes attrs, CorporationStat stat) {
+    private void setCorporationDetails(final Attributes attrs, final CorporationStat stat) {
         stat.setCorporationID(getLong(attrs, "corporationID"));
         stat.setCorporationName(getString(attrs, "corporationName"));
     }
 
-    private void setFactionDetails(Attributes attrs, FactionStat stat) {
+    private void setFactionDetails(final Attributes attrs, final FactionStat stat) {
         stat.setFactionID(getInt(attrs, "factionID"));
         stat.setFactionName(getString(attrs, "factionName"));
     }
 
-    private void setKills(Attributes attrs, KillStat stat) {
+    private void setKills(final Attributes attrs, final KillStat stat) {
         stat.setKills(getInt(attrs, "kills"));
     }
 
-    private void setVictoryPoint(Attributes attrs, VictoryPointsStat stat) {
+    private void setVictoryPoint(final Attributes attrs, final VictoryPointsStat stat) {
         stat.setVictoryPoints(getInt(attrs, "victoryPoints"));
     }
 
-    private CharacterKills getCharKill(Attributes attrs) {
-        CharacterKills stat = new CharacterKills();
+    private CharacterKills getCharKill(final Attributes attrs) {
+        final CharacterKills stat = new CharacterKills();
         setCharacterDetails(attrs, stat);
         setKills(attrs, stat);
         return stat;
     }
 
-    private CharacterVictoryPoints getCharVP(Attributes attrs) {
-        CharacterVictoryPoints stat = new CharacterVictoryPoints();
+    private CharacterVictoryPoints getCharVP(final Attributes attrs) {
+        final CharacterVictoryPoints stat = new CharacterVictoryPoints();
         setCharacterDetails(attrs, stat);
         setVictoryPoint(attrs, stat);
         return stat;
     }
 
-    private CorporationKills getCorpKill(Attributes attrs) {
-        CorporationKills stat = new CorporationKills();
+    private CorporationKills getCorpKill(final Attributes attrs) {
+        final CorporationKills stat = new CorporationKills();
         setCorporationDetails(attrs, stat);
         setKills(attrs, stat);
         return stat;
     }
 
-    private CorporationVictoryPoints getCorpVP(Attributes attrs) {
-        CorporationVictoryPoints stat = new CorporationVictoryPoints();
+    private CorporationVictoryPoints getCorpVP(final Attributes attrs) {
+        final CorporationVictoryPoints stat = new CorporationVictoryPoints();
         setCorporationDetails(attrs, stat);
         setVictoryPoint(attrs, stat);
         return stat;
     }
 
-    private FactionKills getFactionKill(Attributes attrs) {
-        FactionKills stat = new FactionKills();
+    private FactionKills getFactionKill(final Attributes attrs) {
+        final FactionKills stat = new FactionKills();
         setFactionDetails(attrs, stat);
         setKills(attrs, stat);
         return stat;
     }
 
-    private FactionVictoryPoints getFactionVP(Attributes attrs) {
-        FactionVictoryPoints stat = new FactionVictoryPoints();
+    private FactionVictoryPoints getFactionVP(final Attributes attrs) {
+        final FactionVictoryPoints stat = new FactionVictoryPoints();
         setFactionDetails(attrs, stat);
         setVictoryPoint(attrs, stat);
         return stat;
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if ("characters".equals(qName))
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if ("characters".equals(qName)) {
             characters = false;
-        else if ("corporations".equals(qName))
+        } else if ("corporations".equals(qName)) {
             corporations = false;
-        else if ("factions".equals(qName))
+        } else if ("factions".equals(qName)) {
             corporations = false;
-        else
+        } else {
             super.endElement(uri, localName, qName);
+        }
     }
 
     @Override

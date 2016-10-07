@@ -9,7 +9,7 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 
 public abstract class AbstractAssetListParser extends AbstractApiParser<AssetListResponse> {
-    protected AbstractAssetListParser(ApiPath path) {
+    protected AbstractAssetListParser(final ApiPath path) {
         super(AssetListResponse.class, 2, path, ApiPage.ASSET_LIST);
     }
 
@@ -19,11 +19,11 @@ public abstract class AbstractAssetListParser extends AbstractApiParser<AssetLis
     }
 
     @Override
-    public AssetListResponse getResponse(ApiAuth auth) throws ApiException {
+    public AssetListResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 
-    public AssetListResponse getResponse(ApiAuth auth, boolean flat) throws ApiException {
+    public AssetListResponse getResponse(final ApiAuth auth, final boolean flat) throws ApiException {
         return super.getResponse(auth, "flat", flat ? "1" : "0");
     }
 }

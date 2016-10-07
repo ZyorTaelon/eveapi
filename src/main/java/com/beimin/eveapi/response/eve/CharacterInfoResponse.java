@@ -1,13 +1,13 @@
 package com.beimin.eveapi.response.eve;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import com.beimin.eveapi.model.eve.CharacterEmployment;
 import com.beimin.eveapi.model.shared.Bloodline;
 import com.beimin.eveapi.model.shared.Race;
 import com.beimin.eveapi.response.ApiResponse;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class CharacterInfoResponse extends ApiResponse {
     private long characterID;
@@ -33,7 +33,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -41,7 +41,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return characterName;
     }
 
-    public void setCharacterName(String characterName) {
+    public void setCharacterName(final String characterName) {
         this.characterName = characterName;
     }
 
@@ -49,7 +49,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return race;
     }
 
-    public void setRace(Race race) {
+    public void setRace(final Race race) {
         this.race = race;
     }
 
@@ -57,7 +57,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return bloodline;
     }
 
-    public void setBloodline(Bloodline bloodline) {
+    public void setBloodline(final Bloodline bloodline) {
         this.bloodline = bloodline;
     }
 
@@ -65,7 +65,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return accountBalance;
     }
 
-    public void setAccountBalance(Double accountBalance) {
+    public void setAccountBalance(final Double accountBalance) {
         this.accountBalance = accountBalance;
     }
 
@@ -73,7 +73,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return skillPoints;
     }
 
-    public void setSkillPoints(Integer skillPoints) {
+    public void setSkillPoints(final Integer skillPoints) {
         this.skillPoints = skillPoints;
     }
 
@@ -81,7 +81,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return shipName;
     }
 
-    public void setShipName(String shipName) {
+    public void setShipName(final String shipName) {
         this.shipName = shipName;
     }
 
@@ -89,7 +89,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return shipTypeID;
     }
 
-    public void setShipTypeID(Integer shipTypeID) {
+    public void setShipTypeID(final Integer shipTypeID) {
         this.shipTypeID = shipTypeID;
     }
 
@@ -97,7 +97,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return shipTypeName;
     }
 
-    public void setShipTypeName(String shipTypeName) {
+    public void setShipTypeName(final String shipTypeName) {
         this.shipTypeName = shipTypeName;
     }
 
@@ -105,7 +105,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return corporationID;
     }
 
-    public void setCorporationID(long corporationID) {
+    public void setCorporationID(final long corporationID) {
         this.corporationID = corporationID;
     }
 
@@ -113,7 +113,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return corporation;
     }
 
-    public void setCorporation(String corporation) {
+    public void setCorporation(final String corporation) {
         this.corporation = corporation;
     }
 
@@ -121,7 +121,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return corporationDate;
     }
 
-    public void setCorporationDate(Date corporationDate) {
+    public void setCorporationDate(final Date corporationDate) {
         this.corporationDate = corporationDate;
     }
 
@@ -129,7 +129,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return allianceID;
     }
 
-    public void setAllianceID(Long allianceID) {
+    public void setAllianceID(final Long allianceID) {
         this.allianceID = allianceID;
     }
 
@@ -137,7 +137,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return alliance;
     }
 
-    public void setAlliance(String alliance) {
+    public void setAlliance(final String alliance) {
         this.alliance = alliance;
     }
 
@@ -145,7 +145,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return allianceDate;
     }
 
-    public void setAllianceDate(Date allianceDate) {
+    public void setAllianceDate(final Date allianceDate) {
         this.allianceDate = allianceDate;
     }
 
@@ -153,7 +153,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return lastKnownLocation;
     }
 
-    public void setLastKnownLocation(String lastKnownLocation) {
+    public void setLastKnownLocation(final String lastKnownLocation) {
         this.lastKnownLocation = lastKnownLocation;
     }
 
@@ -161,7 +161,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return securityStatus;
     }
 
-    public void setSecurityStatus(double securityStatus) {
+    public void setSecurityStatus(final double securityStatus) {
         this.securityStatus = securityStatus;
     }
 
@@ -169,7 +169,7 @@ public class CharacterInfoResponse extends ApiResponse {
         return employment;
     }
 
-    public void addEmployment(CharacterEmployment employ) {
+    public void addEmployment(final CharacterEmployment employ) {
         employment.add(employ);
     }
 }

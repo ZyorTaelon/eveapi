@@ -12,8 +12,8 @@ public class WalletJournalHandler extends AbstractContentListHandler<WalletJourn
     }
 
     @Override
-    protected JournalEntry getItem(Attributes attrs) {
-        JournalEntry item = new JournalEntry();
+    protected JournalEntry getItem(final Attributes attrs) {
+        final JournalEntry item = new JournalEntry();
         item.setDate(getDate(attrs, "date"));
         item.setRefID(getLong(attrs, "refID"));
         item.setRefTypeID(getInt(attrs, "refTypeID"));

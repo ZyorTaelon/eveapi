@@ -11,7 +11,7 @@ public class FacWarSystem {
         return solarSystemID;
     }
 
-    public void setSolarSystemID(int solarSystemID) {
+    public void setSolarSystemID(final int solarSystemID) {
         this.solarSystemID = solarSystemID;
     }
 
@@ -19,7 +19,7 @@ public class FacWarSystem {
         return solarSystemName;
     }
 
-    public void setSolarSystemName(String solarSystemName) {
+    public void setSolarSystemName(final String solarSystemName) {
         this.solarSystemName = solarSystemName;
     }
 
@@ -27,7 +27,7 @@ public class FacWarSystem {
         return occupyingFactionID;
     }
 
-    public void setOccupyingFactionID(int occupyingFactionID) {
+    public void setOccupyingFactionID(final int occupyingFactionID) {
         this.occupyingFactionID = occupyingFactionID;
     }
 
@@ -35,7 +35,7 @@ public class FacWarSystem {
         return occupyingFactionName;
     }
 
-    public void setOccupyingFactionName(String occupyingFactionName) {
+    public void setOccupyingFactionName(final String occupyingFactionName) {
         this.occupyingFactionName = occupyingFactionName;
     }
 
@@ -43,7 +43,7 @@ public class FacWarSystem {
         return contested;
     }
 
-    public void setContested(boolean contested) {
+    public void setContested(final boolean contested) {
         this.contested = contested;
     }
 }

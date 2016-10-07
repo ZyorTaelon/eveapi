@@ -10,7 +10,7 @@ public class AccountStatusResponse extends ApiResponse {
         return accountStatus;
     }
 
-    public void set(AccountStatus accountStatus) {
+    public void set(final AccountStatus accountStatus) {
         this.accountStatus = accountStatus;
     }
 }

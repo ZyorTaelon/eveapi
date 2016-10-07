@@ -22,11 +22,11 @@ public class ContactListParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        ContactListParser parser = new ContactListParser();
-        ContactListResponse response = parser.getResponse(auth);
+        final ContactListParser parser = new ContactListParser();
+        final ContactListResponse response = parser.getResponse(auth);
         assertNotNull(response);
 
-        ContactList corporateContactList = response.getCorporateContactList();
+        final ContactList corporateContactList = response.getCorporateContactList();
         assertEquals("corporateContactList", corporateContactList.getName());
         assertEquals(19, corporateContactList.size());
         Contact apiContact = corporateContactList.iterator().next();
@@ -37,7 +37,7 @@ public class ContactListParserTest extends FullAuthParserTest {
         assertEquals(2, apiContact.getContactTypeID());
         assertEquals(3, apiContact.getLabelMask());
 
-        ContactList allianceContactList = response.getAllianceContactList();
+        final ContactList allianceContactList = response.getAllianceContactList();
         assertEquals("allianceContactList", allianceContactList.getName());
         assertEquals(210, allianceContactList.size());
         apiContact = allianceContactList.iterator().next();

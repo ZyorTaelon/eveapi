@@ -15,7 +15,7 @@ public class Starbase {
         return itemID;
     }
 
-    public void setItemID(long itemID) {
+    public void setItemID(final long itemID) {
         this.itemID = itemID;
     }
 
@@ -23,7 +23,7 @@ public class Starbase {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -31,7 +31,7 @@ public class Starbase {
         return locationID;
     }
 
-    public void setLocationID(int locationID) {
+    public void setLocationID(final int locationID) {
         this.locationID = locationID;
     }
 
@@ -39,7 +39,7 @@ public class Starbase {
         return moonID;
     }
 
-    public void setMoonID(int moonID) {
+    public void setMoonID(final int moonID) {
         this.moonID = moonID;
     }
 
@@ -47,7 +47,7 @@ public class Starbase {
         return state;
     }
 
-    public void setState(int state) {
+    public void setState(final int state) {
         this.state = state;
     }
 
@@ -59,7 +59,7 @@ public class Starbase {
         return stateTimestamp;
     }
 
-    public void setStateTimestamp(Date stateTimestamp) {
+    public void setStateTimestamp(final Date stateTimestamp) {
         this.stateTimestamp = stateTimestamp;
     }
 
@@ -67,13 +67,13 @@ public class Starbase {
         return onlineTimestamp;
     }
 
-    public void setOnlineTimestamp(Date onlineTimestamp) {
+    public void setOnlineTimestamp(final Date onlineTimestamp) {
         this.onlineTimestamp = onlineTimestamp;
     }
 
     @Override
     public String toString() {
-        String result = "Location: " + locationID + " Moon: " + moonID + " TypeID: " + typeID + " State: " + getStarbaseState();
+        final String result = "Location: " + locationID + " Moon: " + moonID + " TypeID: " + typeID + " State: " + getStarbaseState();
         return result;
     }
 }

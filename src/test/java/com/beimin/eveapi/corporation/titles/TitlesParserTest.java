@@ -24,19 +24,19 @@ public class TitlesParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        TitlesParser parser = new TitlesParser();
-        TitlesResponse response = parser.getResponse(auth);
+        final TitlesParser parser = new TitlesParser();
+        final TitlesResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Collection<Title> titles = response.getAll();
+        final Collection<Title> titles = response.getAll();
         assertEquals(2, titles.size());
         boolean found = false;
-        for (Title title : titles) {
+        for (final Title title : titles) {
             if (title.getTitleID() == 1) {
                 found = true;
                 assertEquals("Member", title.getTitleName());
-                Collection<Role> rolesAtHQ = title.getRolesAtHQ();
+                final Collection<Role> rolesAtHQ = title.getRolesAtHQ();
                 assertEquals(1, rolesAtHQ.size());
-                Role role = rolesAtHQ.iterator().next();
+                final Role role = rolesAtHQ.iterator().next();
                 assertNotNull(role);
                 assertEquals(8192, role.getRoleID());
                 assertEquals("roleHangarCanTake1", role.getRoleName());

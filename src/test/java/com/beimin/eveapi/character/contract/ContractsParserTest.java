@@ -28,14 +28,14 @@ public class ContractsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        ContractsParser parser = new ContractsParser();
-        ContractsResponse response = parser.getResponse(auth);
+        final ContractsParser parser = new ContractsParser();
+        final ContractsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Collection<Contract> contracts = response.getAll();
+        final Collection<Contract> contracts = response.getAll();
         assertNotNull(contracts);
         assertEquals(3, contracts.size());
         boolean found = false;
-        for (Contract contract : contracts) {
+        for (final Contract contract : contracts) {
             if (contract.getContractID() == 62158129L) {
                 found = true;
                 assertEquals(987623974L, contract.getIssuerID());

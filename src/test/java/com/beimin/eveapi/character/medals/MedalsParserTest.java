@@ -26,12 +26,12 @@ public class MedalsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        MedalsParser parser = new MedalsParser();
-        MedalsResponse response = parser.getResponse(auth);
+        final MedalsParser parser = new MedalsParser();
+        final MedalsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<Medal> medals = response.getAll();
+        final Set<Medal> medals = response.getAll();
         assertEquals("Incorrect amount of medals found.", 2, medals.size());
-        Medal medal = medals.toArray(new Medal[0])[1];
+        final Medal medal = medals.toArray(new Medal[0])[1];
         assertEquals("Wrong medalID", 40125, medal.getMedalID());
         assertEquals("Wrong medal title", "Christian Fundamentalist Award", medal.getTitle());
         assertEquals("Wrong medal description", "For relentlessly trying to spread the Good Message. Even within an internet spaceship game.", medal.getDescription());
@@ -44,10 +44,10 @@ public class MedalsParserTest extends FullAuthParserTest {
 
     @Test
     public void responseHasMedalsFromCurrentCorp() throws ApiException {
-        MedalsParser parser = new MedalsParser();
-        MedalsResponse response = parser.getResponse(auth);
-        Set<Medal> medals = response.getAll();
-        Medal medal = medals.iterator().next();
+        final MedalsParser parser = new MedalsParser();
+        final MedalsResponse response = parser.getResponse(auth);
+        final Set<Medal> medals = response.getAll();
+        final Medal medal = medals.iterator().next();
         assertEquals("Wrong medalID", 38208, medal.getMedalID());
         assertNull("Wrong medal title", medal.getTitle());
         assertNull("Wrong medal description", medal.getDescription());

@@ -7,16 +7,16 @@ public class ApiAuthorization extends ApiAuth {
     private Long characterID;
     private final String vCode;
 
-    public ApiAuthorization(int keyID, long characterID, String vCode) {
+    public ApiAuthorization(final int keyID, final long characterID, final String vCode) {
         this.keyID = keyID;
         this.vCode = vCode;
         this.characterID = characterID;
     }
 
-    public ApiAuthorization(int keyID, String vCode) {
+    public ApiAuthorization(final int keyID, final String vCode) {
         this.keyID = keyID;
         this.vCode = vCode;
-        this.characterID = null;
+        characterID = null;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class ApiAuthorization extends ApiAuth {
     }
 
     @Override
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -48,33 +48,41 @@ public class ApiAuthorization extends ApiAuth {
     public int hashCode() {
         final int prime = 31;
         int result = super.hashCode();
-        result = prime * result + ((characterID == null) ? 0 : characterID.hashCode());
-        result = prime * result + keyID;
-        result = prime * result + ((vCode == null) ? 0 : vCode.hashCode());
+        result = (prime * result) + ((characterID == null) ? 0 : characterID.hashCode());
+        result = (prime * result) + keyID;
+        result = (prime * result) + ((vCode == null) ? 0 : vCode.hashCode());
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
+    public boolean equals(final Object obj) {
+        if (this == obj) {
             return true;
-        if (!super.equals(obj))
+        }
+        if (!super.equals(obj)) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
-        ApiAuthorization other = (ApiAuthorization) obj;
+        }
+        final ApiAuthorization other = (ApiAuthorization) obj;
         if (characterID == null) {
-            if (other.characterID != null)
+            if (other.characterID != null) {
                 return false;
-        } else if (!characterID.equals(other.characterID))
+            }
+        } else if (!characterID.equals(other.characterID)) {
             return false;
-        if (keyID != other.keyID)
+        }
+        if (keyID != other.keyID) {
             return false;
+        }
         if (vCode == null) {
-            if (other.vCode != null)
+            if (other.vCode != null) {
                 return false;
-        } else if (!vCode.equals(other.vCode))
+            }
+        } else if (!vCode.equals(other.vCode)) {
             return false;
+        }
         return true;
     }
 }

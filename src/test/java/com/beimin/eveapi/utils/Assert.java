@@ -8,8 +8,8 @@ import java.util.TimeZone;
 
 public class Assert {
 
-    public static void assertDate(int year, int month, int day, int hour, int minute, int second, Date date) {
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+    public static void assertDate(final int year, final int month, final int day, final int hour, final int minute, final int second, final Date date) {
+        final Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
         calendar.set(Calendar.YEAR, year);
         calendar.set(Calendar.MONTH, month - 1);
         calendar.set(Calendar.DAY_OF_MONTH, day);
@@ -20,8 +20,8 @@ public class Assert {
         assertEquals(calendar.getTime(), date);
     }
 
-    public static void assertDate(String expected, Date actual) {
-        String[] split = expected.split("[\\s-:]+");
+    public static void assertDate(final String expected, final Date actual) {
+        final String[] split = expected.split("[\\s-:]+");
         assertDate(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), Integer.parseInt(split[3]), Integer.parseInt(split[4]), Integer.parseInt(split[5]), actual);
     }
 }

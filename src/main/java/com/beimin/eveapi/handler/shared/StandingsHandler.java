@@ -18,13 +18,13 @@ public class StandingsHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         super.startElement(uri, localName, qName, attrs);
         if (ELEMENT_ROWSET.equals(qName)) {
             list = new StandingsList();
             list.setName(getString(attrs, "name"));
         } else if (ELEMENT_ROW.equals(qName)) {
-            Standing standing = new Standing();
+            final Standing standing = new Standing();
             standing.setFromID(getInt(attrs, "fromID"));
             standing.setFromName(getString(attrs, "fromName"));
             standing.setStanding(getDouble(attrs, "standing"));
@@ -34,9 +34,10 @@ public class StandingsHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (ELEMENT_ROWSET.equals(qName))
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if (ELEMENT_ROWSET.equals(qName)) {
             response.addStandingsList(list);
+        }
         super.endElement(uri, localName, qName);
     }
 

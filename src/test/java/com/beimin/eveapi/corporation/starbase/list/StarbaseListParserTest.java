@@ -24,15 +24,15 @@ public class StarbaseListParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        StarbaseListParser parser = new StarbaseListParser();
-        StarbaseListResponse response = parser.getResponse(auth);
+        final StarbaseListParser parser = new StarbaseListParser();
+        final StarbaseListResponse response = parser.getResponse(auth);
         assertNotNull("Should have returned a result.", response);
         assertDate(2008, 2, 3, 1, 5, 55, response.getCurrentTime());
         assertDate(2008, 2, 3, 7, 5, 55, response.getCachedUntil());
-        Collection<Starbase> starbases = response.getAll();
+        final Collection<Starbase> starbases = response.getAll();
         assertNotNull("Should have returned a collection with starbases.", starbases);
         assertEquals("Should have returned 2 starbases.", 2, starbases.size());
-        Starbase starbase1 = starbases.iterator().next();
+        final Starbase starbase1 = starbases.iterator().next();
         assertNotNull("Should have returned a starbase.", starbase1);
         assertTrue("Starbase id should be set.", starbase1.getItemID() > 0);
         assertTrue("Starbase type id should be set.", starbase1.getTypeID() > 0);

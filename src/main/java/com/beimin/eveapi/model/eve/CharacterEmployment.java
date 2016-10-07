@@ -14,11 +14,11 @@ public class CharacterEmployment {
         return startDate;
     }
 
-    public void setCorporationID(Long id) {
+    public void setCorporationID(final Long id) {
         corporationID = id;
     }
 
-    public void setStartDate(Date date) {
+    public void setStartDate(final Date date) {
         startDate = date;
     }
 

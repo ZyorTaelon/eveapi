@@ -17,7 +17,7 @@ public class Kill {
         return killID;
     }
 
-    public void setKillID(long killID) {
+    public void setKillID(final long killID) {
         this.killID = killID;
     }
 
@@ -25,7 +25,7 @@ public class Kill {
         return solarSystemID;
     }
 
-    public void setSolarSystemID(long solarSystemID) {
+    public void setSolarSystemID(final long solarSystemID) {
         this.solarSystemID = solarSystemID;
     }
 
@@ -33,7 +33,7 @@ public class Kill {
         return killTime;
     }
 
-    public void setKillTime(Date killTime) {
+    public void setKillTime(final Date killTime) {
         this.killTime = killTime;
     }
 
@@ -41,7 +41,7 @@ public class Kill {
         return moonID;
     }
 
-    public void setMoonID(Integer moonID) {
+    public void setMoonID(final Integer moonID) {
         this.moonID = moonID;
     }
 
@@ -49,11 +49,11 @@ public class Kill {
         return victim;
     }
 
-    public void setVictim(KillVictim victim) {
+    public void setVictim(final KillVictim victim) {
         this.victim = victim;
     }
 
-    public void add(KillAttacker attacker) {
+    public void add(final KillAttacker attacker) {
         attackers.add(attacker);
     }
 
@@ -61,7 +61,7 @@ public class Kill {
         return attackers;
     }
 
-    public void add(KillItem item) {
+    public void add(final KillItem item) {
         items.add(item);
     }
 

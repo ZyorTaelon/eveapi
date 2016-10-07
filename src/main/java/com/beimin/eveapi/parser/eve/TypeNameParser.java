@@ -14,7 +14,7 @@ public class TypeNameParser extends AbstractListParser<TypeNameHandler, TypeName
         super(TypeNameResponse.class, 2, ApiPath.EVE, ApiPage.TYPE_NAME, TypeNameHandler.class);
     }
 
-    public TypeNameResponse getResponse(int... arguments) throws ApiException {
+    public TypeNameResponse getResponse(final int... arguments) throws ApiException {
         return super.getResponse("ids", StringUtils.join(",", arguments));
     }
 }

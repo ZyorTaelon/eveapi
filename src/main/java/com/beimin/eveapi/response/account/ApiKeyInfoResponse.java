@@ -10,7 +10,7 @@ public class ApiKeyInfoResponse extends ApiResponse {
         return apiKeyInfo;
     }
 
-    public void set(ApiKeyInfo apiKeyInfo) {
+    public void set(final ApiKeyInfo apiKeyInfo) {
         this.apiKeyInfo = apiKeyInfo;
     }
 }

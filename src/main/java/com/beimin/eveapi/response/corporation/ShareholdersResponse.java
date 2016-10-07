@@ -10,7 +10,8 @@ public class ShareholdersResponse extends ApiListResponse<Shareholder> {
     private final Collection<Shareholder> characters = new ArrayList<Shareholder>();
     private final Collection<Shareholder> corporations = new ArrayList<Shareholder>();
 
-    public void add(Shareholder shareholder) {
+    @Override
+    public void add(final Shareholder shareholder) {
         if (shareholder.getShareholderCorporationName() == null) {
             corporations.add(shareholder);
         } else {

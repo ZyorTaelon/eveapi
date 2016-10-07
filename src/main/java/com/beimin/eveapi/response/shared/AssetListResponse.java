@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.ApiResponse;
 public class AssetListResponse extends ApiResponse {
     private final List<Asset> assets = new ArrayList<Asset>();
 
-    public void add(Asset asset) {
+    public void add(final Asset asset) {
         assets.add(asset);
     }
 

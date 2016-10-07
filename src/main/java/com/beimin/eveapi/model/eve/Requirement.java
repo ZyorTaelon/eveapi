@@ -8,7 +8,7 @@ public class Requirement implements Detail {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -16,7 +16,7 @@ public class Requirement implements Detail {
         return skillLevel;
     }
 
-    public void setSkillLevel(int skillLevel) {
+    public void setSkillLevel(final int skillLevel) {
         this.skillLevel = skillLevel;
     }
 

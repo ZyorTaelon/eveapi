@@ -23,15 +23,15 @@ public class OutpostListParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        OutpostServiceDetailParser parser = new OutpostServiceDetailParser();
-        OutpostServiceDetailResponse response = parser.getResponse(auth);
+        final OutpostServiceDetailParser parser = new OutpostServiceDetailParser();
+        final OutpostServiceDetailResponse response = parser.getResponse(auth);
         assertNotNull("Should have returned a result.", response);
         assertDate(2011, 4, 7, 19, 50, 25, response.getCurrentTime());
         assertDate(2011, 4, 7, 20, 47, 21, response.getCachedUntil());
-        Collection<OutpostServiceDetail> outposts = response.getAll();
+        final Collection<OutpostServiceDetail> outposts = response.getAll();
         assertNotNull("Should have returned a collection with outpos.", outposts);
         assertEquals("Should have returned 4 outposs.", 4, outposts.size());
-        OutpostServiceDetail outpost = outposts.iterator().next();
+        final OutpostServiceDetail outpost = outposts.iterator().next();
         assertNotNull("Should have returned an outpost.", outpost);
         assertEquals(61000244, outpost.getStationID());
         assertEquals(773499566L, outpost.getOwnerID());

@@ -5,27 +5,27 @@ public class Standing {
     private String fromName;
     private double standing;
 
-    public void setFromID(int fromID) {
+    public void setFromID(final int fromID) {
         this.fromID = fromID;
     }
 
-    public void setFromName(String fromName) {
+    public void setFromName(final String fromName) {
         this.fromName = fromName;
     }
 
-    public void setStanding(double standing) {
+    public void setStanding(final double standing) {
         this.standing = standing;
     }
 
     public int getFromID() {
-        return this.fromID;
+        return fromID;
     }
 
     public String getFromName() {
-        return this.fromName;
+        return fromName;
     }
 
     public double getStanding() {
-        return this.standing;
+        return standing;
     }
 }

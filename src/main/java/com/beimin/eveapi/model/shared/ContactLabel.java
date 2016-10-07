@@ -8,7 +8,7 @@ public class ContactLabel {
         return labelID;
     }
 
-    public void setLabelID(int labelID) {
+    public void setLabelID(final int labelID) {
         this.labelID = labelID;
     }
 
@@ -16,7 +16,7 @@ public class ContactLabel {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 }

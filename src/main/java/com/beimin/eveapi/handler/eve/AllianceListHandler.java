@@ -17,12 +17,12 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (ELEMENT_ROWSET.equals(qName))
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        if (ELEMENT_ROWSET.equals(qName)) {
             memberCorporations = getString(attrs, ATTRIBUTE_NAME).equals("memberCorporations");
-        else if (ELEMENT_ROW.equals(qName)) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (memberCorporations) {
-                MemberCorporation memberCorporation = new MemberCorporation();
+                final MemberCorporation memberCorporation = new MemberCorporation();
                 memberCorporation.setCorporationID(getLong(attrs, "corporationID"));
                 memberCorporation.setStartDate(getDate(attrs, "startDate"));
                 alliance.add(memberCorporation);
@@ -30,20 +30,22 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
                 alliance = getItem(attrs);
                 response.add(alliance);
             }
-        } else
+        } else {
             super.startElement(uri, localName, qName, attrs);
+        }
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if (memberCorporations && ELEMENT_ROWSET.equals(qName))
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if (memberCorporations && ELEMENT_ROWSET.equals(qName)) {
             memberCorporations = false;
+        }
         super.endElement(uri, localName, qName);
     }
 
     @Override
-    protected Alliance getItem(Attributes attrs) {
-        Alliance alliance = new Alliance();
+    protected Alliance getItem(final Attributes attrs) {
+        final Alliance alliance = new Alliance();
         alliance.setAllianceID(getLong(attrs, "allianceID"));
         alliance.setName(getString(attrs, ATTRIBUTE_NAME));
         alliance.setShortName(getString(attrs, "shortName"));

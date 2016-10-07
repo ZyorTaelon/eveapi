@@ -9,7 +9,7 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.response.shared.AbstractContactListResponse;
 
 public abstract class AbstractContactListParser<CLR extends AbstractContactListResponse> extends AbstractApiParser<CLR> {
-    protected AbstractContactListParser(Class<CLR> responseClass, ApiPath path) {
+    protected AbstractContactListParser(final Class<CLR> responseClass, final ApiPath path) {
         super(responseClass, 2, path, ApiPage.CONTACT_LIST);
     }
 
@@ -19,7 +19,7 @@ public abstract class AbstractContactListParser<CLR extends AbstractContactListR
     }
 
     @Override
-    public CLR getResponse(ApiAuth auth) throws ApiException {
+    public CLR getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

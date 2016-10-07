@@ -8,35 +8,35 @@ public class Contact {
     private int contactTypeID;
     private int labelMask;
 
-    public void setContactID(int fromID) {
-        this.contactID = fromID;
+    public void setContactID(final int fromID) {
+        contactID = fromID;
     }
 
-    public void setContactName(String fromName) {
-        this.contactName = fromName;
+    public void setContactName(final String fromName) {
+        contactName = fromName;
     }
 
-    public void setStanding(double standing) {
+    public void setStanding(final double standing) {
         this.standing = standing;
     }
 
     public int getContactID() {
-        return this.contactID;
+        return contactID;
     }
 
     public String getContactName() {
-        return this.contactName;
+        return contactName;
     }
 
     public double getStanding() {
-        return this.standing;
+        return standing;
     }
 
     public boolean isInWatchlist() {
         return inWatchlist;
     }
 
-    public void setInWatchlist(boolean inWatchlist) {
+    public void setInWatchlist(final boolean inWatchlist) {
         this.inWatchlist = inWatchlist;
     }
 
@@ -44,7 +44,7 @@ public class Contact {
         return contactTypeID;
     }
 
-    public void setContactTypeID(int contactTypeID) {
+    public void setContactTypeID(final int contactTypeID) {
         this.contactTypeID = contactTypeID;
     }
 
@@ -52,7 +52,7 @@ public class Contact {
         return labelMask;
     }
 
-    public void setLabelMask(int labelMask) {
+    public void setLabelMask(final int labelMask) {
         this.labelMask = labelMask;
     }
 

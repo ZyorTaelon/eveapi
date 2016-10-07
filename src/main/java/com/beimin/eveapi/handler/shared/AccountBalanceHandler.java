@@ -13,8 +13,8 @@ public class AccountBalanceHandler extends AbstractContentListHandler<AccountBal
     }
 
     @Override
-    protected EveAccountBalance getItem(Attributes attrs) {
-        EveAccountBalance eveAccountBalance = new EveAccountBalance();
+    protected EveAccountBalance getItem(final Attributes attrs) {
+        final EveAccountBalance eveAccountBalance = new EveAccountBalance();
         eveAccountBalance.setAccountID(getInt(attrs, "accountID"));
         eveAccountBalance.setAccountKey(getInt(attrs, "accountKey"));
         eveAccountBalance.setBalance(getDouble(attrs, "balance"));

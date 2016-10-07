@@ -9,7 +9,7 @@ public abstract class AbstractMedal {
         return medalID;
     }
 
-    public void setMedalID(int medalID) {
+    public void setMedalID(final int medalID) {
         this.medalID = medalID;
     }
 
@@ -17,7 +17,7 @@ public abstract class AbstractMedal {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
@@ -25,7 +25,7 @@ public abstract class AbstractMedal {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 }

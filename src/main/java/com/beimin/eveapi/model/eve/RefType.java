@@ -8,7 +8,7 @@ public class RefType {
         return refTypeID;
     }
 
-    public void setRefTypeID(int refTypeID) {
+    public void setRefTypeID(final int refTypeID) {
         this.refTypeID = refTypeID;
     }
 
@@ -16,7 +16,7 @@ public class RefType {
         return refTypeName;
     }
 
-    public void setRefTypeName(String refTypeName) {
+    public void setRefTypeName(final String refTypeName) {
         this.refTypeName = refTypeName;
     }
 }

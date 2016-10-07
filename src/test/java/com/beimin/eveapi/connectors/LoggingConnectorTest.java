@@ -1,8 +1,16 @@
 package com.beimin.eveapi.connectors;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+
+import org.junit.Test;
+
 import com.beimin.eveapi.EveApi;
-import com.beimin.eveapi.connectors.ApiConnector;
-import com.beimin.eveapi.connectors.LoggingConnector;
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
@@ -10,13 +18,6 @@ import com.beimin.eveapi.parser.pilot.SkillQueueParser;
 import com.beimin.eveapi.response.pilot.SkillQueueResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 import com.beimin.eveapi.utils.MockApi;
-import org.junit.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
-
-import static org.junit.Assert.*;
 
 public class LoggingConnectorTest extends FullAuthParserTest {
     public LoggingConnectorTest() {
@@ -31,21 +32,21 @@ public class LoggingConnectorTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException, IOException {
-        PrintStream defaultStdout = System.out;
-        ByteArrayOutputStream temp = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(temp);
+        final PrintStream defaultStdout = System.out;
+        final ByteArrayOutputStream temp = new ByteArrayOutputStream();
+        final PrintStream printStream = new PrintStream(temp);
         System.setOut(printStream);
 
-        SkillQueueParser parser = new SkillQueueParser();
-        SkillQueueResponse response = parser.getResponse(auth);
+        final SkillQueueParser parser = new SkillQueueParser();
+        final SkillQueueResponse response = parser.getResponse(auth);
         assertNotNull(response);
         printStream.flush();
         printStream.close();
         temp.flush();
         temp.close();
-        String result = temp.toString();
+        final String result = temp.toString();
         System.setOut(defaultStdout);
-        String[] lines = result.split("\n");
+        final String[] lines = result.split("\n");
         assertTrue(lines[0].contains("INFO  [main] com.beimin.eveapi.connectors.LoggingConnector.execute:"));
         assertEquals("Request:", lines[1]);
         assertEquals("Path: /char", lines[2]);

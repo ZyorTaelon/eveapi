@@ -15,7 +15,7 @@ public class ContactNotificationsParser extends AbstractListParser<ContactNotifi
     }
 
     @Override
-    public ContactNotificationsResponse getResponse(ApiAuth auth) throws ApiException {
+    public ContactNotificationsResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

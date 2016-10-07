@@ -23,13 +23,13 @@ public class RefTypesParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        RefTypesParser parser = new RefTypesParser();
-        RefTypesResponse response = parser.getResponse();
+        final RefTypesParser parser = new RefTypesParser();
+        final RefTypesResponse response = parser.getResponse();
         assertNotNull(response);
-        Collection<RefType> refTypes = response.getAll();
+        final Collection<RefType> refTypes = response.getAll();
         assertEquals(163, refTypes.size());
         boolean found = false;
-        for (RefType refType : refTypes) {
+        for (final RefType refType : refTypes) {
             if (refType.getRefTypeID() == 10) {
                 found = true;
                 assertEquals("Player Donation", refType.getRefTypeName());
@@ -40,12 +40,12 @@ public class RefTypesParserTest extends NoAuthParserTest {
 
     @Test
     public void testEnum() throws ApiException {
-        RefTypesParser parser = new RefTypesParser();
-        RefTypesResponse response = parser.getResponse();
+        final RefTypesParser parser = new RefTypesParser();
+        final RefTypesResponse response = parser.getResponse();
         assertNotNull(response);
-        Collection<RefType> refTypes = response.getAll();
-        for (RefType apiRefType : refTypes) {
-            com.beimin.eveapi.model.shared.RefType refType = com.beimin.eveapi.model.shared.RefType.forID(apiRefType.getRefTypeID());
+        final Collection<RefType> refTypes = response.getAll();
+        for (final RefType apiRefType : refTypes) {
+            final com.beimin.eveapi.model.shared.RefType refType = com.beimin.eveapi.model.shared.RefType.forID(apiRefType.getRefTypeID());
             assertNotNull("RefType missing - ID: " + apiRefType.getRefTypeID() + " (" + apiRefType.getRefTypeName() + ")", refType);
             assertEquals("RefType ID: " + refType.getId() + " wrong name", apiRefType.getRefTypeName(), refType.getName());
         }

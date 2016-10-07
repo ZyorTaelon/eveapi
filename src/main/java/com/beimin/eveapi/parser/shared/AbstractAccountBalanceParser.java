@@ -7,7 +7,7 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 
 public abstract class AbstractAccountBalanceParser extends AbstractListParser<AccountBalanceHandler, AccountBalanceResponse, EveAccountBalance> {
-    protected AbstractAccountBalanceParser(ApiPath path) {
+    protected AbstractAccountBalanceParser(final ApiPath path) {
         super(AccountBalanceResponse.class, 2, path, ApiPage.ACCOUNT_BALANCE, AccountBalanceHandler.class);
     }
 }

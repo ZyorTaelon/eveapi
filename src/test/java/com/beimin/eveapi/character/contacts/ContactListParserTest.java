@@ -5,12 +5,12 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import com.beimin.eveapi.model.shared.ContactLabel;
-import com.beimin.eveapi.model.shared.ContactLabelList;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.Contact;
+import com.beimin.eveapi.model.shared.ContactLabel;
+import com.beimin.eveapi.model.shared.ContactLabelList;
 import com.beimin.eveapi.model.shared.ContactList;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
@@ -25,11 +25,11 @@ public class ContactListParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        ContactListParser parser = new ContactListParser();
-        ContactListResponse response = parser.getResponse(auth);
+        final ContactListParser parser = new ContactListParser();
+        final ContactListResponse response = parser.getResponse(auth);
         assertNotNull(response);
 
-        ContactList contactList = response.getContactList();
+        final ContactList contactList = response.getContactList();
         assertEquals("contactList", contactList.getName());
         assertEquals(108, contactList.size());
         Contact apiContact = contactList.iterator().next();
@@ -48,8 +48,8 @@ public class ContactListParserTest extends FullAuthParserTest {
         assertEquals(1376, apiContact.getContactTypeID());
         assertEquals(0, apiContact.getLabelMask());
 
-        ContactLabelList contactLabelList = response.getContactLabelList();
-        ContactLabel contactLabel = contactLabelList.get(0);
+        final ContactLabelList contactLabelList = response.getContactLabelList();
+        final ContactLabel contactLabel = contactLabelList.get(0);
         assertEquals(1, contactLabel.getLabelID());
         assertEquals("Explorers", contactLabel.getName());
     }

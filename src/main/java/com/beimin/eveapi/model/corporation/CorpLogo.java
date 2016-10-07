@@ -13,7 +13,7 @@ public class CorpLogo {
         return graphicID;
     }
 
-    public void setGraphicID(int graphicID) {
+    public void setGraphicID(final int graphicID) {
         this.graphicID = graphicID;
     }
 
@@ -21,7 +21,7 @@ public class CorpLogo {
         return shape1;
     }
 
-    public void setShape1(int shape1) {
+    public void setShape1(final int shape1) {
         this.shape1 = shape1;
     }
 
@@ -29,7 +29,7 @@ public class CorpLogo {
         return shape2;
     }
 
-    public void setShape2(int shape2) {
+    public void setShape2(final int shape2) {
         this.shape2 = shape2;
     }
 
@@ -37,7 +37,7 @@ public class CorpLogo {
         return shape3;
     }
 
-    public void setShape3(int shape3) {
+    public void setShape3(final int shape3) {
         this.shape3 = shape3;
     }
 
@@ -45,7 +45,7 @@ public class CorpLogo {
         return color1;
     }
 
-    public void setColor1(int color1) {
+    public void setColor1(final int color1) {
         this.color1 = color1;
     }
 
@@ -53,7 +53,7 @@ public class CorpLogo {
         return color2;
     }
 
-    public void setColor2(int color2) {
+    public void setColor2(final int color2) {
         this.color2 = color2;
     }
 
@@ -61,7 +61,7 @@ public class CorpLogo {
         return color3;
     }
 
-    public void setColor3(int color3) {
+    public void setColor3(final int color3) {
         this.color3 = color3;
     }
 }

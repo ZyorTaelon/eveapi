@@ -23,13 +23,13 @@ public class CharactersParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        CharactersParser parser = new CharactersParser();
-        CharactersResponse response = parser.getResponse(auth);
+        final CharactersParser parser = new CharactersParser();
+        final CharactersResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Collection<Character> eveCharacters = response.getAll();
+        final Collection<Character> eveCharacters = response.getAll();
         assertEquals(2, eveCharacters.size());
-        for (Character eveCharacter : eveCharacters) {
-            long characterID = eveCharacter.getCharacterID();
+        for (final Character eveCharacter : eveCharacters) {
+            final long characterID = eveCharacter.getCharacterID();
             if (characterID == 46135126) {
                 assertEquals("Test Character 1", eveCharacter.getName());
                 assertEquals(71643215, eveCharacter.getCorporationID());

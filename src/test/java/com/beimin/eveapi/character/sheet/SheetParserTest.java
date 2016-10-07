@@ -29,8 +29,8 @@ public class SheetParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        CharacterSheetParser parser = new CharacterSheetParser();
-        CharacterSheetResponse response = parser.getResponse(auth);
+        final CharacterSheetParser parser = new CharacterSheetParser();
+        final CharacterSheetResponse response = parser.getResponse(auth);
         assertNotNull(response);
         assertEquals(150337897L, response.getCharacterID());
         assertEquals("corpslave", response.getName());
@@ -46,9 +46,9 @@ public class SheetParserTest extends FullAuthParserTest {
         assertEquals(54600000L, response.getCloneSkillPoints());
         assertEquals(190210393.87, response.getBalance(), 0.00001);
 
-        Set<AttributeEnhancer> attributeEnhancers = response.getAttributeEnhancers();
+        final Set<AttributeEnhancer> attributeEnhancers = response.getAttributeEnhancers();
         assertEquals(2, attributeEnhancers.size());
-        for (AttributeEnhancer enhancer : attributeEnhancers) {
+        for (final AttributeEnhancer enhancer : attributeEnhancers) {
             if (enhancer.getAttribute().equals("intelligence")) {
                 assertEquals("Snake Delta", enhancer.getAugmentatorName());
                 assertEquals(3, enhancer.getAugmentatorValue());
@@ -66,9 +66,9 @@ public class SheetParserTest extends FullAuthParserTest {
         assertEquals(12, response.getPerception());
         assertEquals(10, response.getWillpower());
 
-        Set<Skill> skills = response.getSkills();
+        final Set<Skill> skills = response.getSkills();
         assertEquals(5, skills.size());
-        for (Skill skill : skills) {
+        for (final Skill skill : skills) {
             if (skill.getTypeID() == 3431) {
                 assertEquals(3, skill.getLevel());
                 assertEquals(8000, skill.getSkillpoints());

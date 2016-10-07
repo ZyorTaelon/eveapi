@@ -23,12 +23,12 @@ public class MedalsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        MedalsParser parser = new MedalsParser();
-        MedalsResponse response = parser.getResponse(auth);
+        final MedalsParser parser = new MedalsParser();
+        final MedalsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<Medal> medals = response.getAll();
+        final Set<Medal> medals = response.getAll();
         assertEquals("Incorrect amount of members found.", 18, medals.size());
-        Medal medal = medals.iterator().next();
+        final Medal medal = medals.iterator().next();
         assertEquals("Wrong medal characterID", 1745, medal.getMedalID());
         assertEquals("Wrong medal name", "Capital Red Eyed Award", medal.getTitle());
         assertEquals("Wrong medal description", "This award is given to captial pilots that not only fought on the front lines but stayed up way to late and past their 9pm bedtimes to kill the scum that think they are better than us.", medal.getDescription());

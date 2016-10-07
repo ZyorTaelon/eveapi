@@ -24,13 +24,13 @@ public class MedalsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        MemberMedalsParser parser = new MemberMedalsParser();
-        MemberMedalsResponse response = parser.getResponse(auth);
+        final MemberMedalsParser parser = new MemberMedalsParser();
+        final MemberMedalsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<MemberMedal> memberMedals = response.getAll();
+        final Set<MemberMedal> memberMedals = response.getAll();
         assertNotNull(memberMedals);
         assertEquals(45, memberMedals.size());
-        MemberMedal memberMedal = memberMedals.iterator().next();
+        final MemberMedal memberMedal = memberMedals.iterator().next();
         assertEquals(1745, memberMedal.getMedalID());
         assertEquals(264288979L, memberMedal.getCharacterID());
         assertEquals("Ooy late night op", memberMedal.getReason());

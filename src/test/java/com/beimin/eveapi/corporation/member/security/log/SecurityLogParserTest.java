@@ -24,27 +24,27 @@ public class SecurityLogParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        MemberSecurityLogParser parser = new MemberSecurityLogParser();
-        MemberSecurityLogResponse response = parser.getResponse(auth);
+        final MemberSecurityLogParser parser = new MemberSecurityLogParser();
+        final MemberSecurityLogResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<RoleHistory> roleHistories = response.getAll();
+        final Set<RoleHistory> roleHistories = response.getAll();
         assertNotNull(roleHistories);
         assertEquals("Incorrect amount of role histories found.", 4, roleHistories.size());
         boolean found = false;
-        for (RoleHistory roleHistory : roleHistories) {
+        for (final RoleHistory roleHistory : roleHistories) {
             if (roleHistory.getCharacterName().equals("Tester1")) {
                 found = true;
-                Set<SecurityRole> oldRoles = roleHistory.getOldRoles();
+                final Set<SecurityRole> oldRoles = roleHistory.getOldRoles();
                 assertEquals("Incorrect amount of old roles found.", 8, oldRoles.size());
                 boolean oldRoleFound = false;
-                for (SecurityRole securityRole : oldRoles) {
+                for (final SecurityRole securityRole : oldRoles) {
                     if (securityRole.getRoleID() == 4194304) {
                         oldRoleFound = true;
                         assertEquals("Wrong old role name.", "roleHangarCanQuery3", securityRole.getRoleName());
                     }
                 }
                 assertTrue("Test old role not found. ", oldRoleFound);
-                Set<SecurityRole> newRoles = roleHistory.getNewRoles();
+                final Set<SecurityRole> newRoles = roleHistory.getNewRoles();
                 assertEquals("Incorrect amount of old roles found.", 0, newRoles.size());
             }
         }

@@ -12,7 +12,7 @@ import com.beimin.eveapi.utils.StringUtils;
 public class CharacterLookupParser extends AbstractListParser<CharacterLookupHandler, CharacterLookupResponse, CharacterLookup> {
     private final String paramName;
 
-    public CharacterLookupParser(ApiPage page, String paramName) {
+    public CharacterLookupParser(final ApiPage page, final String paramName) {
         super(CharacterLookupResponse.class, 2, ApiPath.EVE, page, CharacterLookupHandler.class);
         this.paramName = paramName;
     }
@@ -25,11 +25,11 @@ public class CharacterLookupParser extends AbstractListParser<CharacterLookupHan
         return new CharacterLookupParser(ApiPage.CHARACTER_NAME, "ids");
     }
 
-    public CharacterLookupResponse getResponse(String... arguments) throws ApiException {
+    public CharacterLookupResponse getResponse(final String... arguments) throws ApiException {
         return super.getResponse(paramName, StringUtils.join(",", arguments));
     }
 
-    public CharacterLookupResponse getResponse(long... arguments) throws ApiException {
+    public CharacterLookupResponse getResponse(final long... arguments) throws ApiException {
         return super.getResponse(paramName, StringUtils.join(",", arguments));
     }
 }

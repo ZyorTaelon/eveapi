@@ -15,7 +15,7 @@ public class UpcomingCalendarEventsParser extends AbstractListParser<UpcomingCal
     }
 
     @Override
-    public UpcomingCalendarEventsResponse getResponse(ApiAuth auth) throws ApiException {
+    public UpcomingCalendarEventsResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

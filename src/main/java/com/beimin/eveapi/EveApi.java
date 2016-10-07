@@ -25,8 +25,8 @@ import com.beimin.eveapi.parser.corporation.AccountBalanceParser;
 import com.beimin.eveapi.parser.pilot.CalendarEventAttendeesParser;
 import com.beimin.eveapi.parser.pilot.ContactListParser;
 import com.beimin.eveapi.parser.pilot.ContactNotificationsParser;
-import com.beimin.eveapi.parser.pilot.PilotAssetListParser;
 import com.beimin.eveapi.parser.pilot.PilotAccountBalanceParser;
+import com.beimin.eveapi.parser.pilot.PilotAssetListParser;
 import com.beimin.eveapi.parser.pilot.UpcomingCalendarEventsParser;
 import com.beimin.eveapi.parser.shared.AbstractAccountBalanceParser;
 import com.beimin.eveapi.response.account.ApiKeyInfoResponse;
@@ -40,17 +40,18 @@ public class EveApi {
         // default constructor
     }
 
-    public EveApi(ApiAuth auth) {
+    public EveApi(final ApiAuth auth) {
         this.auth = auth;
     }
 
     public ApiAuth getAuth() {
-        if (auth == null)
+        if (auth == null) {
             throw new NoAuthException();
+        }
         return auth;
     }
 
-    public void setAuth(ApiAuth auth) {
+    public void setAuth(final ApiAuth auth) {
         this.auth = auth;
     }
 
@@ -58,12 +59,12 @@ public class EveApi {
         return connector.getNewInstance();
     }
 
-    public static void setConnector(ApiConnector connector) {
+    public static void setConnector(final ApiConnector connector) {
         EveApi.connector = connector;
     }
 
     public ApiKeyInfoResponse getAPIKeyInfo() throws ApiException {
-        ApiKeyInfoParser apiKeyInfoParser = new ApiKeyInfoParser();
+        final ApiKeyInfoParser apiKeyInfoParser = new ApiKeyInfoParser();
         return apiKeyInfoParser.getResponse(auth);
     }
 
@@ -75,29 +76,33 @@ public class EveApi {
         return new CharactersParser().getResponse(getAuth()).getAll();
     }
 
-    public void selectCharacter(Character eveCharacter) {
-        if (auth == null)
+    public void selectCharacter(final Character eveCharacter) {
+        if (auth == null) {
             throw new NoAuthException();
+        }
         auth.setCharacterID(eveCharacter.getCharacterID());
     }
 
-    public void selectCharacter(long characterID) {
-        if (auth == null)
+    public void selectCharacter(final long characterID) {
+        if (auth == null) {
             throw new NoAuthException();
+        }
         auth.setCharacterID(characterID);
     }
 
-    public Set<EveAccountBalance> getAccountBalance(KeyType type) throws ApiException {
+    public Set<EveAccountBalance> getAccountBalance(final KeyType type) throws ApiException {
         AbstractAccountBalanceParser accountBalanceParser;
-        if (type == KeyType.Character)
+        if (type == KeyType.Character) {
             accountBalanceParser = new PilotAccountBalanceParser();
-        else if (type == KeyType.Corporation)
+        } else if (type == KeyType.Corporation) {
             accountBalanceParser = new AccountBalanceParser();
-        else
+        } else {
             return null;
-        AccountBalanceResponse response = accountBalanceParser.getResponse(getAuth());
-        if (response.hasError())
+        }
+        final AccountBalanceResponse response = accountBalanceParser.getResponse(getAuth());
+        if (response.hasError()) {
             throw new ApiException(response.getError().getError());
+        }
         return response.getAll();
     }
 
@@ -109,7 +114,7 @@ public class EveApi {
         return new UpcomingCalendarEventsParser().getResponse(getAuth()).getAll();
     }
 
-    public Set<CalendarEventAttendee> getCalendarEventAttendees(long... eventIds) throws ApiException {
+    public Set<CalendarEventAttendee> getCalendarEventAttendees(final long... eventIds) throws ApiException {
         return new CalendarEventAttendeesParser().getResponse(getAuth(), eventIds).getAll();
     }
 

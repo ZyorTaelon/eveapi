@@ -22,17 +22,17 @@ public class CharacterNameLookupParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        CharacterLookupParser parser = CharacterLookupParser.getId2NameInstance();
-        CharacterLookupResponse response = parser.getResponse(797400947);
-        Collection<CharacterLookup> chars = response.getAll();
+        final CharacterLookupParser parser = CharacterLookupParser.getId2NameInstance();
+        final CharacterLookupResponse response = parser.getResponse(797400947);
+        final Collection<CharacterLookup> chars = response.getAll();
         assertEquals(1, chars.size());
-        CharacterLookup garthagk = chars.iterator().next();
+        final CharacterLookup garthagk = chars.iterator().next();
         assertEquals("CCP Garthagk", garthagk.getName());
         assertEquals(797400947, garthagk.getCharacterID());
     }
 
     @Override
-    public void extraAsserts(Map<String, String> req) {
+    public void extraAsserts(final Map<String, String> req) {
         super.extraAsserts(req);
         assertEquals("797400947", req.get("ids"));
     }

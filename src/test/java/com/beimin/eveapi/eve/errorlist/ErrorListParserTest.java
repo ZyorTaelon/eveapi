@@ -23,13 +23,13 @@ public class ErrorListParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        ErrorListParser parser = new ErrorListParser();
-        ErrorListResponse response = parser.getResponse();
+        final ErrorListParser parser = new ErrorListParser();
+        final ErrorListResponse response = parser.getResponse();
         assertNotNull(response);
-        Collection<ErrorListItem> errorListItems = response.getAll();
+        final Collection<ErrorListItem> errorListItems = response.getAll();
         assertEquals(61, errorListItems.size());
         boolean found = false;
-        for (ErrorListItem apiErrorListItem : errorListItems) {
+        for (final ErrorListItem apiErrorListItem : errorListItems) {
             if (apiErrorListItem.getErrorCode() == 110) {
                 found = true;
                 assertEquals("Invalid beforeTransID provided.", apiErrorListItem.getErrorText());

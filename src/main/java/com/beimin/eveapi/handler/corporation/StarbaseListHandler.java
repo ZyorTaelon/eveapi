@@ -13,8 +13,8 @@ public class StarbaseListHandler extends AbstractContentListHandler<StarbaseList
     }
 
     @Override
-    protected Starbase getItem(Attributes attrs) {
-        Starbase item = new Starbase();
+    protected Starbase getItem(final Attributes attrs) {
+        final Starbase item = new Starbase();
         item.setItemID(getLong(attrs, "itemID"));
         item.setTypeID(getInt(attrs, "typeID"));
         item.setLocationID(getInt(attrs, "locationID"));

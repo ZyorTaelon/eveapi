@@ -20,7 +20,7 @@ public class CharacterSheetParser extends AbstractApiParser<CharacterSheetRespon
     }
 
     @Override
-    public CharacterSheetResponse getResponse(ApiAuth auth) throws ApiException {
+    public CharacterSheetResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

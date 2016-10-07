@@ -12,16 +12,16 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.response.shared.WalletJournalResponse;
 
 public abstract class AbstractWalletJournalParser extends AbstractListParser<WalletJournalHandler, WalletJournalResponse, JournalEntry> {
-    public AbstractWalletJournalParser(ApiPath path) {
+    public AbstractWalletJournalParser(final ApiPath path) {
         super(WalletJournalResponse.class, 2, path, ApiPage.WALLET_JOURNAL, WalletJournalHandler.class);
     }
 
-    public WalletJournalResponse getResponse(ApiAuth auth, int accountKey) throws ApiException {
+    public WalletJournalResponse getResponse(final ApiAuth auth, final int accountKey) throws ApiException {
         return getResponse(auth, "accountKey", Integer.toString(accountKey));
     }
 
-    public WalletJournalResponse getResponse(ApiAuth auth, Integer accountKey, Long beforeRefID, int rowCount) throws ApiException {
-        Map<String, String> extraParams = new HashMap<String, String>();
+    public WalletJournalResponse getResponse(final ApiAuth auth, final Integer accountKey, final Long beforeRefID, final int rowCount) throws ApiException {
+        final Map<String, String> extraParams = new HashMap<String, String>();
         if (accountKey != null) {
             extraParams.put("accountKey", Integer.toString(accountKey));
         }

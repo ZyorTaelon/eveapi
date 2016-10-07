@@ -15,7 +15,7 @@ public class CharactersParser extends AbstractListParser<CharactersHandler, Char
     }
 
     @Override
-    public CharactersResponse getResponse(ApiAuth auth) throws ApiException {
+    public CharactersResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

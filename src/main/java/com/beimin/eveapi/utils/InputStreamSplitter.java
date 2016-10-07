@@ -8,14 +8,14 @@ public class InputStreamSplitter extends InputStream {
     private final InputStream src;
     private final OutputStream copy;
 
-    public InputStreamSplitter(InputStream src, OutputStream copy) {
+    public InputStreamSplitter(final InputStream src, final OutputStream copy) {
         this.src = src;
         this.copy = copy;
     }
 
     @Override
     public int read() throws IOException {
-        int tmp = src.read();
+        final int tmp = src.read();
         copy.write(tmp);
         return tmp;
     }
@@ -33,7 +33,7 @@ public class InputStreamSplitter extends InputStream {
     }
 
     @Override
-    public synchronized void mark(int readlimit) {
+    public synchronized void mark(final int readlimit) {
         throw new RuntimeException("not available");
     }
 
@@ -43,15 +43,16 @@ public class InputStreamSplitter extends InputStream {
     }
 
     @Override
-    public int read(byte[] b, int off, int len) throws IOException {
-        int tmp = src.read(b, off, len);
-        if (tmp > 0)
+    public int read(final byte[] b, final int off, final int len) throws IOException {
+        final int tmp = src.read(b, off, len);
+        if (tmp > 0) {
             copy.write(b, off, tmp);
+        }
         return tmp;
     }
 
     @Override
-    public int read(byte[] b) throws IOException {
+    public int read(final byte[] b) throws IOException {
         return read(b, 0, b.length);
     }
 
@@ -61,7 +62,7 @@ public class InputStreamSplitter extends InputStream {
     }
 
     @Override
-    public long skip(long n) throws IOException {
+    public long skip(final long n) throws IOException {
         return src.skip(n);
     }
 }

@@ -8,7 +8,7 @@ public class SecurityTitle {
         return titleID;
     }
 
-    public void setTitleID(long titleID) {
+    public void setTitleID(final long titleID) {
         this.titleID = titleID;
     }
 
@@ -16,7 +16,7 @@ public class SecurityTitle {
         return titleName;
     }
 
-    public void setTitleName(String titleName) {
+    public void setTitleName(final String titleName) {
         this.titleName = titleName;
     }
 }

@@ -22,7 +22,7 @@ public class Member {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -30,7 +30,7 @@ public class Member {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -38,7 +38,7 @@ public class Member {
         return startDateTime;
     }
 
-    public void setStartDateTime(Date startDateTime) {
+    public void setStartDateTime(final Date startDateTime) {
         this.startDateTime = startDateTime;
     }
 
@@ -46,7 +46,7 @@ public class Member {
         return baseID;
     }
 
-    public void setBaseID(int baseID) {
+    public void setBaseID(final int baseID) {
         this.baseID = baseID;
     }
 
@@ -54,7 +54,7 @@ public class Member {
         return base;
     }
 
-    public void setBase(String base) {
+    public void setBase(final String base) {
         this.base = base;
     }
 
@@ -62,7 +62,7 @@ public class Member {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
@@ -70,7 +70,7 @@ public class Member {
         return logonDateTime;
     }
 
-    public void setLogonDateTime(Date logonDateTime) {
+    public void setLogonDateTime(final Date logonDateTime) {
         this.logonDateTime = logonDateTime;
     }
 
@@ -78,7 +78,7 @@ public class Member {
         return logoffDateTime;
     }
 
-    public void setLogoffDateTime(Date logoffDateTime) {
+    public void setLogoffDateTime(final Date logoffDateTime) {
         this.logoffDateTime = logoffDateTime;
     }
 
@@ -86,7 +86,7 @@ public class Member {
         return locationID;
     }
 
-    public void setLocationID(int locationID) {
+    public void setLocationID(final int locationID) {
         this.locationID = locationID;
     }
 
@@ -94,7 +94,7 @@ public class Member {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(final String location) {
         this.location = location;
     }
 
@@ -102,7 +102,7 @@ public class Member {
         return shipTypeID;
     }
 
-    public void setShipTypeID(int shipTypeID) {
+    public void setShipTypeID(final int shipTypeID) {
         this.shipTypeID = shipTypeID;
     }
 
@@ -110,7 +110,7 @@ public class Member {
         return shipType;
     }
 
-    public void setShipType(String shipType) {
+    public void setShipType(final String shipType) {
         this.shipType = shipType;
     }
 
@@ -118,7 +118,7 @@ public class Member {
         return roles;
     }
 
-    public void setRoles(long roles) {
+    public void setRoles(final long roles) {
         this.roles = roles;
     }
 
@@ -126,7 +126,7 @@ public class Member {
         return grantableRoles;
     }
 
-    public void setGrantableRoles(long grantableRoles) {
+    public void setGrantableRoles(final long grantableRoles) {
         this.grantableRoles = grantableRoles;
     }
 }

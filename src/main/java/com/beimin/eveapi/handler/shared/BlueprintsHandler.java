@@ -1,9 +1,10 @@
 package com.beimin.eveapi.handler.shared;
 
+import org.xml.sax.Attributes;
+
 import com.beimin.eveapi.handler.AbstractContentListHandler;
 import com.beimin.eveapi.model.shared.Blueprint;
 import com.beimin.eveapi.response.shared.BlueprintsResponse;
-import org.xml.sax.Attributes;
 
 public class BlueprintsHandler extends AbstractContentListHandler<BlueprintsResponse, Blueprint> {
 
@@ -12,8 +13,8 @@ public class BlueprintsHandler extends AbstractContentListHandler<BlueprintsResp
     }
 
     @Override
-    protected Blueprint getItem(Attributes attrs) {
-        Blueprint blueprint = new Blueprint();
+    protected Blueprint getItem(final Attributes attrs) {
+        final Blueprint blueprint = new Blueprint();
         blueprint.setItemID(getLong(attrs, "itemID"));
         blueprint.setLocationID(getLong(attrs, "locationID"));
         blueprint.setTypeID(getInt(attrs, "typeID"));

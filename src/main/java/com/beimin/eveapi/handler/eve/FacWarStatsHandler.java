@@ -19,14 +19,14 @@ public class FacWarStatsHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            String name = getString(attrs, "name");
+            final String name = getString(attrs, "name");
             factions = name.equals("factions");
             factionWars = name.equals("factionWars");
         } else if (ELEMENT_ROW.equals(qName)) {
             if (factions) {
-                FactionStats item = new FactionStats();
+                final FactionStats item = new FactionStats();
                 item.setFactionID(getInt(attrs, "factionID"));
                 item.setFactionName(getString(attrs, "factionName"));
                 item.setPilots(getInt(attrs, "pilots"));
@@ -39,7 +39,7 @@ public class FacWarStatsHandler extends AbstractContentHandler {
                 item.setVictoryPointsTotal(getInt(attrs, "victoryPointsTotal"));
                 response.addStat(item);
             } else if (factionWars) {
-                FactionWar item = new FactionWar();
+                final FactionWar item = new FactionWar();
                 item.setFactionID(getInt(attrs, "factionID"));
                 item.setFactionName(getString(attrs, "factionName"));
                 item.setAgainstID(getInt(attrs, "againstID"));
@@ -51,20 +51,20 @@ public class FacWarStatsHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if ("killsYesterday".equals(qName))
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if ("killsYesterday".equals(qName)) {
             response.setKillsYesterday(getInt());
-        else if ("killsLastWeek".equals(qName))
+        } else if ("killsLastWeek".equals(qName)) {
             response.setKillsLastWeek(getInt());
-        else if ("killsTotal".equals(qName))
+        } else if ("killsTotal".equals(qName)) {
             response.setKillsTotal(getInt());
-        else if ("victoryPointsYesterday".equals(qName))
+        } else if ("victoryPointsYesterday".equals(qName)) {
             response.setVictoryPointsYesterday(getInt());
-        else if ("victoryPointsLastWeek".equals(qName))
+        } else if ("victoryPointsLastWeek".equals(qName)) {
             response.setVictoryPointsLastWeek(getInt());
-        else if ("victoryPointsTotal".equals(qName))
+        } else if ("victoryPointsTotal".equals(qName)) {
             response.setVictoryPointsTotal(getInt());
-        else if (ELEMENT_ROWSET.equals(qName)) {
+        } else if (ELEMENT_ROWSET.equals(qName)) {
             factions = false;
             factionWars = false;
         }

@@ -14,7 +14,7 @@ public class Character {
         return allianceID;
     }
 
-    public void setAllianceID(long allianceID) {
+    public void setAllianceID(final long allianceID) {
         this.allianceID = allianceID;
     }
 
@@ -22,7 +22,7 @@ public class Character {
         return allianceName;
     }
 
-    public void setAllianceName(String allianceName) {
+    public void setAllianceName(final String allianceName) {
         this.allianceName = allianceName;
     }
 
@@ -30,7 +30,7 @@ public class Character {
         return factionID;
     }
 
-    public void setFactionID(long factionID) {
+    public void setFactionID(final long factionID) {
         this.factionID = factionID;
     }
 
@@ -38,7 +38,7 @@ public class Character {
         return factionName;
     }
 
-    public void setFactionName(String factionName) {
+    public void setFactionName(final String factionName) {
         this.factionName = factionName;
     }
 
@@ -46,7 +46,7 @@ public class Character {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -54,7 +54,7 @@ public class Character {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -62,7 +62,7 @@ public class Character {
         return corporationName;
     }
 
-    public void setCorporationName(String corporationName) {
+    public void setCorporationName(final String corporationName) {
         this.corporationName = corporationName;
     }
 
@@ -70,7 +70,7 @@ public class Character {
         return corporationID;
     }
 
-    public void setCorporationID(long corporationID) {
+    public void setCorporationID(final long corporationID) {
         this.corporationID = corporationID;
     }
 }

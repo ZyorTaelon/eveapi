@@ -10,7 +10,7 @@ public class Skill {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -18,7 +18,7 @@ public class Skill {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(final int level) {
         this.level = level;
     }
 
@@ -26,7 +26,7 @@ public class Skill {
         return skillpoints;
     }
 
-    public void setSkillpoints(int skillpoints) {
+    public void setSkillpoints(final int skillpoints) {
         this.skillpoints = skillpoints;
     }
 
@@ -34,7 +34,7 @@ public class Skill {
         return unpublished;
     }
 
-    public void setUnpublished(boolean unpublished) {
+    public void setUnpublished(final boolean unpublished) {
         this.unpublished = unpublished;
     }
 }

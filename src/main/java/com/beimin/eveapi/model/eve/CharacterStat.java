@@ -8,7 +8,7 @@ public abstract class CharacterStat implements FacWarStat {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -16,7 +16,7 @@ public abstract class CharacterStat implements FacWarStat {
         return characterName;
     }
 
-    public void setCharacterName(String characterName) {
+    public void setCharacterName(final String characterName) {
         this.characterName = characterName;
     }
 

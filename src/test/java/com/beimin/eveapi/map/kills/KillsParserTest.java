@@ -21,16 +21,16 @@ public class KillsParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        KillsParser parser = new KillsParser();
-        KillsResponse response = parser.getResponse();
+        final KillsParser parser = new KillsParser();
+        final KillsResponse response = parser.getResponse();
         assertNotNull(response);
-        Map<Integer, Integer> shipKills = response.getShipKills();
+        final Map<Integer, Integer> shipKills = response.getShipKills();
         assertNotNull(shipKills);
         assertEquals(2603, shipKills.size());
-        Map<Integer, Integer> factionKills = response.getFactionKills();
+        final Map<Integer, Integer> factionKills = response.getFactionKills();
         assertNotNull(factionKills);
         assertEquals(2603, factionKills.size());
-        Map<Integer, Integer> podKills = response.getPodKills();
+        final Map<Integer, Integer> podKills = response.getPodKills();
         assertNotNull(podKills);
         assertEquals(2603, podKills.size());
         assertEquals(3, shipKills.get(30001001).longValue());

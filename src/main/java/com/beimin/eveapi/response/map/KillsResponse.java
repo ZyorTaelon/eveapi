@@ -11,7 +11,8 @@ public class KillsResponse extends ApiListResponse<SystemKills> {
     private final Map<Integer, Integer> factionKills = new HashMap<Integer, Integer>();
     private final Map<Integer, Integer> podKills = new HashMap<Integer, Integer>();
 
-    public void add(SystemKills systemKills) {
+    @Override
+    public void add(final SystemKills systemKills) {
         shipKills.put(systemKills.getSolarSystemID(), systemKills.getShipKills());
         factionKills.put(systemKills.getSolarSystemID(), systemKills.getFactionKills());
         podKills.put(systemKills.getSolarSystemID(), systemKills.getPodKills());

@@ -19,7 +19,7 @@ public class Title {
         return titleID;
     }
 
-    public void setTitleID(long titleID) {
+    public void setTitleID(final long titleID) {
         this.titleID = titleID;
     }
 
@@ -27,7 +27,7 @@ public class Title {
         return titleName;
     }
 
-    public void setTitleName(String titleName) {
+    public void setTitleName(final String titleName) {
         this.titleName = titleName;
     }
 
@@ -63,35 +63,35 @@ public class Title {
         return grantableRolesAtOther;
     }
 
-    public void addRole(Role role) {
+    public void addRole(final Role role) {
         roles.add(role);
     }
 
-    public void addGrantableRole(Role role) {
+    public void addGrantableRole(final Role role) {
         grantableRoles.add(role);
     }
 
-    public void addRoleAtHQ(Role role) {
+    public void addRoleAtHQ(final Role role) {
         rolesAtHQ.add(role);
     }
 
-    public void addGrantableRoleAtHQ(Role role) {
+    public void addGrantableRoleAtHQ(final Role role) {
         grantableRolesAtHQ.add(role);
     }
 
-    public void addRoleAtBase(Role role) {
+    public void addRoleAtBase(final Role role) {
         rolesAtBase.add(role);
     }
 
-    public void addGrantableRoleAtBase(Role role) {
+    public void addGrantableRoleAtBase(final Role role) {
         grantableRolesAtBase.add(role);
     }
 
-    public void addRoleAtOther(Role role) {
+    public void addRoleAtOther(final Role role) {
         rolesAtOther.add(role);
     }
 
-    public void addGrantableRoleAtOther(Role role) {
+    public void addGrantableRoleAtOther(final Role role) {
         grantableRolesAtOther.add(role);
     }
 }

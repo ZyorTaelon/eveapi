@@ -15,7 +15,7 @@ public enum Ancestry {
     RETAILERS(Bloodline.VHEROKIOR), MYSTICS(Bloodline.VHEROKIOR), DRIFTERS(Bloodline.VHEROKIOR);
     private final Bloodline bloodline;
 
-    private Ancestry(Bloodline bloodline) {
+    private Ancestry(final Bloodline bloodline) {
         this.bloodline = bloodline;
     }
 

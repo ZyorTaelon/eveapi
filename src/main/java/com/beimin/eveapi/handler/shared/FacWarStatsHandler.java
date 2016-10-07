@@ -15,41 +15,55 @@ public class FacWarStatsHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         super.startElement(uri, localName, qName, attrs);
         accumulator.setLength(0);
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if ("factionID".equals(qName))
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if ("factionID".equals(qName)) {
             response.setFactionID(getInt());
-        if ("factionName".equals(qName))
+        }
+        if ("factionName".equals(qName)) {
             response.setFactionName(getString());
-        if ("enlisted".equals(qName))
+        }
+        if ("enlisted".equals(qName)) {
             response.setEnlisted(getDate());
-        if ("currentRank".equals(qName))
+        }
+        if ("currentRank".equals(qName)) {
             response.setCurrentRank(getInt());
-        if ("highestRank".equals(qName))
+        }
+        if ("highestRank".equals(qName)) {
             response.setHighestRank(getInt());
-        if ("killsYesterday".equals(qName))
+        }
+        if ("killsYesterday".equals(qName)) {
             response.setKillsYesterday(getInt());
-        if ("killsLastWeek".equals(qName))
+        }
+        if ("killsLastWeek".equals(qName)) {
             response.setKillsLastWeek(getInt());
-        if ("killsTotal".equals(qName))
+        }
+        if ("killsTotal".equals(qName)) {
             response.setKillsTotal(getInt());
-        if ("victoryPointsYesterday".equals(qName))
+        }
+        if ("victoryPointsYesterday".equals(qName)) {
             response.setVictoryPointsYesterday(getInt());
-        if ("killsTotal".equals(qName))
+        }
+        if ("killsTotal".equals(qName)) {
             response.setKillsTotal(getInt());
-        if ("victoryPointsYesterday".equals(qName))
+        }
+        if ("victoryPointsYesterday".equals(qName)) {
             response.setVictoryPointsYesterday(getInt());
-        if ("victoryPointsLastWeek".equals(qName))
+        }
+        if ("victoryPointsLastWeek".equals(qName)) {
             response.setVictoryPointsLastWeek(getInt());
-        if ("victoryPointsTotal".equals(qName))
+        }
+        if ("victoryPointsTotal".equals(qName)) {
             response.setVictoryPointsTotal(getInt());
-        if ("pilots".equals(qName))
+        }
+        if ("pilots".equals(qName)) {
             response.setPilots(getInt());
+        }
         super.endElement(uri, localName, qName);
     }
 

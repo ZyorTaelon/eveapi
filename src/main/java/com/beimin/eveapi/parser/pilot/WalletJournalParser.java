@@ -13,15 +13,15 @@ public class WalletJournalParser extends AbstractWalletJournalParser {
         super(ApiPath.CHARACTER);
     }
 
-    public WalletJournalResponse getWalletJournalResponse(ApiAuth auth) throws ApiException {
+    public WalletJournalResponse getWalletJournalResponse(final ApiAuth auth) throws ApiException {
         return getResponse(auth, 1000);
     }
 
-    public WalletJournalResponse getWalletJournalResponse(ApiAuth auth, long beforeRefID) throws ApiException {
+    public WalletJournalResponse getWalletJournalResponse(final ApiAuth auth, final long beforeRefID) throws ApiException {
         return getResponse(auth, 1000, beforeRefID, DEFAULT_ROW_COUNT);
     }
 
-    public WalletJournalResponse getWalletJournalResponse(ApiAuth auth, long beforeRefID, int rowCount) throws ApiException {
+    public WalletJournalResponse getWalletJournalResponse(final ApiAuth auth, final long beforeRefID, final int rowCount) throws ApiException {
         return getResponse(auth, 1000, beforeRefID, rowCount);
     }
 }

@@ -20,14 +20,15 @@ public class ExchangeProcessor implements Processor {
     ExtraAsserts extras;
     String fullPath;
 
-    public ExchangeProcessor(ExtraAsserts extras, String fullPath) {
+    public ExchangeProcessor(final ExtraAsserts extras, final String fullPath) {
         this.extras = extras;
         this.fullPath = fullPath;
     }
 
-    public void process(Exchange exchange) {
-        String s = exchange.getIn().getBody(String.class);
-        Map<String, String> params = CamelUtils.parsePostParams(s);
+    @Override
+    public void process(final Exchange exchange) {
+        final String s = exchange.getIn().getBody(String.class);
+        final Map<String, String> params = CamelUtils.parsePostParams(s);
         assertNotNull(params);
         extras.extraAsserts(params);
         exchange.getOut().setBody(MockApi.response(fullPath));

@@ -10,7 +10,7 @@ public class SystemKills {
         return solarSystemID;
     }
 
-    public void setSolarSystemID(int solarSystemID) {
+    public void setSolarSystemID(final int solarSystemID) {
         this.solarSystemID = solarSystemID;
     }
 
@@ -18,7 +18,7 @@ public class SystemKills {
         return shipKills;
     }
 
-    public void setShipKills(int shipKills) {
+    public void setShipKills(final int shipKills) {
         this.shipKills = shipKills;
     }
 
@@ -26,7 +26,7 @@ public class SystemKills {
         return factionKills;
     }
 
-    public void setFactionKills(int factionKills) {
+    public void setFactionKills(final int factionKills) {
         this.factionKills = factionKills;
     }
 
@@ -34,7 +34,7 @@ public class SystemKills {
         return podKills;
     }
 
-    public void setPodKills(int podKills) {
+    public void setPodKills(final int podKills) {
         this.podKills = podKills;
     }
 }

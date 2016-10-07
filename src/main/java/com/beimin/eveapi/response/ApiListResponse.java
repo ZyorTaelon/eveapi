@@ -4,9 +4,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public abstract class ApiListResponse<B> extends ApiResponse {
-    private Set<B> items = new LinkedHashSet<B>();
+    private final Set<B> items = new LinkedHashSet<B>();
 
-    public void add(B item) {
+    public void add(final B item) {
         items.add(item);
     }
 

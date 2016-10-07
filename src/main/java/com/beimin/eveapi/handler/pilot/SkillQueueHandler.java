@@ -13,8 +13,8 @@ public class SkillQueueHandler extends AbstractContentListHandler<SkillQueueResp
     }
 
     @Override
-    protected SkillQueueItem getItem(Attributes attrs) {
-        SkillQueueItem item = new SkillQueueItem();
+    protected SkillQueueItem getItem(final Attributes attrs) {
+        final SkillQueueItem item = new SkillQueueItem();
         item.setTypeID(getInt(attrs, "typeID"));
         item.setLevel(getInt(attrs, "level"));
         item.setQueuePosition(getInt(attrs, "queuePosition"));

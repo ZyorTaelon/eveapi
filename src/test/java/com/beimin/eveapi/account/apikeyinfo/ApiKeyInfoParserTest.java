@@ -24,10 +24,10 @@ public class ApiKeyInfoParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws Exception {
-        ApiKeyInfoParser apiKeyInfoParser = new ApiKeyInfoParser();
-        ApiKeyInfoResponse response = apiKeyInfoParser.getResponse(auth);
+        final ApiKeyInfoParser apiKeyInfoParser = new ApiKeyInfoParser();
+        final ApiKeyInfoResponse response = apiKeyInfoParser.getResponse(auth);
         assertNotNull(response);
-        ApiKeyInfo apiKeyInfo = response.getApiKeyInfo();
+        final ApiKeyInfo apiKeyInfo = response.getApiKeyInfo();
         assertNotNull(apiKeyInfo);
 
         assertEquals(4227, apiKeyInfo.getAccessMask());
@@ -35,7 +35,7 @@ public class ApiKeyInfoParserTest extends FullAuthParserTest {
 
         assertEquals(3, apiKeyInfo.getEveCharacters().size());
 
-        List<Character> characters = new ArrayList<Character>(apiKeyInfo.getEveCharacters());
+        final List<Character> characters = new ArrayList<Character>(apiKeyInfo.getEveCharacters());
 
         assertEquals(987623974, characters.get(0).getCharacterID());
         assertEquals("Golden Gnu", characters.get(0).getName());

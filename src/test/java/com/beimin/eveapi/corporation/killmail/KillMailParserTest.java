@@ -29,17 +29,17 @@ public class KillMailParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        AbstractKillMailParser parser = new KillMailParser();
-        KillMailResponse response = parser.getResponse(auth);
+        final AbstractKillMailParser parser = new KillMailParser();
+        final KillMailResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Collection<Kill> entries = response.getAll();
+        final Collection<Kill> entries = response.getAll();
         assertEquals(18, entries.size());
         boolean found = false;
-        for (Kill kill : entries) {
+        for (final Kill kill : entries) {
             if (kill.getKillID() == 4879947) {
                 found = true;
                 assertDate(2008, 12, 18, 23, 57, 0, kill.getKillTime());
-                KillVictim victim = kill.getVictim();
+                final KillVictim victim = kill.getVictim();
                 assertNotNull(victim);
 
                 assertEquals(victim.getCharacterID(), 411109620);
@@ -53,10 +53,10 @@ public class KillMailParserTest extends FullAuthParserTest {
                 assertEquals(victim.getDamageTaken(), 1415);
                 assertEquals(victim.getShipTypeID(), 587);
 
-                List<KillAttacker> attackers = kill.getAttackers();
+                final List<KillAttacker> attackers = kill.getAttackers();
                 assertNotNull(attackers);
                 assertEquals(1, attackers.size());
-                KillAttacker attacker = attackers.iterator().next();
+                final KillAttacker attacker = attackers.iterator().next();
                 assertEquals(attacker.getCharacterID(), 1134301496);
                 assertEquals(attacker.getCharacterName(), "Blackfiredaemon");
                 assertEquals(attacker.getCorporationID(), 1885670269);
@@ -71,7 +71,7 @@ public class KillMailParserTest extends FullAuthParserTest {
                 assertEquals(attacker.getWeaponTypeID(), 2897);
                 assertEquals(attacker.getShipTypeID(), 11999);
 
-                List<KillItem> items = kill.getItems();
+                final List<KillItem> items = kill.getItems();
                 assertNotNull(items);
                 assertEquals(12, items.size());
             }

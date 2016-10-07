@@ -8,7 +8,7 @@ public abstract class CorporationStat implements FacWarStat {
         return corporationID;
     }
 
-    public void setCorporationID(long corporationID) {
+    public void setCorporationID(final long corporationID) {
         this.corporationID = corporationID;
     }
 
@@ -16,7 +16,7 @@ public abstract class CorporationStat implements FacWarStat {
         return corporationName;
     }
 
-    public void setCorporationName(String corporationName) {
+    public void setCorporationName(final String corporationName) {
         this.corporationName = corporationName;
     }
 }

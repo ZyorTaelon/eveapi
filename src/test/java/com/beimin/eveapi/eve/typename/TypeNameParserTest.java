@@ -22,17 +22,17 @@ public class TypeNameParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        TypeNameParser parser = new TypeNameParser();
-        TypeNameResponse response = parser.getResponse(12345);
-        Collection<EveTypeName> chars = response.getAll();
+        final TypeNameParser parser = new TypeNameParser();
+        final TypeNameResponse response = parser.getResponse(12345);
+        final Collection<EveTypeName> chars = response.getAll();
         assertEquals(1, chars.size());
-        EveTypeName typeName = chars.iterator().next();
+        final EveTypeName typeName = chars.iterator().next();
         assertEquals("200mm Railgun I Blueprint", typeName.getTypeName());
         assertEquals(12345, typeName.getTypeID());
     }
 
     @Override
-    public void extraAsserts(Map<String, String> req) {
+    public void extraAsserts(final Map<String, String> req) {
         super.extraAsserts(req);
         assertEquals("12345", req.get("ids"));
     }

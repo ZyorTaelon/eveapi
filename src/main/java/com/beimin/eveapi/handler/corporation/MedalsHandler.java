@@ -12,8 +12,8 @@ public class MedalsHandler extends AbstractContentListHandler<MedalsResponse, Me
     }
 
     @Override
-    protected Medal getItem(Attributes attrs) {
-        Medal medal = new Medal();
+    protected Medal getItem(final Attributes attrs) {
+        final Medal medal = new Medal();
         medal.setMedalID(getInt(attrs, "medalID"));
         medal.setDescription(getString(attrs, "description"));
         medal.setCreatorID(getLong(attrs, "creatorID"));

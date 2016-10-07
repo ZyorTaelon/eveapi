@@ -20,18 +20,20 @@ public class EveApiRouteBuilder extends RouteBuilder implements Processor, Excha
         addRoute(ApiPath.CHARACTER, ApiPage.ACCOUNT_BALANCE);
     }
 
-    private void addRoute(ApiPath path, ApiPage page) {
+    private void addRoute(final ApiPath path, final ApiPage page) {
         final String resPath = path.getPath() + "/" + page.getPage();
         from("jetty:" + MockApi.URL + resPath + ".xml.aspx").process(new ExchangeProcessor(EveApiRouteBuilder.this, resPath + ".xml")).end();
     }
 
-    public void process(Exchange exchange) throws Exception {
-        String body = exchange.getIn().getBody(String.class);
-        Map<String, String> params = CamelUtils.parsePostParams(body);
+    @Override
+    public void process(final Exchange exchange) throws Exception {
+        final String body = exchange.getIn().getBody(String.class);
+        final Map<String, String> params = CamelUtils.parsePostParams(body);
         assertNotNull(params);
     }
 
-    public void extraAsserts(Map<String, String> params) {
+    @Override
+    public void extraAsserts(final Map<String, String> params) {
         // TODO Auto-generated method stub
     }
 }

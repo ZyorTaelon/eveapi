@@ -12,8 +12,8 @@ public class ContractItemsHandler extends AbstractContentListHandler<ContractIte
     }
 
     @Override
-    protected ContractItem getItem(Attributes attrs) {
-        ContractItem contractItem = new ContractItem();
+    protected ContractItem getItem(final Attributes attrs) {
+        final ContractItem contractItem = new ContractItem();
         contractItem.setRecordID(getLong(attrs, "recordID"));
         contractItem.setTypeID(getInt(attrs, "typeID"));
         contractItem.setQuantity(getLong(attrs, "quantity"));

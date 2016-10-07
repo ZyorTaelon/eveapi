@@ -47,7 +47,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -55,7 +55,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -63,7 +63,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return race;
     }
 
-    public void setRace(Race race) {
+    public void setRace(final Race race) {
         this.race = race;
     }
 
@@ -71,7 +71,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date doB) {
+    public void setDateOfBirth(final Date doB) {
         dateOfBirth = doB;
     }
 
@@ -79,7 +79,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return bloodLine;
     }
 
-    public void setBloodLine(Bloodline bloodLine) {
+    public void setBloodLine(final Bloodline bloodLine) {
         this.bloodLine = bloodLine;
     }
 
@@ -87,7 +87,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return ancestry;
     }
 
-    public void setAncestry(Ancestry ancestry) {
+    public void setAncestry(final Ancestry ancestry) {
         this.ancestry = ancestry;
     }
 
@@ -95,7 +95,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(final String gender) {
         this.gender = gender;
     }
 
@@ -103,7 +103,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return corporationName;
     }
 
-    public void setCorporationName(String corporationName) {
+    public void setCorporationName(final String corporationName) {
         this.corporationName = corporationName;
     }
 
@@ -111,7 +111,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return corporationID;
     }
 
-    public void setCorporationID(long corporationID) {
+    public void setCorporationID(final long corporationID) {
         this.corporationID = corporationID;
     }
 
@@ -119,7 +119,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return allianceName;
     }
 
-    public void setAllianceName(String allianceName) {
+    public void setAllianceName(final String allianceName) {
         this.allianceName = allianceName;
     }
 
@@ -127,7 +127,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return allianceID;
     }
 
-    public void setAllianceID(Long allianceID) {
+    public void setAllianceID(final Long allianceID) {
         this.allianceID = allianceID;
     }
 
@@ -135,7 +135,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return cloneName;
     }
 
-    public void setCloneName(String cloneName) {
+    public void setCloneName(final String cloneName) {
         this.cloneName = cloneName;
     }
 
@@ -143,7 +143,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return cloneSkillPoints;
     }
 
-    public void setCloneSkillPoints(long cloneSkillPoints) {
+    public void setCloneSkillPoints(final long cloneSkillPoints) {
         this.cloneSkillPoints = cloneSkillPoints;
     }
 
@@ -151,11 +151,11 @@ public class CharacterSheetResponse extends ApiResponse {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(final double balance) {
         this.balance = balance;
     }
 
-    public void addAttributeEnhancer(AttributeEnhancer attributeEnhancer) {
+    public void addAttributeEnhancer(final AttributeEnhancer attributeEnhancer) {
         attributeEnhancers.add(attributeEnhancer);
     }
 
@@ -167,7 +167,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return intelligence;
     }
 
-    public void setIntelligence(int intelligence) {
+    public void setIntelligence(final int intelligence) {
         this.intelligence = intelligence;
     }
 
@@ -175,7 +175,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return memory;
     }
 
-    public void setMemory(int memory) {
+    public void setMemory(final int memory) {
         this.memory = memory;
     }
 
@@ -183,7 +183,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return charisma;
     }
 
-    public void setCharisma(int charisma) {
+    public void setCharisma(final int charisma) {
         this.charisma = charisma;
     }
 
@@ -191,7 +191,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return perception;
     }
 
-    public void setPerception(int perception) {
+    public void setPerception(final int perception) {
         this.perception = perception;
     }
 
@@ -199,11 +199,11 @@ public class CharacterSheetResponse extends ApiResponse {
         return willpower;
     }
 
-    public void setWillpower(int willpower) {
+    public void setWillpower(final int willpower) {
         this.willpower = willpower;
     }
 
-    public void addSkill(Skill skill) {
+    public void addSkill(final Skill skill) {
         skills.add(skill);
     }
 
@@ -211,7 +211,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return skills;
     }
 
-    public void addCertificate(Certificate certificate) {
+    public void addCertificate(final Certificate certificate) {
         certificates.add(certificate);
     }
 
@@ -219,7 +219,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return certificates;
     }
 
-    public void addCorporationRole(CorporationRole corporationRole) {
+    public void addCorporationRole(final CorporationRole corporationRole) {
         corporationRoles.add(corporationRole);
     }
 
@@ -227,7 +227,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return corporationRoles;
     }
 
-    public void addCorporationRoleAtHQ(CorporationRole corporationRole) {
+    public void addCorporationRoleAtHQ(final CorporationRole corporationRole) {
         corporationRolesAtHQ.add(corporationRole);
     }
 
@@ -235,7 +235,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return corporationRolesAtHQ;
     }
 
-    public void addCorporationRoleAtBase(CorporationRole corporationRole) {
+    public void addCorporationRoleAtBase(final CorporationRole corporationRole) {
         corporationRolesAtBase.add(corporationRole);
     }
 
@@ -243,7 +243,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return corporationRolesAtBase;
     }
 
-    public void addCorporationRoleAtOther(CorporationRole corporationRole) {
+    public void addCorporationRoleAtOther(final CorporationRole corporationRole) {
         corporationRolesAtOther.add(corporationRole);
     }
 
@@ -251,7 +251,7 @@ public class CharacterSheetResponse extends ApiResponse {
         return corporationRolesAtOther;
     }
 
-    public void addCorporationTitle(CorporationTitle title) {
+    public void addCorporationTitle(final CorporationTitle title) {
         corporationTitles.add(title);
     }
 

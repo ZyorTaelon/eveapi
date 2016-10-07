@@ -8,7 +8,7 @@ public class SystemJumps {
         return solarSystemID;
     }
 
-    public void setSolarSystemID(int solarSystemID) {
+    public void setSolarSystemID(final int solarSystemID) {
         this.solarSystemID = solarSystemID;
     }
 
@@ -16,7 +16,7 @@ public class SystemJumps {
         return shipJumps;
     }
 
-    public void setShipJumps(int shipJumps) {
+    public void setShipJumps(final int shipJumps) {
         this.shipJumps = shipJumps;
     }
 }

@@ -9,7 +9,7 @@ public class Role {
         return roleID;
     }
 
-    public void setRoleID(long roleID) {
+    public void setRoleID(final long roleID) {
         this.roleID = roleID;
     }
 
@@ -17,7 +17,7 @@ public class Role {
         return roleName;
     }
 
-    public void setRoleName(String roleName) {
+    public void setRoleName(final String roleName) {
         this.roleName = roleName;
     }
 
@@ -25,7 +25,7 @@ public class Role {
         return roleDescription;
     }
 
-    public void setRoleDescription(String roleDescription) {
+    public void setRoleDescription(final String roleDescription) {
         this.roleDescription = roleDescription;
     }
 }

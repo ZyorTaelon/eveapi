@@ -32,24 +32,26 @@ public class CallListParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        CallListParser parser = new CallListParser();
-        CallListResponse response = parser.getResponse();
+        final CallListParser parser = new CallListParser();
+        final CallListResponse response = parser.getResponse();
         assertNotNull(response);
 
-        List<CallGroup> callGroups = new ArrayList<CallGroup>(response.get().getCallGroups());
+        final List<CallGroup> callGroups = new ArrayList<CallGroup>(response.get().getCallGroups());
         assertFalse("There were no call groups", callGroups.isEmpty());
         Collections.sort(callGroups, new Comparator<CallGroup>() {
-            public int compare(CallGroup o1, CallGroup o2) {
+            @Override
+            public int compare(final CallGroup o1, final CallGroup o2) {
                 return o1.getGroupID() - o2.getGroupID();
             }
         });
         assertEquals(1, callGroups.get(0).getGroupID());
         assertEquals("Account and Market", callGroups.get(0).getName());
 
-        List<Call> calls = new ArrayList<Call>(response.get().getCalls());
+        final List<Call> calls = new ArrayList<Call>(response.get().getCalls());
         assertFalse("There were no calls", calls.isEmpty());
         Collections.sort(calls, new Comparator<Call>() {
-            public int compare(Call o1, Call o2) {
+            @Override
+            public int compare(final Call o1, final Call o2) {
                 int ret = o1.getType().compareTo(o2.getType());
                 if (ret == 0) {
                     ret = (int) (o1.getAccessMask() - o2.getAccessMask());

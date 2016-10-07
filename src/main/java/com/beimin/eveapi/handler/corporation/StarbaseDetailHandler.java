@@ -16,7 +16,7 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if ("onStandingDrop".equals(qName)) {
             response.setOnStandingDrop(getCombatSetting(attrs));
         } else if ("onStatusDrop".equals(qName)) {
@@ -27,21 +27,23 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
             response.setOnCorporationWar(getCombatSetting(attrs));
         } else if (ELEMENT_ROW.equals(qName)) {
             response.addFuelLevel(getInt(attrs, "typeID"), getInt(attrs, "quantity"));
-        } else
+        } else {
             super.startElement(uri, localName, qName, attrs);
+        }
     }
 
-    private CombatSetting getCombatSetting(Attributes attrs) {
-        CombatSetting onStandingDrop = new CombatSetting();
-        Integer standing = getInt(attrs, "standing");
-        if (standing != null)
+    private CombatSetting getCombatSetting(final Attributes attrs) {
+        final CombatSetting onStandingDrop = new CombatSetting();
+        final Integer standing = getInt(attrs, "standing");
+        if (standing != null) {
             onStandingDrop.setStanding(standing);
+        }
         onStandingDrop.setEnabled(getBoolean(attrs, "enabled"));
         return onStandingDrop;
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if ("usageFlags".equals(qName)) {
             response.setUsageFlags(getInt());
         } else if ("deployFlags".equals(qName)) {

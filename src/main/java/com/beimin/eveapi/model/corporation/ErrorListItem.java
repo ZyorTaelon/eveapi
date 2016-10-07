@@ -9,7 +9,7 @@ public class ErrorListItem {
         return errorCode;
     }
 
-    public void setErrorCode(int errorCode) {
+    public void setErrorCode(final int errorCode) {
         this.errorCode = errorCode;
     }
 
@@ -17,7 +17,7 @@ public class ErrorListItem {
         return errorText;
     }
 
-    public void setErrorText(String errorText) {
+    public void setErrorText(final String errorText) {
         this.errorText = errorText;
     }
 }

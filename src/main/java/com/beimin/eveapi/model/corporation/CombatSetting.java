@@ -8,7 +8,7 @@ public class CombatSetting {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(final boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -16,7 +16,7 @@ public class CombatSetting {
         return standing;
     }
 
-    public void setStanding(int standing) {
+    public void setStanding(final int standing) {
         this.standing = standing;
     }
 }

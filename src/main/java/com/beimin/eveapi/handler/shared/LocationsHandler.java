@@ -13,8 +13,8 @@ public class LocationsHandler extends AbstractContentListHandler<LocationsRespon
     }
 
     @Override
-    protected Location getItem(Attributes attrs) {
-        Location location = new Location();
+    protected Location getItem(final Attributes attrs) {
+        final Location location = new Location();
         location.setItemID(getLong(attrs, "itemID"));
         location.setItemName(getString(attrs, "itemName"));
         location.setX(getDouble(attrs, "x"));

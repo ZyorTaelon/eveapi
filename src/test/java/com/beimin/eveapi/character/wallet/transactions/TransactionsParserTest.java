@@ -26,13 +26,13 @@ public class TransactionsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        AbstractWalletTransactionsParser parser = new WalletTransactionsParser();
-        WalletTransactionsResponse response = parser.getResponse(auth, 1000);
+        final AbstractWalletTransactionsParser parser = new WalletTransactionsParser();
+        final WalletTransactionsResponse response = parser.getResponse(auth, 1000);
         assertNotNull(response);
-        Set<WalletTransaction> walletTransactions = response.getAll();
+        final Set<WalletTransaction> walletTransactions = response.getAll();
         assertEquals(25, walletTransactions.size());
         boolean found = false;
-        for (WalletTransaction walletTransaction : walletTransactions) {
+        for (final WalletTransaction walletTransaction : walletTransactions) {
             if (walletTransaction.getTransactionID() == 1364611263) {
                 found = true;
                 assertDate(2010, 3, 24, 19, 58, 0, walletTransaction.getTransactionDateTime());
@@ -52,7 +52,7 @@ public class TransactionsParserTest extends FullAuthParserTest {
     }
 
     @Override
-    public void extraAsserts(Map<String, String> req) {
+    public void extraAsserts(final Map<String, String> req) {
         super.extraAsserts(req);
         assertEquals("1000", req.get("accountKey"));
     }

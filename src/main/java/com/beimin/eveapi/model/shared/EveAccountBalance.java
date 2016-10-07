@@ -12,7 +12,7 @@ public class EveAccountBalance {
         return accountID;
     }
 
-    public void setAccountID(int accountID) {
+    public void setAccountID(final int accountID) {
         this.accountID = accountID;
     }
 
@@ -20,7 +20,7 @@ public class EveAccountBalance {
         return accountKey;
     }
 
-    public void setAccountKey(int accountKey) {
+    public void setAccountKey(final int accountKey) {
         this.accountKey = accountKey;
     }
 
@@ -28,18 +28,18 @@ public class EveAccountBalance {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(final double balance) {
         this.balance = balance;
     }
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
+        final StringBuilder result = new StringBuilder();
         result.append(accountID);
         result.append("\t");
         result.append(accountKey);
         result.append("\t");
-        NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("is", "IS"));
+        final NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("is", "IS"));
         result.append(formatter.format(balance));
         return result.toString();
     }

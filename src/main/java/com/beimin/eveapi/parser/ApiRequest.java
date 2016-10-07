@@ -11,7 +11,7 @@ public class ApiRequest implements Comparable<ApiRequest> {
     private final ApiAuth auth;
     private final Map<String, String> params;
 
-    public ApiRequest(ApiPath path, ApiPage page, int version, ApiAuth auth, Map<String, String> params) {
+    public ApiRequest(final ApiPath path, final ApiPage page, final int version, final ApiAuth auth, final Map<String, String> params) {
         this.path = path;
         this.page = page;
         this.version = version;
@@ -19,15 +19,15 @@ public class ApiRequest implements Comparable<ApiRequest> {
         this.params = params;
     }
 
-    public ApiRequest(ApiPath path, ApiPage page, int version, Map<String, String> params) {
+    public ApiRequest(final ApiPath path, final ApiPage page, final int version, final Map<String, String> params) {
         this(path, page, version, null, params);
     }
 
-    public ApiRequest(ApiPath path, ApiPage page, int version, ApiAuth auth) {
+    public ApiRequest(final ApiPath path, final ApiPage page, final int version, final ApiAuth auth) {
         this(path, page, version, auth, new HashMap<String, String>());
     }
 
-    public ApiRequest(ApiPath path, ApiPage page, int version) {
+    public ApiRequest(final ApiPath path, final ApiPage page, final int version) {
         this(path, page, version, null, new HashMap<String, String>());
     }
 
@@ -51,7 +51,8 @@ public class ApiRequest implements Comparable<ApiRequest> {
         return params;
     }
 
-    public int compareTo(ApiRequest o) {
+    @Override
+    public int compareTo(final ApiRequest o) {
         return equals(o) ? 0 : 1;
     }
 
@@ -59,50 +60,60 @@ public class ApiRequest implements Comparable<ApiRequest> {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((auth == null) ? 0 : auth.hashCode());
-        result = prime * result + ((page == null) ? 0 : page.hashCode());
-        result = prime * result + ((params == null) ? 0 : params.hashCode());
-        result = prime * result + ((path == null) ? 0 : path.hashCode());
-        result = prime * result + version;
+        result = (prime * result) + ((auth == null) ? 0 : auth.hashCode());
+        result = (prime * result) + ((page == null) ? 0 : page.hashCode());
+        result = (prime * result) + ((params == null) ? 0 : params.hashCode());
+        result = (prime * result) + ((path == null) ? 0 : path.hashCode());
+        result = (prime * result) + version;
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
+    public boolean equals(final Object obj) {
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
-        ApiRequest other = (ApiRequest) obj;
+        }
+        final ApiRequest other = (ApiRequest) obj;
         if (auth == null) {
-            if (other.auth != null)
+            if (other.auth != null) {
                 return false;
-        } else if (!auth.equals(other.auth))
+            }
+        } else if (!auth.equals(other.auth)) {
             return false;
-        if (page != other.page)
+        }
+        if (page != other.page) {
             return false;
+        }
         if (params == null) {
-            if (other.params != null)
+            if (other.params != null) {
                 return false;
-        } else if (!params.equals(other.params))
+            }
+        } else if (!params.equals(other.params)) {
             return false;
-        if (path != other.path)
+        }
+        if (path != other.path) {
             return false;
-        if (version != other.version)
+        }
+        if (version != other.version) {
             return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
+        final StringBuilder result = new StringBuilder();
         result.append("Path: ").append(path.getPath()).append("\n");
         result.append("Page: ").append(page.getPage()).append("\n");
         result.append("Version: ").append(version).append("\n");
         result.append("Auth: ").append(auth.toString()).append("\n");
-        for (Entry<String, String> entry : params.entrySet()) {
+        for (final Entry<String, String> entry : params.entrySet()) {
             result.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
         }
         return result.toString();

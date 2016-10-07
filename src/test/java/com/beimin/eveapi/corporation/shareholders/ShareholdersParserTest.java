@@ -22,21 +22,21 @@ public class ShareholdersParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        ShareholdersParser parser = new ShareholdersParser();
-        ShareholdersResponse response = parser.getResponse(auth);
+        final ShareholdersParser parser = new ShareholdersParser();
+        final ShareholdersResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Collection<Shareholder> characters = response.getCharacters();
+        final Collection<Shareholder> characters = response.getCharacters();
         assertEquals(1, characters.size());
-        Shareholder characterShareholder = characters.iterator().next();
+        final Shareholder characterShareholder = characters.iterator().next();
         assertEquals(126891489L, characterShareholder.getShareholderID());
         assertEquals("Dragonaire", characterShareholder.getShareholderName());
         assertEquals(632257314L, characterShareholder.getShareholderCorporationID().longValue());
         assertEquals("Corax.", characterShareholder.getShareholderCorporationName());
         assertEquals(1, characterShareholder.getShares());
 
-        Collection<Shareholder> corporations = response.getCorporations();
+        final Collection<Shareholder> corporations = response.getCorporations();
         assertEquals(1, corporations.size());
-        Shareholder corporationShareholder = corporations.iterator().next();
+        final Shareholder corporationShareholder = corporations.iterator().next();
         assertEquals(632257314L, corporationShareholder.getShareholderID());
         assertEquals("Corax.", corporationShareholder.getShareholderName());
         assertEquals(1, corporationShareholder.getShares());

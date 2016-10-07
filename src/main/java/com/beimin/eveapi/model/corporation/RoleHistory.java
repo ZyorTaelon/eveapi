@@ -18,7 +18,7 @@ public class RoleHistory {
         return changeTime;
     }
 
-    public void setChangeTime(Date changeTime) {
+    public void setChangeTime(final Date changeTime) {
         this.changeTime = changeTime;
     }
 
@@ -26,7 +26,7 @@ public class RoleHistory {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -34,7 +34,7 @@ public class RoleHistory {
         return characterName;
     }
 
-    public void setCharacterName(String characterName) {
+    public void setCharacterName(final String characterName) {
         this.characterName = characterName;
     }
 
@@ -42,7 +42,7 @@ public class RoleHistory {
         return issuerID;
     }
 
-    public void setIssuerID(long issuerID) {
+    public void setIssuerID(final long issuerID) {
         this.issuerID = issuerID;
     }
 
@@ -50,7 +50,7 @@ public class RoleHistory {
         return issuerName;
     }
 
-    public void setIssuerName(String issuerName) {
+    public void setIssuerName(final String issuerName) {
         this.issuerName = issuerName;
     }
 
@@ -58,7 +58,7 @@ public class RoleHistory {
         return roleLocationType;
     }
 
-    public void setRoleLocationType(String roleLocationType) {
+    public void setRoleLocationType(final String roleLocationType) {
         this.roleLocationType = roleLocationType;
     }
 
@@ -70,11 +70,11 @@ public class RoleHistory {
         return newRoles;
     }
 
-    public void addOldRole(SecurityRole securityRole) {
+    public void addOldRole(final SecurityRole securityRole) {
         oldRoles.add(securityRole);
     }
 
-    public void addNewRole(SecurityRole securityRole) {
+    public void addNewRole(final SecurityRole securityRole) {
         newRoles.add(securityRole);
     }
 }

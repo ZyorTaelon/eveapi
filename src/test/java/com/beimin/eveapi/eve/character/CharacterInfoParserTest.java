@@ -32,13 +32,13 @@ public class CharacterInfoParserTest {
 
     @Test
     public void parserTestWithoutAuth() throws Exception {
-        CamelContext context = new DefaultCamelContext();
+        final CamelContext context = new DefaultCamelContext();
 
         context.addRoutes(noAPI);
         context.start();
         EveApi.setConnector(new ApiConnector(MockApi.URL));
-        CharacterInfoParser parser = new CharacterInfoParser();
-        CharacterInfoResponse response = parser.getResponse(1380128241);
+        final CharacterInfoParser parser = new CharacterInfoParser();
+        final CharacterInfoResponse response = parser.getResponse(1380128241);
         assertNotNull(response);
         assertEquals(1380128241L, response.getCharacterID());
         assertEquals("Zy'or Tealon", response.getCharacterName());
@@ -65,12 +65,12 @@ public class CharacterInfoParserTest {
 
     @Test
     public void parserTestWithLimitedAPI() throws Exception {
-        CamelContext context = new DefaultCamelContext();
+        final CamelContext context = new DefaultCamelContext();
         context.addRoutes(limitedApiRoute);
         context.start();
         EveApi.setConnector(new ApiConnector(MockApi.URL));
-        CharacterInfoParser parser = new CharacterInfoParser();
-        CharacterInfoResponse response = parser.getResponse(limitedAPI);
+        final CharacterInfoParser parser = new CharacterInfoParser();
+        final CharacterInfoResponse response = parser.getResponse(limitedAPI);
         assertNotNull(response);
         assertEquals(1380128241L, response.getCharacterID());
         assertEquals("Zy'or Tealon", response.getCharacterName());
@@ -96,12 +96,12 @@ public class CharacterInfoParserTest {
 
     @Test
     public void parserTestWithFullAPI() throws Exception {
-        CamelContext context = new DefaultCamelContext();
+        final CamelContext context = new DefaultCamelContext();
         context.addRoutes(fullApiRoute);
         context.start();
         EveApi.setConnector(new ApiConnector(MockApi.URL));
-        CharacterInfoParser parser = new CharacterInfoParser();
-        CharacterInfoResponse response = parser.getResponse(fullAPI);
+        final CharacterInfoParser parser = new CharacterInfoParser();
+        final CharacterInfoResponse response = parser.getResponse(fullAPI);
         assertNotNull(response);
         assertEquals(1380128241L, response.getCharacterID());
         assertEquals("Zy'or Tealon", response.getCharacterName());
@@ -129,7 +129,8 @@ public class CharacterInfoParserTest {
         @Override
         public void configure() {
             from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
-                public void extraAsserts(Map<String, String> params) {
+                @Override
+                public void extraAsserts(final Map<String, String> params) {
                     assertNotNull(params);
                     assertEquals("123", params.get("keyID"));
                     assertEquals("1380128241", params.get("characterID"));
@@ -143,7 +144,8 @@ public class CharacterInfoParserTest {
         @Override
         public void configure() {
             from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
-                public void extraAsserts(Map<String, String> params) {
+                @Override
+                public void extraAsserts(final Map<String, String> params) {
                     assertNotNull(params);
                     assertEquals("1380128241", params.get("characterID"));
                 }
@@ -155,7 +157,8 @@ public class CharacterInfoParserTest {
         @Override
         public void configure() {
             from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
-                public void extraAsserts(Map<String, String> params) {
+                @Override
+                public void extraAsserts(final Map<String, String> params) {
                     assertNotNull(params);
                     assertEquals("123", params.get("keyID"));
                     assertEquals("1380128241", params.get("characterID"));

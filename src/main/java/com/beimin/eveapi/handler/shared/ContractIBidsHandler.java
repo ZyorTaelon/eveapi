@@ -12,8 +12,8 @@ public class ContractIBidsHandler extends AbstractContentListHandler<ContractBid
     }
 
     @Override
-    protected ContractBid getItem(Attributes attrs) {
-        ContractBid contractItem = new ContractBid();
+    protected ContractBid getItem(final Attributes attrs) {
+        final ContractBid contractItem = new ContractBid();
         contractItem.setBidID(getLong(attrs, "bidID"));
         contractItem.setContractID(getLong(attrs, "contractID"));
         contractItem.setBidderID(getLong(attrs, "bidderID"));

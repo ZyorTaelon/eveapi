@@ -12,7 +12,7 @@ public class Medal extends AbstractMedal {
         return creatorID;
     }
 
-    public void setCreatorID(long creatorID) {
+    public void setCreatorID(final long creatorID) {
         this.creatorID = creatorID;
     }
 
@@ -20,7 +20,7 @@ public class Medal extends AbstractMedal {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(final Date created) {
         this.created = created;
     }
 }

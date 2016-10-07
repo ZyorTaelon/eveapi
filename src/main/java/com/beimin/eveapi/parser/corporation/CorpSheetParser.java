@@ -20,11 +20,11 @@ public class CorpSheetParser extends AbstractApiParser<CorpSheetResponse> {
     }
 
     @Override
-    public CorpSheetResponse getResponse(ApiAuth auth) throws ApiException {
+    public CorpSheetResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 
-    public CorpSheetResponse getResponse(long corporationID) throws ApiException {
+    public CorpSheetResponse getResponse(final long corporationID) throws ApiException {
         return getResponse("corporationID", Long.toString(corporationID));
     }
 }

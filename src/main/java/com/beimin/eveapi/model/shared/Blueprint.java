@@ -15,7 +15,7 @@ public class Blueprint {
         return itemID;
     }
 
-    public void setItemID(long itemID) {
+    public void setItemID(final long itemID) {
         this.itemID = itemID;
     }
 
@@ -23,7 +23,7 @@ public class Blueprint {
         return locationID;
     }
 
-    public void setLocationID(long locationID) {
+    public void setLocationID(final long locationID) {
         this.locationID = locationID;
     }
 
@@ -31,7 +31,7 @@ public class Blueprint {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -39,7 +39,7 @@ public class Blueprint {
         return typeName;
     }
 
-    public void setTypeName(String typeName) {
+    public void setTypeName(final String typeName) {
         this.typeName = typeName;
     }
 
@@ -47,7 +47,7 @@ public class Blueprint {
         return flagID;
     }
 
-    public void setFlagID(int flagID) {
+    public void setFlagID(final int flagID) {
         this.flagID = flagID;
     }
 
@@ -55,7 +55,7 @@ public class Blueprint {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(final int quantity) {
         this.quantity = quantity;
     }
 
@@ -63,7 +63,7 @@ public class Blueprint {
         return timeEfficiency;
     }
 
-    public void setTimeEfficiency(int timeEfficiency) {
+    public void setTimeEfficiency(final int timeEfficiency) {
         this.timeEfficiency = timeEfficiency;
     }
 
@@ -71,7 +71,7 @@ public class Blueprint {
         return materialEfficiency;
     }
 
-    public void setMaterialEfficiency(int materialEfficiency) {
+    public void setMaterialEfficiency(final int materialEfficiency) {
         this.materialEfficiency = materialEfficiency;
     }
 
@@ -79,7 +79,7 @@ public class Blueprint {
         return runs;
     }
 
-    public void setRuns(int runs) {
+    public void setRuns(final int runs) {
         this.runs = runs;
     }
 

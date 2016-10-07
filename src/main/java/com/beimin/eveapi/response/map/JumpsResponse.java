@@ -9,7 +9,8 @@ import com.beimin.eveapi.response.ApiListResponse;
 public class JumpsResponse extends ApiListResponse<SystemJumps> {
     private final Map<Integer, Integer> systemJumps = new HashMap<Integer, Integer>();
 
-    public void add(SystemJumps systemJump) {
+    @Override
+    public void add(final SystemJumps systemJump) {
         super.add(systemJump);
         systemJumps.put(systemJump.getSolarSystemID(), systemJump.getShipJumps());
     }

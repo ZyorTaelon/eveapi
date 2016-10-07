@@ -8,7 +8,7 @@ public class NotificationText {
         return notificationID;
     }
 
-    public void setNotificationID(long notificationID) {
+    public void setNotificationID(final long notificationID) {
         this.notificationID = notificationID;
     }
 
@@ -16,7 +16,7 @@ public class NotificationText {
         return text;
     }
 
-    public void setText(String text) {
+    public void setText(final String text) {
         this.text = text;
     }
 }

@@ -18,7 +18,7 @@ public class SkillInTrainingResponse extends ApiResponse {
         return currentTQTime;
     }
 
-    public void setCurrentTQTime(Date currentTQTime) {
+    public void setCurrentTQTime(final Date currentTQTime) {
         this.currentTQTime = currentTQTime;
     }
 
@@ -26,7 +26,7 @@ public class SkillInTrainingResponse extends ApiResponse {
         return trainingEndTime;
     }
 
-    public void setTrainingEndTime(Date trainingEndTime) {
+    public void setTrainingEndTime(final Date trainingEndTime) {
         this.trainingEndTime = trainingEndTime;
     }
 
@@ -34,7 +34,7 @@ public class SkillInTrainingResponse extends ApiResponse {
         return trainingStartTime;
     }
 
-    public void setTrainingStartTime(Date trainingStartTime) {
+    public void setTrainingStartTime(final Date trainingStartTime) {
         this.trainingStartTime = trainingStartTime;
     }
 
@@ -42,7 +42,7 @@ public class SkillInTrainingResponse extends ApiResponse {
         return trainingTypeID;
     }
 
-    public void setTrainingTypeID(int trainingTypeID) {
+    public void setTrainingTypeID(final int trainingTypeID) {
         this.trainingTypeID = trainingTypeID;
     }
 
@@ -50,7 +50,7 @@ public class SkillInTrainingResponse extends ApiResponse {
         return trainingStartSP;
     }
 
-    public void setTrainingStartSP(int trainingStartSP) {
+    public void setTrainingStartSP(final int trainingStartSP) {
         this.trainingStartSP = trainingStartSP;
     }
 
@@ -58,7 +58,7 @@ public class SkillInTrainingResponse extends ApiResponse {
         return trainingDestinationSP;
     }
 
-    public void setTrainingDestinationSP(int trainingDestinationSP) {
+    public void setTrainingDestinationSP(final int trainingDestinationSP) {
         this.trainingDestinationSP = trainingDestinationSP;
     }
 
@@ -66,7 +66,7 @@ public class SkillInTrainingResponse extends ApiResponse {
         return trainingToLevel;
     }
 
-    public void setTrainingToLevel(int trainingToLevel) {
+    public void setTrainingToLevel(final int trainingToLevel) {
         this.trainingToLevel = trainingToLevel;
     }
 
@@ -74,7 +74,7 @@ public class SkillInTrainingResponse extends ApiResponse {
         return skillInTraining;
     }
 
-    public void setSkillInTraining(boolean skillInTraining) {
+    public void setSkillInTraining(final boolean skillInTraining) {
         this.skillInTraining = skillInTraining;
     }
 }

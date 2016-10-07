@@ -22,10 +22,10 @@ public class ContainerLogParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        ContainerLogParser parser = new ContainerLogParser();
-        ContainerLogResponse response = parser.getResponse(auth);
+        final ContainerLogParser parser = new ContainerLogParser();
+        final ContainerLogResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<ContainerLog> containerLogs = response.getAll();
+        final Set<ContainerLog> containerLogs = response.getAll();
         assertNotNull(containerLogs);
         assertEquals(23, containerLogs.size());
     }

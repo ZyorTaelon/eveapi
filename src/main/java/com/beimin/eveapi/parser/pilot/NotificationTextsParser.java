@@ -15,7 +15,7 @@ public class NotificationTextsParser extends AbstractListParser<NotificationText
         super(NotificationTextsResponse.class, 2, ApiPath.CHARACTER, ApiPage.NOTIFICATION_TEXTS, NotificationTextsHandler.class);
     }
 
-    public NotificationTextsResponse getResponse(ApiAuth auth, long... notificationIDs) throws ApiException {
+    public NotificationTextsResponse getResponse(final ApiAuth auth, final long... notificationIDs) throws ApiException {
         return super.getResponse(auth, "ids", StringUtils.join(",", notificationIDs));
     }
 }

@@ -13,7 +13,7 @@ public class AccountStatus {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(final int userID) {
         this.userID = userID;
     }
 
@@ -21,7 +21,7 @@ public class AccountStatus {
         return paidUntil;
     }
 
-    public void setPaidUntil(Date paidUntil) {
+    public void setPaidUntil(final Date paidUntil) {
         this.paidUntil = paidUntil;
     }
 
@@ -29,7 +29,7 @@ public class AccountStatus {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(final Date createDate) {
         this.createDate = createDate;
     }
 
@@ -37,7 +37,7 @@ public class AccountStatus {
         return logonCount;
     }
 
-    public void setLogonCount(int logonCount) {
+    public void setLogonCount(final int logonCount) {
         this.logonCount = logonCount;
     }
 
@@ -45,7 +45,7 @@ public class AccountStatus {
         return logonMinutes;
     }
 
-    public void setLogonMinutes(int logonMinutes) {
+    public void setLogonMinutes(final int logonMinutes) {
         this.logonMinutes = logonMinutes;
     }
 

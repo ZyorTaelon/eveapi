@@ -15,8 +15,8 @@ public class CalendarEventAttendeesHandler extends AbstractContentListHandler<Ca
     }
 
     @Override
-    protected CalendarEventAttendee getItem(Attributes attrs) {
-        CalendarEventAttendee eventAttendee = new CalendarEventAttendee();
+    protected CalendarEventAttendee getItem(final Attributes attrs) {
+        final CalendarEventAttendee eventAttendee = new CalendarEventAttendee();
         eventAttendee.setEventID(getLong(attrs, "eventID"));
         eventAttendee.setCharacterID(getLong(attrs, "characterID"));
         eventAttendee.setCharacterName(getString(attrs, "characterName"));

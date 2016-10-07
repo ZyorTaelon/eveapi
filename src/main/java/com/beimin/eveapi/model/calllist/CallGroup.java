@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CallGroup {
-    private List<Call> calls = new ArrayList<Call>();
+    private final List<Call> calls = new ArrayList<Call>();
     private int groupID;
     private String name;
     private String description;
@@ -13,7 +13,7 @@ public class CallGroup {
         return groupID;
     }
 
-    public void setGroupID(int groupID) {
+    public void setGroupID(final int groupID) {
         this.groupID = groupID;
     }
 
@@ -21,7 +21,7 @@ public class CallGroup {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -29,11 +29,11 @@ public class CallGroup {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
-    public void addCall(Call call) {
+    public void addCall(final Call call) {
         calls.add(call);
     }
 

@@ -66,7 +66,7 @@ public enum ApiPage {
 
     private final String url;
 
-    private ApiPage(String url) {
+    private ApiPage(final String url) {
         this.url = url;
     }
 

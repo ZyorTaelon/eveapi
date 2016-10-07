@@ -22,8 +22,8 @@ public class PublicCorpSheetParserTest extends NoAuthParserTest {
 
     @Test
     public void corporationSheetParser() throws ApiException {
-        CorpSheetParser parser = new CorpSheetParser();
-        CorpSheetResponse response = parser.getResponse(150333466L);
+        final CorpSheetParser parser = new CorpSheetParser();
+        final CorpSheetResponse response = parser.getResponse(150333466L);
         assertNotNull(response);
         assertEquals(150333466, response.getCorporationID());
         assertEquals("Marcus Corp", response.getCorporationName());
@@ -40,7 +40,7 @@ public class PublicCorpSheetParserTest extends NoAuthParserTest {
         assertEquals(2.0, response.getTaxRate(), 0.0001);
         assertEquals(1, response.getMemberCount());
         assertEquals(18948735103L, response.getShares());
-        CorpLogo logo = response.getLogo();
+        final CorpLogo logo = response.getLogo();
         assertNotNull(logo);
         assertEquals(0, logo.getGraphicID());
         assertEquals(488, logo.getShape1());
@@ -57,7 +57,7 @@ public class PublicCorpSheetParserTest extends NoAuthParserTest {
     }
 
     @Override
-    public void extraAsserts(Map<String, String> req) {
+    public void extraAsserts(final Map<String, String> req) {
         super.extraAsserts(req);
         assertEquals("150333466", req.get("corporationID"));
     }

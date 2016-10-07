@@ -25,14 +25,14 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        AbstractIndustryJobsParser parser = new IndustryJobsParser();
-        IndustryJobsResponse response = parser.getResponse(auth);
+        final AbstractIndustryJobsParser parser = new IndustryJobsParser();
+        final IndustryJobsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Collection<IndustryJob> industryJobs = response.getAll();
+        final Collection<IndustryJob> industryJobs = response.getAll();
         assertNotNull(industryJobs);
         assertEquals(4, industryJobs.size());
         boolean found = false;
-        for (IndustryJob job : industryJobs) {
+        for (final IndustryJob job : industryJobs) {
             if (job.getJobID() == 231459965) {
                 found = true;
                 assertEquals(1111111111, job.getInstallerID());

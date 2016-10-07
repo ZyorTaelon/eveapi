@@ -27,13 +27,13 @@ public class JournalParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        AbstractWalletJournalParser parser = new WalletJournalParser();
-        WalletJournalResponse response = parser.getResponse(auth, 1000);
+        final AbstractWalletJournalParser parser = new WalletJournalParser();
+        final WalletJournalResponse response = parser.getResponse(auth, 1000);
         assertNotNull(response);
-        Collection<JournalEntry> entries = response.getAll();
+        final Collection<JournalEntry> entries = response.getAll();
         assertEquals(10, entries.size());
         boolean found = false;
-        for (JournalEntry journalEntry : entries) {
+        for (final JournalEntry journalEntry : entries) {
             if (journalEntry.getRefID() == 1575178032L) {
                 found = true;
                 assertDate(2008, 8, 20, 13, 10, 0, journalEntry.getDate());
@@ -55,7 +55,7 @@ public class JournalParserTest extends FullAuthParserTest {
     }
 
     @Override
-    public void extraAsserts(Map<String, String> req) {
+    public void extraAsserts(final Map<String, String> req) {
         super.extraAsserts(req);
         assertEquals("1000", req.get("accountKey"));
     }

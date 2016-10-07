@@ -11,7 +11,7 @@ public class SystemSovereignty {
         return solarSystemID;
     }
 
-    public void setSolarSystemID(int solarSystemID) {
+    public void setSolarSystemID(final int solarSystemID) {
         this.solarSystemID = solarSystemID;
     }
 
@@ -19,7 +19,7 @@ public class SystemSovereignty {
         return allianceID;
     }
 
-    public void setAllianceID(int allianceID) {
+    public void setAllianceID(final int allianceID) {
         this.allianceID = allianceID;
     }
 
@@ -27,7 +27,7 @@ public class SystemSovereignty {
         return corporationID;
     }
 
-    public void setCorporationID(Long corporationID) {
+    public void setCorporationID(final Long corporationID) {
         this.corporationID = corporationID;
     }
 
@@ -35,7 +35,7 @@ public class SystemSovereignty {
         return factionID;
     }
 
-    public void setFactionID(Integer factionID) {
+    public void setFactionID(final Integer factionID) {
         this.factionID = factionID;
     }
 
@@ -43,7 +43,7 @@ public class SystemSovereignty {
         return solarSystemName;
     }
 
-    public void setSolarSystemName(String solarSystemName) {
+    public void setSolarSystemName(final String solarSystemName) {
         this.solarSystemName = solarSystemName;
     }
 }

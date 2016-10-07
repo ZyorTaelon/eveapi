@@ -24,13 +24,13 @@ public class LocationsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        AbstractLocationsParser parser = new LocationsParser();
-        LocationsResponse response = parser.getResponse(auth, Arrays.asList(1002861698719L));
+        final AbstractLocationsParser parser = new LocationsParser();
+        final LocationsResponse response = parser.getResponse(auth, Arrays.asList(1002861698719L));
         assertNotNull(response);
-        Collection<Location> locations = response.getAll();
+        final Collection<Location> locations = response.getAll();
         assertNotNull(locations);
         assertEquals(1, locations.size());
-        Location location = locations.iterator().next();
+        final Location location = locations.iterator().next();
         assertEquals(1002861698719L, location.getItemID());
         assertEquals("Caldari Control Tower Medium", location.getItemName());
         assertEquals(-896690626560.1, location.getX(), 00000.1);

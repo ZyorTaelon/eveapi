@@ -40,20 +40,20 @@ public class ApiConnector {
         baseUrl = EVE_API_URL;
     }
 
-    public ApiConnector(String baseUrl) {
+    public ApiConnector(final String baseUrl) {
         this.baseUrl = baseUrl;
     }
 
-    public <E extends ApiResponse> E execute(ApiRequest request, AbstractContentHandler contentHandler, Class<E> clazz) throws ApiException {
+    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler contentHandler, final Class<E> clazz) throws ApiException {
         return getApiResponse(contentHandler, getInputStream(getURL(request), getParams(request)), clazz);
     }
 
     @SuppressWarnings("unchecked")
-    protected <E> E getApiResponse(AbstractContentHandler contentHandler, InputStream inputStream, Class<E> clazz) throws ApiException {
+    protected <E> E getApiResponse(final AbstractContentHandler contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
         try {
-            SAXParserFactory spf = SAXParserFactory.newInstance();
-            SAXParser sp = spf.newSAXParser();
-            XMLReader xr = sp.getXMLReader();
+            final SAXParserFactory spf = SAXParserFactory.newInstance();
+            final SAXParser sp = spf.newSAXParser();
+            final XMLReader xr = sp.getXMLReader();
             if (secureXmlProcessing) {
                 xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             }
@@ -65,57 +65,61 @@ public class ApiConnector {
         }
     }
 
-    protected InputStream getInputStream(URL requestUrl, Map<String, String> params) throws ApiException {
+    protected InputStream getInputStream(final URL requestUrl, final Map<String, String> params) throws ApiException {
         OutputStreamWriter wr = null;
         try {
-            HttpURLConnection conn = (HttpURLConnection) requestUrl.openConnection();
+            final HttpURLConnection conn = (HttpURLConnection) requestUrl.openConnection();
             conn.setDoOutput(true);
             wr = new OutputStreamWriter(conn.getOutputStream(), StandardCharsets.UTF_8);
-            StringBuilder data = new StringBuilder();
-            for (Entry<String, String> entry : params.entrySet()) {
-                if (data.length() > 0)
+            final StringBuilder data = new StringBuilder();
+            for (final Entry<String, String> entry : params.entrySet()) {
+                if (data.length() > 0) {
                     data.append('&'); // to ensure that we don't append an '&' to the end.
-                String key = entry.getKey();
-                String value = entry.getValue();
+                }
+                final String key = entry.getKey();
+                final String value = entry.getValue();
                 data.append(URLEncoder.encode(key, StandardCharsets.UTF_8.name()));
                 data.append('=');
                 data.append(URLEncoder.encode(value, StandardCharsets.UTF_8.name()));
             }
             wr.write(data.toString());
             wr.flush();
-            if (conn.getResponseCode() == HttpURLConnection.HTTP_OK)
+            if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 return conn.getInputStream();
-            else
+            } else {
                 return conn.getErrorStream();
-        } catch (IOException e) {
+            }
+        } catch (final IOException e) {
             throw new ApiException(e);
         } finally {
-            if (wr != null)
+            if (wr != null) {
                 try {
                     wr.close();
-                } catch (IOException e) {
+                } catch (final IOException e) {
                     LOGGER.warn("Error closing the stream", e);
                 }
+            }
         }
     }
 
-    protected URL getURL(ApiRequest request) throws ApiException {
+    protected URL getURL(final ApiRequest request) throws ApiException {
         try {
-            StringBuilder result = new StringBuilder(getBaseUrl());
+            final StringBuilder result = new StringBuilder(getBaseUrl());
             result.append(request.getPath().getPath()).append('/').append(request.getPage().getPage()).append(".xml.aspx");
             return new URL(result.toString());
-        } catch (MalformedURLException e) {
+        } catch (final MalformedURLException e) {
             throw new ApiException(e);
         }
     }
 
-    protected Map<String, String> getParams(ApiRequest request) {
-        Map<String, String> result = new ConcurrentHashMap<String, String>();
+    protected Map<String, String> getParams(final ApiRequest request) {
+        final Map<String, String> result = new ConcurrentHashMap<String, String>();
         result.put("version", Integer.toString(request.getVersion()));
-        ApiAuth auth = request.getAuth();
-        if (auth != null)
+        final ApiAuth auth = request.getAuth();
+        if (auth != null) {
             result.putAll(auth.getParams());
-        Map<String, String> params = request.getParams();
+        }
+        final Map<String, String> params = request.getParams();
         if (params != null) {
             result.putAll(params);
         }
@@ -130,7 +134,7 @@ public class ApiConnector {
         return secureXmlProcessing;
     }
 
-    public static void setSecureXmlProcessing(boolean secureXmlProcessing) {
+    public static void setSecureXmlProcessing(final boolean secureXmlProcessing) {
         ApiConnector.secureXmlProcessing = secureXmlProcessing;
     }
 

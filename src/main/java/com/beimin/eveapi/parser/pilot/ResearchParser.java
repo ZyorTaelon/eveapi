@@ -15,7 +15,7 @@ public class ResearchParser extends AbstractListParser<ResearchHandler, Research
     }
 
     @Override
-    public ResearchResponse getResponse(ApiAuth auth) throws ApiException {
+    public ResearchResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

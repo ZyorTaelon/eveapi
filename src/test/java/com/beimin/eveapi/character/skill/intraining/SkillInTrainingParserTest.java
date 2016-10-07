@@ -20,8 +20,8 @@ public class SkillInTrainingParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        SkillInTrainingParser parser = new SkillInTrainingParser();
-        SkillInTrainingResponse response = parser.getResponse(auth);
+        final SkillInTrainingParser parser = new SkillInTrainingParser();
+        final SkillInTrainingResponse response = parser.getResponse(auth);
         assertNotNull(response);
         assertDate(2008, 8, 17, 6, 43, 0, response.getCurrentTQTime());
         assertDate(2008, 8, 17, 15, 29, 44, response.getTrainingEndTime());

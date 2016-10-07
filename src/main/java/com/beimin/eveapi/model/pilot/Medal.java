@@ -15,7 +15,7 @@ public class Medal extends AbstractMedal {
         return reason;
     }
 
-    public void setReason(String reason) {
+    public void setReason(final String reason) {
         this.reason = reason;
     }
 
@@ -23,7 +23,7 @@ public class Medal extends AbstractMedal {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(final String status) {
         this.status = status;
     }
 
@@ -35,7 +35,7 @@ public class Medal extends AbstractMedal {
         return issuerID;
     }
 
-    public void setIssuerID(long issuerID) {
+    public void setIssuerID(final long issuerID) {
         this.issuerID = issuerID;
     }
 
@@ -43,7 +43,7 @@ public class Medal extends AbstractMedal {
         return issued;
     }
 
-    public void setIssued(Date issued) {
+    public void setIssued(final Date issued) {
         this.issued = issued;
     }
 
@@ -51,7 +51,7 @@ public class Medal extends AbstractMedal {
         return corporationID;
     }
 
-    public void setCorporationID(Long corporationID) {
+    public void setCorporationID(final Long corporationID) {
         this.corporationID = corporationID;
     }
 }

@@ -13,18 +13,19 @@ public class CachingConnector extends ApiConnector {
     private final ApiConnector baseConnector;
 
     public CachingConnector() {
-        this.baseConnector = null;
+        baseConnector = null;
     }
 
-    public CachingConnector(ApiConnector baseConnector) {
+    public CachingConnector(final ApiConnector baseConnector) {
         this.baseConnector = baseConnector;
     }
 
     @SuppressWarnings("unchecked")
     @Override
-    public <E extends ApiResponse> E execute(ApiRequest request, AbstractContentHandler contentHandler, Class<E> clazz) throws ApiException {
-        if (!cache.containsKey(request))
+    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler contentHandler, final Class<E> clazz) throws ApiException {
+        if (!cache.containsKey(request)) {
             cache.put(request, getConnector().execute(request, contentHandler, clazz));
+        }
         return (E) cache.get(request);
     }
 
@@ -34,8 +35,9 @@ public class CachingConnector extends ApiConnector {
     }
 
     private ApiConnector getConnector() {
-        if (baseConnector != null)
+        if (baseConnector != null) {
             return baseConnector.getNewInstance();
+        }
         return super.getNewInstance();
     }
 }

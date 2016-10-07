@@ -11,7 +11,7 @@ public class KillItem {
         return typeID;
     }
 
-    public void setTypeID(long typeID) {
+    public void setTypeID(final long typeID) {
         this.typeID = typeID;
     }
 
@@ -19,7 +19,7 @@ public class KillItem {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(final int flag) {
         this.flag = flag;
     }
 
@@ -27,7 +27,7 @@ public class KillItem {
         return qtyDropped;
     }
 
-    public void setQtyDropped(int qtyDropped) {
+    public void setQtyDropped(final int qtyDropped) {
         this.qtyDropped = qtyDropped;
     }
 
@@ -35,7 +35,7 @@ public class KillItem {
         return qtyDestroyed;
     }
 
-    public void setQtyDestroyed(int qtyDestroyed) {
+    public void setQtyDestroyed(final int qtyDestroyed) {
         this.qtyDestroyed = qtyDestroyed;
     }
 
@@ -43,7 +43,7 @@ public class KillItem {
         return singleton;
     }
 
-    public void setSingleton(int singleton) {
+    public void setSingleton(final int singleton) {
         this.singleton = singleton;
     }
 }

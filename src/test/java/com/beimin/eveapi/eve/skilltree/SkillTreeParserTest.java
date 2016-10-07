@@ -27,21 +27,21 @@ public class SkillTreeParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        SkillTreeParser parser = new SkillTreeParser();
-        SkillTreeResponse response = parser.getResponse();
+        final SkillTreeParser parser = new SkillTreeParser();
+        final SkillTreeResponse response = parser.getResponse();
         assertNotNull("Should have returned a response.", response);
         assertEquals("version 2 expected.", 2, response.getVersion());
         assertNotNull("Response should contain the current time.", response.getCurrentTime());
         assertNotNull("Response should contain the time untill this response data is cached.", response.getCachedUntil());
         assertTrue("Should return some skill groups.", response.getAll().size() > 0);
-        Collection<SkillGroup> skillGroups = response.getAll();
+        final Collection<SkillGroup> skillGroups = response.getAll();
         assertEquals(17, skillGroups.size());
-        SkillGroup skillGroup = skillGroups.iterator().next();
+        final SkillGroup skillGroup = skillGroups.iterator().next();
         assertEquals("Corporation Management", skillGroup.getGroupName());
         assertEquals(266, skillGroup.getGroupID());
-        Collection<Skill> skills = skillGroup.getSkills();
+        final Collection<Skill> skills = skillGroup.getSkills();
         assertEquals(15, skills.size());
-        Iterator<Skill> iterator = skills.iterator();
+        final Iterator<Skill> iterator = skills.iterator();
         Skill skill = iterator.next();
         assertEquals(11584, skill.getTypeID());
         assertEquals("Anchoring", skill.getTypeName());

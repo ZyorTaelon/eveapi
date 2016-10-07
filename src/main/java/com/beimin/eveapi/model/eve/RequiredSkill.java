@@ -8,7 +8,7 @@ public class RequiredSkill implements CertificateRequirement {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -16,7 +16,7 @@ public class RequiredSkill implements CertificateRequirement {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(final int level) {
         this.level = level;
     }
 }

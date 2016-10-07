@@ -15,7 +15,7 @@ public class StarbaseListParser extends AbstractListParser<StarbaseListHandler, 
     }
 
     @Override
-    public StarbaseListResponse getResponse(ApiAuth auth) throws ApiException {
+    public StarbaseListResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

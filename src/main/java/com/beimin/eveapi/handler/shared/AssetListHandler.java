@@ -12,7 +12,7 @@ import com.beimin.eveapi.response.shared.AssetListResponse;
 public class AssetListHandler extends AbstractContentHandler {
     private AssetListResponse response;
     private Asset currentAsset;
-    private Stack<Asset> stack = new Stack<Asset>();
+    private final Stack<Asset> stack = new Stack<Asset>();
 
     @Override
     public void startDocument() throws SAXException {
@@ -20,8 +20,8 @@ public class AssetListHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if (currentAsset != null && ELEMENT_ROWSET.equals(qName)) {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        if ((currentAsset != null) && ELEMENT_ROWSET.equals(qName)) {
             stack.add(currentAsset);
             currentAsset = null;
         }
@@ -35,7 +35,7 @@ public class AssetListHandler extends AbstractContentHandler {
             currentAsset.setSingleton(getBoolean(attrs, "singleton"));
             currentAsset.setRawQuantity(getInt(attrs, "rawQuantity"));
             if (!stack.isEmpty()) {
-                Asset peek = stack.peek();
+                final Asset peek = stack.peek();
                 peek.addAsset(currentAsset);
             }
         }
@@ -44,15 +44,15 @@ public class AssetListHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName) && !stack.isEmpty()) {
-            Asset asset = stack.pop();
+            final Asset asset = stack.pop();
             if (stack.isEmpty()) {
                 response.add(asset);
                 currentAsset = null;
             }
         }
-        if (currentAsset != null && stack.isEmpty() && ELEMENT_ROW.equals(qName)) {
+        if ((currentAsset != null) && stack.isEmpty() && ELEMENT_ROW.equals(qName)) {
             response.add(currentAsset);
             currentAsset = null;
         }

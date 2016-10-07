@@ -8,7 +8,7 @@ public class CertificateClass {
     private int classID;
     private String className;
 
-    public void add(Certificate certificate) {
+    public void add(final Certificate certificate) {
         certificates.add(certificate);
     }
 
@@ -20,7 +20,7 @@ public class CertificateClass {
         return classID;
     }
 
-    public void setClassID(int classID) {
+    public void setClassID(final int classID) {
         this.classID = classID;
     }
 
@@ -28,7 +28,7 @@ public class CertificateClass {
         return className;
     }
 
-    public void setClassName(String className) {
+    public void setClassName(final String className) {
         this.className = className;
     }
 }

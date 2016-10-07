@@ -15,7 +15,7 @@ public class ResearchAgent {
         return agentID;
     }
 
-    public void setAgentID(int agentID) {
+    public void setAgentID(final int agentID) {
         this.agentID = agentID;
     }
 
@@ -23,7 +23,7 @@ public class ResearchAgent {
         return skillTypeID;
     }
 
-    public void setSkillTypeID(int skillTypeID) {
+    public void setSkillTypeID(final int skillTypeID) {
         this.skillTypeID = skillTypeID;
     }
 
@@ -31,7 +31,7 @@ public class ResearchAgent {
         return researchStartDate;
     }
 
-    public void setResearchStartDate(Date researchStartDate) {
+    public void setResearchStartDate(final Date researchStartDate) {
         this.researchStartDate = researchStartDate;
     }
 
@@ -39,7 +39,7 @@ public class ResearchAgent {
         return pointsPerDay;
     }
 
-    public void setPointsPerDay(double pointsPerDay) {
+    public void setPointsPerDay(final double pointsPerDay) {
         this.pointsPerDay = pointsPerDay;
     }
 
@@ -47,15 +47,15 @@ public class ResearchAgent {
         return remainderPoints;
     }
 
-    public void setRemainderPoints(double remainderPoints) {
+    public void setRemainderPoints(final double remainderPoints) {
         this.remainderPoints = remainderPoints;
     }
 
     public double getCurrentPoints() {
-        long startDate = researchStartDate.getTime();
-        long now = Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis();
-        long elapse = now - startDate;
-        double daysSinceStart = elapse / (1000.0 * 60 * 60 * 24);
+        final long startDate = researchStartDate.getTime();
+        final long now = Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis();
+        final long elapse = now - startDate;
+        final double daysSinceStart = elapse / (1000.0 * 60 * 60 * 24);
         return remainderPoints + (pointsPerDay * daysSinceStart);
     }
 }

@@ -23,14 +23,14 @@ public class AccountBalanceParserTest extends FullAuthParserTest {
 
     @Test
     public void accountBalanceParser() throws ApiException {
-        AccountBalanceParser parser = new AccountBalanceParser();
-        AccountBalanceResponse response = parser.getResponse(auth);
+        final AccountBalanceParser parser = new AccountBalanceParser();
+        final AccountBalanceResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        Set<EveAccountBalance> accountBalances = response.getAll();
+        final Set<EveAccountBalance> accountBalances = response.getAll();
         assertNotNull(accountBalances);
         assertEquals(7, accountBalances.size());
         boolean found = false;
-        for (EveAccountBalance accountBalance : accountBalances) {
+        for (final EveAccountBalance accountBalance : accountBalances) {
             if (accountBalance.getAccountID() == 5689) {
                 found = true;
                 assertEquals(1003, accountBalance.getAccountKey());

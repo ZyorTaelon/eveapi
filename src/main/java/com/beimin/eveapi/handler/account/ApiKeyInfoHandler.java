@@ -19,17 +19,19 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-        if ("result".equals(qName))
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        if ("result".equals(qName)) {
             apiKeyInfo = new ApiKeyInfo();
+        }
         if ("key".equals(qName)) {
             apiKeyInfo.setAccessMask(getLong(attrs, "accessMask"));
             apiKeyInfo.setType(KeyType.valueOf(getString(attrs, "type")));
-            String expires = attrs.getValue("expires").trim();
-            if (expires.length() > 0)
+            final String expires = attrs.getValue("expires").trim();
+            if (expires.length() > 0) {
                 apiKeyInfo.setExpires(getDate(expires));
+            }
         } else if (ELEMENT_ROW.equals(qName)) {
-            Character character = new Character();
+            final Character character = new Character();
             character.setCharacterID(getLong(attrs, "characterID"));
             character.setName(getString(attrs, "characterName"));
             character.setCorporationID(getLong(attrs, "corporationID"));
@@ -39,8 +41,9 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
             character.setFactionID(getLong(attrs, "factionID"));
             character.setFactionName(getString(attrs, "factionName"));
             apiKeyInfo.addEveCharacter(character);
-        } else if ("result".equals(qName))
+        } else if ("result".equals(qName)) {
             response.set(apiKeyInfo);
+        }
         super.startElement(uri, localName, qName, attrs);
         accumulator.setLength(0);
     }

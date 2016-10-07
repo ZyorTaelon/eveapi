@@ -14,7 +14,7 @@ public class ApiResponse {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(final int version) {
         this.version = version;
     }
 
@@ -22,7 +22,7 @@ public class ApiResponse {
         return currentTime;
     }
 
-    public void setCurrentTime(Date currentTime) {
+    public void setCurrentTime(final Date currentTime) {
         this.currentTime = currentTime;
     }
 
@@ -30,7 +30,7 @@ public class ApiResponse {
         return cachedUntil;
     }
 
-    public void setCachedUntil(Date cachedUntil) {
+    public void setCachedUntil(final Date cachedUntil) {
         this.cachedUntil = cachedUntil;
     }
 
@@ -42,7 +42,7 @@ public class ApiResponse {
         return error;
     }
 
-    public void setError(ApiError error) {
+    public void setError(final ApiError error) {
         this.error = error;
     }
 }

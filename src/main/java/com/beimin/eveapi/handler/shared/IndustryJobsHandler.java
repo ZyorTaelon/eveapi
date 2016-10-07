@@ -13,8 +13,8 @@ public class IndustryJobsHandler extends AbstractContentListHandler<IndustryJobs
     }
 
     @Override
-    protected IndustryJob getItem(Attributes attrs) {
-        IndustryJob job = new IndustryJob();
+    protected IndustryJob getItem(final Attributes attrs) {
+        final IndustryJob job = new IndustryJob();
         job.setJobID(getLong(attrs, "jobID"));
         job.setInstallerID(getLong(attrs, "installerID"));
         job.setInstallerName(getString(attrs, "installerName"));

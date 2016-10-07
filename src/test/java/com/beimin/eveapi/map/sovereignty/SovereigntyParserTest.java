@@ -22,10 +22,10 @@ public class SovereigntyParserTest extends NoAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        SovereigntyParser parser = new SovereigntyParser();
-        SovereigntyResponse response = parser.getResponse();
+        final SovereigntyParser parser = new SovereigntyParser();
+        final SovereigntyResponse response = parser.getResponse();
         assertNotNull(response);
-        Map<Integer, SystemSovereignty> systemSovereignties = response.getSystemSovereignties();
+        final Map<Integer, SystemSovereignty> systemSovereignties = response.getSystemSovereignties();
         assertNotNull(systemSovereignties);
         assertEquals(5382, systemSovereignties.size());
 

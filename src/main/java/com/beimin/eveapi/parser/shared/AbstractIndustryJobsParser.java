@@ -9,12 +9,12 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.response.shared.IndustryJobsResponse;
 
 public abstract class AbstractIndustryJobsParser extends AbstractListParser<IndustryJobsHandler, IndustryJobsResponse, IndustryJob> {
-    protected AbstractIndustryJobsParser(ApiPath path) {
+    protected AbstractIndustryJobsParser(final ApiPath path) {
         super(IndustryJobsResponse.class, 2, path, ApiPage.INDUSTRY_JOBS, IndustryJobsHandler.class);
     }
 
     @Override
-    public IndustryJobsResponse getResponse(ApiAuth auth) throws ApiException {
+    public IndustryJobsResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

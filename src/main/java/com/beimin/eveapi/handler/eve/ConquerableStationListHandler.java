@@ -16,9 +16,9 @@ public class ConquerableStationListHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
-            Station item = new Station();
+            final Station item = new Station();
             item.setStationID(getLong(attrs, "stationID"));
             item.setStationName(getString(attrs, "stationName"));
             item.setStationTypeID(getInt(attrs, "stationTypeID"));

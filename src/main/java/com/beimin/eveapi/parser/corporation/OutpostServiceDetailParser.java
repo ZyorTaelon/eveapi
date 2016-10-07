@@ -15,7 +15,7 @@ public class OutpostServiceDetailParser extends AbstractListParser<OutpostServic
     }
 
     @Override
-    public OutpostServiceDetailResponse getResponse(ApiAuth auth) throws ApiException {
+    public OutpostServiceDetailResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

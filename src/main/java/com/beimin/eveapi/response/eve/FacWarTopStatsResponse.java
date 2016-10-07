@@ -32,7 +32,7 @@ public class FacWarTopStatsResponse extends ApiResponse {
     private final List<FactionVictoryPoints> factionVictoryPointsLastWeek = new ArrayList<FactionVictoryPoints>();
     private final List<FactionVictoryPoints> factionVictoryPointsTotal = new ArrayList<FactionVictoryPoints>();
 
-    public void addYesterday(FacWarStat stat) {
+    public void addYesterday(final FacWarStat stat) {
         if (stat instanceof CharacterKills) {
             characterKillsYesterday.add((CharacterKills) stat);
         } else if (stat instanceof CharacterVictoryPoints) {
@@ -48,7 +48,7 @@ public class FacWarTopStatsResponse extends ApiResponse {
         }
     }
 
-    public void addLastWeek(FacWarStat stat) {
+    public void addLastWeek(final FacWarStat stat) {
         if (stat instanceof CharacterKills) {
             characterKillsLastWeek.add((CharacterKills) stat);
         } else if (stat instanceof CharacterVictoryPoints) {
@@ -64,7 +64,7 @@ public class FacWarTopStatsResponse extends ApiResponse {
         }
     }
 
-    public void addTotal(FacWarStat stat) {
+    public void addTotal(final FacWarStat stat) {
         if (stat instanceof CharacterKills) {
             characterKillsTotal.add((CharacterKills) stat);
         } else if (stat instanceof CharacterVictoryPoints) {

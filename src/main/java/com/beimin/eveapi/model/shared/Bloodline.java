@@ -15,7 +15,7 @@ public enum Bloodline {
     VHEROKIOR(Race.MINMATAR);
     private final Race race;
 
-    Bloodline(Race race) {
+    Bloodline(final Race race) {
         this.race = race;
     }
 

@@ -18,12 +18,12 @@ import com.beimin.eveapi.response.account.CharactersResponse;
 public class CharacterParserOnlineTest extends AbstractCharacterOnlineTest {
     @Test
     public void getResponse() throws ApiException {
-        CharactersParser parser = new CharactersParser();
-        CharactersResponse response = parser.getResponse(getApiAuth());
+        final CharactersParser parser = new CharactersParser();
+        final CharactersResponse response = parser.getResponse(getApiAuth());
         assertThat(response, notNullValue());
-        Set<Character> characters = response.getAll();
+        final Set<Character> characters = response.getAll();
         assertThat(characters.size(), equalTo(1));
-        Character character = characters.iterator().next();
+        final Character character = characters.iterator().next();
         assertThat(character.getName(), equalTo("Glazeg"));
     }
 

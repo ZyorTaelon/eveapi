@@ -17,11 +17,11 @@ public class Asset {
         return assets;
     }
 
-    public void add(Asset asset) {
+    public void add(final Asset asset) {
         assets.add(asset);
     }
 
-    public void addAsset(Asset asset) {
+    public void addAsset(final Asset asset) {
         assets.add(asset);
     }
 
@@ -29,7 +29,7 @@ public class Asset {
         return itemID;
     }
 
-    public void setItemID(long itemID) {
+    public void setItemID(final long itemID) {
         this.itemID = itemID;
     }
 
@@ -37,7 +37,7 @@ public class Asset {
         return locationID;
     }
 
-    public void setLocationID(Long locationID) {
+    public void setLocationID(final Long locationID) {
         this.locationID = locationID;
     }
 
@@ -45,7 +45,7 @@ public class Asset {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -53,7 +53,7 @@ public class Asset {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(final int quantity) {
         this.quantity = quantity;
     }
 
@@ -61,7 +61,7 @@ public class Asset {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(final int flag) {
         this.flag = flag;
     }
 
@@ -69,17 +69,18 @@ public class Asset {
         return rawQuantity;
     }
 
-    public void setRawQuantity(Integer rawQuantity) {
+    public void setRawQuantity(final Integer rawQuantity) {
         this.rawQuantity = rawQuantity;
-        if (this.rawQuantity == null)
+        if (this.rawQuantity == null) {
             this.rawQuantity = 0;
+        }
     }
 
     public boolean getSingleton() {
         return singleton;
     }
 
-    public void setSingleton(boolean singleton) {
+    public void setSingleton(final boolean singleton) {
         this.singleton = singleton;
     }
 }

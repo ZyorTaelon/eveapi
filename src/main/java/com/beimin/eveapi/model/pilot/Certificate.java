@@ -7,7 +7,7 @@ public class Certificate {
         return certificateID;
     }
 
-    public void setCertificateID(int certificateID) {
+    public void setCertificateID(final int certificateID) {
         this.certificateID = certificateID;
     }
 }

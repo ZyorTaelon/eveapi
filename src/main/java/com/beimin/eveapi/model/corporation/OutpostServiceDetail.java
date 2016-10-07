@@ -12,7 +12,7 @@ public class OutpostServiceDetail {
         return stationID;
     }
 
-    public void setStationID(long stationID) {
+    public void setStationID(final long stationID) {
         this.stationID = stationID;
     }
 
@@ -20,7 +20,7 @@ public class OutpostServiceDetail {
         return ownerID;
     }
 
-    public void setOwnerID(long ownerID) {
+    public void setOwnerID(final long ownerID) {
         this.ownerID = ownerID;
     }
 
@@ -28,7 +28,7 @@ public class OutpostServiceDetail {
         return serviceName;
     }
 
-    public void setServiceName(String serviceName) {
+    public void setServiceName(final String serviceName) {
         this.serviceName = serviceName;
     }
 
@@ -36,7 +36,7 @@ public class OutpostServiceDetail {
         return minStanding;
     }
 
-    public void setMinStanding(double minStanding) {
+    public void setMinStanding(final double minStanding) {
         this.minStanding = minStanding;
     }
 
@@ -44,7 +44,7 @@ public class OutpostServiceDetail {
         return surchargePerBadStanding;
     }
 
-    public void setSurchargePerBadStanding(double surchargePerBadStanding) {
+    public void setSurchargePerBadStanding(final double surchargePerBadStanding) {
         this.surchargePerBadStanding = surchargePerBadStanding;
     }
 
@@ -52,7 +52,7 @@ public class OutpostServiceDetail {
         return discountPerGoodStanding;
     }
 
-    public void setDiscountPerGoodStanding(double discountPerGoodStanding) {
+    public void setDiscountPerGoodStanding(final double discountPerGoodStanding) {
         this.discountPerGoodStanding = discountPerGoodStanding;
     }
 }

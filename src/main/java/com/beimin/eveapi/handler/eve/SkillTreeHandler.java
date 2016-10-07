@@ -25,23 +25,24 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            String name = getString(attrs, "name");
-            if (name.equals("skills"))
+            final String name = getString(attrs, "name");
+            if (name.equals("skills")) {
                 skills = true;
-            else if (name.equals("requiredSkills"))
+            } else if (name.equals("requiredSkills")) {
                 requiredSkills = true;
-            else if (name.equals("skillBonusCollection"))
+            } else if (name.equals("skillBonusCollection")) {
                 skillBonusCollection = true;
+            }
         } else if (ELEMENT_ROW.equals(qName)) {
             if (skillBonusCollection) {
-                Bonus bonus = new Bonus();
+                final Bonus bonus = new Bonus();
                 bonus.setBonusType(getString(attrs, "bonusType"));
                 bonus.setBonusValue(getString(attrs, "bonusValue"));
                 skill.add(bonus);
             } else if (requiredSkills) {
-                Requirement requirement = new Requirement();
+                final Requirement requirement = new Requirement();
                 requirement.setTypeID(getInt(attrs, "typeID"));
                 requirement.setSkillLevel(getInt(attrs, "skillLevel"));
                 skill.add(requirement);
@@ -55,12 +56,13 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
             } else {
                 skillGroup = getItem(attrs);
             }
-        } else
+        } else {
             super.startElement(uri, localName, qName, attrs);
+        }
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             if (requiredSkills) {
                 requiredSkills = false;
@@ -79,13 +81,14 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
             skill.setPrimaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
         } else if ("secondaryAttribute".equals(qName)) {
             skill.setSecondaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
-        } else
+        } else {
             super.endElement(uri, localName, qName);
+        }
     }
 
     @Override
-    protected SkillGroup getItem(Attributes attrs) {
-        SkillGroup item = new SkillGroup();
+    protected SkillGroup getItem(final Attributes attrs) {
+        final SkillGroup item = new SkillGroup();
         item.setGroupID(getInt(attrs, "groupID"));
         item.setGroupName(getString(attrs, "groupName"));
         return item;

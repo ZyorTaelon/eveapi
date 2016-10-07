@@ -19,7 +19,7 @@ public class KillVictim {
         return characterID;
     }
 
-    public void setCharacterID(long characterID) {
+    public void setCharacterID(final long characterID) {
         this.characterID = characterID;
     }
 
@@ -27,7 +27,7 @@ public class KillVictim {
         return characterName;
     }
 
-    public void setCharacterName(String characterName) {
+    public void setCharacterName(final String characterName) {
         this.characterName = characterName;
     }
 
@@ -35,7 +35,7 @@ public class KillVictim {
         return corporationID;
     }
 
-    public void setCorporationID(long corporationID) {
+    public void setCorporationID(final long corporationID) {
         this.corporationID = corporationID;
     }
 
@@ -43,7 +43,7 @@ public class KillVictim {
         return corporationName;
     }
 
-    public void setCorporationName(String corporationName) {
+    public void setCorporationName(final String corporationName) {
         this.corporationName = corporationName;
     }
 
@@ -51,7 +51,7 @@ public class KillVictim {
         return allianceID;
     }
 
-    public void setAllianceID(Long allianceID) {
+    public void setAllianceID(final Long allianceID) {
         this.allianceID = allianceID;
     }
 
@@ -59,7 +59,7 @@ public class KillVictim {
         return allianceName;
     }
 
-    public void setAllianceName(String allianceName) {
+    public void setAllianceName(final String allianceName) {
         this.allianceName = allianceName;
     }
 
@@ -67,7 +67,7 @@ public class KillVictim {
         return factionID;
     }
 
-    public void setFactionID(int factionID) {
+    public void setFactionID(final int factionID) {
         this.factionID = factionID;
     }
 
@@ -75,7 +75,7 @@ public class KillVictim {
         return factionName;
     }
 
-    public void setFactionName(String factionName) {
+    public void setFactionName(final String factionName) {
         this.factionName = factionName;
     }
 
@@ -83,7 +83,7 @@ public class KillVictim {
         return damageTaken;
     }
 
-    public void setDamageTaken(long damageTaken) {
+    public void setDamageTaken(final long damageTaken) {
         this.damageTaken = damageTaken;
     }
 
@@ -91,7 +91,7 @@ public class KillVictim {
         return shipTypeID;
     }
 
-    public void setShipTypeID(long shipTypeID) {
+    public void setShipTypeID(final long shipTypeID) {
         this.shipTypeID = shipTypeID;
     }
 
@@ -99,7 +99,7 @@ public class KillVictim {
         return positionX;
     }
 
-    public void setPositionX(double positionX) {
+    public void setPositionX(final double positionX) {
         this.positionX = positionX;
     }
 
@@ -107,7 +107,7 @@ public class KillVictim {
         return positionY;
     }
 
-    public void setPositionY(double positionY) {
+    public void setPositionY(final double positionY) {
         this.positionY = positionY;
     }
 
@@ -115,7 +115,7 @@ public class KillVictim {
         return positionZ;
     }
 
-    public void setPositionZ(double positionZ) {
+    public void setPositionZ(final double positionZ) {
         this.positionZ = positionZ;
     }
 }

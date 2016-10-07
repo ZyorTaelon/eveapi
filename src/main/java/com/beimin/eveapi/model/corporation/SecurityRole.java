@@ -8,7 +8,7 @@ public class SecurityRole {
         return roleID;
     }
 
-    public void setRoleID(long roleID) {
+    public void setRoleID(final long roleID) {
         this.roleID = roleID;
     }
 
@@ -16,7 +16,7 @@ public class SecurityRole {
         return roleName;
     }
 
-    public void setRoleName(String roleName) {
+    public void setRoleName(final String roleName) {
         this.roleName = roleName;
     }
 }

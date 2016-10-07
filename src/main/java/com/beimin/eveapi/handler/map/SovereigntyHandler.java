@@ -12,8 +12,8 @@ public class SovereigntyHandler extends AbstractContentListHandler<SovereigntyRe
     }
 
     @Override
-    protected SystemSovereignty getItem(Attributes attrs) {
-        SystemSovereignty item = new SystemSovereignty();
+    protected SystemSovereignty getItem(final Attributes attrs) {
+        final SystemSovereignty item = new SystemSovereignty();
         item.setSolarSystemID(getInt(attrs, "solarSystemID"));
         item.setSolarSystemName(getString(attrs, "solarSystemName"));
         item.setCorporationID(getLong(attrs, "corporationID"));

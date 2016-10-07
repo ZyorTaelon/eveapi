@@ -13,8 +13,8 @@ public class CharacterAffiliationHandler extends AbstractContentListHandler<Char
     }
 
     @Override
-    protected CharacterAffiliation getItem(Attributes attrs) {
-        CharacterAffiliation alliance = new CharacterAffiliation();
+    protected CharacterAffiliation getItem(final Attributes attrs) {
+        final CharacterAffiliation alliance = new CharacterAffiliation();
         alliance.setCharacterName(getString(attrs, "characterName"));
         alliance.setCharacterID(getLong(attrs, "characterID"));
         alliance.setCorporationName(getString(attrs, "corporationName"));

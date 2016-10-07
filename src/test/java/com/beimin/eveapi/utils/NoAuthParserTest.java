@@ -18,11 +18,11 @@ public abstract class NoAuthParserTest implements ExchangeProcessor.ExtraAsserts
     private final ApiPath path;
     private final ApiPage page;
 
-    public NoAuthParserTest(ApiPath apiUrl, ApiPage returnXmlFile) {
+    public NoAuthParserTest(final ApiPath apiUrl, final ApiPage returnXmlFile) {
         this(apiUrl, returnXmlFile, "");
     }
 
-    public NoAuthParserTest(ApiPath path, ApiPage page, String fileSuffix) {
+    public NoAuthParserTest(final ApiPath path, final ApiPage page, final String fileSuffix) {
         this.path = path;
         this.page = page;
     }
@@ -52,7 +52,8 @@ public abstract class NoAuthParserTest implements ExchangeProcessor.ExtraAsserts
         return path;
     }
 
-    public void extraAsserts(Map<String, String> req) {
+    @Override
+    public void extraAsserts(final Map<String, String> req) {
         // overridable
     }
 

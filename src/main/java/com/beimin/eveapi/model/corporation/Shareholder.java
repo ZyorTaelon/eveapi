@@ -11,7 +11,7 @@ public class Shareholder {
         return shareholderID;
     }
 
-    public void setShareholderID(long shareholderID) {
+    public void setShareholderID(final long shareholderID) {
         this.shareholderID = shareholderID;
     }
 
@@ -19,7 +19,7 @@ public class Shareholder {
         return shareholderName;
     }
 
-    public void setShareholderName(String shareholderName) {
+    public void setShareholderName(final String shareholderName) {
         this.shareholderName = shareholderName;
     }
 
@@ -27,7 +27,7 @@ public class Shareholder {
         return shareholderCorporationID;
     }
 
-    public void setShareholderCorporationID(Long shareholderCorporationID) {
+    public void setShareholderCorporationID(final Long shareholderCorporationID) {
         this.shareholderCorporationID = shareholderCorporationID;
     }
 
@@ -35,7 +35,7 @@ public class Shareholder {
         return shareholderCorporationName;
     }
 
-    public void setShareholderCorporationName(String shareholderCorporationName) {
+    public void setShareholderCorporationName(final String shareholderCorporationName) {
         this.shareholderCorporationName = shareholderCorporationName;
     }
 
@@ -43,7 +43,7 @@ public class Shareholder {
         return shares;
     }
 
-    public void setShares(int shares) {
+    public void setShares(final int shares) {
         this.shares = shares;
     }
 }

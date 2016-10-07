@@ -12,8 +12,8 @@ public class FacWarSystemsHandler extends AbstractContentListHandler<FacWarSyste
     }
 
     @Override
-    protected FacWarSystem getItem(Attributes attrs) {
-        FacWarSystem item = new FacWarSystem();
+    protected FacWarSystem getItem(final Attributes attrs) {
+        final FacWarSystem item = new FacWarSystem();
         item.setSolarSystemID(getInt(attrs, "solarSystemID"));
         item.setSolarSystemName(getString(attrs, "solarSystemName"));
         item.setContested(getBoolean(attrs, "contested"));

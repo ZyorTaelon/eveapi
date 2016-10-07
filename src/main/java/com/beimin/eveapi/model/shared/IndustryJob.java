@@ -35,7 +35,7 @@ public class IndustryJob {
         return jobID;
     }
 
-    public void setJobID(long jobID) {
+    public void setJobID(final long jobID) {
         this.jobID = jobID;
     }
 
@@ -43,7 +43,7 @@ public class IndustryJob {
         return installerID;
     }
 
-    public void setInstallerID(long installerID) {
+    public void setInstallerID(final long installerID) {
         this.installerID = installerID;
     }
 
@@ -51,7 +51,7 @@ public class IndustryJob {
         return installerName;
     }
 
-    public void setInstallerName(String installerName) {
+    public void setInstallerName(final String installerName) {
         this.installerName = installerName;
     }
 
@@ -59,7 +59,7 @@ public class IndustryJob {
         return runs;
     }
 
-    public void setRuns(int runs) {
+    public void setRuns(final int runs) {
         this.runs = runs;
     }
 
@@ -67,7 +67,7 @@ public class IndustryJob {
         return solarSystemID;
     }
 
-    public void setSolarSystemID(long solarSystemID) {
+    public void setSolarSystemID(final long solarSystemID) {
         this.solarSystemID = solarSystemID;
     }
 
@@ -75,7 +75,7 @@ public class IndustryJob {
         return activityID;
     }
 
-    public void setActivityID(int activityID) {
+    public void setActivityID(final int activityID) {
         this.activityID = activityID;
     }
 
@@ -83,7 +83,7 @@ public class IndustryJob {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(final Date startDate) {
         this.startDate = startDate;
     }
 
@@ -91,7 +91,7 @@ public class IndustryJob {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(final Date endDate) {
         this.endDate = endDate;
     }
 
@@ -99,7 +99,7 @@ public class IndustryJob {
         return facilityID;
     }
 
-    public void setFacilityID(long facilityID) {
+    public void setFacilityID(final long facilityID) {
         this.facilityID = facilityID;
     }
 
@@ -107,7 +107,7 @@ public class IndustryJob {
         return solarSystemName;
     }
 
-    public void setSolarSystemName(String solarSystemName) {
+    public void setSolarSystemName(final String solarSystemName) {
         this.solarSystemName = solarSystemName;
     }
 
@@ -115,7 +115,7 @@ public class IndustryJob {
         return stationID;
     }
 
-    public void setStationID(long stationID) {
+    public void setStationID(final long stationID) {
         this.stationID = stationID;
     }
 
@@ -123,7 +123,7 @@ public class IndustryJob {
         return blueprintID;
     }
 
-    public void setBlueprintID(long blueprintID) {
+    public void setBlueprintID(final long blueprintID) {
         this.blueprintID = blueprintID;
     }
 
@@ -131,7 +131,7 @@ public class IndustryJob {
         return blueprintTypeID;
     }
 
-    public void setBlueprintTypeID(int blueprintTypeID) {
+    public void setBlueprintTypeID(final int blueprintTypeID) {
         this.blueprintTypeID = blueprintTypeID;
     }
 
@@ -139,7 +139,7 @@ public class IndustryJob {
         return blueprintTypeName;
     }
 
-    public void setBlueprintTypeName(String blueprintTypeName) {
+    public void setBlueprintTypeName(final String blueprintTypeName) {
         this.blueprintTypeName = blueprintTypeName;
     }
 
@@ -147,7 +147,7 @@ public class IndustryJob {
         return blueprintLocationID;
     }
 
-    public void setBlueprintLocationID(long blueprintLocationID) {
+    public void setBlueprintLocationID(final long blueprintLocationID) {
         this.blueprintLocationID = blueprintLocationID;
     }
 
@@ -155,7 +155,7 @@ public class IndustryJob {
         return outputLocationID;
     }
 
-    public void setOutputLocationID(long outputLocationID) {
+    public void setOutputLocationID(final long outputLocationID) {
         this.outputLocationID = outputLocationID;
     }
 
@@ -163,7 +163,7 @@ public class IndustryJob {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(final double cost) {
         this.cost = cost;
     }
 
@@ -171,7 +171,7 @@ public class IndustryJob {
         return teamID;
     }
 
-    public void setTeamID(long teamID) {
+    public void setTeamID(final long teamID) {
         this.teamID = teamID;
     }
 
@@ -179,7 +179,7 @@ public class IndustryJob {
         return licensedRuns;
     }
 
-    public void setLicensedRuns(int licensedRuns) {
+    public void setLicensedRuns(final int licensedRuns) {
         this.licensedRuns = licensedRuns;
     }
 
@@ -187,7 +187,7 @@ public class IndustryJob {
         return probability;
     }
 
-    public void setProbability(double probability) {
+    public void setProbability(final double probability) {
         this.probability = probability;
     }
 
@@ -195,7 +195,7 @@ public class IndustryJob {
         return productTypeID;
     }
 
-    public void setProductTypeID(int productTypeID) {
+    public void setProductTypeID(final int productTypeID) {
         this.productTypeID = productTypeID;
     }
 
@@ -203,7 +203,7 @@ public class IndustryJob {
         return productTypeName;
     }
 
-    public void setProductTypeName(String productTypeName) {
+    public void setProductTypeName(final String productTypeName) {
         this.productTypeName = productTypeName;
     }
 
@@ -211,7 +211,7 @@ public class IndustryJob {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(final int status) {
         this.status = status;
     }
 
@@ -219,7 +219,7 @@ public class IndustryJob {
         return timeInSeconds;
     }
 
-    public void setTimeInSeconds(int timeInSeconds) {
+    public void setTimeInSeconds(final int timeInSeconds) {
         this.timeInSeconds = timeInSeconds;
     }
 
@@ -227,7 +227,7 @@ public class IndustryJob {
         return completedDate;
     }
 
-    public void setCompletedDate(Date completedDate) {
+    public void setCompletedDate(final Date completedDate) {
         this.completedDate = completedDate;
     }
 
@@ -235,7 +235,7 @@ public class IndustryJob {
         return pauseDate;
     }
 
-    public void setPauseDate(Date pauseDate) {
+    public void setPauseDate(final Date pauseDate) {
         this.pauseDate = pauseDate;
     }
 
@@ -243,7 +243,7 @@ public class IndustryJob {
         return completedCharacterID;
     }
 
-    public void setCompletedCharacterID(long completedCharacterID) {
+    public void setCompletedCharacterID(final long completedCharacterID) {
         this.completedCharacterID = completedCharacterID;
     }
 }

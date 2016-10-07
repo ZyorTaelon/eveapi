@@ -29,7 +29,7 @@ public class EveApiTest {
 
     @BeforeClass
     public static void setup() throws Exception {
-        ApiAuthorization auth = new ApiAuthorization(123, "abc");
+        final ApiAuthorization auth = new ApiAuthorization(123, "abc");
         eveApi = new EveApi(auth);
         context.addRoutes(new EveApiRouteBuilder());
         context.start();
@@ -43,7 +43,7 @@ public class EveApiTest {
 
     @Test
     public void getAccountStatus() throws ApiException {
-        AccountStatus accountStatus = eveApi.getAccountStatus();
+        final AccountStatus accountStatus = eveApi.getAccountStatus();
         assertNotNull(accountStatus);
         assertEquals(541354, accountStatus.getUserID());
         assertDate(2011, 03, 13, 18, 40, 0, accountStatus.getPaidUntil());
@@ -54,11 +54,11 @@ public class EveApiTest {
 
     @Test
     public void getCharacters() throws ApiException {
-        Set<Character> eveCharacters = eveApi.getCharacters();
+        final Set<Character> eveCharacters = eveApi.getCharacters();
         assertNotNull(eveCharacters);
         assertEquals(2, eveCharacters.size());
-        for (Character eveCharacter : eveCharacters) {
-            long characterID = eveCharacter.getCharacterID();
+        for (final Character eveCharacter : eveCharacters) {
+            final long characterID = eveCharacter.getCharacterID();
             if (characterID == 46135126) {
                 assertEquals("Test Character 1", eveCharacter.getName());
                 assertEquals(71643215, eveCharacter.getCorporationID());
@@ -76,7 +76,7 @@ public class EveApiTest {
     @Test
     public void getAccountBalance() throws ApiException {
         eveApi.selectCharacter(testCharacter);
-        EveAccountBalance accountBalance = eveApi.getAccountBalance(KeyType.Character).iterator().next();
+        final EveAccountBalance accountBalance = eveApi.getAccountBalance(KeyType.Character).iterator().next();
         assertNotNull(accountBalance);
         assertEquals(10094361, accountBalance.getAccountID());
         assertEquals(1000, accountBalance.getAccountKey());

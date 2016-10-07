@@ -18,7 +18,7 @@ public class MailMessage {
         return messageID;
     }
 
-    public void setMessageID(long messageID) {
+    public void setMessageID(final long messageID) {
         this.messageID = messageID;
     }
 
@@ -26,7 +26,7 @@ public class MailMessage {
         return senderID;
     }
 
-    public void setSenderID(long senderID) {
+    public void setSenderID(final long senderID) {
         this.senderID = senderID;
     }
 
@@ -34,7 +34,7 @@ public class MailMessage {
         return sentDate;
     }
 
-    public void setSentDate(Date sentDate) {
+    public void setSentDate(final Date sentDate) {
         this.sentDate = sentDate;
     }
 
@@ -42,7 +42,7 @@ public class MailMessage {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
@@ -50,17 +50,20 @@ public class MailMessage {
         return toCorpOrAllianceID;
     }
 
-    public void setToCorpOrAllianceID(Long toCorpOrAllianceID) {
-        if (toCorpOrAllianceID != null && toCorpOrAllianceID > 0L)
+    public void setToCorpOrAllianceID(final Long toCorpOrAllianceID) {
+        if ((toCorpOrAllianceID != null) && (toCorpOrAllianceID > 0L)) {
             this.toCorpOrAllianceID = toCorpOrAllianceID;
+        }
     }
 
     public Set<Long> getCharacterIDs() {
-        if (toCharacterIDs == null || toCharacterIDs.length() == 0)
+        if ((toCharacterIDs == null) || (toCharacterIDs.length() == 0)) {
             return null;
-        HashSet<Long> characterIDs = new HashSet<Long>();
-        for (String characterID : toCharacterIDs.split(","))
+        }
+        final HashSet<Long> characterIDs = new HashSet<Long>();
+        for (final String characterID : toCharacterIDs.split(",")) {
             characterIDs.add(Long.parseLong(characterID));
+        }
         return characterIDs;
     }
 
@@ -68,16 +71,18 @@ public class MailMessage {
         return toCharacterIDs;
     }
 
-    public void setToCharacterIDs(String toCharacterIDs) {
+    public void setToCharacterIDs(final String toCharacterIDs) {
         this.toCharacterIDs = toCharacterIDs;
     }
 
     public Set<Long> getListIDs() {
-        if (toListIDs == null || toListIDs.length() == 0)
+        if ((toListIDs == null) || (toListIDs.length() == 0)) {
             return null;
-        HashSet<Long> listIDs = new HashSet<Long>();
-        for (String listID : toListIDs.split(","))
+        }
+        final HashSet<Long> listIDs = new HashSet<Long>();
+        for (final String listID : toListIDs.split(",")) {
             listIDs.add(Long.parseLong(listID));
+        }
         return listIDs;
     }
 
@@ -85,7 +90,7 @@ public class MailMessage {
         return toListIDs;
     }
 
-    public void setToListIDs(String toListIDs) {
+    public void setToListIDs(final String toListIDs) {
         this.toListIDs = toListIDs;
     }
 
@@ -93,7 +98,7 @@ public class MailMessage {
         return read;
     }
 
-    public void setRead(boolean read) {
+    public void setRead(final boolean read) {
         this.read = read;
     }
 }

@@ -13,41 +13,50 @@ public class MemberTrackingHandler extends AbstractContentListHandler<MemberTrac
     }
 
     @Override
-    protected Member getItem(Attributes attrs) {
+    protected Member getItem(final Attributes attrs) {
 
-        Member member = new Member();
+        final Member member = new Member();
         member.setCharacterID(getLong(attrs, "characterID"));
         member.setName(getString(attrs, "name"));
         member.setBase(getString(attrs, "base"));
         member.setBaseID(getInt(attrs, "baseID"));
         member.setTitle(getString(attrs, "title"));
 
-        if (attrs.getValue("grantableRoles") != null)
+        if (attrs.getValue("grantableRoles") != null) {
             member.setGrantableRoles(getLong(attrs, "grantableRoles"));
+        }
 
-        if (attrs.getValue("location") != null)
+        if (attrs.getValue("location") != null) {
             member.setLocation(getString(attrs, "location"));
+        }
 
-        if (attrs.getValue("locationID") != null)
+        if (attrs.getValue("locationID") != null) {
             member.setLocationID(getInt(attrs, "locationID"));
+        }
 
-        if (attrs.getValue("logoffDateTime") != null)
+        if (attrs.getValue("logoffDateTime") != null) {
             member.setLogoffDateTime(getDate(attrs, "logoffDateTime"));
+        }
 
-        if (attrs.getValue("logonDateTime") != null)
+        if (attrs.getValue("logonDateTime") != null) {
             member.setLogonDateTime(getDate(attrs, "logonDateTime"));
+        }
 
-        if (attrs.getValue("startDateTime") != null)
+        if (attrs.getValue("startDateTime") != null) {
             member.setStartDateTime(getDate(attrs, "startDateTime"));
+        }
 
-        if (attrs.getValue("roles") != null)
+        if (attrs.getValue("roles") != null) {
             member.setRoles(getLong(attrs, "roles"));
+        }
 
-        if (attrs.getValue("shipType") != null)
+        if (attrs.getValue("shipType") != null) {
             member.setShipType(getString(attrs, "shipType"));
+        }
 
-        if (attrs.getValue("shipTypeID") != null)
+        if (attrs.getValue("shipTypeID") != null) {
             member.setShipTypeID(getInt(attrs, "shipTypeID"));
+        }
 
         return member;
     }

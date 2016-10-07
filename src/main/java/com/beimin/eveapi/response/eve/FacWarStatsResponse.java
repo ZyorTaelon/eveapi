@@ -17,11 +17,11 @@ public class FacWarStatsResponse extends ApiResponse {
     private int victoryPointsLastWeek;
     private int victoryPointsTotal;
 
-    public void addStat(FactionStats factionStats) {
-        this.factions.add(factionStats);
+    public void addStat(final FactionStats factionStats) {
+        factions.add(factionStats);
     }
 
-    public void addStat(FactionWar factionWar) {
+    public void addStat(final FactionWar factionWar) {
         wars.add(factionWar);
     }
 
@@ -37,7 +37,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return killsYesterday;
     }
 
-    public void setKillsYesterday(int killsYesterday) {
+    public void setKillsYesterday(final int killsYesterday) {
         this.killsYesterday = killsYesterday;
     }
 
@@ -45,7 +45,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return killsLastWeek;
     }
 
-    public void setKillsLastWeek(int killsLastWeek) {
+    public void setKillsLastWeek(final int killsLastWeek) {
         this.killsLastWeek = killsLastWeek;
     }
 
@@ -53,7 +53,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return killsTotal;
     }
 
-    public void setKillsTotal(int killsTotal) {
+    public void setKillsTotal(final int killsTotal) {
         this.killsTotal = killsTotal;
     }
 
@@ -61,7 +61,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return victoryPointsYesterday;
     }
 
-    public void setVictoryPointsYesterday(int victoryPointsYesterday) {
+    public void setVictoryPointsYesterday(final int victoryPointsYesterday) {
         this.victoryPointsYesterday = victoryPointsYesterday;
     }
 
@@ -69,7 +69,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return victoryPointsLastWeek;
     }
 
-    public void setVictoryPointsLastWeek(int victoryPointsLastWeek) {
+    public void setVictoryPointsLastWeek(final int victoryPointsLastWeek) {
         this.victoryPointsLastWeek = victoryPointsLastWeek;
     }
 
@@ -77,7 +77,7 @@ public class FacWarStatsResponse extends ApiResponse {
         return victoryPointsTotal;
     }
 
-    public void setVictoryPointsTotal(int victoryPointsTotal) {
+    public void setVictoryPointsTotal(final int victoryPointsTotal) {
         this.victoryPointsTotal = victoryPointsTotal;
     }
 }

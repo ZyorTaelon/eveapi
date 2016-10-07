@@ -14,11 +14,12 @@ public class ServerStatusHandler extends AbstractContentHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if ("serverOpen".equals(qName))
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if ("serverOpen".equals(qName)) {
             response.setServerOpen(getBoolean());
-        else if ("onlinePlayers".equals(qName))
+        } else if ("onlinePlayers".equals(qName)) {
             response.setOnlinePlayers(getInt());
+        }
         super.endElement(uri, localName, qName);
     }
 

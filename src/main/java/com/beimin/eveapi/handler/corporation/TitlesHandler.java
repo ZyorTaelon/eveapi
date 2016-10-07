@@ -24,9 +24,9 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            String name = getString(attrs, "name");
+            final String name = getString(attrs, "name");
             roles = name.equals("roles");
             grantableRoles = name.equals("grantableRoles");
             rolesAtHQ = name.equals("rolesAtHQ");
@@ -56,12 +56,13 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
                 title = getItem(attrs);
                 response.add(title);
             }
-        } else
+        } else {
             super.startElement(uri, localName, qName, attrs);
+        }
     }
 
-    private Role getRole(Attributes attrs) {
-        Role role = new Role();
+    private Role getRole(final Attributes attrs) {
+        final Role role = new Role();
         role.setRoleID(getLong(attrs, "roleID"));
         role.setRoleName(getString(attrs, "roleName"));
         role.setRoleDescription(getString(attrs, "roleDescription"));
@@ -69,15 +70,15 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
     }
 
     @Override
-    protected Title getItem(Attributes attrs) {
-        Title item = new Title();
+    protected Title getItem(final Attributes attrs) {
+        final Title item = new Title();
         item.setTitleID(getLong(attrs, "titleID"));
         item.setTitleName(getString(attrs, "titleName"));
         return item;
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             if (roles) {
                 roles = false;

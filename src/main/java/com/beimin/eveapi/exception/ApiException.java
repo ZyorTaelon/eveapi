@@ -7,15 +7,15 @@ public class ApiException extends Exception {
         super();
     }
 
-    public ApiException(String msg) {
+    public ApiException(final String msg) {
         super(msg);
     }
 
-    public ApiException(Throwable cause) {
+    public ApiException(final Throwable cause) {
         super(cause);
     }
 
-    public ApiException(String message, Throwable cause) {
+    public ApiException(final String message, final Throwable cause) {
         super(message, cause);
     }
 }

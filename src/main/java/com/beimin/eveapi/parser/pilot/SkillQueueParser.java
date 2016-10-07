@@ -15,7 +15,7 @@ public class SkillQueueParser extends AbstractListParser<SkillQueueHandler, Skil
     }
 
     @Override
-    public SkillQueueResponse getResponse(ApiAuth auth) throws ApiException {
+    public SkillQueueResponse getResponse(final ApiAuth auth) throws ApiException {
         return super.getResponse(auth);
     }
 }

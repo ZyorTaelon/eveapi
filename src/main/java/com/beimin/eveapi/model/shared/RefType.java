@@ -177,7 +177,7 @@ public enum RefType {
     private String argName;
     private String argID;
 
-    private RefType(int id, String name, String argName, String argID) {
+    private RefType(final int id, final String name, final String argName, final String argID) {
         this.id = id;
         this.name = name;
         this.argName = argName;
@@ -200,10 +200,11 @@ public enum RefType {
         return argID;
     }
 
-    public static RefType forID(int refTypeID) {
-        for (RefType refType : values()) {
-            if (refType.getId() == refTypeID)
+    public static RefType forID(final int refTypeID) {
+        for (final RefType refType : values()) {
+            if (refType.getId() == refTypeID) {
                 return refType;
+            }
         }
         return null;
     }

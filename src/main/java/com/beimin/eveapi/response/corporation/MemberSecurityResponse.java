@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.ApiResponse;
 public class MemberSecurityResponse extends ApiResponse {
     private final Set<SecurityMember> members = new HashSet<SecurityMember>();
 
-    public void addMember(SecurityMember member) {
+    public void addMember(final SecurityMember member) {
         members.add(member);
     }
 

@@ -15,7 +15,7 @@ public class SkillQueueItem {
         return queuePosition;
     }
 
-    public void setQueuePosition(int queuePosition) {
+    public void setQueuePosition(final int queuePosition) {
         this.queuePosition = queuePosition;
     }
 
@@ -23,7 +23,7 @@ public class SkillQueueItem {
         return typeID;
     }
 
-    public void setTypeID(int typeID) {
+    public void setTypeID(final int typeID) {
         this.typeID = typeID;
     }
 
@@ -31,7 +31,7 @@ public class SkillQueueItem {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(final int level) {
         this.level = level;
     }
 
@@ -39,7 +39,7 @@ public class SkillQueueItem {
         return startSP;
     }
 
-    public void setStartSP(int startSP) {
+    public void setStartSP(final int startSP) {
         this.startSP = startSP;
     }
 
@@ -47,7 +47,7 @@ public class SkillQueueItem {
         return endSP;
     }
 
-    public void setEndSP(int endSP) {
+    public void setEndSP(final int endSP) {
         this.endSP = endSP;
     }
 
@@ -55,7 +55,7 @@ public class SkillQueueItem {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(final Date startTime) {
         this.startTime = startTime;
     }
 
@@ -63,7 +63,7 @@ public class SkillQueueItem {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(final Date endTime) {
         this.endTime = endTime;
     }
 }

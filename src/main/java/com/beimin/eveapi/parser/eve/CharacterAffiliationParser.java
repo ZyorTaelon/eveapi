@@ -14,7 +14,7 @@ public class CharacterAffiliationParser extends AbstractListParser<CharacterAffi
         super(CharacterAffiliationResponse.class, 2, ApiPath.EVE, ApiPage.CHARACTER_AFFILIATION, CharacterAffiliationHandler.class);
     }
 
-    public CharacterAffiliationResponse getResponse(long... arguments) throws ApiException {
+    public CharacterAffiliationResponse getResponse(final long... arguments) throws ApiException {
         return super.getResponse("ids", StringUtils.join(",", arguments));
     }
 }

@@ -31,36 +31,37 @@ public class LoggingConnector extends ApiConnector {
 
     public LoggingConnector() {
         super();
-        this.baseConnector = null;
+        baseConnector = null;
     }
 
-    public LoggingConnector(ApiConnector baseConnector) {
+    public LoggingConnector(final ApiConnector baseConnector) {
         this.baseConnector = baseConnector;
     }
 
     @Override
-    public <E extends ApiResponse> E execute(ApiRequest request, AbstractContentHandler contentHandler, Class<E> clazz) throws ApiException {
-        if (LOGGER.isInfoEnabled())
+    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler contentHandler, final Class<E> clazz) throws ApiException {
+        if (LOGGER.isInfoEnabled()) {
             LOGGER.info("\nRequest:\n" + request.toString());
-        ApiConnector connector = getConnector();
-        URL url = connector.getURL(request);
-        Map<String, String> params = connector.getParams(request);
-        InputStream is = connector.getInputStream(url, params);
+        }
+        final ApiConnector connector = getConnector();
+        final URL url = connector.getURL(request);
+        final Map<String, String> params = connector.getParams(request);
+        final InputStream is = connector.getInputStream(url, params);
         return getApiResponse(contentHandler, is, clazz);
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    protected <E> E getApiResponse(AbstractContentHandler contentHandler, InputStream inputStream, Class<E> clazz) throws ApiException {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    protected <E> E getApiResponse(final AbstractContentHandler contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
+        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         InputStream workInputStream = inputStream;
         try {
             if (LOGGER.isInfoEnabled()) {
                 workInputStream = new InputStreamSplitter(inputStream, outputStream);
             }
-            SAXParserFactory spf = SAXParserFactory.newInstance();
-            SAXParser sp = spf.newSAXParser();
-            XMLReader xr = sp.getXMLReader();
+            final SAXParserFactory spf = SAXParserFactory.newInstance();
+            final SAXParser sp = spf.newSAXParser();
+            final XMLReader xr = sp.getXMLReader();
             xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             xr.setContentHandler(contentHandler);
             xr.parse(new InputSource(workInputStream));
@@ -71,7 +72,7 @@ public class LoggingConnector extends ApiConnector {
             if (LOGGER.isInfoEnabled()) {
                 try {
                     LOGGER.info("\nResponse:\n{}", outputStream.toString(StandardCharsets.UTF_8.name()));
-                } catch (UnsupportedEncodingException e) {
+                } catch (final UnsupportedEncodingException e) {
                     LOGGER.error("Could not write response as utf-8", e);
                 }
             }
@@ -79,7 +80,7 @@ public class LoggingConnector extends ApiConnector {
                 if (workInputStream != null) {
                     workInputStream.close();
                 }
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 LOGGER.error("Could not close input stream", e);
             }
         }
@@ -91,8 +92,9 @@ public class LoggingConnector extends ApiConnector {
     }
 
     private ApiConnector getConnector() {
-        if (baseConnector != null)
+        if (baseConnector != null) {
             return baseConnector.getNewInstance();
+        }
         return super.getNewInstance();
     }
 }
