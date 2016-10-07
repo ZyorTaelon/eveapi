@@ -6,7 +6,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.beimin.eveapi.EveApi;
+import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.parser.ApiAuth;
@@ -17,6 +17,7 @@ import com.beimin.eveapi.response.ApiResponse;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
+    private static ApiConnector connector = new ApiConnector();
     protected final ApiPath path;
     protected final ApiPage page;
     protected final int version;
@@ -52,6 +53,10 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
     }
 
     private E getResponse(final ApiRequest request) throws ApiException {
-        return EveApi.getConnector().execute(request, getContentHandler(), clazz);
+        return connector.execute(request, getContentHandler(), clazz);
+    }
+
+    public static void setConnector(final ApiConnector connector) {
+        AbstractApiParser.connector = connector;
     }
 }

@@ -12,13 +12,14 @@ import java.util.List;
 import org.junit.BeforeClass;
 
 import com.beimin.eveapi.connectors.ApiConnector;
+import com.beimin.eveapi.parser.shared.AbstractApiParser;
 
 public abstract class AbstractOnlineTest {
     private final List<Class<?>> nullCheckClasses = Arrays.asList(new Class<?>[] { Date.class, Integer.class, Long.class, Double.class, int.class, long.class, double.class });
 
     @BeforeClass
     public static void setUp() {
-        EveApi.setConnector(new ApiConnector());
+        AbstractApiParser.setConnector(new ApiConnector());
     }
 
     protected void checkBean(final Object bean) {

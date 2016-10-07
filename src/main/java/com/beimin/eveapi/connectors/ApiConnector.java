@@ -74,7 +74,8 @@ public class ApiConnector {
             final StringBuilder data = new StringBuilder();
             for (final Entry<String, String> entry : params.entrySet()) {
                 if (data.length() > 0) {
-                    data.append('&'); // to ensure that we don't append an '&' to the end.
+                    // to ensure that we don't append an '&' to the end.
+                    data.append('&');
                 }
                 final String key = entry.getKey();
                 final String value = entry.getValue();
@@ -113,7 +114,7 @@ public class ApiConnector {
     }
 
     protected Map<String, String> getParams(final ApiRequest request) {
-        final Map<String, String> result = new ConcurrentHashMap<String, String>();
+        final Map<String, String> result = new ConcurrentHashMap<>();
         result.put("version", Integer.toString(request.getVersion()));
         final ApiAuth auth = request.getAuth();
         if (auth != null) {

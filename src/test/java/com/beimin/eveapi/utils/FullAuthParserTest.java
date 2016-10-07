@@ -10,11 +10,11 @@ import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.After;
 import org.junit.Before;
 
-import com.beimin.eveapi.EveApi;
 import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.parser.ApiAuthorization;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.shared.AbstractApiParser;
 
 public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsserts {
     private final CamelContext context = new DefaultCamelContext();
@@ -61,7 +61,7 @@ public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsser
             }
         });
         context.start();
-        EveApi.setConnector(new ApiConnector(MockApi.URL));
+        AbstractApiParser.setConnector(new ApiConnector(MockApi.URL));
     }
 
     @Override

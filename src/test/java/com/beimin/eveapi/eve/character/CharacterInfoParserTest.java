@@ -12,7 +12,6 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.Test;
 
-import com.beimin.eveapi.EveApi;
 import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.model.shared.Bloodline;
 import com.beimin.eveapi.model.shared.Race;
@@ -20,6 +19,7 @@ import com.beimin.eveapi.parser.ApiAuthorization;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.eve.CharacterInfoParser;
+import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.eve.CharacterInfoResponse;
 import com.beimin.eveapi.utils.ExchangeProcessor;
 import com.beimin.eveapi.utils.MockApi;
@@ -36,7 +36,7 @@ public class CharacterInfoParserTest {
 
         context.addRoutes(noAPI);
         context.start();
-        EveApi.setConnector(new ApiConnector(MockApi.URL));
+        AbstractApiParser.setConnector(new ApiConnector(MockApi.URL));
         final CharacterInfoParser parser = new CharacterInfoParser();
         final CharacterInfoResponse response = parser.getResponse(1380128241);
         assertNotNull(response);
@@ -68,7 +68,7 @@ public class CharacterInfoParserTest {
         final CamelContext context = new DefaultCamelContext();
         context.addRoutes(limitedApiRoute);
         context.start();
-        EveApi.setConnector(new ApiConnector(MockApi.URL));
+        AbstractApiParser.setConnector(new ApiConnector(MockApi.URL));
         final CharacterInfoParser parser = new CharacterInfoParser();
         final CharacterInfoResponse response = parser.getResponse(limitedAPI);
         assertNotNull(response);
@@ -99,8 +99,8 @@ public class CharacterInfoParserTest {
         final CamelContext context = new DefaultCamelContext();
         context.addRoutes(fullApiRoute);
         context.start();
-        EveApi.setConnector(new ApiConnector(MockApi.URL));
         final CharacterInfoParser parser = new CharacterInfoParser();
+        AbstractApiParser.setConnector(new ApiConnector(MockApi.URL));
         final CharacterInfoResponse response = parser.getResponse(fullAPI);
         assertNotNull(response);
         assertEquals(1380128241L, response.getCharacterID());
