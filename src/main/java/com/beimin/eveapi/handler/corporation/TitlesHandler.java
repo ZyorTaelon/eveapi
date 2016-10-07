@@ -4,7 +4,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentListHandler;
-import com.beimin.eveapi.model.corporation.Role;
+import com.beimin.eveapi.model.corporation.CorporationRole;
 import com.beimin.eveapi.model.corporation.TitleWithRoles;
 import com.beimin.eveapi.response.corporation.TitlesResponse;
 
@@ -61,8 +61,8 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
         }
     }
 
-    private Role getRole(final Attributes attrs) {
-        final Role role = new Role();
+    private CorporationRole getRole(final Attributes attrs) {
+        final CorporationRole role = new CorporationRole();
         role.setRoleID(getLong(attrs, "roleID"));
         role.setRoleName(getString(attrs, "roleName"));
         role.setRoleDescription(getString(attrs, "roleDescription"));

@@ -1,6 +1,6 @@
 package com.beimin.eveapi.model.pilot;
 
-public class CorporationRole {
+public class Role {
     private long roleID;
     private String roleName;
 

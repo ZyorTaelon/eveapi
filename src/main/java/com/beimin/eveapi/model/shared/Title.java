@@ -1,4 +1,4 @@
-package com.beimin.eveapi.model.corporation;
+package com.beimin.eveapi.model.shared;
 
 public class Title {
     private long titleID;

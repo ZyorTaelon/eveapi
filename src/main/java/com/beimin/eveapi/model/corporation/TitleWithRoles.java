@@ -3,77 +3,79 @@ package com.beimin.eveapi.model.corporation;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class TitleWithRoles extends Title {
-    private final Collection<Role> roles = new ArrayList<Role>();
-    private final Collection<Role> grantableRoles = new ArrayList<Role>();
-    private final Collection<Role> rolesAtHQ = new ArrayList<Role>();
-    private final Collection<Role> grantableRolesAtHQ = new ArrayList<Role>();
-    private final Collection<Role> rolesAtBase = new ArrayList<Role>();
-    private final Collection<Role> grantableRolesAtBase = new ArrayList<Role>();
-    private final Collection<Role> rolesAtOther = new ArrayList<Role>();
-    private final Collection<Role> grantableRolesAtOther = new ArrayList<Role>();
+import com.beimin.eveapi.model.shared.Title;
 
-    public Collection<Role> getRoles() {
+public class TitleWithRoles extends Title {
+    private final Collection<CorporationRole> roles = new ArrayList<CorporationRole>();
+    private final Collection<CorporationRole> grantableRoles = new ArrayList<CorporationRole>();
+    private final Collection<CorporationRole> rolesAtHQ = new ArrayList<CorporationRole>();
+    private final Collection<CorporationRole> grantableRolesAtHQ = new ArrayList<CorporationRole>();
+    private final Collection<CorporationRole> rolesAtBase = new ArrayList<CorporationRole>();
+    private final Collection<CorporationRole> grantableRolesAtBase = new ArrayList<CorporationRole>();
+    private final Collection<CorporationRole> rolesAtOther = new ArrayList<CorporationRole>();
+    private final Collection<CorporationRole> grantableRolesAtOther = new ArrayList<CorporationRole>();
+
+    public Collection<CorporationRole> getRoles() {
         return roles;
     }
 
-    public Collection<Role> getGrantableRoles() {
+    public Collection<CorporationRole> getGrantableRoles() {
         return grantableRoles;
     }
 
-    public Collection<Role> getRolesAtHQ() {
+    public Collection<CorporationRole> getRolesAtHQ() {
         return rolesAtHQ;
     }
 
-    public Collection<Role> getGrantableRolesAtHQ() {
+    public Collection<CorporationRole> getGrantableRolesAtHQ() {
         return grantableRolesAtHQ;
     }
 
-    public Collection<Role> getRolesAtBase() {
+    public Collection<CorporationRole> getRolesAtBase() {
         return rolesAtBase;
     }
 
-    public Collection<Role> getGrantableRolesAtBase() {
+    public Collection<CorporationRole> getGrantableRolesAtBase() {
         return grantableRolesAtBase;
     }
 
-    public Collection<Role> getRolesAtOther() {
+    public Collection<CorporationRole> getRolesAtOther() {
         return rolesAtOther;
     }
 
-    public Collection<Role> getGrantableRolesAtOther() {
+    public Collection<CorporationRole> getGrantableRolesAtOther() {
         return grantableRolesAtOther;
     }
 
-    public void addRole(final Role role) {
+    public void addRole(final CorporationRole role) {
         roles.add(role);
     }
 
-    public void addGrantableRole(final Role role) {
+    public void addGrantableRole(final CorporationRole role) {
         grantableRoles.add(role);
     }
 
-    public void addRoleAtHQ(final Role role) {
+    public void addRoleAtHQ(final CorporationRole role) {
         rolesAtHQ.add(role);
     }
 
-    public void addGrantableRoleAtHQ(final Role role) {
+    public void addGrantableRoleAtHQ(final CorporationRole role) {
         grantableRolesAtHQ.add(role);
     }
 
-    public void addRoleAtBase(final Role role) {
+    public void addRoleAtBase(final CorporationRole role) {
         rolesAtBase.add(role);
     }
 
-    public void addGrantableRoleAtBase(final Role role) {
+    public void addGrantableRoleAtBase(final CorporationRole role) {
         grantableRolesAtBase.add(role);
     }
 
-    public void addRoleAtOther(final Role role) {
+    public void addRoleAtOther(final CorporationRole role) {
         rolesAtOther.add(role);
     }
 
-    public void addGrantableRoleAtOther(final Role role) {
+    public void addGrantableRoleAtOther(final CorporationRole role) {
         grantableRolesAtOther.add(role);
     }
 }

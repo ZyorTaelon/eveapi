@@ -4,8 +4,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentListHandler;
+import com.beimin.eveapi.model.corporation.CorporationRole;
 import com.beimin.eveapi.model.corporation.RoleHistory;
-import com.beimin.eveapi.model.corporation.SecurityRole;
 import com.beimin.eveapi.response.corporation.MemberSecurityLogResponse;
 
 public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberSecurityLogResponse, RoleHistory> {
@@ -37,8 +37,8 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
         }
     }
 
-    private SecurityRole getRole(final Attributes attrs) {
-        final SecurityRole securityRole = new SecurityRole();
+    private CorporationRole getRole(final Attributes attrs) {
+        final CorporationRole securityRole = new CorporationRole();
         securityRole.setRoleID(getLong(attrs, "roleID"));
         securityRole.setRoleName(getString(attrs, "roleName"));
         return securityRole;

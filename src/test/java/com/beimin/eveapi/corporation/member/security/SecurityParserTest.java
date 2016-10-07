@@ -8,9 +8,9 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.CorporationRole;
 import com.beimin.eveapi.model.corporation.SecurityMember;
-import com.beimin.eveapi.model.corporation.SecurityRole;
-import com.beimin.eveapi.model.corporation.Title;
+import com.beimin.eveapi.model.shared.Title;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.MemberSecurityParser;
@@ -32,7 +32,7 @@ public class SecurityParserTest extends FullAuthParserTest {
         final SecurityMember member = members.iterator().next();
         assertEquals("Wrong member characterID", 123456789, member.getCharacterID());
         assertEquals("Wrong member name", "Tester", member.getName());
-        final Set<SecurityRole> roles = member.getRoles();
+        final Set<CorporationRole> roles = member.getRoles();
         assertNotNull(roles);
         assertEquals("Incorrect amount of roles found.", 1, roles.size());
         final Set<Title> titles = member.getTitles();

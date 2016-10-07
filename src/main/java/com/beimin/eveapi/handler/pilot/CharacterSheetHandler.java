@@ -6,11 +6,10 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
-import com.beimin.eveapi.model.corporation.Title;
 import com.beimin.eveapi.model.pilot.AttributeEnhancer;
 import com.beimin.eveapi.model.pilot.Certificate;
 import com.beimin.eveapi.model.pilot.CharismaBonus;
-import com.beimin.eveapi.model.pilot.CorporationRole;
+import com.beimin.eveapi.model.pilot.Role;
 import com.beimin.eveapi.model.pilot.IntelligenceBonus;
 import com.beimin.eveapi.model.pilot.MemoryBonus;
 import com.beimin.eveapi.model.pilot.PerceptionBonus;
@@ -19,6 +18,7 @@ import com.beimin.eveapi.model.pilot.WillpowerBonus;
 import com.beimin.eveapi.model.shared.Ancestry;
 import com.beimin.eveapi.model.shared.Bloodline;
 import com.beimin.eveapi.model.shared.Race;
+import com.beimin.eveapi.model.shared.Title;
 import com.beimin.eveapi.response.pilot.CharacterSheetResponse;
 
 public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheetResponse> {
@@ -61,22 +61,22 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
                 certificate.setCertificateID(getInt(attrs, "certificateID"));
                 response.addCertificate(certificate);
             } else if ("corporationRoles".equals(rowsetName)) {
-                final CorporationRole corporationRole = new CorporationRole();
+                final Role corporationRole = new Role();
                 corporationRole.setRoleID(getLong(attrs, "roleID"));
                 corporationRole.setRoleName(getString(attrs, "roleName"));
                 response.addCorporationRole(corporationRole);
             } else if ("corporationRolesAtHQ".equals(rowsetName)) {
-                final CorporationRole corporationRole = new CorporationRole();
+                final Role corporationRole = new Role();
                 corporationRole.setRoleID(getLong(attrs, "roleID"));
                 corporationRole.setRoleName(getString(attrs, "roleName"));
                 response.addCorporationRoleAtHQ(corporationRole);
             } else if ("corporationRolesAtBase".equals(rowsetName)) {
-                final CorporationRole corporationRole = new CorporationRole();
+                final Role corporationRole = new Role();
                 corporationRole.setRoleID(getLong(attrs, "roleID"));
                 corporationRole.setRoleName(getString(attrs, "roleName"));
                 response.addCorporationRoleAtBase(corporationRole);
             } else if ("corporationRolesAtOther".equals(rowsetName)) {
-                final CorporationRole corporationRole = new CorporationRole();
+                final Role corporationRole = new Role();
                 corporationRole.setRoleID(getLong(attrs, "roleID"));
                 corporationRole.setRoleName(getString(attrs, "roleName"));
                 response.addCorporationRoleAtOther(corporationRole);

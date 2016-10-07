@@ -11,8 +11,8 @@ public class RoleHistory {
     private long issuerID;
     private String issuerName;
     private String roleLocationType;
-    private final Set<SecurityRole> oldRoles = new HashSet<SecurityRole>();
-    private final Set<SecurityRole> newRoles = new HashSet<SecurityRole>();
+    private final Set<CorporationRole> oldRoles = new HashSet<>();
+    private final Set<CorporationRole> newRoles = new HashSet<>();
 
     public Date getChangeTime() {
         return changeTime;
@@ -62,19 +62,19 @@ public class RoleHistory {
         this.roleLocationType = roleLocationType;
     }
 
-    public Set<SecurityRole> getOldRoles() {
+    public Set<CorporationRole> getOldRoles() {
         return oldRoles;
     }
 
-    public Set<SecurityRole> getNewRoles() {
+    public Set<CorporationRole> getNewRoles() {
         return newRoles;
     }
 
-    public void addOldRole(final SecurityRole securityRole) {
+    public void addOldRole(final CorporationRole securityRole) {
         oldRoles.add(securityRole);
     }
 
-    public void addNewRole(final SecurityRole securityRole) {
+    public void addNewRole(final CorporationRole securityRole) {
         newRoles.add(securityRole);
     }
 }
