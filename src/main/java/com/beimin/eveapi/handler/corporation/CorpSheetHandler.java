@@ -29,6 +29,7 @@ public class CorpSheetHandler extends AbstractContentHandler {
 			walletDivisions = name.equals("walletDivisions");
 		} else if (qName.equals("row")) {
 			Division division = new Division();
+			saveFieldsCount(Division.class, attrs);
 			division.setAccountKey(getInt(attrs, "accountKey"));
 			division.setDescription(getString(attrs, "description"));
 			if(divisions)

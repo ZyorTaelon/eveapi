@@ -10,9 +10,14 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.DateUtils;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class AbstractContentHandler extends DefaultHandler {
 	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractContentHandler.class);
+
+	private static boolean strictCheckMode = false;
+	private static Map<String, Integer> fields;
 
 	protected StringBuffer accumulator = new StringBuffer(); // Accumulate parsed text
 	private ApiError error;
@@ -28,6 +33,7 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 			getResponse().setVersion(getInt(attrs, "version"));
 		} else if (qName.equals("error")) {
 			error = new ApiError();
+			saveFieldsCount(ApiError.class, attrs);
 			error.setCode(getInt(attrs, "code"));
 			getResponse().setError(error);
 		}
@@ -138,9 +144,22 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 		return "1".equals(getString(attrs, qName)) || "true".equalsIgnoreCase(getString(attrs, qName));
 	}
 
-	protected void checkForNewFields(Attributes attrs, int number) {
-		if (attrs.getLength() != number) {
-			throw new IllegalArgumentException("Looks like new fields where added, only " + number + " expected!");
+	public static void enableStrictCheckMode() {
+		AbstractContentHandler.strictCheckMode = true;
+		fields = new HashMap<String, Integer>();
+	}
+
+	public static Map<String, Integer> getFields() {
+		return fields;
+	}
+
+	protected void saveFieldsCount(Class clazz, Attributes attrs) {
+		if (strictCheckMode) {
+			Integer current = fields.get(clazz.getName());
+			if (current == null) {
+				current = 0;
+			}
+			fields.put(clazz.getName(), Math.max(current, attrs.getLength()));
 		}
 	}
 

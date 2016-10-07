@@ -24,8 +24,10 @@ public class CallListHandler extends AbstractContentHandler {
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attrs)
 			throws SAXException {
-		if (qName.equals("result"))
+		if (qName.equals("result")) {
 			callList = new CallList();
+			saveFieldsCount(CallList.class, attrs);
+		}
 		if (qName.equals("rowset")) {
 			String name = attrs.getValue("name");
 			if (name.equals("callGroups")) {
@@ -37,12 +39,14 @@ public class CallListHandler extends AbstractContentHandler {
 		if (qName.equals("row")) {
 			if(callGroups) {
 				CallGroup callGroup = new CallGroup();
+				saveFieldsCount(CallGroup.class, attrs);
 				callGroup.setGroupID(getInt(attrs, "groupID"));
 				callGroup.setName(getString(attrs, "name"));
 				callGroup.setDescription(getString(attrs, "description"));
 				callList.add(callGroup);
 			} else if(calls) {
 				Call call = new Call();
+				saveFieldsCount(Call.class, attrs);
 				call.setAccessMask(getLong(attrs, "accessMask"));
 				call.setType(KeyType.valueOf(getString(attrs, "type")));
 				call.setName(getString(attrs, "name"));

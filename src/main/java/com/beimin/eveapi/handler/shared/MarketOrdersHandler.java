@@ -15,6 +15,7 @@ public class MarketOrdersHandler extends AbstractContentListHandler<MarketOrders
 	@Override
 	protected MarketOrder getItem(Attributes attrs) {
 		MarketOrder order = new MarketOrder();
+		saveFieldsCount(MarketOrder.class, attrs);
 		order.setOrderID(getLong(attrs, "orderID"));
 		order.setAccountKey(getInt(attrs, "accountKey"));
 		order.setBid(getInt(attrs, "bid"));

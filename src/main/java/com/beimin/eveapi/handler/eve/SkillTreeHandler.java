@@ -35,16 +35,19 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
 		} else if (qName.equals("row")) {
 			if (skillBonusCollection) {
 				Bonus bonus = new Bonus();
+				saveFieldsCount(Bonus.class, attrs);
 				bonus.setBonusType(getString(attrs, "bonusType"));
 				bonus.setBonusValue(getString(attrs, "bonusValue"));
 				skill.add(bonus);
 			} else if (requiredSkills) {
 				Requirement requirement = new Requirement();
+				saveFieldsCount(Requirement.class, attrs);
 				requirement.setTypeID(getInt(attrs, "typeID"));
 				requirement.setSkillLevel(getInt(attrs, "skillLevel"));
 				skill.add(requirement);
 			} else if (skills) {
 				skill = new Skill();
+				saveFieldsCount(Skill.class, attrs);
 				skill.setTypeName(getString(attrs, "typeName"));
 				skill.setTypeID(getInt(attrs, "typeID"));
 				skill.setGroupID(getInt(attrs, "groupID"));

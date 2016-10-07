@@ -29,6 +29,7 @@ public class AssetListHandler extends AbstractContentHandler {
 		}
 		if (qName.equals("row")) {
 			currentAsset = new Asset();
+			saveFieldsCount(Asset.class, attrs);
 			currentAsset.setItemID(getLong(attrs, "itemID"));
 			currentAsset.setLocationID(getLong(attrs, "locationID"));
 			currentAsset.setTypeID(getInt(attrs, "typeID"));

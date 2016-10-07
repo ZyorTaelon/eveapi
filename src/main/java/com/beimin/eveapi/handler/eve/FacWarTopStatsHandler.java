@@ -121,6 +121,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
 
 	private CharacterKills getCharKill(Attributes attrs) {
 		CharacterKills stat = new CharacterKills();
+		saveFieldsCount(CharacterKills.class, attrs);
 		setCharacterDetails(attrs, stat);
 		setKills(attrs, stat);
 		return stat;
@@ -128,6 +129,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
 
 	private CharacterVictoryPoints getCharVP(Attributes attrs) {
 		CharacterVictoryPoints stat = new CharacterVictoryPoints();
+		saveFieldsCount(CharacterVictoryPoints.class, attrs);
 		setCharacterDetails(attrs, stat);
 		setVictoryPoint(attrs, stat);
 		return stat;
@@ -135,6 +137,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
 
 	private CorporationKills getCorpKill(Attributes attrs) {
 		CorporationKills stat = new CorporationKills();
+		saveFieldsCount(CorporationKills.class, attrs);
 		setCorporationDetails(attrs, stat);
 		setKills(attrs, stat);
 		return stat;
@@ -142,6 +145,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
 
 	private CorporationVictoryPoints getCorpVP(Attributes attrs) {
 		CorporationVictoryPoints stat = new CorporationVictoryPoints();
+		saveFieldsCount(CorporationVictoryPoints.class, attrs);
 		setCorporationDetails(attrs, stat);
 		setVictoryPoint(attrs, stat);
 		return stat;
@@ -149,6 +153,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
 
 	private FactionKills getFactionKill(Attributes attrs) {
 		FactionKills stat = new FactionKills();
+		saveFieldsCount(FactionKills.class, attrs);
 		setFactionDetails(attrs, stat);
 		setKills(attrs, stat);
 		return stat;
@@ -156,6 +161,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
 
 	private FactionVictoryPoints getFactionVP(Attributes attrs) {
 		FactionVictoryPoints stat = new FactionVictoryPoints();
+		saveFieldsCount(FactionVictoryPoints.class, attrs);
 		setFactionDetails(attrs, stat);
 		setVictoryPoint(attrs, stat);
 		return stat;

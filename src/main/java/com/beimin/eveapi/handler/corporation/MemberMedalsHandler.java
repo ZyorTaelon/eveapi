@@ -15,6 +15,7 @@ public class MemberMedalsHandler extends AbstractContentListHandler<MemberMedals
 	@Override
 	protected MemberMedal getItem(Attributes attrs) {
 		MemberMedal medal = new MemberMedal();
+		saveFieldsCount(MemberMedal.class, attrs);
 		medal.setMedalID(getInt(attrs, "medalID"));
 		medal.setCharacterID(getLong(attrs, "characterID"));
 		medal.setIssued(getDate(attrs, "issued"));

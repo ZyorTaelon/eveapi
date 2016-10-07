@@ -14,6 +14,7 @@ public class CharactersHandler extends AbstractContentListHandler<CharactersResp
 	@Override
 	protected Character getItem(Attributes attrs) {
 		Character character = new Character();
+		saveFieldsCount(Character.class, attrs);
 		character.setCharacterID(getLong(attrs, "characterID"));
 		character.setName(getString(attrs, "name"));
 		character.setCorporationID(getLong(attrs, "corporationID"));

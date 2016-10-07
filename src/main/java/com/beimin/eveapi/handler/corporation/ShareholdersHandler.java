@@ -14,6 +14,7 @@ public class ShareholdersHandler extends AbstractContentListHandler<Shareholders
 	@Override
 	protected Shareholder getItem(Attributes attrs) {
 		Shareholder item = new Shareholder();
+		saveFieldsCount(Shareholder.class, attrs);
 		item.setShareholderCorporationID(getLong(attrs, "shareholderCorporationID"));
 		item.setShareholderCorporationName(getString(attrs, "shareholderCorporationName"));
 		item.setShareholderID(getLong(attrs, "shareholderID"));

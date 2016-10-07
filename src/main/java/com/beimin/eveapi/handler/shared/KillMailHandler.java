@@ -30,6 +30,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 		if (qName.equals("row")) {
 			if (inAttackers) {
 				KillAttacker attacker = new KillAttacker();
+				saveFieldsCount(KillAttacker.class, attrs);
 				attacker.setCharacterID(getLong(attrs, "characterID"));
 				attacker.setCharacterName(getString(attrs, "characterName"));
 				attacker.setCorporationID(getLong(attrs, "corporationID"));
@@ -43,22 +44,22 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 				attacker.setFinalBlow(getBoolean(attrs, "finalBlow"));
 				attacker.setWeaponTypeID(getInt(attrs, "weaponTypeID"));
 				attacker.setShipTypeID(getInt(attrs, "shipTypeID"));
-				checkForNewFields(attrs, 13);
 				apiKill.add(attacker);
 			} else if (inItems) {
 				KillItem item = new KillItem();
+				saveFieldsCount(KillItem.class, attrs);
 				item.setTypeID(getLong(attrs, "typeID"));
 				item.setFlag(getInt(attrs, "flag"));
 				item.setQtyDestroyed(getInt(attrs, "qtyDestroyed"));
 				item.setQtyDropped(getInt(attrs, "qtyDropped"));
 				item.setSingleton(getInt(attrs, "singleton"));
-				checkForNewFields(attrs, 5);
 				apiKill.add(item);
 			} else {
 				apiKill = getItem(attrs);
 			}
 		} else if (qName.equals("victim")) {
 			KillVictim victim = new KillVictim();
+			saveFieldsCount(KillVictim.class, attrs);
 			victim.setCharacterID(getLong(attrs, "characterID"));
 			victim.setCharacterName(getString(attrs, "characterName"));
 			victim.setCorporationID(getLong(attrs, "corporationID"));
@@ -72,7 +73,6 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 			victim.setPositionX(getDouble(attrs, "x"));
 			victim.setPositionY(getDouble(attrs, "y"));
 			victim.setPositionZ(getDouble(attrs, "z"));
-			checkForNewFields(attrs, 13);
 			apiKill.setVictim(victim);
 		} else
 			super.startElement(uri, localName, qName, attrs);
@@ -96,11 +96,11 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 	@Override
 	protected Kill getItem(Attributes attrs) {
 		Kill item = new Kill();
+		saveFieldsCount(Kill.class, attrs);
 		item.setKillID(getLong(attrs, "killID"));
 		item.setKillTime(getDate(attrs, "killTime"));
 		item.setMoonID(getInt(attrs, "moonID"));
 		item.setSolarSystemID(getLong(attrs, "solarSystemID"));
-		checkForNewFields(attrs, 4);
 		return item;
 	}
 }

@@ -14,6 +14,7 @@ public class OutpostServiceDetailHandler extends AbstractContentListHandler<Outp
 	@Override
 	protected OutpostServiceDetail getItem(Attributes attrs) {
 		OutpostServiceDetail item = new OutpostServiceDetail();
+		saveFieldsCount(OutpostServiceDetail.class, attrs);
 		item.setStationID(getLong(attrs, "stationID"));
 		item.setOwnerID(getLong(attrs, "ownerID"));
 		item.setServiceName(getString(attrs, "serviceName")); 

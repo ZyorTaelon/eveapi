@@ -14,6 +14,7 @@ public class JumpsHandler extends AbstractContentListHandler<JumpsResponse, Syst
 	@Override
 	protected SystemJumps getItem(Attributes attrs) {
 		SystemJumps item = new SystemJumps();
+		saveFieldsCount(SystemJumps.class, attrs);
 		item.setSolarSystemID(getInt(attrs, "solarSystemID"));
 		item.setShipJumps(getInt(attrs, "shipJumps"));
 		return item;

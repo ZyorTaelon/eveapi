@@ -36,6 +36,7 @@ public class MailBodiesHandler extends AbstractContentListHandler<MailBodiesResp
 	@Override
 	protected MailBody getItem(Attributes attrs) {
 		MailBody item = new MailBody();
+		saveFieldsCount(MailBody.class, attrs);
 		item.setMessageID(getLong(attrs, "messageID"));
 		return item;
 	}

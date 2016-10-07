@@ -16,6 +16,7 @@ public class WalletTransactionsHandler extends
 	@Override
 	protected WalletTransaction getItem(Attributes attrs) {
 		WalletTransaction item = new WalletTransaction();
+		saveFieldsCount(WalletTransaction.class, attrs);
 		item.setTransactionDateTime(getDate(attrs, "transactionDateTime"));
 		item.setTransactionID(getLong(attrs, "transactionID"));
 		item.setQuantity(getInt(attrs, "quantity"));

@@ -14,6 +14,7 @@ public class ResearchHandler extends AbstractContentListHandler<ResearchResponse
 	@Override
 	protected ResearchAgent getItem(Attributes attrs) {
 		ResearchAgent agent = new ResearchAgent();
+		saveFieldsCount(ResearchAgent.class, attrs);
 		agent.setAgentID(getInt(attrs, "agentID"));
 		agent.setSkillTypeID(getInt(attrs, "skillTypeID"));
 		agent.setPointsPerDay(getDouble(attrs, "pointsPerDay"));

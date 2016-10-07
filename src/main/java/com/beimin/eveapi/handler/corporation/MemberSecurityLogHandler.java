@@ -38,6 +38,7 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
 
 	private SecurityRole getRole(Attributes attrs) {
 		SecurityRole securityRole = new SecurityRole();
+		saveFieldsCount(SecurityRole.class, attrs);
 		securityRole.setRoleID(getLong(attrs, "roleID"));
 		securityRole.setRoleName(getString(attrs, "roleName"));
 		return securityRole;
@@ -54,6 +55,7 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
 	@Override
 	protected RoleHistory getItem(Attributes attrs) {
 		RoleHistory item = new RoleHistory();
+		saveFieldsCount(RoleHistory.class, attrs);
 		item.setCharacterID(getLong(attrs, "characterID"));
 		item.setCharacterName(getString(attrs, "characterName"));
 		item.setChangeTime(getDate(attrs, "changeTime"));

@@ -62,6 +62,7 @@ public class MemberSecurityHandler extends AbstractContentHandler {
 				member.addTitle(getTitle(attrs));
 			} else {
 				member = new SecurityMember();
+				saveFieldsCount(SecurityMember.class, attrs);
 				member.setCharacterID(getLong(attrs, "characterID"));
 				member.setName(getString(attrs, "name"));
 				response.addMember(member);
@@ -72,12 +73,14 @@ public class MemberSecurityHandler extends AbstractContentHandler {
 
 	private SecurityTitle getTitle(Attributes attrs) {
 		SecurityTitle title = new SecurityTitle();
+		saveFieldsCount(Attributes.class, attrs);
 		title.setTitleID(getLong(attrs, "titleID"));
 		title.setTitleName(getString(attrs, "titleName"));
 		return title;
 	}
 
 	private SecurityRole getRole(Attributes attrs) {
+		saveFieldsCount(SecurityRole.class, attrs);
 		SecurityRole role = new SecurityRole();
 		role.setRoleID(getLong(attrs, "roleID"));
 		role.setRoleName(getString(attrs, "roleName"));

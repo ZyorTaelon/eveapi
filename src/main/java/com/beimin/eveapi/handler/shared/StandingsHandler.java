@@ -22,9 +22,11 @@ public class StandingsHandler extends AbstractContentHandler {
 		super.startElement(uri, localName, qName, attrs);
 		if (qName.equals("rowset")) {
 			list = new StandingsList();
+			saveFieldsCount(StandingsList.class, attrs);
 			list.setName(getString(attrs, "name"));
 		} else if (qName.equals("row")) {
 			Standing standing = new Standing();
+			saveFieldsCount(Standing.class, attrs);
 			standing.setFromID(getInt(attrs, "fromID"));
 			standing.setFromName(getString(attrs, "fromName"));
 			standing.setStanding(getDouble(attrs, "standing"));

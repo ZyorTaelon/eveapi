@@ -23,6 +23,7 @@ public class CharacterInfoHandler extends AbstractContentHandler {
 	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
 		if (qName.equals("row")) {
 			CharacterEmployment employ = new CharacterEmployment();
+			saveFieldsCount(CharacterEmployment.class, attrs);
 			employ.setCorporationID(getLong(attrs, "corporationID"));
 			employ.setStartDate(getDate(attrs, "startDate"));
 			response.addEmployment(employ);

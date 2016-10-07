@@ -15,6 +15,7 @@ public class ContactNotificationsHandler extends AbstractContentListHandler<Cont
 	@Override
 	protected ContactNotification getItem(Attributes attrs) {
 		ContactNotification contactNotification = new ContactNotification();
+		saveFieldsCount(ContactNotification.class, attrs);
 		contactNotification.setNotificationID(getLong(attrs, "notificationID"));
 		contactNotification.setSenderID(getLong(attrs, "senderID"));
 		contactNotification.setSenderName(getString(attrs, "senderName"));

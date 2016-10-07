@@ -14,6 +14,7 @@ public class MedalsHandler extends AbstractContentListHandler<MedalsResponse, Me
 	@Override
 	protected Medal getItem(Attributes attrs) {
 		Medal medal = new Medal();
+		saveFieldsCount(Medal.class, attrs);
 		medal.setMedalID(getInt(attrs, "medalID"));
 		medal.setDescription(getString(attrs, "description"));
 		medal.setCreatorID(getLong(attrs, "creatorID"));

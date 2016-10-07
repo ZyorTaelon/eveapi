@@ -24,12 +24,17 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
 		if (qName.equals("result"))
 			apiKeyInfo = new ApiKeyInfo();
 		if (qName.equals("key")) {
+			for (int i = 0; i < attrs.getLength(); i++) {
+				System.out.println(attrs.getQName(i));
+			}
+			saveFieldsCount(ApiKeyInfo.class, attrs);
 			apiKeyInfo.setAccessMask(getLong(attrs, "accessMask"));
 			apiKeyInfo.setType(KeyType.valueOf(getString(attrs, "type")));
 			String expires = attrs.getValue("expires").trim();
 			if(expires.length() > 0)
 				apiKeyInfo.setExpires(getDate(expires));
 		} else if (qName.equals("row")) {
+			saveFieldsCount(Character.class, attrs);
 			Character character = new Character();
 			character.setCharacterID(getLong(attrs, "characterID"));
 			character.setName(getString(attrs, "characterName"));

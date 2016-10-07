@@ -33,6 +33,7 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
 
 	private CombatSetting getCombatSetting(Attributes attrs) {
 		CombatSetting onStandingDrop = new CombatSetting();
+		saveFieldsCount(CombatSetting.class, attrs);
 		Integer standing = getInt(attrs, "standing");
 		if(standing != null)
 			onStandingDrop.setStanding(standing);

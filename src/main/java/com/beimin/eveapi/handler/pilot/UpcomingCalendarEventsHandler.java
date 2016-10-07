@@ -16,6 +16,7 @@ public class UpcomingCalendarEventsHandler extends AbstractContentListHandler<Up
 	@Override
 	protected UpcomingCalendarEvent getItem(Attributes attrs) {
 		UpcomingCalendarEvent calendarEvent = new UpcomingCalendarEvent();
+		saveFieldsCount(UpcomingCalendarEvent.class, attrs);
 		calendarEvent.setEventID(getLong(attrs, "eventID"));
 		calendarEvent.setOwnerID(getLong(attrs, "ownerID"));
 		calendarEvent.setOwnerName(getString(attrs, "ownerName"));

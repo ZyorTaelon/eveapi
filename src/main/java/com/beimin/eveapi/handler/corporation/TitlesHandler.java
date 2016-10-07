@@ -62,6 +62,7 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
 
 	private Role getRole(Attributes attrs) {
 		Role role = new Role();
+		saveFieldsCount(Role.class, attrs);
 		role.setRoleID(getLong(attrs, "roleID"));
 		role.setRoleName(getString(attrs, "roleName"));
 		role.setRoleDescription(getString(attrs, "roleDescription"));
@@ -71,6 +72,7 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
 	@Override
 	protected Title getItem(Attributes attrs) {
 		Title item = new Title();
+		saveFieldsCount(Title.class, attrs);
 		item.setTitleID(getLong(attrs, "titleID"));
 		item.setTitleName(getString(attrs, "titleName"));
 		return item;
