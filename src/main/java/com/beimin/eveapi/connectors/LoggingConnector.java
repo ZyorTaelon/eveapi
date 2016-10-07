@@ -30,18 +30,18 @@ public class LoggingConnector extends ApiConnector {
     private final ApiConnector baseConnector;
 
     public LoggingConnector() {
-        super();
-        baseConnector = null;
+        this(null);
     }
 
     public LoggingConnector(final ApiConnector baseConnector) {
+        super();
         this.baseConnector = baseConnector;
     }
 
     @Override
     public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler contentHandler, final Class<E> clazz) throws ApiException {
         if (LOGGER.isInfoEnabled()) {
-            LOGGER.info("\nRequest:\n" + request.toString());
+            LOGGER.info("\nRequest:\n{}", request.toString());
         }
         final ApiConnector connector = getConnector();
         final URL url = connector.getURL(request);
@@ -55,9 +55,9 @@ public class LoggingConnector extends ApiConnector {
     protected <E> E getApiResponse(final AbstractContentHandler contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
         final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         InputStream workInputStream = inputStream;
-        try {
+        try (InputStream splitInputStream = new InputStreamSplitter(inputStream, outputStream);) {
             if (LOGGER.isInfoEnabled()) {
-                workInputStream = new InputStreamSplitter(inputStream, outputStream);
+                workInputStream = splitInputStream;
             }
             final SAXParserFactory spf = SAXParserFactory.newInstance();
             final SAXParser sp = spf.newSAXParser();
@@ -75,13 +75,6 @@ public class LoggingConnector extends ApiConnector {
                 } catch (final UnsupportedEncodingException e) {
                     LOGGER.error("Could not write response as utf-8", e);
                 }
-            }
-            try {
-                if (workInputStream != null) {
-                    workInputStream.close();
-                }
-            } catch (final IOException e) {
-                LOGGER.error("Could not close input stream", e);
             }
         }
     }
