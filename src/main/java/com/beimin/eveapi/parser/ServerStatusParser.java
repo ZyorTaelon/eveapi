@@ -12,7 +12,7 @@ public class ServerStatusParser extends AbstractApiParser<ServerStatusResponse> 
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<ServerStatusResponse> getContentHandler() {
         return new ServerStatusHandler();
     }
 

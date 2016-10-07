@@ -15,7 +15,7 @@ public class StarbaseDetailParser extends AbstractApiParser<StarbaseDetailRespon
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<StarbaseDetailResponse> getContentHandler() {
         return new StarbaseDetailHandler();
     }
 

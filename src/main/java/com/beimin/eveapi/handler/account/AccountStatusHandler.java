@@ -7,13 +7,12 @@ import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.account.AccountStatus;
 import com.beimin.eveapi.response.account.AccountStatusResponse;
 
-public class AccountStatusHandler extends AbstractContentHandler {
-    private AccountStatusResponse response;
+public class AccountStatusHandler extends AbstractContentHandler<AccountStatusResponse> {
     private AccountStatus accountStatus;
 
     @Override
     public void startDocument() throws SAXException {
-        response = new AccountStatusResponse();
+        setResponse(new AccountStatusResponse());
     }
 
     @Override
@@ -38,13 +37,8 @@ public class AccountStatusHandler extends AbstractContentHandler {
         } else if ("logonMinutes".equals(qName)) {
             accountStatus.setLogonMinutes(getInt());
         } else if ("result".equals(qName)) {
-            response.set(accountStatus);
+            getResponse().set(accountStatus);
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public AccountStatusResponse getResponse() {
-        return response;
     }
 }

@@ -7,16 +7,15 @@ import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.corporation.CombatSetting;
 import com.beimin.eveapi.response.corporation.StarbaseDetailResponse;
 
-public class StarbaseDetailHandler extends AbstractContentHandler {
-    private StarbaseDetailResponse response;
-
+public class StarbaseDetailHandler extends AbstractContentHandler<StarbaseDetailResponse> {
     @Override
     public void startDocument() throws SAXException {
-        response = new StarbaseDetailResponse();
+        setResponse(new StarbaseDetailResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        StarbaseDetailResponse response = getResponse();
         if ("onStandingDrop".equals(qName)) {
             response.setOnStandingDrop(getCombatSetting(attrs));
         } else if ("onStatusDrop".equals(qName)) {
@@ -44,6 +43,7 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        StarbaseDetailResponse response = getResponse();
         if ("usageFlags".equals(qName)) {
             response.setUsageFlags(getInt());
         } else if ("deployFlags".equals(qName)) {
@@ -57,10 +57,5 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
         }
 
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public StarbaseDetailResponse getResponse() {
-        return response;
     }
 }

@@ -15,7 +15,7 @@ public class CharacterSheetParser extends AbstractApiParser<CharacterSheetRespon
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<CharacterSheetResponse> getContentHandler() {
         return new CharacterSheetHandler();
     }
 

@@ -15,7 +15,7 @@ public abstract class AbstractStandingsParser extends AbstractApiParser<Standing
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<StandingsResponse> getContentHandler() {
         return new StandingsHandler();
     }
 

@@ -11,7 +11,8 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.DateUtils;
 
-public abstract class AbstractContentHandler extends DefaultHandler {
+public abstract class AbstractContentHandler<E extends ApiResponse> extends DefaultHandler {
+    private static final String MESSAGE_NUMBER_PARSER = "Couldn't parse number";
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractContentHandler.class);
     protected static final String ELEMENT_EVEAPI = "eveapi";
     protected static final String ELEMENT_CACHED_UNTIL = "cachedUntil";
@@ -24,8 +25,17 @@ public abstract class AbstractContentHandler extends DefaultHandler {
     protected static final String ATTRIBUTE_NAME = "name";
     protected static final String VALUE_TRUE = "true";
 
-    protected StringBuffer accumulator = new StringBuffer(); // Accumulate parsed text
+    private E response;
+
+    protected StringBuilder accumulator = new StringBuilder();
     private ApiError error;
+
+    public AbstractContentHandler() {
+    }
+
+    public AbstractContentHandler(E response) {
+        this.response = response;
+    }
 
     @Override
     public void characters(final char[] buffer, final int start, final int length) {
@@ -35,11 +45,11 @@ public abstract class AbstractContentHandler extends DefaultHandler {
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_EVEAPI.equals(qName)) {
-            getResponse().setVersion(getInt(attrs, ATTRIBUTE_VERSION));
+            response.setVersion(getInt(attrs, ATTRIBUTE_VERSION));
         } else if (ATTRIBUTE_ERROR.equals(qName)) {
             error = new ApiError();
             error.setCode(getInt(attrs, ATTRIBUTE_CODE));
-            getResponse().setError(error);
+            response.setError(error);
         }
         accumulator.setLength(0);
     }
@@ -47,9 +57,9 @@ public abstract class AbstractContentHandler extends DefaultHandler {
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_CURRENT_TIME.equals(qName)) {
-            getResponse().setCurrentTime(getDate());
+            response.setCurrentTime(getDate());
         } else if (ELEMENT_CACHED_UNTIL.equals(qName)) {
-            getResponse().setCachedUntil(getDate());
+            response.setCachedUntil(getDate());
         } else if (ATTRIBUTE_ERROR.equals(qName)) {
             error.setError(getString());
         }
@@ -87,11 +97,9 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         Integer result = null;
         if ((value != null) && !value.trim().isEmpty()) {
             try {
-                result = Integer.parseInt(value);
+                result = Integer.valueOf(value);
             } catch (final NumberFormatException e) {
-                LOGGER.error("Couldn't parse number", e);
-            } catch (final NullPointerException e) {
-                LOGGER.error("Couldn't parse number", e);
+                LOGGER.error(MESSAGE_NUMBER_PARSER, e);
             }
         }
         return result;
@@ -109,11 +117,9 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         Long result = null;
         if ((value != null) && !value.trim().isEmpty()) {
             try {
-                result = Long.parseLong(value);
+                result = Long.valueOf(value);
             } catch (final NumberFormatException e) {
-                LOGGER.error("Couldn't parse number", e);
-            } catch (final NullPointerException e) {
-                LOGGER.error("Couldn't parse number", e);
+                LOGGER.error(MESSAGE_NUMBER_PARSER, e);
             }
         }
         return result;
@@ -131,11 +137,9 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         Double result = null;
         if ((value != null) && !value.trim().isEmpty()) {
             try {
-                result = Double.parseDouble(value);
+                result = Double.valueOf(value);
             } catch (final NumberFormatException e) {
-                LOGGER.error("Couldn't parse number", e);
-            } catch (final NullPointerException e) {
-                LOGGER.error("Couldn't parse number", e);
+                LOGGER.error(MESSAGE_NUMBER_PARSER, e);
             }
         }
         return result;
@@ -155,5 +159,11 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         }
     }
 
-    public abstract ApiResponse getResponse();
+    protected void setResponse(E response) {
+        this.response = response;
+    }
+
+    public E getResponse() {
+        return response;
+    }
 }

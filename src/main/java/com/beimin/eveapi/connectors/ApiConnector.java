@@ -44,12 +44,11 @@ public class ApiConnector {
         this.baseUrl = baseUrl;
     }
 
-    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler contentHandler, final Class<E> clazz) throws ApiException {
+    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler<E> contentHandler, final Class<E> clazz) throws ApiException {
         return getApiResponse(contentHandler, getInputStream(getURL(request), getParams(request)), clazz);
     }
 
-    @SuppressWarnings("unchecked")
-    protected <E> E getApiResponse(final AbstractContentHandler contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
+    protected <E extends ApiResponse> E getApiResponse(final AbstractContentHandler<E> contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
         try {
             final SAXParserFactory spf = SAXParserFactory.newInstance();
             final SAXParser sp = spf.newSAXParser();

@@ -23,7 +23,7 @@ public class CachingConnector extends ApiConnector {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler contentHandler, final Class<E> clazz) throws ApiException {
+    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler<E> contentHandler, final Class<E> clazz) throws ApiException {
         if (!cache.containsKey(request)) {
             cache.put(request, getConnector().execute(request, contentHandler, clazz));
         }

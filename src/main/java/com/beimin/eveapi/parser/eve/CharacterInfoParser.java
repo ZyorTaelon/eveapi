@@ -15,7 +15,7 @@ public class CharacterInfoParser extends AbstractApiParser<CharacterInfoResponse
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<CharacterInfoResponse> getContentHandler() {
         return new CharacterInfoHandler();
     }
 

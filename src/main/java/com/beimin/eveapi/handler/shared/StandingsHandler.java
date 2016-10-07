@@ -8,13 +8,12 @@ import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.model.shared.Standing;
 import com.beimin.eveapi.response.shared.StandingsResponse;
 
-public class StandingsHandler extends AbstractContentHandler {
-    private StandingsResponse response;
+public class StandingsHandler extends AbstractContentHandler<StandingsResponse> {
     private NamedList<Standing> list;
 
     @Override
     public void startDocument() throws SAXException {
-        response = new StandingsResponse();
+        setResponse(new StandingsResponse());
     }
 
     @Override
@@ -36,13 +35,8 @@ public class StandingsHandler extends AbstractContentHandler {
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            response.addStandingsList(list);
+            getResponse().addStandingsList(list);
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public StandingsResponse getResponse() {
-        return response;
     }
 }

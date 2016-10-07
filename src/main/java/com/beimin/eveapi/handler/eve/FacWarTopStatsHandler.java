@@ -15,11 +15,9 @@ import com.beimin.eveapi.model.eve.FactionStat;
 import com.beimin.eveapi.model.eve.FactionVictoryPoints;
 import com.beimin.eveapi.model.eve.KillStat;
 import com.beimin.eveapi.model.eve.VictoryPointsStat;
-import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.response.eve.FacWarTopStatsResponse;
 
-public class FacWarTopStatsHandler extends AbstractContentHandler {
-    private FacWarTopStatsResponse response;
+public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStatsResponse> {
     private boolean characters;
     private boolean corporations;
     private boolean factions;
@@ -32,11 +30,12 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
 
     @Override
     public void startDocument() throws SAXException {
-        response = new FacWarTopStatsResponse();
+        setResponse(new FacWarTopStatsResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        FacWarTopStatsResponse response = getResponse();
         if ("characters".equals(qName)) {
             characters = true;
         } else if ("corporations".equals(qName)) {
@@ -176,10 +175,5 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
         } else {
             super.endElement(uri, localName, qName);
         }
-    }
-
-    @Override
-    public ApiResponse getResponse() {
-        return response;
     }
 }

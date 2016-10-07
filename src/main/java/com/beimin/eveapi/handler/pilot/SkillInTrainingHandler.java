@@ -5,16 +5,15 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.response.pilot.SkillInTrainingResponse;
 
-public class SkillInTrainingHandler extends AbstractContentHandler {
-    private SkillInTrainingResponse response;
-
+public class SkillInTrainingHandler extends AbstractContentHandler<SkillInTrainingResponse> {
     @Override
     public void startDocument() throws SAXException {
-        response = new SkillInTrainingResponse();
+        setResponse(new SkillInTrainingResponse());
     }
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        SkillInTrainingResponse response = getResponse();
         if ("currentTQTime".equals(qName)) {
             response.setCurrentTQTime(getDate());
         } else if ("trainingEndTime".equals(qName)) {
@@ -33,10 +32,5 @@ public class SkillInTrainingHandler extends AbstractContentHandler {
             response.setSkillInTraining(getBoolean());
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public SkillInTrainingResponse getResponse() {
-        return response;
     }
 }

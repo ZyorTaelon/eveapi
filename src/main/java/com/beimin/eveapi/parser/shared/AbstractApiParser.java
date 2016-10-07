@@ -30,7 +30,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
         this.page = page;
     }
 
-    protected abstract AbstractContentHandler getContentHandler();
+    protected abstract AbstractContentHandler<E> getContentHandler();
 
     protected E getResponse() throws ApiException {
         return getResponse(new ApiRequest(path, page, version));

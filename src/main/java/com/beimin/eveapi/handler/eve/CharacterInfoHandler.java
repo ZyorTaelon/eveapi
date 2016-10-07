@@ -9,16 +9,12 @@ import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.eve.CharacterEmployment;
 import com.beimin.eveapi.model.shared.Bloodline;
 import com.beimin.eveapi.model.shared.Race;
-import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.response.eve.CharacterInfoResponse;
 
-public class CharacterInfoHandler extends AbstractContentHandler {
-    private CharacterInfoResponse response;
-
+public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoResponse> {
     @Override
     public void startDocument() throws SAXException {
-        response = new CharacterInfoResponse();
-        super.startDocument();
+        setResponse(new CharacterInfoResponse());
     }
 
     @Override
@@ -27,13 +23,14 @@ public class CharacterInfoHandler extends AbstractContentHandler {
             final CharacterEmployment employ = new CharacterEmployment();
             employ.setCorporationID(getLong(attrs, "corporationID"));
             employ.setStartDate(getDate(attrs, "startDate"));
-            response.addEmployment(employ);
+            getResponse().addEmployment(employ);
         }
         super.startElement(uri, localName, qName, attrs);
     }
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        CharacterInfoResponse response = getResponse();
         if ("characterID".equals(qName)) {
             response.setCharacterID(getLong());
         } else if ("characterName".equals(qName)) {
@@ -79,10 +76,4 @@ public class CharacterInfoHandler extends AbstractContentHandler {
     private Race getRace() {
         return Race.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
     }
-
-    @Override
-    public ApiResponse getResponse() {
-        return response;
-    }
-
 }

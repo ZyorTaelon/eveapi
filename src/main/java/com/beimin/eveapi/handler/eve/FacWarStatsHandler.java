@@ -8,18 +8,18 @@ import com.beimin.eveapi.model.eve.FactionStats;
 import com.beimin.eveapi.model.eve.FactionWar;
 import com.beimin.eveapi.response.eve.FacWarStatsResponse;
 
-public class FacWarStatsHandler extends AbstractContentHandler {
-    private FacWarStatsResponse response;
+public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsResponse> {
     private boolean factions;
     private boolean factionWars;
 
     @Override
     public void startDocument() throws SAXException {
-        response = new FacWarStatsResponse();
+        setResponse(new FacWarStatsResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        FacWarStatsResponse response = getResponse();
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             factions = name.equals("factions");
@@ -52,6 +52,7 @@ public class FacWarStatsHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        FacWarStatsResponse response = getResponse();
         if ("killsYesterday".equals(qName)) {
             response.setKillsYesterday(getInt());
         } else if ("killsLastWeek".equals(qName)) {
@@ -69,34 +70,5 @@ public class FacWarStatsHandler extends AbstractContentHandler {
             factionWars = false;
         }
         super.endElement(uri, localName, qName);
-    }
-
-    // @Override
-    // protected Digester getDigester() {
-    // Digester digester = super.getDigester();
-    // digester.addBeanPropertySetter("eveapi/result/totals/killsYesterday");
-    // digester.addBeanPropertySetter("eveapi/result/totals/killsLastWeek");
-    // digester.addBeanPropertySetter("eveapi/result/totals/killsTotal");
-    // digester.addBeanPropertySetter("eveapi/result/totals/victoryPointsYesterday");
-    // digester.addBeanPropertySetter("eveapi/result/totals/victoryPointsLastWeek");
-    // digester.addBeanPropertySetter("eveapi/result/totals/victoryPointsTotal");
-    //
-    // digester.addFactoryCreate("eveapi/result/rowset/row", new AbstractObjectCreationFactory() {
-    // @Override
-    // public Object createObject(Attributes attributes) throws Exception {
-    // if (attributes.getValue("pilots") != null)
-    // return new ApiFactionStats();
-    // return new ApiFactionWar();
-    // }
-    // });
-    // digester.addSetProperties("eveapi/result/rowset/row");
-    // digester.addSetNext("eveapi/result/rowset/row", "addStat");
-    //
-    // return digester;
-    // }
-
-    @Override
-    public FacWarStatsResponse getResponse() {
-        return response;
     }
 }

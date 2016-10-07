@@ -6,15 +6,15 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.response.ApiListResponse;
-import com.beimin.eveapi.response.ApiResponse;
 
-public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B> extends AbstractContentHandler {
+public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B> extends AbstractContentHandler<E> {
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractContentListHandler.class);
 
     private final Class<E> clazz;
     protected E response;
 
     public AbstractContentListHandler(final Class<E> clazz) {
+        super();
         this.clazz = clazz;
     }
 
@@ -22,9 +22,7 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
     public void startDocument() throws SAXException {
         try {
             response = clazz.newInstance();
-        } catch (final InstantiationException e) {
-            LOGGER.error("Could't start document", e);
-        } catch (final IllegalAccessException e) {
+        } catch (final InstantiationException | IllegalAccessException e) {
             LOGGER.error("Could't start document", e);
         }
     }
@@ -38,9 +36,4 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
     }
 
     protected abstract B getItem(Attributes attrs);
-
-    @Override
-    public ApiResponse getResponse() {
-        return response;
-    }
 }

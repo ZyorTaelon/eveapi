@@ -21,18 +21,18 @@ import com.beimin.eveapi.model.shared.Bloodline;
 import com.beimin.eveapi.model.shared.Race;
 import com.beimin.eveapi.response.pilot.CharacterSheetResponse;
 
-public class CharacterSheetHandler extends AbstractContentHandler {
-    private CharacterSheetResponse response;
+public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheetResponse> {
     private AttributeEnhancer attributeEnhancer;
     private String rowsetName;
 
     @Override
     public void startDocument() throws SAXException {
-        response = new CharacterSheetResponse();
+        setResponse(new CharacterSheetResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        CharacterSheetResponse response = getResponse();
         if ("intelligenceBonus".equals(qName)) {
             attributeEnhancer = new IntelligenceBonus();
         } else if ("memoryBonus".equals(qName)) {
@@ -94,6 +94,7 @@ public class CharacterSheetHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        CharacterSheetResponse response = getResponse();
         if ("characterID".equals(qName)) {
             response.setCharacterID(getLong());
         } else if ("name".equals(qName)) {
@@ -114,10 +115,8 @@ public class CharacterSheetHandler extends AbstractContentHandler {
             response.setCorporationName(getString());
         } else if ("allianceID".equals(qName)) {
             response.setAllianceID(getLong());
-        } else if ("allianceName".equals(qName)) {
-            if ((getString() != null) && !getString().equals("")) {
+        } else if ("allianceName".equals(qName) && (getString() != null) && !getString().trim().isEmpty()) {
                 response.setAllianceName(getString());
-            }
         } else if ("cloneName".equals(qName)) {
             response.setCloneName(getString());
         } else if ("cloneSkillPoints".equals(qName)) {
@@ -157,10 +156,5 @@ public class CharacterSheetHandler extends AbstractContentHandler {
 
     private Race getRace() {
         return Race.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
-    }
-
-    @Override
-    public CharacterSheetResponse getResponse() {
-        return response;
     }
 }

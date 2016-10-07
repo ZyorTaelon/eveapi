@@ -15,7 +15,7 @@ public class MemberSecurityParser extends AbstractApiParser<MemberSecurityRespon
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<MemberSecurityResponse> getContentHandler() {
         return new MemberSecurityHandler();
     }
 

@@ -15,7 +15,7 @@ public class ApiKeyInfoParser extends AbstractApiParser<ApiKeyInfoResponse> {
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<ApiKeyInfoResponse> getContentHandler() {
         return new ApiKeyInfoHandler();
     }
 

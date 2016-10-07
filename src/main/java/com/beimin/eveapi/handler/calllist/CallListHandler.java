@@ -10,15 +10,14 @@ import com.beimin.eveapi.model.calllist.CallList;
 import com.beimin.eveapi.model.shared.KeyType;
 import com.beimin.eveapi.response.calllist.CallListResponse;
 
-public class CallListHandler extends AbstractContentHandler {
-    private CallListResponse response;
-    private boolean callGroups = false;
-    private boolean calls = false;
+public class CallListHandler extends AbstractContentHandler<CallListResponse> {
+    private boolean callGroups;
+    private boolean calls;
     private CallList callList;
 
     @Override
     public void startDocument() throws SAXException {
-        response = new CallListResponse();
+        setResponse(new CallListResponse());
     }
 
     @Override
@@ -58,17 +57,12 @@ public class CallListHandler extends AbstractContentHandler {
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if ("result".equals(qName)) {
-            response.set(callList);
+            getResponse().set(callList);
         }
         if (ELEMENT_ROWSET.equals(qName)) {
             callGroups = false;
             calls = false;
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public CallListResponse getResponse() {
-        return response;
     }
 }

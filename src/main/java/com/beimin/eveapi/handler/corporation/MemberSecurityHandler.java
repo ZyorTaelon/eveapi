@@ -7,11 +7,9 @@ import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.corporation.SecurityMember;
 import com.beimin.eveapi.model.corporation.SecurityRole;
 import com.beimin.eveapi.model.corporation.SecurityTitle;
-import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.response.corporation.MemberSecurityResponse;
 
-public class MemberSecurityHandler extends AbstractContentHandler {
-    private MemberSecurityResponse response;
+public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurityResponse> {
     private boolean roles;
     private boolean grantableRoles;
     private boolean rolesAtHQ;
@@ -25,7 +23,7 @@ public class MemberSecurityHandler extends AbstractContentHandler {
 
     @Override
     public void startDocument() throws SAXException {
-        response = new MemberSecurityResponse();
+        setResponse(new MemberSecurityResponse());
     }
 
     @Override
@@ -64,7 +62,7 @@ public class MemberSecurityHandler extends AbstractContentHandler {
                 member = new SecurityMember();
                 member.setCharacterID(getLong(attrs, "characterID"));
                 member.setName(getString(attrs, "name"));
-                response.addMember(member);
+                getResponse().addMember(member);
             }
         } else {
             super.startElement(uri, localName, qName, attrs);
@@ -109,10 +107,5 @@ public class MemberSecurityHandler extends AbstractContentHandler {
             }
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public ApiResponse getResponse() {
-        return response;
     }
 }

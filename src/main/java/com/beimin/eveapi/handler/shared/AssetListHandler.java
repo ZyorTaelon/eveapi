@@ -9,14 +9,13 @@ import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.shared.Asset;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 
-public class AssetListHandler extends AbstractContentHandler {
-    private AssetListResponse response;
+public class AssetListHandler extends AbstractContentHandler<AssetListResponse> {
     private Asset currentAsset;
     private final Stack<Asset> stack = new Stack<Asset>();
 
     @Override
     public void startDocument() throws SAXException {
-        response = new AssetListResponse();
+        setResponse(new AssetListResponse());
     }
 
     @Override
@@ -45,6 +44,7 @@ public class AssetListHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        AssetListResponse response = getResponse();
         if (ELEMENT_ROWSET.equals(qName) && !stack.isEmpty()) {
             final Asset asset = stack.pop();
             if (stack.isEmpty()) {
@@ -57,10 +57,5 @@ public class AssetListHandler extends AbstractContentHandler {
             currentAsset = null;
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public AssetListResponse getResponse() {
-        return response;
     }
 }

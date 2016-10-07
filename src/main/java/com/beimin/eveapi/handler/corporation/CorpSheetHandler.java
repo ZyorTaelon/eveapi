@@ -8,19 +8,19 @@ import com.beimin.eveapi.model.corporation.CorpLogo;
 import com.beimin.eveapi.model.corporation.Division;
 import com.beimin.eveapi.response.corporation.CorpSheetResponse;
 
-public class CorpSheetHandler extends AbstractContentHandler {
-    private CorpSheetResponse response;
+public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> {
     private CorpLogo logo;
     private boolean divisions;
     private boolean walletDivisions;
 
     @Override
     public void startDocument() throws SAXException {
-        response = new CorpSheetResponse();
+        setResponse(new CorpSheetResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        CorpSheetResponse response = getResponse();
         if ("logo".equals(qName)) {
             logo = new CorpLogo();
         } else if (ELEMENT_ROWSET.equals(qName)) {
@@ -43,6 +43,8 @@ public class CorpSheetHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        CorpSheetResponse response = getResponse();
+        extractLogoParts(qName);
         if ("corporationID".equals(qName)) {
             response.setCorporationID(getLong());
         } else if ("corporationName".equals(qName)) {
@@ -75,7 +77,18 @@ public class CorpSheetHandler extends AbstractContentHandler {
             response.setMemberLimit(getInt());
         } else if ("shares".equals(qName)) {
             response.setShares(getLong());
-        } else if ("graphicsID".equals(qName)) {
+        } else if ("logo".equals(qName)) {
+            response.setLogo(logo);
+        } else if (ELEMENT_ROWSET.equals(qName) && (divisions || walletDivisions)) {
+            divisions = false;
+            walletDivisions = false;
+        }
+
+        super.endElement(uri, localName, qName);
+    }
+
+    private void extractLogoParts(String qName) {
+        if ("graphicsID".equals(qName)) {
             logo.setGraphicID(getInt());
         } else if ("shape1".equals(qName)) {
             logo.setShape1(getInt());
@@ -89,20 +102,6 @@ public class CorpSheetHandler extends AbstractContentHandler {
             logo.setColor2(getInt());
         } else if ("color3".equals(qName)) {
             logo.setColor3(getInt());
-        } else if ("logo".equals(qName)) {
-            response.setLogo(logo);
-        } else if (ELEMENT_ROWSET.equals(qName)) {
-            if (divisions || walletDivisions) {
-                divisions = false;
-                walletDivisions = false;
-            }
         }
-
-        super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public CorpSheetResponse getResponse() {
-        return response;
     }
 }

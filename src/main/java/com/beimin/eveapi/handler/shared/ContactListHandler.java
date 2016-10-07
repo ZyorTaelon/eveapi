@@ -11,7 +11,7 @@ import com.beimin.eveapi.model.shared.ContactLabel;
 import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.response.shared.AbstractContactListResponse;
 
-public class ContactListHandler<CLR extends AbstractContactListResponse> extends AbstractContentHandler {
+public class ContactListHandler<CLR extends AbstractContactListResponse> extends AbstractContentHandler<CLR> {
     private static final Logger LOGGER = LoggerFactory.getLogger(ContactListHandler.class);
 
     private final Class<CLR> clazz;
@@ -81,10 +81,5 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
             }
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public CLR getResponse() {
-        return response;
     }
 }

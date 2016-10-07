@@ -14,7 +14,7 @@ public class CallListParser extends AbstractApiParser<CallListResponse> {
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<CallListResponse> getContentHandler() {
         return new CallListHandler();
     }
 

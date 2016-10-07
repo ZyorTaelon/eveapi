@@ -39,7 +39,7 @@ public class LoggingConnector extends ApiConnector {
     }
 
     @Override
-    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler contentHandler, final Class<E> clazz) throws ApiException {
+    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler<E> contentHandler, final Class<E> clazz) throws ApiException {
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info("\nRequest:\n{}", request.toString());
         }
@@ -51,8 +51,7 @@ public class LoggingConnector extends ApiConnector {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
-    protected <E> E getApiResponse(final AbstractContentHandler contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
+    protected <E extends ApiResponse> E getApiResponse(final AbstractContentHandler<E> contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
         final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         InputStream workInputStream = inputStream;
         try (InputStream splitInputStream = new InputStreamSplitter(inputStream, outputStream);) {

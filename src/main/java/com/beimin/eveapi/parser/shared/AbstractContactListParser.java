@@ -14,7 +14,7 @@ public abstract class AbstractContactListParser<CLR extends AbstractContactListR
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<CLR> getContentHandler() {
         return new ContactListHandler<CLR>(clazz);
     }
 
