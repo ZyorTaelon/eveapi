@@ -31,4 +31,8 @@ public class NamedList<E> {
     public E get(int index) {
         return list.get(index);
     }
+
+    public List<E> getList() {
+        return list;
+    }
 }
