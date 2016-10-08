@@ -1,21 +1,21 @@
 package com.beimin.eveapi.exception;
 
 public class ApiException extends Exception {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public ApiException() {
-		super();
-	}
+    public ApiException() {
+        super();
+    }
 
-	public ApiException(String msg) {
-		super(msg);
-	}
+    public ApiException(final String msg) {
+        super(msg);
+    }
 
-	public ApiException(Throwable cause) {
-		super(cause);
-	}
+    public ApiException(final Throwable cause) {
+        super(cause);
+    }
 
-	public ApiException(String message, Throwable cause) {
-		super(message, cause);
-	}
+    public ApiException(final String message, final Throwable cause) {
+        super(message, cause);
+    }
 }

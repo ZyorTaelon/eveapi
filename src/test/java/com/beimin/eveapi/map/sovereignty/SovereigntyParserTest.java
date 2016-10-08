@@ -16,29 +16,29 @@ import com.beimin.eveapi.response.map.SovereigntyResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class SovereigntyParserTest extends NoAuthParserTest {
-	public SovereigntyParserTest() {
-		super(ApiPath.MAP, ApiPage.SOVEREIGNTY);
-	}
+    public SovereigntyParserTest() {
+        super(ApiPath.MAP, ApiPage.SOVEREIGNTY);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		SovereigntyParser parser = new SovereigntyParser();
-		SovereigntyResponse response = parser.getResponse();
-		assertNotNull(response);
-		Map<Integer, SystemSovereignty> systemSovereignties = response.getSystemSovereignties();
-		assertNotNull(systemSovereignties);
-		assertEquals(5382, systemSovereignties.size());
+    @Test
+    public void getResponse() throws ApiException {
+        final SovereigntyParser parser = new SovereigntyParser();
+        final SovereigntyResponse response = parser.getResponse();
+        assertNotNull(response);
+        final Map<Integer, SystemSovereignty> systemSovereignties = response.getSystemSovereignties();
+        assertNotNull(systemSovereignties);
+        assertEquals(5382, systemSovereignties.size());
 
-		SystemSovereignty systemSovereignty = systemSovereignties.get(30000796);
-		assertNotNull(systemSovereignty);
-		assertEquals(1028876240, systemSovereignty.getAllianceID());
-		assertEquals(0, systemSovereignty.getFactionID().intValue());
-		assertEquals("EUU-4N", systemSovereignty.getSolarSystemName());
+        SystemSovereignty systemSovereignty = systemSovereignties.get(30000796);
+        assertNotNull(systemSovereignty);
+        assertEquals(1028876240, systemSovereignty.getAllianceID());
+        assertEquals(0, systemSovereignty.getFactionID().intValue());
+        assertEquals("EUU-4N", systemSovereignty.getSolarSystemName());
 
-		systemSovereignty = systemSovereignties.get(30000074);
-		assertNotNull(systemSovereignty);
-		assertEquals(0, systemSovereignty.getAllianceID());
-		assertEquals(500007, systemSovereignty.getFactionID().intValue());
-		assertEquals("Hasateem", systemSovereignty.getSolarSystemName());
-	}
+        systemSovereignty = systemSovereignties.get(30000074);
+        assertNotNull(systemSovereignty);
+        assertEquals(0, systemSovereignty.getAllianceID());
+        assertEquals(500007, systemSovereignty.getFactionID().intValue());
+        assertEquals("Hasateem", systemSovereignty.getSolarSystemName());
+    }
 }

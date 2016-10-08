@@ -1,121 +1,49 @@
 package com.beimin.eveapi.model.shared;
 
-public class KillVictim {
-	private long characterID; // ="411109620"
-	private String characterName; // ="Pi'rat Tealon"
-	private long corporationID; // ="1449814438"
-	private String corporationName; // ="The Bastards"
-	private Long allianceID; // ="1311549668"
-	private String allianceName; // ="The Bastards."
-	private int factionID; // ="0"
-	private String factionName; // =""
-	private long damageTaken; // ="1415"
-	private long shipTypeID; // ="587"
-	private double positionX;
-	private double positionY;
-	private double positionZ;
+public class KillVictim extends KillPilot {
+    private long damageTaken; // ="1415"
+    private long shipTypeID; // ="587"
+    private double positionX;
+    private double positionY;
+    private double positionZ;
 
-	public long getCharacterID() {
-		return characterID;
-	}
+    public long getDamageTaken() {
+        return damageTaken;
+    }
 
-	public void setCharacterID(long characterID) {
-		this.characterID = characterID;
-	}
+    public void setDamageTaken(final long damageTaken) {
+        this.damageTaken = damageTaken;
+    }
 
-	public String getCharacterName() {
-		return characterName;
-	}
+    public long getShipTypeID() {
+        return shipTypeID;
+    }
 
-	public void setCharacterName(String characterName) {
-		this.characterName = characterName;
-	}
+    public void setShipTypeID(final long shipTypeID) {
+        this.shipTypeID = shipTypeID;
+    }
 
-	public long getCorporationID() {
-		return corporationID;
-	}
+    public double getPositionX() {
+        return positionX;
+    }
 
-	public void setCorporationID(long corporationID) {
-		this.corporationID = corporationID;
-	}
+    public void setPositionX(final double positionX) {
+        this.positionX = positionX;
+    }
 
-	public String getCorporationName() {
-		return corporationName;
-	}
+    public double getPositionY() {
+        return positionY;
+    }
 
-	public void setCorporationName(String corporationName) {
-		this.corporationName = corporationName;
-	}
+    public void setPositionY(final double positionY) {
+        this.positionY = positionY;
+    }
 
-	public Long getAllianceID() {
-		return allianceID;
-	}
+    public double getPositionZ() {
+        return positionZ;
+    }
 
-	public void setAllianceID(Long allianceID) {
-		this.allianceID = allianceID;
-	}
-
-	public String getAllianceName() {
-		return allianceName;
-	}
-
-	public void setAllianceName(String allianceName) {
-		this.allianceName = allianceName;
-	}
-
-	public int getFactionID() {
-		return factionID;
-	}
-
-	public void setFactionID(int factionID) {
-		this.factionID = factionID;
-	}
-
-	public String getFactionName() {
-		return factionName;
-	}
-
-	public void setFactionName(String factionName) {
-		this.factionName = factionName;
-	}
-
-	public long getDamageTaken() {
-		return damageTaken;
-	}
-
-	public void setDamageTaken(long damageTaken) {
-		this.damageTaken = damageTaken;
-	}
-
-	public long getShipTypeID() {
-		return shipTypeID;
-	}
-
-	public void setShipTypeID(long shipTypeID) {
-		this.shipTypeID = shipTypeID;
-	}
-
-	public double getPositionX() {
-		return positionX;
-	}
-
-	public void setPositionX(double positionX) {
-		this.positionX = positionX;
-	}
-
-	public double getPositionY() {
-		return positionY;
-	}
-
-	public void setPositionY(double positionY) {
-		this.positionY = positionY;
-	}
-
-	public double getPositionZ() {
-		return positionZ;
-	}
-
-	public void setPositionZ(double positionZ) {
-		this.positionZ = positionZ;
-	}
+    public void setPositionZ(final double positionZ) {
+        this.positionZ = positionZ;
+    }
 }

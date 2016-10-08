@@ -17,26 +17,26 @@ import com.beimin.eveapi.response.pilot.MailingListsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class MailingListsParserTest extends FullAuthParserTest {
-	public MailingListsParserTest() {
-		super(ApiPath.CHARACTER, ApiPage.MAILING_LISTS);
-	}
+    public MailingListsParserTest() {
+        super(ApiPath.CHARACTER, ApiPage.MAILING_LISTS);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		MailingListsParser parser = new MailingListsParser();
-		MailingListsResponse response = parser.getResponse(auth);
-		assertNotNull(response);
-		Set<MailingList> mailinglists = response.getAll();
-		assertNotNull(mailinglists);
-		assertEquals(3, mailinglists.size());
-		boolean found = false;
-		for (MailingList mailinglist : mailinglists) {
-			if (mailinglist.getListID() == 128250439L) {
-				found = true;
-				assertEquals("EVETycoonMail", mailinglist.getDisplayName());
-				break;
-			}
-		}
-		assertTrue("Test mail wasn't found.", found);
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        final MailingListsParser parser = new MailingListsParser();
+        final MailingListsResponse response = parser.getResponse(auth);
+        assertNotNull(response);
+        final Set<MailingList> mailinglists = response.getAll();
+        assertNotNull(mailinglists);
+        assertEquals(3, mailinglists.size());
+        boolean found = false;
+        for (final MailingList mailinglist : mailinglists) {
+            if (mailinglist.getListID() == 128250439L) {
+                found = true;
+                assertEquals("EVETycoonMail", mailinglist.getDisplayName());
+                break;
+            }
+        }
+        assertTrue("Test mail wasn't found.", found);
+    }
 }

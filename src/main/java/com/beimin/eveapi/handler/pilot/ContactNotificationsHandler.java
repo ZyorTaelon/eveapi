@@ -8,18 +8,18 @@ import com.beimin.eveapi.response.pilot.ContactNotificationsResponse;
 
 public class ContactNotificationsHandler extends AbstractContentListHandler<ContactNotificationsResponse, ContactNotification> {
 
-	public ContactNotificationsHandler() {
-		super(ContactNotificationsResponse.class);
-	}
+    public ContactNotificationsHandler() {
+        super(ContactNotificationsResponse.class);
+    }
 
-	@Override
-	protected ContactNotification getItem(Attributes attrs) {
-		ContactNotification contactNotification = new ContactNotification();
-		contactNotification.setNotificationID(getLong(attrs, "notificationID"));
-		contactNotification.setSenderID(getLong(attrs, "senderID"));
-		contactNotification.setSenderName(getString(attrs, "senderName"));
-		contactNotification.setSentDate(getDate(attrs, "sentDate"));
-		contactNotification.setMessageData(getString(attrs, "messageData"));
-		return contactNotification;
-	}
+    @Override
+    protected ContactNotification getItem(final Attributes attrs) {
+        final ContactNotification contactNotification = new ContactNotification();
+        contactNotification.setNotificationID(getLong(attrs, "notificationID"));
+        contactNotification.setSenderID(getLong(attrs, "senderID"));
+        contactNotification.setSenderName(getString(attrs, "senderName"));
+        contactNotification.setSentDate(getDate(attrs, "sentDate"));
+        contactNotification.setMessageData(getString(attrs, "messageData"));
+        return contactNotification;
+    }
 }

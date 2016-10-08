@@ -9,12 +9,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.eve.CertificateTreeResponse;
 
 public class CertificateTreeParser extends AbstractListParser<CertificateTreeHandler, CertificateTreeResponse, CertificateCategory> {
-	public CertificateTreeParser() {
-		super(CertificateTreeResponse.class, 2, ApiPath.EVE, ApiPage.CERTIFICATE_TREE, CertificateTreeHandler.class);
-	}
+    public CertificateTreeParser() {
+        super(CertificateTreeResponse.class, 2, ApiPath.EVE, ApiPage.CERTIFICATE_TREE, CertificateTreeHandler.class);
+    }
 
-	@Override
-	public CertificateTreeResponse getResponse() throws ApiException {
-		return super.getResponse();
-	}
+    @Override
+    public CertificateTreeResponse getResponse() throws ApiException {
+        return super.getResponse();
+    }
 }

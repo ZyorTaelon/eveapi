@@ -1,13 +1,15 @@
 package com.beimin.eveapi.model.eve;
 
 public class CorporationKills extends CorporationStat implements KillStat {
-	private int kills;
+    private int kills;
 
-	public int getKills() {
-		return kills;
-	}
+    @Override
+    public int getKills() {
+        return kills;
+    }
 
-	public void setKills(int kills) {
-		this.kills = kills;
-	}
+    @Override
+    public void setKills(final int kills) {
+        this.kills = kills;
+    }
 }

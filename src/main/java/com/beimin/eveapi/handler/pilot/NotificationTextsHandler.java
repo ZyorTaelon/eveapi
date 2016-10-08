@@ -9,35 +9,36 @@ import com.beimin.eveapi.response.pilot.NotificationTextsResponse;
 
 public class NotificationTextsHandler extends AbstractContentListHandler<NotificationTextsResponse, NotificationText> {
 
-	private NotificationText notificationText;
+    private NotificationText notificationText;
 
-	public NotificationTextsHandler() {
-		super(NotificationTextsResponse.class);
-	}
-	
-	@Override
-	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-		if (qName.equals("row")) {
-			notificationText = getItem(attrs);
-		} else
-			super.startElement(uri, localName, qName, attrs);
-	}
+    public NotificationTextsHandler() {
+        super(NotificationTextsResponse.class);
+    }
 
-	@Override
-	public void endElement(String uri, String localName, String qName) throws SAXException {
-		if (qName.equals("row")) {
-			notificationText.setText(getString());
-			response.add(notificationText);
-			notificationText = null;
-			accumulator.setLength(0);
-		}
-		super.endElement(uri, localName, qName);
-	}
-	
-	@Override
-	protected NotificationText getItem(Attributes attrs) {
-		NotificationText notificationText = new NotificationText();
-		notificationText.setNotificationID(getLong(attrs, "notificationID"));
-		return notificationText;
-	}
+    @Override
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        if (ELEMENT_ROW.equals(qName)) {
+            notificationText = getItem(attrs);
+        } else {
+            super.startElement(uri, localName, qName, attrs);
+        }
+    }
+
+    @Override
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if (ELEMENT_ROW.equals(qName)) {
+            notificationText.setText(getString());
+            getResponse().add(notificationText);
+            notificationText = null;
+            accumulator.setLength(0);
+        }
+        super.endElement(uri, localName, qName);
+    }
+
+    @Override
+    protected NotificationText getItem(final Attributes attrs) {
+        final NotificationText notificationText = new NotificationText();
+        notificationText.setNotificationID(getLong(attrs, "notificationID"));
+        return notificationText;
+    }
 }

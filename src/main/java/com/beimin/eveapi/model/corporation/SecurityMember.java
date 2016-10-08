@@ -3,104 +3,106 @@ package com.beimin.eveapi.model.corporation;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.beimin.eveapi.model.shared.Title;
+
 public class SecurityMember {
-	private long characterID;
-	private String name;
-	private final Set<SecurityRole> roles = new HashSet<SecurityRole>();
-	private final Set<SecurityRole> grantableRoles = new HashSet<SecurityRole>();
-	private final Set<SecurityRole> rolesAtHQ = new HashSet<SecurityRole>();
-	private final Set<SecurityRole> grantableRolesAtHQ = new HashSet<SecurityRole>();
-	private final Set<SecurityRole> rolesAtBase = new HashSet<SecurityRole>();
-	private final Set<SecurityRole> grantableRolesAtBase = new HashSet<SecurityRole>();
-	private final Set<SecurityRole> rolesAtOther = new HashSet<SecurityRole>();
-	private final Set<SecurityRole> grantableRolesAtOther = new HashSet<SecurityRole>();
-	private final Set<SecurityTitle> titles = new HashSet<SecurityTitle>();
+    private long characterID;
+    private String name;
+    private final Set<CorporationRole> roles = new HashSet<>();
+    private final Set<CorporationRole> grantableRoles = new HashSet<>();
+    private final Set<CorporationRole> rolesAtHQ = new HashSet<>();
+    private final Set<CorporationRole> grantableRolesAtHQ = new HashSet<>();
+    private final Set<CorporationRole> rolesAtBase = new HashSet<>();
+    private final Set<CorporationRole> grantableRolesAtBase = new HashSet<>();
+    private final Set<CorporationRole> rolesAtOther = new HashSet<>();
+    private final Set<CorporationRole> grantableRolesAtOther = new HashSet<>();
+    private final Set<Title> titles = new HashSet<>();
 
-	public long getCharacterID() {
-		return characterID;
-	}
+    public long getCharacterID() {
+        return characterID;
+    }
 
-	public void setCharacterID(long characterID) {
-		this.characterID = characterID;
-	}
+    public void setCharacterID(final long characterID) {
+        this.characterID = characterID;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(final String name) {
+        this.name = name;
+    }
 
-	public Set<SecurityRole> getRoles() {
-		return roles;
-	}
+    public Set<CorporationRole> getRoles() {
+        return roles;
+    }
 
-	public Set<SecurityRole> getGrantableRoles() {
-		return grantableRoles;
-	}
+    public Set<CorporationRole> getGrantableRoles() {
+        return grantableRoles;
+    }
 
-	public Set<SecurityRole> getRolesAtHQ() {
-		return rolesAtHQ;
-	}
+    public Set<CorporationRole> getRolesAtHQ() {
+        return rolesAtHQ;
+    }
 
-	public Set<SecurityRole> getGrantableRolesAtHQ() {
-		return grantableRolesAtHQ;
-	}
+    public Set<CorporationRole> getGrantableRolesAtHQ() {
+        return grantableRolesAtHQ;
+    }
 
-	public Set<SecurityRole> getRolesAtBase() {
-		return rolesAtBase;
-	}
+    public Set<CorporationRole> getRolesAtBase() {
+        return rolesAtBase;
+    }
 
-	public Set<SecurityRole> getGrantableRolesAtBase() {
-		return grantableRolesAtBase;
-	}
+    public Set<CorporationRole> getGrantableRolesAtBase() {
+        return grantableRolesAtBase;
+    }
 
-	public Set<SecurityRole> getRolesAtOther() {
-		return rolesAtOther;
-	}
+    public Set<CorporationRole> getRolesAtOther() {
+        return rolesAtOther;
+    }
 
-	public Set<SecurityRole> getGrantableRolesAtOther() {
-		return grantableRolesAtOther;
-	}
+    public Set<CorporationRole> getGrantableRolesAtOther() {
+        return grantableRolesAtOther;
+    }
 
-	public Set<SecurityTitle> getTitles() {
-		return titles;
-	}
+    public Set<Title> getTitles() {
+        return titles;
+    }
 
-	public void addRole(SecurityRole role) {
-		roles.add(role);
-	}
+    public void addRole(final CorporationRole role) {
+        roles.add(role);
+    }
 
-	public void addGrantableRole(SecurityRole role) {
-		grantableRoles.add(role);
-	}
+    public void addGrantableRole(final CorporationRole role) {
+        grantableRoles.add(role);
+    }
 
-	public void addRoleAtHQ(SecurityRole role) {
-		rolesAtHQ.add(role);
-	}
+    public void addRoleAtHQ(final CorporationRole role) {
+        rolesAtHQ.add(role);
+    }
 
-	public void addGrantableRoleAtHQ(SecurityRole role) {
-		grantableRolesAtHQ.add(role);
-	}
+    public void addGrantableRoleAtHQ(final CorporationRole role) {
+        grantableRolesAtHQ.add(role);
+    }
 
-	public void addRoleAtBase(SecurityRole role) {
-		rolesAtBase.add(role);
-	}
+    public void addRoleAtBase(final CorporationRole role) {
+        rolesAtBase.add(role);
+    }
 
-	public void addGrantableRoleAtBase(SecurityRole role) {
-		grantableRolesAtBase.add(role);
-	}
+    public void addGrantableRoleAtBase(final CorporationRole role) {
+        grantableRolesAtBase.add(role);
+    }
 
-	public void addRoleAtOther(SecurityRole role) {
-		rolesAtOther.add(role);
-	}
+    public void addRoleAtOther(final CorporationRole role) {
+        rolesAtOther.add(role);
+    }
 
-	public void addGrantableRoleAtOther(SecurityRole role) {
-		grantableRolesAtOther.add(role);
-	}
+    public void addGrantableRoleAtOther(final CorporationRole role) {
+        grantableRolesAtOther.add(role);
+    }
 
-	public void addTitle(SecurityTitle title) {
-		titles.add(title);
-	}
+    public void addTitle(final Title title) {
+        titles.add(title);
+    }
 }

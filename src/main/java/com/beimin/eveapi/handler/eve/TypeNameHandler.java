@@ -8,15 +8,15 @@ import com.beimin.eveapi.response.eve.TypeNameResponse;
 
 public class TypeNameHandler extends AbstractContentListHandler<TypeNameResponse, EveTypeName> {
 
-	public TypeNameHandler() {
-		super(TypeNameResponse.class);
-	}
+    public TypeNameHandler() {
+        super(TypeNameResponse.class);
+    }
 
-	@Override
-	protected EveTypeName getItem(Attributes attrs) {
-		EveTypeName lookup = new EveTypeName();
-		lookup.setTypeID(getInt(attrs, "typeID"));
-		lookup.setTypeName(getString(attrs, "typeName"));
-		return lookup;
-	}
+    @Override
+    protected EveTypeName getItem(final Attributes attrs) {
+        final EveTypeName lookup = new EveTypeName();
+        lookup.setTypeID(getInt(attrs, "typeID"));
+        lookup.setTypeName(getString(attrs, "typeName"));
+        return lookup;
+    }
 }

@@ -9,19 +9,18 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.account.ApiKeyInfoResponse;
 
-
 public class ApiKeyInfoParser extends AbstractApiParser<ApiKeyInfoResponse> {
-	public ApiKeyInfoParser() {
-		super(ApiKeyInfoResponse.class, 2, ApiPath.ACCOUNT, ApiPage.API_KEY_INFO);
-	}
+    public ApiKeyInfoParser() {
+        super(ApiKeyInfoResponse.class, 2, ApiPath.ACCOUNT, ApiPage.API_KEY_INFO);
+    }
 
-	@Override
-	protected AbstractContentHandler getContentHandler() {
-		return new ApiKeyInfoHandler();
-	}
+    @Override
+    protected AbstractContentHandler<ApiKeyInfoResponse> getContentHandler() {
+        return new ApiKeyInfoHandler();
+    }
 
-	@Override
-	public ApiKeyInfoResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public ApiKeyInfoResponse getResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

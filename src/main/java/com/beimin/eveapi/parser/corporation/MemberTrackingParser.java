@@ -10,17 +10,16 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.corporation.MemberTrackingResponse;
 
 public class MemberTrackingParser extends AbstractListParser<MemberTrackingHandler, MemberTrackingResponse, Member> {
-	public MemberTrackingParser() {
-		super(MemberTrackingResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_TRACKING,
-				MemberTrackingHandler.class);
-	}
+    public MemberTrackingParser() {
+        super(MemberTrackingResponse.class, 2, ApiPath.CORPORATION, ApiPage.MEMBER_TRACKING, MemberTrackingHandler.class);
+    }
 
-	@Override
-	public MemberTrackingResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public MemberTrackingResponse getResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 
-	public MemberTrackingResponse getExtendedResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth, "extended", "1");
-	}
+    public MemberTrackingResponse getExtendedResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth, "extended", "1");
+    }
 }

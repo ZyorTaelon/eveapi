@@ -10,21 +10,21 @@ import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.eve.CharacterInfoResponse;
 
 public class CharacterInfoParser extends AbstractApiParser<CharacterInfoResponse> {
-	public CharacterInfoParser() {
-		super(CharacterInfoResponse.class, 2, ApiPath.EVE, ApiPage.CHARACTER_INFO);
-	}
+    public CharacterInfoParser() {
+        super(CharacterInfoResponse.class, 2, ApiPath.EVE, ApiPage.CHARACTER_INFO);
+    }
 
-	@Override
-	protected AbstractContentHandler getContentHandler() {
-		return new CharacterInfoHandler();
-	}
+    @Override
+    protected AbstractContentHandler<CharacterInfoResponse> getContentHandler() {
+        return new CharacterInfoHandler();
+    }
 
-	public CharacterInfoResponse getResponse(long characterID) throws ApiException {
-		return super.getResponse("characterID", Long.toString(characterID));
-	}
+    public CharacterInfoResponse getResponse(final long characterID) throws ApiException {
+        return super.getResponse("characterID", Long.toString(characterID));
+    }
 
-	@Override
-	public CharacterInfoResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public CharacterInfoResponse getResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

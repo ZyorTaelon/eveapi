@@ -10,17 +10,17 @@ import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.account.AccountStatusResponse;
 
 public class AccountStatusParser extends AbstractApiParser<AccountStatusResponse> {
-	public AccountStatusParser() {
-		super(AccountStatusResponse.class, 2, ApiPath.ACCOUNT, ApiPage.ACCOUNT_STATUS);
-	}
+    public AccountStatusParser() {
+        super(AccountStatusResponse.class, 2, ApiPath.ACCOUNT, ApiPage.ACCOUNT_STATUS);
+    }
 
-	@Override
-	protected AbstractContentHandler getContentHandler() {
-		return new AccountStatusHandler();
-	}
+    @Override
+    protected AbstractContentHandler<AccountStatusResponse> getContentHandler() {
+        return new AccountStatusHandler();
+    }
 
-	@Override
-	public AccountStatusResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public AccountStatusResponse getResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }
