@@ -8,26 +8,26 @@ import com.beimin.eveapi.model.corporation.CorpLogo;
 import com.beimin.eveapi.model.corporation.Division;
 import com.beimin.eveapi.response.corporation.CorpSheetResponse;
 
-public class CorpSheetHandler extends AbstractContentHandler {
-    private CorpSheetResponse response;
+public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> {
     private CorpLogo logo;
     private boolean divisions;
     private boolean walletDivisions;
 
     @Override
     public void startDocument() throws SAXException {
-        response = new CorpSheetResponse();
+        setResponse(new CorpSheetResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("logo")) {
+        CorpSheetResponse response = getResponse();
+        if ("logo".equals(qName)) {
             logo = new CorpLogo();
-        } else if (qName.equals("rowset")) {
+        } else if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             divisions = name.equals("divisions");
             walletDivisions = name.equals("walletDivisions");
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             final Division division = new Division();
             saveFieldsCount(Division.class, attrs);
             division.setAccountKey(getInt(attrs, "accountKey"));
@@ -44,66 +44,65 @@ public class CorpSheetHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("corporationID")) {
+        CorpSheetResponse response = getResponse();
+        extractLogoParts(qName);
+        if ("corporationID".equals(qName)) {
             response.setCorporationID(getLong());
-        } else if (qName.equals("corporationName")) {
+        } else if ("corporationName".equals(qName)) {
             response.setCorporationName(getString());
-        } else if (qName.equals("ticker")) {
+        } else if ("ticker".equals(qName)) {
             response.setTicker(getString());
-        } else if (qName.equals("ceoID")) {
+        } else if ("ceoID".equals(qName)) {
             response.setCeoID(getLong());
-        } else if (qName.equals("ceoName")) {
+        } else if ("ceoName".equals(qName)) {
             response.setCeoName(getString());
-        } else if (qName.equals("stationID")) {
+        } else if ("stationID".equals(qName)) {
             response.setStationID(getLong());
-        } else if (qName.equals("stationName")) {
+        } else if ("stationName".equals(qName)) {
             response.setStationName(getString());
-        } else if (qName.equals("description")) {
+        } else if ("description".equals(qName)) {
             response.setDescription(getString());
-        } else if (qName.equals("url")) {
+        } else if ("url".equals(qName)) {
             response.setUrl(getString());
-        } else if (qName.equals("allianceID")) {
+        } else if ("allianceID".equals(qName)) {
             response.setAllianceID(getLong());
-        } else if (qName.equals("allianceName")) {
+        } else if ("allianceName".equals(qName)) {
             response.setAllianceName(getString());
-        } else if (qName.equals("factionID")) {
+        } else if ("factionID".equals(qName)) {
             response.setFactionID(getLong());
-        } else if (qName.equals("taxRate")) {
+        } else if ("taxRate".equals(qName)) {
             response.setTaxRate(getDouble());
-        } else if (qName.equals("memberCount")) {
+        } else if ("memberCount".equals(qName)) {
             response.setMemberCount(getInt());
-        } else if (qName.equals("memberLimit")) {
+        } else if ("memberLimit".equals(qName)) {
             response.setMemberLimit(getInt());
-        } else if (qName.equals("shares")) {
+        } else if ("shares".equals(qName)) {
             response.setShares(getLong());
-        } else if (qName.equals("graphicsID")) {
-            logo.setGraphicID(getInt());
-        } else if (qName.equals("shape1")) {
-            logo.setShape1(getInt());
-        } else if (qName.equals("shape2")) {
-            logo.setShape2(getInt());
-        } else if (qName.equals("shape3")) {
-            logo.setShape3(getInt());
-        } else if (qName.equals("color1")) {
-            logo.setColor1(getInt());
-        } else if (qName.equals("color2")) {
-            logo.setColor2(getInt());
-        } else if (qName.equals("color3")) {
-            logo.setColor3(getInt());
-        } else if (qName.equals("logo")) {
+        } else if ("logo".equals(qName)) {
             response.setLogo(logo);
-        } else if (qName.equals("rowset")) {
-            if (divisions || walletDivisions) {
-                divisions = false;
-                walletDivisions = false;
-            }
+        } else if (ELEMENT_ROWSET.equals(qName) && (divisions || walletDivisions)) {
+            divisions = false;
+            walletDivisions = false;
         }
 
         super.endElement(uri, localName, qName);
     }
 
-    @Override
-    public CorpSheetResponse getResponse() {
-        return response;
+    private void extractLogoParts(String qName) {
+        if ("graphicsID".equals(qName)) {
+            logo.setGraphicID(getInt());
+        } else if ("shape1".equals(qName)) {
+            logo.setShape1(getInt());
+        } else if ("shape2".equals(qName)) {
+            logo.setShape2(getInt());
+        } else if ("shape3".equals(qName)) {
+            logo.setShape3(getInt());
+        } else if ("color1".equals(qName)) {
+            logo.setColor1(getInt());
+        } else if ("color2".equals(qName)) {
+            logo.setColor2(getInt());
+        } else if ("color3".equals(qName)) {
+            logo.setColor3(getInt());
+        }
     }
 }

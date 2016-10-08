@@ -46,3 +46,4 @@ public class BlueprintsParserTest extends FullAuthParserTest {
         assertTrue("test Blueprints wasn't found.", found);
     }
 }
+

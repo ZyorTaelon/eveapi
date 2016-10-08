@@ -1,6 +1,7 @@
 package com.beimin.eveapi.utils;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 import java.util.Map;
 
@@ -10,11 +11,11 @@ import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.After;
 import org.junit.Before;
 
-import com.beimin.eveapi.EveApi;
 import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.parser.ApiAuthorization;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
+import com.beimin.eveapi.parser.shared.AbstractApiParser;
 
 public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsserts {
     private final CamelContext context = new DefaultCamelContext();
@@ -61,14 +62,14 @@ public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsser
             }
         });
         context.start();
-        EveApi.setConnector(new ApiConnector(MockApi.URL));
+        AbstractApiParser.setConnector(new ApiConnector(MockApi.URL));
     }
 
     @Override
     public void extraAsserts(final Map<String, String> req) {
-        assertEquals("123", req.get("keyID"));
-        assertEquals("456", req.get("characterID"));
-        assertEquals("abc", req.get("vCode"));
+        assertThat(req.get("keyID"), equalTo("123"));
+        assertThat(req.get("characterID"), equalTo("456"));
+        assertThat(req.get("vCode"), equalTo("abc"));
     }
 
     @After

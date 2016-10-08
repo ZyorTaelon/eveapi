@@ -14,7 +14,7 @@ public class ConquerableStationListParser extends AbstractApiParser<StationListR
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<StationListResponse> getContentHandler() {
         return new ConquerableStationListHandler();
     }
 

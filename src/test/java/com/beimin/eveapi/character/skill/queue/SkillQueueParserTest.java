@@ -38,3 +38,4 @@ public class SkillQueueParserTest extends FullAuthParserTest {
         assertDate(2010, 04, 30, 4, 59, 46, skillQueueItem.getEndTime());
     }
 }
+

@@ -7,17 +7,15 @@ import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.eve.Station;
 import com.beimin.eveapi.response.eve.StationListResponse;
 
-public class ConquerableStationListHandler extends AbstractContentHandler {
-    private StationListResponse response;
-
+public class ConquerableStationListHandler extends AbstractContentHandler<StationListResponse> {
     @Override
     public void startDocument() throws SAXException {
-        response = new StationListResponse();
+        setResponse(new StationListResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("row")) {
+        if (ELEMENT_ROW.equals(qName)) {
             final Station item = new Station();
             saveFieldsCount(Station.class, attrs);
             item.setStationID(getLong(attrs, "stationID"));
@@ -26,14 +24,9 @@ public class ConquerableStationListHandler extends AbstractContentHandler {
             item.setSolarSystemID(getInt(attrs, "solarSystemID"));
             item.setCorporationID(getInt(attrs, "corporationID"));
             item.setCorporationName(getString(attrs, "corporationName"));
-            response.add(item);
+            getResponse().add(item);
         }
         super.startElement(uri, localName, qName, attrs);
         accumulator.setLength(0);
-    }
-
-    @Override
-    public StationListResponse getResponse() {
-        return response;
     }
 }

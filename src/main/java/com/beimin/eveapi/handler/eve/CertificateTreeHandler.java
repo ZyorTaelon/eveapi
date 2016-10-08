@@ -27,7 +27,7 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             if (name.equals("categories")) {
                 categories = true;
@@ -40,7 +40,7 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
             } else if (name.equals("requiredCertificates")) {
                 requiredCertificates = true;
             }
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (requiredSkills) {
                 final RequiredSkill skill = new RequiredSkill();
                 skill.setTypeID(getInt(attrs, "typeID"));
@@ -71,7 +71,7 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             if (requiredSkills) {
                 requiredSkills = false;
             } else if (requiredCertificates) {
@@ -83,7 +83,7 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
             } else if (categories) {
                 categories = false;
             }
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (requiredSkills || requiredCertificates) {
                 return;
             } else if (certificates) {
@@ -93,7 +93,7 @@ public class CertificateTreeHandler extends AbstractContentListHandler<Certifica
                 category.add(certificateClass);
                 certificateClass = null;
             } else if (categories) {
-                response.add(category);
+                getResponse().add(category);
                 category = null;
             }
         } else {

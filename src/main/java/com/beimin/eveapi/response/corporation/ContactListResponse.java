@@ -1,14 +1,15 @@
 package com.beimin.eveapi.response.corporation;
 
-import com.beimin.eveapi.model.shared.ContactList;
+import com.beimin.eveapi.model.shared.Contact;
+import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.response.shared.AbstractContactListResponse;
 
 public class ContactListResponse extends AbstractContactListResponse {
-    public ContactList getCorporateContactList() {
+    public NamedList<Contact> getCorporateContactList() {
         return contactLists.get("corporateContactList");
     }
 
-    public ContactList getAllianceContactList() {
+    public NamedList<Contact> getAllianceContactList() {
         return contactLists.get("allianceContactList");
     }
 

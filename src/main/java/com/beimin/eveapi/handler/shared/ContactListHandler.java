@@ -8,17 +8,15 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.shared.Contact;
 import com.beimin.eveapi.model.shared.ContactLabel;
-import com.beimin.eveapi.model.shared.ContactLabelList;
-import com.beimin.eveapi.model.shared.ContactList;
+import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.response.shared.AbstractContactListResponse;
 
-public class ContactListHandler<CLR extends AbstractContactListResponse> extends AbstractContentHandler {
+public class ContactListHandler<CLR extends AbstractContactListResponse> extends AbstractContentHandler<CLR> {
     private static final Logger LOGGER = LoggerFactory.getLogger(ContactListHandler.class);
 
     private final Class<CLR> clazz;
-    private CLR response;
-    private ContactList contactList;
-    private ContactLabelList labelList;
+    private NamedList<Contact> contactList;
+    private NamedList<ContactLabel> labelList;
 
     public ContactListHandler(final Class<CLR> clazz) {
         this.clazz = clazz;
@@ -27,7 +25,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
     @Override
     public void startDocument() throws SAXException {
         try {
-            response = clazz.newInstance();
+            setResponse(clazz.newInstance());
         } catch (final InstantiationException e) {
             LOGGER.error("Couldn't start document", e);
         } catch (final IllegalAccessException e) {
@@ -37,18 +35,18 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             // contacts or labels, separate by key
             if (getString(attrs, "key").equals("contactID")) {
-                contactList = new ContactList();
+                contactList = new NamedList<>();
                 contactList.setName(getString(attrs, "name"));
             } else {
-                labelList = new ContactLabelList();
+                labelList = new NamedList<>();
                 labelList.setName(getString(attrs, "name"));
             }
         }
 
-        if (qName.equals("row")) {
+        if (ELEMENT_ROW.equals(qName)) {
             // contacts or labels, separate by index
             if (attrs.getIndex("contactID") > -1) {
                 final Contact contact = new Contact();
@@ -72,20 +70,16 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("rowset")) {
+        CLR response = getResponse();
+        if (ELEMENT_ROWSET.equals(qName)) {
             if (contactList != null) {
                 response.add(contactList);
                 contactList = null;
             } else {
-                response.add(labelList);
+                response.addLabels(labelList);
                 labelList = null;
             }
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public CLR getResponse() {
-        return response;
     }
 }

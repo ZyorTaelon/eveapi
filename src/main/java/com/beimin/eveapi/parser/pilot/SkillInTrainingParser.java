@@ -15,7 +15,7 @@ public class SkillInTrainingParser extends AbstractApiParser<SkillInTrainingResp
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<SkillInTrainingResponse> getContentHandler() {
         return new SkillInTrainingHandler();
     }
 

@@ -14,3 +14,4 @@ public abstract class ApiListResponse<B> extends ApiResponse {
         return items;
     }
 }
+

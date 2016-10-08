@@ -6,8 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.model.shared.Standing;
-import com.beimin.eveapi.model.shared.StandingsList;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.StandingsParser;
@@ -25,7 +25,7 @@ public class StandingsParserTest extends FullAuthParserTest {
         final StandingsResponse response = parser.getResponse(auth);
         assertNotNull(response);
 
-        final StandingsList agentStandings = response.getAgentStandings();
+        final NamedList<Standing> agentStandings = response.getAgentStandings();
         assertEquals("agents", agentStandings.getName());
         assertEquals(116, agentStandings.size());
         Standing apiStanding = agentStandings.iterator().next();
@@ -33,7 +33,7 @@ public class StandingsParserTest extends FullAuthParserTest {
         assertEquals("Namai Manir", apiStanding.getFromName());
         assertEquals(0.07, apiStanding.getStanding(), 1E-15);
 
-        final StandingsList npcCorporations = response.getNpcCorporationStandings();
+        final NamedList<Standing> npcCorporations = response.getNpcCorporationStandings();
         assertEquals("NPCCorporations", npcCorporations.getName());
         assertEquals(51, npcCorporations.size());
         apiStanding = npcCorporations.iterator().next();
@@ -41,7 +41,7 @@ public class StandingsParserTest extends FullAuthParserTest {
         assertEquals("CBD Corporation", apiStanding.getFromName());
         assertEquals(1.08, apiStanding.getStanding(), 1E-15);
 
-        final StandingsList factionStandings = response.getFactionStandings();
+        final NamedList<Standing> factionStandings = response.getFactionStandings();
         assertEquals("factions", factionStandings.getName());
         assertEquals(20, factionStandings.size());
         apiStanding = factionStandings.iterator().next();
@@ -50,3 +50,4 @@ public class StandingsParserTest extends FullAuthParserTest {
         assertEquals(-1.95, apiStanding.getStanding(), 1E-15);
     }
 }
+

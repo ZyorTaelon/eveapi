@@ -22,7 +22,7 @@ public abstract class AbstractListParser<H extends AbstractContentListHandler<E,
     }
 
     @Override
-    protected final AbstractContentHandler getContentHandler() {
+    protected final AbstractContentHandler<E> getContentHandler() {
         try {
             return handlerClazz.newInstance();
         } catch (final InstantiationException e) {
@@ -43,3 +43,4 @@ public abstract class AbstractListParser<H extends AbstractContentListHandler<E,
         return super.getResponse();
     }
 }
+

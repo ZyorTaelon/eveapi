@@ -14,7 +14,7 @@ public abstract class AbstractAssetListParser extends AbstractApiParser<AssetLis
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<AssetListResponse> getContentHandler() {
         return new AssetListHandler();
     }
 

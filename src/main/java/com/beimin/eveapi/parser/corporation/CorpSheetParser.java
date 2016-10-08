@@ -15,7 +15,7 @@ public class CorpSheetParser extends AbstractApiParser<CorpSheetResponse> {
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<CorpSheetResponse> getContentHandler() {
         return new CorpSheetHandler();
     }
 

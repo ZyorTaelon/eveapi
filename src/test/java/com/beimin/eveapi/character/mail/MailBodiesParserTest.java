@@ -48,3 +48,4 @@ public class MailBodiesParserTest extends FullAuthParserTest {
         assertEquals("299279683,299280303", req.get("ids"));
     }
 }
+

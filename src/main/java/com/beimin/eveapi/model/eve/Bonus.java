@@ -1,9 +1,5 @@
 package com.beimin.eveapi.model.eve;
 
-/**
- * @author sbeimin
- *
- */
 public class Bonus implements Detail {
     private String bonusType;
     private String bonusValue;

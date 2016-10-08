@@ -7,25 +7,24 @@ import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.corporation.CombatSetting;
 import com.beimin.eveapi.response.corporation.StarbaseDetailResponse;
 
-public class StarbaseDetailHandler extends AbstractContentHandler {
-    private StarbaseDetailResponse response;
-
+public class StarbaseDetailHandler extends AbstractContentHandler<StarbaseDetailResponse> {
     @Override
     public void startDocument() throws SAXException {
-        response = new StarbaseDetailResponse();
+        setResponse(new StarbaseDetailResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("onStandingDrop")) {
+        StarbaseDetailResponse response = getResponse();
+        if ("onStandingDrop".equals(qName)) {
             response.setOnStandingDrop(getCombatSetting(attrs));
-        } else if (qName.equals("onStatusDrop")) {
+        } else if ("onStatusDrop".equals(qName)) {
             response.setOnStatusDrop(getCombatSetting(attrs));
-        } else if (qName.equals("onAggression")) {
+        } else if ("onAggression".equals(qName)) {
             response.setOnAggression(getCombatSetting(attrs));
-        } else if (qName.equals("onCorporationWar")) {
+        } else if ("onCorporationWar".equals(qName)) {
             response.setOnCorporationWar(getCombatSetting(attrs));
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             response.addFuelLevel(getInt(attrs, "typeID"), getInt(attrs, "quantity"));
         } else {
             super.startElement(uri, localName, qName, attrs);
@@ -45,23 +44,19 @@ public class StarbaseDetailHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("usageFlags")) {
+        StarbaseDetailResponse response = getResponse();
+        if ("usageFlags".equals(qName)) {
             response.setUsageFlags(getInt());
-        } else if (qName.equals("deployFlags")) {
+        } else if ("deployFlags".equals(qName)) {
             response.setDeployFlags(getInt());
-        } else if (qName.equals("allowCorporationMembers")) {
+        } else if ("allowCorporationMembers".equals(qName)) {
             response.setAllowCorporationMembers(getBoolean());
-        } else if (qName.equals("allowAllianceMembers")) {
+        } else if ("allowAllianceMembers".equals(qName)) {
             response.setAllowAllianceMembers(getBoolean());
-        } else if (qName.equals("claimSovereignty")) {
+        } else if ("claimSovereignty".equals(qName)) {
             response.setClaimSovereignty(getBoolean());
         }
 
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public StarbaseDetailResponse getResponse() {
-        return response;
     }
 }

@@ -1,5 +1,7 @@
 package com.beimin.eveapi.handler.eve;
 
+import java.util.Locale;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -24,7 +26,7 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             if (name.equals("skills")) {
                 skills = true;
@@ -33,7 +35,7 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
             } else if (name.equals("skillBonusCollection")) {
                 skillBonusCollection = true;
             }
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (skillBonusCollection) {
                 final Bonus bonus = new Bonus();
                 saveFieldsCount(Bonus.class, attrs);
@@ -64,24 +66,24 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             if (requiredSkills) {
                 requiredSkills = false;
             } else if (skillBonusCollection) {
                 skillBonusCollection = false;
             } else if (skills) {
                 skills = false;
-                response.add(skillGroup);
+                getResponse().add(skillGroup);
                 skillGroup = null;
             }
-        } else if (qName.equals("description")) {
+        } else if ("description".equals(qName)) {
             skill.setDescription(getString());
-        } else if (qName.equals("rank")) {
+        } else if ("rank".equals(qName)) {
             skill.setRank(getInt());
-        } else if (qName.equals("primaryAttribute")) {
-            skill.setPrimaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase()));
-        } else if (qName.equals("secondaryAttribute")) {
-            skill.setSecondaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase()));
+        } else if ("primaryAttribute".equals(qName)) {
+            skill.setPrimaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
+        } else if ("secondaryAttribute".equals(qName)) {
+            skill.setSecondaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
         } else {
             super.endElement(uri, localName, qName);
         }

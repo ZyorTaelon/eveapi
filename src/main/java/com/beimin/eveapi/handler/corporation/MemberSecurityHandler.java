@@ -4,14 +4,12 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
+import com.beimin.eveapi.model.corporation.CorporationRole;
 import com.beimin.eveapi.model.corporation.SecurityMember;
-import com.beimin.eveapi.model.corporation.SecurityRole;
-import com.beimin.eveapi.model.corporation.SecurityTitle;
-import com.beimin.eveapi.response.ApiResponse;
+import com.beimin.eveapi.model.shared.Title;
 import com.beimin.eveapi.response.corporation.MemberSecurityResponse;
 
-public class MemberSecurityHandler extends AbstractContentHandler {
-    private MemberSecurityResponse response;
+public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurityResponse> {
     private boolean roles;
     private boolean grantableRoles;
     private boolean rolesAtHQ;
@@ -25,12 +23,12 @@ public class MemberSecurityHandler extends AbstractContentHandler {
 
     @Override
     public void startDocument() throws SAXException {
-        response = new MemberSecurityResponse();
+        setResponse(new MemberSecurityResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             roles = name.equals("roles");
             grantableRoles = name.equals("grantableRoles");
@@ -41,7 +39,7 @@ public class MemberSecurityHandler extends AbstractContentHandler {
             rolesAtOther = name.equals("rolesAtOther");
             grantableRolesAtOther = name.equals("grantableRolesAtOther");
             titles = name.equals("titles");
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (roles) {
                 member.addRole(getRole(attrs));
             } else if (grantableRoles) {
@@ -65,24 +63,24 @@ public class MemberSecurityHandler extends AbstractContentHandler {
                 saveFieldsCount(SecurityMember.class, attrs);
                 member.setCharacterID(getLong(attrs, "characterID"));
                 member.setName(getString(attrs, "name"));
-                response.addMember(member);
+                getResponse().addMember(member);
             }
         } else {
             super.startElement(uri, localName, qName, attrs);
         }
     }
 
-    private SecurityTitle getTitle(final Attributes attrs) {
-        final SecurityTitle title = new SecurityTitle();
-        saveFieldsCount(Attributes.class, attrs);
+    private Title getTitle(final Attributes attrs) {
+        final Title title = new Title();
+        saveFieldsCount(Title.class, attrs);
         title.setTitleID(getLong(attrs, "titleID"));
         title.setTitleName(getString(attrs, "titleName"));
         return title;
     }
 
-    private SecurityRole getRole(final Attributes attrs) {
-        saveFieldsCount(SecurityRole.class, attrs);
-        final SecurityRole role = new SecurityRole();
+    private CorporationRole getRole(final Attributes attrs) {
+        final CorporationRole role = new CorporationRole();
+        saveFieldsCount(CorporationRole.class, attrs);
         role.setRoleID(getLong(attrs, "roleID"));
         role.setRoleName(getString(attrs, "roleName"));
         return role;
@@ -90,7 +88,7 @@ public class MemberSecurityHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             if (roles) {
                 roles = false;
             } else if (grantableRoles) {
@@ -112,10 +110,5 @@ public class MemberSecurityHandler extends AbstractContentHandler {
             }
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public ApiResponse getResponse() {
-        return response;
     }
 }

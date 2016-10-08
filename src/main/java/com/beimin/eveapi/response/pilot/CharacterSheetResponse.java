@@ -6,12 +6,12 @@ import java.util.Set;
 
 import com.beimin.eveapi.model.pilot.AttributeEnhancer;
 import com.beimin.eveapi.model.pilot.Certificate;
-import com.beimin.eveapi.model.pilot.CorporationRole;
-import com.beimin.eveapi.model.pilot.CorporationTitle;
+import com.beimin.eveapi.model.pilot.Role;
 import com.beimin.eveapi.model.pilot.Skill;
 import com.beimin.eveapi.model.shared.Ancestry;
 import com.beimin.eveapi.model.shared.Bloodline;
 import com.beimin.eveapi.model.shared.Race;
+import com.beimin.eveapi.model.shared.Title;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class CharacterSheetResponse extends ApiResponse {
@@ -29,7 +29,7 @@ public class CharacterSheetResponse extends ApiResponse {
     private String cloneName;
     private long cloneSkillPoints;
     private double balance;
-    private final Set<AttributeEnhancer> attributeEnhancers = new HashSet<AttributeEnhancer>();
+    private final Set<AttributeEnhancer> attributeEnhancers = new HashSet<>();
     private int intelligence;
     private int memory;
     private int charisma;
@@ -37,11 +37,11 @@ public class CharacterSheetResponse extends ApiResponse {
     private int willpower;
     private final Set<Skill> skills = new HashSet<Skill>();
     private final Set<Certificate> certificates = new HashSet<Certificate>();
-    private final Set<CorporationRole> corporationRoles = new HashSet<CorporationRole>();
-    private final Set<CorporationRole> corporationRolesAtHQ = new HashSet<CorporationRole>();
-    private final Set<CorporationRole> corporationRolesAtBase = new HashSet<CorporationRole>();
-    private final Set<CorporationRole> corporationRolesAtOther = new HashSet<CorporationRole>();
-    private final Set<CorporationTitle> corporationTitles = new HashSet<CorporationTitle>();
+    private final Set<Role> corporationRoles = new HashSet<>();
+    private final Set<Role> corporationRolesAtHQ = new HashSet<>();
+    private final Set<Role> corporationRolesAtBase = new HashSet<>();
+    private final Set<Role> corporationRolesAtOther = new HashSet<>();
+    private final Set<Title> corporationTitles = new HashSet<>();
 
     public long getCharacterID() {
         return characterID;
@@ -219,43 +219,43 @@ public class CharacterSheetResponse extends ApiResponse {
         return certificates;
     }
 
-    public void addCorporationRole(final CorporationRole corporationRole) {
+    public void addCorporationRole(final Role corporationRole) {
         corporationRoles.add(corporationRole);
     }
 
-    public Set<CorporationRole> getCorporationRoles() {
+    public Set<Role> getCorporationRoles() {
         return corporationRoles;
     }
 
-    public void addCorporationRoleAtHQ(final CorporationRole corporationRole) {
+    public void addCorporationRoleAtHQ(final Role corporationRole) {
         corporationRolesAtHQ.add(corporationRole);
     }
 
-    public Set<CorporationRole> getCorporationRolesAtHQ() {
+    public Set<Role> getCorporationRolesAtHQ() {
         return corporationRolesAtHQ;
     }
 
-    public void addCorporationRoleAtBase(final CorporationRole corporationRole) {
+    public void addCorporationRoleAtBase(final Role corporationRole) {
         corporationRolesAtBase.add(corporationRole);
     }
 
-    public Set<CorporationRole> getCorporationRolesAtBase() {
+    public Set<Role> getCorporationRolesAtBase() {
         return corporationRolesAtBase;
     }
 
-    public void addCorporationRoleAtOther(final CorporationRole corporationRole) {
+    public void addCorporationRoleAtOther(final Role corporationRole) {
         corporationRolesAtOther.add(corporationRole);
     }
 
-    public Set<CorporationRole> getCorporationRolesAtOther() {
+    public Set<Role> getCorporationRolesAtOther() {
         return corporationRolesAtOther;
     }
 
-    public void addCorporationTitle(final CorporationTitle title) {
+    public void addCorporationTitle(final Title title) {
         corporationTitles.add(title);
     }
 
-    public Set<CorporationTitle> getCorporationTitles() {
+    public Set<Title> getCorporationTitles() {
         return corporationTitles;
     }
 }

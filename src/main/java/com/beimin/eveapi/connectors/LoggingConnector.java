@@ -5,15 +5,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import javax.xml.XMLConstants;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import com.beimin.eveapi.exception.ApiException;
@@ -27,18 +30,18 @@ public class LoggingConnector extends ApiConnector {
     private final ApiConnector baseConnector;
 
     public LoggingConnector() {
-        super();
-        baseConnector = null;
+        this(null);
     }
 
     public LoggingConnector(final ApiConnector baseConnector) {
+        super();
         this.baseConnector = baseConnector;
     }
 
     @Override
-    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler contentHandler, final Class<E> clazz) throws ApiException {
+    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler<E> contentHandler, final Class<E> clazz) throws ApiException {
         if (LOGGER.isInfoEnabled()) {
-            LOGGER.info("\nRequest:\n" + request.toString());
+            LOGGER.info("\nRequest:\n{}", request.toString());
         }
         final ApiConnector connector = getConnector();
         final URL url = connector.getURL(request);
@@ -48,13 +51,12 @@ public class LoggingConnector extends ApiConnector {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
-    protected <E> E getApiResponse(final AbstractContentHandler contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
+    protected <E extends ApiResponse> E getApiResponse(final AbstractContentHandler<E> contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
         final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         InputStream workInputStream = inputStream;
-        try {
+        try (InputStream splitInputStream = new InputStreamSplitter(inputStream, outputStream);) {
             if (LOGGER.isInfoEnabled()) {
-                workInputStream = new InputStreamSplitter(inputStream, outputStream);
+                workInputStream = splitInputStream;
             }
             final SAXParserFactory spf = SAXParserFactory.newInstance();
             final SAXParser sp = spf.newSAXParser();
@@ -63,22 +65,15 @@ public class LoggingConnector extends ApiConnector {
             xr.setContentHandler(contentHandler);
             xr.parse(new InputSource(workInputStream));
             return (E) contentHandler.getResponse();
-        } catch (final Exception e) {
+        } catch (IOException | ParserConfigurationException | SAXException e) {
             throw new ApiException(e);
         } finally {
             if (LOGGER.isInfoEnabled()) {
                 try {
-                    LOGGER.info("\nResponse:\n" + outputStream.toString("UTF-8"));
+                    LOGGER.info("\nResponse:\n{}", outputStream.toString(StandardCharsets.UTF_8.name()));
                 } catch (final UnsupportedEncodingException e) {
                     LOGGER.error("Could not write response as utf-8", e);
                 }
-            }
-            try {
-                if (workInputStream != null) {
-                    workInputStream.close();
-                }
-            } catch (final IOException e) {
-                LOGGER.error("Could not close input stream", e);
             }
         }
     }

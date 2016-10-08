@@ -13,14 +13,33 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.DateUtils;
 
-public abstract class AbstractContentHandler extends DefaultHandler {
+public abstract class AbstractContentHandler<E extends ApiResponse> extends DefaultHandler {
+    private static final String MESSAGE_NUMBER_PARSER = "Couldn't parse number";
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractContentHandler.class);
+    protected static final String ELEMENT_EVEAPI = "eveapi";
+    protected static final String ELEMENT_CACHED_UNTIL = "cachedUntil";
+    protected static final String ELEMENT_CURRENT_TIME = "currentTime";
+    protected static final String ELEMENT_ROW = "row";
+    protected static final String ELEMENT_ROWSET = "rowset";
+    protected static final String ATTRIBUTE_VERSION = "version";
+    protected static final String ATTRIBUTE_CODE = "code";
+    protected static final String ATTRIBUTE_ERROR = "error";
+    protected static final String ATTRIBUTE_NAME = "name";
+    protected static final String VALUE_TRUE = "true";
 
+    private E response;
     private static boolean strictCheckMode = false;
     private static Map<String, Integer> fields;
 
-    protected StringBuffer accumulator = new StringBuffer(); // Accumulate parsed text
+    protected StringBuilder accumulator = new StringBuilder();
     private ApiError error;
+
+    public AbstractContentHandler() {
+    }
+
+    public AbstractContentHandler(E response) {
+        this.response = response;
+    }
 
     @Override
     public void characters(final char[] buffer, final int start, final int length) {
@@ -29,24 +48,24 @@ public abstract class AbstractContentHandler extends DefaultHandler {
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("eveapi")) {
-            getResponse().setVersion(getInt(attrs, "version"));
-        } else if (qName.equals("error")) {
+        if (ELEMENT_EVEAPI.equals(qName)) {
+            response.setVersion(getInt(attrs, ATTRIBUTE_VERSION));
+        } else if (ATTRIBUTE_ERROR.equals(qName)) {
             error = new ApiError();
             saveFieldsCount(ApiError.class, attrs);
-            error.setCode(getInt(attrs, "code"));
-            getResponse().setError(error);
+            error.setCode(getInt(attrs, ATTRIBUTE_CODE));
+            response.setError(error);
         }
         accumulator.setLength(0);
     }
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("currentTime")) {
-            getResponse().setCurrentTime(getDate());
-        } else if (qName.equals("cachedUntil")) {
-            getResponse().setCachedUntil(getDate());
-        } else if (qName.equals("error")) {
+        if (ELEMENT_CURRENT_TIME.equals(qName)) {
+            response.setCurrentTime(getDate());
+        } else if (ELEMENT_CACHED_UNTIL.equals(qName)) {
+            response.setCachedUntil(getDate());
+        } else if (ATTRIBUTE_ERROR.equals(qName)) {
             error.setError(getString());
         }
     }
@@ -83,11 +102,9 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         Integer result = null;
         if ((value != null) && !value.trim().isEmpty()) {
             try {
-                result = Integer.parseInt(value);
+                result = Integer.valueOf(value);
             } catch (final NumberFormatException e) {
-                LOGGER.error("Couldn't parse number", e);
-            } catch (final NullPointerException e) {
-                LOGGER.error("Couldn't parse number", e);
+                LOGGER.error(MESSAGE_NUMBER_PARSER, e);
             }
         }
         return result;
@@ -105,11 +122,9 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         Long result = null;
         if ((value != null) && !value.trim().isEmpty()) {
             try {
-                result = Long.parseLong(value);
+                result = Long.valueOf(value);
             } catch (final NumberFormatException e) {
-                LOGGER.error("Couldn't parse number", e);
-            } catch (final NullPointerException e) {
-                LOGGER.error("Couldn't parse number", e);
+                LOGGER.error(MESSAGE_NUMBER_PARSER, e);
             }
         }
         return result;
@@ -127,34 +142,32 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         Double result = null;
         if ((value != null) && !value.trim().isEmpty()) {
             try {
-                result = Double.parseDouble(value);
+                result = Double.valueOf(value);
             } catch (final NumberFormatException e) {
-                LOGGER.error("Couldn't parse number", e);
-            } catch (final NullPointerException e) {
-                LOGGER.error("Couldn't parse number", e);
+                LOGGER.error(MESSAGE_NUMBER_PARSER, e);
             }
         }
         return result;
     }
 
     protected boolean getBoolean() {
-        return "1".equals(getString()) || "true".equalsIgnoreCase(getString());
+        return "1".equals(getString()) || VALUE_TRUE.equalsIgnoreCase(getString());
     }
 
     protected boolean getBoolean(final Attributes attrs, final String qName) {
-        return "1".equals(getString(attrs, qName)) || "true".equalsIgnoreCase(getString(attrs, qName));
+        return "1".equals(getString(attrs, qName)) || VALUE_TRUE.equalsIgnoreCase(getString(attrs, qName));
     }
 
     public static void enableStrictCheckMode() {
         AbstractContentHandler.strictCheckMode = true;
-        fields = new HashMap<String, Integer>();
+        fields = new HashMap<>();
     }
 
     public static Map<String, Integer> getFields() {
         return fields;
     }
 
-    protected void saveFieldsCount(final Class clazz, final Attributes attrs) {
+    protected void saveFieldsCount(Class<?> clazz, Attributes attrs) {
         if (strictCheckMode) {
             Integer current = fields.get(clazz.getName());
             if (current == null) {
@@ -164,5 +177,11 @@ public abstract class AbstractContentHandler extends DefaultHandler {
         }
     }
 
-    public abstract ApiResponse getResponse();
+    protected void setResponse(E response) {
+        this.response = response;
+    }
+
+    public E getResponse() {
+        return response;
+    }
 }

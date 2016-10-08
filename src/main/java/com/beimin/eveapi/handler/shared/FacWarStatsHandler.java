@@ -6,12 +6,10 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.response.shared.FacWarStatsResponse;
 
-public class FacWarStatsHandler extends AbstractContentHandler {
-    private FacWarStatsResponse response;
-
+public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsResponse> {
     @Override
     public void startDocument() throws SAXException {
-        response = new FacWarStatsResponse();
+        setResponse(new FacWarStatsResponse());
     }
 
     @Override
@@ -22,53 +20,49 @@ public class FacWarStatsHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("factionID")) {
+        FacWarStatsResponse response = getResponse();
+        if ("factionID".equals(qName)) {
             response.setFactionID(getInt());
         }
-        if (qName.equals("factionName")) {
+        if ("factionName".equals(qName)) {
             response.setFactionName(getString());
         }
-        if (qName.equals("enlisted")) {
+        if ("enlisted".equals(qName)) {
             response.setEnlisted(getDate());
         }
-        if (qName.equals("currentRank")) {
+        if ("currentRank".equals(qName)) {
             response.setCurrentRank(getInt());
         }
-        if (qName.equals("highestRank")) {
+        if ("highestRank".equals(qName)) {
             response.setHighestRank(getInt());
         }
-        if (qName.equals("killsYesterday")) {
+        if ("killsYesterday".equals(qName)) {
             response.setKillsYesterday(getInt());
         }
-        if (qName.equals("killsLastWeek")) {
+        if ("killsLastWeek".equals(qName)) {
             response.setKillsLastWeek(getInt());
         }
-        if (qName.equals("killsTotal")) {
+        if ("killsTotal".equals(qName)) {
             response.setKillsTotal(getInt());
         }
-        if (qName.equals("victoryPointsYesterday")) {
+        if ("victoryPointsYesterday".equals(qName)) {
             response.setVictoryPointsYesterday(getInt());
         }
-        if (qName.equals("killsTotal")) {
+        if ("killsTotal".equals(qName)) {
             response.setKillsTotal(getInt());
         }
-        if (qName.equals("victoryPointsYesterday")) {
+        if ("victoryPointsYesterday".equals(qName)) {
             response.setVictoryPointsYesterday(getInt());
         }
-        if (qName.equals("victoryPointsLastWeek")) {
+        if ("victoryPointsLastWeek".equals(qName)) {
             response.setVictoryPointsLastWeek(getInt());
         }
-        if (qName.equals("victoryPointsTotal")) {
+        if ("victoryPointsTotal".equals(qName)) {
             response.setVictoryPointsTotal(getInt());
         }
-        if (qName.equals("pilots")) {
+        if ("pilots".equals(qName)) {
             response.setPilots(getInt());
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public FacWarStatsResponse getResponse() {
-        return response;
     }
 }

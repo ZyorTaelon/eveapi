@@ -36,3 +36,4 @@ public class ConquerableStationListParserTest extends NoAuthParserTest {
         assertEquals("DarkStar 1", hzfStation.getCorporationName());
     }
 }
+

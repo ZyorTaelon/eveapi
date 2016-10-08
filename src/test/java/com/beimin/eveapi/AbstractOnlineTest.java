@@ -24,6 +24,7 @@ import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.handler.ApiError;
 import com.beimin.eveapi.parser.ApiAuthorization;
+import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.ApiResponse;
 
 public abstract class AbstractOnlineTest {
@@ -51,7 +52,7 @@ public abstract class AbstractOnlineTest {
 
     @BeforeClass
     public static void setUp() {
-        EveApi.setConnector(new ApiConnector());
+        AbstractApiParser.setConnector(new ApiConnector());
         AbstractContentHandler.enableStrictCheckMode();
     }
 
@@ -87,7 +88,7 @@ public abstract class AbstractOnlineTest {
             }
         }
         // Chekc for new fields
-        final Class clazz = bean.getClass();
+        final Class<?> clazz = bean.getClass();
         final int classFields = getFields(clazz); // Count fields (to ignore logical methods)
         if (!(bean instanceof ApiResponse)) { // Ignore reponse
             final Integer xmlFields = AbstractContentHandler.getFields().get(bean.getClass().getName());
@@ -96,7 +97,7 @@ public abstract class AbstractOnlineTest {
         }
     }
 
-    private int getFields(final Class clazz) {
+    private int getFields(final Class<?> clazz) {
         if (clazz.getName().equals(Object.class.getName())) {
             return 0;
         }
@@ -107,7 +108,7 @@ public abstract class AbstractOnlineTest {
                 classFields++; // Class Field
             }
         }
-        final Class superclass = clazz.getSuperclass();
+        final Class<?> superclass = clazz.getSuperclass();
         if (superclass != null) {
             classFields = classFields + getFields(superclass);
         }
@@ -119,7 +120,7 @@ public abstract class AbstractOnlineTest {
         testValue(id, value, value.getClass());
     }
 
-    private void testValue(final String id, final Object value, final Class type) throws Exception {
+    private void testValue(final String id, final Object value, final Class<?> type) throws Exception {
         if (type.equals(String.class)) { // String
             // null
             if (!nullOK.contains(id)) { // null
@@ -260,5 +261,4 @@ public abstract class AbstractOnlineTest {
     protected ApiAuthorization getEve() {
         return pilot;
     }
-
 }

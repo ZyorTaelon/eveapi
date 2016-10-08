@@ -18,3 +18,4 @@ public abstract class AbstractContractBidsParser extends AbstractListParser<Cont
         return super.getResponse(auth);
     }
 }
+

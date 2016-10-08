@@ -15,7 +15,7 @@ public class AccountStatusParser extends AbstractApiParser<AccountStatusResponse
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<AccountStatusResponse> getContentHandler() {
         return new AccountStatusHandler();
     }
 

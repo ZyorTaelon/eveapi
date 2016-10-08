@@ -9,24 +9,20 @@ import com.beimin.eveapi.model.account.Character;
 import com.beimin.eveapi.model.shared.KeyType;
 import com.beimin.eveapi.response.account.ApiKeyInfoResponse;
 
-public class ApiKeyInfoHandler extends AbstractContentHandler {
-    private ApiKeyInfoResponse response;
+public class ApiKeyInfoHandler extends AbstractContentHandler<ApiKeyInfoResponse> {
     private ApiKeyInfo apiKeyInfo;
 
     @Override
     public void startDocument() throws SAXException {
-        response = new ApiKeyInfoResponse();
+        setResponse(new ApiKeyInfoResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("result")) {
+        if ("result".equals(qName)) {
             apiKeyInfo = new ApiKeyInfo();
         }
-        if (qName.equals("key")) {
-            for (int i = 0; i < attrs.getLength(); i++) {
-                System.out.println(attrs.getQName(i));
-            }
+        if ("key".equals(qName)) {
             saveFieldsCount(ApiKeyInfo.class, attrs);
             apiKeyInfo.setAccessMask(getLong(attrs, "accessMask"));
             apiKeyInfo.setType(KeyType.valueOf(getString(attrs, "type")));
@@ -34,7 +30,7 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
             if (expires.length() > 0) {
                 apiKeyInfo.setExpires(getDate(expires));
             }
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             saveFieldsCount(Character.class, attrs);
             final Character character = new Character();
             character.setCharacterID(getLong(attrs, "characterID"));
@@ -46,15 +42,10 @@ public class ApiKeyInfoHandler extends AbstractContentHandler {
             character.setFactionID(getLong(attrs, "factionID"));
             character.setFactionName(getString(attrs, "factionName"));
             apiKeyInfo.addEveCharacter(character);
-        } else if (qName.equals("result")) {
-            response.set(apiKeyInfo);
+        } else if ("result".equals(qName)) {
+            getResponse().set(apiKeyInfo);
         }
         super.startElement(uri, localName, qName, attrs);
         accumulator.setLength(0);
-    }
-
-    @Override
-    public ApiKeyInfoResponse getResponse() {
-        return response;
     }
 }

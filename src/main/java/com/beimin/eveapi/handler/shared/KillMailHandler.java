@@ -22,12 +22,12 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
 
-        if (qName.equals("rowset")) {
-            final String name = getString(attrs, "name");
-            inAttackers = name.equals("attackers");
-            inItems = name.equals("items");
+        if (ELEMENT_ROWSET.equals(qName)) {
+            final String name = getString(attrs, ATTRIBUTE_NAME);
+            inAttackers = "attackers".equals(name);
+            inItems = "items".equals(name);
         }
-        if (qName.equals("row")) {
+        if (ELEMENT_ROW.equals(qName)) {
             if (inAttackers) {
                 final KillAttacker attacker = new KillAttacker();
                 saveFieldsCount(KillAttacker.class, attrs);
@@ -57,7 +57,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
             } else {
                 apiKill = getItem(attrs);
             }
-        } else if (qName.equals("victim")) {
+        } else if ("victim".equals(qName)) {
             final KillVictim victim = new KillVictim();
             saveFieldsCount(KillVictim.class, attrs);
             victim.setCharacterID(getLong(attrs, "characterID"));
@@ -81,12 +81,12 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             inAttackers = false;
             inItems = false;
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (!inAttackers && !inItems) {
-                response.add(apiKill);
+                getResponse().add(apiKill);
                 apiKill = null;
             }
         } else {

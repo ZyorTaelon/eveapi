@@ -17,8 +17,6 @@ public class ContainerLog {
     private Integer oldConfiguration;
     private Integer newConfiguration;
 
-    // passwordType="" typeID="" quantity="" oldConfiguration="" newConfiguration=""
-
     public Date getLogTime() {
         return logTime;
     }

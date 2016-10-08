@@ -11,3 +11,4 @@ public abstract class AbstractBlueprintsParser extends AbstractListParser<Bluepr
         super(BlueprintsResponse.class, 2, path, ApiPage.BLUEPRINTS, BlueprintsHandler.class);
     }
 }
+

@@ -27,3 +27,4 @@ public abstract class AbstractLocationsParser extends AbstractListParser<Locatio
         return super.getResponse(auth, "IDs", idList.toString());
     }
 }
+

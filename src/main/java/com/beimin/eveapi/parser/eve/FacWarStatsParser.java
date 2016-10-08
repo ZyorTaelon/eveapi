@@ -14,7 +14,7 @@ public class FacWarStatsParser extends AbstractApiParser<FacWarStatsResponse> {
     }
 
     @Override
-    protected AbstractContentHandler getContentHandler() {
+    protected AbstractContentHandler<FacWarStatsResponse> getContentHandler() {
         return new FacWarStatsHandler();
     }
 

@@ -9,8 +9,8 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.corporation.CorporationRole;
 import com.beimin.eveapi.model.corporation.RoleHistory;
-import com.beimin.eveapi.model.corporation.SecurityRole;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.MemberSecurityLogParser;
@@ -34,20 +34,21 @@ public class SecurityLogParserTest extends FullAuthParserTest {
         for (final RoleHistory roleHistory : roleHistories) {
             if (roleHistory.getCharacterName().equals("Tester1")) {
                 found = true;
-                final Set<SecurityRole> oldRoles = roleHistory.getOldRoles();
+                final Set<CorporationRole> oldRoles = roleHistory.getOldRoles();
                 assertEquals("Incorrect amount of old roles found.", 8, oldRoles.size());
                 boolean oldRoleFound = false;
-                for (final SecurityRole securityRole : oldRoles) {
+                for (final CorporationRole securityRole : oldRoles) {
                     if (securityRole.getRoleID() == 4194304) {
                         oldRoleFound = true;
                         assertEquals("Wrong old role name.", "roleHangarCanQuery3", securityRole.getRoleName());
                     }
                 }
                 assertTrue("Test old role not found. ", oldRoleFound);
-                final Set<SecurityRole> newRoles = roleHistory.getNewRoles();
+                final Set<CorporationRole> newRoles = roleHistory.getNewRoles();
                 assertEquals("Incorrect amount of old roles found.", 0, newRoles.size());
             }
         }
         assertTrue("Test role history not found. ", found);
     }
 }
+

@@ -9,25 +9,22 @@ import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.shared.Asset;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 
-public class AssetListHandler extends AbstractContentHandler {
-    private AssetListResponse response;
+public class AssetListHandler extends AbstractContentHandler<AssetListResponse> {
     private Asset currentAsset;
     private final Stack<Asset> stack = new Stack<Asset>();
 
     @Override
     public void startDocument() throws SAXException {
-        response = new AssetListResponse();
+        setResponse(new AssetListResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("rowset")) {
-            if (currentAsset != null) {
-                stack.add(currentAsset);
-                currentAsset = null;
-            }
+        if ((currentAsset != null) && ELEMENT_ROWSET.equals(qName)) {
+            stack.add(currentAsset);
+            currentAsset = null;
         }
-        if (qName.equals("row")) {
+        if (ELEMENT_ROW.equals(qName)) {
             currentAsset = new Asset();
             saveFieldsCount(Asset.class, attrs);
             currentAsset.setItemID(getLong(attrs, "itemID"));
@@ -48,22 +45,18 @@ public class AssetListHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("rowset") && !stack.isEmpty()) {
+        AssetListResponse response = getResponse();
+        if (ELEMENT_ROWSET.equals(qName) && !stack.isEmpty()) {
             final Asset asset = stack.pop();
             if (stack.isEmpty()) {
                 response.add(asset);
                 currentAsset = null;
             }
         }
-        if (qName.equals("row") && stack.isEmpty() && (currentAsset != null)) {
+        if ((currentAsset != null) && stack.isEmpty() && ELEMENT_ROW.equals(qName)) {
             response.add(currentAsset);
             currentAsset = null;
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public AssetListResponse getResponse() {
-        return response;
     }
 }

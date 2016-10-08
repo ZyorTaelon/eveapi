@@ -4,19 +4,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.xml.XMLConstants;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import com.beimin.eveapi.exception.ApiException;
@@ -40,16 +44,11 @@ public class ApiConnector {
         this.baseUrl = baseUrl;
     }
 
-    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler contentHandler, final Class<E> clazz) throws ApiException {
-        try {
-            return getApiResponse(contentHandler, getInputStream(getURL(request), getParams(request)), clazz);
-        } catch (final Exception e) {
-            throw new ApiException(e);
-        }
+    public <E extends ApiResponse> E execute(final ApiRequest request, final AbstractContentHandler<E> contentHandler, final Class<E> clazz) throws ApiException {
+        return getApiResponse(contentHandler, getInputStream(getURL(request), getParams(request)), clazz);
     }
 
-    @SuppressWarnings("unchecked")
-    protected <E> E getApiResponse(final AbstractContentHandler contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
+    protected <E extends ApiResponse> E getApiResponse(final AbstractContentHandler<E> contentHandler, final InputStream inputStream, final Class<E> clazz) throws ApiException {
         try {
             final SAXParserFactory spf = SAXParserFactory.newInstance();
             final SAXParser sp = spf.newSAXParser();
@@ -60,7 +59,7 @@ public class ApiConnector {
             xr.setContentHandler(contentHandler);
             xr.parse(new InputSource(inputStream));
             return (E) contentHandler.getResponse();
-        } catch (final Exception e) {
+        } catch (SAXException | ParserConfigurationException | IOException e) {
             throw new ApiException(e);
         }
     }
@@ -70,17 +69,18 @@ public class ApiConnector {
         try {
             final HttpURLConnection conn = (HttpURLConnection) requestUrl.openConnection();
             conn.setDoOutput(true);
-            wr = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
+            wr = new OutputStreamWriter(conn.getOutputStream(), StandardCharsets.UTF_8);
             final StringBuilder data = new StringBuilder();
             for (final Entry<String, String> entry : params.entrySet()) {
                 if (data.length() > 0) {
-                    data.append("&"); // to ensure that we don't append an '&' to the end.
+                    // to ensure that we don't append an '&' to the end.
+                    data.append('&');
                 }
                 final String key = entry.getKey();
                 final String value = entry.getValue();
-                data.append(URLEncoder.encode(key, "UTF8"));
-                data.append("=");
-                data.append(URLEncoder.encode(value, "UTF8"));
+                data.append(URLEncoder.encode(key, StandardCharsets.UTF_8.name()));
+                data.append('=');
+                data.append(URLEncoder.encode(value, StandardCharsets.UTF_8.name()));
             }
             wr.write(data.toString());
             wr.flush();
@@ -89,7 +89,7 @@ public class ApiConnector {
             } else {
                 return conn.getErrorStream();
             }
-        } catch (final Exception e) {
+        } catch (final IOException e) {
             throw new ApiException(e);
         } finally {
             if (wr != null) {
@@ -105,15 +105,15 @@ public class ApiConnector {
     protected URL getURL(final ApiRequest request) throws ApiException {
         try {
             final StringBuilder result = new StringBuilder(getBaseUrl());
-            result.append(request.getPath().getPath()).append("/").append(request.getPage().getPage()).append(".xml.aspx");
+            result.append(request.getPath().getPath()).append('/').append(request.getPage().getPage()).append(".xml.aspx");
             return new URL(result.toString());
-        } catch (final Exception e) {
+        } catch (final MalformedURLException e) {
             throw new ApiException(e);
         }
     }
 
     protected Map<String, String> getParams(final ApiRequest request) {
-        final Map<String, String> result = new ConcurrentHashMap<String, String>();
+        final Map<String, String> result = new ConcurrentHashMap<>();
         result.put("version", Integer.toString(request.getVersion()));
         final ApiAuth auth = request.getAuth();
         if (auth != null) {

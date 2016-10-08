@@ -4,11 +4,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentListHandler;
-import com.beimin.eveapi.model.corporation.Role;
-import com.beimin.eveapi.model.corporation.Title;
+import com.beimin.eveapi.model.corporation.CorporationRole;
+import com.beimin.eveapi.model.corporation.TitleWithRoles;
 import com.beimin.eveapi.response.corporation.TitlesResponse;
 
-public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Title> {
+public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, TitleWithRoles> {
     private boolean roles;
     private boolean grantableRoles;
     private boolean rolesAtHQ;
@@ -17,7 +17,7 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
     private boolean grantableRolesAtBase;
     private boolean rolesAtOther;
     private boolean grantableRolesAtOther;
-    private Title title;
+    private TitleWithRoles title;
 
     public TitlesHandler() {
         super(TitlesResponse.class);
@@ -25,7 +25,7 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             roles = name.equals("roles");
             grantableRoles = name.equals("grantableRoles");
@@ -35,7 +35,7 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
             grantableRolesAtBase = name.equals("grantableRolesAtBase");
             rolesAtOther = name.equals("rolesAtOther");
             grantableRolesAtOther = name.equals("grantableRolesAtOther");
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (roles) {
                 title.addRole(getRole(attrs));
             } else if (grantableRoles) {
@@ -54,16 +54,16 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
                 title.addGrantableRoleAtOther(getRole(attrs));
             } else {
                 title = getItem(attrs);
-                response.add(title);
+                getResponse().add(title);
             }
         } else {
             super.startElement(uri, localName, qName, attrs);
         }
     }
 
-    private Role getRole(final Attributes attrs) {
-        final Role role = new Role();
-        saveFieldsCount(Role.class, attrs);
+    private CorporationRole getRole(final Attributes attrs) {
+        final CorporationRole role = new CorporationRole();
+        saveFieldsCount(CorporationRole.class, attrs);
         role.setRoleID(getLong(attrs, "roleID"));
         role.setRoleName(getString(attrs, "roleName"));
         role.setRoleDescription(getString(attrs, "roleDescription"));
@@ -71,9 +71,9 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
     }
 
     @Override
-    protected Title getItem(final Attributes attrs) {
-        final Title item = new Title();
-        saveFieldsCount(Title.class, attrs);
+    protected TitleWithRoles getItem(final Attributes attrs) {
+        final TitleWithRoles item = new TitleWithRoles();
+        saveFieldsCount(TitleWithRoles.class, attrs);
         item.setTitleID(getLong(attrs, "titleID"));
         item.setTitleName(getString(attrs, "titleName"));
         return item;
@@ -81,7 +81,7 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             if (roles) {
                 roles = false;
             } else if (grantableRoles) {

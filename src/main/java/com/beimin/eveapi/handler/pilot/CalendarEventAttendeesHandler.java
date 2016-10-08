@@ -1,5 +1,7 @@
 package com.beimin.eveapi.handler.pilot;
 
+import java.util.Locale;
+
 import org.xml.sax.Attributes;
 
 import com.beimin.eveapi.handler.AbstractContentListHandler;
@@ -19,7 +21,7 @@ public class CalendarEventAttendeesHandler extends AbstractContentListHandler<Ca
         eventAttendee.setEventID(getLong(attrs, "eventID"));
         eventAttendee.setCharacterID(getLong(attrs, "characterID"));
         eventAttendee.setCharacterName(getString(attrs, "characterName"));
-        eventAttendee.setResponse(CalendarEventResponse.valueOf(getString(attrs, "response").toUpperCase()));
+        eventAttendee.setResponse(CalendarEventResponse.valueOf(getString(attrs, "response").toUpperCase(Locale.ENGLISH)));
         return eventAttendee;
     }
 }

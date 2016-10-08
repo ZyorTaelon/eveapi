@@ -40,3 +40,4 @@ public class AccountBalanceParserTest extends FullAuthParserTest {
         assertTrue("test accountBalance wasn't found.", found);
     }
 }
+

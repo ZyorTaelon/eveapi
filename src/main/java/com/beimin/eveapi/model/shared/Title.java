@@ -1,6 +1,6 @@
-package com.beimin.eveapi.model.corporation;
+package com.beimin.eveapi.model.shared;
 
-public class SecurityTitle {
+public class Title {
     private long titleID;
     private String titleName;
 

@@ -53,7 +53,7 @@ public class SkillGroup implements Comparable<SkillGroup> {
         int result = 1;
         result = (prime * result) + groupID;
         result = (prime * result) + ((groupName == null) ? 0 : groupName.hashCode());
-        result = (prime * result) + ((skills == null) ? 0 : skills.hashCode());
+        result = (prime * result) + skills.hashCode();
         return result;
     }
 
@@ -79,11 +79,7 @@ public class SkillGroup implements Comparable<SkillGroup> {
         } else if (!groupName.equals(other.groupName)) {
             return false;
         }
-        if (skills == null) {
-            if (other.skills != null) {
-                return false;
-            }
-        } else if (!skills.equals(other.skills)) {
+        if (!skills.equals(other.skills)) {
             return false;
         }
         return true;

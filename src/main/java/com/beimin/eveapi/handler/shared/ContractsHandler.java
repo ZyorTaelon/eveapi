@@ -1,5 +1,7 @@
 package com.beimin.eveapi.handler.shared;
 
+import java.util.Locale;
+
 import org.xml.sax.Attributes;
 
 import com.beimin.eveapi.handler.AbstractContentListHandler;
@@ -25,11 +27,11 @@ public class ContractsHandler extends AbstractContentListHandler<ContractsRespon
         contract.setAcceptorID(getLong(attrs, "acceptorID"));
         contract.setStartStationID(getLong(attrs, "startStationID"));
         contract.setEndStationID(getLong(attrs, "endStationID"));
-        contract.setType(ContractType.valueOf(getString(attrs, "type").toUpperCase()));
-        contract.setStatus(ContractStatus.valueOf(getString(attrs, "status").toUpperCase()));
+        contract.setType(ContractType.valueOf(getString(attrs, "type").toUpperCase(Locale.ENGLISH)));
+        contract.setStatus(ContractStatus.valueOf(getString(attrs, "status").toUpperCase(Locale.ENGLISH)));
         contract.setTitle(getString(attrs, "title"));
         contract.setForCorp(getBoolean(attrs, "forCorp"));
-        contract.setAvailability(ContractAvailability.valueOf(getString(attrs, "availability").toUpperCase()));
+        contract.setAvailability(ContractAvailability.valueOf(getString(attrs, "availability").toUpperCase(Locale.ENGLISH)));
         contract.setDateIssued(getDate(attrs, "dateIssued"));
         contract.setDateExpired(getDate(attrs, "dateExpired"));
         contract.setDateAccepted(getDate(attrs, "dateAccepted"));

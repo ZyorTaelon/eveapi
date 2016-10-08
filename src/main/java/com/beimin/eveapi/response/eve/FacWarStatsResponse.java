@@ -81,3 +81,4 @@ public class FacWarStatsResponse extends ApiResponse {
         this.victoryPointsTotal = victoryPointsTotal;
     }
 }
+

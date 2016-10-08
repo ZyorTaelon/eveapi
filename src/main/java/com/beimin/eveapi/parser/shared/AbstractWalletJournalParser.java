@@ -32,3 +32,4 @@ public abstract class AbstractWalletJournalParser extends AbstractListParser<Wal
         return getResponse(auth, extraParams);
     }
 }
+

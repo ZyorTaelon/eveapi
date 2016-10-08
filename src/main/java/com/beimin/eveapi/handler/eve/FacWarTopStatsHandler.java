@@ -15,11 +15,9 @@ import com.beimin.eveapi.model.eve.FactionStat;
 import com.beimin.eveapi.model.eve.FactionVictoryPoints;
 import com.beimin.eveapi.model.eve.KillStat;
 import com.beimin.eveapi.model.eve.VictoryPointsStat;
-import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.response.eve.FacWarTopStatsResponse;
 
-public class FacWarTopStatsHandler extends AbstractContentHandler {
-    private FacWarTopStatsResponse response;
+public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStatsResponse> {
     private boolean characters;
     private boolean corporations;
     private boolean factions;
@@ -32,18 +30,19 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
 
     @Override
     public void startDocument() throws SAXException {
-        response = new FacWarTopStatsResponse();
+        setResponse(new FacWarTopStatsResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("characters")) {
+        FacWarTopStatsResponse response = getResponse();
+        if ("characters".equals(qName)) {
             characters = true;
-        } else if (qName.equals("corporations")) {
+        } else if ("corporations".equals(qName)) {
             corporations = true;
-        } else if (qName.equals("factions")) {
+        } else if ("factions".equals(qName)) {
             factions = true;
-        } else if (qName.equals("rowset")) {
+        } else if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             killsYesterday = name.equals("KillsYesterday");
             killsLastWeek = name.equals("KillsLastWeek");
@@ -51,7 +50,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
             victoryPointsYesterday = name.equals("VictoryPointsYesterday");
             victoryPointsLastWeek = name.equals("VictoryPointsLastWeek");
             victoryPointsTotal = name.equals("VictoryPointsTotal");
-        } else if (qName.equals("row")) {
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (characters) {
                 if (killsYesterday) {
                     response.addYesterday(getCharKill(attrs));
@@ -173,19 +172,14 @@ public class FacWarTopStatsHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("characters")) {
+        if ("characters".equals(qName)) {
             characters = false;
-        } else if (qName.equals("corporations")) {
+        } else if ("corporations".equals(qName)) {
             corporations = false;
-        } else if (qName.equals("factions")) {
+        } else if ("factions".equals(qName)) {
             corporations = false;
         } else {
             super.endElement(uri, localName, qName);
         }
-    }
-
-    @Override
-    public ApiResponse getResponse() {
-        return response;
     }
 }

@@ -69,3 +69,4 @@ public class CorpSheetParserTest extends FullAuthParserTest {
         assertEquals("7th Wallet Division", walletDivisions.get(1006));
     }
 }
+

@@ -3,18 +3,20 @@ package com.beimin.eveapi.model.corporation;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.beimin.eveapi.model.shared.Title;
+
 public class SecurityMember {
     private long characterID;
     private String name;
-    private final Set<SecurityRole> roles = new HashSet<SecurityRole>();
-    private final Set<SecurityRole> grantableRoles = new HashSet<SecurityRole>();
-    private final Set<SecurityRole> rolesAtHQ = new HashSet<SecurityRole>();
-    private final Set<SecurityRole> grantableRolesAtHQ = new HashSet<SecurityRole>();
-    private final Set<SecurityRole> rolesAtBase = new HashSet<SecurityRole>();
-    private final Set<SecurityRole> grantableRolesAtBase = new HashSet<SecurityRole>();
-    private final Set<SecurityRole> rolesAtOther = new HashSet<SecurityRole>();
-    private final Set<SecurityRole> grantableRolesAtOther = new HashSet<SecurityRole>();
-    private final Set<SecurityTitle> titles = new HashSet<SecurityTitle>();
+    private final Set<CorporationRole> roles = new HashSet<>();
+    private final Set<CorporationRole> grantableRoles = new HashSet<>();
+    private final Set<CorporationRole> rolesAtHQ = new HashSet<>();
+    private final Set<CorporationRole> grantableRolesAtHQ = new HashSet<>();
+    private final Set<CorporationRole> rolesAtBase = new HashSet<>();
+    private final Set<CorporationRole> grantableRolesAtBase = new HashSet<>();
+    private final Set<CorporationRole> rolesAtOther = new HashSet<>();
+    private final Set<CorporationRole> grantableRolesAtOther = new HashSet<>();
+    private final Set<Title> titles = new HashSet<>();
 
     public long getCharacterID() {
         return characterID;
@@ -32,75 +34,75 @@ public class SecurityMember {
         this.name = name;
     }
 
-    public Set<SecurityRole> getRoles() {
+    public Set<CorporationRole> getRoles() {
         return roles;
     }
 
-    public Set<SecurityRole> getGrantableRoles() {
+    public Set<CorporationRole> getGrantableRoles() {
         return grantableRoles;
     }
 
-    public Set<SecurityRole> getRolesAtHQ() {
+    public Set<CorporationRole> getRolesAtHQ() {
         return rolesAtHQ;
     }
 
-    public Set<SecurityRole> getGrantableRolesAtHQ() {
+    public Set<CorporationRole> getGrantableRolesAtHQ() {
         return grantableRolesAtHQ;
     }
 
-    public Set<SecurityRole> getRolesAtBase() {
+    public Set<CorporationRole> getRolesAtBase() {
         return rolesAtBase;
     }
 
-    public Set<SecurityRole> getGrantableRolesAtBase() {
+    public Set<CorporationRole> getGrantableRolesAtBase() {
         return grantableRolesAtBase;
     }
 
-    public Set<SecurityRole> getRolesAtOther() {
+    public Set<CorporationRole> getRolesAtOther() {
         return rolesAtOther;
     }
 
-    public Set<SecurityRole> getGrantableRolesAtOther() {
+    public Set<CorporationRole> getGrantableRolesAtOther() {
         return grantableRolesAtOther;
     }
 
-    public Set<SecurityTitle> getTitles() {
+    public Set<Title> getTitles() {
         return titles;
     }
 
-    public void addRole(final SecurityRole role) {
+    public void addRole(final CorporationRole role) {
         roles.add(role);
     }
 
-    public void addGrantableRole(final SecurityRole role) {
+    public void addGrantableRole(final CorporationRole role) {
         grantableRoles.add(role);
     }
 
-    public void addRoleAtHQ(final SecurityRole role) {
+    public void addRoleAtHQ(final CorporationRole role) {
         rolesAtHQ.add(role);
     }
 
-    public void addGrantableRoleAtHQ(final SecurityRole role) {
+    public void addGrantableRoleAtHQ(final CorporationRole role) {
         grantableRolesAtHQ.add(role);
     }
 
-    public void addRoleAtBase(final SecurityRole role) {
+    public void addRoleAtBase(final CorporationRole role) {
         rolesAtBase.add(role);
     }
 
-    public void addGrantableRoleAtBase(final SecurityRole role) {
+    public void addGrantableRoleAtBase(final CorporationRole role) {
         grantableRolesAtBase.add(role);
     }
 
-    public void addRoleAtOther(final SecurityRole role) {
+    public void addRoleAtOther(final CorporationRole role) {
         rolesAtOther.add(role);
     }
 
-    public void addGrantableRoleAtOther(final SecurityRole role) {
+    public void addGrantableRoleAtOther(final CorporationRole role) {
         grantableRolesAtOther.add(role);
     }
 
-    public void addTitle(final SecurityTitle title) {
+    public void addTitle(final Title title) {
         titles.add(title);
     }
 }

@@ -1,8 +1,5 @@
 package com.beimin.eveapi.model.shared;
 
-/**
- *
- */
 public class ContactLabel {
     private int labelID;
     private String name;

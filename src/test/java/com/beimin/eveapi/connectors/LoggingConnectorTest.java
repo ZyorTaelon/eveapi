@@ -10,11 +10,11 @@ import java.io.PrintStream;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.EveApi;
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.SkillQueueParser;
+import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.pilot.SkillQueueResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 import com.beimin.eveapi.utils.MockApi;
@@ -27,7 +27,7 @@ public class LoggingConnectorTest extends FullAuthParserTest {
     @Override
     public void setup() throws Exception {
         super.setup();
-        EveApi.setConnector(new LoggingConnector(new ApiConnector(MockApi.URL)));
+        AbstractApiParser.setConnector(new LoggingConnector(new ApiConnector(MockApi.URL)));
     }
 
     @Test
@@ -67,3 +67,4 @@ public class LoggingConnectorTest extends FullAuthParserTest {
         assertEquals("<cachedUntil>2010-04-03 16:48:20</cachedUntil>", lines[18].trim());
     }
 }
+

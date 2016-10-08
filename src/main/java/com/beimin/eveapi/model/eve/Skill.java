@@ -120,13 +120,13 @@ public class Skill implements Comparable<Skill> {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = (prime * result) + ((boneses == null) ? 0 : boneses.hashCode());
+        result = (prime * result) + boneses.hashCode();
         result = (prime * result) + ((description == null) ? 0 : description.hashCode());
         result = (prime * result) + groupID;
         result = (prime * result) + ((primaryAttribute == null) ? 0 : primaryAttribute.hashCode());
         result = (prime * result) + (published ? 1231 : 1237);
         result = (prime * result) + rank;
-        result = (prime * result) + ((requiredSkills == null) ? 0 : requiredSkills.hashCode());
+        result = (prime * result) + requiredSkills.hashCode();
         result = (prime * result) + ((secondaryAttribute == null) ? 0 : secondaryAttribute.hashCode());
         result = (prime * result) + typeID;
         result = (prime * result) + ((typeName == null) ? 0 : typeName.hashCode());
@@ -145,11 +145,7 @@ public class Skill implements Comparable<Skill> {
             return false;
         }
         final Skill other = (Skill) obj;
-        if (boneses == null) {
-            if (other.boneses != null) {
-                return false;
-            }
-        } else if (!boneses.equals(other.boneses)) {
+        if (!boneses.equals(other.boneses)) {
             return false;
         }
         if (description == null) {
@@ -171,11 +167,7 @@ public class Skill implements Comparable<Skill> {
         if (rank != other.rank) {
             return false;
         }
-        if (requiredSkills == null) {
-            if (other.requiredSkills != null) {
-                return false;
-            }
-        } else if (!requiredSkills.equals(other.requiredSkills)) {
+        if (!requiredSkills.equals(other.requiredSkills)) {
             return false;
         }
         if (secondaryAttribute != other.secondaryAttribute) {

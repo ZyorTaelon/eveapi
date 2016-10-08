@@ -18,9 +18,9 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("rowset")) {
-            memberCorporations = getString(attrs, "name").equals("memberCorporations");
-        } else if (qName.equals("row")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
+            memberCorporations = getString(attrs, ATTRIBUTE_NAME).equals("memberCorporations");
+        } else if (ELEMENT_ROW.equals(qName)) {
             if (memberCorporations) {
                 final MemberCorporation memberCorporation = new MemberCorporation();
                 memberCorporation.setCorporationID(getLong(attrs, "corporationID"));
@@ -28,7 +28,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
                 alliance.add(memberCorporation);
             } else {
                 alliance = getItem(attrs);
-                response.add(alliance);
+                getResponse().add(alliance);
             }
         } else {
             super.startElement(uri, localName, qName, attrs);
@@ -37,7 +37,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("rowset") && memberCorporations) {
+        if (memberCorporations && ELEMENT_ROWSET.equals(qName)) {
             memberCorporations = false;
         }
         super.endElement(uri, localName, qName);
@@ -48,7 +48,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
         final Alliance alliance = new Alliance();
         saveFieldsCount(Alliance.class, attrs);
         alliance.setAllianceID(getLong(attrs, "allianceID"));
-        alliance.setName(getString(attrs, "name"));
+        alliance.setName(getString(attrs, ATTRIBUTE_NAME));
         alliance.setShortName(getString(attrs, "shortName"));
         alliance.setExecutorCorpID(getLong(attrs, "executorCorpID"));
         alliance.setMemberCount(getInt(attrs, "memberCount"));

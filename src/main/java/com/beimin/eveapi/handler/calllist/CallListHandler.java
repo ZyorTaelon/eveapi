@@ -10,24 +10,23 @@ import com.beimin.eveapi.model.calllist.CallList;
 import com.beimin.eveapi.model.shared.KeyType;
 import com.beimin.eveapi.response.calllist.CallListResponse;
 
-public class CallListHandler extends AbstractContentHandler {
-    private CallListResponse response;
-    private boolean callGroups = false;
-    private boolean calls = false;
+public class CallListHandler extends AbstractContentHandler<CallListResponse> {
+    private boolean callGroups;
+    private boolean calls;
     private CallList callList;
 
     @Override
     public void startDocument() throws SAXException {
-        response = new CallListResponse();
+        setResponse(new CallListResponse());
     }
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if (qName.equals("result")) {
+        if ("result".equals(qName)) {
             callList = new CallList();
             saveFieldsCount(CallList.class, attrs);
         }
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             final String name = attrs.getValue("name");
             if (name.equals("callGroups")) {
                 callGroups = true;
@@ -35,7 +34,7 @@ public class CallListHandler extends AbstractContentHandler {
                 calls = true;
             }
         }
-        if (qName.equals("row")) {
+        if (ELEMENT_ROW.equals(qName)) {
             if (callGroups) {
                 final CallGroup callGroup = new CallGroup();
                 saveFieldsCount(CallGroup.class, attrs);
@@ -60,18 +59,13 @@ public class CallListHandler extends AbstractContentHandler {
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (qName.equals("result")) {
-            response.set(callList);
+        if ("result".equals(qName)) {
+            getResponse().set(callList);
         }
-        if (qName.equals("rowset")) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             callGroups = false;
             calls = false;
         }
         super.endElement(uri, localName, qName);
-    }
-
-    @Override
-    public CallListResponse getResponse() {
-        return response;
     }
 }
