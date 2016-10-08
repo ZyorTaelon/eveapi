@@ -35,7 +35,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        FacWarTopStatsResponse response = getResponse();
+        final FacWarTopStatsResponse response = getResponse();
         if ("characters".equals(qName)) {
             characters = true;
         } else if ("corporations".equals(qName)) {

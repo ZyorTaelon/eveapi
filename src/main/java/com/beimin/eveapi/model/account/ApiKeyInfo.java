@@ -56,4 +56,3 @@ public class ApiKeyInfo {
         return getType() == KeyType.Character;
     }
 }
-

@@ -14,4 +14,3 @@ public class CallListResponse extends ApiResponse {
         this.callList = callList;
     }
 }
-

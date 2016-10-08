@@ -17,4 +17,3 @@ public class MemberSecurityResponse extends ApiResponse {
         return members;
     }
 }
-

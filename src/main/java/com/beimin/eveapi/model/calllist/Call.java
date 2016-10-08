@@ -49,4 +49,3 @@ public class Call {
         this.type = type;
     }
 }
-

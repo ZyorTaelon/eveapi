@@ -180,4 +180,3 @@ public class CorpSheetResponse extends ApiResponse {
         return walletDivisions;
     }
 }
-

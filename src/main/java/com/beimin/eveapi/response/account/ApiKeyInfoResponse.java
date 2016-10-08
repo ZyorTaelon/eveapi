@@ -14,4 +14,3 @@ public class ApiKeyInfoResponse extends ApiResponse {
         this.apiKeyInfo = apiKeyInfo;
     }
 }
-

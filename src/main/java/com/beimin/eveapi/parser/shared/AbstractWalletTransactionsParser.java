@@ -28,4 +28,3 @@ public abstract class AbstractWalletTransactionsParser extends AbstractListParse
         return getResponse(auth, extraParams);
     }
 }
-

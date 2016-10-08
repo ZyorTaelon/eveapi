@@ -28,9 +28,9 @@ public class CallListHandler extends AbstractContentHandler<CallListResponse> {
         }
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = attrs.getValue("name");
-            if (name.equals("callGroups")) {
+            if ("callGroups".equals(name)) {
                 callGroups = true;
-            } else if (name.equals("calls")) {
+            } else if ("calls".equals(name)) {
                 calls = true;
             }
         }

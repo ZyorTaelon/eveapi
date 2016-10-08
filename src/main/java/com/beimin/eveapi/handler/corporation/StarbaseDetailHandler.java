@@ -15,7 +15,7 @@ public class StarbaseDetailHandler extends AbstractContentHandler<StarbaseDetail
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        StarbaseDetailResponse response = getResponse();
+        final StarbaseDetailResponse response = getResponse();
         if ("onStandingDrop".equals(qName)) {
             response.setOnStandingDrop(getCombatSetting(attrs));
         } else if ("onStatusDrop".equals(qName)) {
@@ -44,7 +44,7 @@ public class StarbaseDetailHandler extends AbstractContentHandler<StarbaseDetail
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        StarbaseDetailResponse response = getResponse();
+        final StarbaseDetailResponse response = getResponse();
         if ("usageFlags".equals(qName)) {
             response.setUsageFlags(getInt());
         } else if ("deployFlags".equals(qName)) {

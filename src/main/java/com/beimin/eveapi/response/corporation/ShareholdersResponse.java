@@ -27,4 +27,3 @@ public class ShareholdersResponse extends ApiListResponse<Shareholder> {
         return corporations;
     }
 }
-

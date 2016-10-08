@@ -1,8 +1,8 @@
 package com.beimin.eveapi.handler;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,16 +28,18 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     protected static final String VALUE_TRUE = "true";
 
     private E response;
-    private static boolean strictCheckMode = false;
+    private static boolean strictCheckMode;
     private static Map<String, Integer> fields;
 
     protected StringBuilder accumulator = new StringBuilder();
     private ApiError error;
 
     public AbstractContentHandler() {
+        this(null);
     }
 
-    public AbstractContentHandler(E response) {
+    public AbstractContentHandler(final E response) {
+        super();
         this.response = response;
     }
 
@@ -160,14 +162,14 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
 
     public static void enableStrictCheckMode() {
         AbstractContentHandler.strictCheckMode = true;
-        fields = new HashMap<>();
+        fields = new ConcurrentHashMap<>();
     }
 
     public static Map<String, Integer> getFields() {
         return fields;
     }
 
-    protected void saveFieldsCount(Class<?> clazz, Attributes attrs) {
+    protected void saveFieldsCount(final Class<?> clazz, final Attributes attrs) {
         if (strictCheckMode) {
             Integer current = fields.get(clazz.getName());
             if (current == null) {
@@ -177,7 +179,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         }
     }
 
-    protected void setResponse(E response) {
+    protected void setResponse(final E response) {
         this.response = response;
     }
 

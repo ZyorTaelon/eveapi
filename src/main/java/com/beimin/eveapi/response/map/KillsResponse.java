@@ -30,4 +30,3 @@ public class KillsResponse extends ApiListResponse<SystemKills> {
         return podKills;
     }
 }
-

@@ -152,4 +152,3 @@ public class FacWarTopStatsResponse extends ApiResponse {
         return factionVictoryPointsTotal;
     }
 }
-

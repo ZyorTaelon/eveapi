@@ -32,7 +32,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        CharacterSheetResponse response = getResponse();
+        final CharacterSheetResponse response = getResponse();
         if ("intelligenceBonus".equals(qName)) {
             attributeEnhancer = new IntelligenceBonus();
         } else if ("memoryBonus".equals(qName)) {
@@ -94,7 +94,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        CharacterSheetResponse response = getResponse();
+        final CharacterSheetResponse response = getResponse();
         if ("characterID".equals(qName)) {
             response.setCharacterID(getLong());
         } else if ("name".equals(qName)) {
@@ -116,7 +116,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
         } else if ("allianceID".equals(qName)) {
             response.setAllianceID(getLong());
         } else if ("allianceName".equals(qName) && (getString() != null) && !getString().trim().isEmpty()) {
-                response.setAllianceName(getString());
+            response.setAllianceName(getString());
         } else if ("cloneName".equals(qName)) {
             response.setCloneName(getString());
         } else if ("cloneSkillPoints".equals(qName)) {

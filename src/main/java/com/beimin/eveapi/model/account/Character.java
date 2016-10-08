@@ -74,4 +74,3 @@ public class Character {
         this.corporationID = corporationID;
     }
 }
-

@@ -43,4 +43,3 @@ public abstract class AbstractListParser<H extends AbstractContentListHandler<E,
         return super.getResponse();
     }
 }
-

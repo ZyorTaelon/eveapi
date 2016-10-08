@@ -45,7 +45,7 @@ public class AssetListHandler extends AbstractContentHandler<AssetListResponse> 
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        AssetListResponse response = getResponse();
+        final AssetListResponse response = getResponse();
         if (ELEMENT_ROWSET.equals(qName) && !stack.isEmpty()) {
             final Asset asset = stack.pop();
             if (stack.isEmpty()) {

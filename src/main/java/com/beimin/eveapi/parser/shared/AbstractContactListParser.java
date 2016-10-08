@@ -23,4 +23,3 @@ public abstract class AbstractContactListParser<CLR extends AbstractContactListR
         return super.getResponse(auth);
     }
 }
-

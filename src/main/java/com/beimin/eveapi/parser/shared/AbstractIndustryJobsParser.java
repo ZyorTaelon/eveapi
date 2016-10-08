@@ -18,4 +18,3 @@ public abstract class AbstractIndustryJobsParser extends AbstractListParser<Indu
         return super.getResponse(auth);
     }
 }
-

@@ -31,7 +31,7 @@ public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoRe
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        CharacterInfoResponse response = getResponse();
+        final CharacterInfoResponse response = getResponse();
         if ("characterID".equals(qName)) {
             response.setCharacterID(getLong());
         } else if ("characterName".equals(qName)) {

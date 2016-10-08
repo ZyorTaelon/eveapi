@@ -173,4 +173,3 @@ public class CharacterInfoResponse extends ApiResponse {
         employment.add(employ);
     }
 }
-

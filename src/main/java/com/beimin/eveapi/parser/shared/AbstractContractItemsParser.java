@@ -30,4 +30,3 @@ public abstract class AbstractContractItemsParser extends AbstractListParser<Con
         return super.getResponse(auth, extraParams);
     }
 }
-

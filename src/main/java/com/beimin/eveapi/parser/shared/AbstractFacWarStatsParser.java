@@ -23,4 +23,3 @@ public class AbstractFacWarStatsParser extends AbstractApiParser<FacWarStatsResp
         return super.getResponse(auth);
     }
 }
-

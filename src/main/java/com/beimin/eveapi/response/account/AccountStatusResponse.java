@@ -14,4 +14,3 @@ public class AccountStatusResponse extends ApiResponse {
         this.accountStatus = accountStatus;
     }
 }
-
