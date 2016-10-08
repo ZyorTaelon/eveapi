@@ -4,20 +4,13 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
-import com.beimin.eveapi.model.corporation.CorporationRole;
 import com.beimin.eveapi.model.corporation.SecurityMember;
 import com.beimin.eveapi.model.shared.Title;
+import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.response.corporation.MemberSecurityResponse;
 
 public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurityResponse> {
-    private boolean roles;
-    private boolean grantableRoles;
-    private boolean rolesAtHQ;
-    private boolean grantableRolesAtHQ;
-    private boolean rolesAtBase;
-    private boolean grantableRolesAtBase;
-    private boolean rolesAtOther;
-    private boolean grantableRolesAtOther;
+    private RolesHandler<ApiResponse> roleHandler = new RolesHandler<>();
     private boolean titles;
     private SecurityMember member;
 
@@ -30,35 +23,13 @@ public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurity
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
-            roles = name.equals("roles");
-            grantableRoles = name.equals("grantableRoles");
-            rolesAtHQ = name.equals("rolesAtHQ");
-            grantableRolesAtHQ = name.equals("grantableRolesAtHQ");
-            rolesAtBase = name.equals("rolesAtBase");
-            grantableRolesAtBase = name.equals("grantableRolesAtBase");
-            rolesAtOther = name.equals("rolesAtOther");
-            grantableRolesAtOther = name.equals("grantableRolesAtOther");
+            roleHandler.parseRowsetRoles(name);
             titles = name.equals("titles");
         } else if (ELEMENT_ROW.equals(qName)) {
-            if (roles) {
-                member.addRole(getRole(attrs));
-            } else if (grantableRoles) {
-                member.addGrantableRole(getRole(attrs));
-            } else if (rolesAtHQ) {
-                member.addRoleAtHQ(getRole(attrs));
-            } else if (grantableRolesAtHQ) {
-                member.addGrantableRoleAtHQ(getRole(attrs));
-            } else if (rolesAtBase) {
-                member.addRoleAtBase(getRole(attrs));
-            } else if (grantableRolesAtBase) {
-                member.addGrantableRoleAtBase(getRole(attrs));
-            } else if (rolesAtOther) {
-                member.addRoleAtOther(getRole(attrs));
-            } else if (grantableRolesAtOther) {
-                member.addGrantableRoleAtOther(getRole(attrs));
-            } else if (titles) {
+            boolean handledRoles = roleHandler.handleRoles(member, attrs);
+            if (titles && !handledRoles) {
                 member.addTitle(getTitle(attrs));
-            } else {
+            } else if (!handledRoles) {
                 member = new SecurityMember();
                 saveFieldsCount(SecurityMember.class, attrs);
                 member.setCharacterID(getLong(attrs, "characterID"));
@@ -78,34 +49,11 @@ public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurity
         return title;
     }
 
-    private CorporationRole getRole(final Attributes attrs) {
-        final CorporationRole role = new CorporationRole();
-        saveFieldsCount(CorporationRole.class, attrs);
-        role.setRoleID(getLong(attrs, "roleID"));
-        role.setRoleName(getString(attrs, "roleName"));
-        return role;
-    }
-
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            if (roles) {
-                roles = false;
-            } else if (grantableRoles) {
-                grantableRoles = false;
-            } else if (rolesAtHQ) {
-                rolesAtHQ = false;
-            } else if (grantableRolesAtHQ) {
-                grantableRolesAtHQ = false;
-            } else if (rolesAtBase) {
-                rolesAtBase = false;
-            } else if (grantableRolesAtBase) {
-                grantableRolesAtBase = false;
-            } else if (rolesAtOther) {
-                rolesAtOther = false;
-            } else if (grantableRolesAtOther) {
-                grantableRolesAtOther = false;
-            } else if (titles) {
+            roleHandler.resetRoles();
+            if (titles) {
                 titles = false;
             }
         }

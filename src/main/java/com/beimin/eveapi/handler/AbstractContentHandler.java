@@ -29,7 +29,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
 
     private E response;
     private static boolean strictCheckMode;
-    private static Map<String, Integer> fields;
+    private static volatile Map<String, Integer> fields;
 
     protected StringBuilder accumulator = new StringBuilder();
     private ApiError error;
