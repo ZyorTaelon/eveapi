@@ -19,14 +19,14 @@ public class RolesHandler<E extends ApiResponse> extends AbstractContentHandler<
     private boolean grantableRolesAtOther;
 
     protected void parseRowsetRoles(String name) {
-        roles = name.equals("roles");
-        grantableRoles = name.equals("grantableRoles");
-        rolesAtHQ = name.equals("rolesAtHQ");
-        grantableRolesAtHQ = name.equals("grantableRolesAtHQ");
-        rolesAtBase = name.equals("rolesAtBase");
-        grantableRolesAtBase = name.equals("grantableRolesAtBase");
-        rolesAtOther = name.equals("rolesAtOther");
-        grantableRolesAtOther = name.equals("grantableRolesAtOther");
+        roles = "roles".equals(name);
+        grantableRoles = "grantableRoles".equals(name);
+        rolesAtHQ = "rolesAtHQ".equals(name);
+        grantableRolesAtHQ = "grantableRolesAtHQ".equals(name);
+        rolesAtBase = "rolesAtBase".equals(name);
+        grantableRolesAtBase = "grantableRolesAtBase".equals(name);
+        rolesAtOther = "rolesAtOther".equals(name);
+        grantableRolesAtOther = "grantableRolesAtOther".equals(name);
     }
 
     protected boolean handleRoles(SecurityMember member, Attributes attrs) {
