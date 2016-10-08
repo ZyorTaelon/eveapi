@@ -9,12 +9,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.eve.AllianceListResponse;
 
 public class AllianceListParser extends AbstractListParser<AllianceListHandler, AllianceListResponse, Alliance> {
-	public AllianceListParser() {
-		super(AllianceListResponse.class, 2, ApiPath.EVE, ApiPage.ALLIANCE_LIST, AllianceListHandler.class);
-	}
+    public AllianceListParser() {
+        super(AllianceListResponse.class, 2, ApiPath.EVE, ApiPage.ALLIANCE_LIST, AllianceListHandler.class);
+    }
 
-	@Override
-	public AllianceListResponse getResponse() throws ApiException {
-		return super.getResponse();
-	}
+    @Override
+    public AllianceListResponse getResponse() throws ApiException {
+        return super.getResponse();
+    }
 }

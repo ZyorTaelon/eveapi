@@ -11,132 +11,159 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.DateUtils;
 
-public abstract class AbstractContentHandler extends DefaultHandler {
-	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractContentHandler.class);
+public abstract class AbstractContentHandler<E extends ApiResponse> extends DefaultHandler {
+    private static final String MESSAGE_NUMBER_PARSER = "Couldn't parse number";
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractContentHandler.class);
+    protected static final String ELEMENT_EVEAPI = "eveapi";
+    protected static final String ELEMENT_CACHED_UNTIL = "cachedUntil";
+    protected static final String ELEMENT_CURRENT_TIME = "currentTime";
+    protected static final String ELEMENT_ROW = "row";
+    protected static final String ELEMENT_ROWSET = "rowset";
+    protected static final String ATTRIBUTE_VERSION = "version";
+    protected static final String ATTRIBUTE_CODE = "code";
+    protected static final String ATTRIBUTE_ERROR = "error";
+    protected static final String ATTRIBUTE_NAME = "name";
+    protected static final String VALUE_TRUE = "true";
 
-	protected StringBuffer accumulator = new StringBuffer(); // Accumulate parsed text
-	private ApiError error;
+    private E response;
 
-	@Override
-	public void characters(char[] buffer, int start, int length) {
-		accumulator.append(buffer, start, length);
-	}
+    protected StringBuilder accumulator = new StringBuilder();
+    private ApiError error;
 
-	@Override
-	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-		if (qName.equals("eveapi")) {
-			getResponse().setVersion(getInt(attrs, "version"));
-		} else if (qName.equals("error")) {
-			error = new ApiError();
-			error.setCode(getInt(attrs, "code"));
-			getResponse().setError(error);
-		}
-		accumulator.setLength(0);
-	}
+    public AbstractContentHandler() {
+    }
 
-	@Override
-	public void endElement(String uri, String localName, String qName) throws SAXException {
-		if (qName.equals("currentTime"))
-			getResponse().setCurrentTime(getDate());
-		else if (qName.equals("cachedUntil"))
-			getResponse().setCachedUntil(getDate());
-		else if (qName.equals("error"))
-			error.setError(getString());
-	}
+    public AbstractContentHandler(E response) {
+        this.response = response;
+    }
 
-	protected String getString() {
-		return accumulator.toString().trim();
-	}
+    @Override
+    public void characters(final char[] buffer, final int start, final int length) {
+        accumulator.append(buffer, start, length);
+    }
 
-	protected String getString(Attributes attrs, String qName) {
-		return attrs.getValue(qName);
-	}
+    @Override
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        if (ELEMENT_EVEAPI.equals(qName)) {
+            response.setVersion(getInt(attrs, ATTRIBUTE_VERSION));
+        } else if (ATTRIBUTE_ERROR.equals(qName)) {
+            error = new ApiError();
+            error.setCode(getInt(attrs, ATTRIBUTE_CODE));
+            response.setError(error);
+        }
+        accumulator.setLength(0);
+    }
 
-	protected Date getDate() {
-		return getDate(getString());
-	}
+    @Override
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if (ELEMENT_CURRENT_TIME.equals(qName)) {
+            response.setCurrentTime(getDate());
+        } else if (ELEMENT_CACHED_UNTIL.equals(qName)) {
+            response.setCachedUntil(getDate());
+        } else if (ATTRIBUTE_ERROR.equals(qName)) {
+            error.setError(getString());
+        }
+    }
 
-	protected Date getDate(String string) {
-		return DateUtils.getGMTConverter().convert(Date.class, string);
-	}
+    protected String getString() {
+        return accumulator.toString().trim();
+    }
 
-	protected Date getDate(Attributes attrs, String qName) {
-		return getDate(getString(attrs, qName));
-	}
+    protected String getString(final Attributes attrs, final String qName) {
+        return attrs.getValue(qName);
+    }
 
-	protected Integer getInt() {
-		return parseInteger(getString());
-	}
+    protected Date getDate() {
+        return getDate(getString());
+    }
 
-	protected Integer getInt(Attributes attrs, String qName) {
-		return parseInteger(getString(attrs, qName));
-	}
+    protected Date getDate(final String string) {
+        return DateUtils.getGMTConverter().convert(Date.class, string);
+    }
 
-	protected Integer parseInteger(String value) {
-		Integer result = null;
-		if(value != null && !value.trim().isEmpty()) {
-			try {
-				result = Integer.parseInt(value);
-			} catch (NumberFormatException e) {
-				LOGGER.error("Couldn't parse number", e);
-			} catch (NullPointerException e) {
-				LOGGER.error("Couldn't parse number", e);
-			}
-		}
-		return result;
-	}
-	
-	protected Long getLong() {
-		return parseLong(getString());
-	}
+    protected Date getDate(final Attributes attrs, final String qName) {
+        return getDate(getString(attrs, qName));
+    }
 
-	protected Long getLong(Attributes attrs, String qName) {
-		return parseLong(getString(attrs, qName));
-	}
+    protected Integer getInt() {
+        return parseInteger(getString());
+    }
 
-	protected Long parseLong(String value) {
-		Long result = null;
-		if(value != null && !value.trim().isEmpty()) {
-			try {
-				result = Long.parseLong(value);
-			} catch (NumberFormatException e) {
-				LOGGER.error("Couldn't parse number", e);
-			} catch (NullPointerException e) {
-				LOGGER.error("Couldn't parse number", e);
-			}
-		}
-		return result;
-	}
-	
-	protected Double getDouble() {
-		return parseDouble(getString());
-	}
+    protected Integer getInt(final Attributes attrs, final String qName) {
+        return parseInteger(getString(attrs, qName));
+    }
 
-	protected Double getDouble(Attributes attrs, String qName) {
-		return parseDouble(getString(attrs, qName));
-	}
+    protected Integer parseInteger(final String value) {
+        Integer result = null;
+        if ((value != null) && !value.trim().isEmpty()) {
+            try {
+                result = Integer.valueOf(value);
+            } catch (final NumberFormatException e) {
+                LOGGER.error(MESSAGE_NUMBER_PARSER, e);
+            }
+        }
+        return result;
+    }
 
-	protected Double parseDouble(String value) {
-		Double result = null;
-		if(value != null && !value.trim().isEmpty()) {
-			try {
-				result = Double.parseDouble(value);
-			} catch (NumberFormatException e) {
-				LOGGER.error("Couldn't parse number", e);
-			} catch (NullPointerException e) {
-				LOGGER.error("Couldn't parse number", e);
-			}
-		}
-		return result;
-	}
-	
-	protected boolean getBoolean() {
-		return "1".equals(getString()) || "true".equalsIgnoreCase(getString());
-	}
+    protected Long getLong() {
+        return parseLong(getString());
+    }
 
-	protected boolean getBoolean(Attributes attrs, String qName) {
-		return "1".equals(getString(attrs, qName)) || "true".equalsIgnoreCase(getString(attrs, qName));
-	}
+    protected Long getLong(final Attributes attrs, final String qName) {
+        return parseLong(getString(attrs, qName));
+    }
 
-	public abstract ApiResponse getResponse();
+    protected Long parseLong(final String value) {
+        Long result = null;
+        if ((value != null) && !value.trim().isEmpty()) {
+            try {
+                result = Long.valueOf(value);
+            } catch (final NumberFormatException e) {
+                LOGGER.error(MESSAGE_NUMBER_PARSER, e);
+            }
+        }
+        return result;
+    }
+
+    protected Double getDouble() {
+        return parseDouble(getString());
+    }
+
+    protected Double getDouble(final Attributes attrs, final String qName) {
+        return parseDouble(getString(attrs, qName));
+    }
+
+    protected Double parseDouble(final String value) {
+        Double result = null;
+        if ((value != null) && !value.trim().isEmpty()) {
+            try {
+                result = Double.valueOf(value);
+            } catch (final NumberFormatException e) {
+                LOGGER.error(MESSAGE_NUMBER_PARSER, e);
+            }
+        }
+        return result;
+    }
+
+    protected boolean getBoolean() {
+        return "1".equals(getString()) || VALUE_TRUE.equalsIgnoreCase(getString());
+    }
+
+    protected boolean getBoolean(final Attributes attrs, final String qName) {
+        return "1".equals(getString(attrs, qName)) || VALUE_TRUE.equalsIgnoreCase(getString(attrs, qName));
+    }
+
+    protected void checkForNewFields(final Attributes attrs, final int number) {
+        if (attrs.getLength() != number) {
+            throw new IllegalArgumentException("Looks like new fields where added, only " + number + " expected!");
+        }
+    }
+
+    protected void setResponse(E response) {
+        this.response = response;
+    }
+
+    public E getResponse() {
+        return response;
+    }
 }

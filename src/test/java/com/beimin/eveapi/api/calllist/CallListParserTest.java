@@ -26,41 +26,43 @@ import com.beimin.eveapi.utils.NoAuthParserTest;
  * @author andrew
  */
 public class CallListParserTest extends NoAuthParserTest {
-	public CallListParserTest() {
-		super(ApiPath.API, ApiPage.CALL_LIST);
-	}
+    public CallListParserTest() {
+        super(ApiPath.API, ApiPage.CALL_LIST);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		CallListParser parser = new CallListParser();
-		CallListResponse response = parser.getResponse();
-		assertNotNull(response);
-		
-		List<CallGroup> callGroups = new ArrayList<CallGroup>(response.get().getCallGroups());
-		assertFalse("There were no call groups", callGroups.isEmpty());
-		Collections.sort(callGroups, new Comparator<CallGroup>() {
-			public int compare(CallGroup o1, CallGroup o2) {
-				return o1.getGroupID() - o2.getGroupID();
-			}
-		});
-		assertEquals(1, callGroups.get(0).getGroupID());
-		assertEquals("Account and Market", callGroups.get(0).getName());
-		
-		List<Call> calls = new ArrayList<Call>(response.get().getCalls());
-		assertFalse("There were no calls", calls.isEmpty());
-		Collections.sort(calls, new Comparator<Call>() {
-			public int compare(Call o1, Call o2) {
-				int ret = o1.getType().compareTo(o2.getType());
-				if (ret == 0) {
-					ret = (int)(o1.getAccessMask() - o2.getAccessMask());
-				}
-				return ret;
-			}
-		});
+    @Test
+    public void getResponse() throws ApiException {
+        final CallListParser parser = new CallListParser();
+        final CallListResponse response = parser.getResponse();
+        assertNotNull(response);
 
-		assertEquals("AccountBalance", calls.get(0).getName());
-		assertEquals(KeyType.Character, calls.get(0).getType());
-		assertEquals(1, calls.get(0).getGroupID());
-		assertEquals("Current balance of characters wallet.", calls.get(0).getDescription());
-	}
+        final List<CallGroup> callGroups = new ArrayList<CallGroup>(response.get().getCallGroups());
+        assertFalse("There were no call groups", callGroups.isEmpty());
+        Collections.sort(callGroups, new Comparator<CallGroup>() {
+            @Override
+            public int compare(final CallGroup o1, final CallGroup o2) {
+                return o1.getGroupID() - o2.getGroupID();
+            }
+        });
+        assertEquals(1, callGroups.get(0).getGroupID());
+        assertEquals("Account and Market", callGroups.get(0).getName());
+
+        final List<Call> calls = new ArrayList<Call>(response.get().getCalls());
+        assertFalse("There were no calls", calls.isEmpty());
+        Collections.sort(calls, new Comparator<Call>() {
+            @Override
+            public int compare(final Call o1, final Call o2) {
+                int ret = o1.getType().compareTo(o2.getType());
+                if (ret == 0) {
+                    ret = (int) (o1.getAccessMask() - o2.getAccessMask());
+                }
+                return ret;
+            }
+        });
+
+        assertEquals("AccountBalance", calls.get(0).getName());
+        assertEquals(KeyType.Character, calls.get(0).getType());
+        assertEquals(1, calls.get(0).getGroupID());
+        assertEquals("Current balance of characters wallet.", calls.get(0).getDescription());
+    }
 }

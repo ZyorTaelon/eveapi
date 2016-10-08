@@ -4,7 +4,7 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.shared.AbstractStandingsParser;
 
 public class StandingsParser extends AbstractStandingsParser {
-	public StandingsParser() {
-		super(ApiPath.CHARACTER);
-	}
+    public StandingsParser() {
+        super(ApiPath.CHARACTER);
+    }
 }

@@ -4,7 +4,7 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.shared.AbstractWalletJournalParser;
 
 public class WalletJournalParser extends AbstractWalletJournalParser {
-	public WalletJournalParser() {
-		super(ApiPath.CORPORATION);
-	}
+    public WalletJournalParser() {
+        super(ApiPath.CORPORATION);
+    }
 }

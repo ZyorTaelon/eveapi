@@ -16,24 +16,24 @@ import com.beimin.eveapi.response.eve.CharacterLookupResponse;
 import com.beimin.eveapi.utils.NoAuthParserTest;
 
 public class CharacterIDLookupParserTest extends NoAuthParserTest {
-	public CharacterIDLookupParserTest() {
-		super(ApiPath.EVE, ApiPage.CHARACTER_ID);
-	}
+    public CharacterIDLookupParserTest() {
+        super(ApiPath.EVE, ApiPage.CHARACTER_ID);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		CharacterLookupParser parser = CharacterLookupParser.getName2IdInstance();
-		CharacterLookupResponse response = parser.getResponse("CCP Garthagk");
-		Collection<CharacterLookup> chars = response.getAll();
-		assertEquals(1, chars.size());
-		CharacterLookup garthagk = chars.iterator().next();
-		assertEquals("CCP Garthagk", garthagk.getName());
-		assertEquals(797400947, garthagk.getCharacterID());
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        final CharacterLookupParser parser = CharacterLookupParser.getName2IdInstance();
+        final CharacterLookupResponse response = parser.getResponse("CCP Garthagk");
+        final Collection<CharacterLookup> chars = response.getAll();
+        assertEquals(1, chars.size());
+        final CharacterLookup garthagk = chars.iterator().next();
+        assertEquals("CCP Garthagk", garthagk.getName());
+        assertEquals(797400947, garthagk.getCharacterID());
+    }
 
-	@Override
-	public void extraAsserts(Map<String, String> req) {
-		super.extraAsserts(req);
-		assertEquals("CCP Garthagk", req.get("names"));
-	}
+    @Override
+    public void extraAsserts(final Map<String, String> req) {
+        super.extraAsserts(req);
+        assertEquals("CCP Garthagk", req.get("names"));
+    }
 }

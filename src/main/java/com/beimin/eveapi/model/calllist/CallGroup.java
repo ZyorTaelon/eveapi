@@ -3,45 +3,41 @@ package com.beimin.eveapi.model.calllist;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author andrew
- */
 public class CallGroup {
-	private List<Call> calls = new ArrayList<Call>();
-	private int groupID;
-	private String name;
-	private String description;
+    private final List<Call> calls = new ArrayList<Call>();
+    private int groupID;
+    private String name;
+    private String description;
 
-	public int getGroupID() {
-		return groupID;
-	}
+    public int getGroupID() {
+        return groupID;
+    }
 
-	public void setGroupID(int groupID) {
-		this.groupID = groupID;
-	}
+    public void setGroupID(final int groupID) {
+        this.groupID = groupID;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(final String name) {
+        this.name = name;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-	public void addCall(Call call) {
-		calls.add(call);
-	}
+    public void setDescription(final String description) {
+        this.description = description;
+    }
 
-	public List<Call> getCalls() {
-		return calls;
-	}
+    public void addCall(final Call call) {
+        calls.add(call);
+    }
+
+    public List<Call> getCalls() {
+        return calls;
+    }
 }

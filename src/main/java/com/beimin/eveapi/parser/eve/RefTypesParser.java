@@ -9,12 +9,12 @@ import com.beimin.eveapi.parser.shared.AbstractListParser;
 import com.beimin.eveapi.response.eve.RefTypesResponse;
 
 public class RefTypesParser extends AbstractListParser<RefTypesHandler, RefTypesResponse, RefType> {
-	public RefTypesParser() {
-		super(RefTypesResponse.class, 1, ApiPath.EVE, ApiPage.REF_TYPES, RefTypesHandler.class);
-	}
+    public RefTypesParser() {
+        super(RefTypesResponse.class, 1, ApiPath.EVE, ApiPage.REF_TYPES, RefTypesHandler.class);
+    }
 
-	@Override
-	public RefTypesResponse getResponse() throws ApiException {
-		return super.getResponse();
-	}
+    @Override
+    public RefTypesResponse getResponse() throws ApiException {
+        return super.getResponse();
+    }
 }

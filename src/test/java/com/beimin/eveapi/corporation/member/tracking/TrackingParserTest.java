@@ -24,61 +24,57 @@ import com.beimin.eveapi.utils.FullAuthParserTest;
 import com.beimin.eveapi.utils.MockApi;
 
 public class TrackingParserTest extends FullAuthParserTest {
-	public TrackingParserTest() {
-		super(ApiPath.CORPORATION, ApiPage.MEMBER_TRACKING);
-	}
+    public TrackingParserTest() {
+        super(ApiPath.CORPORATION, ApiPage.MEMBER_TRACKING);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		MemberTrackingParser parser = new MemberTrackingParser();
-		MemberTrackingResponse response = parser.getResponse(auth);
-		assertNotNull(response);
-		Set<Member> members = response.getAll();
-		boolean found = false;
-		for (Member member : members) {
-			if(member.getCharacterID()==150336922L) {
-				found = true;
-				assertEquals("corpexport", member.getName());
-				assertNull(member.getLocation());
-			}
-		}
-		assertTrue("Test character not found: ", found);
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        final MemberTrackingParser parser = new MemberTrackingParser();
+        final MemberTrackingResponse response = parser.getResponse(auth);
+        assertNotNull(response);
+        final Set<Member> members = response.getAll();
+        boolean found = false;
+        for (final Member member : members) {
+            if (member.getCharacterID() == 150336922L) {
+                found = true;
+                assertEquals("corpexport", member.getName());
+                assertNull(member.getLocation());
+            }
+        }
+        assertTrue("Test character not found: ", found);
+    }
 
-	@Test
-	public void getExtendedResponse() throws Exception {
-		CamelContext context = new DefaultCamelContext();
-		context.addRoutes(extended);
-		context.start();
-		MemberTrackingParser parser = new MemberTrackingParser();
-		MemberTrackingResponse response = parser.getExtendedResponse(auth);
-		assertNotNull(response);
-		Set<Member> members = response.getAll();
-		boolean found = false;
-		for (Member member : members) {
-			if(member.getCharacterID()==150336922L) {
-				found = true;
-				assertEquals("corpexport", member.getName());
-				assertEquals("Bourynes VII - Moon 2 - University of Caille School", member.getLocation());
-			}
-		}
-		assertTrue("Test character not found: ", found);
-	}
-	
-	private final RouteBuilder extended = new RouteBuilder() {
-		@Override
-		public void configure() {
-			from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx")
-					.process(new ExchangeProcessor(
-						new ExchangeProcessor.ExtraAsserts() {
-							public void extraAsserts(Map<String, String> params) {
-								assertNotNull(params);
-								assertEquals("1", params.get("extended"));
-							}
-						},
-						path.getPath() + "/" + page.getPage() + "Extended.xml"
-					))
-					.end();
-		}
-	};
+    @Test
+    public void getExtendedResponse() throws Exception {
+        final CamelContext context = new DefaultCamelContext();
+        context.addRoutes(extended);
+        context.start();
+        final MemberTrackingParser parser = new MemberTrackingParser();
+        final MemberTrackingResponse response = parser.getExtendedResponse(auth);
+        assertNotNull(response);
+        final Set<Member> members = response.getAll();
+        boolean found = false;
+        for (final Member member : members) {
+            if (member.getCharacterID() == 150336922L) {
+                found = true;
+                assertEquals("corpexport", member.getName());
+                assertEquals("Bourynes VII - Moon 2 - University of Caille School", member.getLocation());
+            }
+        }
+        assertTrue("Test character not found: ", found);
+    }
+
+    private final RouteBuilder extended = new RouteBuilder() {
+        @Override
+        public void configure() {
+            from("jetty:" + MockApi.URL + path.getPath() + "/" + page.getPage() + ".xml.aspx").process(new ExchangeProcessor(new ExchangeProcessor.ExtraAsserts() {
+                @Override
+                public void extraAsserts(final Map<String, String> params) {
+                    assertNotNull(params);
+                    assertEquals("1", params.get("extended"));
+                }
+            }, path.getPath() + "/" + page.getPage() + "Extended.xml")).end();
+        }
+    };
 }

@@ -8,19 +8,19 @@ import com.beimin.eveapi.response.corporation.MemberMedalsResponse;
 
 public class MemberMedalsHandler extends AbstractContentListHandler<MemberMedalsResponse, MemberMedal> {
 
-	public MemberMedalsHandler() {
-		super(MemberMedalsResponse.class);
-	}
+    public MemberMedalsHandler() {
+        super(MemberMedalsResponse.class);
+    }
 
-	@Override
-	protected MemberMedal getItem(Attributes attrs) {
-		MemberMedal medal = new MemberMedal();
-		medal.setMedalID(getInt(attrs, "medalID"));
-		medal.setCharacterID(getLong(attrs, "characterID"));
-		medal.setIssued(getDate(attrs, "issued"));
-		medal.setIssuerID(getLong(attrs, "issuerID"));
-		medal.setReason(getString(attrs, "reason"));
-		medal.setStatus(getString(attrs, "status"));
-		return medal;
-	}
+    @Override
+    protected MemberMedal getItem(final Attributes attrs) {
+        final MemberMedal medal = new MemberMedal();
+        medal.setMedalID(getInt(attrs, "medalID"));
+        medal.setCharacterID(getLong(attrs, "characterID"));
+        medal.setIssued(getDate(attrs, "issued"));
+        medal.setIssuerID(getLong(attrs, "issuerID"));
+        medal.setReason(getString(attrs, "reason"));
+        medal.setStatus(getString(attrs, "status"));
+        return medal;
+    }
 }

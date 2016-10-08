@@ -5,37 +5,32 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.response.pilot.SkillInTrainingResponse;
 
-public class SkillInTrainingHandler extends AbstractContentHandler {
-	private SkillInTrainingResponse response;
+public class SkillInTrainingHandler extends AbstractContentHandler<SkillInTrainingResponse> {
+    @Override
+    public void startDocument() throws SAXException {
+        setResponse(new SkillInTrainingResponse());
+    }
 
-	@Override
-	public void startDocument() throws SAXException {
-		response = new SkillInTrainingResponse();
-	}
-
-	@Override
-	public void endElement(String uri, String localName, String qName) throws SAXException {
-		if (qName.equals("currentTQTime"))
-			response.setCurrentTQTime(getDate());
-		else if (qName.equals("trainingEndTime"))
-			response.setTrainingEndTime(getDate());
-		else if (qName.equals("trainingStartTime"))
-			response.setTrainingStartTime(getDate());
-		else if (qName.equals("trainingTypeID"))
-			response.setTrainingTypeID(getInt());
-		else if (qName.equals("trainingStartSP"))
-			response.setTrainingStartSP(getInt());
-		else if (qName.equals("trainingDestinationSP"))
-			response.setTrainingDestinationSP(getInt());
-		else if (qName.equals("trainingToLevel"))
-			response.setTrainingToLevel(getInt());
-		else if (qName.equals("skillInTraining"))
-			response.setSkillInTraining(getBoolean());
-		super.endElement(uri, localName, qName);
-	}
-
-	@Override
-	public SkillInTrainingResponse getResponse() {
-		return response;
-	}
+    @Override
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        SkillInTrainingResponse response = getResponse();
+        if ("currentTQTime".equals(qName)) {
+            response.setCurrentTQTime(getDate());
+        } else if ("trainingEndTime".equals(qName)) {
+            response.setTrainingEndTime(getDate());
+        } else if ("trainingStartTime".equals(qName)) {
+            response.setTrainingStartTime(getDate());
+        } else if ("trainingTypeID".equals(qName)) {
+            response.setTrainingTypeID(getInt());
+        } else if ("trainingStartSP".equals(qName)) {
+            response.setTrainingStartSP(getInt());
+        } else if ("trainingDestinationSP".equals(qName)) {
+            response.setTrainingDestinationSP(getInt());
+        } else if ("trainingToLevel".equals(qName)) {
+            response.setTrainingToLevel(getInt());
+        } else if ("skillInTraining".equals(qName)) {
+            response.setSkillInTraining(getBoolean());
+        }
+        super.endElement(uri, localName, qName);
+    }
 }

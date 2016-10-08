@@ -16,17 +16,17 @@ import com.beimin.eveapi.response.corporation.ContainerLogResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ContainerLogParserTest extends FullAuthParserTest {
-	public ContainerLogParserTest() {
-		super(ApiPath.CORPORATION, ApiPage.CONTAINER_LOG);
-	}
+    public ContainerLogParserTest() {
+        super(ApiPath.CORPORATION, ApiPage.CONTAINER_LOG);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		ContainerLogParser parser = new ContainerLogParser();
-		ContainerLogResponse response = parser.getResponse(auth);
-		assertNotNull(response);
-		Set<ContainerLog> containerLogs = response.getAll();
-		assertNotNull(containerLogs);
-		assertEquals(23, containerLogs.size());
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        final ContainerLogParser parser = new ContainerLogParser();
+        final ContainerLogResponse response = parser.getResponse(auth);
+        assertNotNull(response);
+        final Set<ContainerLog> containerLogs = response.getAll();
+        assertNotNull(containerLogs);
+        assertEquals(23, containerLogs.size());
+    }
 }

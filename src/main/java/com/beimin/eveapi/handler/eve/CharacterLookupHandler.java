@@ -8,15 +8,15 @@ import com.beimin.eveapi.response.eve.CharacterLookupResponse;
 
 public class CharacterLookupHandler extends AbstractContentListHandler<CharacterLookupResponse, CharacterLookup> {
 
-	public CharacterLookupHandler() {
-		super(CharacterLookupResponse.class);
-	}
+    public CharacterLookupHandler() {
+        super(CharacterLookupResponse.class);
+    }
 
-	@Override
-	protected CharacterLookup getItem(Attributes attrs) {
-		CharacterLookup lookup = new CharacterLookup();
-		lookup.setCharacterID(getLong(attrs, "characterID"));
-		lookup.setName(getString(attrs, "name"));
-		return lookup;
-	}
+    @Override
+    protected CharacterLookup getItem(final Attributes attrs) {
+        final CharacterLookup lookup = new CharacterLookup();
+        lookup.setCharacterID(getLong(attrs, "characterID"));
+        lookup.setName(getString(attrs, "name"));
+        return lookup;
+    }
 }

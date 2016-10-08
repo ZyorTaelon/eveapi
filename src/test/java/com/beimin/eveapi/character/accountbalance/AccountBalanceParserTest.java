@@ -16,21 +16,21 @@ import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class AccountBalanceParserTest extends FullAuthParserTest {
-	public AccountBalanceParserTest() {
-		super(ApiPath.CHARACTER, ApiPage.ACCOUNT_BALANCE);
-	}
+    public AccountBalanceParserTest() {
+        super(ApiPath.CHARACTER, ApiPage.ACCOUNT_BALANCE);
+    }
 
-	@Test
-	public void getResponse() throws ApiException {
-		PilotAccountBalanceParser parser = new PilotAccountBalanceParser();
-		AccountBalanceResponse response = parser.getResponse(auth);
-		assertNotNull(response);
-		Set<EveAccountBalance> accountBalances = response.getAll();
-		assertNotNull(accountBalances);
-		assertEquals(1, accountBalances.size());
-		EveAccountBalance accountBalance = accountBalances.iterator().next();
-		assertEquals(10094361, accountBalance.getAccountID());
-		assertEquals(1000, accountBalance.getAccountKey());
-		assertEquals(46634844.84, accountBalance.getBalance(), 0.00001);
-	}
+    @Test
+    public void getResponse() throws ApiException {
+        final PilotAccountBalanceParser parser = new PilotAccountBalanceParser();
+        final AccountBalanceResponse response = parser.getResponse(auth);
+        assertNotNull(response);
+        final Set<EveAccountBalance> accountBalances = response.getAll();
+        assertNotNull(accountBalances);
+        assertEquals(1, accountBalances.size());
+        final EveAccountBalance accountBalance = accountBalances.iterator().next();
+        assertEquals(10094361, accountBalance.getAccountID());
+        assertEquals(1000, accountBalance.getAccountKey());
+        assertEquals(46634844.84, accountBalance.getBalance(), 0.00001);
+    }
 }

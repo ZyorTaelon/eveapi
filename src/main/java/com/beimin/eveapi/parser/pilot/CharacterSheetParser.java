@@ -10,17 +10,17 @@ import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.pilot.CharacterSheetResponse;
 
 public class CharacterSheetParser extends AbstractApiParser<CharacterSheetResponse> {
-	public CharacterSheetParser() {
-		super(CharacterSheetResponse.class, 1, ApiPath.CHARACTER, ApiPage.CHARACTER_SHEET);
-	}
+    public CharacterSheetParser() {
+        super(CharacterSheetResponse.class, 1, ApiPath.CHARACTER, ApiPage.CHARACTER_SHEET);
+    }
 
-	@Override
-	protected AbstractContentHandler getContentHandler() {
-		return new CharacterSheetHandler();
-	}
+    @Override
+    protected AbstractContentHandler<CharacterSheetResponse> getContentHandler() {
+        return new CharacterSheetHandler();
+    }
 
-	@Override
-	public CharacterSheetResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public CharacterSheetResponse getResponse(final ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

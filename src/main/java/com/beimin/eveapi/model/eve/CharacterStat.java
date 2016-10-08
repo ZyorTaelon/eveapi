@@ -1,23 +1,23 @@
 package com.beimin.eveapi.model.eve;
 
 public abstract class CharacterStat implements FacWarStat {
-	private long characterID;
-	private String characterName;
+    private long characterID;
+    private String characterName;
 
-	public long getCharacterID() {
-		return characterID;
-	}
+    public long getCharacterID() {
+        return characterID;
+    }
 
-	public void setCharacterID(long characterID) {
-		this.characterID = characterID;
-	}
+    public void setCharacterID(final long characterID) {
+        this.characterID = characterID;
+    }
 
-	public String getCharacterName() {
-		return characterName;
-	}
+    public String getCharacterName() {
+        return characterName;
+    }
 
-	public void setCharacterName(String characterName) {
-		this.characterName = characterName;
-	}
+    public void setCharacterName(final String characterName) {
+        this.characterName = characterName;
+    }
 
 }

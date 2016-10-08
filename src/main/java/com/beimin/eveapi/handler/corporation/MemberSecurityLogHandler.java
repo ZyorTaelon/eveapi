@@ -4,62 +4,63 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentListHandler;
+import com.beimin.eveapi.model.corporation.CorporationRole;
 import com.beimin.eveapi.model.corporation.RoleHistory;
-import com.beimin.eveapi.model.corporation.SecurityRole;
 import com.beimin.eveapi.response.corporation.MemberSecurityLogResponse;
 
 public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberSecurityLogResponse, RoleHistory> {
-	private boolean oldRoles;
-	private boolean newRoles;
-	private RoleHistory roleHistory;
+    private boolean oldRoles;
+    private boolean newRoles;
+    private RoleHistory roleHistory;
 
-	public MemberSecurityLogHandler() {
-		super(MemberSecurityLogResponse.class);
-	}
+    public MemberSecurityLogHandler() {
+        super(MemberSecurityLogResponse.class);
+    }
 
-	@Override
-	public void startElement(String uri, String localName, String qName, Attributes attrs) throws SAXException {
-		if (qName.equals("rowset")) {
-			String name = getString(attrs, "name");
-			oldRoles = name.equals("oldRoles");
-			newRoles = name.equals("newRoles");
-		} else if (qName.equals("row")) {
-			if (oldRoles) {
-				roleHistory.addOldRole(getRole(attrs));
-			} else if (newRoles) {
-				roleHistory.addNewRole(getRole(attrs));
-			} else {
-				roleHistory = getItem(attrs);
-				response.add(roleHistory);
-			}
-		} else
-			super.startElement(uri, localName, qName, attrs);
-	}
+    @Override
+    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        if (ELEMENT_ROWSET.equals(qName)) {
+            final String name = getString(attrs, "name");
+            oldRoles = name.equals("oldRoles");
+            newRoles = name.equals("newRoles");
+        } else if (ELEMENT_ROW.equals(qName)) {
+            if (oldRoles) {
+                roleHistory.addOldRole(getRole(attrs));
+            } else if (newRoles) {
+                roleHistory.addNewRole(getRole(attrs));
+            } else {
+                roleHistory = getItem(attrs);
+                getResponse().add(roleHistory);
+            }
+        } else {
+            super.startElement(uri, localName, qName, attrs);
+        }
+    }
 
-	private SecurityRole getRole(Attributes attrs) {
-		SecurityRole securityRole = new SecurityRole();
-		securityRole.setRoleID(getLong(attrs, "roleID"));
-		securityRole.setRoleName(getString(attrs, "roleName"));
-		return securityRole;
-	}
+    private CorporationRole getRole(final Attributes attrs) {
+        final CorporationRole securityRole = new CorporationRole();
+        securityRole.setRoleID(getLong(attrs, "roleID"));
+        securityRole.setRoleName(getString(attrs, "roleName"));
+        return securityRole;
+    }
 
-	@Override
-	public void endElement(String uri, String localName, String qName) throws SAXException {
-		if (qName.equals("rowset") && oldRoles || newRoles) {
-			oldRoles = false;
-			newRoles = false;
-		}
-	}
+    @Override
+    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if ((ELEMENT_ROWSET.equals(qName) && oldRoles) || newRoles) {
+            oldRoles = false;
+            newRoles = false;
+        }
+    }
 
-	@Override
-	protected RoleHistory getItem(Attributes attrs) {
-		RoleHistory item = new RoleHistory();
-		item.setCharacterID(getLong(attrs, "characterID"));
-		item.setCharacterName(getString(attrs, "characterName"));
-		item.setChangeTime(getDate(attrs, "changeTime"));
-		item.setIssuerID(getLong(attrs, "issuerID"));
-		item.setIssuerName(getString(attrs, "issuerName"));
-		item.setRoleLocationType(getString(attrs, "roleLocationType"));
-		return item;
-	}
+    @Override
+    protected RoleHistory getItem(final Attributes attrs) {
+        final RoleHistory item = new RoleHistory();
+        item.setCharacterID(getLong(attrs, "characterID"));
+        item.setCharacterName(getString(attrs, "characterName"));
+        item.setChangeTime(getDate(attrs, "changeTime"));
+        item.setIssuerID(getLong(attrs, "issuerID"));
+        item.setIssuerName(getString(attrs, "issuerName"));
+        item.setRoleLocationType(getString(attrs, "roleLocationType"));
+        return item;
+    }
 }
