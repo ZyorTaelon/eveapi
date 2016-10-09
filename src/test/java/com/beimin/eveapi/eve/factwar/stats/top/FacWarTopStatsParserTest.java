@@ -98,3 +98,4 @@ public class FacWarTopStatsParserTest extends NoAuthParserTest {
         assertEquals(victoryPoints, victoryPointer.getVictoryPoints());
     }
 }
+

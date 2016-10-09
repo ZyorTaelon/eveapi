@@ -4,7 +4,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
-import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
@@ -25,10 +24,5 @@ public class CharacterParserOnlineTest extends AbstractCharacterOnlineTest {
         assertThat(characters.size(), equalTo(1));
         final Character character = characters.iterator().next();
         assertThat(character.getName(), equalTo("Glazeg"));
-    }
-
-    @Override
-    protected List<String> getEmptyStringMethods() {
-        return null;
     }
 }

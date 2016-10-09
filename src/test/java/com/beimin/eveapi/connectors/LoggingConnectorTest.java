@@ -67,3 +67,4 @@ public class LoggingConnectorTest extends FullAuthParserTest {
         assertEquals("<cachedUntil>2010-04-03 16:48:20</cachedUntil>", lines[18].trim());
     }
 }
+

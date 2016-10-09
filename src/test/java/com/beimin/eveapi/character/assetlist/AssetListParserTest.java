@@ -77,3 +77,4 @@ public class AssetListParserTest extends FullAuthParserTest {
 
     }
 }
+

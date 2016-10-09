@@ -70,7 +70,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        CLR response = getResponse();
+        final CLR response = getResponse();
         if (ELEMENT_ROWSET.equals(qName)) {
             if (contactList != null) {
                 response.add(contactList);

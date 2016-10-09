@@ -66,3 +66,4 @@ public class ContractsParserTest extends FullAuthParserTest {
         assertTrue("test contract wasn't found.", found);
     }
 }
+

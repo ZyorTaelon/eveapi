@@ -26,3 +26,4 @@ public class ServerStatusParserTest extends NoAuthParserTest {
         assertEquals(true, response.isServerOpen());
     }
 }
+

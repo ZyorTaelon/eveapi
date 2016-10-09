@@ -54,3 +54,4 @@ public class TitlesParserTest extends FullAuthParserTest {
         assertTrue("test title wasn't found.", found);
     }
 }
+

@@ -40,3 +40,4 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
         assertEquals(expectedEventText, event.getEventText());
     }
 }
+

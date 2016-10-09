@@ -1,6 +1,7 @@
 package com.beimin.eveapi.utils;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 import java.util.Map;
 
@@ -66,9 +67,9 @@ public abstract class FullAuthParserTest implements ExchangeProcessor.ExtraAsser
 
     @Override
     public void extraAsserts(final Map<String, String> req) {
-        assertEquals("123", req.get("keyID"));
-        assertEquals("456", req.get("characterID"));
-        assertEquals("abc", req.get("vCode"));
+        assertThat(req.get("keyID"), equalTo("123"));
+        assertThat(req.get("characterID"), equalTo("456"));
+        assertThat(req.get("vCode"), equalTo("abc"));
     }
 
     @After

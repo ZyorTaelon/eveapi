@@ -17,6 +17,7 @@ public class ContainerLogHandler extends AbstractContentListHandler<ContainerLog
     @Override
     protected ContainerLog getItem(final Attributes attrs) {
         final ContainerLog log = new ContainerLog();
+        saveFieldsCount(ContainerLog.class, attrs);
         log.setLogTime(getDate(attrs, "logTime"));
         log.setItemID(getLong(attrs, "itemID"));
         log.setItemTypeID(getInt(attrs, "itemTypeID"));
@@ -35,7 +36,7 @@ public class ContainerLogHandler extends AbstractContentListHandler<ContainerLog
 
     private PasswordType getPasswordType(final Attributes attrs) {
         final String string = getString(attrs, "passwordType");
-        if (string.equals("")) {
+        if (string.isEmpty()) {
             return null;
         }
         return PasswordType.valueOf(string.toUpperCase(Locale.ENGLISH));

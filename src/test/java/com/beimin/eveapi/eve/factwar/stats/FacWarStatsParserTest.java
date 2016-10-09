@@ -52,3 +52,4 @@ public class FacWarStatsParserTest extends NoAuthParserTest {
         assertEquals("Minmatar Republic", factionWar.getAgainstName());
     }
 }
+

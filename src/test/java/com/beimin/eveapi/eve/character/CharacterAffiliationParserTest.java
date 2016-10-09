@@ -43,3 +43,4 @@ public class CharacterAffiliationParserTest extends NoAuthParserTest {
         assertEquals("1234567890", req.get("ids"));
     }
 }
+

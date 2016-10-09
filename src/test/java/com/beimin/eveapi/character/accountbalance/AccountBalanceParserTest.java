@@ -34,3 +34,4 @@ public class AccountBalanceParserTest extends FullAuthParserTest {
         assertEquals(46634844.84, accountBalance.getBalance(), 0.00001);
     }
 }
+

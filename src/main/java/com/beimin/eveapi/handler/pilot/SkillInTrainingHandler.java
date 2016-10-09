@@ -13,7 +13,7 @@ public class SkillInTrainingHandler extends AbstractContentHandler<SkillInTraini
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        SkillInTrainingResponse response = getResponse();
+        final SkillInTrainingResponse response = getResponse();
         if ("currentTQTime".equals(qName)) {
             response.setCurrentTQTime(getDate());
         } else if ("trainingEndTime".equals(qName)) {

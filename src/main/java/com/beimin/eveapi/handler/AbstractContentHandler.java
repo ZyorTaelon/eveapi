@@ -1,6 +1,8 @@
 package com.beimin.eveapi.handler;
 
 import java.util.Date;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,14 +28,18 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     protected static final String VALUE_TRUE = "true";
 
     private E response;
+    private static boolean strictCheckMode;
+    private static volatile Map<String, Integer> fields;
 
     protected StringBuilder accumulator = new StringBuilder();
     private ApiError error;
 
     public AbstractContentHandler() {
+        this(null);
     }
 
-    public AbstractContentHandler(E response) {
+    public AbstractContentHandler(final E response) {
+        super();
         this.response = response;
     }
 
@@ -48,6 +54,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
             response.setVersion(getInt(attrs, ATTRIBUTE_VERSION));
         } else if (ATTRIBUTE_ERROR.equals(qName)) {
             error = new ApiError();
+            saveFieldsCount(ApiError.class, attrs);
             error.setCode(getInt(attrs, ATTRIBUTE_CODE));
             response.setError(error);
         }
@@ -153,13 +160,26 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         return "1".equals(getString(attrs, qName)) || VALUE_TRUE.equalsIgnoreCase(getString(attrs, qName));
     }
 
-    protected void checkForNewFields(final Attributes attrs, final int number) {
-        if (attrs.getLength() != number) {
-            throw new IllegalArgumentException("Looks like new fields where added, only " + number + " expected!");
+    public static void enableStrictCheckMode() {
+        AbstractContentHandler.strictCheckMode = true;
+        fields = new ConcurrentHashMap<>();
+    }
+
+    public static Map<String, Integer> getFields() {
+        return fields;
+    }
+
+    protected void saveFieldsCount(final Class<?> clazz, final Attributes attrs) {
+        if (strictCheckMode) {
+            Integer current = fields.get(clazz.getName());
+            if (current == null) {
+                current = 0;
+            }
+            fields.put(clazz.getName(), Math.max(current, attrs.getLength()));
         }
     }
 
-    protected void setResponse(E response) {
+    protected void setResponse(final E response) {
         this.response = response;
     }
 

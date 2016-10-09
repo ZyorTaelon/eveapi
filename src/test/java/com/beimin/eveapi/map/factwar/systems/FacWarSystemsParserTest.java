@@ -46,3 +46,4 @@ public class FacWarSystemsParserTest extends NoAuthParserTest {
         assertTrue("This system shouldn't be contested.", facWarSystem.isContested());
     }
 }
+

@@ -34,3 +34,4 @@ public class FacWarStatsParserTest extends FullAuthParserTest {
         assertEquals(0, facWarStats.getVictoryPointsTotal());
     }
 }
+

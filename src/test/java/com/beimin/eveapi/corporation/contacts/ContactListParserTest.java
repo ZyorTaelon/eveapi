@@ -49,3 +49,4 @@ public class ContactListParserTest extends FullAuthParserTest {
         assertEquals(1, apiContact.getLabelMask());
     }
 }
+

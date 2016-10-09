@@ -30,10 +30,8 @@ public class FileCopyConnector extends ApiConnector {
         super();
         this.baseConnector = baseConnector;
         this.destinationDirectory = destinationDirectory;
-        if (!this.destinationDirectory.exists()) {
-            if (!this.destinationDirectory.mkdirs()) {
-                LOGGER.warn("Could not create directory: " + destinationDirectory.toString());
-            }
+        if (!this.destinationDirectory.exists() && !this.destinationDirectory.mkdirs() && LOGGER.isWarnEnabled()) {
+            LOGGER.warn("Could not create directory: {}", destinationDirectory.toString());
         }
     }
 
