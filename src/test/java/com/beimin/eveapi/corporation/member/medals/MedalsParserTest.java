@@ -39,3 +39,4 @@ public class MedalsParserTest extends FullAuthParserTest {
         assertDate(2008, 11, 12, 7, 39, 28, memberMedal.getIssued());
     }
 }
+

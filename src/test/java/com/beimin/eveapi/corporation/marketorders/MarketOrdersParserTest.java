@@ -53,3 +53,4 @@ public class MarketOrdersParserTest extends FullAuthParserTest {
         assertTrue("test order wasn't found.", found);
     }
 }
+

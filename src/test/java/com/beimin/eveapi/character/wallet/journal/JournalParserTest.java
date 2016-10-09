@@ -60,3 +60,4 @@ public class JournalParserTest extends FullAuthParserTest {
         assertEquals("1000", req.get("accountKey"));
     }
 }
+

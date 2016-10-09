@@ -55,3 +55,4 @@ public class SkillTreeParserTest extends NoAuthParserTest {
 
     }
 }
+

@@ -32,3 +32,4 @@ public class JumpsParserTest extends NoAuthParserTest {
         assertEquals(209L, systemJumps.get(30004978).longValue());
     }
 }
+

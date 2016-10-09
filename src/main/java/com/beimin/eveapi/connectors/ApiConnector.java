@@ -17,8 +17,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -31,7 +29,6 @@ import com.beimin.eveapi.response.ApiResponse;
 
 public class ApiConnector {
     public static final String EVE_API_URL = "https://api.eveonline.com";
-    private static final Logger LOGGER = LoggerFactory.getLogger(ApiConnector.class);
 
     private final String baseUrl;
     private static boolean secureXmlProcessing = true;
@@ -58,18 +55,21 @@ public class ApiConnector {
             }
             xr.setContentHandler(contentHandler);
             xr.parse(new InputSource(inputStream));
-            return (E) contentHandler.getResponse();
+            return contentHandler.getResponse();
         } catch (SAXException | ParserConfigurationException | IOException e) {
             throw new ApiException(e);
         }
     }
 
     protected InputStream getInputStream(final URL requestUrl, final Map<String, String> params) throws ApiException {
-        OutputStreamWriter wr = null;
+        HttpURLConnection conn;
         try {
-            final HttpURLConnection conn = (HttpURLConnection) requestUrl.openConnection();
+            conn = (HttpURLConnection) requestUrl.openConnection();
             conn.setDoOutput(true);
-            wr = new OutputStreamWriter(conn.getOutputStream(), StandardCharsets.UTF_8);
+        } catch (final IOException e) {
+            throw new ApiException(e);
+        }
+        try (OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream(), StandardCharsets.UTF_8)) {
             final StringBuilder data = new StringBuilder();
             for (final Entry<String, String> entry : params.entrySet()) {
                 if (data.length() > 0) {
@@ -91,14 +91,6 @@ public class ApiConnector {
             }
         } catch (final IOException e) {
             throw new ApiException(e);
-        } finally {
-            if (wr != null) {
-                try {
-                    wr.close();
-                } catch (final IOException e) {
-                    LOGGER.warn("Error closing the stream", e);
-                }
-            }
         }
     }
 

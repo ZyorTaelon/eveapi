@@ -79,3 +79,4 @@ public class KillMailParserTest extends FullAuthParserTest {
         assertTrue("test KillMail entry wasn't found.", found);
     }
 }
+

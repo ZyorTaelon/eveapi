@@ -64,7 +64,7 @@ public class LoggingConnector extends ApiConnector {
             xr.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             xr.setContentHandler(contentHandler);
             xr.parse(new InputSource(workInputStream));
-            return (E) contentHandler.getResponse();
+            return contentHandler.getResponse();
         } catch (IOException | ParserConfigurationException | SAXException e) {
             throw new ApiException(e);
         } finally {

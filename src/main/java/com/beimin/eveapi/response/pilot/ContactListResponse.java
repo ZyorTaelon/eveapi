@@ -13,5 +13,4 @@ public class ContactListResponse extends AbstractContactListResponse {
     public NamedList<ContactLabel> getContactLabelList() {
         return labelLists.get("contactLabels");
     }
-
 }

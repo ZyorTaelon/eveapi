@@ -67,3 +67,4 @@ public class CertificateTreeParserTest extends NoAuthParserTest {
         assertEquals(1, requiredCertificate.getGrade());
     }
 }
+

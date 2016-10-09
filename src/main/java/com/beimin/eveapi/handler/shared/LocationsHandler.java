@@ -15,6 +15,7 @@ public class LocationsHandler extends AbstractContentListHandler<LocationsRespon
     @Override
     protected Location getItem(final Attributes attrs) {
         final Location location = new Location();
+        saveFieldsCount(Location.class, attrs);
         location.setItemID(getLong(attrs, "itemID"));
         location.setItemName(getString(attrs, "itemName"));
         location.setX(getDouble(attrs, "x"));

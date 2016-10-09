@@ -35,7 +35,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        FacWarTopStatsResponse response = getResponse();
+        final FacWarTopStatsResponse response = getResponse();
         if ("characters".equals(qName)) {
             characters = true;
         } else if ("corporations".equals(qName)) {
@@ -124,6 +124,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
 
     private CharacterKills getCharKill(final Attributes attrs) {
         final CharacterKills stat = new CharacterKills();
+        saveFieldsCount(CharacterKills.class, attrs);
         setCharacterDetails(attrs, stat);
         setKills(attrs, stat);
         return stat;
@@ -131,6 +132,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
 
     private CharacterVictoryPoints getCharVP(final Attributes attrs) {
         final CharacterVictoryPoints stat = new CharacterVictoryPoints();
+        saveFieldsCount(CharacterVictoryPoints.class, attrs);
         setCharacterDetails(attrs, stat);
         setVictoryPoint(attrs, stat);
         return stat;
@@ -138,6 +140,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
 
     private CorporationKills getCorpKill(final Attributes attrs) {
         final CorporationKills stat = new CorporationKills();
+        saveFieldsCount(CorporationKills.class, attrs);
         setCorporationDetails(attrs, stat);
         setKills(attrs, stat);
         return stat;
@@ -145,6 +148,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
 
     private CorporationVictoryPoints getCorpVP(final Attributes attrs) {
         final CorporationVictoryPoints stat = new CorporationVictoryPoints();
+        saveFieldsCount(CorporationVictoryPoints.class, attrs);
         setCorporationDetails(attrs, stat);
         setVictoryPoint(attrs, stat);
         return stat;
@@ -152,6 +156,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
 
     private FactionKills getFactionKill(final Attributes attrs) {
         final FactionKills stat = new FactionKills();
+        saveFieldsCount(FactionKills.class, attrs);
         setFactionDetails(attrs, stat);
         setKills(attrs, stat);
         return stat;
@@ -159,6 +164,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
 
     private FactionVictoryPoints getFactionVP(final Attributes attrs) {
         final FactionVictoryPoints stat = new FactionVictoryPoints();
+        saveFieldsCount(FactionVictoryPoints.class, attrs);
         setFactionDetails(attrs, stat);
         setVictoryPoint(attrs, stat);
         return stat;

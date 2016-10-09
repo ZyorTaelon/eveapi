@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- *
- * @author andrew
- */
 public class CallList {
     private List<CallGroup> callGroups = new ArrayList<CallGroup>();
     private List<Call> calls = new ArrayList<Call>();

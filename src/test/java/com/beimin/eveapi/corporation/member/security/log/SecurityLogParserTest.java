@@ -51,3 +51,4 @@ public class SecurityLogParserTest extends FullAuthParserTest {
         assertTrue("Test role history not found. ", found);
     }
 }
+

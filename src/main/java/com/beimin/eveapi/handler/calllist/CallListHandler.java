@@ -24,24 +24,27 @@ public class CallListHandler extends AbstractContentHandler<CallListResponse> {
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if ("result".equals(qName)) {
             callList = new CallList();
+            saveFieldsCount(CallList.class, attrs);
         }
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = attrs.getValue("name");
-            if (name.equals("callGroups")) {
+            if ("callGroups".equals(name)) {
                 callGroups = true;
-            } else if (name.equals("calls")) {
+            } else if ("calls".equals(name)) {
                 calls = true;
             }
         }
         if (ELEMENT_ROW.equals(qName)) {
             if (callGroups) {
                 final CallGroup callGroup = new CallGroup();
+                saveFieldsCount(CallGroup.class, attrs);
                 callGroup.setGroupID(getInt(attrs, "groupID"));
                 callGroup.setName(getString(attrs, "name"));
                 callGroup.setDescription(getString(attrs, "description"));
                 callList.add(callGroup);
             } else if (calls) {
                 final Call call = new Call();
+                saveFieldsCount(Call.class, attrs);
                 call.setAccessMask(getLong(attrs, "accessMask"));
                 call.setType(KeyType.valueOf(getString(attrs, "type")));
                 call.setName(getString(attrs, "name"));

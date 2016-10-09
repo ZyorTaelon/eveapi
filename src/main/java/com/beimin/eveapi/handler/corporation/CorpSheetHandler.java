@@ -20,15 +20,16 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
 
     @Override
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        CorpSheetResponse response = getResponse();
+        final CorpSheetResponse response = getResponse();
         if ("logo".equals(qName)) {
             logo = new CorpLogo();
         } else if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
-            divisions = name.equals("divisions");
-            walletDivisions = name.equals("walletDivisions");
+            divisions = "divisions".equals(name);
+            walletDivisions = "walletDivisions".equals(name);
         } else if (ELEMENT_ROW.equals(qName)) {
             final Division division = new Division();
+            saveFieldsCount(Division.class, attrs);
             division.setAccountKey(getInt(attrs, "accountKey"));
             division.setDescription(getString(attrs, "description"));
             if (divisions) {
@@ -43,7 +44,7 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
 
     @Override
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        CorpSheetResponse response = getResponse();
+        final CorpSheetResponse response = getResponse();
         extractLogoParts(qName);
         if ("corporationID".equals(qName)) {
             response.setCorporationID(getLong());
@@ -87,7 +88,7 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
         super.endElement(uri, localName, qName);
     }
 
-    private void extractLogoParts(String qName) {
+    private void extractLogoParts(final String qName) {
         if ("graphicsID".equals(qName)) {
             logo.setGraphicID(getInt());
         } else if ("shape1".equals(qName)) {

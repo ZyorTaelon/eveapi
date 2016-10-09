@@ -55,3 +55,4 @@ public class ContractItemsParserTest extends FullAuthParserTest {
         assertTrue("test contract item wasn't found.", foundTwo);
     }
 }
+

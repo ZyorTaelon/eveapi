@@ -38,3 +38,4 @@ public class LocationsParserTest extends FullAuthParserTest {
         assertEquals(-1323431485440.3, location.getZ(), 00000.1);
     }
 }
+

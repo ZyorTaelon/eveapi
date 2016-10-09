@@ -57,3 +57,4 @@ public class AssetListParserTest extends FullAuthParserTest {
         assertTrue("The sub asset with a sub sub asset wasn't found", subAssetFound);
     }
 }
+

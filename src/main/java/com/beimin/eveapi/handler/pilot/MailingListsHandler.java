@@ -15,6 +15,7 @@ public class MailingListsHandler extends AbstractContentListHandler<MailingLists
     @Override
     protected MailingList getItem(final Attributes attrs) {
         final MailingList mailingList = new MailingList();
+        saveFieldsCount(MailingList.class, attrs);
         mailingList.setListID(getLong(attrs, "listID"));
         mailingList.setDisplayName(getString(attrs, "displayName"));
         return mailingList;

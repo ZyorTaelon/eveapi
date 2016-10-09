@@ -50,3 +50,4 @@ public class StandingsParserTest extends FullAuthParserTest {
         assertEquals(-1.95, apiStanding.getStanding(), 1E-15);
     }
 }
+

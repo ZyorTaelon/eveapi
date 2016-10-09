@@ -56,3 +56,4 @@ public class SecurityParserTest extends FullAuthParserTest {
         assertEquals("Not all titles had the right titleNames.", 3, temp);
     }
 }
+

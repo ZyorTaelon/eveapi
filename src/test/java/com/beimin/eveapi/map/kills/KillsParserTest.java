@@ -41,3 +41,4 @@ public class KillsParserTest extends NoAuthParserTest {
         assertEquals(0, podKills.get(30001039).longValue());
     }
 }
+

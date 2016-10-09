@@ -55,5 +55,4 @@ public class Contact {
     public void setLabelMask(final int labelMask) {
         this.labelMask = labelMask;
     }
-
 }

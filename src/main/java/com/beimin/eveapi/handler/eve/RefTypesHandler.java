@@ -15,6 +15,7 @@ public class RefTypesHandler extends AbstractContentListHandler<RefTypesResponse
     @Override
     protected RefType getItem(final Attributes attrs) {
         final RefType item = new RefType();
+        saveFieldsCount(RefType.class, attrs);
         item.setRefTypeID(getInt(attrs, "refTypeID"));
         item.setRefTypeName(getString(attrs, "refTypeName"));
         return item;

@@ -66,3 +66,4 @@ public class IndustryJobsParserTest extends FullAuthParserTest {
         assertTrue("test job wasn't found.", found);
     }
 }
+

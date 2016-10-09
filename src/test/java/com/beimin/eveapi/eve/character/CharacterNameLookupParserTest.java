@@ -37,3 +37,4 @@ public class CharacterNameLookupParserTest extends NoAuthParserTest {
         assertEquals("797400947", req.get("ids"));
     }
 }
+
