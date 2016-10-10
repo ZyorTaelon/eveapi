@@ -6,10 +6,11 @@ import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.model.shared.MarketOrder;
 import com.beimin.eveapi.parser.corporation.CorpMarketOrdersParser;
 import com.beimin.eveapi.response.shared.MarketOrdersResponse;
+import org.junit.Ignore;
 
 public class CorpMarketOrdersParserOnlineTest extends AbstractOnlineTest {
 
-    @Test
+    @Test @Ignore("No data returned by the API")
     public void getResponse() throws Exception {
         final CorpMarketOrdersParser parser = new CorpMarketOrdersParser();
         MarketOrdersResponse response = parser.getResponse(getCorp());

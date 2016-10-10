@@ -5,10 +5,11 @@ import org.junit.Test;
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.parser.corporation.ShareholdersParser;
 import com.beimin.eveapi.response.corporation.ShareholdersResponse;
+import org.junit.Ignore;
 
 public class ShareholdersParserOnlineTest extends AbstractOnlineTest {
 
-    @Test
+    @Test @Ignore("Some data missing")
     public void getResponse() throws Exception {
         final ShareholdersParser parser = new ShareholdersParser();
         final ShareholdersResponse response = parser.getResponse(getCorp());

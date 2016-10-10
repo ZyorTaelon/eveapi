@@ -10,10 +10,11 @@ import com.beimin.eveapi.parser.corporation.StarbaseDetailParser;
 import com.beimin.eveapi.parser.corporation.StarbaseListParser;
 import com.beimin.eveapi.response.corporation.StarbaseDetailResponse;
 import com.beimin.eveapi.response.corporation.StarbaseListResponse;
+import org.junit.Ignore;
 
 public class StarbaseDetailParserOnlineTest extends AbstractOnlineTest {
 
-    @Test
+    @Test @Ignore("No data returned by the API")
     public void getResponse() throws Exception {
         final StarbaseListParser starbaseListParser = new StarbaseListParser();
         final StarbaseListResponse starbaseListResponse = starbaseListParser.getResponse(getCorp());

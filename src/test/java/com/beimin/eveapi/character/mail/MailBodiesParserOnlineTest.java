@@ -10,10 +10,11 @@ import com.beimin.eveapi.parser.pilot.MailBodiesParser;
 import com.beimin.eveapi.parser.pilot.MailMessagesParser;
 import com.beimin.eveapi.response.pilot.MailBodiesResponse;
 import com.beimin.eveapi.response.pilot.MailMessagesResponse;
+import org.junit.Ignore;
 
 public class MailBodiesParserOnlineTest extends AbstractOnlineTest {
 
-    @Test
+    @Test @Ignore("Some data missing")
     public void getResponse() throws Exception {
         final MailMessagesParser mailMessagesParser = new MailMessagesParser();
         final MailMessagesResponse mailMessagesResponse = mailMessagesParser.getResponse(getPilot());

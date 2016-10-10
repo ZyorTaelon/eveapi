@@ -10,10 +10,11 @@ import com.beimin.eveapi.parser.pilot.NotificationTextsParser;
 import com.beimin.eveapi.parser.pilot.NotificationsParser;
 import com.beimin.eveapi.response.pilot.NotificationTextsResponse;
 import com.beimin.eveapi.response.pilot.NotificationsResponse;
+import org.junit.Ignore;
 
 public class NotificationTextsParserOnlineTest extends AbstractOnlineTest {
 
-    @Test
+    @Test @Ignore("No data returned by the API")
     public void getResponse() throws Exception {
         final NotificationsParser notificationsParser = new NotificationsParser();
         final NotificationsResponse notificationsResponse = notificationsParser.getResponse(getPilot());
