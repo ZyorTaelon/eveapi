@@ -5,18 +5,18 @@ import java.util.Iterator;
 import java.util.List;
 
 public class NamedList<E> {
-    private List<E> list = new ArrayList<E>();
+    private final List<E> list = new ArrayList<E>();
     private String name;
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
-    public void add(E value) {
+    public void add(final E value) {
         list.add(value);
     }
 
@@ -28,7 +28,7 @@ public class NamedList<E> {
         return list.size();
     }
 
-    public E get(int index) {
+    public E get(final int index) {
         return list.get(index);
     }
 

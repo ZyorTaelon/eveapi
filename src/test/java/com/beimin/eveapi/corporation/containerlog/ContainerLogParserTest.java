@@ -30,3 +30,4 @@ public class ContainerLogParserTest extends FullAuthParserTest {
         assertEquals(23, containerLogs.size());
     }
 }
+

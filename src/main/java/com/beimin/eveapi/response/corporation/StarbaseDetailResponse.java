@@ -20,7 +20,7 @@ public class StarbaseDetailResponse extends ApiResponse {
     private CombatSetting onStatusDrop;
     private CombatSetting onAggression;
     private CombatSetting onCorporationWar;
-    private final Map<Integer, Integer> fuelMap = new HashMap<Integer, Integer>();
+    private final Map<Integer, Integer> fuelMap = new HashMap<>();
 
     public int getUsageFlags() {
         return usageFlags;
@@ -102,7 +102,7 @@ public class StarbaseDetailResponse extends ApiResponse {
     public String toString() {
         final StringBuilder result = new StringBuilder();
         result.append("usageFlags: ").append(usageFlags).append('\n').append("deployFlags: ").append(deployFlags).append('\n').append("allowCorporationMembers: ").append(allowCorporationMembers).append('\n').append("allowAllianceMembers: ").append(allowAllianceMembers)
-        .append('\n').append("claimSovereignty: ").append(claimSovereignty).append("\n\n").append("Fuel Levels:\n");
+                .append('\n').append("claimSovereignty: ").append(claimSovereignty).append("\n\n").append("Fuel Levels:\n");
         for (final Entry<Integer, Integer> entry : fuelMap.entrySet()) {
             result.append('\t').append(entry.getKey()).append(": ").append(entry.getValue()).append('\n');
         }

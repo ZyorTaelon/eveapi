@@ -14,6 +14,7 @@ public class KillsHandler extends AbstractContentListHandler<KillsResponse, Syst
     @Override
     protected SystemKills getItem(final Attributes attrs) {
         final SystemKills item = new SystemKills();
+        saveFieldsCount(SystemKills.class, attrs);
         item.setSolarSystemID(getInt(attrs, "solarSystemID"));
         item.setShipKills(getInt(attrs, "shipKills"));
         item.setPodKills(getInt(attrs, "podKills"));

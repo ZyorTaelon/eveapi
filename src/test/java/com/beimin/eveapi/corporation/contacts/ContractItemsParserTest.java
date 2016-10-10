@@ -13,7 +13,7 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.ContractItem;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.corporation.ContractItemsParser;
+import com.beimin.eveapi.parser.corporation.CorpContractItemsParser;
 import com.beimin.eveapi.response.shared.ContractItemsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
@@ -24,7 +24,7 @@ public class ContractItemsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
-        final ContractItemsParser parser = new ContractItemsParser();
+        final CorpContractItemsParser parser = new CorpContractItemsParser();
         final long contractID = 1234L;
         final ContractItemsResponse response = parser.getResponse(auth, contractID);
         assertNotNull(response);

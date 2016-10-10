@@ -15,6 +15,7 @@ public class MailMessagesHandler extends AbstractContentListHandler<MailMessages
     @Override
     protected MailMessage getItem(final Attributes attrs) {
         final MailMessage mailMessage = new MailMessage();
+        saveFieldsCount(MailMessage.class, attrs);
         mailMessage.setMessageID(getLong(attrs, "messageID"));
         mailMessage.setRead(getBoolean(attrs, "read"));
         mailMessage.setSenderID(getLong(attrs, "senderID"));

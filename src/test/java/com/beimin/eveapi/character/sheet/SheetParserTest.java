@@ -96,3 +96,4 @@ public class SheetParserTest extends FullAuthParserTest {
         assertEquals("Member", response.getCorporationTitles().iterator().next().getTitleName());
     }
 }
+

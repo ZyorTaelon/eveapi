@@ -55,3 +55,4 @@ public class AllianceListParserTest extends NoAuthParserTest {
         assertTrue("test alliance wasn't found.", found);
     }
 }
+
