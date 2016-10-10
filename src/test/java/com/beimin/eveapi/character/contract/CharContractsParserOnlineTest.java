@@ -5,10 +5,11 @@ import org.junit.Test;
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.parser.pilot.CharContractsParser;
 import com.beimin.eveapi.response.shared.ContractsResponse;
+import org.junit.Ignore;
 
 public class CharContractsParserOnlineTest extends AbstractOnlineTest {
 
-    @Test
+    @Test @Ignore("No data returned by the API")
     public void getResponse() throws Exception {
         addNullOk("getDateAccepted"); // Not accepted yet
         addNullOk("getDateCompleted"); // Not completed yet

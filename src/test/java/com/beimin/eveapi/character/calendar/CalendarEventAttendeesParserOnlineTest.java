@@ -10,10 +10,11 @@ import com.beimin.eveapi.parser.pilot.CalendarEventAttendeesParser;
 import com.beimin.eveapi.parser.pilot.UpcomingCalendarEventsParser;
 import com.beimin.eveapi.response.pilot.CalendarEventAttendeesResponse;
 import com.beimin.eveapi.response.pilot.UpcomingCalendarEventsResponse;
+import org.junit.Ignore;
 
 public class CalendarEventAttendeesParserOnlineTest extends AbstractOnlineTest {
 
-    @Test
+    @Test @Ignore("No data returned by the API")
     public void getResponse() throws Exception {
         final UpcomingCalendarEventsParser upcomingCalendarEventsParser = new UpcomingCalendarEventsParser();
         final UpcomingCalendarEventsResponse upcomingCalendarEventsResponse = upcomingCalendarEventsParser.getResponse(getPilot());

@@ -5,10 +5,11 @@ import org.junit.Test;
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.parser.corporation.CorpKillMailParser;
 import com.beimin.eveapi.response.shared.KillMailResponse;
+import org.junit.Ignore;
 
 public class CorpKillMailParserOnlineTest extends AbstractOnlineTest {
 
-    @Test
+    @Test @Ignore("No data returned by the API")
     public void getResponse() throws Exception {
         addEmptyOK("getAllianceName");
         addEmptyOK("getCharacterName"); // Concord officers don't have a character name ;-)
