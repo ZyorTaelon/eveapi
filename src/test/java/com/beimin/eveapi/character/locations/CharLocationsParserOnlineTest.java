@@ -9,8 +9,8 @@ import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.model.shared.Asset;
-import com.beimin.eveapi.parser.pilot.CharLocationsParser;
 import com.beimin.eveapi.parser.pilot.CharAssetListParser;
+import com.beimin.eveapi.parser.pilot.CharLocationsParser;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 import com.beimin.eveapi.response.shared.LocationsResponse;
 
@@ -19,8 +19,7 @@ public class CharLocationsParserOnlineTest extends AbstractOnlineTest {
     private List<Long> getItemIDs() throws Exception {
         addEmptyOK("getAssets"); // Not all assets have sup assets
         final CharAssetListParser parser = new CharAssetListParser();
-        final AssetListResponse response = parser.getResponse(getPilot());
-        testResponse(response);
+        final AssetListResponse response = parser.getResponse(getCharacter());
         final List<Asset> assets = response.getAll();
         final Set<Long> itemIDs = new HashSet<Long>();
         deepAssets(assets, itemIDs);
@@ -41,7 +40,10 @@ public class CharLocationsParserOnlineTest extends AbstractOnlineTest {
         addEmptyOK("getZ");
         addEmptyOK("getY");
         final CharLocationsParser parser = new CharLocationsParser();
-        final LocationsResponse response = parser.getResponse(getPilot(), getItemIDs());
+        prepareParser(parser);
+
+        final LocationsResponse response = parser.getResponse(getCharacter(), getItemIDs());
+
         testResponse(response);
     }
 

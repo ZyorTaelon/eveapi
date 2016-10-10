@@ -17,7 +17,10 @@ public class CharacterAffiliationParserOnlineTest extends AbstractOnlineTest {
         addEmptyOK("getAllianceName");
         addEmptyOK("getAllianceID");
         final CharacterAffiliationParser parser = new CharacterAffiliationParser();
+        prepareParser(parser);
+
         final CharacterAffiliationResponse response = parser.getResponse(getCharacterID());
+
         testResponse(response);
     }
 

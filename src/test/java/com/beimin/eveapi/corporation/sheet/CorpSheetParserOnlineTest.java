@@ -1,11 +1,11 @@
 package com.beimin.eveapi.corporation.sheet;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.parser.corporation.CorpSheetParser;
 import com.beimin.eveapi.response.corporation.CorpSheetResponse;
-import org.junit.Ignore;
 
 public class CorpSheetParserOnlineTest extends AbstractOnlineTest {
 
@@ -23,7 +23,10 @@ public class CorpSheetParserOnlineTest extends AbstractOnlineTest {
         addEmptyOK("getColor2");
         addEmptyOK("getColor3");
         final CorpSheetParser parser = new CorpSheetParser();
+        prepareParser(parser);
+
         final CorpSheetResponse response = parser.getResponse(getCorp());
+
         testResponse(response);
     }
 

@@ -28,8 +28,8 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     protected static final String VALUE_TRUE = "true";
 
     private E response;
-    private static boolean strictCheckMode;
-    private static volatile Map<String, Integer> fields;
+    private boolean strictCheckMode;
+    private Map<String, Integer> fields;
 
     protected StringBuilder accumulator = new StringBuilder();
     private ApiError error;
@@ -160,12 +160,9 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         return "1".equals(getString(attrs, qName)) || VALUE_TRUE.equalsIgnoreCase(getString(attrs, qName));
     }
 
-    public static void enableStrictCheckMode() {
-        AbstractContentHandler.strictCheckMode = true;
+    public Map<String, Integer> enableStrictCheckMode() {
+        strictCheckMode = true;
         fields = new ConcurrentHashMap<>();
-    }
-
-    public static Map<String, Integer> getFields() {
         return fields;
     }
 

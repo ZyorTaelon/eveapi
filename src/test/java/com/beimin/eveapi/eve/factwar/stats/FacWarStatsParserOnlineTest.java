@@ -11,7 +11,10 @@ public class FacWarStatsParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         final FacWarStatsParser parser = new FacWarStatsParser();
+        prepareParser(parser);
+
         final FacWarStatsResponse response = parser.getResponse();
+
         testResponse(response);
     }
 

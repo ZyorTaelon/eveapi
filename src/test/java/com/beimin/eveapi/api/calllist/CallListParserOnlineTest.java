@@ -11,7 +11,10 @@ public class CallListParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         final CallListParser parser = new CallListParser();
+        prepareParser(parser);
+
         final CallListResponse response = parser.getResponse();
+
         testResponse(response);
     }
 

@@ -11,7 +11,10 @@ public class JumpsParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         final JumpsParser parser = new JumpsParser();
+        prepareParser(parser);
+
         final JumpsResponse response = parser.getResponse();
+
         testResponse(response);
     }
 
