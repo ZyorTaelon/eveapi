@@ -176,6 +176,12 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         }
     }
 
+    protected void saveFieldsCount(final Class<?> clazz, final int number) {
+        if (strictCheckMode) {
+            fields.put(clazz.getName(), number);
+        }
+    }
+
     protected void setResponse(final E response) {
         this.response = response;
     }

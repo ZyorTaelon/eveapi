@@ -11,7 +11,7 @@ import com.beimin.eveapi.response.pilot.ResearchResponse;
 
 public class ResearchParser extends AbstractListParser<ResearchHandler, ResearchResponse, ResearchAgent> {
     public ResearchParser() {
-        super(ResearchResponse.class, 1, ApiPath.CHARACTER, ApiPage.RESEARCH, ResearchHandler.class);
+        super(ResearchResponse.class, 2, ApiPath.CHARACTER, ApiPage.RESEARCH, ResearchHandler.class);
     }
 
     @Override

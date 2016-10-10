@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.account.AccountStatusResponse;
 
 public class AccountStatusParserOnlineTest extends AbstractOnlineTest {
 
-    @Test @Ignore("userID no longer returned by the API")
+    @Test
     public void getResponse() throws Exception {
         final AccountStatusParser accountStatusParser = new AccountStatusParser();
         prepareParser(accountStatusParser);

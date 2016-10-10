@@ -9,14 +9,14 @@ import com.beimin.eveapi.response.pilot.ResearchResponse;
 
 public class ResearchParserOnlineTest extends AbstractOnlineTest {
 
-    @Test @Ignore("API Error")
+    @Test @Ignore("No content")
     public void getResponse() throws Exception {
         final ResearchParser parser = new ResearchParser();
         prepareParser(parser);
 
         final ResearchResponse response = parser.getResponse(getCharacter());
 
-        testResponse(response, 1);
+        testResponse(response);
     }
 
 }
