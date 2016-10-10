@@ -4,15 +4,14 @@ import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.model.shared.MarketOrder;
-import com.beimin.eveapi.parser.pilot.MarketOrdersParser;
-import com.beimin.eveapi.parser.shared.AbstractMarketOrdersParser;
+import com.beimin.eveapi.parser.pilot.CharMarketOrdersParser;
 import com.beimin.eveapi.response.shared.MarketOrdersResponse;
 
 public class CharMarketOrdersParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        final AbstractMarketOrdersParser parser = new MarketOrdersParser();
+        final CharMarketOrdersParser parser = new CharMarketOrdersParser();
         MarketOrdersResponse response = parser.getResponse(getPilot());
         testResponse(response);
 
