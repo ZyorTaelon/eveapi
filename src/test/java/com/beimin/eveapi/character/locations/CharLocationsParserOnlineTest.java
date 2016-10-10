@@ -9,17 +9,15 @@ import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.model.shared.Asset;
-import com.beimin.eveapi.parser.pilot.LocationsParser;
-import com.beimin.eveapi.parser.pilot.PilotAssetListParser;
-import com.beimin.eveapi.parser.shared.AbstractAssetListParser;
-import com.beimin.eveapi.parser.shared.AbstractLocationsParser;
+import com.beimin.eveapi.parser.pilot.CharLocationsParser;
+import com.beimin.eveapi.parser.pilot.CharAssetListParser;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 import com.beimin.eveapi.response.shared.LocationsResponse;
 
 public class CharLocationsParserOnlineTest extends AbstractOnlineTest {
 
     private List<Long> getItemIDs() throws Exception {
-        final AbstractAssetListParser parser = new PilotAssetListParser();
+        final CharAssetListParser parser = new CharAssetListParser();
         final AssetListResponse response = parser.getResponse(getPilot());
         testResponse(response);
         final List<Asset> assets = response.getAll();
@@ -37,7 +35,7 @@ public class CharLocationsParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        final AbstractLocationsParser parser = new LocationsParser();
+        final CharLocationsParser parser = new CharLocationsParser();
         final LocationsResponse response = parser.getResponse(getPilot(), getItemIDs());
         testResponse(response);
     }
