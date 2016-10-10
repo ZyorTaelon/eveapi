@@ -3,22 +3,22 @@ package com.beimin.eveapi.handler.shared;
 import org.xml.sax.Attributes;
 
 import com.beimin.eveapi.handler.AbstractContentListHandler;
-import com.beimin.eveapi.model.shared.EveAccountBalance;
+import com.beimin.eveapi.model.shared.AccountBalance;
 import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 
-public class AccountBalanceHandler extends AbstractContentListHandler<AccountBalanceResponse, EveAccountBalance> {
+public class AccountBalanceHandler extends AbstractContentListHandler<AccountBalanceResponse, AccountBalance> {
 
     public AccountBalanceHandler() {
         super(AccountBalanceResponse.class);
     }
 
     @Override
-    protected EveAccountBalance getItem(final Attributes attrs) {
-        final EveAccountBalance eveAccountBalance = new EveAccountBalance();
-        saveFieldsCount(EveAccountBalance.class, attrs);
-        eveAccountBalance.setAccountID(getInt(attrs, "accountID"));
-        eveAccountBalance.setAccountKey(getInt(attrs, "accountKey"));
-        eveAccountBalance.setBalance(getDouble(attrs, "balance"));
-        return eveAccountBalance;
+    protected AccountBalance getItem(final Attributes attrs) {
+        final AccountBalance accountBalance = new AccountBalance();
+        saveFieldsCount(AccountBalance.class, attrs);
+        accountBalance.setAccountID(getInt(attrs, "accountID"));
+        accountBalance.setAccountKey(getInt(attrs, "accountKey"));
+        accountBalance.setBalance(getDouble(attrs, "balance"));
+        return accountBalance;
     }
 }
