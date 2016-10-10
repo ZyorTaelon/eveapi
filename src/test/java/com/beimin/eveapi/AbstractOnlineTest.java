@@ -26,13 +26,14 @@ import com.beimin.eveapi.handler.ApiError;
 import com.beimin.eveapi.parser.ApiAuthorization;
 import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.ApiResponse;
+import static org.junit.Assert.fail;
 
 public abstract class AbstractOnlineTest {
 
     private final ApiAuthorization account = new ApiAuthorization(4428355, "Efnyja8S6pawB4EzefgZBFLDWGGTv0U9RZTfC6bD3vZ1pIc45FdgOUiCL6bpEssm");
     private final ApiAuthorization pilot = new ApiAuthorization(4428355, 1528592227l, "Efnyja8S6pawB4EzefgZBFLDWGGTv0U9RZTfC6bD3vZ1pIc45FdgOUiCL6bpEssm");
     private final ApiAuthorization corp = new ApiAuthorization(4428366, "5TDpVttAXfTtJhWvPYKZnVfwIZPj8kAIDGa3YzP3MlVRwa2pYI6KP2qXBZseSoKa");
-    private final boolean ignoreEmptyReturns = true;
+    private final boolean ignoreEmptyReturns = false;
     private final long charID = 1528592227l;
     private final String charName = "Glazeg";
     private final long corpID = 98400559;
@@ -243,7 +244,7 @@ public abstract class AbstractOnlineTest {
     }
 
     protected void testFail(final String s) {
-        // fail(s);
+        fail(s);
     }
 
     protected ApiAuthorization getAccount() {

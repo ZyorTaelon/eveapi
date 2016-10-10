@@ -16,6 +16,7 @@ public class RefTypesParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
+        addEmptyOK("getRefTypeID"); //IDs start at zero
         final RefTypesParser parser = new RefTypesParser();
         final RefTypesResponse response = parser.getResponse();
         testResponse(response, 1);
@@ -34,7 +35,6 @@ public class RefTypesParserOnlineTest extends AbstractOnlineTest {
         for (final com.beimin.eveapi.model.shared.RefType refType : com.beimin.eveapi.model.shared.RefType.values()) {
             assertNotNull(refType.name() + " no longer in the API", map.get(refType.getId()));
         }
-        testFail("Test Enum is outside normal ways to do it");
     }
 
 }
