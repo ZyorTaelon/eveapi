@@ -229,7 +229,8 @@ public abstract class AbstractOnlineTest {
     }
 
     protected void test(final Collection<?> collection) throws Exception {
-        testValue("getAll", collection, Collection.class);
+        assertThat("Collection was null: ", collection, notNullValue());
+        assertThat("Collection was empty: ", collection.size(), greaterThan(0));
     }
 
     protected void testResponse(final ApiResponse response) throws Exception {
