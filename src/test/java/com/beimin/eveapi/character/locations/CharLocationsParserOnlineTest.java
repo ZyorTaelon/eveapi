@@ -21,6 +21,7 @@ public class CharLocationsParserOnlineTest extends AbstractOnlineTest {
         final CharAssetListParser parser = new CharAssetListParser();
         final AssetListResponse response = parser.getResponse(getCharacter());
         final List<Asset> assets = response.getAll();
+		test(assets);
         final Set<Long> itemIDs = new HashSet<Long>();
         deepAssets(assets, itemIDs);
         return new ArrayList<Long>(itemIDs);
