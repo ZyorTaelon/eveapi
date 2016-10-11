@@ -2,6 +2,7 @@ package com.beimin.eveapi.character.contract;
 
 import java.util.Set;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
@@ -11,7 +12,6 @@ import com.beimin.eveapi.parser.pilot.CharContractItemsParser;
 import com.beimin.eveapi.parser.pilot.CharContractsParser;
 import com.beimin.eveapi.response.shared.ContractItemsResponse;
 import com.beimin.eveapi.response.shared.ContractsResponse;
-import org.junit.Ignore;
 
 public class CharContractItemsParserOnlineTest extends AbstractOnlineTest {
 
@@ -21,10 +21,12 @@ public class CharContractItemsParserOnlineTest extends AbstractOnlineTest {
         addNullOk("getDateCompleted"); // Not completed yet
         addNullOk("getRawQuantity"); // Never returned by the API (API BUG)
         final CharContractsParser contractsParser = new CharContractsParser();
-        final ContractsResponse contractsResponse = contractsParser.getResponse(getPilot());
-        testResponse(contractsResponse);
+        final ContractsResponse contractsResponse = contractsParser.getResponse(getCharacter());
         final Set<Contract> contracts = contractsResponse.getAll();
         test(contracts);
+
+        final CharContractItemsParser parser = new CharContractItemsParser();
+        prepareParser(parser);
         for (final Contract contract : contracts) {
             if (contract.getType() == ContractType.COURIER) {
                 continue;
@@ -32,8 +34,9 @@ public class CharContractItemsParserOnlineTest extends AbstractOnlineTest {
             if (contract.getType() == ContractType.LOAN) {
                 continue;
             }
-            final CharContractItemsParser parser = new CharContractItemsParser();
-            final ContractItemsResponse response = parser.getResponse(getPilot(), contract.getContractID());
+
+            final ContractItemsResponse response = parser.getResponse(getCharacter(), contract.getContractID());
+
             testResponse(response);
         }
     }

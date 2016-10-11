@@ -11,7 +11,10 @@ public class ServerStatusParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         final ServerStatusParser parser = new ServerStatusParser();
+        prepareParser(parser);
+
         final ServerStatusResponse response = parser.getServerStatus();
+
         testResponse(response);
     }
 

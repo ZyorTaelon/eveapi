@@ -22,6 +22,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
     protected final ApiPage page;
     protected final int version;
     protected final Class<E> clazz;
+    private AbstractContentHandler<E> contentHandler;
 
     public AbstractApiParser(final Class<E> clazz, final int version, final ApiPath path, final ApiPage page) {
         this.clazz = clazz;
@@ -53,10 +54,21 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
     }
 
     private E getResponse(final ApiRequest request) throws ApiException {
-        return connector.execute(request, getContentHandler(), clazz);
+        return connector.execute(request, getAndPrepareContentHandler(), clazz);
     }
 
     public static void setConnector(final ApiConnector connector) {
         AbstractApiParser.connector = connector;
+    }
+
+    private AbstractContentHandler<E> getAndPrepareContentHandler() {
+        if (contentHandler == null) {
+            contentHandler = getContentHandler();
+        }
+        return contentHandler;
+    }
+
+    public Map<String, Integer> enableStrictCheckMode() {
+        return getAndPrepareContentHandler().enableStrictCheckMode();
     }
 }

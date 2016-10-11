@@ -13,7 +13,10 @@ public class SovereigntyParserOnlineTest extends AbstractOnlineTest {
         addEmptyOK("getAllianceID"); // No alliance
         addEmptyOK("getCorporationID"); // No corporation
         final SovereigntyParser parser = new SovereigntyParser();
+        prepareParser(parser);
+
         final SovereigntyResponse response = parser.getResponse();
+
         testResponse(response, 1);
     }
 

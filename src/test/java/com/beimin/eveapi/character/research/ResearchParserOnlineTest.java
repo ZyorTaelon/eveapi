@@ -12,7 +12,10 @@ public class ResearchParserOnlineTest extends AbstractOnlineTest {
     @Test @Ignore("No content")
     public void getResponse() throws Exception {
         final ResearchParser parser = new ResearchParser();
-        final ResearchResponse response = parser.getResponse(getPilot());
+        prepareParser(parser);
+
+        final ResearchResponse response = parser.getResponse(getCharacter());
+
         testResponse(response);
     }
 

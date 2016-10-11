@@ -2,6 +2,7 @@ package com.beimin.eveapi.corporation.starbase.detail;
 
 import java.util.Set;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
@@ -10,7 +11,6 @@ import com.beimin.eveapi.parser.corporation.StarbaseDetailParser;
 import com.beimin.eveapi.parser.corporation.StarbaseListParser;
 import com.beimin.eveapi.response.corporation.StarbaseDetailResponse;
 import com.beimin.eveapi.response.corporation.StarbaseListResponse;
-import org.junit.Ignore;
 
 public class StarbaseDetailParserOnlineTest extends AbstractOnlineTest {
 
@@ -21,6 +21,7 @@ public class StarbaseDetailParserOnlineTest extends AbstractOnlineTest {
         final Set<Starbase> starbases = starbaseListResponse.getAll();
         test(starbases);
         final StarbaseDetailParser parser = new StarbaseDetailParser();
+        prepareParser(parser);
         for (final Starbase starbase : starbases) {
             final StarbaseDetailResponse response = parser.getResponse(getCorp(), starbase.getItemID());
             testResponse(response);

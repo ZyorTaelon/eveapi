@@ -1,11 +1,11 @@
 package com.beimin.eveapi.character.killmail;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.parser.pilot.CharKillMailParser;
 import com.beimin.eveapi.response.shared.KillMailResponse;
-import org.junit.Ignore;
 
 public class CharKillMailParserOnlineTest extends AbstractOnlineTest {
 
@@ -15,9 +15,11 @@ public class CharKillMailParserOnlineTest extends AbstractOnlineTest {
         addEmptyOK("getCharacterName"); // Concord officers don't have a character name ;-)
         addEmptyOK("getFactionName");
         final CharKillMailParser parser = new CharKillMailParser();
-        final KillMailResponse response = parser.getResponse(getPilot());
-        testResponse(response);
+        prepareParser(parser);
 
+        final KillMailResponse response = parser.getResponse(getCharacter());
+
+        testResponse(response);
         testFail("Does not test KillMail walking");
     }
 

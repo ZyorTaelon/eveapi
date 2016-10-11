@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
@@ -13,7 +14,6 @@ import com.beimin.eveapi.parser.corporation.CorpAssetListParser;
 import com.beimin.eveapi.parser.corporation.CorpLocationsParser;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 import com.beimin.eveapi.response.shared.LocationsResponse;
-import org.junit.Ignore;
 
 public class CorpLocationsParserOnlineTest extends AbstractOnlineTest {
 
@@ -37,7 +37,10 @@ public class CorpLocationsParserOnlineTest extends AbstractOnlineTest {
     @Test @Ignore("Test not completed")
     public void getResponse() throws Exception {
         final CorpLocationsParser parser = new CorpLocationsParser();
+        prepareParser(parser);
+
         final LocationsResponse response = parser.getResponse(getCorp(), getItemIDs());
+
         testResponse(response);
     }
 

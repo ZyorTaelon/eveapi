@@ -11,7 +11,10 @@ public class TypeNameParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         final TypeNameParser parser = new TypeNameParser();
+        prepareParser(parser);
+
         final TypeNameResponse response = parser.getResponse(getTypeID());
+
         testResponse(response);
     }
 
