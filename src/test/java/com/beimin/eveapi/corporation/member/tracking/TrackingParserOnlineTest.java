@@ -6,8 +6,16 @@ import org.junit.Test;
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.parser.corporation.MemberTrackingParser;
 import com.beimin.eveapi.response.corporation.MemberTrackingResponse;
+import org.junit.Before;
 
 public class TrackingParserOnlineTest extends AbstractOnlineTest {
+    final MemberTrackingParser classToTest = new MemberTrackingParser();
+
+    @Before
+    public void prepare() {
+        before();
+        prepareParser(classToTest);
+    }
 
     @Test @Ignore("New fields test not working")
     public void getResponse() throws Exception {
@@ -23,19 +31,16 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
         addEmptyOK("getLocationID");
         addEmptyOK("getRoles");
         addEmptyOK("getShipTypeID");
-        final MemberTrackingParser parser = new MemberTrackingParser();
-        final MemberTrackingResponse response = parser.getResponse(getCorp());
+
+        final MemberTrackingResponse response = classToTest.getResponse(getCorp());
+
         testResponse(response);
     }
 
     @Test @Ignore("Some data missing")
     public void getExtendedResponse() throws Exception {
-        final MemberTrackingParser parser = new MemberTrackingParser();
-        prepareParser(parser);
-
-        final MemberTrackingResponse response = parser.getExtendedResponse(getCorp());
+        final MemberTrackingResponse response = classToTest.getExtendedResponse(getCorp());
 
         testResponse(response);
     }
-
 }

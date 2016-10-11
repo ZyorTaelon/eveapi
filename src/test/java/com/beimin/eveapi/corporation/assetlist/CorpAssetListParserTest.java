@@ -18,8 +18,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static com.beimin.eveapi.utils.Assert.assertDate;
 
-public class CharAssetListParserTest extends FullAuthParserTest {
-    public CharAssetListParserTest() {
+public class CorpAssetListParserTest extends FullAuthParserTest {
+    public CorpAssetListParserTest() {
         super(ApiPath.CORPORATION, ApiPage.ASSET_LIST);
     }
 

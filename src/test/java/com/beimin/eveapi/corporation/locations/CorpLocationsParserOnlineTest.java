@@ -20,8 +20,8 @@ public class CorpLocationsParserOnlineTest extends AbstractOnlineTest {
     private List<Long> getItemIDs() throws Exception {
         final CorpAssetListParser parser = new CorpAssetListParser();
         final AssetListResponse response = parser.getResponse(getCorp());
-        testResponse(response);
         final List<Asset> assets = response.getAll();
+        test(assets);
         final Set<Long> itemIDs = new HashSet<Long>();
         deepAssets(assets, itemIDs);
         return new ArrayList<Long>(itemIDs);

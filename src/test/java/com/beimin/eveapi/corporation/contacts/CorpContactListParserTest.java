@@ -1,8 +1,5 @@
 package com.beimin.eveapi.corporation.contacts;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -14,9 +11,12 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.CorpContactListParser;
 import com.beimin.eveapi.response.corporation.ContactListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
-public class ContactListParserTest extends FullAuthParserTest {
-    public ContactListParserTest() {
+public class CorpContactListParserTest extends FullAuthParserTest {
+    public CorpContactListParserTest() {
         super(ApiPath.CORPORATION, ApiPage.CONTACT_LIST);
     }
 
