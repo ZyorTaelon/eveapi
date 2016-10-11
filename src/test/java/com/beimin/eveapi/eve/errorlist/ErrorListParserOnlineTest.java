@@ -11,7 +11,10 @@ public class ErrorListParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         final ErrorListParser parser = new ErrorListParser();
+        prepareParser(parser);
+
         final ErrorListResponse response = parser.getResponse();
+
         testResponse(response);
     }
 

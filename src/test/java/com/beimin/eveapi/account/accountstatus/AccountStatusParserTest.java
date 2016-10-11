@@ -24,7 +24,6 @@ public class AccountStatusParserTest extends FullAuthParserTest {
         final AccountStatusResponse response = accountStatusParser.getResponse(auth);
         assertNotNull(response);
         final AccountStatus accountStatus = response.get();
-        assertEquals(541354, accountStatus.getUserID());
         assertDate(2011, 03, 13, 18, 40, 0, accountStatus.getPaidUntil());
         assertDate(2004, 07, 22, 23, 54, 0, accountStatus.getCreateDate());
         assertEquals(5603, accountStatus.getLogonCount());

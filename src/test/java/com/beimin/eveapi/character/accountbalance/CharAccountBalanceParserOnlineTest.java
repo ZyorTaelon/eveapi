@@ -11,7 +11,10 @@ public class CharAccountBalanceParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         final CharAccountBalanceParser parser = new CharAccountBalanceParser();
-        final AccountBalanceResponse response = parser.getResponse(getPilot());
+        prepareParser(parser);
+
+        final AccountBalanceResponse response = parser.getResponse(getCharacter());
+
         testResponse(response);
     }
 

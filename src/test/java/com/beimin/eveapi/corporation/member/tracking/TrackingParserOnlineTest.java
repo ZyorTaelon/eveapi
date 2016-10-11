@@ -1,11 +1,11 @@
 package com.beimin.eveapi.corporation.member.tracking;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.parser.corporation.MemberTrackingParser;
 import com.beimin.eveapi.response.corporation.MemberTrackingResponse;
-import org.junit.Ignore;
 
 public class TrackingParserOnlineTest extends AbstractOnlineTest {
 
@@ -31,7 +31,10 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
     @Test @Ignore("Some data missing")
     public void getExtendedResponse() throws Exception {
         final MemberTrackingParser parser = new MemberTrackingParser();
+        prepareParser(parser);
+
         final MemberTrackingResponse response = parser.getExtendedResponse(getCorp());
+
         testResponse(response);
     }
 

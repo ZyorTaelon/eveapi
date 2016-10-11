@@ -19,7 +19,10 @@ public class ApiKeyInfoParserOnlineTest extends AbstractOnlineTest {
         // Never Expires
         addNullOk("getExpires");
         final ApiKeyInfoParser apiKeyInfoParser = new ApiKeyInfoParser();
+        prepareParser(apiKeyInfoParser);
+
         final ApiKeyInfoResponse response = apiKeyInfoParser.getResponse(getAccount());
+
         testResponse(response);
     }
 

@@ -2,6 +2,7 @@ package com.beimin.eveapi.corporation.contract;
 
 import java.util.Set;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
@@ -11,7 +12,6 @@ import com.beimin.eveapi.parser.corporation.CorpContractItemsParser;
 import com.beimin.eveapi.parser.corporation.CorpContractsParser;
 import com.beimin.eveapi.response.shared.ContractItemsResponse;
 import com.beimin.eveapi.response.shared.ContractsResponse;
-import org.junit.Ignore;
 
 public class CorpContractItemsParserOnlineTest extends AbstractOnlineTest {
 
@@ -22,10 +22,10 @@ public class CorpContractItemsParserOnlineTest extends AbstractOnlineTest {
         addNullOk("getRawQuantity"); // Never returned by the API (API BUG)
         final CorpContractsParser contractsParser = new CorpContractsParser();
         final ContractsResponse contractsResponse = contractsParser.getResponse(getCorp());
-        testResponse(contractsResponse);
         final Set<Contract> contracts = contractsResponse.getAll();
-        final CorpContractItemsParser parser = new CorpContractItemsParser();
         test(contracts);
+        final CorpContractItemsParser parser = new CorpContractItemsParser();
+        prepareParser(parser);
         for (final Contract contract : contracts) {
             if (contract.getType() == ContractType.COURIER) {
                 continue;

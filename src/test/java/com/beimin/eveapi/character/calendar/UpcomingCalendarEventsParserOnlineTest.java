@@ -12,7 +12,10 @@ public class UpcomingCalendarEventsParserOnlineTest extends AbstractOnlineTest {
     @Test @Ignore("No data returned by the API")
     public void getResponse() throws Exception {
         final UpcomingCalendarEventsParser parser = new UpcomingCalendarEventsParser();
-        final UpcomingCalendarEventsResponse response = parser.getResponse(getPilot());
+        prepareParser(parser);
+        
+        final UpcomingCalendarEventsResponse response = parser.getResponse(getCharacter());
+        
         testResponse(response);
     }
 

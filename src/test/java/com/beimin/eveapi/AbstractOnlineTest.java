@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -21,17 +22,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 
 import com.beimin.eveapi.connectors.ApiConnector;
-import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.handler.ApiError;
 import com.beimin.eveapi.parser.ApiAuthorization;
 import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.ApiResponse;
-import static org.junit.Assert.fail;
 
 public abstract class AbstractOnlineTest {
-
     private final ApiAuthorization account = new ApiAuthorization(4428355, "Efnyja8S6pawB4EzefgZBFLDWGGTv0U9RZTfC6bD3vZ1pIc45FdgOUiCL6bpEssm");
-    private final ApiAuthorization pilot = new ApiAuthorization(4428355, 1528592227l, "Efnyja8S6pawB4EzefgZBFLDWGGTv0U9RZTfC6bD3vZ1pIc45FdgOUiCL6bpEssm");
+    private final ApiAuthorization character = new ApiAuthorization(4428355, 1528592227l, "Efnyja8S6pawB4EzefgZBFLDWGGTv0U9RZTfC6bD3vZ1pIc45FdgOUiCL6bpEssm");
     private final ApiAuthorization corp = new ApiAuthorization(4428366, "5TDpVttAXfTtJhWvPYKZnVfwIZPj8kAIDGa3YzP3MlVRwa2pYI6KP2qXBZseSoKa");
     private final boolean ignoreEmptyReturns = false;
     private final long charID = 1528592227l;
@@ -42,6 +40,7 @@ public abstract class AbstractOnlineTest {
     private final List<Class<?>> nullCheckClasses = Arrays.asList(new Class<?>[] { Date.class, Boolean.class, boolean.class, ApiError.class });
     private final Set<String> nullOK = new HashSet<String>();
     private final Set<String> emptyOK = new HashSet<String>();
+    private Map<String, Integer> fields;
 
     protected final void addNullOk(final String methodName) {
         nullOK.add(methodName);
@@ -54,7 +53,6 @@ public abstract class AbstractOnlineTest {
     @BeforeClass
     public static void setUp() {
         AbstractApiParser.setConnector(new ApiConnector());
-        AbstractContentHandler.enableStrictCheckMode();
     }
 
     @Before
@@ -81,6 +79,10 @@ public abstract class AbstractOnlineTest {
         }
     }
 
+    protected void prepareParser(AbstractApiParser<?> parser) {
+        fields = parser.enableStrictCheckMode();
+    }
+
     private void checkBean(final Object bean) throws Exception {
         // Test methods
         for (final Method method : bean.getClass().getMethods()) {
@@ -92,7 +94,7 @@ public abstract class AbstractOnlineTest {
         final Class<?> clazz = bean.getClass();
         final int classFields = getFields(clazz); // Count fields (to ignore logical methods)
         if (!(bean instanceof ApiResponse)) { // Ignore reponse
-            final Integer xmlFields = AbstractContentHandler.getFields().get(bean.getClass().getName());
+            final Integer xmlFields = fields.get(bean.getClass().getName());
             assertThat(clazz.getName() + " field count missing: ", xmlFields, notNullValue());
             assertThat(clazz.getName() + " field count is wrong: ", xmlFields, equalTo(classFields));
         }
@@ -251,8 +253,8 @@ public abstract class AbstractOnlineTest {
         return account;
     }
 
-    protected ApiAuthorization getPilot() {
-        return pilot;
+    protected ApiAuthorization getCharacter() {
+        return character;
     }
 
     protected ApiAuthorization getCorp() {
@@ -260,6 +262,6 @@ public abstract class AbstractOnlineTest {
     }
 
     protected ApiAuthorization getEve() {
-        return pilot;
+        return character;
     }
 }

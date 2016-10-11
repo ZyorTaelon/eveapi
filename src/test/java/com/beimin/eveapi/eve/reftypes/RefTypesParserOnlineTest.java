@@ -18,7 +18,10 @@ public class RefTypesParserOnlineTest extends AbstractOnlineTest {
     public void getResponse() throws Exception {
         addEmptyOK("getRefTypeID"); //IDs start at zero
         final RefTypesParser parser = new RefTypesParser();
+        prepareParser(parser);
+
         final RefTypesResponse response = parser.getResponse();
+
         testResponse(response, 1);
     }
 
