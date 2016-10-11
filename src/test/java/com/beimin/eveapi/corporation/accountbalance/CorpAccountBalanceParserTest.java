@@ -16,8 +16,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-public class CharAccountBalanceParserTest extends FullAuthParserTest {
-    public CharAccountBalanceParserTest() {
+public class CorpAccountBalanceParserTest extends FullAuthParserTest {
+    public CorpAccountBalanceParserTest() {
         super(ApiPath.CORPORATION, ApiPage.ACCOUNT_BALANCE);
     }
 
