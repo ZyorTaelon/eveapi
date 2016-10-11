@@ -11,7 +11,7 @@ import org.junit.Before;
 public class TrackingParserOnlineTest extends AbstractOnlineTest {
 	final MemberTrackingParser classToTest = new MemberTrackingParser();
 
-	@Before
+    @Before
     public void prepare() {
         before();
         prepareParser(classToTest);
@@ -43,5 +43,4 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
 
         testResponse(response);
     }
-
 }
