@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.corporation.MemberTrackingResponse;
 import org.junit.Before;
 
 public class TrackingParserOnlineTest extends AbstractOnlineTest {
-	final MemberTrackingParser classToTest = new MemberTrackingParser();
+    final MemberTrackingParser classToTest = new MemberTrackingParser();
 
     @Before
     public void prepare() {
