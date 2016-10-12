@@ -1,14 +1,14 @@
 package com.beimin.eveapi.model.shared;
 
 public class ContactLabel {
-    private int labelID;
+    private long labelID;
     private String name;
 
-    public int getLabelID() {
+    public long getLabelID() {
         return labelID;
     }
 
-    public void setLabelID(final int labelID) {
+    public void setLabelID(final long labelID) {
         this.labelID = labelID;
     }
 
