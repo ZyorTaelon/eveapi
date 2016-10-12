@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.beimin.eveapi.model.pilot.AttributeEnhancer;
-import com.beimin.eveapi.model.pilot.Certificate;
 import com.beimin.eveapi.model.pilot.Role;
 import com.beimin.eveapi.model.pilot.Skill;
 import com.beimin.eveapi.model.shared.Ancestry;
@@ -36,7 +35,6 @@ public class CharacterSheetResponse extends ApiResponse {
     private int perception;
     private int willpower;
     private final Set<Skill> skills = new HashSet<Skill>();
-    private final Set<Certificate> certificates = new HashSet<Certificate>();
     private final Set<Role> corporationRoles = new HashSet<>();
     private final Set<Role> corporationRolesAtHQ = new HashSet<>();
     private final Set<Role> corporationRolesAtBase = new HashSet<>();
@@ -210,15 +208,7 @@ public class CharacterSheetResponse extends ApiResponse {
     public Set<Skill> getSkills() {
         return skills;
     }
-
-    public void addCertificate(final Certificate certificate) {
-        certificates.add(certificate);
-    }
-
-    public Set<Certificate> getCertificates() {
-        return certificates;
-    }
-
+   
     public void addCorporationRole(final Role corporationRole) {
         corporationRoles.add(corporationRole);
     }
