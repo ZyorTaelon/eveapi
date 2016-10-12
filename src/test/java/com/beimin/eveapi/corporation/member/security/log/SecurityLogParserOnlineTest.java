@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.corporation.MemberSecurityLogResponse;
 
 public class SecurityLogParserOnlineTest extends AbstractOnlineTest {
 
-    @Test @Ignore("cacheUntil is null")
+    @Test @Ignore("No data returned by the API")
     public void getResponse() throws Exception {
         final MemberSecurityLogParser parser = new MemberSecurityLogParser();
         prepareParser(parser);
