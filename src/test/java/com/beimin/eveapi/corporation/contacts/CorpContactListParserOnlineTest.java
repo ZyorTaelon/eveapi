@@ -1,16 +1,18 @@
 package com.beimin.eveapi.corporation.contacts;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
+import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.parser.corporation.CorpContactListParser;
 import com.beimin.eveapi.response.corporation.ContactListResponse;
+import static org.junit.Assume.assumeTrue;
 
 public class CorpContactListParserOnlineTest extends AbstractOnlineTest {
 
-    @Test @Ignore("Some data missing")
+    @Test
     public void getResponse() throws Exception {
+        assumeTrue("Other error", TestControl.runOther());
         final CorpContactListParser parser = new CorpContactListParser();
         prepareParser(parser);
 

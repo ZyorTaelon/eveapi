@@ -1,6 +1,5 @@
 package com.beimin.eveapi.account.accountstatus;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;

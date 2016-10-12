@@ -1,11 +1,12 @@
 package com.beimin.eveapi.corporation.member.tracking;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
+import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.parser.corporation.MemberTrackingParser;
 import com.beimin.eveapi.response.corporation.MemberTrackingResponse;
+import static org.junit.Assume.assumeTrue;
 import org.junit.Before;
 
 public class TrackingParserOnlineTest extends AbstractOnlineTest {
@@ -17,8 +18,9 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
         prepareParser(classToTest);
     }
 
-    @Test @Ignore("New fields test not working")
+    @Test
     public void getResponse() throws Exception {
+        assumeTrue("Other error", TestControl.runOther());
         //Not included in default return
         addNullOk("getLocation");
         addNullOk("getShipType");
@@ -37,8 +39,9 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
         testResponse(response);
     }
 
-    @Test @Ignore("Some data missing")
+    @Test
     public void getExtendedResponse() throws Exception {
+        assumeTrue("Other error", TestControl.runOther());
         final MemberTrackingResponse response = classToTest.getExtendedResponse(getCorp());
 
         testResponse(response);
