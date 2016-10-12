@@ -1,15 +1,16 @@
 package com.beimin.eveapi.eve.character;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
+import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.parser.eve.CharacterInfoParser;
 import com.beimin.eveapi.response.eve.CharacterInfoResponse;
+import static org.junit.Assume.assumeTrue;
 
 public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
-    private CharacterInfoParser classToTest = new CharacterInfoParser();
+    private final CharacterInfoParser classToTest = new CharacterInfoParser();
 
     @Before
     public void prepare() {
@@ -22,8 +23,8 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
     }
 
     @Test
-    @Ignore("New fields test not working")
     public void getResponsePublic() throws Exception {
+        assumeTrue("Other error", TestControl.runOther());
         // Private Info, not included
         addNullOk("getShipName");
         addNullOk("getAccountBalance");
@@ -38,15 +39,17 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
         testResponse(response);
     }
 
-    @Test @Ignore("Some empty data")
+    @Test
     public void getResponseKeyFull() throws Exception {
+        assumeTrue("Other error", TestControl.runOther());
         final CharacterInfoResponse response = classToTest.getResponse(getEve());
 
         testResponse(response);
     }
 
-    @Test @Ignore("Test not complated")
+    @Test
     public void getResponseKeyLimited() throws Exception {
+        assumeTrue("Test not completed", TestControl.runTestIncomplete());
         testFail("Limited Key is not tested");
 
         final CharacterInfoResponse response = classToTest.getResponse(getEve());

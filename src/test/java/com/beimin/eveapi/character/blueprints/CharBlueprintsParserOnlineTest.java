@@ -1,16 +1,18 @@
 package com.beimin.eveapi.character.blueprints;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
+import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.parser.pilot.CharBlueprintsParser;
 import com.beimin.eveapi.response.shared.BlueprintsResponse;
+import static org.junit.Assume.assumeTrue;
 
 public class CharBlueprintsParserOnlineTest extends AbstractOnlineTest {
 
-    @Test @Ignore("No data returned by the API")
+    @Test
     public void blueprintsParser() throws Exception {
+        assumeTrue("No data returned by the API", TestControl.runNoData());
         final CharBlueprintsParser parser = new CharBlueprintsParser();
         prepareParser(parser);
 

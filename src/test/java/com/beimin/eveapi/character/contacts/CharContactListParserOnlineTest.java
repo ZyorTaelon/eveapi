@@ -1,16 +1,18 @@
 package com.beimin.eveapi.character.contacts;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
+import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.parser.pilot.CharContactListParser;
 import com.beimin.eveapi.response.pilot.ContactListResponse;
+import static org.junit.Assume.assumeTrue;
 
 public class CharContactListParserOnlineTest extends AbstractOnlineTest {
 
-    @Test @Ignore("No data returned by the API")
+    @Test
     public void getResponse() throws Exception {
+        assumeTrue("No data returned by the API", TestControl.runNoData());
         final CharContactListParser parser = new CharContactListParser();
         prepareParser(parser);
 
