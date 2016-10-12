@@ -6,7 +6,7 @@ public class Contact {
     private double standing;
     private boolean inWatchlist;
     private int contactTypeID;
-    private int labelMask;
+    private long labelMask;
 
     public void setContactID(final int fromID) {
         contactID = fromID;
@@ -48,11 +48,11 @@ public class Contact {
         this.contactTypeID = contactTypeID;
     }
 
-    public int getLabelMask() {
+    public long getLabelMask() {
         return labelMask;
     }
 
-    public void setLabelMask(final int labelMask) {
+    public void setLabelMask(final long labelMask) {
         this.labelMask = labelMask;
     }
 }

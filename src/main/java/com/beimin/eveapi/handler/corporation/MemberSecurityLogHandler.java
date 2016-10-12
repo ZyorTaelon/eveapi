@@ -51,6 +51,7 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
             oldRoles = false;
             newRoles = false;
         }
+        super.endElement(uri, localName, qName);
     }
 
     @Override

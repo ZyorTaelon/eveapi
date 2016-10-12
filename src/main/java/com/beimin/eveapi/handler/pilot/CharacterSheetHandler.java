@@ -7,7 +7,6 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.pilot.AttributeEnhancer;
-import com.beimin.eveapi.model.pilot.Certificate;
 import com.beimin.eveapi.model.pilot.CharismaBonus;
 import com.beimin.eveapi.model.pilot.IntelligenceBonus;
 import com.beimin.eveapi.model.pilot.MemoryBonus;
@@ -56,10 +55,6 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
                 skill.setSkillpoints(getInt(attrs, "skillpoints"));
                 skill.setUnpublished(getBoolean(attrs, "unpublished"));
                 response.addSkill(skill);
-            } else if ("certificates".equals(rowsetName)) {
-                final Certificate certificate = new Certificate();
-                certificate.setCertificateID(getInt(attrs, "certificateID"));
-                response.addCertificate(certificate);
             } else if ("corporationRoles".equals(rowsetName)) {
                 final Role corporationRole = new Role();
                 corporationRole.setRoleID(getLong(attrs, "roleID"));

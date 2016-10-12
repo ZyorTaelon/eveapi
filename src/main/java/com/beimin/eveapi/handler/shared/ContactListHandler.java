@@ -55,11 +55,11 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
                 contact.setInWatchlist(getBoolean(attrs, "inWatchlist"));
                 contact.setStanding(getDouble(attrs, "standing"));
                 contact.setContactTypeID(getInt(attrs, "contactTypeID"));
-                contact.setLabelMask(getInt(attrs, "labelMask"));
+                contact.setLabelMask(getLong(attrs, "labelMask"));
                 contactList.add(contact);
             } else {
                 final ContactLabel label = new ContactLabel();
-                label.setLabelID(getInt(attrs, "labelID"));
+                label.setLabelID(getLong(attrs, "labelID"));
                 label.setName(getString(attrs, "name"));
                 labelList.add(label);
             }
