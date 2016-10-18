@@ -19,7 +19,7 @@ public class AssetListHandler extends AbstractContentHandler<AssetListResponse> 
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if ((currentAsset != null) && ELEMENT_ROWSET.equals(qName)) {
             stack.add(currentAsset);
             currentAsset = null;
@@ -39,12 +39,10 @@ public class AssetListHandler extends AbstractContentHandler<AssetListResponse> 
                 peek.addAsset(currentAsset);
             }
         }
-        super.startElement(uri, localName, qName, attrs);
-        accumulator.setLength(0);
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final AssetListResponse response = getResponse();
         if (ELEMENT_ROWSET.equals(qName) && !stack.isEmpty()) {
             final Asset asset = stack.pop();
@@ -57,6 +55,5 @@ public class AssetListHandler extends AbstractContentHandler<AssetListResponse> 
             response.add(currentAsset);
             currentAsset = null;
         }
-        super.endElement(uri, localName, qName);
     }
 }

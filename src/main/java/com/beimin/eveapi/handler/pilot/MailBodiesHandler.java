@@ -8,30 +8,16 @@ import com.beimin.eveapi.model.pilot.MailBody;
 import com.beimin.eveapi.response.pilot.MailBodiesResponse;
 
 public class MailBodiesHandler extends AbstractContentListHandler<MailBodiesResponse, MailBody> {
-    private MailBody mailBody;
 
     public MailBodiesHandler() {
         super(MailBodiesResponse.class);
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
-            mailBody = getItem(attrs);
-        } else {
-            super.startElement(uri, localName, qName, attrs);
+            getItem().setBody(getString());
         }
-    }
-
-    @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (ELEMENT_ROW.equals(qName)) {
-            mailBody.setBody(getString());
-            getResponse().add(mailBody);
-            mailBody = null;
-            accumulator.setLength(0);
-        }
-        super.endElement(uri, localName, qName);
     }
 
     @Override

@@ -9,30 +9,15 @@ import com.beimin.eveapi.response.pilot.NotificationTextsResponse;
 
 public class NotificationTextsHandler extends AbstractContentListHandler<NotificationTextsResponse, NotificationText> {
 
-    private NotificationText notificationText;
-
     public NotificationTextsHandler() {
         super(NotificationTextsResponse.class);
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
-            notificationText = getItem(attrs);
-        } else {
-            super.startElement(uri, localName, qName, attrs);
+            getItem().setText(getString());
         }
-    }
-
-    @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
-        if (ELEMENT_ROW.equals(qName)) {
-            notificationText.setText(getString());
-            getResponse().add(notificationText);
-            notificationText = null;
-            accumulator.setLength(0);
-        }
-        super.endElement(uri, localName, qName);
     }
 
     @Override

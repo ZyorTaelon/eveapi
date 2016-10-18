@@ -12,7 +12,7 @@ public class SkillInTrainingHandler extends AbstractContentHandler<SkillInTraini
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final SkillInTrainingResponse response = getResponse();
         if ("currentTQTime".equals(qName)) {
             response.setCurrentTQTime(getDate());
@@ -31,6 +31,5 @@ public class SkillInTrainingHandler extends AbstractContentHandler<SkillInTraini
         } else if ("skillInTraining".equals(qName)) {
             response.setSkillInTraining(getBoolean());
         }
-        super.endElement(uri, localName, qName);
     }
 }

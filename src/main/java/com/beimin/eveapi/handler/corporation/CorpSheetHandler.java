@@ -19,7 +19,7 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         final CorpSheetResponse response = getResponse();
         if ("logo".equals(qName)) {
             logo = new CorpLogo();
@@ -38,12 +38,10 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
                 response.addWalletDivision(division);
             }
         }
-        super.startElement(uri, localName, qName, attrs);
-        accumulator.setLength(0);
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final CorpSheetResponse response = getResponse();
         extractLogoParts(qName);
         if ("corporationID".equals(qName)) {
@@ -84,8 +82,6 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
             divisions = false;
             walletDivisions = false;
         }
-
-        super.endElement(uri, localName, qName);
     }
 
     private void extractLogoParts(final String qName) {

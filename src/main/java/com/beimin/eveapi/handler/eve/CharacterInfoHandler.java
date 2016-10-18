@@ -18,7 +18,7 @@ public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoRe
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
             final CharacterEmployment employ = new CharacterEmployment();
             saveFieldsCount(CharacterEmployment.class, attrs);
@@ -26,11 +26,10 @@ public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoRe
             employ.setStartDate(getDate(attrs, "startDate"));
             getResponse().addEmployment(employ);
         }
-        super.startElement(uri, localName, qName, attrs);
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final CharacterInfoResponse response = getResponse();
         if ("characterID".equals(qName)) {
             response.setCharacterID(getLong());
@@ -67,7 +66,6 @@ public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoRe
         } else if ("securityStatus".equals(qName)) {
             response.setSecurityStatus(getDouble());
         }
-        super.endElement(uri, localName, qName);
     }
 
     private Bloodline getBloodline() {

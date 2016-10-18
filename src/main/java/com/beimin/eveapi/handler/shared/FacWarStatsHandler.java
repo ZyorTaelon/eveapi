@@ -1,6 +1,5 @@
 package com.beimin.eveapi.handler.shared;
 
-import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
@@ -13,13 +12,7 @@ public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsRespon
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        super.startElement(uri, localName, qName, attrs);
-        accumulator.setLength(0);
-    }
-
-    @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final FacWarStatsResponse response = getResponse();
         if ("factionID".equals(qName)) {
             response.setFactionID(getInt());
@@ -63,6 +56,5 @@ public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsRespon
         if ("pilots".equals(qName)) {
             response.setPilots(getInt());
         }
-        super.endElement(uri, localName, qName);
     }
 }

@@ -11,6 +11,7 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractContentListHandler.class);
 
     private final Class<E> clazz;
+    private B item;
 
     public AbstractContentListHandler(final Class<E> clazz) {
         super();
@@ -27,11 +28,15 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
-            getResponse().add(getItem(attrs));
+            item = getItem(attrs);
+            getResponse().add(item);
         }
-        super.startElement(uri, localName, qName, attrs);
+    }
+
+    public B getItem() {
+        return item;
     }
 
     protected abstract B getItem(Attributes attrs);

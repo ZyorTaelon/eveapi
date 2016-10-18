@@ -25,7 +25,7 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             if (name.equals("skills")) {
@@ -59,13 +59,11 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
             } else {
                 skillGroup = getItem(attrs);
             }
-        } else {
-            super.startElement(uri, localName, qName, attrs);
         }
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             if (requiredSkills) {
                 requiredSkills = false;
@@ -84,8 +82,6 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
             skill.setPrimaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
         } else if ("secondaryAttribute".equals(qName)) {
             skill.setSecondaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
-        } else {
-            super.endElement(uri, localName, qName);
         }
     }
 

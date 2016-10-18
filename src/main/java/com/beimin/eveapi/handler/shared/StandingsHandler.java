@@ -17,8 +17,7 @@ public class StandingsHandler extends AbstractContentHandler<StandingsResponse> 
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        super.startElement(uri, localName, qName, attrs);
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             list = new NamedList<>();
             saveFieldsCount(NamedList.class, attrs);
@@ -31,14 +30,12 @@ public class StandingsHandler extends AbstractContentHandler<StandingsResponse> 
             standing.setStanding(getDouble(attrs, "standing"));
             list.add(standing);
         }
-        accumulator.setLength(0);
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             getResponse().addStandingsList(list);
         }
-        super.endElement(uri, localName, qName);
     }
 }

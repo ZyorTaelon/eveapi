@@ -20,8 +20,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, ATTRIBUTE_NAME);
             inAttackers = "attackers".equals(name);
@@ -74,13 +73,11 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
             victim.setPositionY(getDouble(attrs, "y"));
             victim.setPositionZ(getDouble(attrs, "z"));
             apiKill.setVictim(victim);
-        } else {
-            super.startElement(uri, localName, qName, attrs);
         }
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             inAttackers = false;
             inItems = false;
@@ -89,8 +86,6 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
                 getResponse().add(apiKill);
                 apiKill = null;
             }
-        } else {
-            super.endElement(uri, localName, qName);
         }
     }
 
