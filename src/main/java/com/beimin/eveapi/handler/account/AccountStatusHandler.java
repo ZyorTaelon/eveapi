@@ -8,12 +8,13 @@ import com.beimin.eveapi.model.account.AccountStatus;
 import com.beimin.eveapi.response.account.AccountStatusResponse;
 
 public class AccountStatusHandler extends AbstractContentHandler<AccountStatusResponse> {
+    private static final int NUMBER_OF_FIELDS = 4;
     private AccountStatus accountStatus;
 
     @Override
     public void startDocument() throws SAXException {
         setResponse(new AccountStatusResponse());
-        saveFieldsCount(AccountStatus.class, 4);
+        saveFieldsCount(AccountStatus.class, NUMBER_OF_FIELDS);
     }
 
     @Override

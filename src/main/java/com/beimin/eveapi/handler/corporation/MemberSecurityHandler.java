@@ -10,7 +10,7 @@ import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.response.corporation.MemberSecurityResponse;
 
 public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurityResponse> {
-    private RolesHandler<ApiResponse> roleHandler = new RolesHandler<>();
+    private final RolesHandler<ApiResponse> roleHandler = new RolesHandler<>();
     private boolean titles;
     private SecurityMember member;
 
@@ -22,18 +22,18 @@ public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurity
     @Override
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            final String name = getString(attrs, "name");
+            final String name = getString(attrs, ATTRIBUTE_NAME);
             roleHandler.parseRowsetRoles(name);
-            titles = name.equals("titles");
+            titles = "titles".equals(name);
         } else if (ELEMENT_ROW.equals(qName)) {
-            boolean handledRoles = roleHandler.handleRoles(member, attrs);
+            final boolean handledRoles = roleHandler.handleRoles(member, attrs);
             if (titles && !handledRoles) {
                 member.addTitle(getTitle(attrs));
             } else if (!handledRoles) {
                 member = new SecurityMember();
                 saveFieldsCount(SecurityMember.class, attrs);
                 member.setCharacterID(getLong(attrs, "characterID"));
-                member.setName(getString(attrs, "name"));
+                member.setName(getString(attrs, ATTRIBUTE_NAME));
                 getResponse().addMember(member);
             }
         }

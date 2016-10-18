@@ -16,7 +16,7 @@ import com.beimin.eveapi.parser.ApiRequest;
 import com.beimin.eveapi.response.ApiResponse;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
-    protected final Logger logger = LoggerFactory.getLogger(getClass());
+    protected final Logger LOGGER = LoggerFactory.getLogger(getClass());
     private static ApiConnector connector = new ApiConnector();
     protected final ApiPath path;
     protected final ApiPage page;

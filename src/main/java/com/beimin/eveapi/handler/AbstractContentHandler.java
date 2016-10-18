@@ -31,7 +31,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     private boolean strictCheckMode;
     private Map<String, Integer> fields;
 
-    private StringBuilder accumulator = new StringBuilder();
+    private final StringBuilder accumulator = new StringBuilder();
     private ApiError error;
 
     public AbstractContentHandler() {

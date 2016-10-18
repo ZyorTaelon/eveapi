@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.response.corporation.TitlesResponse;
 
 public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, TitleWithRoles> {
-    private RolesHandler<ApiResponse> roleHandler = new RolesHandler<>();
+    private final RolesHandler<ApiResponse> roleHandler = new RolesHandler<>();
     private TitleWithRoles title;
 
     public TitlesHandler() {
@@ -21,11 +21,9 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             roleHandler.parseRowsetRoles(name);
-        } else if (ELEMENT_ROW.equals(qName)) {
-            if (!roleHandler.handleTitleRoles(title, attrs)) {
-                title = getItem(attrs);
-                getResponse().add(title);
-            }
+        } else if (ELEMENT_ROW.equals(qName) && !roleHandler.handleTitleRoles(title, attrs)) {
+            title = getItem(attrs);
+            getResponse().add(title);
         }
     }
 
