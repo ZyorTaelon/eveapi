@@ -12,7 +12,9 @@ public class CorpSheetParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("Bug: have dead fields", TestControl.runBug());
+        addIgnoreElement("row");
+        addIgnoreElement("logo");
         // Not in alliance
         addNullOk("getAllianceName");
         addEmptyOK("getAllianceID");

@@ -12,7 +12,10 @@ public class PublicCorpSheetParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void corporationSheetParser() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("Bug: have dead fields", TestControl.runBug());
+        addElementMissingOK(CorpSheetResponse.class, 1); //memberLimit not included in public return
+        addIgnoreElement("logo");
+        addIgnoreElement("row");
         // Private not included
         addNullOk("getWalletDivisions");
         addNullOk("getDivisions");

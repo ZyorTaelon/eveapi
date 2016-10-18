@@ -23,7 +23,7 @@ public class ApiKeyInfoHandler extends AbstractContentHandler<ApiKeyInfoResponse
             apiKeyInfo = new ApiKeyInfo();
         }
         if ("key".equals(qName)) {
-            saveFieldsCount(ApiKeyInfo.class, attrs);
+            saveAttributes(ApiKeyInfo.class, attrs);
             apiKeyInfo.setAccessMask(getLong(attrs, "accessMask"));
             apiKeyInfo.setType(KeyType.valueOf(getString(attrs, "type")));
             final String expires = attrs.getValue("expires").trim();
@@ -31,7 +31,7 @@ public class ApiKeyInfoHandler extends AbstractContentHandler<ApiKeyInfoResponse
                 apiKeyInfo.setExpires(getDate(expires));
             }
         } else if (ELEMENT_ROW.equals(qName)) {
-            saveFieldsCount(Character.class, attrs);
+            saveAttributes(Character.class, attrs);
             final Character character = new Character();
             character.setCharacterID(getLong(attrs, "characterID"));
             character.setName(getString(attrs, "characterName"));

@@ -12,7 +12,7 @@ public class SecurityParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("Some data missing", TestControl.runIncompleteDataset());
         final MemberSecurityParser parser = new MemberSecurityParser();
         prepareParser(parser);
 

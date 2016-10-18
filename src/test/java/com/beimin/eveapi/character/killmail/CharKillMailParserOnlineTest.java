@@ -22,6 +22,11 @@ public class CharKillMailParserOnlineTest extends AbstractOnlineTest {
         final KillMailResponse response = parser.getResponse(getCharacter());
 
         testResponse(response);
+    }
+
+    @Test
+    public void getResponseWalking() throws Exception {
+        assumeTrue("Test not completed", TestControl.runTestIncomplete());
         testFail("Does not test KillMail walking");
     }
 

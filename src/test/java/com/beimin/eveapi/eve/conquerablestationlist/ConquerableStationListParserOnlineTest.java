@@ -12,7 +12,7 @@ public class ConquerableStationListParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("Bug: Missing fields", TestControl.runBug());
         final ConquerableStationListParser parser = new ConquerableStationListParser();
         prepareParser(parser);
 

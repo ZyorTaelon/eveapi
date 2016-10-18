@@ -16,6 +16,7 @@ public class MailBodiesHandler extends AbstractContentListHandler<MailBodiesResp
     @Override
     protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
+            setElementClass(MailBody.class);
             getItem().setBody(getString());
         }
     }
@@ -23,7 +24,7 @@ public class MailBodiesHandler extends AbstractContentListHandler<MailBodiesResp
     @Override
     protected MailBody getItem(final Attributes attrs) {
         final MailBody item = new MailBody();
-        saveFieldsCount(MailBody.class, attrs);
+        saveAttributes(MailBody.class, attrs);
         item.setMessageID(getLong(attrs, "messageID"));
         return item;
     }

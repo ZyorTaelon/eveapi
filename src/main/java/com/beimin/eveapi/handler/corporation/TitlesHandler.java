@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.response.corporation.TitlesResponse;
 
 public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, TitleWithRoles> {
-    private RolesHandler<ApiResponse> roleHandler = new RolesHandler<>();
+    private final RolesHandler<ApiResponse> roleHandler = new RolesHandler<>();
     private TitleWithRoles title;
 
     public TitlesHandler() {
@@ -32,7 +32,7 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
     @Override
     protected TitleWithRoles getItem(final Attributes attrs) {
         final TitleWithRoles item = new TitleWithRoles();
-        saveFieldsCount(TitleWithRoles.class, attrs);
+        saveAttributes(TitleWithRoles.class, attrs);
         item.setTitleID(getLong(attrs, "titleID"));
         item.setTitleName(getString(attrs, "titleName"));
         return item;

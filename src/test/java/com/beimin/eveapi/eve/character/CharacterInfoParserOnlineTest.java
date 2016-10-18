@@ -19,12 +19,14 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
         addNullOk("getAllianceID");
         addNullOk("getAllianceDate");
         addNullOk("getAlliance");
+        addEmptyOK("getSecurityStatus"); // Security Status can be zero
+        addIgnoreElement("row");
         prepareParser(classToTest);
     }
 
     @Test
     public void getResponsePublic() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("Bug: Missing fields", TestControl.runBug());
         // Private Info, not included
         addNullOk("getShipName");
         addNullOk("getAccountBalance");
@@ -32,8 +34,10 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
         addNullOk("getShipTypeID");
         addNullOk("getSkillPoints");
         addNullOk("getShipTypeName");
-        addEmptyOK("getSecurityStatus"); // Security Status can be zero
-
+        //allianceID, alliance, allianceDate, nextTrainingEnds, shipName,
+        //accountBalance, lastKnownLocation, shipTypeID, skillPoints
+        //shipTypeName
+        addElementMissingOK(CharacterInfoResponse.class, 10); 
         final CharacterInfoResponse response = classToTest.getResponse(getCharacterID());
 
         testResponse(response);
@@ -41,7 +45,8 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponseKeyFull() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("Bug: Missing fields", TestControl.runBug());
+        addElementMissingOK(CharacterInfoResponse.class, 4); //allianceID, alliance, allianceDate, nextTrainingEnds
         final CharacterInfoResponse response = classToTest.getResponse(getEve());
 
         testResponse(response);

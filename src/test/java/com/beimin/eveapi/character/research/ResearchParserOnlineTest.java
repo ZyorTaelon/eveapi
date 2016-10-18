@@ -12,7 +12,7 @@ public class ResearchParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("No data returned by the API", TestControl.runNoData());
         final ResearchParser parser = new ResearchParser();
         prepareParser(parser);
 

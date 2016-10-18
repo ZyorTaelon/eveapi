@@ -12,7 +12,7 @@ public class CorpStandingsParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("Some data missing", TestControl.runIncompleteDataset());
         final CorpStandingsParser parser = new CorpStandingsParser();
         prepareParser(parser);
 

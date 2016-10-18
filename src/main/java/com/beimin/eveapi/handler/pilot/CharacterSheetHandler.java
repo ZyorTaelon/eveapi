@@ -46,6 +46,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
             rowsetName = getString(attrs, "name");
         } else if (ELEMENT_ROW.equals(qName)) {
             if ("skills".equals(rowsetName)) {
+                saveAttributes(Skill.class, attrs);
                 final Skill skill = new Skill();
                 skill.setTypeID(getInt(attrs, "typeID"));
                 final Integer level = getInt(attrs, "level");
@@ -57,26 +58,31 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
                 response.addSkill(skill);
             } else if ("corporationRoles".equals(rowsetName)) {
                 final Role corporationRole = new Role();
+                saveAttributes(Role.class, attrs);
                 corporationRole.setRoleID(getLong(attrs, "roleID"));
                 corporationRole.setRoleName(getString(attrs, "roleName"));
                 response.addCorporationRole(corporationRole);
             } else if ("corporationRolesAtHQ".equals(rowsetName)) {
                 final Role corporationRole = new Role();
+                saveAttributes(Role.class, attrs);
                 corporationRole.setRoleID(getLong(attrs, "roleID"));
                 corporationRole.setRoleName(getString(attrs, "roleName"));
                 response.addCorporationRoleAtHQ(corporationRole);
             } else if ("corporationRolesAtBase".equals(rowsetName)) {
                 final Role corporationRole = new Role();
+                saveAttributes(Role.class, attrs);
                 corporationRole.setRoleID(getLong(attrs, "roleID"));
                 corporationRole.setRoleName(getString(attrs, "roleName"));
                 response.addCorporationRoleAtBase(corporationRole);
             } else if ("corporationRolesAtOther".equals(rowsetName)) {
                 final Role corporationRole = new Role();
+                saveAttributes(Role.class, attrs);
                 corporationRole.setRoleID(getLong(attrs, "roleID"));
                 corporationRole.setRoleName(getString(attrs, "roleName"));
                 response.addCorporationRoleAtOther(corporationRole);
             } else if ("corporationTitles".equals(rowsetName)) {
                 final Title corporationTitle = new Title();
+                saveAttributes(Title.class, attrs);
                 corporationTitle.setTitleID(getLong(attrs, "titleID"));
                 corporationTitle.setTitleName(getString(attrs, "titleName"));
                 response.addCorporationTitle(corporationTitle);

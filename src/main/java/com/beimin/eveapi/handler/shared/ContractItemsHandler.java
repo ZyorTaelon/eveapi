@@ -14,7 +14,7 @@ public class ContractItemsHandler extends AbstractContentListHandler<ContractIte
     @Override
     protected ContractItem getItem(final Attributes attrs) {
         final ContractItem contractItem = new ContractItem();
-        saveFieldsCount(ContractItem.class, attrs);
+        saveAttributes(ContractItem.class, attrs);
         contractItem.setRecordID(getLong(attrs, "recordID"));
         contractItem.setTypeID(getInt(attrs, "typeID"));
         contractItem.setQuantity(getLong(attrs, "quantity"));

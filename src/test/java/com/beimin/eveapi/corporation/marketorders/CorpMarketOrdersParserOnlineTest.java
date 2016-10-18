@@ -7,6 +7,7 @@ import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.model.shared.MarketOrder;
 import com.beimin.eveapi.parser.corporation.CorpMarketOrdersParser;
 import com.beimin.eveapi.response.shared.MarketOrdersResponse;
+import java.util.Set;
 import static org.junit.Assume.assumeTrue;
 
 public class CorpMarketOrdersParserOnlineTest extends AbstractOnlineTest {
@@ -20,7 +21,9 @@ public class CorpMarketOrdersParserOnlineTest extends AbstractOnlineTest {
         MarketOrdersResponse response = parser.getResponse(getCorp());
         testResponse(response);
 
-        final MarketOrder marketOrder = response.getAll().iterator().next();
+        Set<MarketOrder> marketOrders = response.getAll();
+        test(marketOrders);
+        final MarketOrder marketOrder = marketOrders.iterator().next();
         response = parser.getResponse(getCharacter(), marketOrder.getOrderID());
         testResponse(response);
     }

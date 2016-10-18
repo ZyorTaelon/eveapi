@@ -15,7 +15,7 @@ public class TypeNameHandler extends AbstractContentListHandler<TypeNameResponse
     @Override
     protected EveTypeName getItem(final Attributes attrs) {
         final EveTypeName lookup = new EveTypeName();
-        saveFieldsCount(EveTypeName.class, attrs);
+        saveAttributes(EveTypeName.class, attrs);
         lookup.setTypeID(getInt(attrs, "typeID"));
         lookup.setTypeName(getString(attrs, "typeName"));
         return lookup;

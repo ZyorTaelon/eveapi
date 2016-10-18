@@ -29,7 +29,7 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
             walletDivisions = "walletDivisions".equals(name);
         } else if (ELEMENT_ROW.equals(qName)) {
             final Division division = new Division();
-            saveFieldsCount(Division.class, attrs);
+            saveAttributes(Division.class, attrs);
             division.setAccountKey(getInt(attrs, "accountKey"));
             division.setDescription(getString(attrs, "description"));
             if (divisions) {
@@ -81,6 +81,8 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
         } else if (ELEMENT_ROWSET.equals(qName) && (divisions || walletDivisions)) {
             divisions = false;
             walletDivisions = false;
+        } else {
+            setElementClass(CorpLogo.class);
         }
     }
 
