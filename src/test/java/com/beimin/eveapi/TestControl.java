@@ -25,12 +25,15 @@ public class TestControl {
      * Run tests that miss part of the data set
      */
     private final static boolean RUN_INCOMPLETE_DATASET = false;
-
     /**
      * Ignore collections if they are empty
      */
     private final static boolean IGNORE_EMPTY_COLLECTIONS = false;
-    
+    /**
+     * Log the response to console
+     */
+    private final static boolean LOG_RESPONSE = false;
+
     public static boolean runNoData() {
         return RUN_NO_DATA || RUN_ALL;
     }
@@ -55,4 +58,7 @@ public class TestControl {
         return IGNORE_EMPTY_COLLECTIONS;
     }
 
+    public static boolean logResponse() {
+        return LOG_RESPONSE;
+    }
 }

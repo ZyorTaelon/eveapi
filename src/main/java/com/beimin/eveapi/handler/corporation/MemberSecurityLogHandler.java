@@ -21,8 +21,8 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
-            oldRoles = name.equals("oldRoles");
-            newRoles = name.equals("newRoles");
+            oldRoles = "oldRoles".equals(name);
+            newRoles = "newRoles".equals(name);
         } else if (ELEMENT_ROW.equals(qName)) {
             if (oldRoles) {
                 roleHistory.addOldRole(getRole(attrs));
