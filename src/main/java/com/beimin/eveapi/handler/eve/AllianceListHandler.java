@@ -19,7 +19,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
     @Override
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            memberCorporations = getString(attrs, ATTRIBUTE_NAME).equals("memberCorporations");
+            memberCorporations = "memberCorporations".equals(getString(attrs, ATTRIBUTE_NAME));
         } else if (ELEMENT_ROW.equals(qName)) {
             if (memberCorporations) {
                 final MemberCorporation memberCorporation = new MemberCorporation();
@@ -42,14 +42,14 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
 
     @Override
     protected Alliance getItem(final Attributes attrs) {
-        final Alliance alliance = new Alliance();
+        final Alliance createdAlliance = new Alliance();
         saveAttributes(Alliance.class, attrs);
-        alliance.setAllianceID(getLong(attrs, "allianceID"));
-        alliance.setName(getString(attrs, ATTRIBUTE_NAME));
-        alliance.setShortName(getString(attrs, "shortName"));
-        alliance.setExecutorCorpID(getLong(attrs, "executorCorpID"));
-        alliance.setMemberCount(getInt(attrs, "memberCount"));
-        alliance.setStartDate(getDate(attrs, "startDate"));
-        return alliance;
+        createdAlliance.setAllianceID(getLong(attrs, "allianceID"));
+        createdAlliance.setName(getString(attrs, ATTRIBUTE_NAME));
+        createdAlliance.setShortName(getString(attrs, "shortName"));
+        createdAlliance.setExecutorCorpID(getLong(attrs, "executorCorpID"));
+        createdAlliance.setMemberCount(getInt(attrs, "memberCount"));
+        createdAlliance.setStartDate(getDate(attrs, "startDate"));
+        return createdAlliance;
     }
 }

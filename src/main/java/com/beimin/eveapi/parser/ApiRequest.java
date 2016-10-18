@@ -112,7 +112,9 @@ public class ApiRequest implements Comparable<ApiRequest> {
         result.append("Path: ").append(path.getPath()).append("\n");
         result.append("Page: ").append(page.getPage()).append("\n");
         result.append("Version: ").append(version).append("\n");
-        result.append("Auth: ").append(auth.toString()).append("\n");
+        if (auth != null) {
+            result.append("Auth: ").append(auth.toString()).append("\n");
+        }
         for (final Entry<String, String> entry : params.entrySet()) {
             result.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
         }
