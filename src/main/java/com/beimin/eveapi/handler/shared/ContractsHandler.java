@@ -19,7 +19,7 @@ public class ContractsHandler extends AbstractContentListHandler<ContractsRespon
     @Override
     protected Contract getItem(final Attributes attrs) {
         final Contract contract = new Contract();
-        saveFieldsCount(Contract.class, attrs);
+        saveAttributes(Contract.class, attrs);
         contract.setContractID(getLong(attrs, "contractID"));
         contract.setIssuerID(getLong(attrs, "issuerID"));
         contract.setIssuerCorpID(getLong(attrs, "issuerCorpID"));

@@ -1,7 +1,5 @@
 package com.beimin.eveapi.eve.reftypes;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +9,8 @@ import org.junit.Test;
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.parser.eve.RefTypesParser;
 import com.beimin.eveapi.response.eve.RefTypesResponse;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class RefTypesParserOnlineTest extends AbstractOnlineTest {
 

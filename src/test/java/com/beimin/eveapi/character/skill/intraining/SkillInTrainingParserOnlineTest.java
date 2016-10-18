@@ -12,9 +12,7 @@ public class SkillInTrainingParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
-        addNullOk("getTrainingEndTime"); // No skill in traning
-        addNullOk("getTrainingStartTime"); // No skill in traning
+        assumeTrue("No data returned by the API", TestControl.runNoData());
         final SkillInTrainingParser parser = new SkillInTrainingParser();
         prepareParser(parser);
 

@@ -3,10 +3,9 @@ package com.beimin.eveapi.corporation.member.tracking;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.TestControl;
+import com.beimin.eveapi.model.corporation.Member;
 import com.beimin.eveapi.parser.corporation.MemberTrackingParser;
 import com.beimin.eveapi.response.corporation.MemberTrackingResponse;
-import static org.junit.Assume.assumeTrue;
 import org.junit.Before;
 
 public class TrackingParserOnlineTest extends AbstractOnlineTest {
@@ -15,25 +14,33 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
     @Before
     public void prepare() {
         before();
+        addIgnoreElement("row");
+        //Can be empty
+        addEmptyOK("getBase");
+        addEmptyOK("getTitle");
+        addEmptyOK("getBaseID");
+        addEmptyOK("getGrantableRoles");
+
         prepareParser(classToTest);
     }
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
         //Not included in default return
         addNullOk("getLocation");
         addNullOk("getShipType");
-        addNullOk("getBaseID");
         addNullOk("getLogonDateTime");
-        addNullOk("getBase");
         addNullOk("getLogoffDateTime");
-        addEmptyOK("getGrantableRoles");
         addEmptyOK("getTitle");
         addEmptyOK("getLocationID");
         addEmptyOK("getRoles");
         addEmptyOK("getShipTypeID");
-
+        
+        //location, shipType, logonDateTime, logoffDateTime
+        //grantableRoles, locationID, roles, shipTypeID
+        addElementMissingOK(Member.class, 8);
+        
+        
         final MemberTrackingResponse response = classToTest.getResponse(getCorp());
 
         testResponse(response);
@@ -41,7 +48,6 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getExtendedResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
         final MemberTrackingResponse response = classToTest.getExtendedResponse(getCorp());
 
         testResponse(response);

@@ -12,7 +12,9 @@ public class FacWarSystemsParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("Bug: Missing fields", TestControl.runBug());
+        addEmptyOK("getOccupyingFactionID"); //not occupied
+        addEmptyOK("getOccupyingFactionName"); //not occupied
         final FacWarSystemsParser parser = new FacWarSystemsParser();
         prepareParser(parser);
 

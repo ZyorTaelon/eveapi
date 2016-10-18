@@ -37,7 +37,7 @@ public class CorpLocationsParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("Some data missing", TestControl.runIncompleteDataset());
         final CorpLocationsParser parser = new CorpLocationsParser();
         prepareParser(parser);
 

@@ -15,7 +15,7 @@ public class BlueprintsHandler extends AbstractContentListHandler<BlueprintsResp
     @Override
     protected Blueprint getItem(final Attributes attrs) {
         final Blueprint blueprint = new Blueprint();
-        saveFieldsCount(Blueprint.class, attrs);
+        saveAttributes(Blueprint.class, attrs);
         blueprint.setItemID(getLong(attrs, "itemID"));
         blueprint.setLocationID(getLong(attrs, "locationID"));
         blueprint.setTypeID(getInt(attrs, "typeID"));

@@ -38,19 +38,19 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
         } else if (ELEMENT_ROW.equals(qName)) {
             if (skillBonusCollection) {
                 final Bonus bonus = new Bonus();
-                saveFieldsCount(Bonus.class, attrs);
+                saveAttributes(Bonus.class, attrs);
                 bonus.setBonusType(getString(attrs, "bonusType"));
                 bonus.setBonusValue(getString(attrs, "bonusValue"));
                 skill.add(bonus);
             } else if (requiredSkills) {
                 final Requirement requirement = new Requirement();
-                saveFieldsCount(Requirement.class, attrs);
+                saveAttributes(Requirement.class, attrs);
                 requirement.setTypeID(getInt(attrs, "typeID"));
                 requirement.setSkillLevel(getInt(attrs, "skillLevel"));
                 skill.add(requirement);
             } else if (skills) {
                 skill = new Skill();
-                saveFieldsCount(Skill.class, attrs);
+                saveAttributes(Skill.class, attrs);
                 skill.setTypeName(getString(attrs, "typeName"));
                 skill.setTypeID(getInt(attrs, "typeID"));
                 skill.setGroupID(getInt(attrs, "groupID"));
@@ -76,11 +76,15 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
             }
         } else if ("description".equals(qName)) {
             skill.setDescription(getString());
+            setElementClass(Skill.class);
         } else if ("rank".equals(qName)) {
             skill.setRank(getInt());
+            setElementClass(Skill.class);
         } else if ("primaryAttribute".equals(qName)) {
             skill.setPrimaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
+            setElementClass(Skill.class);
         } else if ("secondaryAttribute".equals(qName)) {
+            setElementClass(Skill.class);
             skill.setSecondaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
         }
     }
@@ -88,6 +92,7 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
     @Override
     protected SkillGroup getItem(final Attributes attrs) {
         final SkillGroup item = new SkillGroup();
+        saveAttributes(SkillGroup.class, attrs);
         item.setGroupID(getInt(attrs, "groupID"));
         item.setGroupName(getString(attrs, "groupName"));
         return item;

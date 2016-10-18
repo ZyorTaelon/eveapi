@@ -13,7 +13,6 @@ public class AccountStatusHandler extends AbstractContentHandler<AccountStatusRe
     @Override
     public void startDocument() throws SAXException {
         setResponse(new AccountStatusResponse());
-        saveFieldsCount(AccountStatus.class, 4);
     }
 
     @Override
@@ -25,6 +24,7 @@ public class AccountStatusHandler extends AbstractContentHandler<AccountStatusRe
 
     @Override
     protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
+        setElementClass(AccountStatus.class);
         if ("paidUntil".equals(qName)) {
             accountStatus.setPaidUntil(getDate());
         } else if ("createDate".equals(qName)) {

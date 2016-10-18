@@ -15,7 +15,7 @@ public class AccountBalanceHandler extends AbstractContentListHandler<AccountBal
     @Override
     protected AccountBalance getItem(final Attributes attrs) {
         final AccountBalance accountBalance = new AccountBalance();
-        saveFieldsCount(AccountBalance.class, attrs);
+        saveAttributes(AccountBalance.class, attrs);
         accountBalance.setAccountID(getInt(attrs, "accountID"));
         accountBalance.setAccountKey(getInt(attrs, "accountKey"));
         accountBalance.setBalance(getDouble(attrs, "balance"));

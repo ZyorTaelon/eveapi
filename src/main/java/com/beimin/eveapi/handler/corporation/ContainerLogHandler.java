@@ -17,7 +17,7 @@ public class ContainerLogHandler extends AbstractContentListHandler<ContainerLog
     @Override
     protected ContainerLog getItem(final Attributes attrs) {
         final ContainerLog log = new ContainerLog();
-        saveFieldsCount(ContainerLog.class, attrs);
+        saveAttributes(ContainerLog.class, attrs);
         log.setLogTime(getDate(attrs, "logTime"));
         log.setItemID(getLong(attrs, "itemID"));
         log.setItemTypeID(getInt(attrs, "itemTypeID"));

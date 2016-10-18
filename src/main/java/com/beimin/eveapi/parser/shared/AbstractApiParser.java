@@ -14,6 +14,7 @@ import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.ApiRequest;
 import com.beimin.eveapi.response.ApiResponse;
+import java.util.Set;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
@@ -70,5 +71,9 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
 
     public Map<String, Integer> enableStrictCheckMode() {
         return getAndPrepareContentHandler().enableStrictCheckMode();
+    }
+
+    public void setIgnoreElements(Set<String> ignoreElements) {
+        getAndPrepareContentHandler().setIgnoreElements(ignoreElements);
     }
 }

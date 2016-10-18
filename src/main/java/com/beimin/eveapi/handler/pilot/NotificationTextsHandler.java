@@ -23,7 +23,7 @@ public class NotificationTextsHandler extends AbstractContentListHandler<Notific
     @Override
     protected NotificationText getItem(final Attributes attrs) {
         final NotificationText notificationText = new NotificationText();
-        saveFieldsCount(NotificationText.class, attrs);
+        saveAttributes(NotificationText.class, attrs);
         notificationText.setNotificationID(getLong(attrs, "notificationID"));
         return notificationText;
     }
