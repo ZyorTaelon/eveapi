@@ -30,7 +30,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
     }
 
     @Override
-    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         final CharacterSheetResponse response = getResponse();
         if ("intelligenceBonus".equals(qName)) {
             attributeEnhancer = new IntelligenceBonus();
@@ -85,7 +85,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
     }
 
     @Override
-    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final CharacterSheetResponse response = getResponse();
         if ("characterID".equals(qName)) {
             response.setCharacterID(getLong());

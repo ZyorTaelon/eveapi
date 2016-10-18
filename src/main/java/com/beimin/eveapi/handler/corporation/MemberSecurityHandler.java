@@ -20,7 +20,7 @@ public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurity
     }
 
     @Override
-    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             roleHandler.parseRowsetRoles(name);
@@ -48,7 +48,7 @@ public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurity
     }
 
     @Override
-    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             roleHandler.resetRoles();
             if (titles) {

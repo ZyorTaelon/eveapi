@@ -18,7 +18,7 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
     }
 
     @Override
-    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             oldRoles = name.equals("oldRoles");
@@ -44,7 +44,7 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
     }
 
     @Override
-    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if ((ELEMENT_ROWSET.equals(qName) && oldRoles) || newRoles) {
             oldRoles = false;
             newRoles = false;

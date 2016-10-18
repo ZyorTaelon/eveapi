@@ -28,7 +28,7 @@ public abstract class AbstractContentListHandler<E extends ApiListResponse<B>, B
     }
 
     @Override
-    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
             item = getItem(attrs);
             getResponse().add(item);

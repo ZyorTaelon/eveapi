@@ -18,7 +18,7 @@ public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoRe
     }
 
     @Override
-    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROW.equals(qName)) {
             final CharacterEmployment employ = new CharacterEmployment();
             saveFieldsCount(CharacterEmployment.class, attrs);
@@ -29,7 +29,7 @@ public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoRe
     }
 
     @Override
-    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final CharacterInfoResponse response = getResponse();
         if ("characterID".equals(qName)) {
             response.setCharacterID(getLong());

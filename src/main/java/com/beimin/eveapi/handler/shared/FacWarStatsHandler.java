@@ -12,7 +12,7 @@ public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsRespon
     }
 
     @Override
-    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final FacWarStatsResponse response = getResponse();
         if ("factionID".equals(qName)) {
             response.setFactionID(getInt());

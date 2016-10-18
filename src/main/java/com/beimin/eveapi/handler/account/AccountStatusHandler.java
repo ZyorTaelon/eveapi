@@ -17,14 +17,14 @@ public class AccountStatusHandler extends AbstractContentHandler<AccountStatusRe
     }
 
     @Override
-    public void elementStart(final String uri, final String localName, final String qName, final Attributes attributes) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attributes) throws SAXException {
         if ("result".equals(qName)) {
             accountStatus = new AccountStatus();
         }
     }
 
     @Override
-    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if ("paidUntil".equals(qName)) {
             accountStatus.setPaidUntil(getDate());
         } else if ("createDate".equals(qName)) {

@@ -34,7 +34,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
     }
 
     @Override
-    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         final FacWarTopStatsResponse response = getResponse();
         if ("characters".equals(qName)) {
             characters = true;
@@ -169,7 +169,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
     }
 
     @Override
-    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if ("characters".equals(qName)) {
             characters = false;
         } else if ("corporations".equals(qName)) {

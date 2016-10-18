@@ -11,7 +11,7 @@ public class ServerStatusHandler extends AbstractContentHandler<ServerStatusResp
     }
 
     @Override
-    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if ("serverOpen".equals(qName)) {
             getResponse().setServerOpen(getBoolean());
         } else if ("onlinePlayers".equals(qName)) {

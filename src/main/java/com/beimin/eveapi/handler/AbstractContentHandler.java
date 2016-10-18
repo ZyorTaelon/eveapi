@@ -62,7 +62,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         accumulator.setLength(0);
     }
 
-    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException { }
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException { }
 
     @Override
     public final void endElement(final String uri, final String localName, final String qName) throws SAXException {
@@ -76,7 +76,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         }
     }
 
-    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException { }
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException { }
 
     protected String getString() {
         return accumulator.toString().trim();

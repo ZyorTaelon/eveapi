@@ -17,7 +17,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
     }
 
     @Override
-    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             memberCorporations = getString(attrs, ATTRIBUTE_NAME).equals("memberCorporations");
         } else if (ELEMENT_ROW.equals(qName)) {
@@ -34,7 +34,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
     }
 
     @Override
-    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if (memberCorporations && ELEMENT_ROWSET.equals(qName)) {
             memberCorporations = false;
         }

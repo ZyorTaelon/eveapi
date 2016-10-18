@@ -18,7 +18,7 @@ public class ApiKeyInfoHandler extends AbstractContentHandler<ApiKeyInfoResponse
     }
 
     @Override
-    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if ("result".equals(qName)) {
             apiKeyInfo = new ApiKeyInfo();
         }
