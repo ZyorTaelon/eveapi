@@ -1,7 +1,9 @@
 package com.beimin.eveapi.handler;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
@@ -12,8 +14,6 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.DateUtils;
-import java.util.HashSet;
-import java.util.Set;
 
 public abstract class AbstractContentHandler<E extends ApiResponse> extends DefaultHandler {
     private static final String MESSAGE_NUMBER_PARSER = "Couldn't parse number";
@@ -192,7 +192,8 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
 
     protected void saveAttributes(final Class<?> clazz, final Attributes attrs) {
         if (strictCheckMode) {
-            addCount(clazz.getName(), clazz.getName(), attrs.getLength());
+            String className = clazz.getName();
+            addCount(className, className, attrs.getLength());
         }
     }
 

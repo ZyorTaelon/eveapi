@@ -12,6 +12,8 @@ import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.response.shared.AbstractContactListResponse;
 
 public class ContactListHandler<CLR extends AbstractContactListResponse> extends AbstractContentHandler<CLR> {
+    private static final String ATTRIBUTE_CONTACT_ID = "contactID";
+
     private static final Logger LOGGER = LoggerFactory.getLogger(ContactListHandler.class);
 
     private final Class<CLR> clazz;
@@ -37,20 +39,20 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             // contacts or labels, separate by key
-            if (getString(attrs, "key").equals("contactID")) {
+            if (ATTRIBUTE_CONTACT_ID.equals(getString(attrs, "key"))) {
                 contactList = new NamedList<>();
-                contactList.setName(getString(attrs, "name"));
+                contactList.setName(getString(attrs, ATTRIBUTE_NAME));
             } else {
                 labelList = new NamedList<>();
-                labelList.setName(getString(attrs, "name"));
+                labelList.setName(getString(attrs, ATTRIBUTE_NAME));
             }
         }
 
         if (ELEMENT_ROW.equals(qName)) {
             // contacts or labels, separate by index
-            if (attrs.getIndex("contactID") > -1) {
+            if (attrs.getIndex(ATTRIBUTE_CONTACT_ID) > -1) {
                 final Contact contact = new Contact();
-                contact.setContactID(getInt(attrs, "contactID"));
+                contact.setContactID(getInt(attrs, ATTRIBUTE_CONTACT_ID));
                 contact.setContactName(getString(attrs, "contactName"));
                 contact.setInWatchlist(getBoolean(attrs, "inWatchlist"));
                 contact.setStanding(getDouble(attrs, "standing"));

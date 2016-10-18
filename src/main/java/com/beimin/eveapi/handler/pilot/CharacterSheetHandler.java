@@ -21,6 +21,9 @@ import com.beimin.eveapi.model.shared.Title;
 import com.beimin.eveapi.response.pilot.CharacterSheetResponse;
 
 public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheetResponse> {
+    private static final String REGEX = "[-\\s]";
+    private static final String ATTRIBUTE_ROLE_NAME = "roleName";
+    private static final String ATTRIBUTE_ROLE_ID = "roleID";
     private AttributeEnhancer attributeEnhancer;
     private String rowsetName;
 
@@ -59,26 +62,26 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
             } else if ("corporationRoles".equals(rowsetName)) {
                 final Role corporationRole = new Role();
                 saveAttributes(Role.class, attrs);
-                corporationRole.setRoleID(getLong(attrs, "roleID"));
-                corporationRole.setRoleName(getString(attrs, "roleName"));
+                corporationRole.setRoleID(getLong(attrs, ATTRIBUTE_ROLE_ID));
+                corporationRole.setRoleName(getString(attrs, ATTRIBUTE_ROLE_NAME));
                 response.addCorporationRole(corporationRole);
             } else if ("corporationRolesAtHQ".equals(rowsetName)) {
                 final Role corporationRole = new Role();
                 saveAttributes(Role.class, attrs);
-                corporationRole.setRoleID(getLong(attrs, "roleID"));
-                corporationRole.setRoleName(getString(attrs, "roleName"));
+                corporationRole.setRoleID(getLong(attrs, ATTRIBUTE_ROLE_ID));
+                corporationRole.setRoleName(getString(attrs, ATTRIBUTE_ROLE_NAME));
                 response.addCorporationRoleAtHQ(corporationRole);
             } else if ("corporationRolesAtBase".equals(rowsetName)) {
                 final Role corporationRole = new Role();
                 saveAttributes(Role.class, attrs);
-                corporationRole.setRoleID(getLong(attrs, "roleID"));
-                corporationRole.setRoleName(getString(attrs, "roleName"));
+                corporationRole.setRoleID(getLong(attrs, ATTRIBUTE_ROLE_ID));
+                corporationRole.setRoleName(getString(attrs, ATTRIBUTE_ROLE_NAME));
                 response.addCorporationRoleAtBase(corporationRole);
             } else if ("corporationRolesAtOther".equals(rowsetName)) {
                 final Role corporationRole = new Role();
                 saveAttributes(Role.class, attrs);
-                corporationRole.setRoleID(getLong(attrs, "roleID"));
-                corporationRole.setRoleName(getString(attrs, "roleName"));
+                corporationRole.setRoleID(getLong(attrs, ATTRIBUTE_ROLE_ID));
+                corporationRole.setRoleName(getString(attrs, ATTRIBUTE_ROLE_NAME));
                 response.addCorporationRoleAtOther(corporationRole);
             } else if ("corporationTitles".equals(rowsetName)) {
                 final Title corporationTitle = new Title();
@@ -144,14 +147,14 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
     }
 
     private Ancestry getAncestry() {
-        return Ancestry.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
+        return Ancestry.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll(REGEX, "_"));
     }
 
     private Bloodline getBloodline() {
-        return Bloodline.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
+        return Bloodline.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll(REGEX, "_"));
     }
 
     private Race getRace() {
-        return Race.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
+        return Race.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll(REGEX, "_"));
     }
 }
