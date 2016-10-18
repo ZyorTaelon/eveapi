@@ -34,7 +34,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             // contacts or labels, separate by key
             if (getString(attrs, "key").equals("contactID")) {
@@ -64,12 +64,10 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
                 labelList.add(label);
             }
         }
-        super.startElement(uri, localName, qName, attrs);
-        accumulator.setLength(0);
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final CLR response = getResponse();
         if (ELEMENT_ROWSET.equals(qName)) {
             if (contactList != null) {
@@ -80,6 +78,5 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
                 labelList = null;
             }
         }
-        super.endElement(uri, localName, qName);
     }
 }

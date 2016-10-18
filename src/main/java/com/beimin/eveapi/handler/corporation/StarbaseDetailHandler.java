@@ -14,7 +14,7 @@ public class StarbaseDetailHandler extends AbstractContentHandler<StarbaseDetail
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         final StarbaseDetailResponse response = getResponse();
         if ("onStandingDrop".equals(qName)) {
             response.setOnStandingDrop(getCombatSetting(attrs));
@@ -26,8 +26,6 @@ public class StarbaseDetailHandler extends AbstractContentHandler<StarbaseDetail
             response.setOnCorporationWar(getCombatSetting(attrs));
         } else if (ELEMENT_ROW.equals(qName)) {
             response.addFuelLevel(getInt(attrs, "typeID"), getInt(attrs, "quantity"));
-        } else {
-            super.startElement(uri, localName, qName, attrs);
         }
     }
 
@@ -43,7 +41,7 @@ public class StarbaseDetailHandler extends AbstractContentHandler<StarbaseDetail
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final StarbaseDetailResponse response = getResponse();
         if ("usageFlags".equals(qName)) {
             response.setUsageFlags(getInt());
@@ -56,7 +54,5 @@ public class StarbaseDetailHandler extends AbstractContentHandler<StarbaseDetail
         } else if ("claimSovereignty".equals(qName)) {
             response.setClaimSovereignty(getBoolean());
         }
-
-        super.endElement(uri, localName, qName);
     }
 }

@@ -30,7 +30,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         final CharacterSheetResponse response = getResponse();
         if ("intelligenceBonus".equals(qName)) {
             attributeEnhancer = new IntelligenceBonus();
@@ -82,13 +82,10 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
                 response.addCorporationTitle(corporationTitle);
             }
         }
-
-        super.startElement(uri, localName, qName, attrs);
-        accumulator.setLength(0);
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final CharacterSheetResponse response = getResponse();
         if ("characterID".equals(qName)) {
             response.setCharacterID(getLong());
@@ -138,7 +135,6 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
         } else if (ELEMENT_ROWSET.equals(qName)) {
             rowsetName = null;
         }
-        super.endElement(uri, localName, qName);
     }
 
     private Ancestry getAncestry() {

@@ -18,7 +18,7 @@ public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsRespon
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         final FacWarStatsResponse response = getResponse();
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
@@ -49,11 +49,10 @@ public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsRespon
                 response.addStat(item);
             }
         }
-        super.startElement(uri, localName, qName, attrs);
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         final FacWarStatsResponse response = getResponse();
         if ("killsYesterday".equals(qName)) {
             response.setKillsYesterday(getInt());
@@ -71,6 +70,5 @@ public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsRespon
             factions = false;
             factionWars = false;
         }
-        super.endElement(uri, localName, qName);
     }
 }

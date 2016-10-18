@@ -31,7 +31,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     private boolean strictCheckMode;
     private Map<String, Integer> fields;
 
-    protected StringBuilder accumulator = new StringBuilder();
+    private StringBuilder accumulator = new StringBuilder();
     private ApiError error;
 
     public AbstractContentHandler() {
@@ -49,7 +49,8 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    public final void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        elementStart(uri, localName, qName, attrs);
         if (ELEMENT_EVEAPI.equals(qName)) {
             response.setVersion(getInt(attrs, ATTRIBUTE_VERSION));
         } else if (ATTRIBUTE_ERROR.equals(qName)) {
@@ -61,8 +62,11 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         accumulator.setLength(0);
     }
 
+    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException { }
+
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    public final void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        elementEnd(uri, localName, qName);
         if (ELEMENT_CURRENT_TIME.equals(qName)) {
             response.setCurrentTime(getDate());
         } else if (ELEMENT_CACHED_UNTIL.equals(qName)) {
@@ -71,6 +75,8 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
             error.setError(getString());
         }
     }
+
+    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException { }
 
     protected String getString() {
         return accumulator.toString().trim();

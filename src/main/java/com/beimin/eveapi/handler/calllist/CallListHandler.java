@@ -21,7 +21,7 @@ public class CallListHandler extends AbstractContentHandler<CallListResponse> {
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if ("result".equals(qName)) {
             callList = new CallList();
             saveFieldsCount(CallList.class, attrs);
@@ -53,12 +53,10 @@ public class CallListHandler extends AbstractContentHandler<CallListResponse> {
                 callList.add(call);
             }
         }
-        super.startElement(uri, localName, qName, attrs);
-        accumulator.setLength(0);
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if ("result".equals(qName)) {
             getResponse().set(callList);
         }
@@ -66,6 +64,5 @@ public class CallListHandler extends AbstractContentHandler<CallListResponse> {
             callGroups = false;
             calls = false;
         }
-        super.endElement(uri, localName, qName);
     }
 }

@@ -18,7 +18,7 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
     }
 
     @Override
-    public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    public void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             oldRoles = name.equals("oldRoles");
@@ -32,8 +32,6 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
                 roleHistory = getItem(attrs);
                 getResponse().add(roleHistory);
             }
-        } else {
-            super.startElement(uri, localName, qName, attrs);
         }
     }
 
@@ -46,12 +44,11 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
     }
 
     @Override
-    public void endElement(final String uri, final String localName, final String qName) throws SAXException {
+    public void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
         if ((ELEMENT_ROWSET.equals(qName) && oldRoles) || newRoles) {
             oldRoles = false;
             newRoles = false;
         }
-        super.endElement(uri, localName, qName);
     }
 
     @Override
