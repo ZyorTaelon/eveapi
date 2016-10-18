@@ -45,6 +45,9 @@ public class LoggingConnector extends ApiConnector {
         }
         final ApiConnector connector = getConnector();
         final URL url = connector.getURL(request);
+        if (LOGGER.isInfoEnabled()) {
+            LOGGER.info("\nURL: {}\n", url.toString());
+        }
         final Map<String, String> params = connector.getParams(request);
         final InputStream is = connector.getInputStream(url, params);
         return getApiResponse(contentHandler, is, clazz);

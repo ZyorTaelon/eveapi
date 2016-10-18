@@ -6,6 +6,7 @@ public class TestControl {
     private final static boolean RUN_TEST_INCOMPLETE = false;
     private final static boolean RUN_API_ERROR = false;
     private final static boolean RUN_OTHER = false;
+    private final static boolean LOG_RESPONSE = true;
     
     public static boolean runNoData() {
         return RUN_NO_DATA || RUN_ALL;
@@ -23,4 +24,7 @@ public class TestControl {
         return RUN_OTHER || RUN_ALL;
     }
    
+    public static boolean logResponse() {
+        return LOG_RESPONSE;
+    }
 }

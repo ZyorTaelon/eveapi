@@ -22,6 +22,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 
 import com.beimin.eveapi.connectors.ApiConnector;
+import com.beimin.eveapi.connectors.LoggingConnector;
 import com.beimin.eveapi.handler.ApiError;
 import com.beimin.eveapi.parser.ApiAuthorization;
 import com.beimin.eveapi.parser.shared.AbstractApiParser;
@@ -52,7 +53,11 @@ public abstract class AbstractOnlineTest {
 
     @BeforeClass
     public static void setUp() {
-        AbstractApiParser.setConnector(new ApiConnector());
+        if (TestControl.logResponse()) {
+            AbstractApiParser.setConnector(new LoggingConnector(new ApiConnector()));
+        } else {
+            AbstractApiParser.setConnector(new ApiConnector());
+        }
     }
 
     @Before
