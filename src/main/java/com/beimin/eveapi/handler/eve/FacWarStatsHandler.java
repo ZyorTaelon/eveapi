@@ -27,7 +27,7 @@ public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsRespon
         } else if (ELEMENT_ROW.equals(qName)) {
             if (factions) {
                 final FactionStats item = new FactionStats();
-                saveFieldsCount(FactionStats.class, attrs);
+                saveAttributes(FactionStats.class, attrs);
                 item.setFactionID(getInt(attrs, "factionID"));
                 item.setFactionName(getString(attrs, "factionName"));
                 item.setPilots(getInt(attrs, "pilots"));
@@ -41,7 +41,7 @@ public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsRespon
                 response.addStat(item);
             } else if (factionWars) {
                 final FactionWar item = new FactionWar();
-                saveFieldsCount(FactionWar.class, attrs);
+                saveAttributes(FactionWar.class, attrs);
                 item.setFactionID(getInt(attrs, "factionID"));
                 item.setFactionName(getString(attrs, "factionName"));
                 item.setAgainstID(getInt(attrs, "againstID"));

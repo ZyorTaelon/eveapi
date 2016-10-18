@@ -12,6 +12,8 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.DateUtils;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class AbstractContentHandler<E extends ApiResponse> extends DefaultHandler {
     private static final String MESSAGE_NUMBER_PARSER = "Couldn't parse number";
@@ -22,6 +24,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     protected static final String ELEMENT_ROW = "row";
     protected static final String ELEMENT_ROWSET = "rowset";
     protected static final String ATTRIBUTE_VERSION = "version";
+    protected static final String ATTRIBUTE_RESULT = "result";
     protected static final String ATTRIBUTE_CODE = "code";
     protected static final String ATTRIBUTE_ERROR = "error";
     protected static final String ATTRIBUTE_NAME = "name";
@@ -30,6 +33,9 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     private E response;
     private boolean strictCheckMode;
     private Map<String, Integer> fields;
+    private Set<String> elements;
+    private Set<String> ignoreElements;
+    private String currentClassName;
 
     private final StringBuilder accumulator = new StringBuilder();
     private ApiError error;
@@ -50,12 +56,13 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
 
     @Override
     public final void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+        currentClassName = null; //May be set in elementStart
         elementStart(uri, localName, qName, attrs);
         if (ELEMENT_EVEAPI.equals(qName)) {
             response.setVersion(getInt(attrs, ATTRIBUTE_VERSION));
         } else if (ATTRIBUTE_ERROR.equals(qName)) {
             error = new ApiError();
-            saveFieldsCount(ApiError.class, attrs);
+            saveAttributes(ApiError.class, attrs);
             error.setCode(getInt(attrs, ATTRIBUTE_CODE));
             response.setError(error);
         }
@@ -73,6 +80,13 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
             response.setCachedUntil(getDate());
         } else if (ATTRIBUTE_ERROR.equals(qName)) {
             error.setError(getString());
+        } else if (!ATTRIBUTE_RESULT.equals(qName)
+                && !ELEMENT_EVEAPI.equals(qName)
+                //&& !ELEMENT_ROW.equals(qName)
+                && !ELEMENT_ROWSET.equals(qName)
+                && (ignoreElements == null || !ignoreElements.contains(qName))
+                ) {
+            saveElement(qName);
         }
     }
 
@@ -172,20 +186,42 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         return fields;
     }
 
-    protected void saveFieldsCount(final Class<?> clazz, final Attributes attrs) {
+    public void setIgnoreElements(Set<String> ignoreElements) {
+        this.ignoreElements = ignoreElements;
+    }
+
+    protected void saveAttributes(final Class<?> clazz, final Attributes attrs) {
         if (strictCheckMode) {
-            Integer current = fields.get(clazz.getName());
-            if (current == null) {
-                current = 0;
-            }
-            fields.put(clazz.getName(), Math.max(current, attrs.getLength()));
+            addCount(clazz.getName(), clazz.getName(), attrs.getLength());
         }
     }
 
-    protected void saveFieldsCount(final Class<?> clazz, final int number) {
+    protected void setElementClass(Class<?> currentElementClass) {
+        this.currentClassName = currentElementClass.getName();
+    }
+
+    private void saveElement(String elementName) {
         if (strictCheckMode) {
-            fields.put(clazz.getName(), number);
+            if (currentClassName == null) {
+                currentClassName = getResponse().getClass().getName();
+            }
+            addCount(elementName, currentClassName, 1);
         }
+    }
+
+    private void addCount(String id, String className, int add) {
+        if (elements == null) {
+            elements = new HashSet<>();
+        }
+        if (elements.contains(id)) {
+            return; //Only add each element once
+        }
+        elements.add(id);
+        Integer current = fields.get(className);
+        if (current == null) {
+            current = 0;
+        }
+        fields.put(className, current + add);
     }
 
     protected void setResponse(final E response) {

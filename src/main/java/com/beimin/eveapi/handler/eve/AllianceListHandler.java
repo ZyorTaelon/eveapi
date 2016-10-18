@@ -43,7 +43,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
     @Override
     protected Alliance getItem(final Attributes attrs) {
         final Alliance createdAlliance = new Alliance();
-        saveFieldsCount(Alliance.class, attrs);
+        saveAttributes(Alliance.class, attrs);
         createdAlliance.setAllianceID(getLong(attrs, "allianceID"));
         createdAlliance.setName(getString(attrs, ATTRIBUTE_NAME));
         createdAlliance.setShortName(getString(attrs, "shortName"));

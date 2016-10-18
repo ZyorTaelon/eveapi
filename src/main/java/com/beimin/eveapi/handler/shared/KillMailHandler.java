@@ -42,7 +42,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 
     private KillAttacker processKillAttacker(final Attributes attrs) {
         final KillAttacker attacker = new KillAttacker();
-        saveFieldsCount(KillAttacker.class, attrs);
+        saveAttributes(KillAttacker.class, attrs);
         attacker.setCharacterID(getLong(attrs, "characterID"));
         attacker.setCharacterName(getString(attrs, "characterName"));
         attacker.setCorporationID(getLong(attrs, "corporationID"));
@@ -61,7 +61,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 
     private KillItem processKillItem(final Attributes attrs) {
         final KillItem item = new KillItem();
-        saveFieldsCount(KillItem.class, attrs);
+        saveAttributes(KillItem.class, attrs);
         item.setTypeID(getLong(attrs, "typeID"));
         item.setFlag(getInt(attrs, "flag"));
         item.setQtyDestroyed(getInt(attrs, "qtyDestroyed"));
@@ -72,7 +72,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
 
     private KillVictim processVictim(final Attributes attrs) {
         final KillVictim victim = new KillVictim();
-        saveFieldsCount(KillVictim.class, attrs);
+        saveAttributes(KillVictim.class, attrs);
         victim.setCharacterID(getLong(attrs, "characterID"));
         victim.setCharacterName(getString(attrs, "characterName"));
         victim.setCorporationID(getLong(attrs, "corporationID"));
@@ -103,7 +103,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
     @Override
     protected Kill getItem(final Attributes attrs) {
         final Kill item = new Kill();
-        saveFieldsCount(Kill.class, attrs);
+        saveAttributes(Kill.class, attrs);
         item.setKillID(getLong(attrs, "killID"));
         item.setKillTime(getDate(attrs, "killTime"));
         item.setMoonID(getInt(attrs, "moonID"));

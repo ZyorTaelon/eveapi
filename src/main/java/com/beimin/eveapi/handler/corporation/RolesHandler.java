@@ -111,7 +111,7 @@ public class RolesHandler<E extends ApiResponse> extends AbstractContentHandler<
 
     private CorporationRole getRole(final Attributes attrs) {
         final CorporationRole role = new CorporationRole();
-        saveFieldsCount(CorporationRole.class, attrs);
+        saveAttributes(CorporationRole.class, attrs);
         role.setRoleID(getLong(attrs, "roleID"));
         role.setRoleName(getString(attrs, "roleName"));
         role.setRoleDescription(getString(attrs, "roleDescription"));

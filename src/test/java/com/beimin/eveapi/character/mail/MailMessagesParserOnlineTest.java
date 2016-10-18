@@ -12,7 +12,14 @@ public class MailMessagesParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("Bug: Missing fields", TestControl.runBug());
+        addIgnoreElement("row");
+        addNullOk("getCharacterIDs"); //not to character
+        addEmptyOK("getToCharacterIDs"); //not to character
+        addEmptyOK("getToListIDs"); //not to list
+        addNullOk("getListIDs"); //not to list
+        addNullOk("getToCorpOrAllianceID"); //not to corp or alliance
+        
         final MailMessagesParser parser = new MailMessagesParser();
         prepareParser(parser);
 

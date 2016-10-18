@@ -31,7 +31,7 @@ public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurity
                 member.addTitle(getTitle(attrs));
             } else if (!handledRoles) {
                 member = new SecurityMember();
-                saveFieldsCount(SecurityMember.class, attrs);
+                saveAttributes(SecurityMember.class, attrs);
                 member.setCharacterID(getLong(attrs, "characterID"));
                 member.setName(getString(attrs, ATTRIBUTE_NAME));
                 getResponse().addMember(member);
@@ -41,7 +41,7 @@ public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurity
 
     private Title getTitle(final Attributes attrs) {
         final Title title = new Title();
-        saveFieldsCount(Title.class, attrs);
+        saveAttributes(Title.class, attrs);
         title.setTitleID(getLong(attrs, "titleID"));
         title.setTitleName(getString(attrs, "titleName"));
         return title;

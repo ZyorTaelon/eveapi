@@ -12,7 +12,12 @@ public class SheetParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Other error", TestControl.runOther());
+        assumeTrue("Bug: Missing fields", TestControl.runBug());
+        addEmptyOK("getAllianceID"); //not in alliance
+        addNullOk("getAllianceName"); //not in alliance
+        addEmptyOK("getCorporationTitles"); //no titles
+        addEmptyOK("getCloneSkillPoints"); //always return zero now?
+        addEmptyOK("getAttributeEnhancers"); //no attribute enhancers
         final CharacterSheetParser parser = new CharacterSheetParser();
         prepareParser(parser);
 

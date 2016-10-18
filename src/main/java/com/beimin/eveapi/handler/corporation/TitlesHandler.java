@@ -30,7 +30,7 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
     @Override
     protected TitleWithRoles getItem(final Attributes attrs) {
         final TitleWithRoles item = new TitleWithRoles();
-        saveFieldsCount(TitleWithRoles.class, attrs);
+        saveAttributes(TitleWithRoles.class, attrs);
         item.setTitleID(getLong(attrs, "titleID"));
         item.setTitleName(getString(attrs, "titleName"));
         return item;
