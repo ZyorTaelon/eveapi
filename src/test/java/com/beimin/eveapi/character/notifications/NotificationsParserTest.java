@@ -40,6 +40,7 @@ public class NotificationsParserTest extends FullAuthParserTest {
                 assertEquals(1000125L, notification.getSenderID());
                 assertDate(2010, 1, 14, 20, 45, 0, notification.getSentDate());
                 assertEquals(false, notification.isRead());
+                assertEquals("CONCORD", notification.getSenderName());
                 break;
             }
         }
