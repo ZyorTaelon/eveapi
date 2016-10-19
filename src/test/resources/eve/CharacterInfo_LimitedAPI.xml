@@ -5,8 +5,12 @@
     <characterID>1380128241</characterID>
     <characterName>Zy'or Tealon</characterName>
     <race>Caldari</race>
+    <bloodlineID>12</bloodlineID>
     <bloodline>Deteis</bloodline>
+	<ancestryID>35</ancestryID>
+    <ancestry>Saan Go Caste</ancestry>
     <skillPoints>88793781</skillPoints>
+	<nextTrainingEnds>2016-11-10 00:50:11</nextTrainingEnds>
     <shipName>Zy'or</shipName>
     <shipTypeID>24696</shipTypeID>
     <shipTypeName>Harbinger</shipTypeName>

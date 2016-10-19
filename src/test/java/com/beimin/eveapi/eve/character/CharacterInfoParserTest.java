@@ -13,6 +13,7 @@ import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.Test;
 
 import com.beimin.eveapi.connectors.ApiConnector;
+import com.beimin.eveapi.model.shared.Ancestry;
 import com.beimin.eveapi.model.shared.Bloodline;
 import com.beimin.eveapi.model.shared.Race;
 import com.beimin.eveapi.parser.ApiAuthorization;
@@ -52,11 +53,15 @@ public class CharacterInfoParserTest {
         assertDate(2010, 11, 22, 00, 57, 0, response.getAllianceDate());
         assertEquals(1.74600960835429, response.getSecurityStatus(), 0.00001);
         assertEquals(5, response.getEmploymentHistory().size());
+        assertEquals(12, response.getBloodlineID());
+        assertEquals(35, response.getAncestryID());
+        assertEquals(Ancestry.SAAN_GO_CASTE, response.getAncestry());
 
         assertNull(response.getSkillPoints());
         assertNull(response.getShipName());
         assertNull(response.getShipTypeID());
         assertNull(response.getShipTypeName());
+        assertNull(response.getNextTrainingEnds());
 
         assertNull(response.getAccountBalance());
         assertNull(response.getLastKnownLocation());
@@ -88,6 +93,10 @@ public class CharacterInfoParserTest {
         assertEquals("Zy'or", response.getShipName());
         assertEquals(24696, response.getShipTypeID().intValue());
         assertEquals("Harbinger", response.getShipTypeName());
+		assertEquals(12, response.getBloodlineID());
+        assertEquals(35, response.getAncestryID());
+        assertEquals(Ancestry.SAAN_GO_CASTE, response.getAncestry());
+        assertDate(2016, 11, 10, 00, 50, 11, response.getNextTrainingEnds());
 
         assertNull(response.getAccountBalance());
         assertNull(response.getLastKnownLocation());
@@ -119,6 +128,10 @@ public class CharacterInfoParserTest {
         assertEquals("Zy'or", response.getShipName());
         assertEquals(24696, response.getShipTypeID().intValue());
         assertEquals("Harbinger", response.getShipTypeName());
+		assertEquals(12, response.getBloodlineID());
+        assertEquals(35, response.getAncestryID());
+        assertEquals(Ancestry.SAAN_GO_CASTE, response.getAncestry());
+        assertDate(2016, 11, 10, 00, 50, 11, response.getNextTrainingEnds());
 
         assertEquals(37040036.46, response.getAccountBalance().doubleValue(), 0.01);
         assertEquals("OC The Revolving Door", response.getLastKnownLocation());
