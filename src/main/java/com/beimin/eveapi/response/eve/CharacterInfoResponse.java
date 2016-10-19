@@ -14,7 +14,7 @@ public class CharacterInfoResponse extends ApiResponse {
     private long characterID;
     private String characterName;
     private Race race;
-	private int bloodlineID;
+    private int bloodlineID;
     private Bloodline bloodline;
     private int ancestryID;
     private Ancestry ancestry;
@@ -178,36 +178,36 @@ public class CharacterInfoResponse extends ApiResponse {
         employment.add(employ);
     }
 
-	public int getBloodlineID() {
-		return bloodlineID;
-	}
+    public int getBloodlineID() {
+        return bloodlineID;
+    }
 
-	public void setBloodlineID(int bloodlineID) {
-		this.bloodlineID = bloodlineID;
-	}
+    public void setBloodlineID(int bloodlineID) {
+        this.bloodlineID = bloodlineID;
+    }
 
-	public int getAncestryID() {
-		return ancestryID;
-	}
+    public int getAncestryID() {
+        return ancestryID;
+    }
 
-	public void setAncestryID(int ancestryID) {
-		this.ancestryID = ancestryID;
-	}
+    public void setAncestryID(int ancestryID) {
+        this.ancestryID = ancestryID;
+    }
 
-	public Ancestry getAncestry() {
-		return ancestry;
-	}
+    public Ancestry getAncestry() {
+        return ancestry;
+    }
 
-	public void setAncestry(Ancestry ancestry) {
-		this.ancestry = ancestry;
-	}
+    public void setAncestry(Ancestry ancestry) {
+        this.ancestry = ancestry;
+    }
 
-	public Date getNextTrainingEnds() {
-		return nextTrainingEnds;
-	}
+    public Date getNextTrainingEnds() {
+        return nextTrainingEnds;
+    }
 
-	public void setNextTrainingEnds(Date nextTrainingEnds) {
-		this.nextTrainingEnds = nextTrainingEnds;
-	}
+    public void setNextTrainingEnds(Date nextTrainingEnds) {
+        this.nextTrainingEnds = nextTrainingEnds;
+    }
 
 }

@@ -24,20 +24,20 @@ public class CharacterEmployment {
         startDate = date;
     }
 
-	public long getRecordID() {
-		return recordID;
-	}
+    public long getRecordID() {
+        return recordID;
+    }
 
-	public void setRecordID(long recordID) {
-		this.recordID = recordID;
-	}
+    public void setRecordID(long recordID) {
+        this.recordID = recordID;
+    }
 
-	public String getCorporationName() {
-		return corporationName;
-	}
+    public String getCorporationName() {
+        return corporationName;
+    }
 
-	public void setCorporationName(String corporationName) {
-		this.corporationName = corporationName;
-	}
+    public void setCorporationName(String corporationName) {
+        this.corporationName = corporationName;
+    }
 
 }

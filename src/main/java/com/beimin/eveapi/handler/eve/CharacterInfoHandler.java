@@ -25,7 +25,7 @@ public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoRe
             saveAttributes(CharacterEmployment.class, attrs);
             employ.setRecordID(getLong(attrs, "recordID"));
             employ.setCorporationID(getLong(attrs, "corporationID"));
-			employ.setCorporationName(getString(attrs, "corporationName"));
+            employ.setCorporationName(getString(attrs, "corporationName"));
             employ.setStartDate(getDate(attrs, "startDate"));
             getResponse().addEmployment(employ);
         }

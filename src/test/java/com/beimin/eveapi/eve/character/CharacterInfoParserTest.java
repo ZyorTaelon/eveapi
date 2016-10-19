@@ -93,7 +93,7 @@ public class CharacterInfoParserTest {
         assertEquals("Zy'or", response.getShipName());
         assertEquals(24696, response.getShipTypeID().intValue());
         assertEquals("Harbinger", response.getShipTypeName());
-		assertEquals(12, response.getBloodlineID());
+        assertEquals(12, response.getBloodlineID());
         assertEquals(35, response.getAncestryID());
         assertEquals(Ancestry.SAAN_GO_CASTE, response.getAncestry());
         assertDate(2016, 11, 10, 00, 50, 11, response.getNextTrainingEnds());
@@ -128,7 +128,7 @@ public class CharacterInfoParserTest {
         assertEquals("Zy'or", response.getShipName());
         assertEquals(24696, response.getShipTypeID().intValue());
         assertEquals("Harbinger", response.getShipTypeName());
-		assertEquals(12, response.getBloodlineID());
+        assertEquals(12, response.getBloodlineID());
         assertEquals(35, response.getAncestryID());
         assertEquals(Ancestry.SAAN_GO_CASTE, response.getAncestry());
         assertDate(2016, 11, 10, 00, 50, 11, response.getNextTrainingEnds());

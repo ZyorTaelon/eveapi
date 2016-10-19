@@ -19,9 +19,9 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
         addNullOk("getAllianceID");
         addNullOk("getAllianceDate");
         addNullOk("getAlliance");
-		addNullOk("getNextTrainingEnds"); //No skill in training
+        addNullOk("getNextTrainingEnds"); //No skill in training
         addEmptyOK("getSecurityStatus"); // Security Status can be zero
-		addElementMissingOK(CharacterInfoResponse.class, 3); //allianceID, alliance, allianceDate - test char have not in alliance
+        addElementMissingOK(CharacterInfoResponse.class, 3); //allianceID, alliance, allianceDate - test char have not in alliance
         addIgnoreElement("row");
         prepareParser(classToTest);
     }
@@ -35,7 +35,7 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
         addNullOk("getShipTypeID");
         addNullOk("getSkillPoints");
         addNullOk("getShipTypeName");
-		addElementMissingOK(CharacterInfoResponse.class, 1); //nextTrainingEnds - test char have nothing in training
+        addElementMissingOK(CharacterInfoResponse.class, 1); //nextTrainingEnds - test char have nothing in training
         //shipName, accountBalance, lastKnownLocation, shipTypeID, skillPoints, shipTypeName
         addElementMissingOK(CharacterInfoResponse.class, 6);  //Private info not included in public result
         final CharacterInfoResponse response = classToTest.getResponse(getCharacterID());
@@ -45,7 +45,7 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponseKeyFull() throws Exception {
-		addElementMissingOK(CharacterInfoResponse.class, 1); //nextTrainingEnds - test char have nothing in training
+        addElementMissingOK(CharacterInfoResponse.class, 1); //nextTrainingEnds - test char have nothing in training
         final CharacterInfoResponse response = classToTest.getResponse(getEve());
 
         testResponse(response);
