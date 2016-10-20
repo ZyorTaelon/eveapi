@@ -24,6 +24,7 @@ public class MailMessagesHandler extends AbstractContentListHandler<MailMessages
         mailMessage.setToCharacterIDs(getString(attrs, "toCharacterIDs"));
         mailMessage.setToCorpOrAllianceID(getLong(attrs, "toCorpOrAllianceID"));
         mailMessage.setToListIDs(getString(attrs, "toListID"));
+        mailMessage.setSenderTypeID(getInt(attrs, "senderTypeID"));
         return mailMessage;
     }
 

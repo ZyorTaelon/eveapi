@@ -13,6 +13,7 @@ public class MailMessage {
     private String toCharacterIDs;
     private String toListIDs;
     private boolean read;
+    private int senderTypeID;
 
     public long getMessageID() {
         return messageID;
@@ -100,5 +101,13 @@ public class MailMessage {
 
     public void setRead(final boolean read) {
         this.read = read;
+    }
+
+    public int getSenderTypeID() {
+        return senderTypeID;
+    }
+
+    public void setSenderTypeID(int senderTypeID) {
+        this.senderTypeID = senderTypeID;
     }
 }
