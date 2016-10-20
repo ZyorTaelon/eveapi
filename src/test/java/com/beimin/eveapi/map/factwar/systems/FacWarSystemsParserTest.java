@@ -30,20 +30,28 @@ public class FacWarSystemsParserTest extends NoAuthParserTest {
         assertEquals(171, systems.size());
         final Iterator<FacWarSystem> iterator = systems.iterator();
         FacWarSystem facWarSystem = iterator.next();
-        assertEquals(30002057, facWarSystem.getSolarSystemID());
-        assertEquals("Hadozeko", facWarSystem.getSolarSystemName());
+        assertEquals(30002094, facWarSystem.getSolarSystemID());
+        assertEquals("Ebolfer", facWarSystem.getSolarSystemName());
         assertEquals(0, facWarSystem.getOccupyingFactionID());
+        assertEquals(500002, facWarSystem.getOwningFactionID());
         assertEquals("", facWarSystem.getOccupyingFactionName());
+        assertEquals("Minmatar Republic", facWarSystem.getOwningFactionName());
         assertFalse("This system shouldn't be contested.", facWarSystem.isContested());
-        for (int i = 0; i < 92; i++) {
+        assertEquals(0, facWarSystem.getVictoryPoints());
+        assertEquals(3000, facWarSystem.getVictoryPointThreshold());
+        for (int i = 0; i < 123; i++) {
             iterator.next();
         }
         facWarSystem = iterator.next();
         assertEquals(30045344, facWarSystem.getSolarSystemID());
         assertEquals("Nennamaila", facWarSystem.getSolarSystemName());
-        assertEquals(500001, facWarSystem.getOccupyingFactionID());
-        assertEquals("Caldari State", facWarSystem.getOccupyingFactionName());
-        assertTrue("This system shouldn't be contested.", facWarSystem.isContested());
+        assertEquals(500004, facWarSystem.getOccupyingFactionID());
+        assertEquals(500001, facWarSystem.getOwningFactionID());
+        assertEquals("Gallente Federation", facWarSystem.getOccupyingFactionName());
+        assertEquals("Caldari State", facWarSystem.getOwningFactionName());
+        assertTrue("This system should be contested.", facWarSystem.isContested());
+        assertEquals(1420, facWarSystem.getVictoryPoints());
+        assertEquals(3000, facWarSystem.getVictoryPointThreshold());
     }
 }
 
