@@ -66,13 +66,11 @@ public abstract class AbstractOnlineTest {
     protected final void addElementMissingOK(final Class clazz, final int count) {
         elementsMissingOK.put(clazz.getName(), count);
         if (fields != null) { //I case this method is inworked after prepareParser
-            for (Map.Entry<String, Integer> entry : elementsMissingOK.entrySet()) {
-                Integer before = fields.get(entry.getKey());
-                if (before == null) {
-                    before = 0;
-                }
-                fields.put(entry.getKey(), before + entry.getValue());
+            Integer before = fields.get(clazz.getName());
+            if (before == null) {
+                before = 0;
             }
+            fields.put(clazz.getName(), before + count);
         }
     }
 
