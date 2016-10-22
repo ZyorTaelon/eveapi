@@ -1,6 +1,5 @@
 package com.beimin.eveapi;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 
 import java.lang.reflect.Field;
@@ -25,9 +24,10 @@ import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.ApiListResponse;
 import com.beimin.eveapi.response.ApiResponse;
 import java.util.HashMap;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.junit.Assume.assumeTrue;
@@ -161,8 +161,8 @@ public abstract class AbstractOnlineTest {
             }
             // empty
             if (!nullOK.contains(id) && !emptyOK.contains(id)) { // Empty
-                final Double result = (Double) value;
-                assertNotEquals(id + " was empty: ", 0, result, 0);
+                final double result = (Double) value;
+                assertThat(id + " was empty: ", result, not(equalTo(0.0)));
             }
         } else if (Float.class.isAssignableFrom(type) || float.class.isAssignableFrom(type)) { // Float
             // null
@@ -171,8 +171,8 @@ public abstract class AbstractOnlineTest {
             }
             // empty
             if (!nullOK.contains(id) && !emptyOK.contains(id)) { // Empty
-                final Double result = (Double) value;
-                assertNotEquals(id + " was empty: ", 0, result, 0);
+                final float result = (Float) value;
+                assertThat(id + " was empty: ", result, not(equalTo(0.0f)));
             }
         } else if (Long.class.isAssignableFrom(type) || long.class.isAssignableFrom(type)) { // Long
             // null
@@ -182,7 +182,7 @@ public abstract class AbstractOnlineTest {
             // empty
             if (!nullOK.contains(id) && !emptyOK.contains(id)) { // Empty
                 final long result = (Long) value;
-                assertNotEquals(id + " was empty: ", 0L, result);
+                assertThat(id + " was empty: ", result, not(equalTo(0L)));
             }
         } else if (Integer.class.isAssignableFrom(type) || int.class.isAssignableFrom(type)) { // Enum
             // null
@@ -192,7 +192,7 @@ public abstract class AbstractOnlineTest {
             // empty
             if (!nullOK.contains(id) && !emptyOK.contains(id)) { // Empty
                 final int result = (Integer) value;
-                assertNotEquals(id + " was empty: ", 0, result);
+                assertThat(id + " was empty: ", result, not(equalTo(0)));
             }
         } else if (nullCheckClasses.contains(type)) { // Values
             // null
