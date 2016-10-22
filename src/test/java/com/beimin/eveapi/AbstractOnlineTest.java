@@ -210,9 +210,11 @@ public abstract class AbstractOnlineTest {
                 assertThat(id + " was null: ", value, notNullValue());
             }
             // empty
+            final Collection<?> result = (Collection<?>) value;
             if (!nullOK.contains(id) && !emptyOK.contains(id) && !TestControl.ignoreEmptyCollections()) {
-                final Collection<?> result = (Collection<?>) value;
                 assertThat(id + " was empty: ", result.size(), greaterThan(0));
+            }
+            if (result != null && !result.isEmpty()) {
                 testValue(id + "->Collection", result.iterator().next());
             }
         } else if (Map.class.isAssignableFrom(type)) { // Map
@@ -221,9 +223,11 @@ public abstract class AbstractOnlineTest {
                 assertThat(id + " was null: ", value, notNullValue());
             }
             // empty
+            final Map<?, ?> result = (Map<?, ?>) value;
             if (!nullOK.contains(id) && !emptyOK.contains(id) && !TestControl.ignoreEmptyCollections()) {
-                final Map<?, ?> result = (Map<?, ?>) value;
                 assertThat(id + " was empty: ", result.size(), greaterThan(0));
+            }
+            if (result != null && !result.isEmpty()) {
                 testValue(id + "->MapKey", result.keySet().iterator().next()); // Test first kye
                 testValue(id + "->MapValue", result.values().iterator().next()); // Test first value
             }
