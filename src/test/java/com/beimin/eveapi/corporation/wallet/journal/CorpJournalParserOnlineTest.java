@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.TestControl;
+import com.beimin.eveapi.model.shared.JournalEntry;
 import com.beimin.eveapi.parser.corporation.CorpWalletJournalParser;
 import com.beimin.eveapi.response.shared.WalletJournalResponse;
 import static org.junit.Assume.assumeTrue;
@@ -15,19 +16,26 @@ public class CorpJournalParserOnlineTest extends AbstractOnlineTest {
     @Before
     public void prepare() {
         before();
+        addIgnoreElement("row");
+        addNullOk("getTaxReceiverID"); //no tax
+        addNullOk("getTaxAmount"); //no tax
+        addEmptyOK("getReason"); //zero is a valid value
+        addElementMissingOK(JournalEntry.class, 1); //RefType (enum) field should not be counted
+        addElementMissingOK(JournalEntry.class, 1); //taxReceiverID not included in corporation result
+        addElementMissingOK(JournalEntry.class, 1); //taxAmount not included in corporation result
         prepareParser(classToTest);
     }
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
+        assumeTrue("Bug: Missing field", TestControl.runBug());
         final WalletJournalResponse response = classToTest.getResponse(getCorp());
         testResponse(response);
     }
 
     @Test
     public void getResponseKey() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
+        assumeTrue("Bug: Missing field", TestControl.runBug());
         final WalletJournalResponse response = classToTest.getResponse(getCorp(), 1000);
         testResponse(response);
     }

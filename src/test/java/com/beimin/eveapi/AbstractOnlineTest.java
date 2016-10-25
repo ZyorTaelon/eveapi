@@ -64,13 +64,14 @@ public abstract class AbstractOnlineTest {
     }
 
     protected final void addElementMissingOK(final Class clazz, final int count) {
-        elementsMissingOK.put(clazz.getName(), count);
+        String id = clazz.getName();
+        Integer before = elementsMissingOK.get(id);
+        if (before == null) {
+            before = 0;
+        }
+        elementsMissingOK.put(id, before + count);
         if (fields != null) { //I case this method is inworked after prepareParser
-            Integer before = fields.get(clazz.getName());
-            if (before == null) {
-                before = 0;
-            }
-            fields.put(clazz.getName(), before + count);
+            fields.put(id, elementsMissingOK.get(id));
         }
     }
 
