@@ -14,8 +14,13 @@ public class CharContractsParserOnlineTest extends AbstractOnlineTest {
     public void getResponse() throws Exception {
         assumeTrue("No data returned by the API", TestControl.runNoData());
         addNullOk("getDateAccepted"); // Not accepted yet
+        addEmptyOK("getAcceptorID"); // Not accepted yet
         addNullOk("getDateCompleted"); // Not completed yet
         addNullOk("getRawQuantity"); // Never returned by the API (API BUG)
+        addEmptyOK("getBuyout"); // No buyout
+        addEmptyOK("getReward"); // No reward
+        addEmptyOK("getCollateral"); // No collateral
+        addEmptyOK("getNumDays"); // Not courier
         final CharContractsParser parser = new CharContractsParser();
         prepareParser(parser);
 
