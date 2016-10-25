@@ -52,6 +52,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
             // contacts or labels, separate by index
             if (attrs.getIndex(ATTRIBUTE_CONTACT_ID) > -1) {
                 final Contact contact = new Contact();
+                saveAttributes(Contact.class, attrs);
                 contact.setContactID(getInt(attrs, ATTRIBUTE_CONTACT_ID));
                 contact.setContactName(getString(attrs, "contactName"));
                 contact.setInWatchlist(getBoolean(attrs, "inWatchlist"));
@@ -61,6 +62,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
                 contactList.add(contact);
             } else {
                 final ContactLabel label = new ContactLabel();
+                saveAttributes(ContactLabel.class, attrs);
                 label.setLabelID(getLong(attrs, "labelID"));
                 label.setName(getString(attrs, "name"));
                 labelList.add(label);
