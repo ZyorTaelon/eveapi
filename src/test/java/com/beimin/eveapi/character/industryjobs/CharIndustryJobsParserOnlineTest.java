@@ -13,6 +13,8 @@ public class CharIndustryJobsParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         assumeTrue("No data returned by the API", TestControl.runNoData());
+        addEmptyOK("getCompletedCharacterID"); //Not completed
+        addEmptyOK("getTeamID"); //Not in team
         final CharIndustryJobsParser parser = new CharIndustryJobsParser();
         prepareParser(parser);
 
