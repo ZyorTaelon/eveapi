@@ -190,6 +190,17 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         this.ignoreElements = ignoreElements;
     }
 
+    protected void saveAttributesMax(final Class<?> clazz, final Attributes attrs) {
+        if (strictCheckMode) {
+            String className = clazz.getName();
+            Integer current = fields.get(className);
+            if (current == null) {
+                current = 0;
+            }
+            fields.put(className, Math.max(attrs.getLength(), current));
+        }
+    }
+
     protected void saveAttributes(final Class<?> clazz, final Attributes attrs) {
         if (strictCheckMode) {
             String className = clazz.getName();

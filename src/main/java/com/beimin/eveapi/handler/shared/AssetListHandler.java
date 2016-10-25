@@ -26,7 +26,7 @@ public class AssetListHandler extends AbstractContentHandler<AssetListResponse> 
         }
         if (ELEMENT_ROW.equals(qName)) {
             currentAsset = new Asset();
-            saveAttributes(Asset.class, attrs);
+            saveAttributesMax(Asset.class, attrs);
             currentAsset.setItemID(getLong(attrs, "itemID"));
             currentAsset.setLocationID(getLong(attrs, "locationID"));
             currentAsset.setTypeID(getInt(attrs, "typeID"));

@@ -14,6 +14,7 @@ public class CharAssetListParserOnlineTest extends AbstractOnlineTest {
     public void prepare() {
         super.before();
         addEmptyOK("getAssets"); // Not all assets have sup assets
+        addEmptyOK("getRawQuantity"); //Only returned for blueprints
         prepareParser(classToTest);
     }
 
