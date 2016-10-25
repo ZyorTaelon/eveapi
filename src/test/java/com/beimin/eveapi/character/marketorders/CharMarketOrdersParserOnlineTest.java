@@ -15,6 +15,9 @@ public class CharMarketOrdersParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         assumeTrue("No data returned by the API", TestControl.runNoData());
+        addEmptyOK("getBid"); //zero is a valid value
+        addEmptyOK("getEscrow"); //zero is a valid value
+        addEmptyOK("getOrderState"); //zero is a valid value
         final CharMarketOrdersParser parser = new CharMarketOrdersParser();
         prepareParser(parser);
 
