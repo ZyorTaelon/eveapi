@@ -7,6 +7,9 @@ public class Station {
     private int solarSystemID;
     private int corporationID;
     private String corporationName;
+    private long x;
+    private long y;
+    private long z;
 
     public long getStationID() {
         return stationID;
@@ -55,4 +58,29 @@ public class Station {
     public void setCorporationName(final String corporationName) {
         this.corporationName = corporationName;
     }
+
+    public long getX() {
+        return x;
+    }
+
+    public void setX(long x) {
+        this.x = x;
+    }
+
+    public long getY() {
+        return y;
+    }
+
+    public void setY(long y) {
+        this.y = y;
+    }
+
+    public long getZ() {
+        return z;
+    }
+
+    public void setZ(long z) {
+        this.z = z;
+    }
+
 }

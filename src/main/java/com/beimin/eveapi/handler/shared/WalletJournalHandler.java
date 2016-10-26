@@ -29,6 +29,8 @@ public class WalletJournalHandler extends AbstractContentListHandler<WalletJourn
         item.setReason(getString(attrs, "reason"));
         item.setTaxReceiverID(getLong(attrs, "taxReceiverID"));
         item.setTaxAmount(getDouble(attrs, "taxAmount"));
+        item.setOwner1TypeID(getLong(attrs, "owner1TypeID"));
+        item.setOwner2TypeID(getLong(attrs, "owner2TypeID"));
         return item;
     }
 }

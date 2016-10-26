@@ -18,6 +18,8 @@ public class JournalEntry implements Comparable<JournalEntry> {
     private String reason;
     private Long taxReceiverID;
     private Double taxAmount;
+    private long owner1TypeID;
+    private long owner2TypeID;
 
     public Date getDate() {
         return date;
@@ -139,6 +141,22 @@ public class JournalEntry implements Comparable<JournalEntry> {
     @Override
     public int compareTo(final JournalEntry o) {
         return Long.compare(getRefID(), o.getRefID());
+    }
+
+    public long getOwner1TypeID() {
+        return owner1TypeID;
+    }
+
+    public void setOwner1TypeID(long owner1TypeID) {
+        this.owner1TypeID = owner1TypeID;
+    }
+
+    public long getOwner2TypeID() {
+        return owner2TypeID;
+    }
+
+    public void setOwner2TypeID(long owner2TypeID) {
+        this.owner2TypeID = owner2TypeID;
     }
 
     @Override

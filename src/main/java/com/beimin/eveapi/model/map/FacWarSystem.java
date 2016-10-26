@@ -6,6 +6,10 @@ public class FacWarSystem {
     private int occupyingFactionID;
     private String occupyingFactionName;
     private boolean contested;
+    private int owningFactionID;
+    private String owningFactionName;
+    private int victoryPoints;
+    private int victoryPointThreshold;
 
     public int getSolarSystemID() {
         return solarSystemID;
@@ -46,4 +50,37 @@ public class FacWarSystem {
     public void setContested(final boolean contested) {
         this.contested = contested;
     }
+
+    public int getOwningFactionID() {
+        return owningFactionID;
+    }
+
+    public void setOwningFactionID(int owningFactionID) {
+        this.owningFactionID = owningFactionID;
+    }
+
+    public String getOwningFactionName() {
+        return owningFactionName;
+    }
+
+    public void setOwningFactionName(String owningFactionName) {
+        this.owningFactionName = owningFactionName;
+    }
+
+    public int getVictoryPoints() {
+        return victoryPoints;
+    }
+
+    public void setVictoryPoints(int victoryPoints) {
+        this.victoryPoints = victoryPoints;
+    }
+
+    public int getVictoryPointThreshold() {
+        return victoryPointThreshold;
+    }
+
+    public void setVictoryPointThreshold(int victoryPointThreshold) {
+        this.victoryPointThreshold = victoryPointThreshold;
+    }
+
 }

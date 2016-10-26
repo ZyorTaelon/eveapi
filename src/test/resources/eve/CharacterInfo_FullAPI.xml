@@ -5,9 +5,13 @@
     <characterID>1380128241</characterID>
     <characterName>Zy'or Tealon</characterName>
     <race>Amarr</race>
+	<bloodlineID>12</bloodlineID>
     <bloodline>Ni-kunni</bloodline>
+	<ancestryID>35</ancestryID>
+    <ancestry>Saan Go Caste</ancestry>
     <accountBalance>37040036.46</accountBalance>
     <skillPoints>88793781</skillPoints>
+	<nextTrainingEnds>2016-11-10 00:50:11</nextTrainingEnds>
     <shipName>Zy'or</shipName>
     <shipTypeID>24696</shipTypeID>
     <shipTypeName>Harbinger</shipTypeName>

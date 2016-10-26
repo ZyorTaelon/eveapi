@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.beimin.eveapi.model.eve.CharacterEmployment;
+import com.beimin.eveapi.model.shared.Ancestry;
 import com.beimin.eveapi.model.shared.Bloodline;
 import com.beimin.eveapi.model.shared.Race;
 import com.beimin.eveapi.response.ApiResponse;
@@ -13,12 +14,16 @@ public class CharacterInfoResponse extends ApiResponse {
     private long characterID;
     private String characterName;
     private Race race;
+    private int bloodlineID;
     private Bloodline bloodline;
+    private int ancestryID;
+    private Ancestry ancestry;
     private Double accountBalance;
     private Integer skillPoints;
     private String shipName;
     private Integer shipTypeID;
     private String shipTypeName;
+    private Date nextTrainingEnds;
     private long corporationID;
     private String corporation;
     private Date corporationDate;
@@ -172,4 +177,37 @@ public class CharacterInfoResponse extends ApiResponse {
     public void addEmployment(final CharacterEmployment employ) {
         employment.add(employ);
     }
+
+    public int getBloodlineID() {
+        return bloodlineID;
+    }
+
+    public void setBloodlineID(int bloodlineID) {
+        this.bloodlineID = bloodlineID;
+    }
+
+    public int getAncestryID() {
+        return ancestryID;
+    }
+
+    public void setAncestryID(int ancestryID) {
+        this.ancestryID = ancestryID;
+    }
+
+    public Ancestry getAncestry() {
+        return ancestry;
+    }
+
+    public void setAncestry(Ancestry ancestry) {
+        this.ancestry = ancestry;
+    }
+
+    public Date getNextTrainingEnds() {
+        return nextTrainingEnds;
+    }
+
+    public void setNextTrainingEnds(Date nextTrainingEnds) {
+        this.nextTrainingEnds = nextTrainingEnds;
+    }
+
 }

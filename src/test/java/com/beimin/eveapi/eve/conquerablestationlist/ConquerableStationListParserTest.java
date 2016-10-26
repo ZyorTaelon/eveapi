@@ -26,14 +26,19 @@ public class ConquerableStationListParserTest extends NoAuthParserTest {
         final StationListResponse response = parser.getResponse();
         assertNotNull(response);
         final Map<Long, Station> stations = response.getStations();
-        assertEquals(242, stations.size());
-        final Station hzfStation = stations.get(61000118l);
-        assertNotNull(hzfStation);
-        assertEquals("HZF RAPTURE", hzfStation.getStationName());
-        assertEquals(21646, hzfStation.getStationTypeID());
-        assertEquals(30000482, hzfStation.getSolarSystemID());
-        assertEquals(182784411, hzfStation.getCorporationID());
-        assertEquals("DarkStar 1", hzfStation.getCorporationName());
+        assertEquals(1208, stations.size());
+        final Station station = stations.get(61001046L);
+
+        assertNotNull(station);
+        assertEquals(61001046, station.getStationID());
+        assertEquals("W-XY4J X - Deadly Impasse", station.getStationName());
+        assertEquals(21646, station.getStationTypeID());
+        assertEquals(30001105, station.getSolarSystemID());
+        assertEquals(98181032, station.getCorporationID());
+        assertEquals("BOT EXECS", station.getCorporationName());
+        assertEquals(394820444160L, station.getX());
+        assertEquals(-18220769280L, station.getY());
+        assertEquals(-6131542302720L, station.getZ());
     }
 }
 

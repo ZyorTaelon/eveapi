@@ -6,14 +6,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
-import com.beimin.eveapi.model.pilot.AttributeEnhancer;
-import com.beimin.eveapi.model.pilot.CharismaBonus;
-import com.beimin.eveapi.model.pilot.IntelligenceBonus;
-import com.beimin.eveapi.model.pilot.MemoryBonus;
-import com.beimin.eveapi.model.pilot.PerceptionBonus;
 import com.beimin.eveapi.model.pilot.Role;
 import com.beimin.eveapi.model.pilot.Skill;
-import com.beimin.eveapi.model.pilot.WillpowerBonus;
 import com.beimin.eveapi.model.shared.Ancestry;
 import com.beimin.eveapi.model.shared.Bloodline;
 import com.beimin.eveapi.model.shared.Race;
@@ -24,7 +18,6 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
     private static final String REGEX = "[-\\s]";
     private static final String ATTRIBUTE_ROLE_NAME = "roleName";
     private static final String ATTRIBUTE_ROLE_ID = "roleID";
-    private AttributeEnhancer attributeEnhancer;
     private String rowsetName;
 
     @Override
@@ -35,17 +28,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
     @Override
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         final CharacterSheetResponse response = getResponse();
-        if ("intelligenceBonus".equals(qName)) {
-            attributeEnhancer = new IntelligenceBonus();
-        } else if ("memoryBonus".equals(qName)) {
-            attributeEnhancer = new MemoryBonus();
-        } else if ("charismaBonus".equals(qName)) {
-            attributeEnhancer = new CharismaBonus();
-        } else if ("perceptionBonus".equals(qName)) {
-            attributeEnhancer = new PerceptionBonus();
-        } else if ("willpowerBonus".equals(qName)) {
-            attributeEnhancer = new WillpowerBonus();
-        } else if (ELEMENT_ROWSET.equals(qName)) {
+        if (ELEMENT_ROWSET.equals(qName)) {
             rowsetName = getString(attrs, "name");
         } else if (ELEMENT_ROW.equals(qName)) {
             if ("skills".equals(rowsetName)) {
@@ -57,7 +40,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
                     skill.setLevel(level);
                 }
                 skill.setSkillpoints(getInt(attrs, "skillpoints"));
-                skill.setUnpublished(getBoolean(attrs, "unpublished"));
+                skill.setPublished(getBoolean(attrs, "published"));
                 response.addSkill(skill);
             } else if ("corporationRoles".equals(rowsetName)) {
                 final Role corporationRole = new Role();
@@ -100,37 +83,60 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
             response.setCharacterID(getLong());
         } else if ("name".equals(qName)) {
             response.setName(getString());
-        } else if ("race".equals(qName)) {
-            response.setRace(getRace());
+        } else if ("homeStationID".equals(qName)) {
+            response.setHomeStationID(getLong());
         } else if ("DoB".equals(qName)) {
             response.setDateOfBirth(getDate());
+        } else if ("race".equals(qName)) {
+            response.setRace(getRace());
+        } else if ("bloodLineID".equals(qName)) {
+            response.setBloodLineID(getInt());
         } else if ("bloodLine".equals(qName)) {
             response.setBloodLine(getBloodline());
+        } else if ("ancestryID".equals(qName)) {
+            response.setAncestryID(getInt());
         } else if ("ancestry".equals(qName)) {
             response.setAncestry(getAncestry());
         } else if ("gender".equals(qName)) {
             response.setGender(getString());
-        } else if ("corporationID".equals(qName)) {
-            response.setCorporationID(getLong());
         } else if ("corporationName".equals(qName)) {
             response.setCorporationName(getString());
-        } else if ("allianceID".equals(qName)) {
-            response.setAllianceID(getLong());
+        } else if ("corporationID".equals(qName)) {
+            response.setCorporationID(getLong());
         } else if ("allianceName".equals(qName) && (getString() != null) && !getString().trim().isEmpty()) {
             response.setAllianceName(getString());
+        } else if ("allianceID".equals(qName)) {
+            response.setAllianceID(getLong());
+        } else if ("factionName".equals(qName)) {
+            response.setFactionName(getString());
+        } else if ("factionID".equals(qName)) {
+            response.setFactionID(getInt());
+        } else if ("cloneTypeID".equals(qName)) {
+            response.setCloneTypeID(getInt());
         } else if ("cloneName".equals(qName)) {
             response.setCloneName(getString());
         } else if ("cloneSkillPoints".equals(qName)) {
             response.setCloneSkillPoints(getLong());
+        } else if ("freeSkillPoints".equals(qName)) {
+            response.setFreeSkillPoints(getLong());
+        } else if ("freeRespecs".equals(qName)) {
+            response.setFreeRespecs(getInt());
+        } else if ("cloneJumpDate".equals(qName)) {
+            response.setCloneJumpDate(getDate());
+        } else if ("lastRespecDate".equals(qName)) {
+            response.setLastRespecDate(getDate());
+        } else if ("lastTimedRespec".equals(qName)) {
+            response.setLastTimedRespec(getDate());
+        } else if ("remoteStationDate".equals(qName)) {
+            response.setRemoteStationDate(getDate());
+        } else if ("jumpActivation".equals(qName)) {
+            response.setJumpActivation(getDate());
+        } else if ("jumpFatigue".equals(qName)) {
+            response.setJumpFatigue(getDate());
+        } else if ("jumpLastUpdate".equals(qName)) {
+            response.setJumpLastUpdate(getDate());
         } else if ("balance".equals(qName)) {
             response.setBalance(getDouble());
-        } else if ("augmentatorName".equals(qName)) {
-            attributeEnhancer.setAugmentatorName(getString());
-        } else if ("augmentatorValue".equals(qName)) {
-            attributeEnhancer.setAugmentatorValue(getInt());
-        } else if (qName.endsWith("Bonus")) {
-            response.addAttributeEnhancer(attributeEnhancer);
-            attributeEnhancer = null;
         } else if ("intelligence".equals(qName)) {
             response.setIntelligence(getInt());
         } else if ("memory".equals(qName)) {

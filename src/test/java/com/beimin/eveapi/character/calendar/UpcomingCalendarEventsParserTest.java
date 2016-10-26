@@ -36,6 +36,7 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
         assertEquals(120, event.getDuration());
         assertEquals(true, event.isImportant());
         assertEquals(CalendarEventResponse.UNDECIDED, event.getResponse());
+        assertEquals(event.getOwnerTypeID(), 16159);
         final String expectedEventText = "Alliance Mining OP Part II<br><br>This will be in home system the sunday after the patch..<br>We would really like to see as many mining barges out there as possible. PVPers are also needed for security.. See you there!!!";
         assertEquals(expectedEventText, event.getEventText());
     }

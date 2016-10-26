@@ -64,8 +64,6 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
             response.setUrl(getString());
         } else if ("allianceID".equals(qName)) {
             response.setAllianceID(getLong());
-        } else if ("allianceName".equals(qName)) {
-            response.setAllianceName(getString());
         } else if ("factionID".equals(qName)) {
             response.setFactionID(getLong());
         } else if ("taxRate".equals(qName)) {

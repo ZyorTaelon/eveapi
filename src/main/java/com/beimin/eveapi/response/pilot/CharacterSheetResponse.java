@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.beimin.eveapi.model.pilot.AttributeEnhancer;
 import com.beimin.eveapi.model.pilot.Role;
 import com.beimin.eveapi.model.pilot.Skill;
 import com.beimin.eveapi.model.shared.Ancestry;
@@ -16,19 +15,33 @@ import com.beimin.eveapi.response.ApiResponse;
 public class CharacterSheetResponse extends ApiResponse {
     private long characterID;
     private String name;
-    private Race race;
+    private long homeStationID; //can be citadel?
     private Date dateOfBirth;
+    private Race race;
+    private int bloodLineID;
     private Bloodline bloodLine;
+    private int ancestryID;
     private Ancestry ancestry;
     private String gender;
     private String corporationName;
     private long corporationID;
-    private Long allianceID;
     private String allianceName;
+    private Long allianceID;
+    private String factionName;
+    private int factionID;
+    private int cloneTypeID;
     private String cloneName;
     private long cloneSkillPoints;
+    private long freeSkillPoints;
+    private int freeRespecs;
+    private Date cloneJumpDate;
+    private Date lastRespecDate;
+    private Date lastTimedRespec;
+    private Date remoteStationDate;
+    private Date jumpActivation;
+    private Date jumpFatigue;
+    private Date jumpLastUpdate;
     private double balance;
-    private final Set<AttributeEnhancer> attributeEnhancers = new HashSet<>();
     private int intelligence;
     private int memory;
     private int charisma;
@@ -153,14 +166,6 @@ public class CharacterSheetResponse extends ApiResponse {
         this.balance = balance;
     }
 
-    public void addAttributeEnhancer(final AttributeEnhancer attributeEnhancer) {
-        attributeEnhancers.add(attributeEnhancer);
-    }
-
-    public Set<AttributeEnhancer> getAttributeEnhancers() {
-        return attributeEnhancers;
-    }
-
     public int getIntelligence() {
         return intelligence;
     }
@@ -247,5 +252,125 @@ public class CharacterSheetResponse extends ApiResponse {
 
     public Set<Title> getCorporationTitles() {
         return corporationTitles;
+    }
+
+    public long getHomeStationID() {
+        return homeStationID;
+    }
+
+    public void setHomeStationID(long homeStationID) {
+        this.homeStationID = homeStationID;
+    }
+
+    public int getBloodLineID() {
+        return bloodLineID;
+    }
+
+    public void setBloodLineID(int bloodLineID) {
+        this.bloodLineID = bloodLineID;
+    }
+
+    public int getAncestryID() {
+        return ancestryID;
+    }
+
+    public void setAncestryID(int ancestryID) {
+        this.ancestryID = ancestryID;
+    }
+
+    public String getFactionName() {
+        return factionName;
+    }
+
+    public void setFactionName(String factionName) {
+        this.factionName = factionName;
+    }
+
+    public int getFactionID() {
+        return factionID;
+    }
+
+    public void setFactionID(int factionID) {
+        this.factionID = factionID;
+    }
+
+    public int getCloneTypeID() {
+        return cloneTypeID;
+    }
+
+    public void setCloneTypeID(int cloneTypeID) {
+        this.cloneTypeID = cloneTypeID;
+    }
+
+    public long getFreeSkillPoints() {
+        return freeSkillPoints;
+    }
+
+    public void setFreeSkillPoints(long freeSkillPoints) {
+        this.freeSkillPoints = freeSkillPoints;
+    }
+
+    public int getFreeRespecs() {
+        return freeRespecs;
+    }
+
+    public void setFreeRespecs(int freeRespecs) {
+        this.freeRespecs = freeRespecs;
+    }
+
+    public Date getCloneJumpDate() {
+        return cloneJumpDate;
+    }
+
+    public void setCloneJumpDate(Date cloneJumpDate) {
+        this.cloneJumpDate = cloneJumpDate;
+    }
+
+    public Date getLastRespecDate() {
+        return lastRespecDate;
+    }
+
+    public void setLastRespecDate(Date lastRespecDate) {
+        this.lastRespecDate = lastRespecDate;
+    }
+
+    public Date getLastTimedRespec() {
+        return lastTimedRespec;
+    }
+
+    public void setLastTimedRespec(Date lastTimedRespec) {
+        this.lastTimedRespec = lastTimedRespec;
+    }
+
+    public Date getRemoteStationDate() {
+        return remoteStationDate;
+    }
+
+    public void setRemoteStationDate(Date remoteStationDate) {
+        this.remoteStationDate = remoteStationDate;
+    }
+
+    public Date getJumpActivation() {
+        return jumpActivation;
+    }
+
+    public void setJumpActivation(Date jumpActivation) {
+        this.jumpActivation = jumpActivation;
+    }
+
+    public Date getJumpFatigue() {
+        return jumpFatigue;
+    }
+
+    public void setJumpFatigue(Date jumpFatigue) {
+        this.jumpFatigue = jumpFatigue;
+    }
+
+    public Date getJumpLastUpdate() {
+        return jumpLastUpdate;
+    }
+
+    public void setJumpLastUpdate(Date jumpLastUpdate) {
+        this.jumpLastUpdate = jumpLastUpdate;
     }
 }

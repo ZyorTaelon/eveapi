@@ -13,6 +13,9 @@ public class CorpContractsParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         assumeTrue("No data returned by the API", TestControl.runNoData());
+        addNullOk("getDateCompleted"); //Not completed
+        addEmptyOK("getPrice"); //Zero is a valid value
+        addEmptyOK("getBuyout"); //Zero is a valid value
         final CorpContractsParser parser = new CorpContractsParser();
         prepareParser(parser);
 

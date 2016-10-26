@@ -24,6 +24,9 @@ public class ConquerableStationListHandler extends AbstractContentHandler<Statio
             item.setSolarSystemID(getInt(attrs, "solarSystemID"));
             item.setCorporationID(getInt(attrs, "corporationID"));
             item.setCorporationName(getString(attrs, "corporationName"));
+            item.setX(getLong(attrs, "x"));
+            item.setY(getLong(attrs, "y"));
+            item.setZ(getLong(attrs, "z"));
             getResponse().add(item);
         }
     }

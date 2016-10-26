@@ -35,7 +35,6 @@ public class PublicCorpSheetParserTest extends NoAuthParserTest {
         assertEquals("Another Corp", response.getDescription());
         assertEquals("", response.getUrl());
         assertEquals(150382481L, response.getAllianceID().longValue());
-        assertEquals("Starbase Anchoring Alliance", response.getAllianceName());
         assertEquals(500004, response.getFactionID().longValue());
         assertEquals(2.0, response.getTaxRate(), 0.0001);
         assertEquals(1, response.getMemberCount());

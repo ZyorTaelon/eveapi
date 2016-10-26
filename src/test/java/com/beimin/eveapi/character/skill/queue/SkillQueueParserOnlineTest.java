@@ -13,6 +13,7 @@ public class SkillQueueParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         assumeTrue("No data returned by the API", TestControl.runNoData());
+        addEmptyOK("getQueuePosition");
         final SkillQueueParser parser = new SkillQueueParser();
         prepareParser(parser);
 

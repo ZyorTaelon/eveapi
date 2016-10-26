@@ -5,7 +5,10 @@
     <characterID>1380128241</characterID>
     <characterName>Zy'or Tealon</characterName>
     <race>Caldari</race>
+	<bloodlineID>12</bloodlineID>
     <bloodline>Deteis</bloodline>
+	<ancestryID>35</ancestryID>
+    <ancestry>Saan Go Caste</ancestry>
     <corporationID>217940508</corporationID>
     <corporation>Black  Mesa</corporation>
     <corporationDate>2010-08-23 20:29:00</corporationDate>

@@ -8,6 +8,7 @@ public class UpcomingCalendarEvent {
     private long eventID;
     private long ownerID;
     private String ownerName;
+    private int ownerTypeID;
     private Date eventDate;
     private String eventTitle;
     private int duration;
@@ -29,6 +30,14 @@ public class UpcomingCalendarEvent {
 
     public void setOwnerID(final long ownerID) {
         this.ownerID = ownerID;
+    }
+
+    public int getOwnerTypeID() {
+        return ownerTypeID;
+    }
+
+    public void setOwnerTypeID(final int ownerTypeID) {
+        this.ownerTypeID = ownerTypeID;
     }
 
     public String getOwnerName() {

@@ -28,6 +28,7 @@ public class UpcomingCalendarEventsHandler extends AbstractContentListHandler<Up
         calendarEvent.setImportance(getInt(attrs, "importance"));
         calendarEvent.setResponse(CalendarEventResponse.valueOf(getString(attrs, "response").toUpperCase(Locale.ENGLISH)));
         calendarEvent.setEventText(getString(attrs, "eventText"));
+        calendarEvent.setOwnerTypeID(getInt(attrs, "ownerTypeID"));
         return calendarEvent;
     }
 }

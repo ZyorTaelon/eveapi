@@ -6,6 +6,7 @@ public class Notification {
     private long notificationID;
     private int typeID;
     private long senderID;
+    private String senderName;
     private Date sentDate;
     private boolean read;
 
@@ -147,6 +148,14 @@ public class Notification {
 
     public void setSenderID(final long senderID) {
         this.senderID = senderID;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
     }
 
     public Date getSentDate() {

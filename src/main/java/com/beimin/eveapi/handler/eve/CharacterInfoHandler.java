@@ -7,6 +7,7 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.eve.CharacterEmployment;
+import com.beimin.eveapi.model.shared.Ancestry;
 import com.beimin.eveapi.model.shared.Bloodline;
 import com.beimin.eveapi.model.shared.Race;
 import com.beimin.eveapi.response.eve.CharacterInfoResponse;
@@ -22,7 +23,9 @@ public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoRe
         if (ELEMENT_ROW.equals(qName)) {
             final CharacterEmployment employ = new CharacterEmployment();
             saveAttributes(CharacterEmployment.class, attrs);
+            employ.setRecordID(getLong(attrs, "recordID"));
             employ.setCorporationID(getLong(attrs, "corporationID"));
+            employ.setCorporationName(getString(attrs, "corporationName"));
             employ.setStartDate(getDate(attrs, "startDate"));
             getResponse().addEmployment(employ);
         }
@@ -65,11 +68,23 @@ public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoRe
             response.setLastKnownLocation(getString());
         } else if ("securityStatus".equals(qName)) {
             response.setSecurityStatus(getDouble());
+        } else if ("bloodlineID".equals(qName)) {
+            response.setBloodlineID(getInt());
+        } else if ("ancestryID".equals(qName)) {
+            response.setAncestryID(getInt());
+        } else if ("ancestry".equals(qName)) {
+            response.setAncestry(getAncestry());
+        } else if ("nextTrainingEnds".equals(qName)) {
+            response.setNextTrainingEnds(getDate());
         }
     }
 
     private Bloodline getBloodline() {
         return Bloodline.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
+    }
+
+    private Ancestry getAncestry() {
+        return Ancestry.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
     }
 
     private Race getRace() {

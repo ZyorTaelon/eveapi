@@ -15,6 +15,7 @@ public class CorpAssetListParserOnlineTest extends AbstractOnlineTest {
     @Before
     public void prepare() {
         setUp();
+        addEmptyOK("getRawQuantity"); //only return for blueprints
         prepareParser(classToTest);
     }
 

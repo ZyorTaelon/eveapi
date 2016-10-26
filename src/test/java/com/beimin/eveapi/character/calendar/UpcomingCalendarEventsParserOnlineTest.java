@@ -13,6 +13,7 @@ public class UpcomingCalendarEventsParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         assumeTrue("No data returned by the API", TestControl.runNoData());
+        addEmptyOK("getOwnerTypeID");
         final UpcomingCalendarEventsParser parser = new UpcomingCalendarEventsParser();
         prepareParser(parser);
         

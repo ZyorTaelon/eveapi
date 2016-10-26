@@ -20,6 +20,10 @@ public class FacWarSystemsHandler extends AbstractContentListHandler<FacWarSyste
         item.setContested(getBoolean(attrs, "contested"));
         item.setOccupyingFactionID(getInt(attrs, "occupyingFactionID"));
         item.setOccupyingFactionName(getString(attrs, "occupyingFactionName"));
+        item.setOwningFactionID(getInt(attrs, "owningFactionID"));
+        item.setOwningFactionName(getString(attrs, "owningFactionName"));
+        item.setVictoryPoints(getInt(attrs, "victoryPoints"));
+        item.setVictoryPointThreshold(getInt(attrs, "victoryPointThreshold"));
         return item;
     }
 }

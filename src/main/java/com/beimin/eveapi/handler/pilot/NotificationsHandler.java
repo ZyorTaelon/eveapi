@@ -18,6 +18,7 @@ public class NotificationsHandler extends AbstractContentListHandler<Notificatio
         saveAttributes(Notification.class, attrs);
         notification.setNotificationID(getLong(attrs, "notificationID"));
         notification.setSenderID(getLong(attrs, "senderID"));
+        notification.setSenderName(getString(attrs, "senderName"));
         notification.setSentDate(getDate(attrs, "sentDate"));
         notification.setTypeID(getInt(attrs, "typeID"));
         notification.setRead(getBoolean(attrs, "read"));

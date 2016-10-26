@@ -48,6 +48,8 @@ public class CharJournalParserTest extends FullAuthParserTest {
                 assertEquals("29200:15,", journalEntry.getReason());
                 assertEquals(1734917694L, journalEntry.getTaxReceiverID().longValue());
                 assertEquals(15000.00, journalEntry.getTaxAmount(), 0.00001);
+                assertEquals(1384, journalEntry.getOwner1TypeID());
+                assertEquals(2, journalEntry.getOwner2TypeID());
             }
         }
         assertTrue("test journal entry wasn't found.", found);

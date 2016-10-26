@@ -23,6 +23,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
         } else if (ELEMENT_ROW.equals(qName)) {
             if (memberCorporations) {
                 final MemberCorporation memberCorporation = new MemberCorporation();
+                saveAttributes(MemberCorporation.class, attrs);
                 memberCorporation.setCorporationID(getLong(attrs, "corporationID"));
                 memberCorporation.setStartDate(getDate(attrs, "startDate"));
                 alliance.add(memberCorporation);
