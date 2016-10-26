@@ -35,7 +35,6 @@ public class CorpSheetParserTest extends FullAuthParserTest {
         assertEquals("Garth's testing corp of awesome sauce, win sauce as it were. In this\n            corp...<br><br>IT HAPPENS ALL OVER", response.getDescription());
         assertEquals("some url", response.getUrl());
         assertEquals(150430947L, response.getAllianceID().longValue());
-        assertEquals("The Dead Rabbits", response.getAllianceName());
         assertEquals(500004, response.getFactionID().longValue());
         assertEquals(93.7, response.getTaxRate(), 0.0001);
         assertEquals(3, response.getMemberCount());
