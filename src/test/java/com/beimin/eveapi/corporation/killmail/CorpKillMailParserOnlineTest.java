@@ -12,10 +12,10 @@ public class CorpKillMailParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
-        addEmptyOK("getAllianceName");
-        addEmptyOK("getCharacterName"); // Concord officers don't have a character name ;-)
-        addEmptyOK("getFactionName");
+        setAlias(KillMailResponse.class, "kills", "items");
+        allowEmpty("getAllianceName");
+        allowEmpty("getCharacterName"); // Concord officers don't have a character name ;-)
+        allowEmpty("getFactionName");
         final CorpKillMailParser parser = new CorpKillMailParser();
         prepareParser(parser);
 

@@ -3,21 +3,19 @@ package com.beimin.eveapi.character.marketorders;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.model.shared.MarketOrder;
 import com.beimin.eveapi.parser.pilot.CharMarketOrdersParser;
 import com.beimin.eveapi.response.shared.MarketOrdersResponse;
 import java.util.Set;
-import static org.junit.Assume.assumeTrue;
 
 public class CharMarketOrdersParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
-        addEmptyOK("getBid"); //zero is a valid value
-        addEmptyOK("getEscrow"); //zero is a valid value
-        addEmptyOK("getOrderState"); //zero is a valid value
+        setAlias(MarketOrdersResponse.class, "orders", "items");
+        allowEmpty("getBid"); //zero is a valid value
+        allowEmpty("getEscrow"); //zero is a valid value
+        allowEmpty("getOrderState"); //zero is a valid value
         final CharMarketOrdersParser parser = new CharMarketOrdersParser();
         prepareParser(parser);
 

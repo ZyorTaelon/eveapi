@@ -10,8 +10,8 @@ public class FacWarStatsParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        addIgnoreElement("totals");
-        addIgnoreElement("row");
+        ignoreXmlField("totals");
+        setAlias(FacWarStatsResponse.class, "factionWars", "wars");
         final FacWarStatsParser parser = new FacWarStatsParser();
         prepareParser(parser);
 

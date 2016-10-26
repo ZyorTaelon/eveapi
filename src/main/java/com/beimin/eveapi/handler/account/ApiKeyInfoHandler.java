@@ -30,6 +30,8 @@ public class ApiKeyInfoHandler extends AbstractContentHandler<ApiKeyInfoResponse
             if (expires.length() > 0) {
                 apiKeyInfo.setExpires(getDate(expires));
             }
+        } else if (ELEMENT_ROWSET.equals(qName)) {
+            setCurrentClass(ApiKeyInfo.class);
         } else if (ELEMENT_ROW.equals(qName)) {
             saveAttributes(Character.class, attrs);
             final Character character = new Character();

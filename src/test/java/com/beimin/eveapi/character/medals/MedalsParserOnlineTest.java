@@ -12,7 +12,7 @@ public class MedalsParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
+        assumeTrue("MedalsResponse.othercorporations is not included in class", TestControl.runBug());
         final MedalsParser parser = new MedalsParser();
         prepareParser(parser);
 

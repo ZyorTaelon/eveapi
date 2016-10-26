@@ -10,6 +10,7 @@ public class AllianceListParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
+        setAlias(AllianceListResponse.class, "alliances", "items");
         final AllianceListParser parser = new AllianceListParser();
         prepareParser(parser);
 

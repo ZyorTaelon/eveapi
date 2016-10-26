@@ -20,6 +20,9 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             memberCorporations = "memberCorporations".equals(getString(attrs, ATTRIBUTE_NAME));
+            if (memberCorporations) {
+                setCurrentClass(Alliance.class);
+            }
         } else if (ELEMENT_ROW.equals(qName)) {
             if (memberCorporations) {
                 final MemberCorporation memberCorporation = new MemberCorporation();

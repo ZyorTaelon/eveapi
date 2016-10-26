@@ -10,6 +10,7 @@ public class TypeNameParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
+        setAlias(TypeNameResponse.class, "types", "items");
         final TypeNameParser parser = new TypeNameParser();
         prepareParser(parser);
 

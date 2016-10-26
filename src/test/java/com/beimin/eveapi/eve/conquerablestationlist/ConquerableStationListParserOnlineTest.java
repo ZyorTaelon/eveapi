@@ -10,6 +10,7 @@ public class ConquerableStationListParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
+        setAlias(StationListResponse.class, "outposts", "stations");
         final ConquerableStationListParser parser = new ConquerableStationListParser();
         prepareParser(parser);
 

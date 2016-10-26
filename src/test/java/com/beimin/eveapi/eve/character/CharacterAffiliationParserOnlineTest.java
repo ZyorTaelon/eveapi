@@ -10,12 +10,13 @@ public class CharacterAffiliationParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
+        setAlias(CharacterAffiliationResponse.class, "characters", "items");
         // Not in faction
-        addEmptyOK("getFactionName");
-        addEmptyOK("getFactionID");
+        allowEmpty("getFactionName");
+        allowEmpty("getFactionID");
         // Not in alliance
-        addEmptyOK("getAllianceName");
-        addEmptyOK("getAllianceID");
+        allowEmpty("getAllianceName");
+        allowEmpty("getAllianceID");
         final CharacterAffiliationParser parser = new CharacterAffiliationParser();
         prepareParser(parser);
 

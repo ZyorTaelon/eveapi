@@ -10,6 +10,7 @@ public class CharacterIDLookupParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
+        setAlias(CharacterLookupResponse.class, "characters", "items");
         final CharacterLookupParser parser = CharacterLookupParser.getName2IdInstance();
         prepareParser(parser);
 

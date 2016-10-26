@@ -10,25 +10,26 @@ public class PublicCorpSheetParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void corporationSheetParser() throws Exception {
-        addElementMissingOK(CorpSheetResponse.class, 1); //memberLimit not included in public return
-        addIgnoreElement("logo");
-        addIgnoreElement("row");
         // Private not included
-        addNullOk("getWalletDivisions");
-        addNullOk("getDivisions");
-        addNullOk("getMemberLimit");
+        ignoreClassField(CorpSheetResponse.class, "memberLimit");
+        ignoreClassField(CorpSheetResponse.class, "divisions");
+        ignoreClassField(CorpSheetResponse.class, "walletDivisions");
+        ignoreXmlField("logo");
+        allowNull("getWalletDivisions");
+        allowNull("getDivisions");
+        allowNull("getMemberLimit");
         // Not in alliance
-        addNullOk("getAllianceName");
-        addEmptyOK("getAllianceID");
+        allowNull("getAllianceName");
+        allowEmpty("getAllianceID");
         // Not in faction
-        addEmptyOK("getFactionID");
+        allowEmpty("getFactionID");
         // No Tax
-        addEmptyOK("getTaxRate");
+        allowEmpty("getTaxRate");
         // Valid zero
-        addEmptyOK("getGraphicID");
-        addEmptyOK("getColor1");
-        addEmptyOK("getColor2");
-        addEmptyOK("getColor3");
+        allowEmpty("getGraphicID");
+        allowEmpty("getColor1");
+        allowEmpty("getColor2");
+        allowEmpty("getColor3");
         final CorpSheetParser parser = new CorpSheetParser();
         prepareParser(parser);
 

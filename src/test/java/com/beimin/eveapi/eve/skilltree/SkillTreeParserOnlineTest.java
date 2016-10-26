@@ -10,8 +10,7 @@ public class SkillTreeParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        addIgnoreElement("row");
-        addIgnoreElement("requiredAttributes");
+        ignoreXmlField("requiredAttributes");
         final SkillTreeParser parser = new SkillTreeParser();
         prepareParser(parser);
 

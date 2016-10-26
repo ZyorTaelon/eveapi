@@ -76,15 +76,15 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
             }
         } else if ("description".equals(qName)) {
             skill.setDescription(getString());
-            setElementClass(Skill.class);
+            setCurrentClass(Skill.class);
         } else if ("rank".equals(qName)) {
             skill.setRank(getInt());
-            setElementClass(Skill.class);
+            setCurrentClass(Skill.class);
         } else if ("primaryAttribute".equals(qName)) {
             skill.setPrimaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
-            setElementClass(Skill.class);
+            setCurrentClass(Skill.class);
         } else if ("secondaryAttribute".equals(qName)) {
-            setElementClass(Skill.class);
+            setCurrentClass(Skill.class);
             skill.setSecondaryAttribute(CharacterAttribute.valueOf(getString().toUpperCase(Locale.ENGLISH)));
         }
     }

@@ -24,7 +24,7 @@ public class AccountStatusHandler extends AbstractContentHandler<AccountStatusRe
 
     @Override
     protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
-        setElementClass(AccountStatus.class);
+        setCurrentClass(AccountStatus.class);
         if ("paidUntil".equals(qName)) {
             accountStatus.setPaidUntil(getDate());
         } else if ("createDate".equals(qName)) {

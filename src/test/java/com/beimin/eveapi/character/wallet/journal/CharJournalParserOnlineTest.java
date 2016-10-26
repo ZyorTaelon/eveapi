@@ -15,21 +15,20 @@ public class CharJournalParserOnlineTest extends AbstractOnlineTest {
 
     @Before
     public void prepare() {
-        super.before();
-        addNullOk("getTaxReceiverID"); //No tax
-        addNullOk("getTaxAmount"); //No tax
-        addEmptyOK("getReason"); //No reason provided
-        addEmptyOK("getArgID1"); //Zero is a valid value
-        addEmptyOK("getArgName1"); //Empty is a valid value
-        addEmptyOK("getOwnerID2"); //Zero is a valid value
-        addEmptyOK("getOwnerName2"); //Empty is a valid value
-        addElementMissingOK(JournalEntry.class, 1); //RefType (enum) field should not be counted
+        setAlias(WalletJournalResponse.class, "transactions", "items");
+        allowNull("getTaxReceiverID"); //No tax
+        allowNull("getTaxAmount"); //No tax
+        allowEmpty("getReason"); //No reason provided
+        allowEmpty("getArgID1"); //Zero is a valid value
+        allowEmpty("getArgName1"); //Empty is a valid value
+        allowEmpty("getOwnerID2"); //Zero is a valid value
+        allowEmpty("getOwnerName2"); //Empty is a valid value
+        ignoreClassField(JournalEntry.class, "refType"); //RefType (enum) field should not be counted
         prepareParser(classToTest);
     }
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
         final WalletJournalResponse response = classToTest.getResponse(getCharacter());
 
         testResponse(response);
@@ -37,7 +36,6 @@ public class CharJournalParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponseKey() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
         final WalletJournalResponse response = classToTest.getResponse(getCharacter(), 1000);
 
         testResponse(response);

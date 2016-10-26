@@ -21,12 +21,13 @@ public class AssetListHandler extends AbstractContentHandler<AssetListResponse> 
     @Override
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if ((currentAsset != null) && ELEMENT_ROWSET.equals(qName)) {
+            setCurrentClass(Asset.class);
             stack.add(currentAsset);
             currentAsset = null;
         }
         if (ELEMENT_ROW.equals(qName)) {
             currentAsset = new Asset();
-            saveAttributesMax(Asset.class, attrs);
+            saveAttributes(Asset.class, attrs);
             currentAsset.setItemID(getLong(attrs, "itemID"));
             currentAsset.setLocationID(getLong(attrs, "locationID"));
             currentAsset.setTypeID(getInt(attrs, "typeID"));

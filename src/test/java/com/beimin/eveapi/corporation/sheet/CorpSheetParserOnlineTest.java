@@ -10,19 +10,18 @@ public class CorpSheetParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        addIgnoreElement("row");
-        addIgnoreElement("logo");
+        ignoreXmlField("logo");
         // Not in alliance
-        addNullOk("getAllianceName");
-        addEmptyOK("getAllianceID");
-        addEmptyOK("getFactionID");
+        allowNull("getAllianceName");
+        allowEmpty("getAllianceID");
+        allowEmpty("getFactionID");
         // No Tax
-        addEmptyOK("getTaxRate");
+        allowEmpty("getTaxRate");
         // Valid zero
-        addEmptyOK("getGraphicID");
-        addEmptyOK("getColor1");
-        addEmptyOK("getColor2");
-        addEmptyOK("getColor3");
+        allowEmpty("getGraphicID");
+        allowEmpty("getColor1");
+        allowEmpty("getColor2");
+        allowEmpty("getColor3");
         final CorpSheetParser parser = new CorpSheetParser();
         prepareParser(parser);
 

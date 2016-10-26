@@ -10,6 +10,7 @@ public class CharAccountBalanceParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
+        setAlias(AccountBalanceResponse.class, "accounts", "items");
         final CharAccountBalanceParser parser = new CharAccountBalanceParser();
         prepareParser(parser);
 

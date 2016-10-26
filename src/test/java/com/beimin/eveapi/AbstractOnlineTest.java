@@ -21,7 +21,6 @@ import com.beimin.eveapi.handler.ApiError;
 import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.parser.ApiAuthorization;
 import com.beimin.eveapi.parser.shared.AbstractApiParser;
-import com.beimin.eveapi.response.ApiListResponse;
 import com.beimin.eveapi.response.ApiResponse;
 import java.util.HashMap;
 import static org.hamcrest.Matchers.equalTo;
@@ -39,40 +38,57 @@ public abstract class AbstractOnlineTest {
     private final long charID = 1528592227L;
     private final String charName = "Glazeg";
     private final long corpID = 98400559;
+
     private final int typeID = 1230; // Veldspar
-    private final Set<String> ignoreElements = new HashSet<>();
-    private final Map<String, Integer> elementsMissingOK = new HashMap<>();
 
     private final List<Class<?>> nullCheckClasses = Arrays.asList(new Class<?>[] { Date.class, Boolean.class, boolean.class, ApiError.class });
     private final List<Class<?>> fieldChecks = Arrays.asList(new Class<?>[] { 
         String.class, Date.class, Boolean.class, boolean.class, Long.class, long.class,
         Integer.class, int.class, Double.class, double.class, Float.class, float.class});
-    private final Set<String> nullOK = new HashSet<String>();
-    private final Set<String> emptyOK = new HashSet<String>();
-    private Map<String, Integer> fields;
+    private final Set<String> allowNull = new HashSet<String>();
+    private final Set<String> allowEmpty = new HashSet<String>();
+    private final Map<String, Map<String, String>> xmlAlias = new HashMap<>();
+    private final Map<String, Map<String, String>> classAlias = new HashMap<>();
+    private final Set<String> ignoreXmlIdentifiers = new HashSet<>();
+    private final Map<String, Set<String>> ignoreClassFields = new HashMap<>();
 
-    protected final void addNullOk(final String methodName) {
-        nullOK.add(methodName);
+    private Map<String, Set<String>> fields;
+
+    protected final void allowNull(final String methodName) {
+        allowNull.add(methodName);
     }
 
-    protected final void addEmptyOK(final String methodName) {
-        emptyOK.add(methodName);
+    protected final void allowEmpty(final String methodName) {
+        allowEmpty.add(methodName);
     }
 
-    protected final void addIgnoreElement(final String elementName) {
-        ignoreElements.add(elementName);
+    protected final void ignoreXmlField(final String xmlField) {
+        ignoreXmlIdentifiers.add(xmlField.toLowerCase());
     }
 
-    protected final void addElementMissingOK(final Class clazz, final int count) {
-        String id = clazz.getName();
-        Integer before = elementsMissingOK.get(id);
-        if (before == null) {
-            before = 0;
+    protected final void ignoreClassField(final Class clazz, final String classField) {
+        Set<String> set = ignoreClassFields.get(clazz.getName());
+        if (set == null) {
+            set = new HashSet<>();
+            ignoreClassFields.put(clazz.getName(), set);
         }
-        elementsMissingOK.put(id, before + count);
-        if (fields != null) { //I case this method is inworked after prepareParser
-            fields.put(id, elementsMissingOK.get(id));
+        set.add(classField.toLowerCase());
+    }
+
+    protected final void setAlias(final Class clazz, final String xmlIdentifier, final String fieldName) {
+        Map<String, String> xmlMap = xmlAlias.get(clazz.getName());
+        if (xmlMap == null) {
+            xmlMap = new HashMap<>();
+            xmlAlias.put(clazz.getName(), xmlMap);
         }
+        xmlMap.put(xmlIdentifier.toLowerCase(), fieldName.toLowerCase());
+
+        Map<String, String> classMap = classAlias.get(clazz.getName());
+        if (classMap == null) {
+            classMap = new HashMap<>();
+            classAlias.put(clazz.getName(), classMap);
+        }
+        classMap.put(fieldName.toLowerCase(), xmlIdentifier.toLowerCase());
     }
 
     @BeforeClass
@@ -86,22 +102,20 @@ public abstract class AbstractOnlineTest {
 
     @Before
     public void before() {
-        nullOK.clear();
-        emptyOK.clear();
-        ignoreElements.clear();
-        addNullOk("getCachedUntil");
-        addNullOk("getCurrentTime");
-        addNullOk("getVersion");
-        addNullOk("getError");
+        allowNull.clear();
+        allowEmpty.clear();
+        ignoreXmlIdentifiers.clear();
+        ignoreClassFields.clear();
+        xmlAlias.clear();
+        classAlias.clear();
+        allowNull("getCachedUntil");
+        allowNull("getCurrentTime");
+        allowNull("getVersion");
+        allowNull("getError");
     }
 
     protected void prepareParser(AbstractApiParser<?> parser) {
         fields = parser.enableStrictCheckMode();
-        addElementMissingOK(NamedList.class, 1); //NamedList is always part of rowset that have multiple attributes, but, only name is used
-        for (Map.Entry<String, Integer> entry : elementsMissingOK.entrySet()) {
-            fields.put(entry.getKey(), entry.getValue());
-        }
-        parser.setIgnoreElements(ignoreElements);
     }
 
     private void checkBean(final Object bean) throws Exception {
@@ -113,28 +127,57 @@ public abstract class AbstractOnlineTest {
         }
         // Chekc for new fields
         final Class<?> clazz = bean.getClass();
-        final int classFields = getFields(clazz); // Count fields (to ignore logical methods)
-        final Integer xmlFields = fields.get(bean.getClass().getName());
-        if (classFields > 0) {
-            assertThat(clazz.getName() + " field count missing: ", xmlFields, notNullValue());
-            assertThat(clazz.getName() + " field count is wrong: ", xmlFields, equalTo(classFields));
+        Set<String> classFields = getFields(clazz); // Count fields (to ignore logical methods)
+        Set<String> xmlFields = fields.get(bean.getClass().getName());
+        if (xmlFields != null) {
+            //Looks for added xml fields
+            Map<String, String> xmlAliasMap = xmlAlias.get(clazz.getName());
+            for (String xml : xmlFields) {
+                if (ignoreXmlIdentifiers.contains(xml)) {
+                    continue; //Ignore XML
+                }
+                String testName = xml;
+                if (xmlAliasMap != null) {
+                    String className = xmlAliasMap.get(xml);
+                    if (className != null) {
+                        testName = className;
+                    }
+                }
+                assertThat(clazz.getSimpleName()+ "." + testName + " is not included in class: ", classFields.contains(testName), equalTo(true));
+            }
+            //Looks for removed xml fields
+            Set<String> ignoreClassFieldsSet = ignoreClassFields.get(clazz.getName());
+            Map<String, String> classAliasMap = classAlias.get(clazz.getName());
+            for (String classField : classFields) {
+                if (ignoreClassFieldsSet != null && ignoreClassFieldsSet.contains(classField)) {
+                    continue; //Ignore XML
+                }
+                String testName = classField;
+                if (classAliasMap != null) {
+                    String className = classAliasMap.get(classField);
+                    if (className != null) {
+                        testName = className;
+                    }
+                }
+                assertThat(clazz.getSimpleName() + "." + testName + " is not include in the xml result: ", xmlFields.contains(testName), equalTo(true));
+            }
         }
     }
 
-    private int getFields(final Class<?> clazz) {
+    private Set<String> getFields(final Class<?> clazz) {
+        Set<String> classFields = new HashSet<>();
         if (clazz.getName().equals(Object.class.getName())) {
-            return 0;
+            return classFields;
         }
-        int classFields = 0;
         for (final Field field : clazz.getDeclaredFields()) {
             final Class<?> type = field.getType();
-            if (fieldChecks.contains(type) || Enum.class.isAssignableFrom(type)) {
-                classFields++; // Class Field
+            if (fieldChecks.contains(type) || NamedList.class.equals(type) || Enum.class.isAssignableFrom(type) || Collection.class.isAssignableFrom(type) || Map.class.isAssignableFrom(type)) {
+                classFields.add(field.getName().toLowerCase());
             }
         }
         final Class<?> superclass = clazz.getSuperclass();
-        if (superclass != null && !superclass.equals(ApiListResponse.class) && !superclass.equals(ApiResponse.class)) {
-            classFields = classFields + getFields(superclass);
+        if (superclass != null && !superclass.equals(ApiResponse.class)) {
+            classFields.addAll(getFields(superclass));
         }
         return classFields;
     }
@@ -147,72 +190,72 @@ public abstract class AbstractOnlineTest {
     private void testValue(final String id, final Object value, final Class<?> type) throws Exception {
         if (type.equals(String.class)) { // String
             // null
-            if (!nullOK.contains(id)) { // null
+            if (!allowNull.contains(id)) { // null
                 assertThat(id + " was null: ", value, notNullValue());
             }
             // empty
-            if (!nullOK.contains(id) && !emptyOK.contains(id)) { // Empty
+            if (!allowNull.contains(id) && !allowEmpty.contains(id)) { // Empty
                 final String result = (String) value;
                 assertThat(id + " was empty: ", result.length(), greaterThan(0));
             }
         } else if (Double.class.isAssignableFrom(type) || double.class.isAssignableFrom(type)) { // Double
             // null
-            if (!nullOK.contains(id)) { // null
+            if (!allowNull.contains(id)) { // null
                 assertThat(id + " was null: ", value, notNullValue());
             }
             // empty
-            if (!nullOK.contains(id) && !emptyOK.contains(id)) { // Empty
+            if (!allowNull.contains(id) && !allowEmpty.contains(id)) { // Empty
                 final double result = (Double) value;
                 assertThat(id + " was empty: ", result, not(equalTo(0.0)));
             }
         } else if (Float.class.isAssignableFrom(type) || float.class.isAssignableFrom(type)) { // Float
             // null
-            if (!nullOK.contains(id)) { // null
+            if (!allowNull.contains(id)) { // null
                 assertThat(id + " was null: ", value, notNullValue());
             }
             // empty
-            if (!nullOK.contains(id) && !emptyOK.contains(id)) { // Empty
+            if (!allowNull.contains(id) && !allowEmpty.contains(id)) { // Empty
                 final float result = (Float) value;
                 assertThat(id + " was empty: ", result, not(equalTo(0.0f)));
             }
         } else if (Long.class.isAssignableFrom(type) || long.class.isAssignableFrom(type)) { // Long
             // null
-            if (!nullOK.contains(id)) { // null
+            if (!allowNull.contains(id)) { // null
                 assertThat(id + " was null: ", value, notNullValue());
             }
             // empty
-            if (!nullOK.contains(id) && !emptyOK.contains(id)) { // Empty
+            if (!allowNull.contains(id) && !allowEmpty.contains(id)) { // Empty
                 final long result = (Long) value;
                 assertThat(id + " was empty: ", result, not(equalTo(0L)));
             }
         } else if (Integer.class.isAssignableFrom(type) || int.class.isAssignableFrom(type)) { // Enum
             // null
-            if (!nullOK.contains(id)) { // null
+            if (!allowNull.contains(id)) { // null
                 assertThat(id + " was null: ", value, notNullValue());
             }
             // empty
-            if (!nullOK.contains(id) && !emptyOK.contains(id)) { // Empty
+            if (!allowNull.contains(id) && !allowEmpty.contains(id)) { // Empty
                 final int result = (Integer) value;
                 assertThat(id + " was empty: ", result, not(equalTo(0)));
             }
         } else if (nullCheckClasses.contains(type)) { // Values
             // null
-            if (!nullOK.contains(id)) { // null
+            if (!allowNull.contains(id)) { // null
                 assertThat(id + " was null: ", value, notNullValue());
             }
         } else if (Enum.class.isAssignableFrom(type)) { // Enum
             // null
-            if (!nullOK.contains(id)) { // null
+            if (!allowNull.contains(id)) { // null
                 assertThat(id + " was null: ", value, notNullValue());
             }
         } else if (Collection.class.isAssignableFrom(type)) { // Collection
             // null
-            if (!nullOK.contains(id)) {
+            if (!allowNull.contains(id)) {
                 assertThat(id + " was null: ", value, notNullValue());
             }
             // empty
             final Collection<?> result = (Collection<?>) value;
-            if (!nullOK.contains(id) && !emptyOK.contains(id) && !TestControl.ignoreEmptyCollections()) {
+            if (!allowNull.contains(id) && !allowEmpty.contains(id) && TestControl.failOnEmptyCollection()) {
                 assertThat(id + " was empty: ", result.size(), greaterThan(0));
             }
             if (result != null && !result.isEmpty()) {
@@ -220,12 +263,12 @@ public abstract class AbstractOnlineTest {
             }
         } else if (Map.class.isAssignableFrom(type)) { // Map
             // null
-            if (!nullOK.contains(id)) {
+            if (!allowNull.contains(id)) {
                 assertThat(id + " was null: ", value, notNullValue());
             }
             // empty
             final Map<?, ?> result = (Map<?, ?>) value;
-            if (!nullOK.contains(id) && !emptyOK.contains(id) && !TestControl.ignoreEmptyCollections()) {
+            if (!allowNull.contains(id) && !allowEmpty.contains(id) && TestControl.failOnEmptyCollection()) {
                 assertThat(id + " was empty: ", result.size(), greaterThan(0));
             }
             if (result != null && !result.isEmpty()) {
@@ -254,8 +297,8 @@ public abstract class AbstractOnlineTest {
     }
 
     protected void test(final Collection<?> collection) throws Exception {
-        if (TestControl.ignoreEmptyCollections()) {
-            assumeTrue(false); //Ignore empty collection
+        if (!TestControl.failOnEmptyCollection()) {
+            assumeTrue("Empty collections allowed: ", false); //Ignore empty collection
         }
         assertThat("Collection was null: ", collection, notNullValue());
         assertThat("Collection was empty: ", collection.size(), greaterThan(0));

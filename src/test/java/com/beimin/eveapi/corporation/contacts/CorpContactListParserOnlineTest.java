@@ -12,7 +12,7 @@ public class CorpContactListParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Some data missing", TestControl.runIncompleteDataset());
+        assumeTrue("Needs to be refactored to be tested", TestControl.runBug());
         final CorpContactListParser parser = new CorpContactListParser();
         prepareParser(parser);
 

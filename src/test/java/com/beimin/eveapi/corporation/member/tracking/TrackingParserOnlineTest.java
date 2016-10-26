@@ -13,13 +13,12 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
 
     @Before
     public void prepare() {
-        before();
-        addIgnoreElement("row");
+        setAlias(MemberTrackingResponse.class, "members", "items");
         //Can be empty
-        addEmptyOK("getBase");
-        addEmptyOK("getTitle");
-        addEmptyOK("getBaseID");
-        addEmptyOK("getGrantableRoles");
+        allowEmpty("getBase");
+        allowEmpty("getTitle");
+        allowEmpty("getBaseID");
+        allowEmpty("getGrantableRoles");
 
         prepareParser(classToTest);
     }
@@ -27,20 +26,23 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         //Not included in default return
-        addNullOk("getLocation");
-        addNullOk("getShipType");
-        addNullOk("getLogonDateTime");
-        addNullOk("getLogoffDateTime");
-        addEmptyOK("getTitle");
-        addEmptyOK("getLocationID");
-        addEmptyOK("getRoles");
-        addEmptyOK("getShipTypeID");
-        
-        //location, shipType, logonDateTime, logoffDateTime
-        //grantableRoles, locationID, roles, shipTypeID
-        addElementMissingOK(Member.class, 8);
-        
-        
+        allowNull("getLocation");
+        allowNull("getShipType");
+        allowNull("getLogonDateTime");
+        allowNull("getLogoffDateTime");
+        allowEmpty("getTitle");
+        allowEmpty("getLocationID");
+        allowEmpty("getRoles");
+        allowEmpty("getShipTypeID");
+        ignoreClassField(Member.class, "location");
+        ignoreClassField(Member.class, "shipType");
+        ignoreClassField(Member.class, "logonDateTime");
+        ignoreClassField(Member.class, "logoffDateTime");
+        ignoreClassField(Member.class, "grantableRoles");
+        ignoreClassField(Member.class, "locationID");
+        ignoreClassField(Member.class, "roles");
+        ignoreClassField(Member.class, "shipTypeID");
+
         final MemberTrackingResponse response = classToTest.getResponse(getCorp());
 
         testResponse(response);
@@ -49,7 +51,7 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getExtendedResponse() throws Exception {
         final MemberTrackingResponse response = classToTest.getExtendedResponse(getCorp());
-
+        allowEmpty("getRoles");
         testResponse(response);
     }
 }

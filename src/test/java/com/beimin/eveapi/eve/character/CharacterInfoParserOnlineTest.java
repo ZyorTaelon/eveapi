@@ -14,30 +14,36 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
 
     @Before
     public void prepare() {
-        setUp();
+        setAlias(CharacterInfoResponse.class, "employmentHistory", "employment");
         // Not in alliance
-        addNullOk("getAllianceID");
-        addNullOk("getAllianceDate");
-        addNullOk("getAlliance");
-        addNullOk("getNextTrainingEnds"); //No skill in training
-        addEmptyOK("getSecurityStatus"); // Security Status can be zero
-        addElementMissingOK(CharacterInfoResponse.class, 3); //allianceID, alliance, allianceDate - test char have not in alliance
-        addIgnoreElement("row");
+        allowNull("getAllianceID");
+        allowNull("getAllianceDate");
+        allowNull("getAlliance");
+        allowNull("getNextTrainingEnds"); //No skill in training
+        allowEmpty("getSecurityStatus"); // Security Status can be zero
+        ignoreClassField(CharacterInfoResponse.class, "allianceID"); //test char have not in alliance
+        ignoreClassField(CharacterInfoResponse.class, "alliance"); //test char have not in alliance
+        ignoreClassField(CharacterInfoResponse.class, "allianceDate"); //test char have not in alliance
         prepareParser(classToTest);
     }
 
     @Test
     public void getResponsePublic() throws Exception {
         // Private Info, not included
-        addNullOk("getShipName");
-        addNullOk("getAccountBalance");
-        addNullOk("getLastKnownLocation");
-        addNullOk("getShipTypeID");
-        addNullOk("getSkillPoints");
-        addNullOk("getShipTypeName");
-        addElementMissingOK(CharacterInfoResponse.class, 1); //nextTrainingEnds - test char have nothing in training
-        //shipName, accountBalance, lastKnownLocation, shipTypeID, skillPoints, shipTypeName
-        addElementMissingOK(CharacterInfoResponse.class, 6);  //Private info not included in public result
+        allowNull("getShipName");
+        allowNull("getAccountBalance");
+        allowNull("getLastKnownLocation");
+        allowNull("getShipTypeID");
+        allowNull("getSkillPoints");
+        allowNull("getShipTypeName");
+        ignoreClassField(CharacterInfoResponse.class, "nextTrainingEnds"); //nextTrainingEnds - test char have nothing in training
+        //Private info not included in public result
+        ignoreClassField(CharacterInfoResponse.class, "shipName");
+        ignoreClassField(CharacterInfoResponse.class, "accountBalance");
+        ignoreClassField(CharacterInfoResponse.class, "lastKnownLocation");
+        ignoreClassField(CharacterInfoResponse.class, "shipTypeID");
+        ignoreClassField(CharacterInfoResponse.class, "skillPoints");
+        ignoreClassField(CharacterInfoResponse.class, "shipTypeName");
         final CharacterInfoResponse response = classToTest.getResponse(getCharacterID());
 
         testResponse(response);
@@ -45,7 +51,7 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponseKeyFull() throws Exception {
-        addElementMissingOK(CharacterInfoResponse.class, 1); //nextTrainingEnds - test char have nothing in training
+        ignoreClassField(CharacterInfoResponse.class, "nextTrainingEnds"); //nextTrainingEnds - test char have nothing in training
         final CharacterInfoResponse response = classToTest.getResponse(getEve());
 
         testResponse(response);

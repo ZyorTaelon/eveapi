@@ -8,13 +8,11 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.model.shared.Asset;
 import com.beimin.eveapi.parser.corporation.CorpAssetListParser;
 import com.beimin.eveapi.parser.corporation.CorpLocationsParser;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 import com.beimin.eveapi.response.shared.LocationsResponse;
-import static org.junit.Assume.assumeTrue;
 
 public class CorpLocationsParserOnlineTest extends AbstractOnlineTest {
 
@@ -37,7 +35,6 @@ public class CorpLocationsParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Some data missing", TestControl.runIncompleteDataset());
         final CorpLocationsParser parser = new CorpLocationsParser();
         prepareParser(parser);
 
