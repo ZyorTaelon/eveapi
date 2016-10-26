@@ -28,14 +28,14 @@ public class CorpJournalParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("Bug: Missing field", TestControl.runBug());
+        assumeTrue("No data returned by the API", TestControl.runNoData());
         final WalletJournalResponse response = classToTest.getResponse(getCorp());
         testResponse(response);
     }
 
     @Test
     public void getResponseKey() throws Exception {
-        assumeTrue("Bug: Missing field", TestControl.runBug());
+        assumeTrue("No data returned by the API", TestControl.runNoData());
         final WalletJournalResponse response = classToTest.getResponse(getCorp(), 1000);
         testResponse(response);
     }

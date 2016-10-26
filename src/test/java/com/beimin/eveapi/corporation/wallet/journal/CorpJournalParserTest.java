@@ -49,6 +49,8 @@ public class CorpJournalParserTest extends FullAuthParserTest {
                 assertEquals("", journalEntry.getReason());
                 assertNull(journalEntry.getTaxReceiverID());
                 assertNull(journalEntry.getTaxAmount());
+                assertEquals(1384, journalEntry.getOwner1TypeID());
+                assertEquals(2, journalEntry.getOwner2TypeID());
             }
         }
         assertTrue("test journal entry wasn't found.", found);
