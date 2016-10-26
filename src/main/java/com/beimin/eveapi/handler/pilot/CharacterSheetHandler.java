@@ -40,7 +40,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
                     skill.setLevel(level);
                 }
                 skill.setSkillpoints(getInt(attrs, "skillpoints"));
-                skill.setUnpublished(getBoolean(attrs, "unpublished"));
+                skill.setPublished(getBoolean(attrs, "published"));
                 response.addSkill(skill);
             } else if ("corporationRoles".equals(rowsetName)) {
                 final Role corporationRole = new Role();

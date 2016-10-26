@@ -4,7 +4,7 @@ public class Skill {
     private int typeID;
     private int level = 0;
     private int skillpoints = 0;
-    private boolean unpublished = false;
+    private boolean published = false;
 
     public int getTypeID() {
         return typeID;
@@ -30,11 +30,11 @@ public class Skill {
         this.skillpoints = skillpoints;
     }
 
-    public boolean isUnpublished() {
-        return unpublished;
+    public boolean isPublished() {
+        return published;
     }
 
-    public void setUnpublished(final boolean unpublished) {
-        this.unpublished = unpublished;
+    public void setPublished(boolean published) {
+        this.published = published;
     }
 }

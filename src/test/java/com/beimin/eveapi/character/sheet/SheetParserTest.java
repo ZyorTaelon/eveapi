@@ -20,7 +20,7 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.CharacterSheetParser;
 import com.beimin.eveapi.response.pilot.CharacterSheetResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class SheetParserTest extends FullAuthParserTest {
     public SheetParserTest() {
@@ -75,22 +75,22 @@ public class SheetParserTest extends FullAuthParserTest {
                 found++;
                 assertEquals(5, skill.getLevel());
                 assertEquals(256000, skill.getSkillpoints());
-                assertFalse(skill.isUnpublished());
+                assertTrue(skill.isPublished());
             } else if (skill.getTypeID() == 3413) {
                 found++;
                 assertEquals(5, skill.getLevel());
                 assertEquals(256000, skill.getSkillpoints());
-                assertFalse(skill.isUnpublished());
+                assertTrue(skill.isPublished());
             } else if (skill.getTypeID() == 21059) {
                 found++;
                 assertEquals(5, skill.getLevel());
                 assertEquals(512000, skill.getSkillpoints());
-                assertFalse(skill.isUnpublished());
+                assertTrue(skill.isPublished());
             } else if (skill.getTypeID() == 3416) {
                 found++;
                 assertEquals(5, skill.getLevel());
                 assertEquals(256000, skill.getSkillpoints());
-                assertFalse(skill.isUnpublished());
+                assertTrue(skill.isPublished());
             }
         }
         
