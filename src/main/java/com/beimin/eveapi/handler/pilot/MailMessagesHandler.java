@@ -17,7 +17,6 @@ public class MailMessagesHandler extends AbstractContentListHandler<MailMessages
         final MailMessage mailMessage = new MailMessage();
         saveAttributes(MailMessage.class, attrs);
         mailMessage.setMessageID(getLong(attrs, "messageID"));
-        mailMessage.setRead(getBoolean(attrs, "read"));
         mailMessage.setSenderID(getLong(attrs, "senderID"));
         mailMessage.setSentDate(getDate(attrs, "sentDate"));
         mailMessage.setTitle(getString(attrs, "title"));
@@ -25,6 +24,7 @@ public class MailMessagesHandler extends AbstractContentListHandler<MailMessages
         mailMessage.setToCorpOrAllianceID(getLong(attrs, "toCorpOrAllianceID"));
         mailMessage.setToListIDs(getString(attrs, "toListID"));
         mailMessage.setSenderTypeID(getInt(attrs, "senderTypeID"));
+        mailMessage.setSenderName(getString(attrs, "senderName"));
         return mailMessage;
     }
 

@@ -12,8 +12,8 @@ public class MailMessage {
     private Long toCorpOrAllianceID;
     private String toCharacterIDs;
     private String toListIDs;
-    private boolean read;
     private int senderTypeID;
+    private String senderName;
 
     public long getMessageID() {
         return messageID;
@@ -95,19 +95,19 @@ public class MailMessage {
         this.toListIDs = toListIDs;
     }
 
-    public boolean isRead() {
-        return read;
-    }
-
-    public void setRead(final boolean read) {
-        this.read = read;
-    }
-
     public int getSenderTypeID() {
         return senderTypeID;
     }
 
     public void setSenderTypeID(int senderTypeID) {
         this.senderTypeID = senderTypeID;
+    }
+
+    public String getSenderName() {
+        return senderName;
+    }
+
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
     }
 }

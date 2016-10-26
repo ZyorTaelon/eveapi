@@ -42,8 +42,8 @@ public class MailMessagesParserTest extends FullAuthParserTest {
                 assertEquals(1449814438L, mail.getToCorpOrAllianceID().longValue());
                 assertNull(mail.getCharacterIDs());
                 assertNull(mail.getListIDs());
-                assertEquals(false, mail.isRead());
                 assertEquals(1377, mail.getSenderTypeID());
+                assertEquals("Abu Alkindy", mail.getSenderName());
                 continue;
             } else if (mail.getMessageID() == 291361244L) {
                 found2 = true;
@@ -57,8 +57,8 @@ public class MailMessagesParserTest extends FullAuthParserTest {
                 final Set<Long> toListIDs = mail.getListIDs();
                 assertTrue(toListIDs.contains(new Long(1449814440)));
                 assertTrue(toListIDs.contains(new Long(1449814444)));
-                assertEquals(false, mail.isRead());
                 assertEquals(1377, mail.getSenderTypeID());
+                assertEquals("Abu Alkindy", mail.getSenderName());
                 continue;
             }
         }
