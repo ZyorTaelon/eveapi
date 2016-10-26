@@ -30,6 +30,7 @@ public class IndustryJob {
     private Date endDate;
     private Date pauseDate;
     private long completedCharacterID;
+    private int successfulRuns;
 
     public long getJobID() {
         return jobID;
@@ -245,5 +246,13 @@ public class IndustryJob {
 
     public void setCompletedCharacterID(final long completedCharacterID) {
         this.completedCharacterID = completedCharacterID;
+    }
+
+    public int getSuccessfulRuns() {
+        return successfulRuns;
+    }
+
+    public void setSuccessfulRuns(int successfulRuns) {
+        this.successfulRuns = successfulRuns;
     }
 }

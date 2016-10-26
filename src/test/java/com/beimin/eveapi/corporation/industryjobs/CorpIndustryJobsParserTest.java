@@ -60,6 +60,7 @@ public class CorpIndustryJobsParserTest extends FullAuthParserTest {
                 assertDate(0001, 1, 1, 0, 0, 0, job.getPauseDate());
                 assertDate(0001, 1, 1, 0, 0, 0, job.getCompletedDate());
                 assertEquals(0, job.getCompletedCharacterID());
+                assertEquals(0, job.getSuccessfulRuns());
             }
         }
         assertTrue("test job wasn't found.", found);

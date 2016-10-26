@@ -43,6 +43,7 @@ public class IndustryJobsHandler extends AbstractContentListHandler<IndustryJobs
         job.setPauseDate(getDate(attrs, "pauseDate"));
         job.setCompletedDate(getDate(attrs, "completedDate"));
         job.setCompletedCharacterID(getLong(attrs, "completedCharacterID"));
+        job.setSuccessfulRuns(getInt(attrs, "successfulRuns"));
         return job;
     }
 
