@@ -19,6 +19,10 @@ public class AccountStatusHandler extends AbstractContentHandler<AccountStatusRe
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attributes) throws SAXException {
         if ("result".equals(qName)) {
             accountStatus = new AccountStatus();
+        } else if (ELEMENT_ROWSET.equals(qName)) {
+            setCurrentClass(AccountStatus.class);
+        } else if (ELEMENT_ROW.equals(qName)) {
+            accountStatus.addMultiCharacterTraining(getDate(attributes, "trainingEnd"));
         }
     }
 
