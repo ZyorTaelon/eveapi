@@ -29,10 +29,13 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
         if (ELEMENT_ROWSET.equals(qName)) {
             final String name = getString(attrs, "name");
             if (name.equals("skills")) {
+                setCurrentClass(SkillGroup.class);
                 skills = true;
             } else if (name.equals("requiredSkills")) {
+                setCurrentClass(Skill.class);
                 requiredSkills = true;
             } else if (name.equals("skillBonusCollection")) {
+                setCurrentClass(Skill.class);
                 skillBonusCollection = true;
             }
         } else if (ELEMENT_ROW.equals(qName)) {
