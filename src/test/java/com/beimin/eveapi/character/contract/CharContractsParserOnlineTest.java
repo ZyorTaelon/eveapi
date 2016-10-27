@@ -3,24 +3,24 @@ package com.beimin.eveapi.character.contract;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.parser.pilot.CharContractsParser;
 import com.beimin.eveapi.response.shared.ContractsResponse;
-import static org.junit.Assume.assumeTrue;
 
 public class CharContractsParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
-        addNullOk("getDateAccepted"); // Not accepted yet
-        addEmptyOK("getAcceptorID"); // Not accepted yet
-        addNullOk("getDateCompleted"); // Not completed yet
-        addNullOk("getRawQuantity"); // Never returned by the API (API BUG)
-        addEmptyOK("getBuyout"); // No buyout
-        addEmptyOK("getReward"); // No reward
-        addEmptyOK("getCollateral"); // No collateral
-        addEmptyOK("getNumDays"); // Not courier
+        setAlias(ContractsResponse.class, "contractList", "items");
+        allowNull("getDateAccepted"); // Not accepted yet
+        allowEmpty("getAcceptorID"); // Not accepted yet
+        allowNull("getDateCompleted"); // Not completed yet
+        allowNull("getRawQuantity"); // Never returned by the API (API BUG)
+        allowEmpty("getBuyout"); // No buyout
+        allowEmpty("getReward"); // No reward
+        allowEmpty("getCollateral"); // No collateral
+        allowEmpty("getNumDays"); // Not courier
+        allowEmpty("getPrice"); // No price
+        allowEmpty("getTitle"); // No title
         final CharContractsParser parser = new CharContractsParser();
         prepareParser(parser);
 

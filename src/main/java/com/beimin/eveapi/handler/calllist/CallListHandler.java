@@ -24,9 +24,9 @@ public class CallListHandler extends AbstractContentHandler<CallListResponse> {
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if ("result".equals(qName)) {
             callList = new CallList();
-            saveAttributes(CallList.class, attrs);
         }
         if (ELEMENT_ROWSET.equals(qName)) {
+            setCurrentClass(CallList.class);
             final String name = attrs.getValue("name");
             if ("callGroups".equals(name)) {
                 callGroups = true;

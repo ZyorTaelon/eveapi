@@ -25,6 +25,9 @@ public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurity
             final String name = getString(attrs, ATTRIBUTE_NAME);
             roleHandler.parseRowsetRoles(name);
             titles = "titles".equals(name);
+            if (!"members".equals(name)) {
+                setCurrentClass(SecurityMember.class);
+            }
         } else if (ELEMENT_ROW.equals(qName)) {
             final boolean handledRoles = roleHandler.handleRoles(member, attrs);
             if (titles && !handledRoles) {

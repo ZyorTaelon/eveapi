@@ -15,27 +15,24 @@ public class CorpJournalParserOnlineTest extends AbstractOnlineTest {
 
     @Before
     public void prepare() {
-        before();
-        addIgnoreElement("row");
-        addNullOk("getTaxReceiverID"); //no tax
-        addNullOk("getTaxAmount"); //no tax
-        addEmptyOK("getReason"); //zero is a valid value
-        addElementMissingOK(JournalEntry.class, 1); //RefType (enum) field should not be counted
-        addElementMissingOK(JournalEntry.class, 1); //taxReceiverID not included in corporation result
-        addElementMissingOK(JournalEntry.class, 1); //taxAmount not included in corporation result
+        setAlias(WalletJournalResponse.class, "entries", "items");
+        allowNull("getTaxReceiverID"); //no tax
+        allowNull("getTaxAmount"); //no tax
+        allowEmpty("getReason"); //zero is a valid value
+        ignoreClassField(JournalEntry.class, "refType"); //RefType (enum) field should not be counted
+        ignoreClassField(JournalEntry.class, "taxReceiverID"); //taxReceiverID not included in corporation result
+        ignoreClassField(JournalEntry.class, "taxAmount"); //taxAmount not included in corporation result
         prepareParser(classToTest);
     }
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
         final WalletJournalResponse response = classToTest.getResponse(getCorp());
         testResponse(response);
     }
 
     @Test
     public void getResponseKey() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
         final WalletJournalResponse response = classToTest.getResponse(getCorp(), 1000);
         testResponse(response);
     }

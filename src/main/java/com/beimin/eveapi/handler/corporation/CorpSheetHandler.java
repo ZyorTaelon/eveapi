@@ -80,7 +80,7 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
             divisions = false;
             walletDivisions = false;
         } else {
-            setElementClass(CorpLogo.class);
+            setCurrentClass(CorpLogo.class);
         }
     }
 

@@ -4,10 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.TestControl;
+import com.beimin.eveapi.model.shared.Asset;
 import com.beimin.eveapi.parser.corporation.CorpAssetListParser;
 import com.beimin.eveapi.response.shared.AssetListResponse;
-import static org.junit.Assume.assumeTrue;
 
 public class CorpAssetListParserOnlineTest extends AbstractOnlineTest {
     private final CorpAssetListParser classToTest = new CorpAssetListParser();
@@ -15,13 +14,13 @@ public class CorpAssetListParserOnlineTest extends AbstractOnlineTest {
     @Before
     public void prepare() {
         setUp();
-        addEmptyOK("getRawQuantity"); //only return for blueprints
+        allowEmpty("getRawQuantity"); //only return for blueprints
         prepareParser(classToTest);
     }
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
+        setAlias(Asset.class, "contents", "assets");
         final AssetListResponse response = classToTest.getResponse(getCorp());
 
         testResponse(response);
@@ -29,7 +28,7 @@ public class CorpAssetListParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponseFlat() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
+        ignoreClassField(Asset.class, "assets"); //Flat list
         final AssetListResponse response = classToTest.getResponse(getCorp(), true);
 
         testResponse(response);

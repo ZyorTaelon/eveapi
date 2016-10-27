@@ -14,20 +14,18 @@ public class CorpTransactionsParserOnlineTest extends AbstractOnlineTest {
 
     @Before
     public void prepare() {
-        before();
+        setAlias(WalletTransactionsResponse.class, "transactions", "items");
         prepareParser(classToTest);
     }
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
         final WalletTransactionsResponse response = classToTest.getResponse(getCorp());
         testResponse(response);
     }
 
     @Test
     public void getResponseKey() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
         final WalletTransactionsResponse response = classToTest.getResponse(getCorp(), 1000);
         testResponse(response);
     }

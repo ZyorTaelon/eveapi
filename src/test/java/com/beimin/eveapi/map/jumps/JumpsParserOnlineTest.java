@@ -10,6 +10,9 @@ public class JumpsParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
+        setAlias(JumpsResponse.class, "solarSystems", "items");
+        ignoreClassField(JumpsResponse.class, "systemJumps");
+        ignoreXmlField("datatime");
         final JumpsParser parser = new JumpsParser();
         prepareParser(parser);
 

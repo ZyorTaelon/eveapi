@@ -14,6 +14,8 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.DateUtils;
+import java.util.Collections;
+import java.util.Stack;
 
 public abstract class AbstractContentHandler<E extends ApiResponse> extends DefaultHandler {
     private static final String MESSAGE_NUMBER_PARSER = "Couldn't parse number";
@@ -32,10 +34,9 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
 
     private E response;
     private boolean strictCheckMode;
-    private Map<String, Integer> fields;
-    private Set<String> elements;
-    private Set<String> ignoreElements;
+    private Map<String, Set<String>> fields;
     private String currentClassName;
+    private Stack<String> path;
 
     private final StringBuilder accumulator = new StringBuilder();
     private ApiError error;
@@ -65,6 +66,33 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
             saveAttributes(ApiError.class, attrs);
             error.setCode(getInt(attrs, ATTRIBUTE_CODE));
             response.setError(error);
+        } else if (strictCheckMode && ELEMENT_ROWSET.equals(qName)) {
+            String name = getString(attrs, "name");
+            if (name == null) {
+                name = "rowset";
+            }
+            if (path != null) {
+                String parentElement = path.peek();
+                if (parentElement == null) {
+                    parentElement = "";
+                }
+                save(parentElement+name);
+            } else {
+                save(name);
+            }
+        }
+        if (strictCheckMode && path != null) { //Save path
+            String pathName;
+            if (ELEMENT_ROWSET.equals(qName)) { //If rowset, use the rowset name
+                String rowsetName = getString(attrs, "name");
+                if (rowsetName == null) {
+                    rowsetName = "rowset";
+                }
+                pathName= rowsetName;
+            } else {
+                pathName = qName;
+            }
+            path.add(pathName);
         }
         accumulator.setLength(0);
     }
@@ -73,6 +101,9 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
 
     @Override
     public final void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if (strictCheckMode && path != null) {
+            path.pop();
+        }
         elementEnd(uri, localName, qName);
         if (ELEMENT_CURRENT_TIME.equals(qName)) {
             response.setCurrentTime(getDate());
@@ -80,13 +111,13 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
             response.setCachedUntil(getDate());
         } else if (ATTRIBUTE_ERROR.equals(qName)) {
             error.setError(getString());
-        } else if (!ATTRIBUTE_RESULT.equals(qName)
+        } else if (strictCheckMode
+                && !ATTRIBUTE_RESULT.equals(qName)
                 && !ELEMENT_EVEAPI.equals(qName)
-                //&& !ELEMENT_ROW.equals(qName)
+                && !ELEMENT_ROW.equals(qName)
                 && !ELEMENT_ROWSET.equals(qName)
-                && (ignoreElements == null || !ignoreElements.contains(qName))
                 ) {
-            saveElement(qName);
+            save(qName);
         }
     }
 
@@ -180,60 +211,49 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         return "1".equals(getString(attrs, qName)) || VALUE_TRUE.equalsIgnoreCase(getString(attrs, qName));
     }
 
-    public Map<String, Integer> enableStrictCheckMode() {
+    public Map<String, Set<String>> enableStrictCheckMode(boolean fullPath) {
+        if (fullPath) {
+            path = new Stack<>();
+        }
         strictCheckMode = true;
         fields = new ConcurrentHashMap<>();
         return fields;
     }
 
-    public void setIgnoreElements(Set<String> ignoreElements) {
-        this.ignoreElements = ignoreElements;
-    }
-
-    protected void saveAttributesMax(final Class<?> clazz, final Attributes attrs) {
-        if (strictCheckMode) {
-            String className = clazz.getName();
-            Integer current = fields.get(className);
-            if (current == null) {
-                current = 0;
-            }
-            fields.put(className, Math.max(attrs.getLength(), current));
-        }
-    }
-
     protected void saveAttributes(final Class<?> clazz, final Attributes attrs) {
         if (strictCheckMode) {
+            setCurrentClass(clazz);
             String className = clazz.getName();
-            addCount(className, className, attrs.getLength());
+            Set<String> add = new HashSet<>();
+            for (int i = 0; i < attrs.getLength(); i++) {
+                add.add(attrs.getQName(i));
+            }
+            addCount(className, add);
         }
     }
 
-    protected void setElementClass(Class<?> currentElementClass) {
+    protected void setCurrentClass(Class<?> currentElementClass) {
         this.currentClassName = currentElementClass.getName();
     }
 
-    private void saveElement(String elementName) {
+    private void save(String name) {
         if (strictCheckMode) {
             if (currentClassName == null) {
                 currentClassName = getResponse().getClass().getName();
             }
-            addCount(elementName, currentClassName, 1);
+            addCount(currentClassName, Collections.singleton(name));
         }
     }
 
-    private void addCount(String id, String className, int add) {
-        if (elements == null) {
-            elements = new HashSet<>();
+    private void addCount(String className, Set<String> add) {
+        Set<String> set = fields.get(className);
+        if (set == null) {
+            set = new HashSet<>();
+            fields.put(className, set);
         }
-        if (elements.contains(id)) {
-            return; //Only add each element once
+        for (String s : add) {
+            set.add(s.toLowerCase());
         }
-        elements.add(id);
-        Integer current = fields.get(className);
-        if (current == null) {
-            current = 0;
-        }
-        fields.put(className, current + add);
     }
 
     protected void setResponse(final E response) {

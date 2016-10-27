@@ -6,10 +6,6 @@ public class TestControl {
      */
     private final static boolean RUN_ALL = false;
     /**
-     * Run tests that is missing data
-     */
-    private final static boolean RUN_NO_DATA = false;
-    /**
      * Run tests that have not be completed yet
      */
     private final static boolean RUN_TEST_INCOMPLETE = false;
@@ -22,21 +18,13 @@ public class TestControl {
      */
     private final static boolean RUN_BUG = false;
     /**
-     * Run tests that miss part of the data set
+     * Fail when collections or maps are empty
      */
-    private final static boolean RUN_INCOMPLETE_DATASET = false;
-    /**
-     * Ignore collections if they are empty
-     */
-    private final static boolean IGNORE_EMPTY_COLLECTIONS = false;
+    private final static boolean FAIL_ON_EMPTY_COLLECTION = false;
     /**
      * Log the response to console
      */
     private final static boolean LOG_RESPONSE = false;
-
-    public static boolean runNoData() {
-        return RUN_NO_DATA || RUN_ALL;
-    }
 
     public static boolean runTestIncomplete() {
         return RUN_TEST_INCOMPLETE || RUN_ALL;
@@ -50,12 +38,8 @@ public class TestControl {
         return RUN_BUG || RUN_ALL;
     }
 
-    public static boolean runIncompleteDataset() {
-        return RUN_INCOMPLETE_DATASET || RUN_ALL;
-    }
-
-    public static boolean ignoreEmptyCollections() {
-        return IGNORE_EMPTY_COLLECTIONS;
+    public static boolean failOnEmptyCollection() {
+        return FAIL_ON_EMPTY_COLLECTION;
     }
 
     public static boolean logResponse() {

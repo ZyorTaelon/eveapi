@@ -12,9 +12,9 @@ public class CharContactListParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        assumeTrue("No data returned by the API", TestControl.runNoData());
-        addEmptyOK("getLabelMask"); //zero is a valid value
-        addEmptyOK("getStanding"); //zero is a valid value
+        assumeTrue("Needs to be refactored to be tested", TestControl.runBug());
+        allowEmpty("getLabelMask"); //zero is a valid value
+        allowEmpty("getStanding"); //zero is a valid value
         final CharContactListParser parser = new CharContactListParser();
         prepareParser(parser);
 

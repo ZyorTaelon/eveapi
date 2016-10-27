@@ -17,7 +17,7 @@ import com.beimin.eveapi.response.shared.LocationsResponse;
 public class CharLocationsParserOnlineTest extends AbstractOnlineTest {
 
     private List<Long> getItemIDs() throws Exception {
-        addEmptyOK("getAssets"); // Not all assets have sup assets
+        allowEmpty("getAssets"); // Not all assets have sup assets
         final CharAssetListParser parser = new CharAssetListParser();
         final AssetListResponse response = parser.getResponse(getCharacter());
         final List<Asset> assets = response.getAll();
@@ -37,9 +37,9 @@ public class CharLocationsParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         //Not everything have coordinates
-        addEmptyOK("getX");
-        addEmptyOK("getZ");
-        addEmptyOK("getY");
+        allowEmpty("getX");
+        allowEmpty("getZ");
+        allowEmpty("getY");
         final CharLocationsParser parser = new CharLocationsParser();
         prepareParser(parser);
 

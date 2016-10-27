@@ -10,8 +10,11 @@ public class SovereigntyParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        addEmptyOK("getAllianceID"); // No alliance
-        addEmptyOK("getCorporationID"); // No corporation
+        setAlias(SovereigntyResponse.class, "solarSystems", "systemSovereignties");
+        ignoreClassField(SovereigntyResponse.class, "items");
+        ignoreXmlField("datatime");
+        allowEmpty("getAllianceID"); // No alliance
+        allowEmpty("getCorporationID"); // No corporation
         final SovereigntyParser parser = new SovereigntyParser();
         prepareParser(parser);
 

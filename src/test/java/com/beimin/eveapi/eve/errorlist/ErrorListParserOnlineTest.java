@@ -10,6 +10,7 @@ public class ErrorListParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
+        setAlias(ErrorListResponse.class, "errors", "items");
         final ErrorListParser parser = new ErrorListParser();
         prepareParser(parser);
 
