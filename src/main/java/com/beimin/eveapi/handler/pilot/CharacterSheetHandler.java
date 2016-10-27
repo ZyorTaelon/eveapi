@@ -6,6 +6,9 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
+import com.beimin.eveapi.model.pilot.Implant;
+import com.beimin.eveapi.model.pilot.JumpClone;
+import com.beimin.eveapi.model.pilot.JumpCloneImplant;
 import com.beimin.eveapi.model.pilot.Role;
 import com.beimin.eveapi.model.pilot.Skill;
 import com.beimin.eveapi.model.shared.Ancestry;
@@ -72,6 +75,27 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
                 corporationTitle.setTitleID(getLong(attrs, "titleID"));
                 corporationTitle.setTitleName(getString(attrs, "titleName"));
                 response.addCorporationTitle(corporationTitle);
+            } else if ("jumpCloneImplants".equals(rowsetName)) {
+                final JumpCloneImplant jumpCloneImplant = new JumpCloneImplant();
+                saveAttributes(JumpCloneImplant.class, attrs);
+                jumpCloneImplant.setJumpCloneID(getLong(attrs, "jumpCloneID"));
+                jumpCloneImplant.setTypeID(getInt(attrs, "typeID"));
+                jumpCloneImplant.setTypeName(getString(attrs, "typeName"));
+                response.addJumpCloneImplant(jumpCloneImplant);
+            } else if ("jumpClones".equals(rowsetName)) {
+                final JumpClone jumpClone = new JumpClone();
+                saveAttributes(JumpClone.class, attrs);
+                jumpClone.setJumpCloneID(getLong(attrs, "jumpCloneID"));
+                jumpClone.setTypeID(getInt(attrs, "typeID"));
+                jumpClone.setLocationID(getLong(attrs, "locationID"));
+                jumpClone.setCloneName(getString(attrs, "cloneName"));
+                response.addJumpClone(jumpClone);
+            } else if ("implants".equals(rowsetName)) {
+                final Implant implant = new Implant();
+                saveAttributes(Implant.class, attrs);
+                implant.setTypeID(getInt(attrs, "typeID"));
+                implant.setTypeName(getString(attrs, "typeName"));
+                response.addImplant(implant);
             }
         }
     }

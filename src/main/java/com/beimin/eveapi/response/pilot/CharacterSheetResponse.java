@@ -1,5 +1,8 @@
 package com.beimin.eveapi.response.pilot;
 
+import com.beimin.eveapi.model.pilot.Implant;
+import com.beimin.eveapi.model.pilot.JumpClone;
+import com.beimin.eveapi.model.pilot.JumpCloneImplant;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -47,6 +50,9 @@ public class CharacterSheetResponse extends ApiResponse {
     private int charisma;
     private int perception;
     private int willpower;
+    private final Set<JumpCloneImplant> jumpCloneImplants = new HashSet<>();
+    private final Set<JumpClone> jumpClones = new HashSet<>();
+    private final Set<Implant> implants = new HashSet<>();
     private final Set<Skill> skills = new HashSet<Skill>();
     private final Set<Role> corporationRoles = new HashSet<>();
     private final Set<Role> corporationRolesAtHQ = new HashSet<>();
@@ -204,6 +210,30 @@ public class CharacterSheetResponse extends ApiResponse {
 
     public void setWillpower(final int willpower) {
         this.willpower = willpower;
+    }
+
+    public void addJumpCloneImplant(final JumpCloneImplant jumpCloneImplant) {
+        jumpCloneImplants.add(jumpCloneImplant);
+    }
+
+    public Set<JumpCloneImplant> getJumpCloneImplants() {
+        return jumpCloneImplants;
+    }
+
+    public void addJumpClone(final JumpClone jumpClone) {
+        jumpClones.add(jumpClone);
+    }
+
+    public Set<JumpClone> getJumpClones() {
+        return jumpClones;
+    }
+
+    public void addImplant(final Implant implant) {
+        implants.add(implant);
+    }
+
+    public Set<Implant> getImplants() {
+        return implants;
     }
 
     public void addSkill(final Skill skill) {
