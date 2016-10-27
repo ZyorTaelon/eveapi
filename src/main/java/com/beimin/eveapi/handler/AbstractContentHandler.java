@@ -15,6 +15,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.DateUtils;
 import java.util.Collections;
+import java.util.Stack;
 
 public abstract class AbstractContentHandler<E extends ApiResponse> extends DefaultHandler {
     private static final String MESSAGE_NUMBER_PARSER = "Couldn't parse number";
@@ -35,6 +36,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     private boolean strictCheckMode;
     private Map<String, Set<String>> fields;
     private String currentClassName;
+    private Stack<String> path;
 
     private final StringBuilder accumulator = new StringBuilder();
     private ApiError error;
@@ -69,7 +71,28 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
             if (name == null) {
                 name = "rowset";
             }
-            save(name);
+            if (path != null) {
+                String parentElement = path.peek();
+                if (parentElement == null) {
+                    parentElement = "";
+                }
+                save(parentElement+name);
+            } else {
+                save(name);
+            }
+        }
+        if (strictCheckMode && path != null) { //Save path
+            String pathName;
+            if (ELEMENT_ROWSET.equals(qName)) { //If rowset, use the rowset name
+                String rowsetName = getString(attrs, "name");
+                if (rowsetName == null) {
+                    rowsetName = "rowset";
+                }
+                pathName= rowsetName;
+            } else {
+                pathName = qName;
+            }
+            path.add(pathName);
         }
         accumulator.setLength(0);
     }
@@ -78,6 +101,9 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
 
     @Override
     public final void endElement(final String uri, final String localName, final String qName) throws SAXException {
+        if (strictCheckMode && path != null) {
+            path.pop();
+        }
         elementEnd(uri, localName, qName);
         if (ELEMENT_CURRENT_TIME.equals(qName)) {
             response.setCurrentTime(getDate());
@@ -185,7 +211,10 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         return "1".equals(getString(attrs, qName)) || VALUE_TRUE.equalsIgnoreCase(getString(attrs, qName));
     }
 
-    public Map<String, Set<String>> enableStrictCheckMode() {
+    public Map<String, Set<String>> enableStrictCheckMode(boolean fullPath) {
+        if (fullPath) {
+            path = new Stack<>();
+        }
         strictCheckMode = true;
         fields = new ConcurrentHashMap<>();
         return fields;

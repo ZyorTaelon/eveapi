@@ -28,26 +28,26 @@ public class FacWarTopStatsParserTest extends NoAuthParserTest {
     public void getResponse() throws ApiException {
         final FacWarTopStatsParser parser = new FacWarTopStatsParser();
         final FacWarTopStatsResponse facWarStats = parser.getResponse();
-        assertKillerChar(1394672077, "Adolf Ehrnrooth", 17, facWarStats.getCharacterKillsYesterday());
-        assertKillerChar(1780475402, "Loren Gallen", 46, facWarStats.getCharacterKillsLastWeek());
-        assertKillerChar(1780475402, "Loren Gallen", 2598, facWarStats.getCharacterKillsTotal());
-        assertVictoryPointerChar(1810868208, "Maik Zierra", 1504, facWarStats.getCharacterVictoryPointsYesterday());
-        assertVictoryPointerChar(395923478, "sasawong", 13837, facWarStats.getCharacterVictoryPointsLastWeek());
-        assertVictoryPointerChar(395923478, "sasawong", 699423, facWarStats.getCharacterVictoryPointsTotal());
+        assertKillerChar(1394672077, "Adolf Ehrnrooth", 17, facWarStats.getCharactersKillsYesterday());
+        assertKillerChar(1780475402, "Loren Gallen", 46, facWarStats.getCharactersKillsLastWeek());
+        assertKillerChar(1780475402, "Loren Gallen", 2598, facWarStats.getCharactersKillsTotal());
+        assertVictoryPointerChar(1810868208, "Maik Zierra", 1504, facWarStats.getCharactersVictoryPointsYesterday());
+        assertVictoryPointerChar(395923478, "sasawong", 13837, facWarStats.getCharactersVictoryPointsLastWeek());
+        assertVictoryPointerChar(395923478, "sasawong", 699423, facWarStats.getCharactersVictoryPointsTotal());
 
-        assertKillerCorp(207613888L, "Space Perverts and Forum Warriors United", 37, facWarStats.getCorporationKillsYesterday());
-        assertKillerCorp(207613888L, "Space Perverts and Forum Warriors United", 135, facWarStats.getCorporationKillsLastWeek());
-        assertKillerCorp(1000180L, "State Protectorate", 13568, facWarStats.getCorporationKillsTotal());
-        assertVictoryPointerCorp(944307194L, "1st Praetorian Guard", 1852, facWarStats.getCorporationVictoryPointsYesterday());
-        assertVictoryPointerCorp(637428501L, "Independent Corp.", 13837, facWarStats.getCorporationVictoryPointsLastWeek());
-        assertVictoryPointerCorp(1000180L, "State Protectorate", 1673108, facWarStats.getCorporationVictoryPointsTotal());
+        assertKillerCorp(207613888L, "Space Perverts and Forum Warriors United", 37, facWarStats.getCorporationsKillsYesterday());
+        assertKillerCorp(207613888L, "Space Perverts and Forum Warriors United", 135, facWarStats.getCorporationsKillsLastWeek());
+        assertKillerCorp(1000180L, "State Protectorate", 13568, facWarStats.getCorporationsKillsTotal());
+        assertVictoryPointerCorp(944307194L, "1st Praetorian Guard", 1852, facWarStats.getCorporationsVictoryPointsYesterday());
+        assertVictoryPointerCorp(637428501L, "Independent Corp.", 13837, facWarStats.getCorporationsVictoryPointsLastWeek());
+        assertVictoryPointerCorp(1000180L, "State Protectorate", 1673108, facWarStats.getCorporationsVictoryPointsTotal());
 
-        assertKillerFaction(500004, "Gallente Federation", 116, facWarStats.getFactionKillsYesterday());
-        assertKillerFaction(500003, "Amarr Empire", 676, facWarStats.getFactionKillsLastWeek());
-        assertKillerFaction(500004, "Gallente Federation", 78556, facWarStats.getFactionKillsTotal());
-        assertVictoryPointerFaction(500003, "Amarr Empire", 6416, facWarStats.getFactionVictoryPointsYesterday());
-        assertVictoryPointerFaction(500003, "Amarr Empire", 53943, facWarStats.getFactionVictoryPointsLastWeek());
-        assertVictoryPointerFaction(500001, "Caldari State", 5730405, facWarStats.getFactionVictoryPointsTotal());
+        assertKillerFaction(500004, "Gallente Federation", 116, facWarStats.getFactionsKillsYesterday());
+        assertKillerFaction(500003, "Amarr Empire", 676, facWarStats.getFactionsKillsLastWeek());
+        assertKillerFaction(500004, "Gallente Federation", 78556, facWarStats.getFactionsKillsTotal());
+        assertVictoryPointerFaction(500003, "Amarr Empire", 6416, facWarStats.getFactionsVictoryPointsYesterday());
+        assertVictoryPointerFaction(500003, "Amarr Empire", 53943, facWarStats.getFactionsVictoryPointsLastWeek());
+        assertVictoryPointerFaction(500001, "Caldari State", 5730405, facWarStats.getFactionsVictoryPointsTotal());
     }
 
     private void assertKillerChar(final int characterID, final String characterName, final int kills, final List<CharacterKills> killersList) {

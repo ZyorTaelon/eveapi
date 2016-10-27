@@ -20,7 +20,7 @@ public class FacWarTopStatsParserOnlineTest extends AbstractOnlineTest {
         allowEmpty("getCorporationID");
         allowEmpty("getCharacterName");
         final FacWarTopStatsParser parser = new FacWarTopStatsParser();
-        prepareParser(parser);
+        prepareParser(parser, true);
 
         final FacWarTopStatsResponse response = parser.getResponse();
 

@@ -115,7 +115,11 @@ public abstract class AbstractOnlineTest {
     }
 
     protected void prepareParser(AbstractApiParser<?> parser) {
-        fields = parser.enableStrictCheckMode();
+        prepareParser(parser, false);
+    }
+
+    protected void prepareParser(AbstractApiParser<?> parser, boolean fullPath) {
+        fields = parser.enableStrictCheckMode(fullPath);
     }
 
     private void checkBean(final Object bean) throws Exception {

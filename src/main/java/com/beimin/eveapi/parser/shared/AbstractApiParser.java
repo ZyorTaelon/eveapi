@@ -69,7 +69,7 @@ public abstract class AbstractApiParser<E extends ApiResponse> {
         return contentHandler;
     }
 
-    public Map<String, Set<String>> enableStrictCheckMode() {
-        return getAndPrepareContentHandler().enableStrictCheckMode();
+    public Map<String, Set<String>> enableStrictCheckMode(boolean fullPath) {
+        return getAndPrepareContentHandler().enableStrictCheckMode(fullPath);
     }
 }
