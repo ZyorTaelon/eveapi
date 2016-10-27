@@ -8,7 +8,6 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.shared.Contact;
 import com.beimin.eveapi.model.shared.ContactLabel;
-import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.response.shared.AbstractContactListResponse;
 
 public class ContactListHandler<CLR extends AbstractContactListResponse> extends AbstractContentHandler<CLR> {
@@ -17,8 +16,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
     private static final Logger LOGGER = LoggerFactory.getLogger(ContactListHandler.class);
 
     private final Class<CLR> clazz;
-    private NamedList<Contact> contactList;
-    private NamedList<ContactLabel> labelList;
+    private String rowsetName;
 
     public ContactListHandler(final Class<CLR> clazz) {
         this.clazz = clazz;
@@ -38,49 +36,41 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
     @Override
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            // contacts or labels, separate by key
-            if (ATTRIBUTE_CONTACT_ID.equals(getString(attrs, "key"))) {
-                contactList = new NamedList<>();
-                contactList.setName(getString(attrs, ATTRIBUTE_NAME));
-            } else {
-                labelList = new NamedList<>();
-                labelList.setName(getString(attrs, ATTRIBUTE_NAME));
-            }
-        }
-
-        if (ELEMENT_ROW.equals(qName)) {
-            // contacts or labels, separate by index
-            if (attrs.getIndex(ATTRIBUTE_CONTACT_ID) > -1) {
-                final Contact contact = new Contact();
-                saveAttributes(Contact.class, attrs);
-                contact.setContactID(getInt(attrs, ATTRIBUTE_CONTACT_ID));
-                contact.setContactName(getString(attrs, "contactName"));
-                contact.setInWatchlist(getBoolean(attrs, "inWatchlist"));
-                contact.setStanding(getDouble(attrs, "standing"));
-                contact.setContactTypeID(getInt(attrs, "contactTypeID"));
-                contact.setLabelMask(getLong(attrs, "labelMask"));
-                contactList.add(contact);
-            } else {
-                final ContactLabel label = new ContactLabel();
-                saveAttributes(ContactLabel.class, attrs);
-                label.setLabelID(getLong(attrs, "labelID"));
-                label.setName(getString(attrs, "name"));
-                labelList.add(label);
+            rowsetName = getString(attrs, "name");
+        } else if (ELEMENT_ROW.equals(qName)) {
+            if ("contactList".equals(rowsetName)) {
+                getResponse().addContact(getContact(attrs));
+            } else if ("contactLabels".equals(rowsetName)) {
+                getResponse().addContactLabel(getContactLabel(attrs));
+            } else if ("corporateContactList".equals(rowsetName)) {
+                getResponse().addCorporateContact(getContact(attrs));
+            } else if ("corporateContactLabels".equals(rowsetName)) {
+                getResponse().addCorporateContactLabel(getContactLabel(attrs));
+            } else if ("allianceContactList".equals(rowsetName)) {
+                getResponse().addAllianceContact(getContact(attrs));
+            } else if ("allianceContactLabels".equals(rowsetName)) {
+                getResponse().addAllianceContactLabel(getContactLabel(attrs));
             }
         }
     }
 
-    @Override
-    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
-        final CLR response = getResponse();
-        if (ELEMENT_ROWSET.equals(qName)) {
-            if (contactList != null) {
-                response.add(contactList);
-                contactList = null;
-            } else {
-                response.addLabels(labelList);
-                labelList = null;
-            }
-        }
+    private Contact getContact(final Attributes attrs) {
+        final Contact contact = new Contact();
+        saveAttributes(Contact.class, attrs);
+        contact.setContactID(getInt(attrs, ATTRIBUTE_CONTACT_ID));
+        contact.setContactName(getString(attrs, "contactName"));
+        contact.setInWatchlist(getBoolean(attrs, "inWatchlist"));
+        contact.setStanding(getDouble(attrs, "standing"));
+        contact.setContactTypeID(getInt(attrs, "contactTypeID"));
+        contact.setLabelMask(getLong(attrs, "labelMask"));
+        return contact;
+    }
+
+    private ContactLabel getContactLabel(final Attributes attrs) {
+        final ContactLabel label = new ContactLabel();
+        saveAttributes(ContactLabel.class, attrs);
+        label.setLabelID(getLong(attrs, "labelID"));
+        label.setName(getString(attrs, "name"));
+        return label;
     }
 }
