@@ -14,10 +14,6 @@ public class TestControl {
      */
     private final static boolean RUN_API_ERROR = false;
     /**
-     * Run tests with bugs
-     */
-    private final static boolean RUN_BUG = false;
-    /**
      * Fail when collections or maps are empty
      */
     private final static boolean FAIL_ON_EMPTY_COLLECTION = false;
@@ -32,10 +28,6 @@ public class TestControl {
 
     public static boolean runApiError() {
         return RUN_API_ERROR || RUN_ALL;
-    }
-
-    public static boolean runBug() {
-        return RUN_BUG || RUN_ALL;
     }
 
     public static boolean failOnEmptyCollection() {
