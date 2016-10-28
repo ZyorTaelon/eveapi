@@ -5,10 +5,12 @@ import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.model.account.AccountStatus;
+import com.beimin.eveapi.model.account.Offer;
 import com.beimin.eveapi.response.account.AccountStatusResponse;
 
 public class AccountStatusHandler extends AbstractContentHandler<AccountStatusResponse> {
     private AccountStatus accountStatus;
+    private String rowsetName;
 
     @Override
     public void startDocument() throws SAXException {
@@ -20,9 +22,20 @@ public class AccountStatusHandler extends AbstractContentHandler<AccountStatusRe
         if ("result".equals(qName)) {
             accountStatus = new AccountStatus();
         } else if (ELEMENT_ROWSET.equals(qName)) {
+            rowsetName = getString(attributes, "name");
             setCurrentClass(AccountStatus.class);
         } else if (ELEMENT_ROW.equals(qName)) {
-            accountStatus.addMultiCharacterTraining(getDate(attributes, "trainingEnd"));
+            if ("multiCharacterTraining".equals(rowsetName)) {
+                accountStatus.addMultiCharacterTraining(getDate(attributes, "trainingEnd"));
+            } else if ("Offers".equals(rowsetName)) {
+                Offer offer = new Offer();
+                saveAttributes(Offer.class, attributes);
+                offer.setOfferID(getLong(attributes, "offerID"));
+                offer.setOfferedDate(getDate(attributes, "offeredDate"));
+                offer.setFrom(getString(attributes, "from"));
+                offer.setTo(getString(attributes, "to"));
+                offer.setISK(getDouble(attributes, "ISK"));
+            }
         }
     }
 
