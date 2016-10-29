@@ -1,30 +1,65 @@
 package com.beimin.eveapi.response.shared;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import com.beimin.eveapi.model.shared.Contact;
 import com.beimin.eveapi.model.shared.ContactLabel;
-import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.response.ApiResponse;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class AbstractContactListResponse extends ApiResponse {
-    protected Map<String, NamedList<Contact>> contactLists = new HashMap<>();
-    protected Map<String, NamedList<ContactLabel>> labelLists = new HashMap<>();
+    private final Set<Contact> contactList = new HashSet<>();
+    private final Set<ContactLabel> contactLabels = new HashSet<>();
+    private final Set<Contact> corporateContactList = new HashSet<>();
+    private final Set<ContactLabel> corporateContactLabels = new HashSet<>();
+    private final Set<Contact> allianceContactList = new HashSet<>();
+    private final Set<ContactLabel> allianceContactLabels = new HashSet<>();
 
-    public void add(final NamedList<Contact> list) {
-        contactLists.put(list.getName(), list);
+    public void addContact(Contact contact) {
+        contactList.add(contact);
     }
 
-    public void addLabels(final NamedList<ContactLabel> list) {
-        labelLists.put(list.getName(), list);
+    protected Set<Contact> getContactList() {
+        return contactList;
     }
 
-    public NamedList<Contact> get(final String name) {
-        return contactLists.get(name);
+    public void addContactLabel(ContactLabel contactLabel) {
+        contactLabels.add(contactLabel);
     }
 
-    public NamedList<ContactLabel> getLabels(final String name) {
-        return labelLists.get(name);
+    protected Set<ContactLabel> getContactLabels() {
+        return contactLabels;
+    }
+
+    public void addCorporateContact(Contact contact) {
+        corporateContactList.add(contact);
+    }
+
+    protected Set<Contact> getCorporateContactList() {
+        return corporateContactList;
+    }
+
+    public void addCorporateContactLabel(ContactLabel contactLabel) {
+        corporateContactLabels.add(contactLabel);
+    }
+
+    protected Set<ContactLabel> getCorporateContactLabels() {
+        return corporateContactLabels;
+    }
+
+    public void addAllianceContact(Contact contact) {
+        allianceContactList.add(contact);
+    }
+
+    protected Set<Contact> getAllianceContactList() {
+        return allianceContactList;
+    }
+
+    public void addAllianceContactLabel(ContactLabel contactLabel) {
+        allianceContactLabels.add(contactLabel);
+    }
+
+    protected Set<ContactLabel> getAllianceContactLabels() {
+        return allianceContactLabels;
     }
 }

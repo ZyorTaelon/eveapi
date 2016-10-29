@@ -6,6 +6,9 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
+import com.beimin.eveapi.model.pilot.Implant;
+import com.beimin.eveapi.model.pilot.JumpClone;
+import com.beimin.eveapi.model.pilot.JumpCloneImplant;
 import com.beimin.eveapi.model.pilot.Role;
 import com.beimin.eveapi.model.pilot.Skill;
 import com.beimin.eveapi.model.shared.Ancestry;
@@ -29,7 +32,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         final CharacterSheetResponse response = getResponse();
         if (ELEMENT_ROWSET.equals(qName)) {
-            rowsetName = getString(attrs, "name");
+            rowsetName = getString(attrs, ATTRIBUTE_NAME);
         } else if (ELEMENT_ROW.equals(qName)) {
             if ("skills".equals(rowsetName)) {
                 saveAttributes(Skill.class, attrs);
@@ -72,6 +75,27 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
                 corporationTitle.setTitleID(getLong(attrs, "titleID"));
                 corporationTitle.setTitleName(getString(attrs, "titleName"));
                 response.addCorporationTitle(corporationTitle);
+            } else if ("jumpCloneImplants".equals(rowsetName)) {
+                final JumpCloneImplant jumpCloneImplant = new JumpCloneImplant();
+                saveAttributes(JumpCloneImplant.class, attrs);
+                jumpCloneImplant.setJumpCloneID(getLong(attrs, "jumpCloneID"));
+                jumpCloneImplant.setTypeID(getInt(attrs, "typeID"));
+                jumpCloneImplant.setTypeName(getString(attrs, "typeName"));
+                response.addJumpCloneImplant(jumpCloneImplant);
+            } else if ("jumpClones".equals(rowsetName)) {
+                final JumpClone jumpClone = new JumpClone();
+                saveAttributes(JumpClone.class, attrs);
+                jumpClone.setJumpCloneID(getLong(attrs, "jumpCloneID"));
+                jumpClone.setTypeID(getInt(attrs, "typeID"));
+                jumpClone.setLocationID(getLong(attrs, "locationID"));
+                jumpClone.setCloneName(getString(attrs, "cloneName"));
+                response.addJumpClone(jumpClone);
+            } else if ("implants".equals(rowsetName)) {
+                final Implant implant = new Implant();
+                saveAttributes(Implant.class, attrs);
+                implant.setTypeID(getInt(attrs, "typeID"));
+                implant.setTypeName(getString(attrs, "typeName"));
+                response.addImplant(implant);
             }
         }
     }
@@ -81,7 +105,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
         final CharacterSheetResponse response = getResponse();
         if ("characterID".equals(qName)) {
             response.setCharacterID(getLong());
-        } else if ("name".equals(qName)) {
+        } else if (ATTRIBUTE_NAME.equals(qName)) {
             response.setName(getString());
         } else if ("homeStationID".equals(qName)) {
             response.setHomeStationID(getLong());

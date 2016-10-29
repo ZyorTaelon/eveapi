@@ -27,7 +27,7 @@ public class CallListHandler extends AbstractContentHandler<CallListResponse> {
         }
         if (ELEMENT_ROWSET.equals(qName)) {
             setCurrentClass(CallList.class);
-            final String name = attrs.getValue("name");
+            final String name = getString(attrs, ATTRIBUTE_NAME);
             if ("callGroups".equals(name)) {
                 callGroups = true;
             } else if ("calls".equals(name)) {
@@ -39,7 +39,7 @@ public class CallListHandler extends AbstractContentHandler<CallListResponse> {
                 final CallGroup callGroup = new CallGroup();
                 saveAttributes(CallGroup.class, attrs);
                 callGroup.setGroupID(getInt(attrs, "groupID"));
-                callGroup.setName(getString(attrs, "name"));
+                callGroup.setName(getString(attrs, ATTRIBUTE_NAME));
                 callGroup.setDescription(getString(attrs, "description"));
                 callList.add(callGroup);
             } else if (calls) {
@@ -47,7 +47,7 @@ public class CallListHandler extends AbstractContentHandler<CallListResponse> {
                 saveAttributes(Call.class, attrs);
                 call.setAccessMask(getLong(attrs, "accessMask"));
                 call.setType(KeyType.valueOf(getString(attrs, "type")));
-                call.setName(getString(attrs, "name"));
+                call.setName(getString(attrs, ATTRIBUTE_NAME));
                 call.setGroupID(getInt(attrs, "groupID"));
                 call.setDescription(getString(attrs, "description"));
                 callList.add(call);

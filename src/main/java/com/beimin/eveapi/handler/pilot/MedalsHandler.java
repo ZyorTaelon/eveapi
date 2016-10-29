@@ -5,10 +5,32 @@ import org.xml.sax.Attributes;
 import com.beimin.eveapi.handler.AbstractContentListHandler;
 import com.beimin.eveapi.model.pilot.Medal;
 import com.beimin.eveapi.response.pilot.MedalsResponse;
+import org.xml.sax.SAXException;
 
 public class MedalsHandler extends AbstractContentListHandler<MedalsResponse, Medal> {
+    private String rowsetName;
+
     public MedalsHandler() {
         super(MedalsResponse.class);
+    }
+
+    @Override
+    protected void elementStart(String uri, String localName, String qName, Attributes attrs) throws SAXException {
+        if (ELEMENT_ROWSET.equals(qName)) {
+            rowsetName = getString(attrs, ATTRIBUTE_NAME);
+        }
+        super.elementStart(uri, localName, qName, attrs);
+    }
+
+    @Override
+    protected void elementEnd(String uri, String localName, String qName) throws SAXException {
+        if (ELEMENT_ROW.equals(qName)) {
+            if ("currentCorporation".equals(rowsetName)) {
+                getResponse().addCurrentCorporation(getItem());
+            } else if ("otherCorporations".equals(rowsetName)) {
+                getResponse().addOtherCorporations(getItem());
+            }
+        }
     }
 
     @Override

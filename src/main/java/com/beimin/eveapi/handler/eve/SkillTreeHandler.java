@@ -27,7 +27,7 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
     @Override
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            final String name = getString(attrs, "name");
+            final String name = getString(attrs, ATTRIBUTE_NAME);
             if (name.equals("skills")) {
                 setCurrentClass(SkillGroup.class);
                 skills = true;

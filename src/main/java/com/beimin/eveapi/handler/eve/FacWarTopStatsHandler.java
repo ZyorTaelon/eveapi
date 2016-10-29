@@ -43,7 +43,7 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
         } else if ("factions".equals(qName)) {
             factions = true;
         } else if (ELEMENT_ROWSET.equals(qName)) {
-            final String name = getString(attrs, "name");
+            final String name = getString(attrs, ATTRIBUTE_NAME);
             killsYesterday = name.equals("KillsYesterday");
             killsLastWeek = name.equals("KillsLastWeek");
             killsTotal = name.equals("KillsTotal");

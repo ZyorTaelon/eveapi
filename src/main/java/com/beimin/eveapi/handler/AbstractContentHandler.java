@@ -67,7 +67,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
             error.setCode(getInt(attrs, ATTRIBUTE_CODE));
             response.setError(error);
         } else if (strictCheckMode && ELEMENT_ROWSET.equals(qName)) {
-            String name = getString(attrs, "name");
+            String name = getString(attrs, ATTRIBUTE_NAME);
             if (name == null) {
                 name = "rowset";
             }
@@ -84,7 +84,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         if (strictCheckMode && path != null) { //Save path
             String pathName;
             if (ELEMENT_ROWSET.equals(qName)) { //If rowset, use the rowset name
-                String rowsetName = getString(attrs, "name");
+                String rowsetName = getString(attrs, ATTRIBUTE_NAME);
                 if (rowsetName == null) {
                     rowsetName = "rowset";
                 }

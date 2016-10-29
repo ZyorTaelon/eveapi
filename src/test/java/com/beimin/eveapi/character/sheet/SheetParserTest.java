@@ -9,6 +9,9 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.pilot.Implant;
+import com.beimin.eveapi.model.pilot.JumpClone;
+import com.beimin.eveapi.model.pilot.JumpCloneImplant;
 import com.beimin.eveapi.model.pilot.Role;
 import com.beimin.eveapi.model.pilot.Skill;
 import com.beimin.eveapi.model.shared.Ancestry;
@@ -67,34 +70,88 @@ public class SheetParserTest extends FullAuthParserTest {
         assertEquals(17, response.getPerception());
         assertEquals(21, response.getWillpower());
 
+        Set<JumpClone> jumpClones = response.getJumpClones();
+        assertEquals(2, jumpClones.size());
+        int jumpClonesFound = 0;
+        for (final JumpClone jumpClone : jumpClones) {
+            if (jumpClone.getJumpCloneID() == 12117789L) {
+                jumpClonesFound++;
+                assertEquals(164, jumpClone.getTypeID());
+                assertEquals(60005311L, jumpClone.getLocationID());
+                assertEquals("", jumpClone.getCloneName());
+            } else if (jumpClone.getJumpCloneID() == 9858322L) {
+                jumpClonesFound++;
+                assertEquals(164, jumpClone.getTypeID());
+                assertEquals(60011983L, jumpClone.getLocationID());
+                assertEquals("", jumpClone.getCloneName());
+            }
+        }
+        assertEquals(2, jumpClonesFound);
+        
+        Set<JumpCloneImplant> jumpCloneImplants = response.getJumpCloneImplants();
+        assertEquals(8, jumpCloneImplants.size());
+        int jumpCloneImplantsFound = 0;
+        for (final JumpCloneImplant jumpCloneImplant : jumpCloneImplants) {
+            if (jumpCloneImplant.getJumpCloneID() == 9858322) {
+                if (jumpCloneImplant.getTypeID() == 10208) {
+                    jumpCloneImplantsFound++;
+                    assertEquals("Memory Augmentation - Standard", jumpCloneImplant.getTypeName());
+                } else if (jumpCloneImplant.getTypeID() == 10212) {
+                    jumpCloneImplantsFound++;
+                    assertEquals("Neural Boost - Standard", jumpCloneImplant.getTypeName());
+                } else if (jumpCloneImplant.getTypeID() == 10216) {
+                    jumpCloneImplantsFound++;
+                    assertEquals("Ocular Filter - Standard", jumpCloneImplant.getTypeName());
+                }
+            }
+        }
+        assertEquals(3, jumpCloneImplantsFound);
+
+        Set<Implant> implants = response.getImplants();
+        assertEquals(5, implants.size());
+        int implantsFound = 0;
+        for (final Implant implant : implants) {
+            if (implant.getTypeID() == 10209) {
+                implantsFound++;
+                assertEquals("Memory Augmentation - Improved", implant.getTypeName());
+            } else if (implant.getTypeID() == 10213) {
+                implantsFound++;
+                assertEquals("Neural Boost - Improved", implant.getTypeName());
+            } else if (implant.getTypeID() == 10226) {
+                implantsFound++;
+                assertEquals("Social Adaptation Chip - Improved", implant.getTypeName());
+            }
+        }
+        assertEquals(3, implantsFound);
+
         final Set<Skill> skills = response.getSkills();
         assertEquals(284, skills.size());
-        int found = 0;
+        int skillsFound = 0;
         for (final Skill skill : skills) {
             if (skill.getTypeID() == 3431) {
-                found++;
+                skillsFound++;
                 assertEquals(5, skill.getLevel());
                 assertEquals(256000, skill.getSkillpoints());
                 assertTrue(skill.isPublished());
             } else if (skill.getTypeID() == 3413) {
-                found++;
+                skillsFound++;
                 assertEquals(5, skill.getLevel());
                 assertEquals(256000, skill.getSkillpoints());
                 assertTrue(skill.isPublished());
             } else if (skill.getTypeID() == 21059) {
-                found++;
+                skillsFound++;
                 assertEquals(5, skill.getLevel());
                 assertEquals(512000, skill.getSkillpoints());
                 assertTrue(skill.isPublished());
             } else if (skill.getTypeID() == 3416) {
-                found++;
+                skillsFound++;
                 assertEquals(5, skill.getLevel());
                 assertEquals(256000, skill.getSkillpoints());
                 assertTrue(skill.isPublished());
             }
         }
         
-        assertEquals(4, found);
+        assertEquals(4, skillsFound);
         Role role;
         assertEquals(5, response.getCorporationRoles().size());
         role = response.getCorporationRoles().iterator().next();
