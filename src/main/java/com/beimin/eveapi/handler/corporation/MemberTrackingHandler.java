@@ -18,7 +18,7 @@ public class MemberTrackingHandler extends AbstractContentListHandler<MemberTrac
         final Member member = new Member();
         saveAttributes(Member.class, attrs);
         member.setCharacterID(getLong(attrs, "characterID"));
-        member.setName(getString(attrs, "name"));
+        member.setName(getString(attrs, ATTRIBUTE_NAME));
         member.setBase(getString(attrs, "base"));
         member.setBaseID(getInt(attrs, "baseID"));
         member.setTitle(getString(attrs, "title"));

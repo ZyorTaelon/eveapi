@@ -36,7 +36,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
     @Override
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            rowsetName = getString(attrs, "name");
+            rowsetName = getString(attrs, ATTRIBUTE_NAME);
         } else if (ELEMENT_ROW.equals(qName)) {
             if ("contactList".equals(rowsetName)) {
                 getResponse().addContact(getContact(attrs));
@@ -70,7 +70,7 @@ public class ContactListHandler<CLR extends AbstractContactListResponse> extends
         final ContactLabel label = new ContactLabel();
         saveAttributes(ContactLabel.class, attrs);
         label.setLabelID(getLong(attrs, "labelID"));
-        label.setName(getString(attrs, "name"));
+        label.setName(getString(attrs, ATTRIBUTE_NAME));
         return label;
     }
 }

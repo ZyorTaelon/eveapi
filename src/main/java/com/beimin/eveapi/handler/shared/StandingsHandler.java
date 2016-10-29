@@ -20,7 +20,7 @@ public class StandingsHandler extends AbstractContentHandler<StandingsResponse> 
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
             list = new NamedList<>();
-            list.setName(getString(attrs, "name"));
+            list.setName(getString(attrs, ATTRIBUTE_NAME));
         } else if (ELEMENT_ROW.equals(qName)) {
             final Standing standing = new Standing();
             saveAttributes(Standing.class, attrs);

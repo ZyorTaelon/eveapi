@@ -24,7 +24,7 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
         if ("logo".equals(qName)) {
             logo = new CorpLogo();
         } else if (ELEMENT_ROWSET.equals(qName)) {
-            final String name = getString(attrs, "name");
+            final String name = getString(attrs, ATTRIBUTE_NAME);
             divisions = "divisions".equals(name);
             walletDivisions = "walletDivisions".equals(name);
         } else if (ELEMENT_ROW.equals(qName)) {

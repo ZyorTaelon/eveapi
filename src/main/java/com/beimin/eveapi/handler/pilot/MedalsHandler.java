@@ -17,7 +17,7 @@ public class MedalsHandler extends AbstractContentListHandler<MedalsResponse, Me
     @Override
     protected void elementStart(String uri, String localName, String qName, Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            rowsetName = getString(attrs, "name");
+            rowsetName = getString(attrs, ATTRIBUTE_NAME);
         }
         super.elementStart(uri, localName, qName, attrs);
     }

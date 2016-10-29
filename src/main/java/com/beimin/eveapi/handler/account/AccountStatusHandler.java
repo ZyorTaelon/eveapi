@@ -22,7 +22,7 @@ public class AccountStatusHandler extends AbstractContentHandler<AccountStatusRe
         if ("result".equals(qName)) {
             accountStatus = new AccountStatus();
         } else if (ELEMENT_ROWSET.equals(qName)) {
-            rowsetName = getString(attributes, "name");
+            rowsetName = getString(attributes, ATTRIBUTE_NAME);
             setCurrentClass(AccountStatus.class);
         } else if (ELEMENT_ROW.equals(qName)) {
             if ("multiCharacterTraining".equals(rowsetName)) {

@@ -21,7 +21,7 @@ public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsRespon
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         final FacWarStatsResponse response = getResponse();
         if (ELEMENT_ROWSET.equals(qName)) {
-            final String name = getString(attrs, "name");
+            final String name = getString(attrs, ATTRIBUTE_NAME);
             factions = name.equals("factions");
             factionWars = name.equals("factionWars");
         } else if (ELEMENT_ROW.equals(qName)) {

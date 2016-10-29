@@ -19,7 +19,7 @@ public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, Ti
     @Override
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         if (ELEMENT_ROWSET.equals(qName)) {
-            final String name = getString(attrs, "name");
+            final String name = getString(attrs, ATTRIBUTE_NAME);
             roleHandler.parseRowsetRoles(name);
         } else if (ELEMENT_ROW.equals(qName) && !roleHandler.handleTitleRoles(title, attrs)) {
             title = getItem(attrs);

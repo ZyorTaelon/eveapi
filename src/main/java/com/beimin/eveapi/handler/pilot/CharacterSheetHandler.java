@@ -32,7 +32,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
         final CharacterSheetResponse response = getResponse();
         if (ELEMENT_ROWSET.equals(qName)) {
-            rowsetName = getString(attrs, "name");
+            rowsetName = getString(attrs, ATTRIBUTE_NAME);
         } else if (ELEMENT_ROW.equals(qName)) {
             if ("skills".equals(rowsetName)) {
                 saveAttributes(Skill.class, attrs);
@@ -105,7 +105,7 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
         final CharacterSheetResponse response = getResponse();
         if ("characterID".equals(qName)) {
             response.setCharacterID(getLong());
-        } else if ("name".equals(qName)) {
+        } else if (ATTRIBUTE_NAME.equals(qName)) {
             response.setName(getString());
         } else if ("homeStationID".equals(qName)) {
             response.setHomeStationID(getLong());
