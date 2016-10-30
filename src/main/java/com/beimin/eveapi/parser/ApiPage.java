@@ -62,6 +62,7 @@ public enum ApiPage {
     CALL_LIST("CallList"), //
     API_KEY_INFO("APIKeyInfo"), //
     BLUEPRINTS("Blueprints"), //
+    CHAT_CHANNELS("ChatChannels"), //
     ;
 
     private final String url;
