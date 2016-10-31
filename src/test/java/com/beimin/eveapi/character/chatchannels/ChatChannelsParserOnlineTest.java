@@ -10,6 +10,7 @@ public class ChatChannelsParserOnlineTest extends AbstractOnlineTest {
 	
     @Test
     public void getResponse() throws Exception {
+        setAlias(ChatChannelsResponse.class, "channels", "items");
     	allowEmpty("getMotd");
     	allowEmpty("getReason");
     	allowNull("getReason");
