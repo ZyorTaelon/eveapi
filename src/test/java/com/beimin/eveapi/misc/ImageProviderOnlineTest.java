@@ -13,46 +13,45 @@ import com.beimin.eveapi.utils.ImageProvider;
 
 
 public class ImageProviderOnlineTest {
-
-    private final int size = 32;
+    private static final int IMAGE_SIZE = 32;
 
     @Test
     public void getCharacterPortrait() throws ApiException, IOException {
-        final BufferedImage image = ImageProvider.getCharacterPortrait(1380128241L, (short) size);
+        final BufferedImage image = ImageProvider.getCharacterPortrait(1380128241L, (short) IMAGE_SIZE);
         assertThat(image, notNullValue());
-        assertThat(image.getWidth(), equalTo(size));
-        assertThat(image.getHeight(), equalTo(size));
+        assertThat(image.getWidth(), equalTo(IMAGE_SIZE));
+        assertThat(image.getHeight(), equalTo(IMAGE_SIZE));
     }
 
     @Test
     public void getCorporationLogo() throws ApiException, IOException {
-        final BufferedImage image = ImageProvider.getCorporationLogo(531535869, (short) size);
+        final BufferedImage image = ImageProvider.getCorporationLogo(531535869, (short) IMAGE_SIZE);
         assertThat(image, notNullValue());
-        assertThat(image.getWidth(), equalTo(size));
-        assertThat(image.getHeight(), equalTo(size));
+        assertThat(image.getWidth(), equalTo(IMAGE_SIZE));
+        assertThat(image.getHeight(), equalTo(IMAGE_SIZE));
     }
 
     @Test
     public void getAllianceLogo() throws ApiException, IOException {
-        final BufferedImage image = ImageProvider.getAllianceLogo(1354830081, (short) size);
+        final BufferedImage image = ImageProvider.getAllianceLogo(1354830081, (short) IMAGE_SIZE);
         assertThat(image, notNullValue());
-        assertThat(image.getWidth(), equalTo(size));
-        assertThat(image.getHeight(), equalTo(size));
+        assertThat(image.getWidth(), equalTo(IMAGE_SIZE));
+        assertThat(image.getHeight(), equalTo(IMAGE_SIZE));
     }
 
     @Test
     public void getTypeIcon() throws ApiException, IOException {
-        final BufferedImage image = ImageProvider.getTypeIcon(22436, (short) size);
+        final BufferedImage image = ImageProvider.getTypeIcon(22436, (short) IMAGE_SIZE);
         assertThat(image, notNullValue());
-        assertThat(image.getWidth(), equalTo(size));
-        assertThat(image.getHeight(), equalTo(size));
+        assertThat(image.getWidth(), equalTo(IMAGE_SIZE));
+        assertThat(image.getHeight(), equalTo(IMAGE_SIZE));
     }
 
     @Test
     public void getRender() throws ApiException, IOException {
-        final BufferedImage image = ImageProvider.getRender(22436, (short) size);
+        final BufferedImage image = ImageProvider.getRender(22436, (short) IMAGE_SIZE);
         assertThat(image, notNullValue());
-        assertThat(image.getWidth(), equalTo(size));
-        assertThat(image.getHeight(), equalTo(size));
+        assertThat(image.getWidth(), equalTo(IMAGE_SIZE));
+        assertThat(image.getHeight(), equalTo(IMAGE_SIZE));
     }
 }
