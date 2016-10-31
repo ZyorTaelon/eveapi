@@ -5,8 +5,6 @@ import java.io.IOException;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
@@ -16,9 +14,10 @@ import com.beimin.eveapi.utils.ImageProvider;
 
 public class ImageProviderOnlineTest {
 
+    private final int size = 32;
+
     @Test
     public void getCharacterPortrait() throws ApiException, IOException {
-        int size = 30;
         final BufferedImage image = ImageProvider.getCharacterPortrait(1380128241L, (short) size);
         assertThat(image, notNullValue());
         assertThat(image.getWidth(), equalTo(size));
@@ -27,7 +26,6 @@ public class ImageProviderOnlineTest {
 
     @Test
     public void getCorporationLogo() throws ApiException, IOException {
-        int size = 30;
         final BufferedImage image = ImageProvider.getCorporationLogo(531535869, (short) size);
         assertThat(image, notNullValue());
         assertThat(image.getWidth(), equalTo(size));
@@ -36,7 +34,6 @@ public class ImageProviderOnlineTest {
 
     @Test
     public void getAllianceLogo() throws ApiException, IOException {
-        int size = 30;
         final BufferedImage image = ImageProvider.getAllianceLogo(1354830081, (short) size);
         assertThat(image, notNullValue());
         assertThat(image.getWidth(), equalTo(size));
@@ -45,7 +42,6 @@ public class ImageProviderOnlineTest {
 
     @Test
     public void getTypeIcon() throws ApiException, IOException {
-        int size = 32;
         final BufferedImage image = ImageProvider.getTypeIcon(22436, (short) size);
         assertThat(image, notNullValue());
         assertThat(image.getWidth(), equalTo(size));
@@ -54,7 +50,6 @@ public class ImageProviderOnlineTest {
 
     @Test
     public void getRender() throws ApiException, IOException {
-        int size = 32;
         final BufferedImage image = ImageProvider.getRender(22436, (short) size);
         assertThat(image, notNullValue());
         assertThat(image.getWidth(), equalTo(size));
