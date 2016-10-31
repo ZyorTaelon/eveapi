@@ -25,8 +25,6 @@ public class ChatChannelsParserOnlineTest extends AbstractOnlineTest {
 
         final ChatChannelsResponse response = parser.getResponse(getCharacter());
         
-        System.out.println(response.getAll());
-
         testResponse(response);
     }
 
