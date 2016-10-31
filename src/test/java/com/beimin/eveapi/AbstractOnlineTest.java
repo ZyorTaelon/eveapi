@@ -33,7 +33,7 @@ import static org.junit.Assume.assumeTrue;
 
 public abstract class AbstractOnlineTest {
     private final ApiAuthorization account = new ApiAuthorization(4428355, "Efnyja8S6pawB4EzefgZBFLDWGGTv0U9RZTfC6bD3vZ1pIc45FdgOUiCL6bpEssm");
-    private final ApiAuthorization character = new ApiAuthorization(4428355, 1528592227L, "Efnyja8S6pawB4EzefgZBFLDWGGTv0U9RZTfC6bD3vZ1pIc45FdgOUiCL6bpEssm");
+    private final ApiAuthorization character = new ApiAuthorization(5645420, 91522382L, "LxnovtVOcBZzOjSHJxDsY7SbhKjplQPrPEEDIEDQhOwGm4IZkBLsJfULwZ1ubqVj");
     private final ApiAuthorization corp = new ApiAuthorization(4428366, "5TDpVttAXfTtJhWvPYKZnVfwIZPj8kAIDGa3YzP3MlVRwa2pYI6KP2qXBZseSoKa");
     private final long charID = 1528592227L;
     private final String charName = "Glazeg";
