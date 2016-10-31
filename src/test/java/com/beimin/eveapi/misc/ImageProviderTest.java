@@ -12,7 +12,6 @@ import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
@@ -78,33 +77,11 @@ public class ImageProviderTest {
         assertEquals("https://image.eveonline.com/InventoryType/22436_32.png", urlString);
     }
 
-    @Ignore("Test shouldn't depend on outside source")
-    @Test
-    public void getTypeIcon() throws ApiException, IOException {
-        final BufferedImage image = ImageProvider.getTypeIcon(22436, (short) 32);
-        final byte[] actual = getBytes(image, "png");
-        final InputStream inputStream = ImageProviderTest.class.getResourceAsStream("/misc/22436_32.png");
-        final BufferedImage expectedImage = ImageIO.read(inputStream);
-        final byte[] expected = getBytes(expectedImage, "png");
-        assertTrue("Not the expected image.", Arrays.equals(expected, actual));
-    }
-
     @Test
     public void getRenderURL() throws ApiException {
         final URL url = ImageProvider.getRenderURL(22436, (short) 32);
         final String urlString = url.toExternalForm();
         assertEquals("https://image.eveonline.com/Render/22436_32.png", urlString);
-    }
-
-    @Ignore("Test shouldn't depend on outside source")
-    @Test
-    public void getRender() throws ApiException, IOException {
-        final BufferedImage image = ImageProvider.getRender(22436, (short) 32);
-        final byte[] actual = getBytes(image, "png");
-        final InputStream inputStream = ImageProviderTest.class.getResourceAsStream("/misc/22436_32_render.png");
-        final BufferedImage expectedImage = ImageIO.read(inputStream);
-        final byte[] expected = getBytes(expectedImage, "png");
-        assertTrue("Not the expected image.", Arrays.equals(expected, actual));
     }
 
     private byte[] getBytes(final BufferedImage image, final String fileType) throws IOException {
