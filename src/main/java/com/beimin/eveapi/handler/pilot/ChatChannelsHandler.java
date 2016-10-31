@@ -29,6 +29,9 @@ public class ChatChannelsHandler extends AbstractContentHandler<ChatChannelsResp
 			getResponse().add(current);
 		} else if(current != null && ELEMENT_ROWSET.equals(qName)){
 			pos = getString(attrs, "name");
+            if (!"channels".equals(pos)) {
+                setCurrentClass(ChatChannel.class);
+            }
 		} else if(pos != null && ELEMENT_ROW.equals(qName)) {
 			saveAttributes(ChatChannelAccessor.class, attrs);
 			ChatChannelAccessor accessor = parseAccessor(attrs);
