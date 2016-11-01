@@ -1,12 +1,20 @@
 package com.beimin.eveapi;
 
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
+import static org.junit.Assume.assumeTrue;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -22,18 +30,10 @@ import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.parser.ApiAuthorization;
 import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.ApiResponse;
-import java.util.HashMap;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-import static org.junit.Assume.assumeTrue;
 
 public abstract class AbstractOnlineTest {
     private final ApiAuthorization account = new ApiAuthorization(4428355, "Efnyja8S6pawB4EzefgZBFLDWGGTv0U9RZTfC6bD3vZ1pIc45FdgOUiCL6bpEssm");
-    private final ApiAuthorization character = new ApiAuthorization(5645420, 91522382L, "LxnovtVOcBZzOjSHJxDsY7SbhKjplQPrPEEDIEDQhOwGm4IZkBLsJfULwZ1ubqVj");
+    private final ApiAuthorization character = new ApiAuthorization(5669026, 91522382L, "Ud0aGh79j4ugLNmBhct4o9cHjbzFOmoMkbemN0ZSolsDfX0JXpXob4OwUU9Dw4Hu");
     private final ApiAuthorization corp = new ApiAuthorization(4428366, "5TDpVttAXfTtJhWvPYKZnVfwIZPj8kAIDGa3YzP3MlVRwa2pYI6KP2qXBZseSoKa");
     private final long charID = 1528592227L;
     private final String charName = "Glazeg";
@@ -66,7 +66,7 @@ public abstract class AbstractOnlineTest {
         ignoreXmlIdentifiers.add(xmlField.toLowerCase());
     }
 
-    protected final void ignoreClassField(final Class clazz, final String classField) {
+    protected final void ignoreClassField(final Class<?> clazz, final String classField) {
         Set<String> set = ignoreClassFields.get(clazz.getName());
         if (set == null) {
             set = new HashSet<>();
@@ -75,7 +75,7 @@ public abstract class AbstractOnlineTest {
         set.add(classField.toLowerCase());
     }
 
-    protected final void setAlias(final Class clazz, final String xmlIdentifier, final String fieldName) {
+    protected final void setAlias(final Class<?> clazz, final String xmlIdentifier, final String fieldName) {
         Map<String, String> xmlMap = xmlAlias.get(clazz.getName());
         if (xmlMap == null) {
             xmlMap = new HashMap<>();
