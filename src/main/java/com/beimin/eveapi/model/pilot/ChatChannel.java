@@ -12,8 +12,8 @@ public class ChatChannel {
 	private boolean hasPassword;
 	private String motd;
 	private List<ChatChannelAccessor> allowedAccessors = new ArrayList<>();
-	private List<ChatChannelAccessor> blockedAccessors = new ArrayList<>();
-	private List<ChatChannelAccessor> mutedAccessors = new ArrayList<>();
+    private List<ChatChannelExtendedAccessor> blockedAccessors = new ArrayList<>();
+    private List<ChatChannelExtendedAccessor> mutedAccessors = new ArrayList<>();
 	private List<ChatChannelAccessor> operatorAccessors = new ArrayList<>();
 
 	public long getChannelID() {
@@ -80,20 +80,20 @@ public class ChatChannel {
 		allowedAccessors.add(accessor);
 	}
 	
-	public List<ChatChannelAccessor> getBlockedAccessors() {
+    public List<ChatChannelExtendedAccessor> getBlockedAccessors() {
 		return blockedAccessors;
 	}
 
 	
-	public void addBlockedAccessor(ChatChannelAccessor accessor) {
+    public void addBlockedAccessor(ChatChannelExtendedAccessor accessor) {
 		blockedAccessors.add(accessor);
 	}
 	
-	public List<ChatChannelAccessor> getMutedAccessors() {
+    public List<ChatChannelExtendedAccessor> getMutedAccessors() {
 		return mutedAccessors;
 	}
 
-	public void addMutedAccessor(ChatChannelAccessor accessor) {
+    public void addMutedAccessor(ChatChannelExtendedAccessor accessor) {
 		mutedAccessors.add(accessor);
 	}
 	
