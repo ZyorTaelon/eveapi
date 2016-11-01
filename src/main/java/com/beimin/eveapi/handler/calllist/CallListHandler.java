@@ -1,5 +1,7 @@
 package com.beimin.eveapi.handler.calllist;
 
+import java.util.Locale;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -46,7 +48,7 @@ public class CallListHandler extends AbstractContentHandler<CallListResponse> {
                 final Call call = new Call();
                 saveAttributes(Call.class, attrs);
                 call.setAccessMask(getLong(attrs, "accessMask"));
-                call.setType(KeyType.valueOf(getString(attrs, "type")));
+                call.setType(KeyType.valueOf(getString(attrs, "type").toUpperCase(Locale.ENGLISH)));
                 call.setName(getString(attrs, ATTRIBUTE_NAME));
                 call.setGroupID(getInt(attrs, "groupID"));
                 call.setDescription(getString(attrs, "description"));

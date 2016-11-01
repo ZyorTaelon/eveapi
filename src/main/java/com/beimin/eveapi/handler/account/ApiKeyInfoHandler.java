@@ -1,5 +1,7 @@
 package com.beimin.eveapi.handler.account;
 
+import java.util.Locale;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -25,7 +27,7 @@ public class ApiKeyInfoHandler extends AbstractContentHandler<ApiKeyInfoResponse
         if ("key".equals(qName)) {
             saveAttributes(ApiKeyInfo.class, attrs);
             apiKeyInfo.setAccessMask(getLong(attrs, "accessMask"));
-            apiKeyInfo.setType(KeyType.valueOf(getString(attrs, "type")));
+            apiKeyInfo.setType(KeyType.valueOf(getString(attrs, "type").toUpperCase(Locale.ENGLISH)));
             final String expires = attrs.getValue("expires").trim();
             if (expires.length() > 0) {
                 apiKeyInfo.setExpires(getDate(expires));
