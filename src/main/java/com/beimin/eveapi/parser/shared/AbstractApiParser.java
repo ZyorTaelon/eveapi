@@ -2,9 +2,7 @@ package com.beimin.eveapi.parser.shared;
 
 import java.util.Collections;
 import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Set;
 
 import com.beimin.eveapi.connectors.ApiConnector;
 import com.beimin.eveapi.exception.ApiException;
@@ -14,10 +12,8 @@ import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.ApiRequest;
 import com.beimin.eveapi.response.ApiResponse;
-import java.util.Set;
 
 public abstract class AbstractApiParser<E extends ApiResponse> {
-    protected final Logger LOGGER = LoggerFactory.getLogger(getClass());
     private static ApiConnector connector = new ApiConnector();
     protected final ApiPath path;
     protected final ApiPage page;

@@ -1,8 +1,9 @@
 package com.beimin.eveapi.character.calendar;
 
-import static com.beimin.eveapi.utils.Assert.assertDate;
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
+import java.util.Calendar;
 import java.util.Set;
 
 import org.junit.Test;
@@ -26,19 +27,22 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
         final UpcomingCalendarEventsParser parser = new UpcomingCalendarEventsParser();
         final UpcomingCalendarEventsResponse response = parser.getResponse(auth);
         final Set<UpcomingCalendarEvent> events = response.getAll();
-        assertEquals(1, events.size());
+        assertThat(events.size(), equalTo(1));
         final UpcomingCalendarEvent event = events.iterator().next();
-        assertEquals(90864L, event.getEventID());
-        assertEquals(786344537L, event.getOwnerID());
-        assertEquals("Some Alliance", event.getOwnerName());
-        assertDate(2010, 11, 28, 17, 00, 00, event.getEventDate());
-        assertEquals("Some Mining OP @ 17:00", event.getEventTitle());
-        assertEquals(120, event.getDuration());
-        assertEquals(true, event.isImportant());
-        assertEquals(CalendarEventResponse.UNDECIDED, event.getResponse());
-        assertEquals(event.getOwnerTypeID(), 16159);
+        assertThat(event.getEventID(), equalTo(90864L));
+        assertThat(event.getOwnerID(), equalTo(786344537L));
+        assertThat(event.getOwnerName(), equalTo("Some Alliance"));
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2010, 10, 28, 18, 0, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        assertThat(event.getEventDate().getTime(), equalTo(calendar.getTimeInMillis()));
+        assertThat(event.getEventTitle(), equalTo("Some Mining OP @ 17:00"));
+        assertThat(event.getDuration(), equalTo(120));
+        assertThat(event.isImportant(), equalTo(true));
+        assertThat(event.getResponse(), equalTo(CalendarEventResponse.UNDECIDED));
+        assertThat(16159, equalTo(event.getOwnerTypeID()));
         final String expectedEventText = "Alliance Mining OP Part II<br><br>This will be in home system the sunday after the patch..<br>We would really like to see as many mining barges out there as possible. PVPers are also needed for security.. See you there!!!";
-        assertEquals(expectedEventText, event.getEventText());
+        assertThat(event.getEventText(), equalTo(expectedEventText));
     }
 }
 

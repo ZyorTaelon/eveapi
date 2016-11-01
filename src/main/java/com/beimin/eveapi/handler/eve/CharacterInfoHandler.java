@@ -13,6 +13,8 @@ import com.beimin.eveapi.model.shared.Race;
 import com.beimin.eveapi.response.eve.CharacterInfoResponse;
 
 public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoResponse> {
+    private static final String REPLACE_REGEX = "[-\\s]";
+
     @Override
     public void startDocument() throws SAXException {
         setResponse(new CharacterInfoResponse());
@@ -80,14 +82,14 @@ public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoRe
     }
 
     private Bloodline getBloodline() {
-        return Bloodline.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
+        return Bloodline.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll(REPLACE_REGEX, "_"));
     }
 
     private Ancestry getAncestry() {
-        return Ancestry.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
+        return Ancestry.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll(REPLACE_REGEX, "_"));
     }
 
     private Race getRace() {
-        return Race.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll("[-\\s]", "_"));
+        return Race.valueOf(getString().toUpperCase(Locale.ENGLISH).replaceAll(REPLACE_REGEX, "_"));
     }
 }

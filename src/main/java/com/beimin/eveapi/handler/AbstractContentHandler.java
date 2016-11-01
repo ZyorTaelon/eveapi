@@ -1,7 +1,12 @@
 package com.beimin.eveapi.handler;
 
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.Deque;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,8 +19,6 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.utils.DateUtils;
-import java.util.Collections;
-import java.util.Stack;
 
 public abstract class AbstractContentHandler<E extends ApiResponse> extends DefaultHandler {
     private static final String MESSAGE_NUMBER_PARSER = "Couldn't parse number";
@@ -31,12 +34,13 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     protected static final String ATTRIBUTE_ERROR = "error";
     protected static final String ATTRIBUTE_NAME = "name";
     protected static final String VALUE_TRUE = "true";
+    private static final HashSet<String> BASE_ELEMENTS = new HashSet<>(Arrays.asList(new String[] { ELEMENT_EVEAPI, ATTRIBUTE_RESULT, ELEMENT_ROW, ELEMENT_ROWSET }));
 
     private E response;
     private boolean strictCheckMode;
     private Map<String, Set<String>> fields;
     private String currentClassName;
-    private Stack<String> path;
+    private Deque<String> path;
 
     private final StringBuilder accumulator = new StringBuilder();
     private ApiError error;
@@ -57,47 +61,24 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
 
     @Override
     public final void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        currentClassName = null; //May be set in elementStart
+        // May be set in elementStart
+        currentClassName = null;
         elementStart(uri, localName, qName, attrs);
         if (ELEMENT_EVEAPI.equals(qName)) {
             response.setVersion(getInt(attrs, ATTRIBUTE_VERSION));
         } else if (ATTRIBUTE_ERROR.equals(qName)) {
-            error = new ApiError();
-            saveAttributes(ApiError.class, attrs);
-            error.setCode(getInt(attrs, ATTRIBUTE_CODE));
-            response.setError(error);
+            processError(attrs);
         } else if (strictCheckMode && ELEMENT_ROWSET.equals(qName)) {
-            String name = getString(attrs, ATTRIBUTE_NAME);
-            if (name == null) {
-                name = "rowset";
-            }
-            if (path != null) {
-                String parentElement = path.peek();
-                if (parentElement == null) {
-                    parentElement = "";
-                }
-                save(parentElement+name);
-            } else {
-                save(name);
-            }
+            processRowset(attrs);
         }
-        if (strictCheckMode && path != null) { //Save path
-            String pathName;
-            if (ELEMENT_ROWSET.equals(qName)) { //If rowset, use the rowset name
-                String rowsetName = getString(attrs, ATTRIBUTE_NAME);
-                if (rowsetName == null) {
-                    rowsetName = "rowset";
-                }
-                pathName= rowsetName;
-            } else {
-                pathName = qName;
-            }
-            path.add(pathName);
+        if (strictCheckMode && path != null) { // Save path
+            processPath(qName, attrs);
         }
         accumulator.setLength(0);
     }
 
-    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException { }
+    protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
+    }
 
     @Override
     public final void endElement(final String uri, final String localName, final String qName) throws SAXException {
@@ -111,17 +92,50 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
             response.setCachedUntil(getDate());
         } else if (ATTRIBUTE_ERROR.equals(qName)) {
             error.setError(getString());
-        } else if (strictCheckMode
-                && !ATTRIBUTE_RESULT.equals(qName)
-                && !ELEMENT_EVEAPI.equals(qName)
-                && !ELEMENT_ROW.equals(qName)
-                && !ELEMENT_ROWSET.equals(qName)
-                ) {
+        } else if (strictCheckMode && !BASE_ELEMENTS.contains(qName)) {
             save(qName);
         }
     }
 
-    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException { }
+    protected void elementEnd(final String uri, final String localName, final String qName) throws SAXException {
+    }
+
+    private void processPath(final String qName, final Attributes attrs) {
+        String pathName;
+        if (ELEMENT_ROWSET.equals(qName)) { // If rowset, use the rowset name
+            String rowsetName = getString(attrs, ATTRIBUTE_NAME);
+            if (rowsetName == null) {
+                rowsetName = ELEMENT_ROWSET;
+            }
+            pathName = rowsetName;
+        } else {
+            pathName = qName;
+        }
+        path.add(pathName);
+    }
+
+    private void processRowset(final Attributes attrs) {
+        String name = getString(attrs, ATTRIBUTE_NAME);
+        if (name == null) {
+            name = ELEMENT_ROWSET;
+        }
+        if (path != null) {
+            String parentElement = path.peek();
+            if (parentElement == null) {
+                parentElement = "";
+            }
+            save(parentElement + name);
+        } else {
+            save(name);
+        }
+    }
+
+    private void processError(final Attributes attrs) {
+        error = new ApiError();
+        saveAttributes(ApiError.class, attrs);
+        error.setCode(getInt(attrs, ATTRIBUTE_CODE));
+        response.setError(error);
+    }
 
     protected String getString() {
         return accumulator.toString().trim();
@@ -213,7 +227,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
 
     public Map<String, Set<String>> enableStrictCheckMode(boolean fullPath) {
         if (fullPath) {
-            path = new Stack<>();
+            path = new ArrayDeque<>();
         }
         strictCheckMode = true;
         fields = new ConcurrentHashMap<>();
@@ -223,8 +237,8 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     protected void saveAttributes(final Class<?> clazz, final Attributes attrs) {
         if (strictCheckMode) {
             setCurrentClass(clazz);
-            String className = clazz.getName();
-            Set<String> add = new HashSet<>();
+            final String className = clazz.getName();
+            final Set<String> add = new HashSet<>();
             for (int i = 0; i < attrs.getLength(); i++) {
                 add.add(attrs.getQName(i));
             }
@@ -252,7 +266,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
             fields.put(className, set);
         }
         for (String s : add) {
-            set.add(s.toLowerCase());
+            set.add(s.toLowerCase(Locale.ENGLISH));
         }
     }
 

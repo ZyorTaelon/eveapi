@@ -45,14 +45,14 @@ public class ApiKeyInfo {
     }
 
     public boolean isCorporationKey() {
-        return getType() == KeyType.Corporation;
+        return getType() == KeyType.CORPORATION;
     }
 
     public boolean isAccountKey() {
-        return getType() == KeyType.Account;
+        return getType() == KeyType.ACCOUNT;
     }
 
     public boolean isCharacterKey() {
-        return getType() == KeyType.Character;
+        return getType() == KeyType.CHARACTER;
     }
 }

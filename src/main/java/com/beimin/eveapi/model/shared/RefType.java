@@ -78,14 +78,14 @@ public enum RefType {
     CONTRACT_DEPOSIT(74, "Contract Deposit", "Contract ID", ""), //
     CONTRACT_DEPOSIT_SALES_TAX(75, "Contract Deposit Sales Tax", "Contract ID", ""), //
     SECURE_EVE_TIME_CODE_EXCHANGE(76, "Secure EVE Time Code Exchange", "", ""), //
-    CONTRACT_AUCTION_BID__CORP_(77, "Contract Auction Bid (corp)", "", ""), //
-    CONTRACT_COLLATERAL_DEPOSITED__CORP_(78, "Contract Collateral Deposited (corp)", "", ""), //
-    CONTRACT_PRICE_PAYMENT__CORP_(79, "Contract Price Payment (corp)", "", ""), //
-    CONTRACT_BROKERS_FEE__CORP_(80, "Contract Brokers Fee (corp)", "", ""), //
-    CONTRACT_DEPOSIT__CORP_(81, "Contract Deposit (corp)", "", ""), //
+    CONTRACT_AUCTION_BID_CORP(77, "Contract Auction Bid (corp)", "", ""), //
+    CONTRACT_COLLATERAL_DEPOSITED_CORP(78, "Contract Collateral Deposited (corp)", "", ""), //
+    CONTRACT_PRICE_PAYMENT_CORP(79, "Contract Price Payment (corp)", "", ""), //
+    CONTRACT_BROKERS_FEE_CORP(80, "Contract Brokers Fee (corp)", "", ""), //
+    CONTRACT_DEPOSIT_CORP(81, "Contract Deposit (corp)", "", ""), //
     CONTRACT_DEPOSIT_REFUND(82, "Contract Deposit Refund", "", ""), //
     CONTRACT_REWARD_DEPOSITED(83, "Contract Reward Deposited", "", ""), //
-    CONTRACT_REWARD_DEPOSITED__CORP_(84, "Contract Reward Deposited (corp)", "", ""), //
+    CONTRACT_REWARD_DEPOSITED_CORP(84, "Contract Reward Deposited (corp)", "", ""), //
     BOUNTY_PRIZES(85, "Bounty Prizes", "", "solarSystemID"), //
     ADVERTISEMENT_LISTING_FEE(86, "Advertisement Listing Fee", "", ""), //
     MEDAL_CREATION(87, "Medal Creation", "", ""), //
@@ -155,7 +155,7 @@ public enum RefType {
     ISK_SWAP_REWARD(10023, "ISK Swap Reward", "", ""), //
 
     MODIFY_UPLEX(11001, "Modify AUR", "", ""), RESPEC_PAYMENT(11002, "Respec payment", "", ""), //
-    Entitlement(11003, "Entitlement", "", ""), //
+    ENTITLEMENT(11003, "Entitlement", "", ""), //
     RESET_REIMBURSEMENT(11004, "Reset Reimbursement", "", ""), //
     RESET_AUR_FOR_CHARACTER_RESET(11005, "Reset AUR for Character Reset", "", ""), //
     DAILY_MISSION_CP(12001, "Daily mission CP", "", ""), //
