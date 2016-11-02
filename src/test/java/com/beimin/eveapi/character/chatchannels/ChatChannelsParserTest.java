@@ -14,6 +14,7 @@ import org.junit.Test;
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.pilot.ChatChannel;
 import com.beimin.eveapi.model.pilot.ChatChannelAccessor;
+import com.beimin.eveapi.model.pilot.ChatChannelExtendedAccessor;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.ChatChannelsParser;
@@ -52,15 +53,15 @@ public class ChatChannelsParserTest extends FullAuthParserTest {
 		assertThat(allowed.getAccessorID(), equalTo(99005629l));
     	assertThat(allowed.getAccessorName(), equalTo("Tellus Alliance"));
     	
-    	List<ChatChannelAccessor> blockedAccessors = channel.getBlockedAccessors();
+        List<ChatChannelExtendedAccessor> blockedAccessors = channel.getBlockedAccessors();
     	assertThat(blockedAccessors.size(), equalTo(1));
-    	ChatChannelAccessor blocked = blockedAccessors.get(0);
+        ChatChannelExtendedAccessor blocked = blockedAccessors.get(0);
     	assertThat(blocked.getAccessorName(), equalTo("Tellus Corporation"));
     	assertThat(blocked.getUntilWhen(), equalTo(DateUtils.getGMTConverter().convert(Date.class, "0001-01-01 00:00:00")));
     	
-    	List<ChatChannelAccessor> mutedAccessors = channel.getMutedAccessors();
+        List<ChatChannelExtendedAccessor> mutedAccessors = channel.getMutedAccessors();
     	assertThat(mutedAccessors.size(), equalTo(1));
-    	ChatChannelAccessor muted = mutedAccessors.get(0);
+        ChatChannelExtendedAccessor muted = mutedAccessors.get(0);
     	assertThat(muted.getUntilWhen(), equalTo(DateUtils.getGMTConverter().convert(Date.class, "2015-08-07 15:17:40")));
     	assertThat(muted.getReason(), equalTo("Test success! You can't speak now."));
     	
