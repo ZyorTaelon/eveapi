@@ -1,8 +1,8 @@
 package com.beimin.eveapi.character.contacts;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
 
 import java.util.Set;
 
@@ -26,54 +26,54 @@ public class CharContactListParserTest extends FullAuthParserTest {
     public void getResponse() throws ApiException {
         final CharContactListParser parser = new CharContactListParser();
         final ContactListResponse response = parser.getResponse(auth);
-        assertNotNull(response);
+        assertThat(response, notNullValue());
 
         Set<Contact> contactList = response.getContactList();
-        assertEquals(1, contactList.size());
+        assertThat(contactList.size(), equalTo(1));
         Contact apiContact = contactList.iterator().next();
-        assertEquals(3009560, apiContact.getContactID());
-        assertEquals("Gryncelbois Erris", apiContact.getContactName());
-        assertEquals(0.0, apiContact.getStanding(), 1E-15);
-        assertFalse(apiContact.isInWatchlist());
-        assertEquals(1378, apiContact.getContactTypeID());
-        assertEquals(0, apiContact.getLabelMask());
+        assertThat(apiContact.getContactID(), equalTo(3009560));
+        assertThat(apiContact.getContactName(), equalTo("Gryncelbois Erris"));
+        assertThat(apiContact.getStanding(), equalTo(0.0d));
+        assertThat(apiContact.isInWatchlist(), equalTo(false));
+        assertThat(apiContact.getContactTypeID(), equalTo(1378));
+        assertThat(apiContact.getLabelMask(), equalTo(0l));
 
         Set<ContactLabel> contactLabels = response.getContactLabels();
-        assertEquals(1, contactLabels.size());
+        assertThat(contactLabels.size(), equalTo(1));
         final ContactLabel contactLabel = contactLabels.iterator().next();
-        assertEquals(1, contactLabel.getLabelID());
-        assertEquals("Huhu", contactLabel.getName());
+        assertThat(contactLabel.getLabelID(), equalTo(1l));
+        assertThat(contactLabel.getName(), equalTo("Huhu"));
 
         Set<Contact> corporateContactList = response.getCorporateContactList();
-        assertEquals(1, corporateContactList.size());
+        assertThat(corporateContactList.size(), equalTo(1));
         Contact corporateContact = corporateContactList.iterator().next();
-        assertEquals(90976800, corporateContact.getContactID());
-        assertEquals("DianaLynn ETC", corporateContact.getContactName());
-        assertEquals(9.9, corporateContact.getStanding(), 1E-15);
-        assertFalse(corporateContact.isInWatchlist());
-        assertEquals(1377, corporateContact.getContactTypeID());
-        assertEquals(0, corporateContact.getLabelMask());
+        assertThat(corporateContact.getContactID(), equalTo(90976800));
+        assertThat(corporateContact.getContactName(), equalTo("DianaLynn ETC"));
+        assertThat(corporateContact.getStanding(), equalTo(9.9d));
+        assertThat(corporateContact.isInWatchlist(), equalTo(false));
+        assertThat(corporateContact.getContactTypeID(), equalTo(1377));
+        assertThat(corporateContact.getLabelMask(), equalTo(0l));
 
         Set<ContactLabel> corporateContactLabels = response.getCorporateContactLabels();
-        assertEquals(1, corporateContactLabels.size());
+        assertThat(corporateContactLabels.size(), equalTo(1));
         final ContactLabel corporateContactLabel = corporateContactLabels.iterator().next();
-        assertEquals(1, corporateContactLabel.getLabelID());
-        assertEquals("Huhu", corporateContactLabel.getName());
+        assertThat(corporateContactLabel.getLabelID(), equalTo(1l));
+        assertThat(corporateContactLabel.getName(), equalTo("Huhu"));
 
         Set<Contact> allianceContactList = response.getAllianceContactList();
-        assertEquals(1, allianceContactList.size());
+        assertThat(allianceContactList.size(), equalTo(1));
         Contact allianceContact = allianceContactList.iterator().next();
-        assertEquals(1000148, allianceContact.getContactID());
-        assertEquals("InterBus", allianceContact.getContactName());
-        assertEquals(0, allianceContact.getStanding(), 1E-15);
-        assertFalse(allianceContact.isInWatchlist());
-        assertEquals(2, allianceContact.getContactTypeID());
-        assertEquals(0, allianceContact.getLabelMask());
+        assertThat(allianceContact.getContactID(), equalTo(1000148));
+        assertThat(allianceContact.getContactName(), equalTo("InterBus"));
+        assertThat(allianceContact.getStanding(), equalTo(0d));
+        assertThat(allianceContact.isInWatchlist(), equalTo(false));
+        assertThat(allianceContact.getContactTypeID(), equalTo(2));
+        assertThat(allianceContact.getLabelMask(), equalTo(0l));
 
         Set<ContactLabel> allianceContactLabels = response.getAllianceContactLabels();
-        assertEquals(1, allianceContactLabels.size());
+        assertThat(allianceContactLabels.size(), equalTo(1));
         final ContactLabel allianceContactLabel = allianceContactLabels.iterator().next();
-        assertEquals(1, allianceContactLabel.getLabelID());
-        assertEquals("Boosters", allianceContactLabel.getName());
+        assertThat(allianceContactLabel.getLabelID(), equalTo(1l));
+        assertThat(allianceContactLabel.getName(), equalTo("Boosters"));
     }
 }

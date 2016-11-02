@@ -1,11 +1,10 @@
 package com.beimin.eveapi.character.medals;
 
 import static com.beimin.eveapi.utils.Assert.assertDate;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 import java.util.Set;
 
@@ -28,36 +27,36 @@ public class MedalsParserTest extends FullAuthParserTest {
     public void getResponse() throws ApiException {
         final MedalsParser parser = new MedalsParser();
         final MedalsResponse response = parser.getResponse(auth);
-        assertNotNull(response);
+        assertThat(response, notNullValue());
 
         // All
         final Set<Medal> allMedals = response.getAll();
-        assertEquals("Incorrect amount of medals found.", 2, allMedals.size());
+        assertThat("Incorrect amount of medals found.", allMedals.size(), equalTo(2));
 
         // Current
         final Set<Medal> currentMedals = response.getCurrentCorporation();
-        assertEquals("Incorrect amount of medals found.", 1, currentMedals.size());
+        assertThat("Incorrect amount of medals found.", currentMedals.size(), equalTo(1));
         final Medal currentMedal = currentMedals.iterator().next();
-        assertEquals("Wrong medalID", 38208, currentMedal.getMedalID());
-        assertNull("Wrong medal title", currentMedal.getTitle());
-        assertNull("Wrong medal description", currentMedal.getDescription());
-        assertEquals("Wrong medal reason", "found the undock button", currentMedal.getReason());
-        assertEquals("Wrong medal issuerID", 718955203L, currentMedal.getIssuerID());
+        assertThat("Wrong medalID", currentMedal.getMedalID(), equalTo(38208));
+        assertThat("Wrong medal title", currentMedal.getTitle(), nullValue());
+        assertThat("Wrong medal description", currentMedal.getDescription(), nullValue());
+        assertThat("Wrong medal reason", currentMedal.getReason(), equalTo("found the undock button"));
+        assertThat("Wrong medal issuerID", currentMedal.getIssuerID(), equalTo(718955203L));
         assertDate(2010, 02, 29, 2, 14, 33, currentMedal.getIssued());
-        assertNull("Wrong medal corporationID", currentMedal.getCorporationID());
-        assertFalse("Should be private", currentMedal.isPublic());
+        assertThat("Wrong medal corporationID", currentMedal.getCorporationID(), nullValue());
+        assertThat("Should be private", currentMedal.isPublic(), equalTo(false));
 
         // Other
         final Set<Medal> otherMedals = response.getOtherCorporations();
-        assertEquals("Incorrect amount of medals found.", 1, otherMedals.size());
+        assertThat("Incorrect amount of medals found.", otherMedals.size(), equalTo(1));
         final Medal otherMedal = otherMedals.iterator().next();
-        assertEquals("Wrong medalID", 40125, otherMedal.getMedalID());
-        assertEquals("Wrong medal title", "Christian Fundamentalist Award", otherMedal.getTitle());
-        assertEquals("Wrong medal description", "For relentlessly trying to spread the Good Message. Even within an internet spaceship game.", otherMedal.getDescription());
-        assertEquals("Wrong medal reason", "cuz hes awesome", otherMedal.getReason());
-        assertEquals("Wrong medal issuerID", 753005810L, otherMedal.getIssuerID());
+        assertThat("Wrong medalID", otherMedal.getMedalID(), equalTo(40125));
+        assertThat("Wrong medal title", otherMedal.getTitle(), equalTo("Christian Fundamentalist Award"));
+        assertThat("Wrong medal description", otherMedal.getDescription(), equalTo("For relentlessly trying to spread the Good Message. Even within an internet spaceship game."));
+        assertThat("Wrong medal reason", otherMedal.getReason(), equalTo("cuz hes awesome"));
+        assertThat("Wrong medal issuerID", otherMedal.getIssuerID(), equalTo(753005810L));
         assertDate(2009, 12, 23, 0, 32, 04, otherMedal.getIssued());
-        assertEquals("Wrong medal corporationID", 182784411L, otherMedal.getCorporationID().longValue());
-        assertTrue("Should be public", otherMedal.isPublic());
+        assertThat("Wrong medal corporationID", otherMedal.getCorporationID().longValue(), equalTo(182784411L));
+        assertThat("Should be public", otherMedal.isPublic(), equalTo(true));
     }
 }
