@@ -1,6 +1,6 @@
 package com.beimin.eveapi.model.shared;
 
-public class KillAttacker extends KillPilot {
+public class KillAttacker extends KillCharacter {
     private double securityStatus; // ="-3.72675620703378"
     private int damageDone; // ="1415"
     private boolean finalBlow; // ="1"

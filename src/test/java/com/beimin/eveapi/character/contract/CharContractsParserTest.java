@@ -17,7 +17,7 @@ import com.beimin.eveapi.model.shared.ContractStatus;
 import com.beimin.eveapi.model.shared.ContractType;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharContractsParser;
+import com.beimin.eveapi.parser.character.CharContractsParser;
 import com.beimin.eveapi.response.shared.ContractsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

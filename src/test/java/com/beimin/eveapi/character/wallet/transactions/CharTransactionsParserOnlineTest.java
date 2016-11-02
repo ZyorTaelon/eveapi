@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.TestControl;
-import com.beimin.eveapi.parser.pilot.CharWalletTransactionsParser;
+import com.beimin.eveapi.parser.character.CharWalletTransactionsParser;
 import com.beimin.eveapi.response.shared.WalletTransactionsResponse;
 
 public class CharTransactionsParserOnlineTest extends AbstractOnlineTest {

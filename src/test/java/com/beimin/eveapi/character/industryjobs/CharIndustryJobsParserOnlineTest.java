@@ -3,7 +3,7 @@ package com.beimin.eveapi.character.industryjobs;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.parser.pilot.CharIndustryJobsParser;
+import com.beimin.eveapi.parser.character.CharIndustryJobsParser;
 import com.beimin.eveapi.response.shared.IndustryJobsResponse;
 
 public class CharIndustryJobsParserOnlineTest extends AbstractOnlineTest {

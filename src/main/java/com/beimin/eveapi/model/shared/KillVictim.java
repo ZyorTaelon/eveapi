@@ -1,6 +1,6 @@
 package com.beimin.eveapi.model.shared;
 
-public class KillVictim extends KillPilot {
+public class KillVictim extends KillCharacter {
     private long damageTaken; // ="1415"
     private long shipTypeID; // ="587"
     private double positionX;

@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.model.shared.MarketOrder;
-import com.beimin.eveapi.parser.pilot.CharMarketOrdersParser;
+import com.beimin.eveapi.parser.character.CharMarketOrdersParser;
 import com.beimin.eveapi.response.shared.MarketOrdersResponse;
 
 public class CharMarketOrdersParserOnlineTest extends AbstractOnlineTest {

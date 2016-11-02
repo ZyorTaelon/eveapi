@@ -13,7 +13,7 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.MarketOrder;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharMarketOrdersParser;
+import com.beimin.eveapi.parser.character.CharMarketOrdersParser;
 import com.beimin.eveapi.response.shared.MarketOrdersResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

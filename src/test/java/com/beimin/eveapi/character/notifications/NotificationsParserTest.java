@@ -10,12 +10,12 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.model.pilot.Notification;
-import com.beimin.eveapi.model.pilot.Notification.NotificationType;
+import com.beimin.eveapi.model.character.Notification;
+import com.beimin.eveapi.model.character.Notification.NotificationType;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.NotificationsParser;
-import com.beimin.eveapi.response.pilot.NotificationsResponse;
+import com.beimin.eveapi.parser.character.NotificationsParser;
+import com.beimin.eveapi.response.character.NotificationsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class NotificationsParserTest extends FullAuthParserTest {

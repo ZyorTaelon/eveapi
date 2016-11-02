@@ -10,19 +10,19 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.model.pilot.Implant;
-import com.beimin.eveapi.model.pilot.JumpClone;
-import com.beimin.eveapi.model.pilot.JumpCloneImplant;
-import com.beimin.eveapi.model.pilot.Role;
-import com.beimin.eveapi.model.pilot.Skill;
+import com.beimin.eveapi.model.character.Implant;
+import com.beimin.eveapi.model.character.JumpClone;
+import com.beimin.eveapi.model.character.JumpCloneImplant;
+import com.beimin.eveapi.model.character.Role;
+import com.beimin.eveapi.model.character.Skill;
 import com.beimin.eveapi.model.shared.Ancestry;
 import com.beimin.eveapi.model.shared.Bloodline;
 import com.beimin.eveapi.model.shared.Race;
 import com.beimin.eveapi.model.shared.Title;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharacterSheetParser;
-import com.beimin.eveapi.response.pilot.CharacterSheetResponse;
+import com.beimin.eveapi.parser.character.CharacterSheetParser;
+import com.beimin.eveapi.response.character.CharacterSheetResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class SheetParserTest extends FullAuthParserTest {

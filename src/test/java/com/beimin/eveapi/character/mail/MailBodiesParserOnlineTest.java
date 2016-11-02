@@ -5,11 +5,11 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.model.pilot.MailMessage;
-import com.beimin.eveapi.parser.pilot.MailBodiesParser;
-import com.beimin.eveapi.parser.pilot.MailMessagesParser;
-import com.beimin.eveapi.response.pilot.MailBodiesResponse;
-import com.beimin.eveapi.response.pilot.MailMessagesResponse;
+import com.beimin.eveapi.model.character.MailMessage;
+import com.beimin.eveapi.parser.character.MailBodiesParser;
+import com.beimin.eveapi.parser.character.MailMessagesParser;
+import com.beimin.eveapi.response.character.MailBodiesResponse;
+import com.beimin.eveapi.response.character.MailMessagesResponse;
 
 public class MailBodiesParserOnlineTest extends AbstractOnlineTest {
 

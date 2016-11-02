@@ -9,11 +9,11 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.model.pilot.ContactNotification;
+import com.beimin.eveapi.model.character.ContactNotification;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.ContactNotificationsParser;
-import com.beimin.eveapi.response.pilot.ContactNotificationsResponse;
+import com.beimin.eveapi.parser.character.ContactNotificationsParser;
+import com.beimin.eveapi.response.character.ContactNotificationsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ContactNotificationsParserTest extends FullAuthParserTest {

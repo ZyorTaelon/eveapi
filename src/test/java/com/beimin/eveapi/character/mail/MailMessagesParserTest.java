@@ -11,11 +11,11 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.model.pilot.MailMessage;
+import com.beimin.eveapi.model.character.MailMessage;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.MailMessagesParser;
-import com.beimin.eveapi.response.pilot.MailMessagesResponse;
+import com.beimin.eveapi.parser.character.MailMessagesParser;
+import com.beimin.eveapi.response.character.MailMessagesResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class MailMessagesParserTest extends FullAuthParserTest {

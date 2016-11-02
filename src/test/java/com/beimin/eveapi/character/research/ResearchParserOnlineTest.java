@@ -3,8 +3,8 @@ package com.beimin.eveapi.character.research;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.parser.pilot.ResearchParser;
-import com.beimin.eveapi.response.pilot.ResearchResponse;
+import com.beimin.eveapi.parser.character.ResearchParser;
+import com.beimin.eveapi.response.character.ResearchResponse;
 
 public class ResearchParserOnlineTest extends AbstractOnlineTest {
 

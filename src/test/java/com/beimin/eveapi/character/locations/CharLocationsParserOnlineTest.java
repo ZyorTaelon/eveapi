@@ -9,8 +9,8 @@ import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.model.shared.Asset;
-import com.beimin.eveapi.parser.pilot.CharAssetListParser;
-import com.beimin.eveapi.parser.pilot.CharLocationsParser;
+import com.beimin.eveapi.parser.character.CharAssetListParser;
+import com.beimin.eveapi.parser.character.CharLocationsParser;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 import com.beimin.eveapi.response.shared.LocationsResponse;
 

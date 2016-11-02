@@ -7,8 +7,8 @@ import org.junit.Test;
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.model.shared.Contract;
 import com.beimin.eveapi.model.shared.ContractType;
-import com.beimin.eveapi.parser.pilot.CharContractItemsParser;
-import com.beimin.eveapi.parser.pilot.CharContractsParser;
+import com.beimin.eveapi.parser.character.CharContractItemsParser;
+import com.beimin.eveapi.parser.character.CharContractsParser;
 import com.beimin.eveapi.response.shared.ContractItemsResponse;
 import com.beimin.eveapi.response.shared.ContractsResponse;
 

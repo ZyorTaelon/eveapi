@@ -3,8 +3,8 @@ package com.beimin.eveapi.character.skill.queue;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.parser.pilot.SkillQueueParser;
-import com.beimin.eveapi.response.pilot.SkillQueueResponse;
+import com.beimin.eveapi.parser.character.SkillQueueParser;
+import com.beimin.eveapi.response.character.SkillQueueResponse;
 
 public class SkillQueueParserOnlineTest extends AbstractOnlineTest {
 

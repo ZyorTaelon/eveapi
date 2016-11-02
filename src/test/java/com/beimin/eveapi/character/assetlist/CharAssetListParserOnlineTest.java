@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.model.shared.Asset;
-import com.beimin.eveapi.parser.pilot.CharAssetListParser;
+import com.beimin.eveapi.parser.character.CharAssetListParser;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 
 public class CharAssetListParserOnlineTest extends AbstractOnlineTest {

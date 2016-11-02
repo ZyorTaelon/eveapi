@@ -6,8 +6,8 @@ import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.TestControl;
-import com.beimin.eveapi.parser.pilot.SkillInTrainingParser;
-import com.beimin.eveapi.response.pilot.SkillInTrainingResponse;
+import com.beimin.eveapi.parser.character.SkillInTrainingParser;
+import com.beimin.eveapi.response.character.SkillInTrainingResponse;
 
 public class SkillInTrainingParserOnlineTest extends AbstractOnlineTest {
 

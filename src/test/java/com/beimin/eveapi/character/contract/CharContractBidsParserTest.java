@@ -13,7 +13,7 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.ContractBid;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharContractBidsParser;
+import com.beimin.eveapi.parser.character.CharContractBidsParser;
 import com.beimin.eveapi.response.shared.ContractBidsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

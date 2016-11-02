@@ -9,11 +9,11 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.model.pilot.SkillQueueItem;
+import com.beimin.eveapi.model.character.SkillQueueItem;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.SkillQueueParser;
-import com.beimin.eveapi.response.pilot.SkillQueueResponse;
+import com.beimin.eveapi.parser.character.SkillQueueParser;
+import com.beimin.eveapi.response.character.SkillQueueResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class SkillQueueParserTest extends FullAuthParserTest {

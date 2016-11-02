@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.TestControl;
-import com.beimin.eveapi.parser.pilot.CharFacWarStatsParser;
+import com.beimin.eveapi.parser.character.CharFacWarStatsParser;
 import com.beimin.eveapi.response.shared.FacWarStatsResponse;
 
 public class CharFacWarStatsParserOnlineTest extends AbstractOnlineTest {

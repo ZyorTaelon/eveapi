@@ -5,11 +5,11 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.model.pilot.Notification;
-import com.beimin.eveapi.parser.pilot.NotificationTextsParser;
-import com.beimin.eveapi.parser.pilot.NotificationsParser;
-import com.beimin.eveapi.response.pilot.NotificationTextsResponse;
-import com.beimin.eveapi.response.pilot.NotificationsResponse;
+import com.beimin.eveapi.model.character.Notification;
+import com.beimin.eveapi.parser.character.NotificationTextsParser;
+import com.beimin.eveapi.parser.character.NotificationsParser;
+import com.beimin.eveapi.response.character.NotificationTextsResponse;
+import com.beimin.eveapi.response.character.NotificationsResponse;
 
 public class NotificationTextsParserOnlineTest extends AbstractOnlineTest {
 

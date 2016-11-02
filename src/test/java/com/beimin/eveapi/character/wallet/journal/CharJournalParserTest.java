@@ -15,7 +15,7 @@ import com.beimin.eveapi.model.shared.JournalEntry;
 import com.beimin.eveapi.model.shared.RefType;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharWalletJournalParser;
+import com.beimin.eveapi.parser.character.CharWalletJournalParser;
 import com.beimin.eveapi.response.shared.WalletJournalResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

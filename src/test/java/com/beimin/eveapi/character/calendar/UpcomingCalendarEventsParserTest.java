@@ -9,12 +9,12 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.model.pilot.UpcomingCalendarEvent;
+import com.beimin.eveapi.model.character.UpcomingCalendarEvent;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.UpcomingCalendarEventsParser;
-import com.beimin.eveapi.response.pilot.CalendarEventResponse;
-import com.beimin.eveapi.response.pilot.UpcomingCalendarEventsResponse;
+import com.beimin.eveapi.parser.character.UpcomingCalendarEventsParser;
+import com.beimin.eveapi.response.character.CalendarEventResponse;
+import com.beimin.eveapi.response.character.UpcomingCalendarEventsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {

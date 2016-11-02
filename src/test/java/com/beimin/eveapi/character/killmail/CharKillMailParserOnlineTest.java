@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.TestControl;
-import com.beimin.eveapi.parser.pilot.CharKillMailParser;
+import com.beimin.eveapi.parser.character.CharKillMailParser;
 import com.beimin.eveapi.response.shared.KillMailResponse;
 
 public class CharKillMailParserOnlineTest extends AbstractOnlineTest {

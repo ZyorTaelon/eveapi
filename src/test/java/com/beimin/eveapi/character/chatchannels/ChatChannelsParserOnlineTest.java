@@ -3,9 +3,9 @@ package com.beimin.eveapi.character.chatchannels;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.model.pilot.ChatChannel;
-import com.beimin.eveapi.parser.pilot.ChatChannelsParser;
-import com.beimin.eveapi.response.pilot.ChatChannelsResponse;
+import com.beimin.eveapi.model.character.ChatChannel;
+import com.beimin.eveapi.parser.character.ChatChannelsParser;
+import com.beimin.eveapi.response.character.ChatChannelsResponse;
 
 public class ChatChannelsParserOnlineTest extends AbstractOnlineTest {
 

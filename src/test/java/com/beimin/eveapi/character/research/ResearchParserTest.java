@@ -10,11 +10,11 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.model.pilot.ResearchAgent;
+import com.beimin.eveapi.model.character.ResearchAgent;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.ResearchParser;
-import com.beimin.eveapi.response.pilot.ResearchResponse;
+import com.beimin.eveapi.parser.character.ResearchParser;
+import com.beimin.eveapi.response.character.ResearchResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class ResearchParserTest extends FullAuthParserTest {

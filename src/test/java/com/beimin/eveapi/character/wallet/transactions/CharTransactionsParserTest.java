@@ -14,7 +14,7 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.WalletTransaction;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharWalletTransactionsParser;
+import com.beimin.eveapi.parser.character.CharWalletTransactionsParser;
 import com.beimin.eveapi.response.shared.WalletTransactionsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

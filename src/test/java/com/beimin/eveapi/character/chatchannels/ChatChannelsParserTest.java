@@ -12,13 +12,13 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
-import com.beimin.eveapi.model.pilot.ChatChannel;
-import com.beimin.eveapi.model.pilot.ChatChannelAccessor;
-import com.beimin.eveapi.model.pilot.ChatChannelExtendedAccessor;
+import com.beimin.eveapi.model.character.ChatChannel;
+import com.beimin.eveapi.model.character.ChatChannelAccessor;
+import com.beimin.eveapi.model.character.ChatChannelExtendedAccessor;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.ChatChannelsParser;
-import com.beimin.eveapi.response.pilot.ChatChannelsResponse;
+import com.beimin.eveapi.parser.character.ChatChannelsParser;
+import com.beimin.eveapi.response.character.ChatChannelsResponse;
 import com.beimin.eveapi.utils.DateUtils;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

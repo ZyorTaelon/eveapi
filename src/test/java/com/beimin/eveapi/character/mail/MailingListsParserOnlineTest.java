@@ -3,8 +3,8 @@ package com.beimin.eveapi.character.mail;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.parser.pilot.MailingListsParser;
-import com.beimin.eveapi.response.pilot.MailingListsResponse;
+import com.beimin.eveapi.parser.character.MailingListsParser;
+import com.beimin.eveapi.response.character.MailingListsResponse;
 
 public class MailingListsParserOnlineTest extends AbstractOnlineTest {
 

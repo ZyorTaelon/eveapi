@@ -3,8 +3,8 @@ package com.beimin.eveapi.character.contacts;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.parser.pilot.ContactNotificationsParser;
-import com.beimin.eveapi.response.pilot.ContactNotificationsResponse;
+import com.beimin.eveapi.parser.character.ContactNotificationsParser;
+import com.beimin.eveapi.response.character.ContactNotificationsResponse;
 
 public class ContactNotificationsParserOnlineTest extends AbstractOnlineTest {
 

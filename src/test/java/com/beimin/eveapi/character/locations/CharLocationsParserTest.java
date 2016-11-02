@@ -12,7 +12,7 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.Location;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharLocationsParser;
+import com.beimin.eveapi.parser.character.CharLocationsParser;
 import com.beimin.eveapi.response.shared.LocationsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

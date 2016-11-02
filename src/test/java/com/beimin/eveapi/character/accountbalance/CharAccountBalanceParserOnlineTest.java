@@ -3,7 +3,7 @@ package com.beimin.eveapi.character.accountbalance;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.parser.pilot.CharAccountBalanceParser;
+import com.beimin.eveapi.parser.character.CharAccountBalanceParser;
 import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 
 public class CharAccountBalanceParserOnlineTest extends AbstractOnlineTest {

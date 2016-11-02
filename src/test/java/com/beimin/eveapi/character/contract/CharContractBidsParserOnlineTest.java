@@ -3,7 +3,7 @@ package com.beimin.eveapi.character.contract;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.parser.pilot.CharContractBidsParser;
+import com.beimin.eveapi.parser.character.CharContractBidsParser;
 import com.beimin.eveapi.response.shared.ContractBidsResponse;
 
 public class CharContractBidsParserOnlineTest extends AbstractOnlineTest {

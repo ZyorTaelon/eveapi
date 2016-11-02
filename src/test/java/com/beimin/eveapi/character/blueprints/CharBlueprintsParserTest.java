@@ -12,7 +12,7 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.Blueprint;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharBlueprintsParser;
+import com.beimin.eveapi.parser.character.CharBlueprintsParser;
 import com.beimin.eveapi.response.shared.BlueprintsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

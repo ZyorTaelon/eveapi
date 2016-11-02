@@ -14,7 +14,7 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.ContractItem;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharContractItemsParser;
+import com.beimin.eveapi.parser.character.CharContractItemsParser;
 import com.beimin.eveapi.response.shared.ContractItemsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

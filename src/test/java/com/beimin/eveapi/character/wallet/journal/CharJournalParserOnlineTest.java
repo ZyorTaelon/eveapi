@@ -8,7 +8,7 @@ import org.junit.Test;
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.model.shared.JournalEntry;
-import com.beimin.eveapi.parser.pilot.CharWalletJournalParser;
+import com.beimin.eveapi.parser.character.CharWalletJournalParser;
 import com.beimin.eveapi.response.shared.WalletJournalResponse;
 
 public class CharJournalParserOnlineTest extends AbstractOnlineTest {

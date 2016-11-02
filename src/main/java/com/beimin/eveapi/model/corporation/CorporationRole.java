@@ -1,6 +1,6 @@
 package com.beimin.eveapi.model.corporation;
 
-import com.beimin.eveapi.model.pilot.Role;
+import com.beimin.eveapi.model.character.Role;
 
 public class CorporationRole extends Role {
     private String roleDescription;

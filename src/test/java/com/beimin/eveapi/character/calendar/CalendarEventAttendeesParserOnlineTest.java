@@ -5,11 +5,11 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.model.pilot.UpcomingCalendarEvent;
-import com.beimin.eveapi.parser.pilot.CalendarEventAttendeesParser;
-import com.beimin.eveapi.parser.pilot.UpcomingCalendarEventsParser;
-import com.beimin.eveapi.response.pilot.CalendarEventAttendeesResponse;
-import com.beimin.eveapi.response.pilot.UpcomingCalendarEventsResponse;
+import com.beimin.eveapi.model.character.UpcomingCalendarEvent;
+import com.beimin.eveapi.parser.character.CalendarEventAttendeesParser;
+import com.beimin.eveapi.parser.character.UpcomingCalendarEventsParser;
+import com.beimin.eveapi.response.character.CalendarEventAttendeesResponse;
+import com.beimin.eveapi.response.character.UpcomingCalendarEventsResponse;
 
 public class CalendarEventAttendeesParserOnlineTest extends AbstractOnlineTest {
 

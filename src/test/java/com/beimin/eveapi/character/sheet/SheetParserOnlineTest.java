@@ -3,8 +3,8 @@ package com.beimin.eveapi.character.sheet;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.parser.pilot.CharacterSheetParser;
-import com.beimin.eveapi.response.pilot.CharacterSheetResponse;
+import com.beimin.eveapi.parser.character.CharacterSheetParser;
+import com.beimin.eveapi.response.character.CharacterSheetResponse;
 
 public class SheetParserOnlineTest extends AbstractOnlineTest {
 

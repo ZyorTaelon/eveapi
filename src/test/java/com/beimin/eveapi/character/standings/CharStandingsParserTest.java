@@ -10,7 +10,7 @@ import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.model.shared.Standing;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharStandingsParser;
+import com.beimin.eveapi.parser.character.CharStandingsParser;
 import com.beimin.eveapi.response.shared.StandingsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

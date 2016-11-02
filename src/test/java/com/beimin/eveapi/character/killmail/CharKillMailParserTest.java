@@ -17,7 +17,7 @@ import com.beimin.eveapi.model.shared.KillItem;
 import com.beimin.eveapi.model.shared.KillVictim;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharKillMailParser;
+import com.beimin.eveapi.parser.character.CharKillMailParser;
 import com.beimin.eveapi.response.shared.KillMailResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

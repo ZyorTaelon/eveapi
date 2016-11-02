@@ -11,7 +11,7 @@ import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.AccountBalance;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharAccountBalanceParser;
+import com.beimin.eveapi.parser.character.CharAccountBalanceParser;
 import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 

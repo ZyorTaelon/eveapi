@@ -13,8 +13,8 @@ import com.beimin.eveapi.model.shared.Contact;
 import com.beimin.eveapi.model.shared.ContactLabel;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharContactListParser;
-import com.beimin.eveapi.response.pilot.ContactListResponse;
+import com.beimin.eveapi.parser.character.CharContactListParser;
+import com.beimin.eveapi.response.character.ContactListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
 public class CharContactListParserTest extends FullAuthParserTest {

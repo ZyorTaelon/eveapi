@@ -8,7 +8,7 @@ import org.junit.Test;
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
-import com.beimin.eveapi.parser.pilot.CharFacWarStatsParser;
+import com.beimin.eveapi.parser.character.CharFacWarStatsParser;
 import com.beimin.eveapi.response.shared.FacWarStatsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 
