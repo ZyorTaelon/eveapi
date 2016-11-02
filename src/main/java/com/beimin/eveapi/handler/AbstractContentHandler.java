@@ -83,7 +83,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     @Override
     public final void endElement(final String uri, final String localName, final String qName) throws SAXException {
         if (strictCheckMode && path != null) {
-            path.pop();
+            path.pollFirst();
         }
         elementEnd(uri, localName, qName);
         if (ELEMENT_CURRENT_TIME.equals(qName)) {
@@ -111,7 +111,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         } else {
             pathName = qName;
         }
-        path.add(pathName);
+        path.addFirst(pathName);
     }
 
     private void processRowset(final Attributes attrs) {
@@ -120,7 +120,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
             name = ELEMENT_ROWSET;
         }
         if (path != null) {
-            String parentElement = path.peek();
+            String parentElement = path.peekFirst();
             if (parentElement == null) {
                 parentElement = "";
             }
