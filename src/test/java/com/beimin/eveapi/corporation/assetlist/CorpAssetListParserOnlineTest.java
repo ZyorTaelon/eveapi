@@ -14,7 +14,7 @@ public class CorpAssetListParserOnlineTest extends AbstractOnlineTest {
     @Before
     public void prepare() {
         setUp();
-        allowEmpty("getRawQuantity"); //only return for blueprints
+        allowEmpty("getRawQuantity"); // only return for blueprints
         prepareParser(classToTest);
     }
 
@@ -28,7 +28,7 @@ public class CorpAssetListParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponseFlat() throws Exception {
-        ignoreClassField(Asset.class, "assets"); //Flat list
+        ignoreClassField(Asset.class, "assets"); // Flat list
         final AssetListResponse response = classToTest.getResponse(getCorp(), true);
 
         testResponse(response);

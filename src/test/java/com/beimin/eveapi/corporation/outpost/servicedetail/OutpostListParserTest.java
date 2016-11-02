@@ -41,4 +41,3 @@ public class OutpostListParserTest extends FullAuthParserTest {
         assertEquals(0.0, outpost.getDiscountPerGoodStanding(), 0.0005);
     }
 }
-

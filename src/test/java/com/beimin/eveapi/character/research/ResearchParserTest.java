@@ -44,4 +44,3 @@ public class ResearchParserTest extends FullAuthParserTest {
         assertTrue("Test agent wasn't found.", found);
     }
 }
-

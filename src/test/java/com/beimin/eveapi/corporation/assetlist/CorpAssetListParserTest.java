@@ -1,5 +1,9 @@
 package com.beimin.eveapi.corporation.assetlist;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,10 +17,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.CorpAssetListParser;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static com.beimin.eveapi.utils.Assert.assertDate;
 
 public class CorpAssetListParserTest extends FullAuthParserTest {
     public CorpAssetListParserTest() {
@@ -56,4 +56,3 @@ public class CorpAssetListParserTest extends FullAuthParserTest {
         assertTrue("The sub asset with a sub sub asset wasn't found", subAssetFound);
     }
 }
-

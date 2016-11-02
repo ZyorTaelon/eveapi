@@ -1,12 +1,13 @@
 package com.beimin.eveapi.corporation.killmail;
 
+import static org.junit.Assume.assumeTrue;
+
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.parser.corporation.CorpKillMailParser;
 import com.beimin.eveapi.response.shared.KillMailResponse;
-import static org.junit.Assume.assumeTrue;
 
 public class CorpKillMailParserOnlineTest extends AbstractOnlineTest {
 

@@ -9,8 +9,8 @@ public class AccountStatus {
     private Date createDate;
     private int logonCount;
     private int logonMinutes;
-    private final Set<Date> multiCharacterTraining = new HashSet<>(); //Untested
-    private final Set<Offer> offers = new HashSet<>(); //Untested
+    private final Set<Date> multiCharacterTraining = new HashSet<>(); // Untested
+    private final Set<Offer> offers = new HashSet<>(); // Untested
 
     public Date getPaidUntil() {
         return paidUntil;
@@ -44,7 +44,7 @@ public class AccountStatus {
         this.logonMinutes = logonMinutes;
     }
 
-    //Untested
+    // Untested
     public Set<Date> getMultiCharacterTraining() {
         return multiCharacterTraining;
     }
@@ -53,7 +53,7 @@ public class AccountStatus {
         this.multiCharacterTraining.add(date);
     }
 
-    //Untested
+    // Untested
     public Set<Offer> getOffers() {
         return offers;
     }

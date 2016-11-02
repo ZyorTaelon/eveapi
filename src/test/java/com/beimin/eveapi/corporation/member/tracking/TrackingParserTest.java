@@ -78,4 +78,3 @@ public class TrackingParserTest extends FullAuthParserTest {
         }
     };
 }
-

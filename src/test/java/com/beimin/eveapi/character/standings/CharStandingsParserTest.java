@@ -1,5 +1,7 @@
 package com.beimin.eveapi.character.standings;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -11,8 +13,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.CharStandingsParser;
 import com.beimin.eveapi.response.shared.StandingsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 public class CharStandingsParserTest extends FullAuthParserTest {
     public CharStandingsParserTest() {
@@ -50,4 +50,3 @@ public class CharStandingsParserTest extends FullAuthParserTest {
         assertEquals(-1.95, apiStanding.getStanding(), 1E-15);
     }
 }
-

@@ -68,4 +68,3 @@ public class StarbaseDetailParserTest extends FullAuthParserTest {
         assertEquals("123456789", req.get("itemID"));
     }
 }
-

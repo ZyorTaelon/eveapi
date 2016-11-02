@@ -15,10 +15,10 @@ public class ApiKeyInfoParserOnlineTest extends AbstractOnlineTest {
         setAlias(ApiKeyInfo.class, "characters", "eveCharacters");
         ignoreXmlField("key");
         // Not in alliance
-        allowEmpty("getAllianceName"); 
+        allowEmpty("getAllianceName");
         allowEmpty("getAllianceID");
         // Not in faction
-        allowEmpty("getFactionName"); 
+        allowEmpty("getFactionName");
         allowEmpty("getFactionID");
         // Never Expires
         allowNull("getExpires");

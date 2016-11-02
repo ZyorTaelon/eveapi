@@ -1,5 +1,9 @@
 package com.beimin.eveapi.corporation.marketorders;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
@@ -12,10 +16,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.CorpMarketOrdersParser;
 import com.beimin.eveapi.response.shared.MarketOrdersResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static com.beimin.eveapi.utils.Assert.assertDate;
 
 public class CorpMarketOrdersParserTest extends FullAuthParserTest {
     public CorpMarketOrdersParserTest() {
@@ -52,4 +52,3 @@ public class CorpMarketOrdersParserTest extends FullAuthParserTest {
         assertTrue("test order wasn't found.", found);
     }
 }
-

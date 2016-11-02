@@ -36,7 +36,7 @@ public class CharLocationsParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        //Not everything have coordinates
+        // Not everything have coordinates
         allowEmpty("getX");
         allowEmpty("getZ");
         allowEmpty("getY");

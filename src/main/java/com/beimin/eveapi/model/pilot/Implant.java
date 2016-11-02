@@ -1,6 +1,5 @@
 package com.beimin.eveapi.model.pilot;
 
-
 public class Implant {
     private int typeID;
     private String typeName;

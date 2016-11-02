@@ -36,4 +36,3 @@ public class ContactNotificationsParserTest extends FullAuthParserTest {
         assertEquals("level: 10\nmessage: Hi, I want to social network with you!\n", contactNotification.getMessageData());
     }
 }
-

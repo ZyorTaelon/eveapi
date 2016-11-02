@@ -1,16 +1,16 @@
 package com.beimin.eveapi.misc;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.utils.ImageProvider;
-
 
 public class ImageProviderOnlineTest {
     private static final int IMAGE_SIZE = 32;

@@ -1,6 +1,5 @@
 package com.beimin.eveapi.character.killmail;
 
-
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
@@ -84,4 +83,3 @@ public class CharKillMailParserTest extends FullAuthParserTest {
         assertThat("test KillMail entry wasn't found.", found, equalTo(true));
     }
 }
-

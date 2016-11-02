@@ -1,12 +1,12 @@
 package com.beimin.eveapi.response.pilot;
 
-import com.beimin.eveapi.model.pilot.Implant;
-import com.beimin.eveapi.model.pilot.JumpClone;
-import com.beimin.eveapi.model.pilot.JumpCloneImplant;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.beimin.eveapi.model.pilot.Implant;
+import com.beimin.eveapi.model.pilot.JumpClone;
+import com.beimin.eveapi.model.pilot.JumpCloneImplant;
 import com.beimin.eveapi.model.pilot.Role;
 import com.beimin.eveapi.model.pilot.Skill;
 import com.beimin.eveapi.model.shared.Ancestry;
@@ -18,7 +18,7 @@ import com.beimin.eveapi.response.ApiResponse;
 public class CharacterSheetResponse extends ApiResponse {
     private long characterID;
     private String name;
-    private long homeStationID; //can be citadel?
+    private long homeStationID; // can be citadel?
     private Date dateOfBirth;
     private Race race;
     private int bloodLineID;
@@ -243,7 +243,7 @@ public class CharacterSheetResponse extends ApiResponse {
     public Set<Skill> getSkills() {
         return skills;
     }
-   
+
     public void addCorporationRole(final Role corporationRole) {
         corporationRoles.add(corporationRole);
     }

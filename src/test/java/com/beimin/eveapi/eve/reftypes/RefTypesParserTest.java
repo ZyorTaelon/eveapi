@@ -51,4 +51,3 @@ public class RefTypesParserTest extends NoAuthParserTest {
         }
     }
 }
-

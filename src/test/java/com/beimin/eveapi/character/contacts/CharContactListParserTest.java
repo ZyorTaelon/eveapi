@@ -1,5 +1,10 @@
 package com.beimin.eveapi.character.contacts;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -11,10 +16,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.CharContactListParser;
 import com.beimin.eveapi.response.pilot.ContactListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import java.util.Set;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 
 public class CharContactListParserTest extends FullAuthParserTest {
     public CharContactListParserTest() {

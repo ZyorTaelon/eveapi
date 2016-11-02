@@ -1,5 +1,7 @@
 package com.beimin.eveapi.eve.character;
 
+import static org.junit.Assume.assumeTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,7 +9,6 @@ import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.parser.eve.CharacterInfoParser;
 import com.beimin.eveapi.response.eve.CharacterInfoResponse;
-import static org.junit.Assume.assumeTrue;
 
 public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
     private final CharacterInfoParser classToTest = new CharacterInfoParser();
@@ -19,11 +20,11 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
         allowNull("getAllianceID");
         allowNull("getAllianceDate");
         allowNull("getAlliance");
-        allowNull("getNextTrainingEnds"); //No skill in training
+        allowNull("getNextTrainingEnds"); // No skill in training
         allowEmpty("getSecurityStatus"); // Security Status can be zero
-        ignoreClassField(CharacterInfoResponse.class, "allianceID"); //test char have not in alliance
-        ignoreClassField(CharacterInfoResponse.class, "alliance"); //test char have not in alliance
-        ignoreClassField(CharacterInfoResponse.class, "allianceDate"); //test char have not in alliance
+        ignoreClassField(CharacterInfoResponse.class, "allianceID"); // test char have not in alliance
+        ignoreClassField(CharacterInfoResponse.class, "alliance"); // test char have not in alliance
+        ignoreClassField(CharacterInfoResponse.class, "allianceDate"); // test char have not in alliance
         prepareParser(classToTest);
     }
 
@@ -36,8 +37,8 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
         allowNull("getShipTypeID");
         allowNull("getSkillPoints");
         allowNull("getShipTypeName");
-        ignoreClassField(CharacterInfoResponse.class, "nextTrainingEnds"); //nextTrainingEnds - test char have nothing in training
-        //Private info not included in public result
+        ignoreClassField(CharacterInfoResponse.class, "nextTrainingEnds"); // nextTrainingEnds - test char have nothing in training
+        // Private info not included in public result
         ignoreClassField(CharacterInfoResponse.class, "shipName");
         ignoreClassField(CharacterInfoResponse.class, "accountBalance");
         ignoreClassField(CharacterInfoResponse.class, "lastKnownLocation");
@@ -51,7 +52,7 @@ public class CharacterInfoParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponseKeyFull() throws Exception {
-        ignoreClassField(CharacterInfoResponse.class, "nextTrainingEnds"); //nextTrainingEnds - test char have nothing in training
+        ignoreClassField(CharacterInfoResponse.class, "nextTrainingEnds"); // nextTrainingEnds - test char have nothing in training
         final CharacterInfoResponse response = classToTest.getResponse(getEve());
 
         testResponse(response);

@@ -1,5 +1,7 @@
 package com.beimin.eveapi.corporation.wallet.transactions;
 
+import static org.junit.Assume.assumeTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,7 +9,6 @@ import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.parser.corporation.CorpWalletTransactionsParser;
 import com.beimin.eveapi.response.shared.WalletTransactionsResponse;
-import static org.junit.Assume.assumeTrue;
 
 public class CorpTransactionsParserOnlineTest extends AbstractOnlineTest {
     private final CorpWalletTransactionsParser classToTest = new CorpWalletTransactionsParser();

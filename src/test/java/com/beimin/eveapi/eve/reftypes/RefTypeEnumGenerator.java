@@ -30,4 +30,3 @@ public class RefTypeEnumGenerator {
         output.close();
     }
 }
-

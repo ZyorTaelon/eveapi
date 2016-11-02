@@ -42,4 +42,3 @@ public class SovereigntyParserTest extends NoAuthParserTest {
         assertEquals("Hasateem", systemSovereignty.getSolarSystemName());
     }
 }
-

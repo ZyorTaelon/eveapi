@@ -16,9 +16,9 @@ public class UpcomingCalendarEventsParserOnlineTest extends AbstractOnlineTest {
         allowEmpty("getOwnerTypeID");
         final UpcomingCalendarEventsParser parser = new UpcomingCalendarEventsParser();
         prepareParser(parser);
-        
+
         final UpcomingCalendarEventsResponse response = parser.getResponse(getCharacter());
-        
+
         testResponse(response);
     }
 

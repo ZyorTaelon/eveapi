@@ -62,4 +62,3 @@ public abstract class NoAuthParserTest implements ExchangeProcessor.ExtraAsserts
         context.stop();
     }
 }
-

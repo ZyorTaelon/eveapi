@@ -10,17 +10,17 @@ import com.beimin.eveapi.parser.shared.AbstractApiParser;
 import com.beimin.eveapi.response.pilot.ChatChannelsResponse;
 
 public class ChatChannelsParser extends AbstractApiParser<ChatChannelsResponse> {
-	public ChatChannelsParser() {
-		super(ChatChannelsResponse.class, 2, ApiPath.CHARACTER, ApiPage.CHAT_CHANNELS);
-	}
+    public ChatChannelsParser() {
+        super(ChatChannelsResponse.class, 2, ApiPath.CHARACTER, ApiPage.CHAT_CHANNELS);
+    }
 
-	@Override
-	protected AbstractContentHandler<ChatChannelsResponse> getContentHandler() {
-		return new ChatChannelsHandler();
-	}
+    @Override
+    protected AbstractContentHandler<ChatChannelsResponse> getContentHandler() {
+        return new ChatChannelsHandler();
+    }
 
-	@Override
-	public ChatChannelsResponse getResponse(ApiAuth auth) throws ApiException {
-		return super.getResponse(auth);
-	}
+    @Override
+    public ChatChannelsResponse getResponse(ApiAuth auth) throws ApiException {
+        return super.getResponse(auth);
+    }
 }

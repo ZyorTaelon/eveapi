@@ -1,21 +1,22 @@
 package com.beimin.eveapi.character.marketorders;
 
+import java.util.Set;
+
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.model.shared.MarketOrder;
 import com.beimin.eveapi.parser.pilot.CharMarketOrdersParser;
 import com.beimin.eveapi.response.shared.MarketOrdersResponse;
-import java.util.Set;
 
 public class CharMarketOrdersParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
         setAlias(MarketOrdersResponse.class, "orders", "items");
-        allowEmpty("getBid"); //zero is a valid value
-        allowEmpty("getEscrow"); //zero is a valid value
-        allowEmpty("getOrderState"); //zero is a valid value
+        allowEmpty("getBid"); // zero is a valid value
+        allowEmpty("getEscrow"); // zero is a valid value
+        allowEmpty("getOrderState"); // zero is a valid value
         final CharMarketOrdersParser parser = new CharMarketOrdersParser();
         prepareParser(parser);
 

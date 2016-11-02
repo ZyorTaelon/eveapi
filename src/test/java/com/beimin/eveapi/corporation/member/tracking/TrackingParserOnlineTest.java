@@ -1,12 +1,12 @@
 package com.beimin.eveapi.corporation.member.tracking;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.model.corporation.Member;
 import com.beimin.eveapi.parser.corporation.MemberTrackingParser;
 import com.beimin.eveapi.response.corporation.MemberTrackingResponse;
-import org.junit.Before;
 
 public class TrackingParserOnlineTest extends AbstractOnlineTest {
     final MemberTrackingParser classToTest = new MemberTrackingParser();
@@ -14,7 +14,7 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
     @Before
     public void prepare() {
         setAlias(MemberTrackingResponse.class, "members", "items");
-        //Can be empty
+        // Can be empty
         allowEmpty("getBase");
         allowEmpty("getTitle");
         allowEmpty("getBaseID");
@@ -25,7 +25,7 @@ public class TrackingParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        //Not included in default return
+        // Not included in default return
         allowNull("getLocation");
         allowNull("getShipType");
         allowNull("getLogonDateTime");

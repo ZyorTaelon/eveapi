@@ -42,9 +42,7 @@ public abstract class AbstractOnlineTest {
     private final int typeID = 1230; // Veldspar
 
     private final List<Class<?>> nullCheckClasses = Arrays.asList(new Class<?>[] { Date.class, Boolean.class, boolean.class, ApiError.class });
-    private final List<Class<?>> fieldChecks = Arrays.asList(new Class<?>[] { 
-        String.class, Date.class, Boolean.class, boolean.class, Long.class, long.class,
-        Integer.class, int.class, Double.class, double.class, Float.class, float.class});
+    private final List<Class<?>> fieldChecks = Arrays.asList(new Class<?>[] { String.class, Date.class, Boolean.class, boolean.class, Long.class, long.class, Integer.class, int.class, Double.class, double.class, Float.class, float.class });
     private final Set<String> allowNull = new HashSet<String>();
     private final Set<String> allowEmpty = new HashSet<String>();
     private final Map<String, Map<String, String>> xmlAlias = new HashMap<>();
@@ -134,11 +132,11 @@ public abstract class AbstractOnlineTest {
         Set<String> classFields = getFields(clazz); // Count fields (to ignore logical methods)
         Set<String> xmlFields = fields.get(bean.getClass().getName());
         if (xmlFields != null) {
-            //Looks for added xml fields
+            // Looks for added xml fields
             Map<String, String> xmlAliasMap = xmlAlias.get(clazz.getName());
             for (String xml : xmlFields) {
                 if (ignoreXmlIdentifiers.contains(xml)) {
-                    continue; //Ignore XML
+                    continue; // Ignore XML
                 }
                 String testName = xml;
                 if (xmlAliasMap != null) {
@@ -147,14 +145,14 @@ public abstract class AbstractOnlineTest {
                         testName = className;
                     }
                 }
-                assertThat(clazz.getSimpleName()+ "." + testName + " is not included in class: ", classFields.contains(testName), equalTo(true));
+                assertThat(clazz.getSimpleName() + "." + testName + " is not included in class: ", classFields.contains(testName), equalTo(true));
             }
-            //Looks for removed xml fields
+            // Looks for removed xml fields
             Set<String> ignoreClassFieldsSet = ignoreClassFields.get(clazz.getName());
             Map<String, String> classAliasMap = classAlias.get(clazz.getName());
             for (String classField : classFields) {
                 if (ignoreClassFieldsSet != null && ignoreClassFieldsSet.contains(classField)) {
-                    continue; //Ignore XML
+                    continue; // Ignore XML
                 }
                 String testName = classField;
                 if (classAliasMap != null) {
@@ -302,7 +300,7 @@ public abstract class AbstractOnlineTest {
 
     protected void test(final Collection<?> collection) throws Exception {
         if (!TestControl.failOnEmptyCollection()) {
-            assumeTrue("Empty collections allowed: ", false); //Ignore empty collection
+            assumeTrue("Empty collections allowed: ", false); // Ignore empty collection
         }
         assertThat("Collection was null: ", collection, notNullValue());
         assertThat("Collection was empty: ", collection.size(), greaterThan(0));

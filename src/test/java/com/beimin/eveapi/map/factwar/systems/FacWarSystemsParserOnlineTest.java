@@ -11,9 +11,9 @@ public class FacWarSystemsParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         setAlias(FacWarSystemsResponse.class, "solarsystems", "items");
-        allowEmpty("getOccupyingFactionID"); //not occupied
-        allowEmpty("getOccupyingFactionName"); //not occupied
-        allowEmpty("getVictoryPoints"); //not being captured
+        allowEmpty("getOccupyingFactionID"); // not occupied
+        allowEmpty("getOccupyingFactionName"); // not occupied
+        allowEmpty("getVictoryPoints"); // not being captured
         final FacWarSystemsParser parser = new FacWarSystemsParser();
         prepareParser(parser);
 

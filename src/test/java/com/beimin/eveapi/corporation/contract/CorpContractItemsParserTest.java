@@ -1,5 +1,9 @@
 package com.beimin.eveapi.corporation.contract;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
@@ -12,10 +16,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.CorpContractItemsParser;
 import com.beimin.eveapi.response.shared.ContractItemsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 public class CorpContractItemsParserTest extends FullAuthParserTest {
     public CorpContractItemsParserTest() {
@@ -44,4 +44,3 @@ public class CorpContractItemsParserTest extends FullAuthParserTest {
         assertTrue("test contract item wasn't found.", found);
     }
 }
-

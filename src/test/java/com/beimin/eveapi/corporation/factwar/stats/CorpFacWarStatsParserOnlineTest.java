@@ -1,12 +1,13 @@
 package com.beimin.eveapi.corporation.factwar.stats;
 
+import static org.junit.Assume.assumeTrue;
+
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
 import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.parser.corporation.CorpFacWarStatsParser;
 import com.beimin.eveapi.response.shared.FacWarStatsResponse;
-import static org.junit.Assume.assumeTrue;
 
 public class CorpFacWarStatsParserOnlineTest extends AbstractOnlineTest {
 

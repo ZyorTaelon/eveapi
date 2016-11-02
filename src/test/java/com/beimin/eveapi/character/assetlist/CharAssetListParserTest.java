@@ -1,5 +1,10 @@
 package com.beimin.eveapi.character.assetlist;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,11 +18,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.CharAssetListParser;
 import com.beimin.eveapi.response.shared.AssetListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-import static com.beimin.eveapi.utils.Assert.assertDate;
 
 public class CharAssetListParserTest extends FullAuthParserTest {
     public CharAssetListParserTest() {
@@ -76,4 +76,3 @@ public class CharAssetListParserTest extends FullAuthParserTest {
 
     }
 }
-

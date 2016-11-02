@@ -1,6 +1,5 @@
 package com.beimin.eveapi.model.pilot;
 
-
 public class JumpCloneImplant {
     private long jumpCloneID;
     private int typeID;

@@ -43,4 +43,3 @@ public class StarbaseListParserTest extends FullAuthParserTest {
         assertNotNull("Starbase should have an state date.", starbase1.getStateTimestamp());
     }
 }
-

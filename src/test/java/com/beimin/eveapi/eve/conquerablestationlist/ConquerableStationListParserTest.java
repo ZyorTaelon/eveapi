@@ -41,4 +41,3 @@ public class ConquerableStationListParserTest extends NoAuthParserTest {
         assertEquals(-6131542302720L, station.getZ());
     }
 }
-

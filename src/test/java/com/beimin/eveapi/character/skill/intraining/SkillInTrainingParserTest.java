@@ -33,4 +33,3 @@ public class SkillInTrainingParserTest extends FullAuthParserTest {
         assertEquals(true, response.isSkillInTraining());
     }
 }
-

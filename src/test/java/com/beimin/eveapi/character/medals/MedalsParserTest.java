@@ -30,11 +30,11 @@ public class MedalsParserTest extends FullAuthParserTest {
         final MedalsResponse response = parser.getResponse(auth);
         assertNotNull(response);
 
-        //All
+        // All
         final Set<Medal> allMedals = response.getAll();
         assertEquals("Incorrect amount of medals found.", 2, allMedals.size());
 
-        //Current
+        // Current
         final Set<Medal> currentMedals = response.getCurrentCorporation();
         assertEquals("Incorrect amount of medals found.", 1, currentMedals.size());
         final Medal currentMedal = currentMedals.iterator().next();
@@ -47,7 +47,7 @@ public class MedalsParserTest extends FullAuthParserTest {
         assertNull("Wrong medal corporationID", currentMedal.getCorporationID());
         assertFalse("Should be private", currentMedal.isPublic());
 
-        //Other
+        // Other
         final Set<Medal> otherMedals = response.getOtherCorporations();
         assertEquals("Incorrect amount of medals found.", 1, otherMedals.size());
         final Medal otherMedal = otherMedals.iterator().next();
@@ -61,4 +61,3 @@ public class MedalsParserTest extends FullAuthParserTest {
         assertTrue("Should be public", otherMedal.isPublic());
     }
 }
-

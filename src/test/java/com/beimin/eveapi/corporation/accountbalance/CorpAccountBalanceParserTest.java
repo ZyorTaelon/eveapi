@@ -1,5 +1,8 @@
 package com.beimin.eveapi.corporation.accountbalance;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
 
@@ -12,9 +15,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.CorpAccountBalanceParser;
 import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 public class CorpAccountBalanceParserTest extends FullAuthParserTest {
     public CorpAccountBalanceParserTest() {
@@ -40,4 +40,3 @@ public class CorpAccountBalanceParserTest extends FullAuthParserTest {
         assertTrue("test accountBalance wasn't found.", found);
     }
 }
-

@@ -11,8 +11,8 @@ public class CharIndustryJobsParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         setAlias(IndustryJobsResponse.class, "jobs", "items");
-        allowEmpty("getCompletedCharacterID"); //Not completed
-        allowEmpty("getTeamID"); //Not in team
+        allowEmpty("getCompletedCharacterID"); // Not completed
+        allowEmpty("getTeamID"); // Not in team
         allowEmpty("getSuccessfulRuns");
         final CharIndustryJobsParser parser = new CharIndustryJobsParser();
         prepareParser(parser);

@@ -15,9 +15,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.CorpBlueprintsParser;
 import com.beimin.eveapi.response.shared.BlueprintsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 public class CorpBlueprintsParserTest extends FullAuthParserTest {
     public CorpBlueprintsParserTest() {
@@ -49,4 +46,3 @@ public class CorpBlueprintsParserTest extends FullAuthParserTest {
         assertTrue("test Blueprints wasn't found.", found);
     }
 }
-

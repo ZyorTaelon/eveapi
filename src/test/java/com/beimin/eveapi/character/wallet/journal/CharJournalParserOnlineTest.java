@@ -1,5 +1,7 @@
 package com.beimin.eveapi.character.wallet.journal;
 
+import static org.junit.Assume.assumeTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,7 +10,6 @@ import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.model.shared.JournalEntry;
 import com.beimin.eveapi.parser.pilot.CharWalletJournalParser;
 import com.beimin.eveapi.response.shared.WalletJournalResponse;
-import static org.junit.Assume.assumeTrue;
 
 public class CharJournalParserOnlineTest extends AbstractOnlineTest {
     private final CharWalletJournalParser classToTest = new CharWalletJournalParser();
@@ -16,14 +17,14 @@ public class CharJournalParserOnlineTest extends AbstractOnlineTest {
     @Before
     public void prepare() {
         setAlias(WalletJournalResponse.class, "transactions", "items");
-        allowNull("getTaxReceiverID"); //No tax
-        allowNull("getTaxAmount"); //No tax
-        allowEmpty("getReason"); //No reason provided
-        allowEmpty("getArgID1"); //Zero is a valid value
-        allowEmpty("getArgName1"); //Empty is a valid value
-        allowEmpty("getOwnerID2"); //Zero is a valid value
-        allowEmpty("getOwnerName2"); //Empty is a valid value
-        ignoreClassField(JournalEntry.class, "refType"); //RefType (enum) field should not be counted
+        allowNull("getTaxReceiverID"); // No tax
+        allowNull("getTaxAmount"); // No tax
+        allowEmpty("getReason"); // No reason provided
+        allowEmpty("getArgID1"); // Zero is a valid value
+        allowEmpty("getArgName1"); // Empty is a valid value
+        allowEmpty("getOwnerID2"); // Zero is a valid value
+        allowEmpty("getOwnerName2"); // Empty is a valid value
+        ignoreClassField(JournalEntry.class, "refType"); // RefType (enum) field should not be counted
         prepareParser(classToTest);
     }
 

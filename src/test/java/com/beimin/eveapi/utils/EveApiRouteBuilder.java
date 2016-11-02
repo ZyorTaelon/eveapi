@@ -37,4 +37,3 @@ public class EveApiRouteBuilder extends RouteBuilder implements Processor, Excha
         // TODO Auto-generated method stub
     }
 }
-

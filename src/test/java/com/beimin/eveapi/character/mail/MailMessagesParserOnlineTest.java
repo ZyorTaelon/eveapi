@@ -13,11 +13,11 @@ public class MailMessagesParserOnlineTest extends AbstractOnlineTest {
     public void getResponse() throws Exception {
         setAlias(MailMessagesResponse.class, "messages", "items");
         setAlias(MailMessage.class, "toListID", "toListIDs");
-        allowNull("getCharacterIDs"); //not to character
-        allowEmpty("getToCharacterIDs"); //not to character
-        allowEmpty("getToListIDs"); //not to list
-        allowNull("getListIDs"); //not to list
-        allowNull("getToCorpOrAllianceID"); //not to corp or alliance
+        allowNull("getCharacterIDs"); // not to character
+        allowEmpty("getToCharacterIDs"); // not to character
+        allowEmpty("getToListIDs"); // not to list
+        allowNull("getListIDs"); // not to list
+        allowNull("getToCorpOrAllianceID"); // not to corp or alliance
 
         final MailMessagesParser parser = new MailMessagesParser();
         prepareParser(parser);

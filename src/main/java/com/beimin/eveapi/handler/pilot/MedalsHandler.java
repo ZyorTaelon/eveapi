@@ -1,11 +1,11 @@
 package com.beimin.eveapi.handler.pilot;
 
 import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentListHandler;
 import com.beimin.eveapi.model.pilot.Medal;
 import com.beimin.eveapi.response.pilot.MedalsResponse;
-import org.xml.sax.SAXException;
 
 public class MedalsHandler extends AbstractContentListHandler<MedalsResponse, Medal> {
     private String rowsetName;

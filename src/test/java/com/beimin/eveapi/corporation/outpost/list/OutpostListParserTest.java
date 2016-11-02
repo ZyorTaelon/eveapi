@@ -45,4 +45,3 @@ public class OutpostListParserTest extends FullAuthParserTest {
         assertEquals(773499566L, outpost.getStandingOwnerID());
     }
 }
-

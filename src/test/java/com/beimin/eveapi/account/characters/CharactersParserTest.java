@@ -52,4 +52,3 @@ public class CharactersParserTest extends FullAuthParserTest {
         }
     }
 }
-

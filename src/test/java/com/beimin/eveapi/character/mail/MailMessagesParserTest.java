@@ -66,4 +66,3 @@ public class MailMessagesParserTest extends FullAuthParserTest {
         assertTrue("Test mail 2 wasn't found.", found2);
     }
 }
-

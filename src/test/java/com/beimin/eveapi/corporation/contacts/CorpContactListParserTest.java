@@ -1,21 +1,21 @@
 package com.beimin.eveapi.corporation.contacts;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.Set;
 
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
 import com.beimin.eveapi.model.shared.Contact;
 import com.beimin.eveapi.model.shared.ContactLabel;
-import com.beimin.eveapi.model.shared.NamedList;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.CorpContactListParser;
 import com.beimin.eveapi.response.corporation.ContactListResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import java.util.Set;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 
 public class CorpContactListParserTest extends FullAuthParserTest {
     public CorpContactListParserTest() {
@@ -61,4 +61,3 @@ public class CorpContactListParserTest extends FullAuthParserTest {
         assertEquals("Boosters", allianceContactLabel.getName());
     }
 }
-

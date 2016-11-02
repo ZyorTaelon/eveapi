@@ -1,5 +1,9 @@
 package com.beimin.eveapi.character.wallet.journal;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 import java.util.Map;
@@ -14,10 +18,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.CharWalletJournalParser;
 import com.beimin.eveapi.response.shared.WalletJournalResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static com.beimin.eveapi.utils.Assert.assertDate;
 
 public class CharJournalParserTest extends FullAuthParserTest {
     public CharJournalParserTest() {
@@ -61,4 +61,3 @@ public class CharJournalParserTest extends FullAuthParserTest {
         assertEquals("1000", req.get("accountKey"));
     }
 }
-

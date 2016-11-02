@@ -38,4 +38,3 @@ public class ErrorListParserTest extends NoAuthParserTest {
         assertTrue("test apiErrorListItem wasn't found.", found);
     }
 }
-

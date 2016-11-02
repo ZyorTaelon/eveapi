@@ -1,9 +1,10 @@
 package com.beimin.eveapi.response.corporation;
 
+import java.util.Set;
+
 import com.beimin.eveapi.model.shared.Contact;
 import com.beimin.eveapi.model.shared.ContactLabel;
 import com.beimin.eveapi.response.shared.AbstractContactListResponse;
-import java.util.Set;
 
 public class ContactListResponse extends AbstractContactListResponse {
 

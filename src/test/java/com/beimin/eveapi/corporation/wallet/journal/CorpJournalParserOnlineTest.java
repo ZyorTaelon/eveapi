@@ -1,5 +1,7 @@
 package com.beimin.eveapi.corporation.wallet.journal;
 
+import static org.junit.Assume.assumeTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,7 +10,6 @@ import com.beimin.eveapi.TestControl;
 import com.beimin.eveapi.model.shared.JournalEntry;
 import com.beimin.eveapi.parser.corporation.CorpWalletJournalParser;
 import com.beimin.eveapi.response.shared.WalletJournalResponse;
-import static org.junit.Assume.assumeTrue;
 
 public class CorpJournalParserOnlineTest extends AbstractOnlineTest {
     private final CorpWalletJournalParser classToTest = new CorpWalletJournalParser();
@@ -16,12 +17,12 @@ public class CorpJournalParserOnlineTest extends AbstractOnlineTest {
     @Before
     public void prepare() {
         setAlias(WalletJournalResponse.class, "entries", "items");
-        allowNull("getTaxReceiverID"); //no tax
-        allowNull("getTaxAmount"); //no tax
-        allowEmpty("getReason"); //zero is a valid value
-        ignoreClassField(JournalEntry.class, "refType"); //RefType (enum) field should not be counted
-        ignoreClassField(JournalEntry.class, "taxReceiverID"); //taxReceiverID not included in corporation result
-        ignoreClassField(JournalEntry.class, "taxAmount"); //taxAmount not included in corporation result
+        allowNull("getTaxReceiverID"); // no tax
+        allowNull("getTaxAmount"); // no tax
+        allowEmpty("getReason"); // zero is a valid value
+        ignoreClassField(JournalEntry.class, "refType"); // RefType (enum) field should not be counted
+        ignoreClassField(JournalEntry.class, "taxReceiverID"); // taxReceiverID not included in corporation result
+        ignoreClassField(JournalEntry.class, "taxAmount"); // taxAmount not included in corporation result
         prepareParser(classToTest);
     }
 

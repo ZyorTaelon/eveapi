@@ -67,4 +67,3 @@ public class ApiKeyInfoParserTest extends FullAuthParserTest {
         // assertEquals(504903, response.getLogonMinutes());
     }
 }
-

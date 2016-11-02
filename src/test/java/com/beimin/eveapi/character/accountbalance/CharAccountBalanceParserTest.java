@@ -1,5 +1,7 @@
 package com.beimin.eveapi.character.accountbalance;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Set;
 
@@ -12,8 +14,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.CharAccountBalanceParser;
 import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 public class CharAccountBalanceParserTest extends FullAuthParserTest {
     public CharAccountBalanceParserTest() {
@@ -34,4 +34,3 @@ public class CharAccountBalanceParserTest extends FullAuthParserTest {
         assertEquals(46634844.84, accountBalance.getBalance(), 0.00001);
     }
 }
-

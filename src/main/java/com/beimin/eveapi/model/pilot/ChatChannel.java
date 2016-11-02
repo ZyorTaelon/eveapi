@@ -4,112 +4,109 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChatChannel {
-	private long channelID;
-	private long ownerID;
-	private String ownerName;
-	private String displayName;
-	private String comparisonKey;
-	private boolean hasPassword;
-	private String motd;
-	private List<ChatChannelAccessor> allowedAccessors = new ArrayList<>();
+    private long channelID;
+    private long ownerID;
+    private String ownerName;
+    private String displayName;
+    private String comparisonKey;
+    private boolean hasPassword;
+    private String motd;
+    private List<ChatChannelAccessor> allowedAccessors = new ArrayList<>();
     private List<ChatChannelExtendedAccessor> blockedAccessors = new ArrayList<>();
     private List<ChatChannelExtendedAccessor> mutedAccessors = new ArrayList<>();
-	private List<ChatChannelAccessor> operatorAccessors = new ArrayList<>();
+    private List<ChatChannelAccessor> operatorAccessors = new ArrayList<>();
 
-	public long getChannelID() {
-		return channelID;
-	}
+    public long getChannelID() {
+        return channelID;
+    }
 
-	public void setChannelID(long channelID) {
-		this.channelID = channelID;
-	}
+    public void setChannelID(long channelID) {
+        this.channelID = channelID;
+    }
 
-	public long getOwnerID() {
-		return ownerID;
-	}
+    public long getOwnerID() {
+        return ownerID;
+    }
 
-	public void setOwnerID(long ownerID) {
-		this.ownerID = ownerID;
-	}
+    public void setOwnerID(long ownerID) {
+        this.ownerID = ownerID;
+    }
 
-	public String getOwnerName() {
-		return ownerName;
-	}
+    public String getOwnerName() {
+        return ownerName;
+    }
 
-	public void setOwnerName(String ownerName) {
-		this.ownerName = ownerName;
-	}
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
 
-	public String getDisplayName() {
-		return displayName;
-	}
+    public String getDisplayName() {
+        return displayName;
+    }
 
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
-	}
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
 
-	public String getComparisonKey() {
-		return comparisonKey;
-	}
+    public String getComparisonKey() {
+        return comparisonKey;
+    }
 
-	public void setComparisonKey(String comparisonKey) {
-		this.comparisonKey = comparisonKey;
-	}
+    public void setComparisonKey(String comparisonKey) {
+        this.comparisonKey = comparisonKey;
+    }
 
-	public boolean isHasPassword() {
-		return hasPassword;
-	}
+    public boolean isHasPassword() {
+        return hasPassword;
+    }
 
-	public void setHasPassword(boolean hasPassword) {
-		this.hasPassword = hasPassword;
-	}
+    public void setHasPassword(boolean hasPassword) {
+        this.hasPassword = hasPassword;
+    }
 
-	public String getMotd() {
-		return motd;
-	}
+    public String getMotd() {
+        return motd;
+    }
 
-	public void setMotd(String motd) {
-		this.motd = motd;
-	}
+    public void setMotd(String motd) {
+        this.motd = motd;
+    }
 
-	public List<ChatChannelAccessor> getAllowedAccessors() {
-		return allowedAccessors;
-	}
+    public List<ChatChannelAccessor> getAllowedAccessors() {
+        return allowedAccessors;
+    }
 
-	public void addAllowedAccessor(ChatChannelAccessor accessor) {
-		allowedAccessors.add(accessor);
-	}
-	
+    public void addAllowedAccessor(ChatChannelAccessor accessor) {
+        allowedAccessors.add(accessor);
+    }
+
     public List<ChatChannelExtendedAccessor> getBlockedAccessors() {
-		return blockedAccessors;
-	}
+        return blockedAccessors;
+    }
 
-	
     public void addBlockedAccessor(ChatChannelExtendedAccessor accessor) {
-		blockedAccessors.add(accessor);
-	}
-	
+        blockedAccessors.add(accessor);
+    }
+
     public List<ChatChannelExtendedAccessor> getMutedAccessors() {
-		return mutedAccessors;
-	}
+        return mutedAccessors;
+    }
 
     public void addMutedAccessor(ChatChannelExtendedAccessor accessor) {
-		mutedAccessors.add(accessor);
-	}
-	
-	public List<ChatChannelAccessor> getOperatorAccessors() {
-		return operatorAccessors;
-	}
+        mutedAccessors.add(accessor);
+    }
 
-	public void addOperatorAccessor(ChatChannelAccessor accessor) {
-		operatorAccessors.add(accessor);
-	}
-	
-	@Override
-	public String toString() {
-		return "ChatChannel [channelID=" + channelID + ", ownerID=" + ownerID + ", ownerName=" + ownerName
-				+ ", displayName=" + displayName + ", comparisonKey=" + comparisonKey + ", hasPassword=" + hasPassword
-				+ ", motd=" + motd + ", allowedAccessors=" + allowedAccessors + ", blockedAccessors=" + blockedAccessors
-				+ ", mutedAccessors=" + mutedAccessors + ", operatorAccessors=" + operatorAccessors + "]";
-	}
+    public List<ChatChannelAccessor> getOperatorAccessors() {
+        return operatorAccessors;
+    }
+
+    public void addOperatorAccessor(ChatChannelAccessor accessor) {
+        operatorAccessors.add(accessor);
+    }
+
+    @Override
+    public String toString() {
+        return "ChatChannel [channelID=" + channelID + ", ownerID=" + ownerID + ", ownerName=" + ownerName + ", displayName=" + displayName + ", comparisonKey=" + comparisonKey + ", hasPassword=" + hasPassword + ", motd=" + motd + ", allowedAccessors=" + allowedAccessors
+                + ", blockedAccessors=" + blockedAccessors + ", mutedAccessors=" + mutedAccessors + ", operatorAccessors=" + operatorAccessors + "]";
+    }
 }

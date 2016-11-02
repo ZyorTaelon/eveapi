@@ -42,4 +42,3 @@ public class ShareholdersParserTest extends FullAuthParserTest {
         assertEquals(1, corporationShareholder.getShares());
     }
 }
-

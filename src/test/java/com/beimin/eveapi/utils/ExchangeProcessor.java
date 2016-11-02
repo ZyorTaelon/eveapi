@@ -34,4 +34,3 @@ public class ExchangeProcessor implements Processor {
         exchange.getOut().setBody(MockApi.response(fullPath));
     }
 }
-

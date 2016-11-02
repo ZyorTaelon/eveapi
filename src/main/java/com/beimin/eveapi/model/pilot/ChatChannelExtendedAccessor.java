@@ -7,19 +7,19 @@ public class ChatChannelExtendedAccessor extends ChatChannelAccessor {
     private String reason;
 
     public Date getUntilWhen() {
-    	return untilWhen;
+        return untilWhen;
     }
 
     public void setUntilWhen(Date untilWhen) {
-    	this.untilWhen = untilWhen;
+        this.untilWhen = untilWhen;
     }
 
     public String getReason() {
-    	return reason;
+        return reason;
     }
 
     public void setReason(String reason) {
-    	this.reason = reason;
+        this.reason = reason;
     }
 
     @Override

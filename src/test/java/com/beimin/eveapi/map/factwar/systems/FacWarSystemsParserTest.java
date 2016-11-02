@@ -54,4 +54,3 @@ public class FacWarSystemsParserTest extends NoAuthParserTest {
         assertEquals(3000, facWarSystem.getVictoryPointThreshold());
     }
 }
-

@@ -1,5 +1,7 @@
 package com.beimin.eveapi.corporation.locations;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -13,8 +15,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.CorpLocationsParser;
 import com.beimin.eveapi.response.shared.LocationsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 public class CorpLocationsParserTest extends FullAuthParserTest {
     public CorpLocationsParserTest() {
@@ -37,4 +37,3 @@ public class CorpLocationsParserTest extends FullAuthParserTest {
         assertEquals(-1323431485440.3, location.getZ(), 00000.1);
     }
 }
-

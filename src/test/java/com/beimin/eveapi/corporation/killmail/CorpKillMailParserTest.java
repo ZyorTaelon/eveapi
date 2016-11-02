@@ -1,5 +1,9 @@
 package com.beimin.eveapi.corporation.killmail;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 import java.util.List;
@@ -16,10 +20,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.corporation.CorpKillMailParser;
 import com.beimin.eveapi.response.shared.KillMailResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static com.beimin.eveapi.utils.Assert.assertDate;
 
 public class CorpKillMailParserTest extends FullAuthParserTest {
     public CorpKillMailParserTest() {
@@ -78,4 +78,3 @@ public class CorpKillMailParserTest extends FullAuthParserTest {
         assertTrue("test KillMail entry wasn't found.", found);
     }
 }
-

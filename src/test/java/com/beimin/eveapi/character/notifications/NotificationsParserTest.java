@@ -47,4 +47,3 @@ public class NotificationsParserTest extends FullAuthParserTest {
         assertTrue("Test mail wasn't found.", found);
     }
 }
-

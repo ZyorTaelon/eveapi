@@ -40,4 +40,3 @@ public class MailingListsParserTest extends FullAuthParserTest {
         assertTrue("Test mail wasn't found.", found);
     }
 }
-

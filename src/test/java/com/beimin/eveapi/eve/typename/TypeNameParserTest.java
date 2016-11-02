@@ -37,4 +37,3 @@ public class TypeNameParserTest extends NoAuthParserTest {
         assertEquals("12345", req.get("ids"));
     }
 }
-

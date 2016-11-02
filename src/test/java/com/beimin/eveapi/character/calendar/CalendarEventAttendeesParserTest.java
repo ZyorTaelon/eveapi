@@ -40,4 +40,3 @@ public class CalendarEventAttendeesParserTest extends FullAuthParserTest {
         assertEquals("133918", req.get("eventIDs"));
     }
 }
-

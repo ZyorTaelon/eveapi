@@ -3,6 +3,7 @@ package com.beimin.eveapi.character.sheet;
 import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
 
@@ -23,7 +24,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.CharacterSheetParser;
 import com.beimin.eveapi.response.pilot.CharacterSheetResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertTrue;
 
 public class SheetParserTest extends FullAuthParserTest {
     public SheetParserTest() {
@@ -38,7 +38,7 @@ public class SheetParserTest extends FullAuthParserTest {
         assertEquals(987623974L, response.getCharacterID());
         assertEquals("Golden Gnu", response.getName());
         assertEquals(0, response.getHomeStationID());
-        assertDate(2008, 2, 16, 20, 36, 0, response.getDateOfBirth()); //2008-02-16 20:36:00
+        assertDate(2008, 2, 16, 20, 36, 0, response.getDateOfBirth()); // 2008-02-16 20:36:00
         assertEquals(Race.GALLENTE, response.getRace());
         assertEquals(12, response.getBloodLineID());
         assertEquals(Bloodline.JIN_MEI, response.getBloodLine());
@@ -48,17 +48,17 @@ public class SheetParserTest extends FullAuthParserTest {
         assertEquals("EVE University", response.getCorporationName());
         assertEquals(917701062, response.getCorporationID());
         assertEquals("Ivy League", response.getAllianceName());
-        assertEquals(937872513L, (long)response.getAllianceID());
+        assertEquals(937872513L, (long) response.getAllianceID());
         assertEquals("", response.getFactionName());
-        assertEquals(0L, (long)response.getFactionID());
+        assertEquals(0L, (long) response.getFactionID());
         assertEquals(164, response.getCloneTypeID());
         assertEquals("Clone Grade Alpha", response.getCloneName());
         assertEquals(0L, response.getCloneSkillPoints());
         assertEquals(350000L, response.getFreeSkillPoints());
         assertEquals(1, response.getFreeRespecs());
-        assertDate(2011, 10, 28, 11, 15, 0, response.getCloneJumpDate()); //2011-10-28 11:15:00
-        assertDate(2016, 7, 7, 16, 22, 1, response.getLastRespecDate()); //2016-07-07 16:22:01
-        assertDate(2016, 7, 7, 16, 22, 1, response.getLastTimedRespec()); //2016-07-07 16:22:01
+        assertDate(2011, 10, 28, 11, 15, 0, response.getCloneJumpDate()); // 2011-10-28 11:15:00
+        assertDate(2016, 7, 7, 16, 22, 1, response.getLastRespecDate()); // 2016-07-07 16:22:01
+        assertDate(2016, 7, 7, 16, 22, 1, response.getLastTimedRespec()); // 2016-07-07 16:22:01
         assertDate(1, 1, 1, 0, 0, 0, response.getRemoteStationDate());
         assertDate(1, 1, 1, 0, 0, 0, response.getJumpActivation());
         assertDate(1, 1, 1, 0, 0, 0, response.getJumpFatigue());
@@ -87,7 +87,7 @@ public class SheetParserTest extends FullAuthParserTest {
             }
         }
         assertEquals(2, jumpClonesFound);
-        
+
         Set<JumpCloneImplant> jumpCloneImplants = response.getJumpCloneImplants();
         assertEquals(8, jumpCloneImplants.size());
         int jumpCloneImplantsFound = 0;
@@ -150,7 +150,7 @@ public class SheetParserTest extends FullAuthParserTest {
                 assertTrue(skill.isPublished());
             }
         }
-        
+
         assertEquals(4, skillsFound);
         Role role;
         assertEquals(5, response.getCorporationRoles().size());
@@ -176,4 +176,3 @@ public class SheetParserTest extends FullAuthParserTest {
         assertEquals("Freshman", title.getTitleName());
     }
 }
-

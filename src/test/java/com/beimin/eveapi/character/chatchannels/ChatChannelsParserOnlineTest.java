@@ -8,7 +8,7 @@ import com.beimin.eveapi.parser.pilot.ChatChannelsParser;
 import com.beimin.eveapi.response.pilot.ChatChannelsResponse;
 
 public class ChatChannelsParserOnlineTest extends AbstractOnlineTest {
-	
+
     @Test
     public void getResponse() throws Exception {
         setAlias(ChatChannelsResponse.class, "channels", "items");
@@ -16,15 +16,15 @@ public class ChatChannelsParserOnlineTest extends AbstractOnlineTest {
         setAlias(ChatChannel.class, "blocked", "blockedAccessors");
         setAlias(ChatChannel.class, "muted", "mutedAccessors");
         setAlias(ChatChannel.class, "operators", "operatorAccessors");
-    	allowEmpty("getMotd");
-    	allowEmpty("getReason");
-    	allowNull("getReason");
-    	allowNull("getUntilWhen");
+        allowEmpty("getMotd");
+        allowEmpty("getReason");
+        allowNull("getReason");
+        allowNull("getUntilWhen");
         final ChatChannelsParser parser = new ChatChannelsParser();
         prepareParser(parser);
 
         final ChatChannelsResponse response = parser.getResponse(getCharacter());
-        
+
         testResponse(response);
     }
 

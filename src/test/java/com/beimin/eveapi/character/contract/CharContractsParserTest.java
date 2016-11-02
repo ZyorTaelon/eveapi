@@ -1,6 +1,5 @@
 package com.beimin.eveapi.character.contract;
 
-
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
@@ -70,4 +69,3 @@ public class CharContractsParserTest extends FullAuthParserTest {
         assertThat("test contract wasn't found.", found, equalTo(true));
     }
 }
-

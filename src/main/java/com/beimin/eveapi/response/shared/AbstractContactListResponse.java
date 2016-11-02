@@ -1,11 +1,11 @@
 package com.beimin.eveapi.response.shared;
 
+import java.util.HashSet;
+import java.util.Set;
 
 import com.beimin.eveapi.model.shared.Contact;
 import com.beimin.eveapi.model.shared.ContactLabel;
 import com.beimin.eveapi.response.ApiResponse;
-import java.util.HashSet;
-import java.util.Set;
 
 public abstract class AbstractContactListResponse extends ApiResponse {
     private final Set<Contact> contactList = new HashSet<>();

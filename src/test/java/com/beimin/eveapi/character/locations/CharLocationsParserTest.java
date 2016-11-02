@@ -1,5 +1,7 @@
 package com.beimin.eveapi.character.locations;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -13,8 +15,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.CharLocationsParser;
 import com.beimin.eveapi.response.shared.LocationsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 public class CharLocationsParserTest extends FullAuthParserTest {
     public CharLocationsParserTest() {
@@ -37,4 +37,3 @@ public class CharLocationsParserTest extends FullAuthParserTest {
         assertEquals(-1323431485440.3, location.getZ(), 0.0001);
     }
 }
-

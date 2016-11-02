@@ -11,8 +11,8 @@ public class CharBlueprintsParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void blueprintsParser() throws Exception {
         setAlias(BlueprintsResponse.class, "blueprints", "items");
-        allowEmpty("getTimeEfficiency"); //Zero is a valid value
-        allowEmpty("getMaterialEfficiency"); //Zero is a valid value
+        allowEmpty("getTimeEfficiency"); // Zero is a valid value
+        allowEmpty("getMaterialEfficiency"); // Zero is a valid value
         final CharBlueprintsParser parser = new CharBlueprintsParser();
         prepareParser(parser);
 

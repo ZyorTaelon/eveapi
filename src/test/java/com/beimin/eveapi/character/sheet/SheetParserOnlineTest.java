@@ -14,15 +14,15 @@ public class SheetParserOnlineTest extends AbstractOnlineTest {
         ignoreXmlField("attributes");
         ignoreXmlField("certificates");
         allowEmpty("getCloneName");
-        allowEmpty("getAllianceID"); //not in alliance
-        allowNull("getAllianceName"); //not in alliance
-        allowEmpty("getCorporationTitles"); //no titles
-        allowEmpty("getCloneSkillPoints"); //always return zero now?
-        allowEmpty("getAttributeEnhancers"); //no attribute enhancers
-        allowEmpty("getFactionID"); //not in faction
-        allowEmpty("getFactionName"); //not in faction
-        allowEmpty("getHomeStationID"); //no home station
-        allowEmpty("getFreeSkillPoints"); //no free skill points
+        allowEmpty("getAllianceID"); // not in alliance
+        allowNull("getAllianceName"); // not in alliance
+        allowEmpty("getCorporationTitles"); // no titles
+        allowEmpty("getCloneSkillPoints"); // always return zero now?
+        allowEmpty("getAttributeEnhancers"); // no attribute enhancers
+        allowEmpty("getFactionID"); // not in faction
+        allowEmpty("getFactionName"); // not in faction
+        allowEmpty("getHomeStationID"); // no home station
+        allowEmpty("getFreeSkillPoints"); // no free skill points
         final CharacterSheetParser parser = new CharacterSheetParser();
         prepareParser(parser);
 

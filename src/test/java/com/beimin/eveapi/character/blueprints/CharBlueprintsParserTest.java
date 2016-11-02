@@ -1,5 +1,8 @@
 package com.beimin.eveapi.character.blueprints;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
 
@@ -12,9 +15,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.CharBlueprintsParser;
 import com.beimin.eveapi.response.shared.BlueprintsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 public class CharBlueprintsParserTest extends FullAuthParserTest {
     public CharBlueprintsParserTest() {
@@ -46,4 +46,3 @@ public class CharBlueprintsParserTest extends FullAuthParserTest {
         assertTrue("test Blueprints wasn't found.", found);
     }
 }
-

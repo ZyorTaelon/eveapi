@@ -11,9 +11,9 @@ public class CorpContractsParserOnlineTest extends AbstractOnlineTest {
     @Test
     public void getResponse() throws Exception {
         setAlias(ContractsResponse.class, "contractList", "items");
-        allowNull("getDateCompleted"); //Not completed
-        allowEmpty("getPrice"); //Zero is a valid value
-        allowEmpty("getBuyout"); //Zero is a valid value
+        allowNull("getDateCompleted"); // Not completed
+        allowEmpty("getPrice"); // Zero is a valid value
+        allowEmpty("getBuyout"); // Zero is a valid value
         final CorpContractsParser parser = new CorpContractsParser();
         prepareParser(parser);
 

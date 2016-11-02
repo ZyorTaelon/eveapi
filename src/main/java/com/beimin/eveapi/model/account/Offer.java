@@ -2,7 +2,6 @@ package com.beimin.eveapi.model.account;
 
 import java.util.Date;
 
-
 public class Offer {
     private long offerID;
     private Date offeredDate;

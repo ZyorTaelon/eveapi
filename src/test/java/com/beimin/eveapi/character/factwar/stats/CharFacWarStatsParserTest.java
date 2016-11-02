@@ -1,5 +1,7 @@
 package com.beimin.eveapi.character.factwar.stats;
 
+import static com.beimin.eveapi.utils.Assert.assertDate;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -9,8 +11,6 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.pilot.CharFacWarStatsParser;
 import com.beimin.eveapi.response.shared.FacWarStatsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
-import static org.junit.Assert.assertEquals;
-import static com.beimin.eveapi.utils.Assert.assertDate;
 
 public class CharFacWarStatsParserTest extends FullAuthParserTest {
     public CharFacWarStatsParserTest() {
@@ -34,4 +34,3 @@ public class CharFacWarStatsParserTest extends FullAuthParserTest {
         assertEquals(0, facWarStats.getVictoryPointsTotal());
     }
 }
-

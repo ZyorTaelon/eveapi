@@ -30,4 +30,3 @@ public class AccountStatusParserTest extends FullAuthParserTest {
         assertEquals(504903, accountStatus.getLogonMinutes());
     }
 }
-
