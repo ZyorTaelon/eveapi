@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -70,7 +70,7 @@ public class SheetParserTest extends FullAuthParserTest {
         assertEquals(17, response.getPerception());
         assertEquals(21, response.getWillpower());
 
-        Set<JumpClone> jumpClones = response.getJumpClones();
+        List<JumpClone> jumpClones = response.getJumpClones();
         assertEquals(2, jumpClones.size());
         int jumpClonesFound = 0;
         for (final JumpClone jumpClone : jumpClones) {
@@ -88,7 +88,7 @@ public class SheetParserTest extends FullAuthParserTest {
         }
         assertEquals(2, jumpClonesFound);
 
-        Set<JumpCloneImplant> jumpCloneImplants = response.getJumpCloneImplants();
+        List<JumpCloneImplant> jumpCloneImplants = response.getJumpCloneImplants();
         assertEquals(8, jumpCloneImplants.size());
         int jumpCloneImplantsFound = 0;
         for (final JumpCloneImplant jumpCloneImplant : jumpCloneImplants) {
@@ -107,7 +107,7 @@ public class SheetParserTest extends FullAuthParserTest {
         }
         assertEquals(3, jumpCloneImplantsFound);
 
-        Set<Implant> implants = response.getImplants();
+        List<Implant> implants = response.getImplants();
         assertEquals(5, implants.size());
         int implantsFound = 0;
         for (final Implant implant : implants) {
@@ -124,7 +124,7 @@ public class SheetParserTest extends FullAuthParserTest {
         }
         assertEquals(3, implantsFound);
 
-        final Set<Skill> skills = response.getSkills();
+        final List<Skill> skills = response.getSkills();
         assertEquals(284, skills.size());
         int skillsFound = 0;
         for (final Skill skill : skills) {

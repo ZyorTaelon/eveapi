@@ -1,21 +1,21 @@
 package com.beimin.eveapi.response.character;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.beimin.eveapi.model.character.Medal;
 import com.beimin.eveapi.response.ApiListResponse;
 
 public class MedalsResponse extends ApiListResponse<Medal> {
 
-    private final Set<Medal> currentCorporation = new HashSet<>();
-    private final Set<Medal> otherCorporations = new HashSet<>();
+    private final List<Medal> currentCorporation = new ArrayList<>();
+    private final List<Medal> otherCorporations = new ArrayList<>();
 
     public void addCurrentCorporation(Medal medal) {
         currentCorporation.add(medal);
     }
 
-    public Set<Medal> getCurrentCorporation() {
+    public List<Medal> getCurrentCorporation() {
         return currentCorporation;
     }
 
@@ -23,7 +23,7 @@ public class MedalsResponse extends ApiListResponse<Medal> {
         otherCorporations.add(medal);
     }
 
-    public Set<Medal> getOtherCorporations() {
+    public List<Medal> getOtherCorporations() {
         return otherCorporations;
     }
 }

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -27,14 +27,14 @@ public class SecurityLogParserTest extends FullAuthParserTest {
         final MemberSecurityLogParser parser = new MemberSecurityLogParser();
         final MemberSecurityLogResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<RoleHistory> roleHistories = response.getAll();
+        final List<RoleHistory> roleHistories = response.getAll();
         assertNotNull(roleHistories);
         assertEquals("Incorrect amount of role histories found.", 4, roleHistories.size());
         boolean found = false;
         for (final RoleHistory roleHistory : roleHistories) {
             if (roleHistory.getCharacterName().equals("Tester1")) {
                 found = true;
-                final Set<CorporationRole> oldRoles = roleHistory.getOldRoles();
+                final List<CorporationRole> oldRoles = roleHistory.getOldRoles();
                 assertEquals("Incorrect amount of old roles found.", 8, oldRoles.size());
                 boolean oldRoleFound = false;
                 for (final CorporationRole securityRole : oldRoles) {
@@ -44,7 +44,7 @@ public class SecurityLogParserTest extends FullAuthParserTest {
                     }
                 }
                 assertTrue("Test old role not found. ", oldRoleFound);
-                final Set<CorporationRole> newRoles = roleHistory.getNewRoles();
+                final List<CorporationRole> newRoles = roleHistory.getNewRoles();
                 assertEquals("Incorrect amount of old roles found.", 0, newRoles.size());
             }
         }

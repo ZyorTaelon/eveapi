@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class CorpContactListParserTest extends FullAuthParserTest {
         final ContactListResponse response = parser.getResponse(auth);
         assertNotNull(response);
 
-        Set<Contact> corporateContactList = response.getCorporateContactList();
+        List<Contact> corporateContactList = response.getCorporateContactList();
         assertEquals(1, corporateContactList.size());
         Contact corporateContact = corporateContactList.iterator().next();
         assertEquals(90976800, corporateContact.getContactID());
@@ -38,13 +38,13 @@ public class CorpContactListParserTest extends FullAuthParserTest {
         assertEquals(1377, corporateContact.getContactTypeID());
         assertEquals(0, corporateContact.getLabelMask());
 
-        Set<ContactLabel> corporateContactLabels = response.getCorporateContactLabels();
+        List<ContactLabel> corporateContactLabels = response.getCorporateContactLabels();
         assertEquals(1, corporateContactLabels.size());
         final ContactLabel corporateContactLabel = corporateContactLabels.iterator().next();
         assertEquals(1, corporateContactLabel.getLabelID());
         assertEquals("Huhu", corporateContactLabel.getName());
 
-        Set<Contact> allianceContactList = response.getAllianceContactList();
+        List<Contact> allianceContactList = response.getAllianceContactList();
         assertEquals(1, allianceContactList.size());
         Contact allianceContact = allianceContactList.iterator().next();
         assertEquals(1000148, allianceContact.getContactID());
@@ -54,7 +54,7 @@ public class CorpContactListParserTest extends FullAuthParserTest {
         assertEquals(2, allianceContact.getContactTypeID());
         assertEquals(0, allianceContact.getLabelMask());
 
-        Set<ContactLabel> allianceContactLabels = response.getAllianceContactLabels();
+        List<ContactLabel> allianceContactLabels = response.getAllianceContactLabels();
         assertEquals(1, allianceContactLabels.size());
         final ContactLabel allianceContactLabel = allianceContactLabels.iterator().next();
         assertEquals(1, allianceContactLabel.getLabelID());

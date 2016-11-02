@@ -1,6 +1,6 @@
 package com.beimin.eveapi.character.notifications;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ public class NotificationTextsParserOnlineTest extends AbstractOnlineTest {
     public void getResponse() throws Exception {
         final NotificationsParser notificationsParser = new NotificationsParser();
         final NotificationsResponse notificationsResponse = notificationsParser.getResponse(getCharacter());
-        final Set<Notification> notifications = notificationsResponse.getAll();
+        final List<Notification> notifications = notificationsResponse.getAll();
         test(notifications);
         final NotificationTextsParser parser = new NotificationTextsParser();
         prepareParser(parser);

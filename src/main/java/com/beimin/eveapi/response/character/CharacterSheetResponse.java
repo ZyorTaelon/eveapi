@@ -1,8 +1,8 @@
 package com.beimin.eveapi.response.character;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import com.beimin.eveapi.model.character.Implant;
 import com.beimin.eveapi.model.character.JumpClone;
@@ -50,15 +50,15 @@ public class CharacterSheetResponse extends ApiResponse {
     private int charisma;
     private int perception;
     private int willpower;
-    private final Set<JumpCloneImplant> jumpCloneImplants = new HashSet<>();
-    private final Set<JumpClone> jumpClones = new HashSet<>();
-    private final Set<Implant> implants = new HashSet<>();
-    private final Set<Skill> skills = new HashSet<Skill>();
-    private final Set<Role> corporationRoles = new HashSet<>();
-    private final Set<Role> corporationRolesAtHQ = new HashSet<>();
-    private final Set<Role> corporationRolesAtBase = new HashSet<>();
-    private final Set<Role> corporationRolesAtOther = new HashSet<>();
-    private final Set<Title> corporationTitles = new HashSet<>();
+    private final List<JumpCloneImplant> jumpCloneImplants = new ArrayList<>();
+    private final List<JumpClone> jumpClones = new ArrayList<>();
+    private final List<Implant> implants = new ArrayList<>();
+    private final List<Skill> skills = new ArrayList<>();
+    private final List<Role> corporationRoles = new ArrayList<>();
+    private final List<Role> corporationRolesAtHQ = new ArrayList<>();
+    private final List<Role> corporationRolesAtBase = new ArrayList<>();
+    private final List<Role> corporationRolesAtOther = new ArrayList<>();
+    private final List<Title> corporationTitles = new ArrayList<>();
 
     public long getCharacterID() {
         return characterID;
@@ -216,7 +216,7 @@ public class CharacterSheetResponse extends ApiResponse {
         jumpCloneImplants.add(jumpCloneImplant);
     }
 
-    public Set<JumpCloneImplant> getJumpCloneImplants() {
+    public List<JumpCloneImplant> getJumpCloneImplants() {
         return jumpCloneImplants;
     }
 
@@ -224,7 +224,7 @@ public class CharacterSheetResponse extends ApiResponse {
         jumpClones.add(jumpClone);
     }
 
-    public Set<JumpClone> getJumpClones() {
+    public List<JumpClone> getJumpClones() {
         return jumpClones;
     }
 
@@ -232,7 +232,7 @@ public class CharacterSheetResponse extends ApiResponse {
         implants.add(implant);
     }
 
-    public Set<Implant> getImplants() {
+    public List<Implant> getImplants() {
         return implants;
     }
 
@@ -240,7 +240,7 @@ public class CharacterSheetResponse extends ApiResponse {
         skills.add(skill);
     }
 
-    public Set<Skill> getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
@@ -248,7 +248,7 @@ public class CharacterSheetResponse extends ApiResponse {
         corporationRoles.add(corporationRole);
     }
 
-    public Set<Role> getCorporationRoles() {
+    public List<Role> getCorporationRoles() {
         return corporationRoles;
     }
 
@@ -256,7 +256,7 @@ public class CharacterSheetResponse extends ApiResponse {
         corporationRolesAtHQ.add(corporationRole);
     }
 
-    public Set<Role> getCorporationRolesAtHQ() {
+    public List<Role> getCorporationRolesAtHQ() {
         return corporationRolesAtHQ;
     }
 
@@ -264,7 +264,7 @@ public class CharacterSheetResponse extends ApiResponse {
         corporationRolesAtBase.add(corporationRole);
     }
 
-    public Set<Role> getCorporationRolesAtBase() {
+    public List<Role> getCorporationRolesAtBase() {
         return corporationRolesAtBase;
     }
 
@@ -272,7 +272,7 @@ public class CharacterSheetResponse extends ApiResponse {
         corporationRolesAtOther.add(corporationRole);
     }
 
-    public Set<Role> getCorporationRolesAtOther() {
+    public List<Role> getCorporationRolesAtOther() {
         return corporationRolesAtOther;
     }
 
@@ -280,7 +280,7 @@ public class CharacterSheetResponse extends ApiResponse {
         corporationTitles.add(title);
     }
 
-    public Set<Title> getCorporationTitles() {
+    public List<Title> getCorporationTitles() {
         return corporationTitles;
     }
 

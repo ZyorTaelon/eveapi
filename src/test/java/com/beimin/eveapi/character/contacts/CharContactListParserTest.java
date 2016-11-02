@@ -4,7 +4,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class CharContactListParserTest extends FullAuthParserTest {
         final ContactListResponse response = parser.getResponse(auth);
         assertThat(response, notNullValue());
 
-        Set<Contact> contactList = response.getContactList();
+        List<Contact> contactList = response.getContactList();
         assertThat(contactList.size(), equalTo(1));
         Contact apiContact = contactList.iterator().next();
         assertThat(apiContact.getContactID(), equalTo(3009560));
@@ -38,13 +38,13 @@ public class CharContactListParserTest extends FullAuthParserTest {
         assertThat(apiContact.getContactTypeID(), equalTo(1378));
         assertThat(apiContact.getLabelMask(), equalTo(0l));
 
-        Set<ContactLabel> contactLabels = response.getContactLabels();
+        List<ContactLabel> contactLabels = response.getContactLabels();
         assertThat(contactLabels.size(), equalTo(1));
         final ContactLabel contactLabel = contactLabels.iterator().next();
         assertThat(contactLabel.getLabelID(), equalTo(1l));
         assertThat(contactLabel.getName(), equalTo("Huhu"));
 
-        Set<Contact> corporateContactList = response.getCorporateContactList();
+        List<Contact> corporateContactList = response.getCorporateContactList();
         assertThat(corporateContactList.size(), equalTo(1));
         Contact corporateContact = corporateContactList.iterator().next();
         assertThat(corporateContact.getContactID(), equalTo(90976800));
@@ -54,13 +54,13 @@ public class CharContactListParserTest extends FullAuthParserTest {
         assertThat(corporateContact.getContactTypeID(), equalTo(1377));
         assertThat(corporateContact.getLabelMask(), equalTo(0l));
 
-        Set<ContactLabel> corporateContactLabels = response.getCorporateContactLabels();
+        List<ContactLabel> corporateContactLabels = response.getCorporateContactLabels();
         assertThat(corporateContactLabels.size(), equalTo(1));
         final ContactLabel corporateContactLabel = corporateContactLabels.iterator().next();
         assertThat(corporateContactLabel.getLabelID(), equalTo(1l));
         assertThat(corporateContactLabel.getName(), equalTo("Huhu"));
 
-        Set<Contact> allianceContactList = response.getAllianceContactList();
+        List<Contact> allianceContactList = response.getAllianceContactList();
         assertThat(allianceContactList.size(), equalTo(1));
         Contact allianceContact = allianceContactList.iterator().next();
         assertThat(allianceContact.getContactID(), equalTo(1000148));
@@ -70,7 +70,7 @@ public class CharContactListParserTest extends FullAuthParserTest {
         assertThat(allianceContact.getContactTypeID(), equalTo(2));
         assertThat(allianceContact.getLabelMask(), equalTo(0l));
 
-        Set<ContactLabel> allianceContactLabels = response.getAllianceContactLabels();
+        List<ContactLabel> allianceContactLabels = response.getAllianceContactLabels();
         assertThat(allianceContactLabels.size(), equalTo(1));
         final ContactLabel allianceContactLabel = allianceContactLabels.iterator().next();
         assertThat(allianceContactLabel.getLabelID(), equalTo(1l));

@@ -4,7 +4,7 @@ import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class MedalsParserTest extends FullAuthParserTest {
         final MedalsParser parser = new MedalsParser();
         final MedalsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<Medal> medals = response.getAll();
+        final List<Medal> medals = response.getAll();
         assertEquals("Incorrect amount of members found.", 18, medals.size());
         final Medal medal = medals.iterator().next();
         assertEquals("Wrong medal characterID", 1745, medal.getMedalID());

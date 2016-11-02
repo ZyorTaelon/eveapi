@@ -1,25 +1,25 @@
 package com.beimin.eveapi.response.shared;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.beimin.eveapi.model.shared.Contact;
 import com.beimin.eveapi.model.shared.ContactLabel;
 import com.beimin.eveapi.response.ApiResponse;
 
 public abstract class AbstractContactListResponse extends ApiResponse {
-    private final Set<Contact> contactList = new HashSet<>();
-    private final Set<ContactLabel> contactLabels = new HashSet<>();
-    private final Set<Contact> corporateContactList = new HashSet<>();
-    private final Set<ContactLabel> corporateContactLabels = new HashSet<>();
-    private final Set<Contact> allianceContactList = new HashSet<>();
-    private final Set<ContactLabel> allianceContactLabels = new HashSet<>();
+    private final List<Contact> contactList = new ArrayList<>();
+    private final List<ContactLabel> contactLabels = new ArrayList<>();
+    private final List<Contact> corporateContactList = new ArrayList<>();
+    private final List<ContactLabel> corporateContactLabels = new ArrayList<>();
+    private final List<Contact> allianceContactList = new ArrayList<>();
+    private final List<ContactLabel> allianceContactLabels = new ArrayList<>();
 
     public void addContact(Contact contact) {
         contactList.add(contact);
     }
 
-    protected Set<Contact> getContactList() {
+    protected List<Contact> getContactList() {
         return contactList;
     }
 
@@ -27,7 +27,7 @@ public abstract class AbstractContactListResponse extends ApiResponse {
         contactLabels.add(contactLabel);
     }
 
-    protected Set<ContactLabel> getContactLabels() {
+    protected List<ContactLabel> getContactLabels() {
         return contactLabels;
     }
 
@@ -35,7 +35,7 @@ public abstract class AbstractContactListResponse extends ApiResponse {
         corporateContactList.add(contact);
     }
 
-    protected Set<Contact> getCorporateContactList() {
+    protected List<Contact> getCorporateContactList() {
         return corporateContactList;
     }
 
@@ -43,7 +43,7 @@ public abstract class AbstractContactListResponse extends ApiResponse {
         corporateContactLabels.add(contactLabel);
     }
 
-    protected Set<ContactLabel> getCorporateContactLabels() {
+    protected List<ContactLabel> getCorporateContactLabels() {
         return corporateContactLabels;
     }
 
@@ -51,7 +51,7 @@ public abstract class AbstractContactListResponse extends ApiResponse {
         allianceContactList.add(contact);
     }
 
-    protected Set<Contact> getAllianceContactList() {
+    protected List<Contact> getAllianceContactList() {
         return allianceContactList;
     }
 
@@ -59,7 +59,7 @@ public abstract class AbstractContactListResponse extends ApiResponse {
         allianceContactLabels.add(contactLabel);
     }
 
-    protected Set<ContactLabel> getAllianceContactLabels() {
+    protected List<ContactLabel> getAllianceContactLabels() {
         return allianceContactLabels;
     }
 }

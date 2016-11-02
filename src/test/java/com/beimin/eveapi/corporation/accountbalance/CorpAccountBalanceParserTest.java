@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class CorpAccountBalanceParserTest extends FullAuthParserTest {
         final CorpAccountBalanceParser parser = new CorpAccountBalanceParser();
         final AccountBalanceResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<AccountBalance> accountBalances = response.getAll();
+        final List<AccountBalance> accountBalances = response.getAll();
         assertNotNull(accountBalances);
         assertEquals(7, accountBalances.size());
         boolean found = false;

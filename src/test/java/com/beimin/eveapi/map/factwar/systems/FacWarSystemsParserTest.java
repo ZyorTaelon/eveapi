@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Iterator;
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class FacWarSystemsParserTest extends NoAuthParserTest {
     public void getResponse() throws ApiException {
         final FacWarSystemsParser parser = new FacWarSystemsParser();
         final FacWarSystemsResponse response = parser.getResponse();
-        final Set<FacWarSystem> systems = response.getAll();
+        final List<FacWarSystem> systems = response.getAll();
         assertEquals(171, systems.size());
         final Iterator<FacWarSystem> iterator = systems.iterator();
         FacWarSystem facWarSystem = iterator.next();

@@ -1,22 +1,22 @@
 package com.beimin.eveapi.model.corporation;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.beimin.eveapi.model.shared.Title;
 
 public class SecurityMember {
     private long characterID;
     private String name;
-    private final Set<CorporationRole> roles = new HashSet<>();
-    private final Set<CorporationRole> grantableRoles = new HashSet<>();
-    private final Set<CorporationRole> rolesAtHQ = new HashSet<>();
-    private final Set<CorporationRole> grantableRolesAtHQ = new HashSet<>();
-    private final Set<CorporationRole> rolesAtBase = new HashSet<>();
-    private final Set<CorporationRole> grantableRolesAtBase = new HashSet<>();
-    private final Set<CorporationRole> rolesAtOther = new HashSet<>();
-    private final Set<CorporationRole> grantableRolesAtOther = new HashSet<>();
-    private final Set<Title> titles = new HashSet<>();
+    private final List<CorporationRole> roles = new ArrayList<>();
+    private final List<CorporationRole> grantableRoles = new ArrayList<>();
+    private final List<CorporationRole> rolesAtHQ = new ArrayList<>();
+    private final List<CorporationRole> grantableRolesAtHQ = new ArrayList<>();
+    private final List<CorporationRole> rolesAtBase = new ArrayList<>();
+    private final List<CorporationRole> grantableRolesAtBase = new ArrayList<>();
+    private final List<CorporationRole> rolesAtOther = new ArrayList<>();
+    private final List<CorporationRole> grantableRolesAtOther = new ArrayList<>();
+    private final List<Title> titles = new ArrayList<>();
 
     public long getCharacterID() {
         return characterID;
@@ -34,39 +34,39 @@ public class SecurityMember {
         this.name = name;
     }
 
-    public Set<CorporationRole> getRoles() {
+    public List<CorporationRole> getRoles() {
         return roles;
     }
 
-    public Set<CorporationRole> getGrantableRoles() {
+    public List<CorporationRole> getGrantableRoles() {
         return grantableRoles;
     }
 
-    public Set<CorporationRole> getRolesAtHQ() {
+    public List<CorporationRole> getRolesAtHQ() {
         return rolesAtHQ;
     }
 
-    public Set<CorporationRole> getGrantableRolesAtHQ() {
+    public List<CorporationRole> getGrantableRolesAtHQ() {
         return grantableRolesAtHQ;
     }
 
-    public Set<CorporationRole> getRolesAtBase() {
+    public List<CorporationRole> getRolesAtBase() {
         return rolesAtBase;
     }
 
-    public Set<CorporationRole> getGrantableRolesAtBase() {
+    public List<CorporationRole> getGrantableRolesAtBase() {
         return grantableRolesAtBase;
     }
 
-    public Set<CorporationRole> getRolesAtOther() {
+    public List<CorporationRole> getRolesAtOther() {
         return rolesAtOther;
     }
 
-    public Set<CorporationRole> getGrantableRolesAtOther() {
+    public List<CorporationRole> getGrantableRolesAtOther() {
         return grantableRolesAtOther;
     }
 
-    public Set<Title> getTitles() {
+    public List<Title> getTitles() {
         return titles;
     }
 

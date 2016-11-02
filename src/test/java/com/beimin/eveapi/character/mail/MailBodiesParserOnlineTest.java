@@ -1,6 +1,6 @@
 package com.beimin.eveapi.character.mail;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ public class MailBodiesParserOnlineTest extends AbstractOnlineTest {
     public void getResponse() throws Exception {
         final MailMessagesParser mailMessagesParser = new MailMessagesParser();
         final MailMessagesResponse mailMessagesResponse = mailMessagesParser.getResponse(getCharacter());
-        final Set<MailMessage> mailMessages = mailMessagesResponse.getAll();
+        final List<MailMessage> mailMessages = mailMessagesResponse.getAll();
         test(mailMessages);
         final MailBodiesParser parser = new MailBodiesParser();
         prepareParser(parser);

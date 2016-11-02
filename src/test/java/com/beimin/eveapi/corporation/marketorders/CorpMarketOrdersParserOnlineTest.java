@@ -1,6 +1,6 @@
 package com.beimin.eveapi.corporation.marketorders;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ public class CorpMarketOrdersParserOnlineTest extends AbstractOnlineTest {
         MarketOrdersResponse response = parser.getResponse(getCorp());
         testResponse(response);
 
-        Set<MarketOrder> marketOrders = response.getAll();
+        List<MarketOrder> marketOrders = response.getAll();
         test(marketOrders);
         final MarketOrder marketOrder = marketOrders.iterator().next();
         response = parser.getResponse(getCharacter(), marketOrder.getOrderID());
