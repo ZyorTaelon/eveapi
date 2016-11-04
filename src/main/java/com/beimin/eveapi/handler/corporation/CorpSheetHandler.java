@@ -13,9 +13,8 @@ public class CorpSheetHandler extends AbstractContentHandler<CorpSheetResponse> 
     private boolean divisions;
     private boolean walletDivisions;
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new CorpSheetResponse());
+    public CorpSheetHandler() {
+        super(new CorpSheetResponse());
     }
 
     @Override

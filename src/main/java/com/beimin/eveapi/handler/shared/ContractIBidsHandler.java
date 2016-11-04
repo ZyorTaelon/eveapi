@@ -8,7 +8,7 @@ import com.beimin.eveapi.response.shared.ContractBidsResponse;
 
 public class ContractIBidsHandler extends AbstractContentListHandler<ContractBidsResponse, ContractBid> {
     public ContractIBidsHandler() {
-        super(ContractBidsResponse.class);
+        super(new ContractBidsResponse());
     }
 
     @Override

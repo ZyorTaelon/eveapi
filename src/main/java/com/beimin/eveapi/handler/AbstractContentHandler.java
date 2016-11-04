@@ -45,10 +45,6 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     private final StringBuilder accumulator = new StringBuilder();
     private ApiError error;
 
-    public AbstractContentHandler() {
-        this(null);
-    }
-
     public AbstractContentHandler(final E response) {
         super();
         this.response = response;
@@ -268,10 +264,6 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
         for (String s : add) {
             set.add(s.toLowerCase(Locale.ENGLISH));
         }
-    }
-
-    protected void setResponse(final E response) {
-        this.response = response;
     }
 
     public E getResponse() {

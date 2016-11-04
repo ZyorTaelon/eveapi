@@ -16,7 +16,7 @@ public class KillMailHandler extends AbstractContentListHandler<KillMailResponse
     private boolean inItems;
 
     public KillMailHandler() {
-        super(KillMailResponse.class);
+        super(new KillMailResponse());
     }
 
     @Override

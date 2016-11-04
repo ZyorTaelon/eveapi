@@ -12,9 +12,8 @@ public class AccountStatusHandler extends AbstractContentHandler<AccountStatusRe
     private AccountStatus accountStatus;
     private String rowsetName;
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new AccountStatusResponse());
+    public AccountStatusHandler() {
+        super(new AccountStatusResponse());
     }
 
     @Override

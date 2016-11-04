@@ -17,9 +17,8 @@ public class ChatChannelsHandler extends AbstractContentHandler<ChatChannelsResp
     private ChatChannel current;
     private String pos;
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new ChatChannelsResponse());
+    public ChatChannelsHandler() {
+        super(new ChatChannelsResponse());
     }
 
     @Override

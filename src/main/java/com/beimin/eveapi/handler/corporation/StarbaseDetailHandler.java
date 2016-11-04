@@ -8,9 +8,8 @@ import com.beimin.eveapi.model.corporation.CombatSetting;
 import com.beimin.eveapi.response.corporation.StarbaseDetailResponse;
 
 public class StarbaseDetailHandler extends AbstractContentHandler<StarbaseDetailResponse> {
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new StarbaseDetailResponse());
+    public StarbaseDetailHandler() {
+        super(new StarbaseDetailResponse());
     }
 
     @Override

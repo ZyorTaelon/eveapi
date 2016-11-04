@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.shared.WalletTransactionsResponse;
 public class WalletTransactionsHandler extends AbstractContentListHandler<WalletTransactionsResponse, WalletTransaction> {
 
     public WalletTransactionsHandler() {
-        super(WalletTransactionsResponse.class);
+        super(new WalletTransactionsResponse());
     }
 
     @Override

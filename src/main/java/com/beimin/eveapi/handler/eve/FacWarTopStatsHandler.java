@@ -28,9 +28,8 @@ public class FacWarTopStatsHandler extends AbstractContentHandler<FacWarTopStats
     private boolean victoryPointsLastWeek;
     private boolean victoryPointsTotal;
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new FacWarTopStatsResponse());
+    public FacWarTopStatsHandler() {
+        super(new FacWarTopStatsResponse());
     }
 
     @Override

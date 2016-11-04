@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.eve.CharacterAffiliationResponse;
 public class CharacterAffiliationHandler extends AbstractContentListHandler<CharacterAffiliationResponse, CharacterAffiliation> {
 
     public CharacterAffiliationHandler() {
-        super(CharacterAffiliationResponse.class);
+        super(new CharacterAffiliationResponse());
     }
 
     @Override

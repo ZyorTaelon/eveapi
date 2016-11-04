@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.character.ContactNotificationsResponse;
 public class ContactNotificationsHandler extends AbstractContentListHandler<ContactNotificationsResponse, ContactNotification> {
 
     public ContactNotificationsHandler() {
-        super(ContactNotificationsResponse.class);
+        super(new ContactNotificationsResponse());
     }
 
     @Override

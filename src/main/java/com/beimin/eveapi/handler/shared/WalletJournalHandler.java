@@ -8,7 +8,7 @@ import com.beimin.eveapi.response.shared.WalletJournalResponse;
 
 public class WalletJournalHandler extends AbstractContentListHandler<WalletJournalResponse, JournalEntry> {
     public WalletJournalHandler() {
-        super(WalletJournalResponse.class);
+        super(new WalletJournalResponse());
     }
 
     @Override

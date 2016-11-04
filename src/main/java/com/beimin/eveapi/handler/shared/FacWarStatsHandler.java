@@ -6,9 +6,8 @@ import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.response.shared.FacWarStatsResponse;
 
 public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsResponse> {
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new FacWarStatsResponse());
+    public FacWarStatsHandler() {
+        super(new FacWarStatsResponse());
     }
 
     @Override

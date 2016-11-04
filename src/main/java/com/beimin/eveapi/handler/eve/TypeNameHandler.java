@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.eve.TypeNameResponse;
 public class TypeNameHandler extends AbstractContentListHandler<TypeNameResponse, EveTypeName> {
 
     public TypeNameHandler() {
-        super(TypeNameResponse.class);
+        super(new TypeNameResponse());
     }
 
     @Override

@@ -13,9 +13,8 @@ public class AssetListHandler extends AbstractContentHandler<AssetListResponse> 
     private Asset currentAsset;
     private final Stack<Asset> stack = new Stack<Asset>();
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new AssetListResponse());
+    public AssetListHandler() {
+        super(new AssetListResponse());
     }
 
     @Override

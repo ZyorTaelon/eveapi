@@ -8,7 +8,7 @@ import com.beimin.eveapi.response.corporation.ShareholdersResponse;
 
 public class ShareholdersHandler extends AbstractContentListHandler<ShareholdersResponse, Shareholder> {
     public ShareholdersHandler() {
-        super(ShareholdersResponse.class);
+        super(new ShareholdersResponse());
     }
 
     @Override

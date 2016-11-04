@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.eve.CharacterLookupResponse;
 public class CharacterLookupHandler extends AbstractContentListHandler<CharacterLookupResponse, CharacterLookup> {
 
     public CharacterLookupHandler() {
-        super(CharacterLookupResponse.class);
+        super(new CharacterLookupResponse());
     }
 
     @Override

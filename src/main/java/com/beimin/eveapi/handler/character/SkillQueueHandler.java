@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.character.SkillQueueResponse;
 public class SkillQueueHandler extends AbstractContentListHandler<SkillQueueResponse, SkillQueueItem> {
 
     public SkillQueueHandler() {
-        super(SkillQueueResponse.class);
+        super(new SkillQueueResponse());
     }
 
     @Override

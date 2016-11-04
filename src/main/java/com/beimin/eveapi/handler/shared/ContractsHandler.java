@@ -13,7 +13,7 @@ import com.beimin.eveapi.response.shared.ContractsResponse;
 
 public class ContractsHandler extends AbstractContentListHandler<ContractsResponse, Contract> {
     public ContractsHandler() {
-        super(ContractsResponse.class);
+        super(new ContractsResponse());
     }
 
     @Override

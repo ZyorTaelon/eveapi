@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.corporation.OutpostListResponse;
 public class OutpostListHandler extends AbstractContentListHandler<OutpostListResponse, Outpost> {
 
     public OutpostListHandler() {
-        super(OutpostListResponse.class);
+        super(new OutpostListResponse());
     }
 
     @Override

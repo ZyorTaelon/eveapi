@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.shared.AccountBalanceResponse;
 public class AccountBalanceHandler extends AbstractContentListHandler<AccountBalanceResponse, AccountBalance> {
 
     public AccountBalanceHandler() {
-        super(AccountBalanceResponse.class);
+        super(new AccountBalanceResponse());
     }
 
     @Override

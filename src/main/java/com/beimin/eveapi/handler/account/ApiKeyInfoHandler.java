@@ -14,9 +14,8 @@ import com.beimin.eveapi.response.account.ApiKeyInfoResponse;
 public class ApiKeyInfoHandler extends AbstractContentHandler<ApiKeyInfoResponse> {
     private ApiKeyInfo apiKeyInfo;
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new ApiKeyInfoResponse());
+    public ApiKeyInfoHandler() {
+        super(new ApiKeyInfoResponse());
     }
 
     @Override

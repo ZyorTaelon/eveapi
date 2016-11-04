@@ -9,6 +9,10 @@ import com.beimin.eveapi.model.corporation.TitleWithRoles;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class RolesHandler<E extends ApiResponse> extends AbstractContentHandler<E> {
+    public RolesHandler(E response) {
+        super(response);
+    }
+
     private boolean roles;
     private boolean grantableRoles;
     private boolean rolesAtHQ;
