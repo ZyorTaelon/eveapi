@@ -6,14 +6,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import com.beimin.eveapi.handler.AbstractContentHandler;
-import com.beimin.eveapi.model.account.ApiKeyInfo;
 import com.beimin.eveapi.model.account.Character;
 import com.beimin.eveapi.model.shared.KeyType;
 import com.beimin.eveapi.response.account.ApiKeyInfoResponse;
 
 public class ApiKeyInfoHandler extends AbstractContentHandler<ApiKeyInfoResponse> {
-    private ApiKeyInfo apiKeyInfo;
-
     @Override
     public void startDocument() throws SAXException {
         setResponse(new ApiKeyInfoResponse());
@@ -21,19 +18,15 @@ public class ApiKeyInfoHandler extends AbstractContentHandler<ApiKeyInfoResponse
 
     @Override
     protected void elementStart(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
-        if ("result".equals(qName)) {
-            apiKeyInfo = new ApiKeyInfo();
-        }
+        ApiKeyInfoResponse response = getResponse();
         if ("key".equals(qName)) {
-            saveAttributes(ApiKeyInfo.class, attrs);
-            apiKeyInfo.setAccessMask(getLong(attrs, "accessMask"));
-            apiKeyInfo.setType(KeyType.valueOf(getString(attrs, "type").toUpperCase(Locale.ENGLISH)));
+            saveAttributes(ApiKeyInfoResponse.class, attrs);
+            response.setAccessMask(getLong(attrs, "accessMask"));
+            response.setType(KeyType.valueOf(getString(attrs, "type").toUpperCase(Locale.ENGLISH)));
             final String expires = attrs.getValue("expires").trim();
             if (expires.length() > 0) {
-                apiKeyInfo.setExpires(getDate(expires));
+                response.setExpires(getDate(expires));
             }
-        } else if (ELEMENT_ROWSET.equals(qName)) {
-            setCurrentClass(ApiKeyInfo.class);
         } else if (ELEMENT_ROW.equals(qName)) {
             saveAttributes(Character.class, attrs);
             final Character character = new Character();
@@ -45,9 +38,7 @@ public class ApiKeyInfoHandler extends AbstractContentHandler<ApiKeyInfoResponse
             character.setAllianceName(getString(attrs, "allianceName"));
             character.setFactionID(getLong(attrs, "factionID"));
             character.setFactionName(getString(attrs, "factionName"));
-            apiKeyInfo.addEveCharacter(character);
-        } else if ("result".equals(qName)) {
-            getResponse().set(apiKeyInfo);
+            response.addEveCharacter(character);
         }
     }
 }

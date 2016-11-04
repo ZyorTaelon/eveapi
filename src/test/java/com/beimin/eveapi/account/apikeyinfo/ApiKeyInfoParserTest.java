@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.model.account.ApiKeyInfo;
 import com.beimin.eveapi.model.account.Character;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
@@ -27,15 +26,13 @@ public class ApiKeyInfoParserTest extends FullAuthParserTest {
         final ApiKeyInfoParser apiKeyInfoParser = new ApiKeyInfoParser();
         final ApiKeyInfoResponse response = apiKeyInfoParser.getResponse(auth);
         assertNotNull(response);
-        final ApiKeyInfo apiKeyInfo = response.getApiKeyInfo();
-        assertNotNull(apiKeyInfo);
 
-        assertEquals(4227, apiKeyInfo.getAccessMask());
-        assertNull(apiKeyInfo.getExpires());
+        assertEquals(4227, response.getAccessMask());
+        assertNull(response.getExpires());
 
-        assertEquals(3, apiKeyInfo.getEveCharacters().size());
+        assertEquals(3, response.getEveCharacters().size());
 
-        final List<Character> characters = new ArrayList<Character>(apiKeyInfo.getEveCharacters());
+        final List<Character> characters = new ArrayList<Character>(response.getEveCharacters());
 
         assertEquals(987623974, characters.get(0).getCharacterID());
         assertEquals("Golden Gnu", characters.get(0).getName());
@@ -63,7 +60,5 @@ public class ApiKeyInfoParserTest extends FullAuthParserTest {
         assertEquals("Generic Test Alliance", characters.get(2).getAllianceName());
         assertEquals(987654321, characters.get(2).getFactionID());
         assertEquals("Generic Test Faction", characters.get(2).getFactionName());
-        // assertEquals(5603, response.getCharacterID());
-        // assertEquals(504903, response.getLogonMinutes());
     }
 }
