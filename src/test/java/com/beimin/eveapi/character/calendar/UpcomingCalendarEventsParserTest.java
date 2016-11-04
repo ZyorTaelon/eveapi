@@ -9,11 +9,11 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.beimin.eveapi.exception.ApiException;
+import com.beimin.eveapi.model.character.CalendarEventStatus;
 import com.beimin.eveapi.model.character.UpcomingCalendarEvent;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.character.UpcomingCalendarEventsParser;
-import com.beimin.eveapi.response.character.CalendarEventResponse;
 import com.beimin.eveapi.response.character.UpcomingCalendarEventsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
 import com.beimin.eveapi.utils.GMTConverter;
@@ -40,7 +40,7 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
         assertThat(event.getEventTitle(), equalTo("Some Mining OP @ 17:00"));
         assertThat(event.getDuration(), equalTo(120));
         assertThat(event.isImportant(), equalTo(true));
-        assertThat(event.getResponse(), equalTo(CalendarEventResponse.UNDECIDED));
+        assertThat(event.getResponse(), equalTo(CalendarEventStatus.UNDECIDED));
         assertThat(16159, equalTo(event.getOwnerTypeID()));
         final String expectedEventText = "Alliance Mining OP Part II<br><br>This will be in home system the sunday after the patch..<br>We would really like to see as many mining barges out there as possible. PVPers are also needed for security.. See you there!!!";
         assertThat(event.getEventText(), equalTo(expectedEventText));

@@ -2,8 +2,6 @@ package com.beimin.eveapi.model.character;
 
 import java.util.Date;
 
-import com.beimin.eveapi.response.character.CalendarEventResponse;
-
 public class UpcomingCalendarEvent {
     private long eventID;
     private long ownerID;
@@ -13,7 +11,7 @@ public class UpcomingCalendarEvent {
     private String eventTitle;
     private int duration;
     private boolean important;
-    private CalendarEventResponse response;
+    private CalendarEventStatus response;
     private String eventText;
 
     public long getEventID() {
@@ -80,11 +78,11 @@ public class UpcomingCalendarEvent {
         important = importance == 1;
     }
 
-    public CalendarEventResponse getResponse() {
+    public CalendarEventStatus getResponse() {
         return response;
     }
 
-    public void setResponse(final CalendarEventResponse response) {
+    public void setResponse(final CalendarEventStatus response) {
         this.response = response;
     }
 
