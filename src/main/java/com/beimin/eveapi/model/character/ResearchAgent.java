@@ -2,7 +2,8 @@ package com.beimin.eveapi.model.character;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
+
+import com.beimin.eveapi.utils.GMTConverter;
 
 public class ResearchAgent {
     private int agentID;
@@ -53,7 +54,7 @@ public class ResearchAgent {
 
     public double getCurrentPoints() {
         final long startDate = researchStartDate.getTime();
-        final long now = Calendar.getInstance(TimeZone.getTimeZone("GMT")).getTimeInMillis();
+        final long now = Calendar.getInstance(GMTConverter.DEFAULT_TIMEZONE).getTimeInMillis();
         final long elapse = now - startDate;
         final double daysSinceStart = elapse / (1000.0 * 60 * 60 * 24);
         return remainderPoints + (pointsPerDay * daysSinceStart);

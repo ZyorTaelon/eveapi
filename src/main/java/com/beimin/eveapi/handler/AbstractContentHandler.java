@@ -18,7 +18,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import com.beimin.eveapi.response.ApiResponse;
-import com.beimin.eveapi.utils.DateUtils;
+import com.beimin.eveapi.utils.GMTConverter;
 
 public abstract class AbstractContentHandler<E extends ApiResponse> extends DefaultHandler {
     private static final String MESSAGE_NUMBER_PARSER = "Couldn't parse number";
@@ -35,6 +35,8 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     protected static final String ATTRIBUTE_NAME = "name";
     protected static final String VALUE_TRUE = "true";
     private static final HashSet<String> BASE_ELEMENTS = new HashSet<>(Arrays.asList(new String[] { ELEMENT_EVEAPI, ATTRIBUTE_RESULT, ELEMENT_ROW, ELEMENT_ROWSET }));
+
+    private static GMTConverter converter = new GMTConverter();
 
     private E response;
     private boolean strictCheckMode;
@@ -150,7 +152,7 @@ public abstract class AbstractContentHandler<E extends ApiResponse> extends Defa
     }
 
     protected Date getDate(final String string) {
-        return DateUtils.getGMTConverter().convert(Date.class, string);
+        return converter.convert(Date.class, string);
     }
 
     protected Date getDate(final Attributes attrs, final String qName) {

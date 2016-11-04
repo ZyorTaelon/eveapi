@@ -16,6 +16,7 @@ import com.beimin.eveapi.parser.character.UpcomingCalendarEventsParser;
 import com.beimin.eveapi.response.character.CalendarEventResponse;
 import com.beimin.eveapi.response.character.UpcomingCalendarEventsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
+import com.beimin.eveapi.utils.GMTConverter;
 
 public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
     public UpcomingCalendarEventsParserTest() {
@@ -32,7 +33,7 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
         assertThat(event.getEventID(), equalTo(90864L));
         assertThat(event.getOwnerID(), equalTo(786344537L));
         assertThat(event.getOwnerName(), equalTo("Some Alliance"));
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(GMTConverter.DEFAULT_TIMEZONE);
         calendar.set(2010, 10, 28, 18, 0, 0);
         calendar.set(Calendar.MILLISECOND, 0);
         assertThat(event.getEventDate().getTime(), equalTo(calendar.getTimeInMillis()));
