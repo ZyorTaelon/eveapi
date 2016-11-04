@@ -34,9 +34,9 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
         assertThat(event.getOwnerID(), equalTo(786344537L));
         assertThat(event.getOwnerName(), equalTo("Some Alliance"));
         Calendar calendar = Calendar.getInstance(GMTConverter.DEFAULT_TIMEZONE);
-        calendar.set(2010, 10, 28, 18, 0, 0);
+        calendar.set(2010, 10, 28, 17, 0, 0);
         calendar.set(Calendar.MILLISECOND, 0);
-        assertThat(event.getEventDate().getTime(), equalTo(calendar.getTimeInMillis()));
+        assertThat(event.getEventDate(), equalTo(calendar.getTime()));
         assertThat(event.getEventTitle(), equalTo("Some Mining OP @ 17:00"));
         assertThat(event.getDuration(), equalTo(120));
         assertThat(event.isImportant(), equalTo(true));
