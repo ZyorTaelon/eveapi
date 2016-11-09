@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.character.MailMessagesResponse;
 public class MailMessagesHandler extends AbstractContentListHandler<MailMessagesResponse, MailMessage> {
 
     public MailMessagesHandler() {
-        super(MailMessagesResponse.class);
+        super(new MailMessagesResponse());
     }
 
     @Override

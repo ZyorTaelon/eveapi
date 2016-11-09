@@ -12,9 +12,8 @@ public class FacWarStatsHandler extends AbstractContentHandler<FacWarStatsRespon
     private boolean factions;
     private boolean factionWars;
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new FacWarStatsResponse());
+    public FacWarStatsHandler() {
+        super(new FacWarStatsResponse());
     }
 
     @Override

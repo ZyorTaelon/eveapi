@@ -11,7 +11,7 @@ import com.beimin.eveapi.response.corporation.ContainerLogResponse;
 
 public class ContainerLogHandler extends AbstractContentListHandler<ContainerLogResponse, ContainerLog> {
     public ContainerLogHandler() {
-        super(ContainerLogResponse.class);
+        super(new ContainerLogResponse());
     }
 
     @Override

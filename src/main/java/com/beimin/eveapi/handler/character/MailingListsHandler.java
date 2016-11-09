@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.character.MailingListsResponse;
 public class MailingListsHandler extends AbstractContentListHandler<MailingListsResponse, MailingList> {
 
     public MailingListsHandler() {
-        super(MailingListsResponse.class);
+        super(new MailingListsResponse());
     }
 
     @Override

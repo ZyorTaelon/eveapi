@@ -10,13 +10,12 @@ import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.response.corporation.MemberSecurityResponse;
 
 public class MemberSecurityHandler extends AbstractContentHandler<MemberSecurityResponse> {
-    private final RolesHandler<ApiResponse> roleHandler = new RolesHandler<>();
+    private final RolesHandler<ApiResponse> roleHandler = new RolesHandler<>(new ApiResponse());
     private boolean titles;
     private SecurityMember member;
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new MemberSecurityResponse());
+    public MemberSecurityHandler() {
+        super(new MemberSecurityResponse());
     }
 
     @Override

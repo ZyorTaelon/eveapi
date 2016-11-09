@@ -8,7 +8,7 @@ import com.beimin.eveapi.response.map.JumpsResponse;
 
 public class JumpsHandler extends AbstractContentListHandler<JumpsResponse, SystemJumps> {
     public JumpsHandler() {
-        super(JumpsResponse.class);
+        super(new JumpsResponse());
     }
 
     @Override

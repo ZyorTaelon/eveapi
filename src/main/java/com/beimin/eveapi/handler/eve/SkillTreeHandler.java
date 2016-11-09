@@ -21,7 +21,7 @@ public class SkillTreeHandler extends AbstractContentListHandler<SkillTreeRespon
     private Skill skill;
 
     public SkillTreeHandler() {
-        super(SkillTreeResponse.class);
+        super(new SkillTreeResponse());
     }
 
     @Override

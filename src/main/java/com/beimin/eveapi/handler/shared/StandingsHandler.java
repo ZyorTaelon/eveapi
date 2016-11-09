@@ -11,9 +11,8 @@ import com.beimin.eveapi.response.shared.StandingsResponse;
 public class StandingsHandler extends AbstractContentHandler<StandingsResponse> {
     private NamedList<Standing> list;
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new StandingsResponse());
+    public StandingsHandler() {
+        super(new StandingsResponse());
     }
 
     @Override

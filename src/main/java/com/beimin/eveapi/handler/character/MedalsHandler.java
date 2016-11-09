@@ -11,7 +11,7 @@ public class MedalsHandler extends AbstractContentListHandler<MedalsResponse, Me
     private String rowsetName;
 
     public MedalsHandler() {
-        super(MedalsResponse.class);
+        super(new MedalsResponse());
     }
 
     @Override

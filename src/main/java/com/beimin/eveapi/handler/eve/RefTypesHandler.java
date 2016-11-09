@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.eve.RefTypesResponse;
 public class RefTypesHandler extends AbstractContentListHandler<RefTypesResponse, RefType> {
 
     public RefTypesHandler() {
-        super(RefTypesResponse.class);
+        super(new RefTypesResponse());
     }
 
     @Override

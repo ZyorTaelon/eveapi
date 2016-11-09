@@ -13,7 +13,7 @@ public class AllianceListHandler extends AbstractContentListHandler<AllianceList
     private Alliance alliance;
 
     public AllianceListHandler() {
-        super(AllianceListResponse.class);
+        super(new AllianceListResponse());
     }
 
     @Override

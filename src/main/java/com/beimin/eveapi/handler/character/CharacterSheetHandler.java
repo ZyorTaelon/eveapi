@@ -23,9 +23,8 @@ public class CharacterSheetHandler extends AbstractContentHandler<CharacterSheet
     private static final String ATTRIBUTE_ROLE_ID = "roleID";
     private String rowsetName;
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new CharacterSheetResponse());
+    public CharacterSheetHandler() {
+        super(new CharacterSheetResponse());
     }
 
     @Override

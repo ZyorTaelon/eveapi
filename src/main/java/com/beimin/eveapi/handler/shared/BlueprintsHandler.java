@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.shared.BlueprintsResponse;
 public class BlueprintsHandler extends AbstractContentListHandler<BlueprintsResponse, Blueprint> {
 
     public BlueprintsHandler() {
-        super(BlueprintsResponse.class);
+        super(new BlueprintsResponse());
     }
 
     @Override

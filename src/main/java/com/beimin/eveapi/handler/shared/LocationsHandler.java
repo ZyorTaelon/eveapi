@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.shared.LocationsResponse;
 public class LocationsHandler extends AbstractContentListHandler<LocationsResponse, Location> {
 
     public LocationsHandler() {
-        super(LocationsResponse.class);
+        super(new LocationsResponse());
     }
 
     @Override

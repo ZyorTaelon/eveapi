@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.shared.MarketOrdersResponse;
 public class MarketOrdersHandler extends AbstractContentListHandler<MarketOrdersResponse, MarketOrder> {
 
     public MarketOrdersHandler() {
-        super(MarketOrdersResponse.class);
+        super(new MarketOrdersResponse());
     }
 
     @Override

@@ -15,9 +15,8 @@ import com.beimin.eveapi.response.eve.CharacterInfoResponse;
 public class CharacterInfoHandler extends AbstractContentHandler<CharacterInfoResponse> {
     private static final String REPLACE_REGEX = "[-\\s]";
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new CharacterInfoResponse());
+    public CharacterInfoHandler() {
+        super(new CharacterInfoResponse());
     }
 
     @Override

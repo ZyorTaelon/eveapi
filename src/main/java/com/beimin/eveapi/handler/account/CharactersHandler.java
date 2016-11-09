@@ -8,7 +8,7 @@ import com.beimin.eveapi.response.account.CharactersResponse;
 
 public class CharactersHandler extends AbstractContentListHandler<CharactersResponse, Character> {
     public CharactersHandler() {
-        super(CharactersResponse.class);
+        super(new CharactersResponse());
     }
 
     @Override

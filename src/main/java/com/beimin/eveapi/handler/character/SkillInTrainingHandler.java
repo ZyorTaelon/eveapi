@@ -6,9 +6,8 @@ import com.beimin.eveapi.handler.AbstractContentHandler;
 import com.beimin.eveapi.response.character.SkillInTrainingResponse;
 
 public class SkillInTrainingHandler extends AbstractContentHandler<SkillInTrainingResponse> {
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new SkillInTrainingResponse());
+    public SkillInTrainingHandler() {
+        super(new SkillInTrainingResponse());
     }
 
     @Override

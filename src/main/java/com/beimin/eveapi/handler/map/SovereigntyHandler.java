@@ -8,7 +8,7 @@ import com.beimin.eveapi.response.map.SovereigntyResponse;
 
 public class SovereigntyHandler extends AbstractContentListHandler<SovereigntyResponse, SystemSovereignty> {
     public SovereigntyHandler() {
-        super(SovereigntyResponse.class);
+        super(new SovereigntyResponse());
     }
 
     @Override

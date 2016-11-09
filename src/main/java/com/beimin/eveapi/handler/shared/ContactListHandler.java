@@ -1,7 +1,5 @@
 package com.beimin.eveapi.handler.shared;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
@@ -13,24 +11,10 @@ import com.beimin.eveapi.response.shared.AbstractContactListResponse;
 public class ContactListHandler<CLR extends AbstractContactListResponse> extends AbstractContentHandler<CLR> {
     private static final String ATTRIBUTE_CONTACT_ID = "contactID";
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ContactListHandler.class);
-
-    private final Class<CLR> clazz;
     private String rowsetName;
 
-    public ContactListHandler(final Class<CLR> clazz) {
-        this.clazz = clazz;
-    }
-
-    @Override
-    public void startDocument() throws SAXException {
-        try {
-            setResponse(clazz.newInstance());
-        } catch (final InstantiationException e) {
-            LOGGER.error("Couldn't start document", e);
-        } catch (final IllegalAccessException e) {
-            LOGGER.error("Couldn't start document", e);
-        }
+    public ContactListHandler(final CLR clr) {
+        super(clr);
     }
 
     @Override
