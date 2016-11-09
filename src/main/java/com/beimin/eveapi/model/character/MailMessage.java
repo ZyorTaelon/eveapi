@@ -1,8 +1,8 @@
 package com.beimin.eveapi.model.character;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class MailMessage {
     private long messageID;
@@ -57,11 +57,11 @@ public class MailMessage {
         }
     }
 
-    public Set<Long> getCharacterIDs() {
+    public List<Long> getCharacterIDs() {
         if ((toCharacterIDs == null) || (toCharacterIDs.length() == 0)) {
             return null;
         }
-        final HashSet<Long> characterIDs = new HashSet<Long>();
+        final List<Long> characterIDs = new ArrayList<>();
         for (final String characterID : toCharacterIDs.split(",")) {
             characterIDs.add(Long.parseLong(characterID));
         }
@@ -76,11 +76,11 @@ public class MailMessage {
         this.toCharacterIDs = toCharacterIDs;
     }
 
-    public Set<Long> getListIDs() {
+    public List<Long> getListIDs() {
         if ((toListIDs == null) || (toListIDs.length() == 0)) {
             return null;
         }
-        final HashSet<Long> listIDs = new HashSet<Long>();
+        final List<Long> listIDs = new ArrayList<>();
         for (final String listID : toListIDs.split(",")) {
             listIDs.add(Long.parseLong(listID));
         }

@@ -11,7 +11,7 @@ import com.beimin.eveapi.response.character.CalendarEventAttendeesResponse;
 
 public class CalendarEventAttendeesHandler extends AbstractContentListHandler<CalendarEventAttendeesResponse, CalendarEventAttendee> {
     public CalendarEventAttendeesHandler() {
-        super(CalendarEventAttendeesResponse.class);
+        super(new CalendarEventAttendeesResponse());
     }
 
     @Override

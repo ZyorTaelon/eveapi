@@ -12,7 +12,7 @@ import com.beimin.eveapi.response.character.UpcomingCalendarEventsResponse;
 public class UpcomingCalendarEventsHandler extends AbstractContentListHandler<UpcomingCalendarEventsResponse, UpcomingCalendarEvent> {
 
     public UpcomingCalendarEventsHandler() {
-        super(UpcomingCalendarEventsResponse.class);
+        super(new UpcomingCalendarEventsResponse());
     }
 
     @Override

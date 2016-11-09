@@ -4,7 +4,7 @@ import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class ContactNotificationsParserTest extends FullAuthParserTest {
         final ContactNotificationsParser parser = new ContactNotificationsParser();
         final ContactNotificationsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<ContactNotification> contactNotifications = response.getAll();
+        final List<ContactNotification> contactNotifications = response.getAll();
         assertEquals(1, contactNotifications.size());
         final ContactNotification contactNotification = contactNotifications.iterator().next();
         assertEquals(308734131, contactNotification.getNotificationID());

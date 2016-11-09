@@ -4,7 +4,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import java.util.Calendar;
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -27,7 +27,7 @@ public class UpcomingCalendarEventsParserTest extends FullAuthParserTest {
     public void getResponse() throws ApiException {
         final UpcomingCalendarEventsParser parser = new UpcomingCalendarEventsParser();
         final UpcomingCalendarEventsResponse response = parser.getResponse(auth);
-        final Set<UpcomingCalendarEvent> events = response.getAll();
+        final List<UpcomingCalendarEvent> events = response.getAll();
         assertThat(events.size(), equalTo(1));
         final UpcomingCalendarEvent event = events.iterator().next();
         assertThat(event.getEventID(), equalTo(90864L));

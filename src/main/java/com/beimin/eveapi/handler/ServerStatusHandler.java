@@ -5,9 +5,8 @@ import org.xml.sax.SAXException;
 import com.beimin.eveapi.response.ServerStatusResponse;
 
 public class ServerStatusHandler extends AbstractContentHandler<ServerStatusResponse> {
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new ServerStatusResponse());
+    public ServerStatusHandler() {
+        super(new ServerStatusResponse());
     }
 
     @Override

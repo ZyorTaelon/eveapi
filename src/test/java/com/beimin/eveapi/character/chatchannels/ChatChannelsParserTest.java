@@ -7,7 +7,6 @@ import static org.junit.Assert.assertThat;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.Set;
 
 import org.junit.Test;
 
@@ -36,7 +35,7 @@ public class ChatChannelsParserTest extends FullAuthParserTest {
         ChatChannelsResponse response = parser.getResponse(auth);
 
         assertThat(response, notNullValue());
-        Set<ChatChannel> all = response.getAll();
+        List<ChatChannel> all = response.getAll();
 
         assertThat(all.size(), greaterThan(0));
 

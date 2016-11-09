@@ -1,6 +1,6 @@
 package com.beimin.eveapi.corporation.contract;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class CorpContractItemsParserOnlineTest extends AbstractOnlineTest {
         allowNull("getRawQuantity"); // Never returned by the API (API BUG)
         final CorpContractsParser contractsParser = new CorpContractsParser();
         final ContractsResponse contractsResponse = contractsParser.getResponse(getCorp());
-        final Set<Contract> contracts = contractsResponse.getAll();
+        final List<Contract> contracts = contractsResponse.getAll();
         test(contracts);
         final CorpContractItemsParser parser = new CorpContractItemsParser();
         prepareParser(parser);

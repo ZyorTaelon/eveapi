@@ -8,7 +8,7 @@ import com.beimin.eveapi.response.eve.ErrorListResponse;
 
 public class ErrorListHandler extends AbstractContentListHandler<ErrorListResponse, ErrorListItem> {
     public ErrorListHandler() {
-        super(ErrorListResponse.class);
+        super(new ErrorListResponse());
     }
 
     @Override

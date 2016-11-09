@@ -8,7 +8,7 @@ import com.beimin.eveapi.response.map.FacWarSystemsResponse;
 
 public class FacWarSystemsHandler extends AbstractContentListHandler<FacWarSystemsResponse, FacWarSystem> {
     public FacWarSystemsHandler() {
-        super(FacWarSystemsResponse.class);
+        super(new FacWarSystemsResponse());
     }
 
     @Override

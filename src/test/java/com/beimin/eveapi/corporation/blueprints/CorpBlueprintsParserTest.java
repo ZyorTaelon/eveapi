@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class CorpBlueprintsParserTest extends FullAuthParserTest {
         final CorpBlueprintsParser parser = new CorpBlueprintsParser();
         final BlueprintsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<Blueprint> blueprints = response.getAll();
+        final List<Blueprint> blueprints = response.getAll();
         assertNotNull(blueprints);
         assertEquals(15, blueprints.size());
         boolean found = false;

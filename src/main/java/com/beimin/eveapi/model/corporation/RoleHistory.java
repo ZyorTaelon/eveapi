@@ -1,8 +1,8 @@
 package com.beimin.eveapi.model.corporation;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class RoleHistory {
     private Date changeTime;
@@ -11,8 +11,8 @@ public class RoleHistory {
     private long issuerID;
     private String issuerName;
     private String roleLocationType;
-    private final Set<CorporationRole> oldRoles = new HashSet<>();
-    private final Set<CorporationRole> newRoles = new HashSet<>();
+    private final List<CorporationRole> oldRoles = new ArrayList<>();
+    private final List<CorporationRole> newRoles = new ArrayList<>();
 
     public Date getChangeTime() {
         return changeTime;
@@ -62,11 +62,11 @@ public class RoleHistory {
         this.roleLocationType = roleLocationType;
     }
 
-    public Set<CorporationRole> getOldRoles() {
+    public List<CorporationRole> getOldRoles() {
         return oldRoles;
     }
 
-    public Set<CorporationRole> getNewRoles() {
+    public List<CorporationRole> getNewRoles() {
         return newRoles;
     }
 

@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class MailMessagesParserTest extends FullAuthParserTest {
         final MailMessagesParser parser = new MailMessagesParser();
         final MailMessagesResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<MailMessage> mails = response.getAll();
+        final List<MailMessage> mails = response.getAll();
         assertNotNull(mails);
         assertEquals(2, mails.size());
         boolean found1 = false;
@@ -51,10 +51,10 @@ public class MailMessagesParserTest extends FullAuthParserTest {
                 assertDate(2010, 1, 12, 2, 42, 0, mail.getSentDate());
                 assertEquals("FW: Congratulations for your achievement", mail.getTitle());
                 assertNull(mail.getToCorpOrAllianceID());
-                final Set<Long> toCharacterIDs = mail.getCharacterIDs();
+                final List<Long> toCharacterIDs = mail.getCharacterIDs();
                 assertTrue(toCharacterIDs.contains(new Long(1449814438)));
                 assertTrue(toCharacterIDs.contains(new Long(1449814439)));
-                final Set<Long> toListIDs = mail.getListIDs();
+                final List<Long> toListIDs = mail.getListIDs();
                 assertTrue(toListIDs.contains(new Long(1449814440)));
                 assertTrue(toListIDs.contains(new Long(1449814444)));
                 assertEquals(1377, mail.getSenderTypeID());

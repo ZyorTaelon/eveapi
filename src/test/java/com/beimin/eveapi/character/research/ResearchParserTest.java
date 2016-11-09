@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -27,7 +27,7 @@ public class ResearchParserTest extends FullAuthParserTest {
         final ResearchParser parser = new ResearchParser();
         final ResearchResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<ResearchAgent> researchAgents = response.getAll();
+        final List<ResearchAgent> researchAgents = response.getAll();
         assertNotNull(researchAgents);
         assertEquals(5, researchAgents.size());
         boolean found = false;

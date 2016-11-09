@@ -10,9 +10,8 @@ import com.beimin.eveapi.response.account.AccountStatusResponse;
 public class AccountStatusHandler extends AbstractContentHandler<AccountStatusResponse> {
     private String rowsetName;
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new AccountStatusResponse());
+    public AccountStatusHandler() {
+        super(new AccountStatusResponse());
     }
 
     @Override

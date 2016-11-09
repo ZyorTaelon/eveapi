@@ -1,6 +1,6 @@
 package com.beimin.eveapi.response.character;
 
-import java.util.Set;
+import java.util.List;
 
 import com.beimin.eveapi.model.shared.Contact;
 import com.beimin.eveapi.model.shared.ContactLabel;
@@ -9,32 +9,32 @@ import com.beimin.eveapi.response.shared.AbstractContactListResponse;
 public class ContactListResponse extends AbstractContactListResponse {
 
     @Override
-    public Set<ContactLabel> getAllianceContactLabels() {
+    public List<ContactLabel> getAllianceContactLabels() {
         return super.getAllianceContactLabels();
     }
 
     @Override
-    public Set<Contact> getAllianceContactList() {
+    public List<Contact> getAllianceContactList() {
         return super.getAllianceContactList();
     }
 
     @Override
-    public Set<ContactLabel> getCorporateContactLabels() {
+    public List<ContactLabel> getCorporateContactLabels() {
         return super.getCorporateContactLabels();
     }
 
     @Override
-    public Set<Contact> getCorporateContactList() {
+    public List<Contact> getCorporateContactList() {
         return super.getCorporateContactList();
     }
 
     @Override
-    public Set<ContactLabel> getContactLabels() {
+    public List<ContactLabel> getContactLabels() {
         return super.getContactLabels();
     }
 
     @Override
-    public Set<Contact> getContactList() {
+    public List<Contact> getContactList() {
         return super.getContactList();
     }
 }

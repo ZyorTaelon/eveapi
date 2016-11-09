@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.corporation.StarbaseListResponse;
 public class StarbaseListHandler extends AbstractContentListHandler<StarbaseListResponse, Starbase> {
 
     public StarbaseListHandler() {
-        super(StarbaseListResponse.class);
+        super(new StarbaseListResponse());
     }
 
     @Override

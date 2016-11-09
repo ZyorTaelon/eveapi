@@ -8,9 +8,8 @@ import com.beimin.eveapi.model.eve.Station;
 import com.beimin.eveapi.response.eve.StationListResponse;
 
 public class ConquerableStationListHandler extends AbstractContentHandler<StationListResponse> {
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new StationListResponse());
+    public ConquerableStationListHandler() {
+        super(new StationListResponse());
     }
 
     @Override

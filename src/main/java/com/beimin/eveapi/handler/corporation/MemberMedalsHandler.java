@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.corporation.MemberMedalsResponse;
 public class MemberMedalsHandler extends AbstractContentListHandler<MemberMedalsResponse, MemberMedal> {
 
     public MemberMedalsHandler() {
-        super(MemberMedalsResponse.class);
+        super(new MemberMedalsResponse());
     }
 
     @Override

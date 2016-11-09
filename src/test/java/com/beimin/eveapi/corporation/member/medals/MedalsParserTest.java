@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -27,7 +27,7 @@ public class MedalsParserTest extends FullAuthParserTest {
         final MemberMedalsParser parser = new MemberMedalsParser();
         final MemberMedalsResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<MemberMedal> memberMedals = response.getAll();
+        final List<MemberMedal> memberMedals = response.getAll();
         assertNotNull(memberMedals);
         assertEquals(45, memberMedals.size());
         final MemberMedal memberMedal = memberMedals.iterator().next();

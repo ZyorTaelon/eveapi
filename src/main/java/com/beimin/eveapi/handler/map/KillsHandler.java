@@ -8,7 +8,7 @@ import com.beimin.eveapi.response.map.KillsResponse;
 
 public class KillsHandler extends AbstractContentListHandler<KillsResponse, SystemKills> {
     public KillsHandler() {
-        super(KillsResponse.class);
+        super(new KillsResponse());
     }
 
     @Override

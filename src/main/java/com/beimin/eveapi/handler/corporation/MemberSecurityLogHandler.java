@@ -14,7 +14,7 @@ public class MemberSecurityLogHandler extends AbstractContentListHandler<MemberS
     private RoleHistory roleHistory;
 
     public MemberSecurityLogHandler() {
-        super(MemberSecurityLogResponse.class);
+        super(new MemberSecurityLogResponse());
     }
 
     @Override

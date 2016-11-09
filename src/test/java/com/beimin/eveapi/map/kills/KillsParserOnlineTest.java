@@ -1,8 +1,5 @@
 package com.beimin.eveapi.map.kills;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
-
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
@@ -27,10 +24,6 @@ public class KillsParserOnlineTest extends AbstractOnlineTest {
         final KillsResponse response = parser.getResponse();
 
         testResponse(response);
-
-        assertThat(response.getShipKills().size(), equalTo(2878));
-        assertThat(response.getPodKills().size(), equalTo(2878));
-        assertThat(response.getFactionKills().size(), equalTo(2878));
     }
 
 }

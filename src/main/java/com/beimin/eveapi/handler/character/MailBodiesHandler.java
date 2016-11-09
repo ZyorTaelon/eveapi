@@ -10,7 +10,7 @@ import com.beimin.eveapi.response.character.MailBodiesResponse;
 public class MailBodiesHandler extends AbstractContentListHandler<MailBodiesResponse, MailBody> {
 
     public MailBodiesHandler() {
-        super(MailBodiesResponse.class);
+        super(new MailBodiesResponse());
     }
 
     @Override

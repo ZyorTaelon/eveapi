@@ -9,11 +9,11 @@ import com.beimin.eveapi.response.ApiResponse;
 import com.beimin.eveapi.response.corporation.TitlesResponse;
 
 public class TitlesHandler extends AbstractContentListHandler<TitlesResponse, TitleWithRoles> {
-    private final RolesHandler<ApiResponse> roleHandler = new RolesHandler<>();
+    private final RolesHandler<ApiResponse> roleHandler = new RolesHandler<>(new ApiResponse());
     private TitleWithRoles title;
 
     public TitlesHandler() {
-        super(TitlesResponse.class);
+        super(new TitlesResponse());
     }
 
     @Override

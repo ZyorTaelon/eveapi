@@ -8,7 +8,7 @@ import com.beimin.eveapi.response.character.ResearchResponse;
 
 public class ResearchHandler extends AbstractContentListHandler<ResearchResponse, ResearchAgent> {
     public ResearchHandler() {
-        super(ResearchResponse.class);
+        super(new ResearchResponse());
     }
 
     @Override

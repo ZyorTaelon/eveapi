@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class CharTransactionsParserTest extends FullAuthParserTest {
         final CharWalletTransactionsParser parser = new CharWalletTransactionsParser();
         final WalletTransactionsResponse response = parser.getResponse(auth, 1000);
         assertNotNull(response);
-        final Set<WalletTransaction> walletTransactions = response.getAll();
+        final List<WalletTransaction> walletTransactions = response.getAll();
         assertEquals(25, walletTransactions.size());
         boolean found = false;
         for (final WalletTransaction walletTransaction : walletTransactions) {

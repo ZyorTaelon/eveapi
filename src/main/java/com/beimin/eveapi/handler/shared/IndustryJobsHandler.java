@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.shared.IndustryJobsResponse;
 public class IndustryJobsHandler extends AbstractContentListHandler<IndustryJobsResponse, IndustryJob> {
 
     public IndustryJobsHandler() {
-        super(IndustryJobsResponse.class);
+        super(new IndustryJobsResponse());
     }
 
     @Override

@@ -9,7 +9,7 @@ import com.beimin.eveapi.response.corporation.MemberTrackingResponse;
 public class MemberTrackingHandler extends AbstractContentListHandler<MemberTrackingResponse, Member> {
 
     public MemberTrackingHandler() {
-        super(MemberTrackingResponse.class);
+        super(new MemberTrackingResponse());
     }
 
     @Override

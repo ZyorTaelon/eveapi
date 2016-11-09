@@ -15,9 +15,8 @@ public class CallListHandler extends AbstractContentHandler<CallListResponse> {
     private boolean callGroups;
     private boolean calls;
 
-    @Override
-    public void startDocument() throws SAXException {
-        setResponse(new CallListResponse());
+    public CallListHandler() {
+        super(new CallListResponse());
     }
 
     @Override

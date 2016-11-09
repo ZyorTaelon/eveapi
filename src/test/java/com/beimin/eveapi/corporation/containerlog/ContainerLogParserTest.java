@@ -3,7 +3,7 @@ package com.beimin.eveapi.corporation.containerlog;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -25,7 +25,7 @@ public class ContainerLogParserTest extends FullAuthParserTest {
         final ContainerLogParser parser = new ContainerLogParser();
         final ContainerLogResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<ContainerLog> containerLogs = response.getAll();
+        final List<ContainerLog> containerLogs = response.getAll();
         assertNotNull(containerLogs);
         assertEquals(23, containerLogs.size());
     }
