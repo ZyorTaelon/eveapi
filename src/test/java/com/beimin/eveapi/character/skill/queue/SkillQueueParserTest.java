@@ -4,7 +4,7 @@ import static com.beimin.eveapi.utils.Assert.assertDate;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class SkillQueueParserTest extends FullAuthParserTest {
         final SkillQueueParser parser = new SkillQueueParser();
         final SkillQueueResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<SkillQueueItem> skillQueueItems = response.getAll();
+        final List<SkillQueueItem> skillQueueItems = response.getAll();
         assertEquals(2, skillQueueItems.size());
         final SkillQueueItem skillQueueItem = skillQueueItems.iterator().next();
         assertEquals(0, skillQueueItem.getQueuePosition());

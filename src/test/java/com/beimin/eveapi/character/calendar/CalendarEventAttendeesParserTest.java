@@ -2,8 +2,8 @@ package com.beimin.eveapi.character.calendar;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.junit.Test;
 
@@ -25,7 +25,7 @@ public class CalendarEventAttendeesParserTest extends FullAuthParserTest {
     public void getResponse() throws ApiException {
         final CalendarEventAttendeesParser parser = new CalendarEventAttendeesParser();
         final CalendarEventAttendeesResponse response = parser.getResponse(auth, 133918L);
-        final Set<CalendarEventAttendee> attendees = response.getAll();
+        final List<CalendarEventAttendee> attendees = response.getAll();
         assertEquals(1, attendees.size());
         final CalendarEventAttendee event = attendees.iterator().next();
         assertEquals(133918L, event.getEventID());

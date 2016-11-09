@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class NotificationTextsParserTest extends FullAuthParserTest {
         final NotificationTextsParser parser = new NotificationTextsParser();
         final NotificationTextsResponse response = parser.getResponse(auth, 374106507L);
         assertNotNull(response);
-        final Set<NotificationText> notifications = response.getAll();
+        final List<NotificationText> notifications = response.getAll();
         assertNotNull(notifications);
         assertEquals(5, notifications.size());
         boolean found = false;

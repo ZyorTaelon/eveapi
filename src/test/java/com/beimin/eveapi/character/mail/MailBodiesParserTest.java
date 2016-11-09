@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.junit.Test;
 
@@ -27,7 +27,7 @@ public class MailBodiesParserTest extends FullAuthParserTest {
         final MailBodiesParser parser = new MailBodiesParser();
         final MailBodiesResponse response = parser.getResponse(auth, 299279683L, 299280303L);
         assertNotNull(response);
-        final Set<MailBody> mailBodies = response.getAll();
+        final List<MailBody> mailBodies = response.getAll();
         assertNotNull(mailBodies);
         assertEquals(2, mailBodies.size());
         boolean found = false;

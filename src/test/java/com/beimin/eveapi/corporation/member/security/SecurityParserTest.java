@@ -3,7 +3,7 @@ package com.beimin.eveapi.corporation.member.security;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -27,15 +27,15 @@ public class SecurityParserTest extends FullAuthParserTest {
         final MemberSecurityParser parser = new MemberSecurityParser();
         final MemberSecurityResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<SecurityMember> members = response.getMembers();
+        final List<SecurityMember> members = response.getMembers();
         assertEquals("Incorrect amount of members found.", 1, members.size());
         final SecurityMember member = members.iterator().next();
         assertEquals("Wrong member characterID", 123456789, member.getCharacterID());
         assertEquals("Wrong member name", "Tester", member.getName());
-        final Set<CorporationRole> roles = member.getRoles();
+        final List<CorporationRole> roles = member.getRoles();
         assertNotNull(roles);
         assertEquals("Incorrect amount of roles found.", 1, roles.size());
-        final Set<Title> titles = member.getTitles();
+        final List<Title> titles = member.getTitles();
         assertNotNull(titles);
         assertEquals("Incorrect amount of titles found.", 3, titles.size());
         int temp = 0;

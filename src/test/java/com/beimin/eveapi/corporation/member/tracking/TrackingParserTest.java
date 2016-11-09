@@ -5,8 +5,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
@@ -33,7 +33,7 @@ public class TrackingParserTest extends FullAuthParserTest {
         final MemberTrackingParser parser = new MemberTrackingParser();
         final MemberTrackingResponse response = parser.getResponse(auth);
         assertNotNull(response);
-        final Set<Member> members = response.getAll();
+        final List<Member> members = response.getAll();
         boolean found = false;
         for (final Member member : members) {
             if (member.getCharacterID() == 150336922L) {
@@ -53,7 +53,7 @@ public class TrackingParserTest extends FullAuthParserTest {
         final MemberTrackingParser parser = new MemberTrackingParser();
         final MemberTrackingResponse response = parser.getExtendedResponse(auth);
         assertNotNull(response);
-        final Set<Member> members = response.getAll();
+        final List<Member> members = response.getAll();
         boolean found = false;
         for (final Member member : members) {
             if (member.getCharacterID() == 150336922L) {

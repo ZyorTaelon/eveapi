@@ -6,7 +6,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -30,11 +30,11 @@ public class MedalsParserTest extends FullAuthParserTest {
         assertThat(response, notNullValue());
 
         // All
-        final Set<Medal> allMedals = response.getAll();
+        final List<Medal> allMedals = response.getAll();
         assertThat("Incorrect amount of medals found.", allMedals.size(), equalTo(2));
 
         // Current
-        final Set<Medal> currentMedals = response.getCurrentCorporation();
+        final List<Medal> currentMedals = response.getCurrentCorporation();
         assertThat("Incorrect amount of medals found.", currentMedals.size(), equalTo(1));
         final Medal currentMedal = currentMedals.iterator().next();
         assertThat("Wrong medalID", currentMedal.getMedalID(), equalTo(38208));
@@ -47,7 +47,7 @@ public class MedalsParserTest extends FullAuthParserTest {
         assertThat("Should be private", currentMedal.isPublic(), equalTo(false));
 
         // Other
-        final Set<Medal> otherMedals = response.getOtherCorporations();
+        final List<Medal> otherMedals = response.getOtherCorporations();
         assertThat("Incorrect amount of medals found.", otherMedals.size(), equalTo(1));
         final Medal otherMedal = otherMedals.iterator().next();
         assertThat("Wrong medalID", otherMedal.getMedalID(), equalTo(40125));

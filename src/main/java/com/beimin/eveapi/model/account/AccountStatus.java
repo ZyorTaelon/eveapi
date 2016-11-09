@@ -1,16 +1,16 @@
 package com.beimin.eveapi.model.account;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class AccountStatus {
     private Date paidUntil;
     private Date createDate;
     private int logonCount;
     private int logonMinutes;
-    private final Set<Date> multiCharacterTraining = new HashSet<>(); // Untested
-    private final Set<Offer> offers = new HashSet<>(); // Untested
+    private final List<Date> multiCharacterTraining = new ArrayList<>();
+    private final List<Offer> offers = new ArrayList<>(); // Untested
 
     public Date getPaidUntil() {
         return paidUntil;
@@ -45,7 +45,7 @@ public class AccountStatus {
     }
 
     // Untested
-    public Set<Date> getMultiCharacterTraining() {
+    public List<Date> getMultiCharacterTraining() {
         return multiCharacterTraining;
     }
 
@@ -54,7 +54,7 @@ public class AccountStatus {
     }
 
     // Untested
-    public Set<Offer> getOffers() {
+    public List<Offer> getOffers() {
         return offers;
     }
 

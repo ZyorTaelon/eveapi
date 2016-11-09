@@ -1,6 +1,6 @@
 package com.beimin.eveapi.corporation.starbase.detail;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ public class StarbaseDetailParserOnlineTest extends AbstractOnlineTest {
     public void getResponse() throws Exception {
         final StarbaseListParser starbaseListParser = new StarbaseListParser();
         final StarbaseListResponse starbaseListResponse = starbaseListParser.getResponse(getCorp());
-        final Set<Starbase> starbases = starbaseListResponse.getAll();
+        final List<Starbase> starbases = starbaseListResponse.getAll();
         test(starbases);
         final StarbaseDetailParser parser = new StarbaseDetailParser();
         prepareParser(parser);

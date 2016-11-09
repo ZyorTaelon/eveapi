@@ -1,9 +1,7 @@
 package com.beimin.eveapi.character.locations;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.junit.Test;
 
@@ -22,12 +20,12 @@ public class CharLocationsParserOnlineTest extends AbstractOnlineTest {
         final AssetListResponse response = parser.getResponse(getCharacter());
         final List<Asset> assets = response.getAll();
         test(assets);
-        final Set<Long> itemIDs = new HashSet<Long>();
+        final List<Long> itemIDs = new ArrayList<Long>();
         deepAssets(assets, itemIDs);
-        return new ArrayList<Long>(itemIDs);
+        return itemIDs;
     }
 
-    private void deepAssets(final List<Asset> assets, final Set<Long> itemIDs) {
+    private void deepAssets(final List<Asset> assets, final List<Long> itemIDs) {
         for (final Asset asset : assets) {
             itemIDs.add(asset.getItemID());
             deepAssets(asset.getAssets(), itemIDs);

@@ -1,6 +1,6 @@
 package com.beimin.eveapi.character.calendar;
 
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ public class CalendarEventAttendeesParserOnlineTest extends AbstractOnlineTest {
         setAlias(CalendarEventAttendeesResponse.class, "eventAttendees", "items");
         final UpcomingCalendarEventsParser upcomingCalendarEventsParser = new UpcomingCalendarEventsParser();
         final UpcomingCalendarEventsResponse upcomingCalendarEventsResponse = upcomingCalendarEventsParser.getResponse(getCharacter());
-        final Set<UpcomingCalendarEvent> upcomingCalendarEvents = upcomingCalendarEventsResponse.getAll();
+        final List<UpcomingCalendarEvent> upcomingCalendarEvents = upcomingCalendarEventsResponse.getAll();
         test(upcomingCalendarEvents);
         for (final UpcomingCalendarEvent upcomingCalendarEvent : upcomingCalendarEvents) {
             final CalendarEventAttendeesParser parser = new CalendarEventAttendeesParser();
