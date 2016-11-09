@@ -3,7 +3,6 @@ package com.beimin.eveapi.account.accountstatus;
 import org.junit.Test;
 
 import com.beimin.eveapi.AbstractOnlineTest;
-import com.beimin.eveapi.model.account.AccountStatus;
 import com.beimin.eveapi.parser.account.AccountStatusParser;
 import com.beimin.eveapi.response.account.AccountStatusResponse;
 
@@ -11,7 +10,7 @@ public class AccountStatusParserOnlineTest extends AbstractOnlineTest {
 
     @Test
     public void getResponse() throws Exception {
-        ignoreClassField(AccountStatus.class, "offers"); // Not included in test char
+        ignoreClassField(AccountStatusResponse.class, "offers"); // Not included in test char
         final AccountStatusParser accountStatusParser = new AccountStatusParser();
         prepareParser(accountStatusParser);
 

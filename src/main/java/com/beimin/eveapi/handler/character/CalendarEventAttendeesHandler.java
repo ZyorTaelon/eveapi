@@ -6,8 +6,8 @@ import org.xml.sax.Attributes;
 
 import com.beimin.eveapi.handler.AbstractContentListHandler;
 import com.beimin.eveapi.model.character.CalendarEventAttendee;
+import com.beimin.eveapi.model.character.CalendarEventStatus;
 import com.beimin.eveapi.response.character.CalendarEventAttendeesResponse;
-import com.beimin.eveapi.response.character.CalendarEventResponse;
 
 public class CalendarEventAttendeesHandler extends AbstractContentListHandler<CalendarEventAttendeesResponse, CalendarEventAttendee> {
     public CalendarEventAttendeesHandler() {
@@ -21,7 +21,7 @@ public class CalendarEventAttendeesHandler extends AbstractContentListHandler<Ca
         eventAttendee.setEventID(getLong(attrs, "eventID"));
         eventAttendee.setCharacterID(getLong(attrs, "characterID"));
         eventAttendee.setCharacterName(getString(attrs, "characterName"));
-        eventAttendee.setResponse(CalendarEventResponse.valueOf(getString(attrs, "response").toUpperCase(Locale.ENGLISH)));
+        eventAttendee.setResponse(CalendarEventStatus.valueOf(getString(attrs, "response").toUpperCase(Locale.ENGLISH)));
         return eventAttendee;
     }
 }

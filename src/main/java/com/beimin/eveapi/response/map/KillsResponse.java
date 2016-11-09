@@ -29,4 +29,9 @@ public class KillsResponse extends ApiListResponse<SystemKills> {
     public Map<Integer, Integer> getPodKills() {
         return podKills;
     }
+
+    @Override
+    public String toString() {
+        return "KillsResponse [\nshipKills=" + shipKills + ",\nfactionKills=" + factionKills + ",\npodKills=" + podKills + "]";
+    }
 }

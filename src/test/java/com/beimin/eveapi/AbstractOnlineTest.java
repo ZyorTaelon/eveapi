@@ -127,7 +127,7 @@ public abstract class AbstractOnlineTest {
                 testValue(method.getName(), method.invoke(bean), method.getReturnType());
             }
         }
-        // Chekc for new fields
+        // Check for new fields
         final Class<?> clazz = bean.getClass();
         Set<String> classFields = getFields(clazz); // Count fields (to ignore logical methods)
         Set<String> xmlFields = fields.get(bean.getClass().getName());
@@ -274,7 +274,7 @@ public abstract class AbstractOnlineTest {
                 assertThat(id + " was empty: ", result.size(), greaterThan(0));
             }
             if (result != null && !result.isEmpty()) {
-                testValue(id + "->MapKey", result.keySet().iterator().next()); // Test first kye
+                testValue(id + "->MapKey", result.keySet().iterator().next()); // Test first key
                 testValue(id + "->MapValue", result.values().iterator().next()); // Test first value
             }
         } else { // Other Objects

@@ -17,6 +17,7 @@ public class KillsParserOnlineTest extends AbstractOnlineTest {
         ignoreXmlField("datatime");
         allowEmpty("getShipKills->MapValue"); // No ship kills
         allowEmpty("getPodKills->MapValue"); // No pod kills
+        allowEmpty("getFactionKills->MapValue"); // No faction kills
         final KillsParser parser = new KillsParser();
         prepareParser(parser);
 

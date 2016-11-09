@@ -20,6 +20,7 @@ import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.character.CharContractsParser;
 import com.beimin.eveapi.response.shared.ContractsResponse;
 import com.beimin.eveapi.utils.FullAuthParserTest;
+import com.beimin.eveapi.utils.GMTConverter;
 
 public class CharContractsParserTest extends FullAuthParserTest {
     public CharContractsParserTest() {
@@ -35,6 +36,7 @@ public class CharContractsParserTest extends FullAuthParserTest {
         assertThat(contracts, notNullValue());
         assertThat(contracts.size(), equalTo(3));
         boolean found = false;
+        Calendar calendar = Calendar.getInstance(GMTConverter.DEFAULT_TIMEZONE);
         for (final Contract contract : contracts) {
             if (contract.getContractID() == 62158129L) {
                 found = true;
@@ -50,12 +52,11 @@ public class CharContractsParserTest extends FullAuthParserTest {
                 assertThat(contract.getTitle(), equalTo("Courier"));
                 assertThat(contract.isForCorp(), equalTo(false));
                 assertThat(contract.getAvailability(), equalTo(ContractAvailability.PRIVATE));
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(2012, 11, 11, 11, 48, 15);
+                calendar.set(2012, 11, 11, 10, 48, 15);
                 calendar.set(Calendar.MILLISECOND, 0);
-                assertThat(contract.getDateIssued().getTime(), equalTo(calendar.getTimeInMillis()));
+                assertThat(contract.getDateIssued(), equalTo(calendar.getTime()));
                 calendar.set(Calendar.DATE, 25);
-                assertThat(contract.getDateExpired().getTime(), equalTo(calendar.getTimeInMillis()));
+                assertThat(contract.getDateExpired(), equalTo(calendar.getTime()));
                 assertThat(contract.getDateAccepted(), nullValue());
                 assertThat(contract.getDateCompleted(), nullValue());
                 assertThat(contract.getNumDays(), equalTo(2));

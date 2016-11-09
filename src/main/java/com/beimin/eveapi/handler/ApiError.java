@@ -3,10 +3,12 @@ package com.beimin.eveapi.handler;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.beimin.eveapi.utils.DateUtils;
+import com.beimin.eveapi.utils.GMTConverter;
 
 public class ApiError implements Serializable {
     private static final long serialVersionUID = 137057814306371822L;
+
+    private static GMTConverter converter = new GMTConverter();
 
     private int code;
     private String error;
@@ -30,7 +32,7 @@ public class ApiError implements Serializable {
         if (retryIndex > 0) {
             final int beginIndex = retryIndex + 12;
             final String substring = error.substring(beginIndex, beginIndex + 19);
-            retryAfterDate = DateUtils.getGMTConverter().convert(Date.class, substring);
+            retryAfterDate = converter.convert(Date.class, substring);
         }
     }
 

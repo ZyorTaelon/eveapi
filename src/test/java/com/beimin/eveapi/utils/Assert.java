@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+@Deprecated
 public class Assert {
 
     public static void assertDate(final int year, final int month, final int day, final int hour, final int minute, final int second, final Date date) {

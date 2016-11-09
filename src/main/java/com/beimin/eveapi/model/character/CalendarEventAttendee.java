@@ -1,12 +1,11 @@
 package com.beimin.eveapi.model.character;
 
-import com.beimin.eveapi.response.character.CalendarEventResponse;
 
 public class CalendarEventAttendee {
     private long eventID;
     private long characterID;
     private String characterName;
-    private CalendarEventResponse response;
+    private CalendarEventStatus response;
 
     public long getEventID() {
         return eventID;
@@ -32,11 +31,11 @@ public class CalendarEventAttendee {
         this.characterName = characterName;
     }
 
-    public CalendarEventResponse getResponse() {
+    public CalendarEventStatus getResponse() {
         return response;
     }
 
-    public void setResponse(final CalendarEventResponse response) {
+    public void setResponse(final CalendarEventStatus response) {
         this.response = response;
     }
 }

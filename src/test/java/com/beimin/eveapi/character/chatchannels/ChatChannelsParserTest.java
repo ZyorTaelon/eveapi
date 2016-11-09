@@ -18,8 +18,8 @@ import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
 import com.beimin.eveapi.parser.character.ChatChannelsParser;
 import com.beimin.eveapi.response.character.ChatChannelsResponse;
-import com.beimin.eveapi.utils.DateUtils;
 import com.beimin.eveapi.utils.FullAuthParserTest;
+import com.beimin.eveapi.utils.GMTConverter;
 
 public class ChatChannelsParserTest extends FullAuthParserTest {
     public ChatChannelsParserTest() {
@@ -28,6 +28,8 @@ public class ChatChannelsParserTest extends FullAuthParserTest {
 
     @Test
     public void getResponse() throws ApiException {
+        GMTConverter converter = new GMTConverter();
+
         ChatChannelsParser parser = new ChatChannelsParser();
 
         ChatChannelsResponse response = parser.getResponse(auth);
@@ -56,12 +58,12 @@ public class ChatChannelsParserTest extends FullAuthParserTest {
         assertThat(blockedAccessors.size(), equalTo(1));
         ChatChannelExtendedAccessor blocked = blockedAccessors.get(0);
         assertThat(blocked.getAccessorName(), equalTo("Tellus Corporation"));
-        assertThat(blocked.getUntilWhen(), equalTo(DateUtils.getGMTConverter().convert(Date.class, "0001-01-01 00:00:00")));
+        assertThat(blocked.getUntilWhen(), equalTo(converter.convert(Date.class, "0001-01-01 00:00:00")));
 
         List<ChatChannelExtendedAccessor> mutedAccessors = channel.getMutedAccessors();
         assertThat(mutedAccessors.size(), equalTo(1));
         ChatChannelExtendedAccessor muted = mutedAccessors.get(0);
-        assertThat(muted.getUntilWhen(), equalTo(DateUtils.getGMTConverter().convert(Date.class, "2015-08-07 15:17:40")));
+        assertThat(muted.getUntilWhen(), equalTo(converter.convert(Date.class, "2015-08-07 15:17:40")));
         assertThat(muted.getReason(), equalTo("Test success! You can't speak now."));
 
         List<ChatChannelAccessor> operatorAccessors = channel.getOperatorAccessors();

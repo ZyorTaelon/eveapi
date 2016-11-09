@@ -1,16 +1,60 @@
 package com.beimin.eveapi.response.account;
 
-import com.beimin.eveapi.model.account.ApiKeyInfo;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+
+import com.beimin.eveapi.model.account.Character;
+import com.beimin.eveapi.model.shared.KeyType;
 import com.beimin.eveapi.response.ApiResponse;
 
 public class ApiKeyInfoResponse extends ApiResponse {
-    private ApiKeyInfo apiKeyInfo;
+    private long accessMask;
+    private KeyType type;
+    private Date expires;
+    private final Collection<Character> eveCharacters = new ArrayList<Character>();
 
-    public ApiKeyInfo getApiKeyInfo() {
-        return apiKeyInfo;
+    public void addEveCharacter(final Character eveCharacter) {
+        eveCharacters.add(eveCharacter);
     }
 
-    public void set(final ApiKeyInfo apiKeyInfo) {
-        this.apiKeyInfo = apiKeyInfo;
+    public Collection<Character> getEveCharacters() {
+        return eveCharacters;
+    }
+
+    public long getAccessMask() {
+        return accessMask;
+    }
+
+    public void setAccessMask(final long accessMask) {
+        this.accessMask = accessMask;
+    }
+
+    public Date getExpires() {
+        return expires;
+    }
+
+    public void setExpires(final Date expires) {
+        this.expires = expires;
+    }
+
+    public KeyType getType() {
+        return type;
+    }
+
+    public void setType(final KeyType type) {
+        this.type = type;
+    }
+
+    public boolean isCorporationKey() {
+        return getType() == KeyType.CORPORATION;
+    }
+
+    public boolean isAccountKey() {
+        return getType() == KeyType.ACCOUNT;
+    }
+
+    public boolean isCharacterKey() {
+        return getType() == KeyType.CHARACTER;
     }
 }

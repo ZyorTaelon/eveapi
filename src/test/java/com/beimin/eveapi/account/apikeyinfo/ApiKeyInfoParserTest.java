@@ -1,15 +1,15 @@
 package com.beimin.eveapi.account.apikeyinfo;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
-import com.beimin.eveapi.model.account.ApiKeyInfo;
 import com.beimin.eveapi.model.account.Character;
 import com.beimin.eveapi.parser.ApiPage;
 import com.beimin.eveapi.parser.ApiPath;
@@ -26,44 +26,43 @@ public class ApiKeyInfoParserTest extends FullAuthParserTest {
     public void getResponse() throws Exception {
         final ApiKeyInfoParser apiKeyInfoParser = new ApiKeyInfoParser();
         final ApiKeyInfoResponse response = apiKeyInfoParser.getResponse(auth);
-        assertNotNull(response);
-        final ApiKeyInfo apiKeyInfo = response.getApiKeyInfo();
-        assertNotNull(apiKeyInfo);
+        assertThat(response, notNullValue());
 
-        assertEquals(4227, apiKeyInfo.getAccessMask());
-        assertNull(apiKeyInfo.getExpires());
+        assertThat(response.getAccessMask(), equalTo(4227l));
+        assertThat(response.getExpires(), nullValue());
 
-        assertEquals(3, apiKeyInfo.getEveCharacters().size());
+        assertThat(response.getEveCharacters().size(), equalTo(3));
 
-        final List<Character> characters = new ArrayList<Character>(apiKeyInfo.getEveCharacters());
+        final List<Character> characters = new ArrayList<Character>(response.getEveCharacters());
 
-        assertEquals(987623974, characters.get(0).getCharacterID());
-        assertEquals("Golden Gnu", characters.get(0).getName());
-        assertEquals(1020386980, characters.get(0).getCorporationID());
-        assertEquals("The Golden Gnu Corp", characters.get(0).getCorporationName());
-        assertEquals(123456789, characters.get(0).getAllianceID());
-        assertEquals("Generic Test Alliance", characters.get(0).getAllianceName());
-        assertEquals(987654321, characters.get(0).getFactionID());
-        assertEquals("Generic Test Faction", characters.get(0).getFactionName());
+        Character character1 = characters.get(0);
+        assertThat(character1.getCharacterID(), equalTo(987623974l));
+        assertThat(character1.getName(), equalTo("Golden Gnu"));
+        assertThat(character1.getCorporationID(), equalTo(1020386980l));
+        assertThat(character1.getCorporationName(), equalTo("The Golden Gnu Corp"));
+        assertThat(character1.getAllianceID(), equalTo(123456789l));
+        assertThat(character1.getAllianceName(), equalTo("Generic Test Alliance"));
+        assertThat(character1.getFactionID(), equalTo(987654321l));
+        assertThat(character1.getFactionName(), equalTo("Generic Test Faction"));
 
-        assertEquals(1652509239, characters.get(1).getCharacterID());
-        assertEquals("GoldenGnu", characters.get(1).getName());
-        assertEquals(1020386980, characters.get(1).getCorporationID());
-        assertEquals("The Golden Gnu Corp", characters.get(1).getCorporationName());
-        assertEquals(123456789, characters.get(1).getAllianceID());
-        assertEquals("Generic Test Alliance", characters.get(1).getAllianceName());
-        assertEquals(987654321, characters.get(1).getFactionID());
-        assertEquals("Generic Test Faction", characters.get(1).getFactionName());
+        Character character2 = characters.get(1);
+        assertThat(character2.getCharacterID(), equalTo(1652509239l));
+        assertThat(character2.getName(), equalTo("GoldenGnu"));
+        assertThat(character2.getCorporationID(), equalTo(1020386980l));
+        assertThat(character2.getCorporationName(), equalTo("The Golden Gnu Corp"));
+        assertThat(character2.getAllianceID(), equalTo(123456789l));
+        assertThat(character2.getAllianceName(), equalTo("Generic Test Alliance"));
+        assertThat(character2.getFactionID(), equalTo(987654321l));
+        assertThat(character2.getFactionName(), equalTo("Generic Test Faction"));
 
-        assertEquals(1683690353, characters.get(2).getCharacterID());
-        assertEquals("Silver Gnu", characters.get(2).getName());
-        assertEquals(1020386980, characters.get(2).getCorporationID());
-        assertEquals("The Golden Gnu Corp", characters.get(2).getCorporationName());
-        assertEquals(123456789, characters.get(2).getAllianceID());
-        assertEquals("Generic Test Alliance", characters.get(2).getAllianceName());
-        assertEquals(987654321, characters.get(2).getFactionID());
-        assertEquals("Generic Test Faction", characters.get(2).getFactionName());
-        // assertEquals(5603, response.getCharacterID());
-        // assertEquals(504903, response.getLogonMinutes());
+        Character character3 = characters.get(2);
+        assertThat(character3.getCharacterID(), equalTo(1683690353l));
+        assertThat(character3.getName(), equalTo("Silver Gnu"));
+        assertThat(character3.getCorporationID(), equalTo(1020386980l));
+        assertThat(character3.getCorporationName(), equalTo("The Golden Gnu Corp"));
+        assertThat(character3.getAllianceID(), equalTo(123456789l));
+        assertThat(character3.getAllianceName(), equalTo("Generic Test Alliance"));
+        assertThat(character3.getFactionID(), equalTo(987654321l));
+        assertThat(character3.getFactionName(), equalTo("Generic Test Faction"));
     }
 }
