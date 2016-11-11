@@ -13,6 +13,7 @@ public class UpcomingCalendarEventsParserOnlineTest extends AbstractOnlineTest {
     public void getResponse() throws Exception {
         setAlias(UpcomingCalendarEvent.class, "importance", "important");
         setAlias(UpcomingCalendarEventsResponse.class, "upcomingevents", "items");
+        allowEmpty("getDuration");
         allowEmpty("getOwnerTypeID");
         final UpcomingCalendarEventsParser parser = new UpcomingCalendarEventsParser();
         prepareParser(parser);
