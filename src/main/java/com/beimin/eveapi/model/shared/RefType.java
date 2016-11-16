@@ -129,6 +129,7 @@ public enum RefType {
     PROJECT_DISCOVERY_TAX(126, "Project Discovery Tax", "", ""), //
     REPROCESSING_TAX(127, "Reprocessing Tax", "", ""), //
     JUMP_CLONE_ACTIVATION_FEE(128, "Jump Clone Activation Fee", "", ""), //
+    OPERATION_BONUS(129, "Operation Bonus", "", ""), //
 
     MODIFY_ISK(10001, "Modify ISK", "", ""), //
     PRIMARY_MARKETPLACE_PURCHASE(10002, "Primary Marketplace Purchase", "", ""), //
