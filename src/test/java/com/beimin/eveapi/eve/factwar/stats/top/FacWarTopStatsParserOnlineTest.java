@@ -18,7 +18,7 @@ public class FacWarTopStatsParserOnlineTest extends AbstractOnlineTest {
         allowEmpty("getCharacterName");
         // Always include one respose with one row with getCorporationID="0" and getCharacterName=""
         allowEmpty("getCorporationID");
-        allowEmpty("getCharacterName");
+        allowEmpty("getCorporationName");
         final FacWarTopStatsParser parser = new FacWarTopStatsParser();
         prepareParser(parser, true);
 
