@@ -134,6 +134,7 @@ public enum RefType {
     DUEL_WAGER_ESCROW(132, "Duel Wager Escrow", "", ""), //
     DUEL_WAGER_PAYMENT(133, "Duel Wager Payment", "", ""), //
     DUEL_WAGER_REFUND(134, "Duel Wager Refund", "", ""), //
+    REACTIONS(135, "Reactions", "", ""), //
 
     MODIFY_ISK(10001, "Modify ISK", "", ""), //
     PRIMARY_MARKETPLACE_PURCHASE(10002, "Primary Marketplace Purchase", "", ""), //
