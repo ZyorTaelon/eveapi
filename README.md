@@ -1,7 +1,10 @@
+DEPRECATED
+==========
+CCP switched of the XML and CREST API on May 8th, 2018. Therefore this library is useless from that day on.
+
+See: https://developers.eveonline.com/blog/article/important-information-on-the-future-of-the-eve-api
+
 [![Maven Central](https://img.shields.io/maven-central/v/com.beimin/eveapi.svg?maxAge=2592000)](http://mvnrepository.com/artifact/com.beimin/eveapi)
-[![Build Status](http://didge.my-wan.de/jenkins/job/GitHub%20eve-crest/badge/icon)](http://didge.my-wan.de/jenkins/job/GitHub%20eveapi/)
-[![SonarQube Coverage](https://img.shields.io/sonar/http/didge-sonar.my-wan.de/com.beimin:eveapi/coverage.svg)](http://didge-sonar.my-wan.de/overview?id=188)
-[![SonarQube Tech Debt](https://img.shields.io/sonar/http/didge-sonar.my-wan.de/com.beimin:eveapi/tech_debt.svg)](http://didge-sonar.my-wan.de/overview?id=188)
 
 This library provides Java parsers that retrieve xml data from the eve-online API and serves that data in easy to handle Java objects.
 
